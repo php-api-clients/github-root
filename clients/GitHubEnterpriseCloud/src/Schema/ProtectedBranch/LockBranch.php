@@ -1,0 +1,21 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\ProtectedBranch;
+
+use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
+use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+final readonly class LockBranch
+{
+    public const SCHEMA_JSON = '{"type":"object","properties":{"enabled":{"type":"boolean","default":false}},"description":"Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.","additionalProperties":false}';
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Whether to set the branch as read-only. If this is true, users will not be able to push to the branch.';
+    public const SCHEMA_EXAMPLE_DATA = '{"enabled":false}';
+    public ?bool $enabled;
+    public function __construct(bool $enabled)
+    {
+        $this->enabled = $enabled;
+    }
+}

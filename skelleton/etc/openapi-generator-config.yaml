@@ -1,0 +1,3 @@
+spec: {{ specUrl }}
+namespace: ApiClients\Client\{{ namespace }}
+destination: ../src

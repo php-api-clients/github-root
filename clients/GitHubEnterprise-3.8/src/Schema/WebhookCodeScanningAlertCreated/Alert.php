@@ -1,0 +1,70 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHubEnterprise\Schema\WebhookCodeScanningAlertCreated;
+
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
+final readonly class Alert
+{
+    public const SCHEMA_JSON = '{"required":["number","created_at","url","html_url","state","dismissed_by","dismissed_at","dismissed_reason","rule","tool"],"type":"object","properties":{"created_at":{"type":["string","null"],"description":"The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`","format":"date-time"},"dismissed_at":{"type":["null"],"description":"The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`."},"dismissed_by":{"type":["null"]},"dismissed_comment":{"maxLength":280,"type":["string","null"],"description":"The dismissal comment associated with the dismissal of the alert."},"dismissed_reason":{"type":["null"],"description":"The reason for dismissing or closing the alert. Can be one of: `false positive`, `won\'t fix`, and `used in tests`."},"fixed_at":{"type":["null"]},"html_url":{"type":"string","description":"The GitHub URL of the alert resource.","format":"uri"},"instances_url":{"type":"string"},"most_recent_instance":{"title":"Alert Instance","required":["ref","analysis_key","environment","state"],"type":["object","null"],"properties":{"analysis_key":{"type":"string","description":"Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name."},"classifications":{"type":"array","items":{"type":"string"}},"commit_sha":{"type":"string"},"environment":{"type":"string","description":"Identifies the variable values associated with the environment in which the analysis that generated this alert instance was performed, such as the language that was analyzed."},"location":{"type":"object","properties":{"end_column":{"type":"integer"},"end_line":{"type":"integer"},"path":{"type":"string"},"start_column":{"type":"integer"},"start_line":{"type":"integer"}}},"message":{"type":"object","properties":{"text":{"type":"string"}}},"ref":{"type":"string","description":"The full Git reference, formatted as `refs\\/heads\\/<branch name>`."},"state":{"enum":["open","dismissed","fixed"],"type":"string","description":"State of a code scanning alert."}}},"number":{"type":"integer","description":"The code scanning alert number."},"rule":{"required":["id","severity","description"],"type":"object","properties":{"description":{"type":"string","description":"A short description of the rule used to detect the alert."},"full_description":{"type":"string"},"help":{"type":["string","null"]},"help_uri":{"type":["string","null"],"description":"A link to the documentation for the rule used to detect the alert."},"id":{"type":"string","description":"A unique identifier for the rule used to detect the alert."},"name":{"type":"string"},"severity":{"enum":["none","note","warning","error",null],"type":["string","null"],"description":"The severity of the alert."},"tags":{"type":["array","null"],"items":{"type":"string"}}}},"state":{"enum":["open","dismissed"],"type":"string","description":"State of a code scanning alert."},"tool":{"required":["name","version"],"type":["object","null"],"properties":{"guid":{"type":["string","null"]},"name":{"type":"string","description":"The name of the tool used to generate the code scanning analysis alert."},"version":{"type":["string","null"],"description":"The version of the tool used to detect the alert."}}},"updated_at":{"type":["string","null"]},"url":{"type":"string","format":"uri"}},"description":"The code scanning alert involved in the event."}';
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The code scanning alert involved in the event.';
+    public const SCHEMA_EXAMPLE_DATA = '{"created_at":"generated_created_at","dismissed_at":"generated_dismissed_at","dismissed_by":"generated_dismissed_by","dismissed_comment":"generated_dismissed_comment","dismissed_reason":"generated_dismissed_reason","fixed_at":"generated_fixed_at","html_url":"generated_html_url","instances_url":"generated_instances_url","most_recent_instance":{"analysis_key":"generated_analysis_key","classifications":[null],"commit_sha":"generated_commit_sha","environment":"generated_environment","location":{"end_column":13,"end_line":13,"path":"generated_path","start_column":13,"start_line":13},"message":{"text":"generated_text"},"ref":"generated_ref","state":"generated_state"},"number":13,"rule":{"description":"generated_description","full_description":"generated_full_description","help":"generated_help","help_uri":"generated_help_uri","id":"generated_id","name":"generated_name","severity":"generated_severity","tags":"generated_tags"},"state":"generated_state","tool":{"guid":"generated_guid","name":"generated_name","version":"generated_version"},"updated_at":"generated_updated_at","url":"generated_url"}';
+    /**
+     * The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`
+     */
+    public ?string $created_at;
+    /**
+     * The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     */
+    public mixed $dismissed_at;
+    public mixed $dismissed_by;
+    /**
+     * The dismissal comment associated with the dismissal of the alert.
+     */
+    public ?string $dismissed_comment;
+    /**
+     * The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`.
+     */
+    public mixed $dismissed_reason;
+    public mixed $fixed_at;
+    /**
+     * The GitHub URL of the alert resource.
+     */
+    public ?string $html_url;
+    public string $instances_url;
+    public ?Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\MostRecentInstance $most_recent_instance;
+    /**
+     * The code scanning alert number.
+     */
+    public ?int $number;
+    public ?Schema\WebhookCodeScanningAlertClosedByUser\Alert\Rule $rule;
+    /**
+     * State of a code scanning alert.
+     */
+    public ?string $state;
+    public ?Schema\WebhookCodeScanningAlertCreated\Alert\Tool $tool;
+    public ?string $updated_at;
+    public ?string $url;
+    public function __construct(string $created_at, mixed $dismissed_at, mixed $dismissed_by, string $dismissed_comment, mixed $dismissed_reason, mixed $fixed_at, string $html_url, string $instances_url, Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\MostRecentInstance $most_recent_instance, int $number, Schema\WebhookCodeScanningAlertClosedByUser\Alert\Rule $rule, string $state, Schema\WebhookCodeScanningAlertCreated\Alert\Tool $tool, string $updated_at, string $url)
+    {
+        $this->created_at = $created_at;
+        $this->dismissed_at = $dismissed_at;
+        $this->dismissed_by = $dismissed_by;
+        $this->dismissed_comment = $dismissed_comment;
+        $this->dismissed_reason = $dismissed_reason;
+        $this->fixed_at = $fixed_at;
+        $this->html_url = $html_url;
+        $this->instances_url = $instances_url;
+        $this->most_recent_instance = $most_recent_instance;
+        $this->number = $number;
+        $this->rule = $rule;
+        $this->state = $state;
+        $this->tool = $tool;
+        $this->updated_at = $updated_at;
+        $this->url = $url;
+    }
+}

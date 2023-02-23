@@ -1,0 +1,107 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\Scim;
+
+use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
+use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+final class ProvisionAndInviteUser
+{
+    public const OPERATION_ID = 'scim/provision-and-invite-user';
+    public const OPERATION_MATCH = 'POST /scim/v2/organizations/{org}/Users';
+    private const METHOD = 'POST';
+    private const PATH = '/scim/v2/organizations/{org}/Users';
+    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator;
+    /**The organization name. The name is not case sensitive.**/
+    private string $org;
+    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
+    private readonly Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users $hydrator;
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users $hydrator, string $org)
+    {
+        $this->requestSchemaValidator = $requestSchemaValidator;
+        $this->org = $org;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator = $hydrator;
+    }
+    function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    {
+        $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\Scim\ProvisionAndInviteUser\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}'), array($this->org), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
+    }
+    /**
+     * @return Schema\ScimUser|Schema\ScimError
+     */
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\ScimUser|Schema\ScimError
+    {
+        $contentType = $response->getHeaderLine('Content-Type');
+        $body = json_decode($response->getBody()->getContents(), true);
+        switch ($response->getStatusCode()) {
+            /**Bad request**/
+            case 201:
+                switch ($contentType) {
+                    case 'application/scim+json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimUser::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject('Schema\\ScimUser', $body);
+                }
+                break;
+            /**Bad request**/
+            case 404:
+                switch ($contentType) {
+                    case 'application/json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject('Schema\\ScimError', $body);
+                    case 'application/scim+json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject('Schema\\ScimError', $body);
+                }
+                break;
+            /**Bad request**/
+            case 403:
+                switch ($contentType) {
+                    case 'application/json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject('Schema\\ScimError', $body);
+                    case 'application/scim+json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject('Schema\\ScimError', $body);
+                }
+                break;
+            /**Bad request**/
+            case 500:
+                switch ($contentType) {
+                    case 'application/json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject('Schema\\ScimError', $body);
+                    case 'application/scim+json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject('Schema\\ScimError', $body);
+                }
+                break;
+            /**Bad request**/
+            case 409:
+                switch ($contentType) {
+                    case 'application/json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject('Schema\\ScimError', $body);
+                    case 'application/scim+json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject('Schema\\ScimError', $body);
+                }
+                break;
+            /**Bad request**/
+            case 400:
+                switch ($contentType) {
+                    case 'application/json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject('Schema\\ScimError', $body);
+                    case 'application/scim+json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject('Schema\\ScimError', $body);
+                }
+                break;
+        }
+        throw new \RuntimeException('Unable to find matching response code and content type');
+    }
+}

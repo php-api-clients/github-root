@@ -1,0 +1,79 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookRegistryPackageUpdated\RegistryPackage;
+
+use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
+use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+final readonly class PackageVersion
+{
+    public const SCHEMA_JSON = '{"required":["id","version","name","description","summary","body","body_html","html_url","target_commitish","target_oid","created_at","updated_at","metadata","package_files","author","installation_command","package_url"],"type":"object","properties":{"author":{"required":["login","id","node_id","avatar_url","gravatar_id","url","html_url","followers_url","following_url","gists_url","starred_url","subscriptions_url","organizations_url","repos_url","events_url","received_events_url","type","site_admin"],"type":"object","properties":{"avatar_url":{"type":"string"},"events_url":{"type":"string"},"followers_url":{"type":"string"},"following_url":{"type":"string"},"gists_url":{"type":"string"},"gravatar_id":{"type":"string"},"html_url":{"type":"string"},"id":{"type":"integer"},"login":{"type":"string"},"node_id":{"type":"string"},"organizations_url":{"type":"string"},"received_events_url":{"type":"string"},"repos_url":{"type":"string"},"site_admin":{"type":"boolean"},"starred_url":{"type":"string"},"subscriptions_url":{"type":"string"},"type":{"type":"string"},"url":{"type":"string"}}},"body":{"type":"string"},"body_html":{"type":"string"},"created_at":{"type":"string"},"description":{"type":"string"},"docker_metadata":{"type":"array","items":{"type":["null"]}},"draft":{"type":"boolean"},"html_url":{"type":"string"},"id":{"type":"integer"},"installation_command":{"type":"string"},"manifest":{"type":"string"},"metadata":{"type":"array","items":{}},"name":{"type":"string"},"package_files":{"type":"array","items":{"type":"object","properties":{"content_type":{"type":"string"},"created_at":{"type":"string"},"download_url":{"type":"string"},"id":{"type":"integer"},"md5":{"type":["string","null"]},"name":{"type":"string"},"sha1":{"type":["string","null"]},"sha256":{"type":"string"},"size":{"type":"integer"},"state":{"type":"string"},"updated_at":{"type":"string"}}}},"package_url":{"type":"string"},"prerelease":{"type":"boolean"},"release":{"required":["url","html_url","id","tag_name","target_commitish","name","draft","author","prerelease","created_at","published_at"],"type":"object","properties":{"author":{"required":["login","id","node_id","avatar_url","gravatar_id","url","html_url","followers_url","following_url","gists_url","starred_url","subscriptions_url","organizations_url","repos_url","events_url","received_events_url","type","site_admin"],"type":"object","properties":{"avatar_url":{"type":"string"},"events_url":{"type":"string"},"followers_url":{"type":"string"},"following_url":{"type":"string"},"gists_url":{"type":"string"},"gravatar_id":{"type":"string"},"html_url":{"type":"string"},"id":{"type":"integer"},"login":{"type":"string"},"node_id":{"type":"string"},"organizations_url":{"type":"string"},"received_events_url":{"type":"string"},"repos_url":{"type":"string"},"site_admin":{"type":"boolean"},"starred_url":{"type":"string"},"subscriptions_url":{"type":"string"},"type":{"type":"string"},"url":{"type":"string"}}},"created_at":{"type":"string"},"draft":{"type":"boolean"},"html_url":{"type":"string"},"id":{"type":"integer"},"name":{"type":"string"},"prerelease":{"type":"boolean"},"published_at":{"type":"string"},"tag_name":{"type":"string"},"target_commitish":{"type":"string"},"url":{"type":"string"}}},"rubygems_metadata":{"type":"array","items":{}},"summary":{"type":"string"},"tag_name":{"type":"string"},"target_commitish":{"type":"string"},"target_oid":{"type":"string"},"updated_at":{"type":"string"},"version":{"type":"string"}}}';
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    public const SCHEMA_EXAMPLE_DATA = '{"author":{"avatar_url":"generated_avatar_url","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"body":"generated_body","body_html":"generated_body_html","created_at":"generated_created_at","description":"generated_description","docker_metadata":[null],"draft":false,"html_url":"generated_html_url","id":13,"installation_command":"generated_installation_command","manifest":"generated_manifest","metadata":[null],"name":"generated_name","package_files":[null],"package_url":"generated_package_url","prerelease":false,"release":{"author":{"avatar_url":"generated_avatar_url","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"created_at":"generated_created_at","draft":false,"html_url":"generated_html_url","id":13,"name":"generated_name","prerelease":false,"published_at":"generated_published_at","tag_name":"generated_tag_name","target_commitish":"generated_target_commitish","url":"generated_url"},"rubygems_metadata":[null],"summary":"generated_summary","tag_name":"generated_tag_name","target_commitish":"generated_target_commitish","target_oid":"generated_target_oid","updated_at":"generated_updated_at","version":"generated_version"}';
+    public ?Schema\WebhookRegistryPackagePublished\RegistryPackage\Owner $author;
+    public ?string $body;
+    public ?string $body_html;
+    public ?string $created_at;
+    public ?string $description;
+    /**
+     * @var array<mixed>
+     */
+    public array $docker_metadata;
+    public bool $draft;
+    public ?string $html_url;
+    public ?int $id;
+    public ?string $installation_command;
+    public string $manifest;
+    /**
+     * @var array<mixed>
+     */
+    public ?array $metadata;
+    public ?string $name;
+    /**
+     * @var array<Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\PackageFiles>
+     */
+    public ?array $package_files;
+    public ?string $package_url;
+    public bool $prerelease;
+    public Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\Release $release;
+    /**
+     * @var array<mixed>
+     */
+    public array $rubygems_metadata;
+    public ?string $summary;
+    public string $tag_name;
+    public ?string $target_commitish;
+    public ?string $target_oid;
+    public ?string $updated_at;
+    public ?string $version;
+    public function __construct(Schema\WebhookRegistryPackagePublished\RegistryPackage\Owner $author, string $body, string $body_html, string $created_at, string $description, array $docker_metadata, bool $draft, string $html_url, int $id, string $installation_command, string $manifest, array $metadata, string $name, array $package_files, string $package_url, bool $prerelease, Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\Release $release, array $rubygems_metadata, string $summary, string $tag_name, string $target_commitish, string $target_oid, string $updated_at, string $version)
+    {
+        $this->author = $author;
+        $this->body = $body;
+        $this->body_html = $body_html;
+        $this->created_at = $created_at;
+        $this->description = $description;
+        $this->docker_metadata = $docker_metadata;
+        $this->draft = $draft;
+        $this->html_url = $html_url;
+        $this->id = $id;
+        $this->installation_command = $installation_command;
+        $this->manifest = $manifest;
+        $this->metadata = $metadata;
+        $this->name = $name;
+        $this->package_files = $package_files;
+        $this->package_url = $package_url;
+        $this->prerelease = $prerelease;
+        $this->release = $release;
+        $this->rubygems_metadata = $rubygems_metadata;
+        $this->summary = $summary;
+        $this->tag_name = $tag_name;
+        $this->target_commitish = $target_commitish;
+        $this->target_oid = $target_oid;
+        $this->updated_at = $updated_at;
+        $this->version = $version;
+    }
+}

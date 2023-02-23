@@ -1,0 +1,48 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHubEnterprise\Schema;
+
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
+final readonly class Artifact
+{
+    public const SCHEMA_JSON = '{"title":"Artifact","required":["id","node_id","name","size_in_bytes","url","archive_download_url","expired","created_at","expires_at","updated_at"],"type":"object","properties":{"id":{"type":"integer","examples":[5]},"node_id":{"type":"string","examples":["MDEwOkNoZWNrU3VpdGU1"]},"name":{"type":"string","description":"The name of the artifact.","examples":["AdventureWorks.Framework"]},"size_in_bytes":{"type":"integer","description":"The size in bytes of the artifact.","examples":[12345]},"url":{"type":"string","examples":["https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/artifacts\\/5"]},"archive_download_url":{"type":"string","examples":["https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/artifacts\\/5\\/zip"]},"expired":{"type":"boolean","description":"Whether or not the artifact has expired."},"created_at":{"type":["string","null"],"format":"date-time"},"expires_at":{"type":["string","null"],"format":"date-time"},"updated_at":{"type":["string","null"],"format":"date-time"}},"description":"An artifact"}';
+    public const SCHEMA_TITLE = 'Artifact';
+    public const SCHEMA_DESCRIPTION = 'An artifact';
+    public const SCHEMA_EXAMPLE_DATA = '{"id":5,"node_id":"MDEwOkNoZWNrU3VpdGU1","name":"AdventureWorks.Framework","size_in_bytes":12345,"url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/artifacts\\/5","archive_download_url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/artifacts\\/5\\/zip","expired":false,"created_at":"generated_created_at","expires_at":"generated_expires_at","updated_at":"generated_updated_at"}';
+    public ?int $id;
+    public ?string $node_id;
+    /**
+     * The name of the artifact.
+     */
+    public ?string $name;
+    /**
+     * The size in bytes of the artifact.
+     */
+    public ?int $size_in_bytes;
+    public ?string $url;
+    public ?string $archive_download_url;
+    /**
+     * Whether or not the artifact has expired.
+     */
+    public ?bool $expired;
+    public ?string $created_at;
+    public ?string $expires_at;
+    public ?string $updated_at;
+    public function __construct(int $id, string $node_id, string $name, int $size_in_bytes, string $url, string $archive_download_url, bool $expired, string $created_at, string $expires_at, string $updated_at)
+    {
+        $this->id = $id;
+        $this->node_id = $node_id;
+        $this->name = $name;
+        $this->size_in_bytes = $size_in_bytes;
+        $this->url = $url;
+        $this->archive_download_url = $archive_download_url;
+        $this->expired = $expired;
+        $this->created_at = $created_at;
+        $this->expires_at = $expires_at;
+        $this->updated_at = $updated_at;
+    }
+}

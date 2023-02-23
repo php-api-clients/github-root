@@ -1,0 +1,609 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Admin\PreDashReceiveDashHooks;
+
+use EventSauce\ObjectHydrator\IterableList;
+use EventSauce\ObjectHydrator\ObjectMapper;
+use EventSauce\ObjectHydrator\UnableToHydrateObject;
+use EventSauce\ObjectHydrator\UnableToSerializeObject;
+use Generator;
+
+class CbPreReceiveHookIdRcb implements ObjectMapper
+{
+    private array $hydrationStack = [];
+    public function __construct() {}
+
+    /**
+     * @template T of object
+     * @param class-string<T> $className
+     * @return T
+     */
+    public function hydrateObject(string $className, array $payload): object
+    {
+        return match($className) {
+            'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironment($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment\Download' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironment⚡️Download($payload),
+            default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
+        };
+    }
+    
+            
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['enforcement'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'enforcement';
+                    goto after_enforcement;
+                }
+
+                $properties['enforcement'] = $value;
+    
+                after_enforcement:
+
+                $value = $payload['script'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'script';
+                    goto after_script;
+                }
+
+                $properties['script'] = $value;
+    
+                after_script:
+
+                $value = $payload['script_repository'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'script_repository';
+                    goto after_script_repository;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'script_repository';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['script_repository'] = $value;
+    
+                after_script_repository:
+
+                $value = $payload['environment'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'environment';
+                    goto after_environment;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'environment';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironment($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['environment'] = $value;
+    
+                after_environment:
+
+                $value = $payload['allow_downstream_configuration'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'allow_downstream_configuration';
+                    goto after_allow_downstream_configuration;
+                }
+
+                $properties['allow_downstream_configuration'] = $value;
+    
+                after_allow_downstream_configuration:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['full_name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'full_name';
+                    goto after_full_name;
+                }
+
+                $properties['full_name'] = $value;
+    
+                after_full_name:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironment(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['image_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'image_url';
+                    goto after_image_url;
+                }
+
+                $properties['image_url'] = $value;
+    
+                after_image_url:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+                $value = $payload['default_environment'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'default_environment';
+                    goto after_default_environment;
+                }
+
+                $properties['default_environment'] = $value;
+    
+                after_default_environment:
+
+                $value = $payload['created_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'created_at';
+                    goto after_created_at;
+                }
+
+                $properties['created_at'] = $value;
+    
+                after_created_at:
+
+                $value = $payload['hooks_count'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'hooks_count';
+                    goto after_hooks_count;
+                }
+
+                $properties['hooks_count'] = $value;
+    
+                after_hooks_count:
+
+                $value = $payload['download'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'download';
+                    goto after_download;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'download';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironment⚡️Download($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['download'] = $value;
+    
+                after_download:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironment⚡️Download(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment\Download
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['state'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'state';
+                    goto after_state;
+                }
+
+                $properties['state'] = $value;
+    
+                after_state:
+
+                $value = $payload['downloaded_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'downloaded_at';
+                    goto after_downloaded_at;
+                }
+
+                $properties['downloaded_at'] = $value;
+    
+                after_downloaded_at:
+
+                $value = $payload['message'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'message';
+                    goto after_message;
+                }
+
+                $properties['message'] = $value;
+    
+                after_message:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment\Download', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment\Download::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment\Download(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment\Download', $exception, stack: $this->hydrationStack);
+            }
+        }
+    
+    public function serializeObject(object $object): mixed
+    {
+        try {
+            $className = get_class($object);
+
+            return match($className) {
+                'array' => $this->serializeValuearray($object),
+                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+                'DateTime' => $this->serializeValueDateTime($object),
+                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook($object),
+                default => throw new \LogicException('No serialization defined for $className'),
+            };
+        } catch (\Throwable $exception) {
+            throw UnableToSerializeObject::dueToError($className, $exception);
+        }
+    }
+    
+    
+    private function serializeValuearray(mixed $value): mixed
+    {
+        static $serializer;
+        
+        if ($serializer === null) {
+            $serializer = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        return $serializer->serialize($value, $this);
+    }
+
+
+    private function serializeValueRamsey⚡️Uuid⚡️UuidInterface(mixed $value): mixed
+    {
+        static $serializer;
+        
+        if ($serializer === null) {
+            $serializer = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeUuidToString(...array (
+));
+        }
+        
+        return $serializer->serialize($value, $this);
+    }
+
+
+    private function serializeValueDateTime(mixed $value): mixed
+    {
+        static $serializer;
+        
+        if ($serializer === null) {
+            $serializer = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeDateTime(...array (
+));
+        }
+        
+        return $serializer->serialize($value, $this);
+    }
+
+
+    private function serializeValueDateTimeImmutable(mixed $value): mixed
+    {
+        static $serializer;
+        
+        if ($serializer === null) {
+            $serializer = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeDateTime(...array (
+));
+        }
+        
+        return $serializer->serialize($value, $this);
+    }
+
+
+    private function serializeValueDateTimeInterface(mixed $value): mixed
+    {
+        static $serializer;
+        
+        if ($serializer === null) {
+            $serializer = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeDateTime(...array (
+));
+        }
+        
+        return $serializer->serialize($value, $this);
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook);
+        $result = [];
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $enforcement = $object->enforcement;
+
+        if ($enforcement === null) {
+            goto after_enforcement;
+        }
+        after_enforcement:        $result['enforcement'] = $enforcement;
+
+        
+        $script = $object->script;
+
+        if ($script === null) {
+            goto after_script;
+        }
+        after_script:        $result['script'] = $script;
+
+        
+        $script_repository = $object->script_repository;
+
+        if ($script_repository === null) {
+            goto after_script_repository;
+        }
+        $script_repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository($script_repository);
+        after_script_repository:        $result['script_repository'] = $script_repository;
+
+        
+        $environment = $object->environment;
+
+        if ($environment === null) {
+            goto after_environment;
+        }
+        $environment = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironment($environment);
+        after_environment:        $result['environment'] = $environment;
+
+        
+        $allow_downstream_configuration = $object->allow_downstream_configuration;
+
+        if ($allow_downstream_configuration === null) {
+            goto after_allow_downstream_configuration;
+        }
+        after_allow_downstream_configuration:        $result['allow_downstream_configuration'] = $allow_downstream_configuration;
+
+
+        return $result;
+    }
+    
+    
+
+    /**
+     * @template T
+     *
+     * @param class-string<T> $className
+     * @param iterable<array> $payloads;
+     *
+     * @return IterableList<T>
+     *
+     * @throws UnableToHydrateObject
+     */
+    public function hydrateObjects(string $className, iterable $payloads): IterableList
+    {
+        return new IterableList($this->doHydrateObjects($className, $payloads));
+    }
+
+    private function doHydrateObjects(string $className, iterable $payloads): Generator
+    {
+        foreach ($payloads as $index => $payload) {
+            yield $index => $this->hydrateObject($className, $payload);
+        }
+    }
+
+    /**
+     * @template T
+     *
+     * @param class-string<T> $className
+     * @param iterable<array> $payloads;
+     *
+     * @return IterableList<T>
+     *
+     * @throws UnableToSerializeObject
+     */
+    public function serializeObjects(iterable $payloads): IterableList
+    {
+        return new IterableList($this->doSerializeObjects($payloads));
+    }
+
+    private function doSerializeObjects(iterable $objects): Generator
+    {
+        foreach ($objects as $index => $object) {
+            yield $index => $this->serializeObject($object);
+        }
+    }
+}
