@@ -1,0 +1,76 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHubEnterprise\Schema;
+
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
+final readonly class SecretScanningAlert
+{
+    public const SCHEMA_JSON = '{"type":"object","properties":{"number":{"type":"integer","description":"The security alert number.","readOnly":true},"created_at":{"type":"string","description":"The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.","format":"date-time","readOnly":true},"updated_at":{"type":"string","description":"The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.","format":"date-time","readOnly":true},"url":{"type":"string","description":"The REST API URL of the alert resource.","format":"uri","readOnly":true},"html_url":{"type":"string","description":"The GitHub URL of the alert resource.","format":"uri","readOnly":true},"locations_url":{"type":"string","description":"The REST API URL of the code locations for this alert.","format":"uri"},"state":{"enum":["open","resolved"],"type":"string","description":"Sets the state of the secret scanning alert. Can be either `open` or `resolved`. You must provide `resolution` when you set the state to `resolved`."},"resolution":{"enum":[null,"false_positive","wont_fix","revoked","used_in_tests"],"type":["string","null"],"description":"**Required when the `state` is `resolved`.** The reason for resolving the alert."},"resolved_at":{"type":["string","null"],"description":"The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.","format":"date-time"},"resolved_by":{"anyOf":[{"type":"null"},{"title":"Simple User","required":["avatar_url","events_url","followers_url","following_url","gists_url","gravatar_id","html_url","id","node_id","login","organizations_url","received_events_url","repos_url","site_admin","starred_url","subscriptions_url","type","url"],"type":"object","properties":{"name":{"type":["string","null"]},"email":{"type":["string","null"]},"login":{"type":"string","examples":["octocat"]},"id":{"type":"integer","examples":[1]},"node_id":{"type":"string","examples":["MDQ6VXNlcjE="]},"avatar_url":{"type":"string","format":"uri","examples":["https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif"]},"gravatar_id":{"type":["string","null"],"examples":["41d064eb2195891e12d0413f63227ea7"]},"url":{"type":"string","format":"uri","examples":["https:\\/\\/api.github.com\\/users\\/octocat"]},"html_url":{"type":"string","format":"uri","examples":["https:\\/\\/github.com\\/octocat"]},"followers_url":{"type":"string","format":"uri","examples":["https:\\/\\/api.github.com\\/users\\/octocat\\/followers"]},"following_url":{"type":"string","examples":["https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}"]},"gists_url":{"type":"string","examples":["https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}"]},"starred_url":{"type":"string","examples":["https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}"]},"subscriptions_url":{"type":"string","format":"uri","examples":["https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions"]},"organizations_url":{"type":"string","format":"uri","examples":["https:\\/\\/api.github.com\\/users\\/octocat\\/orgs"]},"repos_url":{"type":"string","format":"uri","examples":["https:\\/\\/api.github.com\\/users\\/octocat\\/repos"]},"events_url":{"type":"string","examples":["https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}"]},"received_events_url":{"type":"string","format":"uri","examples":["https:\\/\\/api.github.com\\/users\\/octocat\\/received_events"]},"type":{"type":"string","examples":["User"]},"site_admin":{"type":"boolean"},"starred_at":{"type":"string","examples":["\\"2020-07-09T00:17:55Z\\""]}},"description":"Simple User"}]},"secret_type":{"type":"string","description":"The type of secret that secret scanning detected."},"secret":{"type":"string","description":"The secret that was detected."}}}';
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    public const SCHEMA_EXAMPLE_DATA = '{"number":13,"created_at":"generated_created_at","updated_at":"generated_updated_at","url":"generated_url","html_url":"generated_html_url","locations_url":"generated_locations_url","state":"generated_state","resolution":"generated_resolution","resolved_at":"generated_resolved_at","resolved_by":"generated_resolved_by","secret_type":"generated_secret_type","secret":"generated_secret"}';
+    /**
+     * The security alert number.
+     */
+    public ?int $number;
+    /**
+     * The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     */
+    public ?string $created_at;
+    /**
+     * The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     */
+    public ?string $updated_at;
+    /**
+     * The REST API URL of the alert resource.
+     */
+    public ?string $url;
+    /**
+     * The GitHub URL of the alert resource.
+     */
+    public ?string $html_url;
+    /**
+     * The REST API URL of the code locations for this alert.
+     */
+    public ?string $locations_url;
+    /**
+     * Sets the state of the secret scanning alert. Can be either `open` or `resolved`. You must provide `resolution` when you set the state to `resolved`.
+     */
+    public ?string $state;
+    /**
+     * **Required when the `state` is `resolved`.** The reason for resolving the alert.
+     */
+    public ?string $resolution;
+    /**
+     * The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     */
+    public ?string $resolved_at;
+    public mixed $resolved_by;
+    /**
+     * The type of secret that secret scanning detected.
+     */
+    public ?string $secret_type;
+    /**
+     * The secret that was detected.
+     */
+    public ?string $secret;
+    public function __construct(int $number, string $created_at, string $updated_at, string $url, string $html_url, string $locations_url, string $state, string $resolution, string $resolved_at, mixed $resolved_by, string $secret_type, string $secret)
+    {
+        $this->number = $number;
+        $this->created_at = $created_at;
+        $this->updated_at = $updated_at;
+        $this->url = $url;
+        $this->html_url = $html_url;
+        $this->locations_url = $locations_url;
+        $this->state = $state;
+        $this->resolution = $resolution;
+        $this->resolved_at = $resolved_at;
+        $this->resolved_by = $resolved_by;
+        $this->secret_type = $secret_type;
+        $this->secret = $secret;
+    }
+}

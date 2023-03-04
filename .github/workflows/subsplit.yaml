@@ -1,0 +1,31 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publis_sub_splits:
+    runs-on: ubuntu-latest
+    name: Publish Sub-split
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+          persist-credentials: 'false'
+      - uses: frankdejonge/use-github-token@1.0.1
+        with:
+          authentication: 'wyrihaximus:${{ secrets.SUBSPLIT_GITHUB_TOKEN }}'
+          user_name: 'Cees-Jan Kiewiet'
+          user_email: 'ceesjank@gmail.com'
+      - name: Cache splitsh-lite
+        id: splitsh-cache
+        uses: actions/cache@v2
+        with:
+          path: './.splitsh'
+          key: '${{ runner.os }}-splitsh-d-101'
+      - uses: frankdejonge/use-subsplit-publish@main
+        with:
+          source-branch: 'main'
+          config-path: './etc/config.subsplit-publish.json'
+          splitsh-path: './.splitsh/splitsh-lite'
+          splitsh-version: 'v1.0.1'

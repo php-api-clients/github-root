@@ -1,0 +1,26 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHub\Schema\SearchResultTextMatches;
+
+use ApiClients\Client\GitHub\Hydrator;
+use ApiClients\Client\GitHub\Operation;
+use ApiClients\Client\GitHub\Schema;
+use ApiClients\Client\GitHub\WebHook;
+final readonly class Matches
+{
+    public const SCHEMA_JSON = '{"type":"object","properties":{"text":{"type":"string"},"indices":{"type":"array","items":{"type":"integer"}}}}';
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    public const SCHEMA_EXAMPLE_DATA = '{"text":"generated_text","indices":[null]}';
+    public ?string $text;
+    /**
+     * @var array<int>
+     */
+    public ?array $indices;
+    public function __construct(string $text, array $indices)
+    {
+        $this->text = $text;
+        $this->indices = $indices;
+    }
+}
