@@ -30,7 +30,7 @@ final readonly class Applicationjson
      * @var array<string>
      */
     public array $required_contexts;
-    public mixed $payload;
+    public string $payload;
     /**
      * Name for the target deployment environment (e.g., `production`, `staging`, `qa`).
      */
@@ -47,7 +47,7 @@ final readonly class Applicationjson
      * Specifies if the given environment is one that end-users directly interact with. Default: `true` when `environment` is `production` and `false` otherwise.
      */
     public bool $production_environment;
-    public function __construct(string $ref, string $task, bool $auto_merge, array $required_contexts, mixed $payload, string $environment, string $description, bool $transient_environment, bool $production_environment)
+    public function __construct(string $ref, string $task, bool $auto_merge, array $required_contexts, string $payload, string $environment, string $description, bool $transient_environment, bool $production_environment)
     {
         $this->ref = $ref;
         $this->task = $task;

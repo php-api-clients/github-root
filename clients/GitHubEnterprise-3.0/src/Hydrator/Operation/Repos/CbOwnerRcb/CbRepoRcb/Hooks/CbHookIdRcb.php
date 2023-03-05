@@ -390,7 +390,7 @@ class CbHookIdRcb implements ObjectMapper
                 $value = $payload['insecure_ssl'] ?? null;
     
                 if ($value === null) {
-                    $properties['insecure_ssl'] = null;
+                    $missingFields[] = 'insecure_ssl';
                     goto after_insecure_ssl;
                 }
 

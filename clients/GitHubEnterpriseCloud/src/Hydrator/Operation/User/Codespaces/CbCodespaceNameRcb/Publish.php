@@ -28,10 +28,12 @@ class Publish implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FullRepository($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceMachine' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodespaceMachine($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Codespace\GitStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Codespace⚡️GitStatus($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Codespace\RuntimeConstraints' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Codespace⚡️RuntimeConstraints($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FullRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️LicenseSimple($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeOfConductSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeOfConductSimple($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️Permissions($payload),
@@ -157,8 +159,17 @@ class Publish implements ObjectMapper
                 $value = $payload['machine'] ?? null;
     
                 if ($value === null) {
-                    $properties['machine'] = null;
+                    $missingFields[] = 'machine';
                     goto after_machine;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'machine';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodespaceMachine($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['machine'] = $value;
@@ -1678,8 +1689,17 @@ class Publish implements ObjectMapper
                 $value = $payload['template_repository'] ?? null;
     
                 if ($value === null) {
-                    $properties['template_repository'] = null;
+                    $missingFields[] = 'template_repository';
                     goto after_template_repository;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'template_repository';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['template_repository'] = $value;
@@ -1854,8 +1874,17 @@ class Publish implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $properties['license'] = null;
+                    $missingFields[] = 'license';
                     goto after_license;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'license';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️LicenseSimple($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['license'] = $value;
@@ -1865,8 +1894,17 @@ class Publish implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $properties['organization'] = null;
+                    $missingFields[] = 'organization';
                     goto after_organization;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'organization';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['organization'] = $value;
@@ -2020,6 +2058,105 @@ class Publish implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodespaceMachine(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceMachine
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['display_name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'display_name';
+                    goto after_display_name;
+                }
+
+                $properties['display_name'] = $value;
+    
+                after_display_name:
+
+                $value = $payload['operating_system'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'operating_system';
+                    goto after_operating_system;
+                }
+
+                $properties['operating_system'] = $value;
+    
+                after_operating_system:
+
+                $value = $payload['storage_in_bytes'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'storage_in_bytes';
+                    goto after_storage_in_bytes;
+                }
+
+                $properties['storage_in_bytes'] = $value;
+    
+                after_storage_in_bytes:
+
+                $value = $payload['memory_in_bytes'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'memory_in_bytes';
+                    goto after_memory_in_bytes;
+                }
+
+                $properties['memory_in_bytes'] = $value;
+    
+                after_memory_in_bytes:
+
+                $value = $payload['cpus'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'cpus';
+                    goto after_cpus;
+                }
+
+                $properties['cpus'] = $value;
+    
+                after_cpus:
+
+                $value = $payload['prebuild_availability'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'prebuild_availability';
+                    goto after_prebuild_availability;
+                }
+
+                $properties['prebuild_availability'] = $value;
+    
+                after_prebuild_availability:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceMachine', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceMachine::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceMachine(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceMachine', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -2264,8 +2401,17 @@ class Publish implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $properties['license'] = null;
+                    $missingFields[] = 'license';
                     goto after_license;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'license';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️LicenseSimple($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['license'] = $value;
@@ -2275,8 +2421,17 @@ class Publish implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $properties['organization'] = null;
+                    $missingFields[] = 'organization';
                     goto after_organization;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'organization';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['organization'] = $value;
@@ -3345,6 +3500,94 @@ class Publish implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️LicenseSimple(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['key'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'key';
+                    goto after_key;
+                }
+
+                $properties['key'] = $value;
+    
+                after_key:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['spdx_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'spdx_id';
+                    goto after_spdx_id;
+                }
+
+                $properties['spdx_id'] = $value;
+    
+                after_spdx_id:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -5056,6 +5299,7 @@ class Publish implements ObjectMapper
         if ($machine === null) {
             goto after_machine;
         }
+        $machine = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodespaceMachine($machine);
         after_machine:        $result['machine'] = $machine;
 
         

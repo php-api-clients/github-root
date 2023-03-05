@@ -55,7 +55,7 @@ final readonly class PullRequest
     public ?int $number;
     public ?string $patch_url;
     /**
-     * @var array<mixed>
+     * @var array<Schema\WebhookMembershipAdded\Team>
      */
     public ?array $requested_reviewers;
     /**

@@ -34,6 +34,7 @@ class Forks implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️License($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseSimple($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\CodeOfConductSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConductSimple($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($payload),
@@ -2055,8 +2056,17 @@ class Forks implements ObjectMapper
                 $value = $payload['template_repository'] ?? null;
     
                 if ($value === null) {
-                    $properties['template_repository'] = null;
+                    $missingFields[] = 'template_repository';
                     goto after_template_repository;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'template_repository';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['template_repository'] = $value;
@@ -2231,8 +2241,17 @@ class Forks implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $properties['license'] = null;
+                    $missingFields[] = 'license';
                     goto after_license;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'license';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseSimple($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['license'] = $value;
@@ -2242,8 +2261,17 @@ class Forks implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $properties['organization'] = null;
+                    $missingFields[] = 'organization';
                     goto after_organization;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'organization';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['organization'] = $value;
@@ -3070,8 +3098,17 @@ class Forks implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $properties['license'] = null;
+                    $missingFields[] = 'license';
                     goto after_license;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'license';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseSimple($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['license'] = $value;
@@ -3081,8 +3118,17 @@ class Forks implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $properties['organization'] = null;
+                    $missingFields[] = 'organization';
                     goto after_organization;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'organization';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['organization'] = $value;
@@ -4151,6 +4197,94 @@ class Forks implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterprise\Schema\Repository(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseSimple(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['key'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'key';
+                    goto after_key;
+                }
+
+                $properties['key'] = $value;
+    
+                after_key:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['spdx_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'spdx_id';
+                    goto after_spdx_id;
+                }
+
+                $properties['spdx_id'] = $value;
+    
+                after_spdx_id:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -6997,10 +7131,7 @@ class Forks implements ObjectMapper
 
         
         $template_repository = $object->template_repository;
-
-        if ($template_repository === null) {
-            goto after_template_repository;
-        }
+        $template_repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($template_repository);
         after_template_repository:        $result['template_repository'] = $template_repository;
 
         
@@ -7081,14 +7212,12 @@ class Forks implements ObjectMapper
         if ($license === null) {
             goto after_license;
         }
+        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseSimple($license);
         after_license:        $result['license'] = $license;
 
         
         $organization = $object->organization;
-
-        if ($organization === null) {
-            goto after_organization;
-        }
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($organization);
         after_organization:        $result['organization'] = $organization;
 
         

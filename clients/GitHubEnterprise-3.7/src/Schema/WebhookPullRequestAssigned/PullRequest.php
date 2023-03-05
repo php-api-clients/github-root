@@ -16,9 +16,9 @@ final readonly class PullRequest
     public ?Schema\WebhookPullRequestAssigned\PullRequest\Links $_links;
     public ?string $active_lock_reason;
     public int $additions;
-    public ?Schema\WebhookIssueCommentDeleted\Comment\User $assignee;
+    public ?Schema\WebhookIssueCommentCreated\Issue\Assignee $assignee;
     /**
-     * @var array<Schema\WebhookIssueCommentDeleted\Comment\User>
+     * @var array<Schema\WebhookIssueCommentCreated\Issue\Assignee>
      */
     public ?array $assignees;
     /**
@@ -75,7 +75,7 @@ final readonly class PullRequest
     public ?string $patch_url;
     public ?bool $rebaseable;
     /**
-     * @var array<mixed>
+     * @var array<Schema\WebhookPullRequestAssigned\PullRequest\RequestedReviewers>
      */
     public ?array $requested_reviewers;
     /**
@@ -96,8 +96,8 @@ final readonly class PullRequest
     public ?string $title;
     public ?string $updated_at;
     public ?string $url;
-    public ?Schema\WebhookIssueCommentDeleted\Comment\User $user;
-    public function __construct(Schema\WebhookPullRequestAssigned\PullRequest\Links $_links, string $active_lock_reason, int $additions, Schema\WebhookIssueCommentDeleted\Comment\User $assignee, array $assignees, string $author_association, Schema\WebhookPullRequestAssigned\PullRequest\AutoMerge $auto_merge, Schema\WebhookPullRequestAssigned\PullRequest\Base $base, string $body, int $changed_files, string $closed_at, int $comments, string $comments_url, int $commits, string $commits_url, string $created_at, int $deletions, string $diff_url, bool $draft, Schema\WebhookPullRequestAssigned\PullRequest\Head $head, string $html_url, int $id, string $issue_url, array $labels, bool $locked, bool $maintainer_can_modify, string $merge_commit_sha, bool $mergeable, string $mergeable_state, bool $merged, string $merged_at, Schema\Discussion\AnswerChosenBy $merged_by, Schema\WebhookIssuesAssigned\Issue\Milestone $milestone, string $node_id, int $number, string $patch_url, bool $rebaseable, array $requested_reviewers, array $requested_teams, string $review_comment_url, int $review_comments, string $review_comments_url, string $state, string $statuses_url, string $title, string $updated_at, string $url, Schema\WebhookIssueCommentDeleted\Comment\User $user)
+    public ?Schema\WebhookIssueCommentCreated\Issue\Assignee $user;
+    public function __construct(Schema\WebhookPullRequestAssigned\PullRequest\Links $_links, string $active_lock_reason, int $additions, Schema\WebhookIssueCommentCreated\Issue\Assignee $assignee, array $assignees, string $author_association, Schema\WebhookPullRequestAssigned\PullRequest\AutoMerge $auto_merge, Schema\WebhookPullRequestAssigned\PullRequest\Base $base, string $body, int $changed_files, string $closed_at, int $comments, string $comments_url, int $commits, string $commits_url, string $created_at, int $deletions, string $diff_url, bool $draft, Schema\WebhookPullRequestAssigned\PullRequest\Head $head, string $html_url, int $id, string $issue_url, array $labels, bool $locked, bool $maintainer_can_modify, string $merge_commit_sha, bool $mergeable, string $mergeable_state, bool $merged, string $merged_at, Schema\Discussion\AnswerChosenBy $merged_by, Schema\WebhookIssuesAssigned\Issue\Milestone $milestone, string $node_id, int $number, string $patch_url, bool $rebaseable, array $requested_reviewers, array $requested_teams, string $review_comment_url, int $review_comments, string $review_comments_url, string $state, string $statuses_url, string $title, string $updated_at, string $url, Schema\WebhookIssueCommentCreated\Issue\Assignee $user)
     {
         $this->_links = $_links;
         $this->active_lock_reason = $active_lock_reason;

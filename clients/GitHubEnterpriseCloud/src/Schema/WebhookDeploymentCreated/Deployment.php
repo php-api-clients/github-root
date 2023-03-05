@@ -20,7 +20,7 @@ final readonly class Deployment
     public ?int $id;
     public ?string $node_id;
     public ?string $original_environment;
-    public mixed $payload;
+    public ?string $payload;
     /**
      * GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.
      */
@@ -34,7 +34,7 @@ final readonly class Deployment
     public bool $transient_environment;
     public ?string $updated_at;
     public ?string $url;
-    public function __construct(string $created_at, Schema\Discussion\AnswerChosenBy $creator, string $description, string $environment, int $id, string $node_id, string $original_environment, mixed $payload, Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp $performed_via_github_app, bool $production_environment, string $ref, string $repository_url, string $sha, string $statuses_url, string $task, bool $transient_environment, string $updated_at, string $url)
+    public function __construct(string $created_at, Schema\Discussion\AnswerChosenBy $creator, string $description, string $environment, int $id, string $node_id, string $original_environment, string $payload, Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp $performed_via_github_app, bool $production_environment, string $ref, string $repository_url, string $sha, string $statuses_url, string $task, bool $transient_environment, string $updated_at, string $url)
     {
         $this->created_at = $created_at;
         $this->creator = $creator;

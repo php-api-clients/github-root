@@ -608,8 +608,17 @@ class CbShaRcb implements ObjectMapper
                 $value = $payload['user'] ?? null;
     
                 if ($value === null) {
-                    $properties['user'] = null;
+                    $missingFields[] = 'user';
                     goto after_user;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'user';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['user'] = $value;
@@ -630,8 +639,17 @@ class CbShaRcb implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $properties['owner'] = null;
+                    $missingFields[] = 'owner';
                     goto after_owner;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'owner';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['owner'] = $value;

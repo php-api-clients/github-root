@@ -24,7 +24,7 @@ final readonly class ScimEnterpriseGroupList
     public ?int $totalResults;
     /**
      * Information about each provisioned group.
-     * @var array<mixed>
+     * @var array<Schema\ScimEnterpriseGroupList\Resources>
      */
     public ?array $Resources;
     /**

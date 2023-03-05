@@ -24,9 +24,11 @@ class CheckSuites implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\CheckSuite' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CheckSuite($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Integration' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Integration($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleCommit($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Integration\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Integration⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️License($payload),
@@ -155,8 +157,17 @@ class CheckSuites implements ObjectMapper
                 $value = $payload['app'] ?? null;
     
                 if ($value === null) {
-                    $properties['app'] = null;
+                    $missingFields[] = 'app';
                     goto after_app;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'app';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Integration($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['app'] = $value;
@@ -281,6 +292,233 @@ class CheckSuites implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterprise\Schema\CheckSuite(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\CheckSuite', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Integration(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Integration
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['slug'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'slug';
+                    goto after_slug;
+                }
+
+                $properties['slug'] = $value;
+    
+                after_slug:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
+                $value = $payload['owner'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'owner';
+                    goto after_owner;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'owner';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['owner'] = $value;
+    
+                after_owner:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['description'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'description';
+                    goto after_description;
+                }
+
+                $properties['description'] = $value;
+    
+                after_description:
+
+                $value = $payload['external_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'external_url';
+                    goto after_external_url;
+                }
+
+                $properties['external_url'] = $value;
+    
+                after_external_url:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+                $value = $payload['created_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'created_at';
+                    goto after_created_at;
+                }
+
+                $properties['created_at'] = $value;
+    
+                after_created_at:
+
+                $value = $payload['updated_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'updated_at';
+                    goto after_updated_at;
+                }
+
+                $properties['updated_at'] = $value;
+    
+                after_updated_at:
+
+                $value = $payload['permissions'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'permissions';
+                    goto after_permissions;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'permissions';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Integration⚡️Permissions($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['permissions'] = $value;
+    
+                after_permissions:
+
+                $value = $payload['events'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'events';
+                    goto after_events;
+                }
+
+                $properties['events'] = $value;
+    
+                after_events:
+
+                $value = $payload['installations_count'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'installations_count';
+                    goto after_installations_count;
+                }
+
+                $properties['installations_count'] = $value;
+    
+                after_installations_count:
+
+                $value = $payload['client_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'client_id';
+                    goto after_client_id;
+                }
+
+                $properties['client_id'] = $value;
+    
+                after_client_id:
+
+                $value = $payload['client_secret'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'client_secret';
+                    goto after_client_secret;
+                }
+
+                $properties['client_secret'] = $value;
+    
+                after_client_secret:
+
+                $value = $payload['webhook_secret'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'webhook_secret';
+                    goto after_webhook_secret;
+                }
+
+                $properties['webhook_secret'] = $value;
+    
+                after_webhook_secret:
+
+                $value = $payload['pem'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'pem';
+                    goto after_pem;
+                }
+
+                $properties['pem'] = $value;
+    
+                after_pem:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Integration', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Integration::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\Integration(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Integration', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -1637,6 +1875,83 @@ class CheckSuites implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Integration⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Integration\Permissions
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['issues'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'issues';
+                    goto after_issues;
+                }
+
+                $properties['issues'] = $value;
+    
+                after_issues:
+
+                $value = $payload['checks'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'checks';
+                    goto after_checks;
+                }
+
+                $properties['checks'] = $value;
+    
+                after_checks:
+
+                $value = $payload['metadata'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'metadata';
+                    goto after_metadata;
+                }
+
+                $properties['metadata'] = $value;
+    
+                after_metadata:
+
+                $value = $payload['contents'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'contents';
+                    goto after_contents;
+                }
+
+                $properties['contents'] = $value;
+    
+                after_contents:
+
+                $value = $payload['deployments'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'deployments';
+                    goto after_deployments;
+                }
+
+                $properties['deployments'] = $value;
+    
+                after_deployments:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Integration\Permissions', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Integration\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\Integration\Permissions(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Integration\Permissions', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions
         {
             $properties = []; 
@@ -2094,6 +2409,7 @@ class CheckSuites implements ObjectMapper
         if ($app === null) {
             goto after_app;
         }
+        $app = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Integration($app);
         after_app:        $result['app'] = $app;
 
         

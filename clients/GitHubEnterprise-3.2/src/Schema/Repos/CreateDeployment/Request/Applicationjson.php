@@ -30,7 +30,7 @@ final readonly class Applicationjson
      * @var array<string>
      */
     public array $required_contexts;
-    public mixed $payload;
+    public string $payload;
     /**
      * Name for the target deployment environment (e.g., `production`, `staging`, `qa`).
      */
@@ -49,7 +49,7 @@ final readonly class Applicationjson
     **Note:** This parameter requires you to use the [`application/vnd.github.ant-man-preview+json`](https://docs.github.com/enterprise-server@3.2/rest/overview/api-previews#enhanced-deployments) custom media type.
     */
     public bool $production_environment;
-    public function __construct(string $ref, string $task, bool $auto_merge, array $required_contexts, mixed $payload, string $environment, string $description, bool $transient_environment, bool $production_environment)
+    public function __construct(string $ref, string $task, bool $auto_merge, array $required_contexts, string $payload, string $environment, string $description, bool $transient_environment, bool $production_environment)
     {
         $this->ref = $ref;
         $this->task = $task;

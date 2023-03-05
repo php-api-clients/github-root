@@ -38,7 +38,7 @@ class License implements ObjectMapper
                 $value = $payload['seats'] ?? null;
     
                 if ($value === null) {
-                    $properties['seats'] = null;
+                    $missingFields[] = 'seats';
                     goto after_seats;
                 }
 
@@ -60,7 +60,7 @@ class License implements ObjectMapper
                 $value = $payload['seats_available'] ?? null;
     
                 if ($value === null) {
-                    $properties['seats_available'] = null;
+                    $missingFields[] = 'seats_available';
                     goto after_seats_available;
                 }
 

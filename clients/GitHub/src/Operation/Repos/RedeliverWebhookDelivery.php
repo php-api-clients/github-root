@@ -36,9 +36,9 @@ final class RedeliverWebhookDelivery
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{hook_id}', '{delivery_id}'), array($this->owner, $this->repo, $this->hook_id, $this->delivery_id), self::PATH));
     }
     /**
-     * @return Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies|Schema\BasicError|Schema\ScimError|Schema\ValidationError
+     * @return Schema\WebhookDeploymentStatusCreated\Deployment\Payload|Schema\BasicError|Schema\ScimError|Schema\ValidationError
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies|Schema\BasicError|Schema\ScimError|Schema\ValidationError
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\WebhookDeploymentStatusCreated\Deployment\Payload|Schema\BasicError|Schema\ScimError|Schema\ValidationError
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -47,8 +47,8 @@ final class RedeliverWebhookDelivery
             case 202:
                 switch ($contentType) {
                     case 'application/json':
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\WebhookPackagePublished\\Package\\PackageVersion\\NpmMetadata\\Dependencies', $body);
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\WebhookDeploymentStatusCreated\Deployment\Payload::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject('Schema\\WebhookDeploymentStatusCreated\\Deployment\\Payload', $body);
                 }
                 break;
             /**Validation failed, or the endpoint has been spammed.**/

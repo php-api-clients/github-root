@@ -25,7 +25,9 @@ class CbRunIdRcb implements ObjectMapper
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\WorkflowRun' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WorkflowRun($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\MinimalRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MinimalRepository($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit⚡️Author($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeOfConduct' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeOfConduct($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\MinimalRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MinimalRepository⚡️License($payload),
@@ -404,8 +406,17 @@ class CbRunIdRcb implements ObjectMapper
                 $value = $payload['head_commit'] ?? null;
     
                 if ($value === null) {
-                    $properties['head_commit'] = null;
+                    $missingFields[] = 'head_commit';
                     goto after_head_commit;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'head_commit';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['head_commit'] = $value;
@@ -739,6 +750,112 @@ class CbRunIdRcb implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['tree_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'tree_id';
+                    goto after_tree_id;
+                }
+
+                $properties['tree_id'] = $value;
+    
+                after_tree_id:
+
+                $value = $payload['message'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'message';
+                    goto after_message;
+                }
+
+                $properties['message'] = $value;
+    
+                after_message:
+
+                $value = $payload['timestamp'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'timestamp';
+                    goto after_timestamp;
+                }
+
+                $properties['timestamp'] = $value;
+    
+                after_timestamp:
+
+                $value = $payload['author'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'author';
+                    goto after_author;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'author';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit⚡️Author($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['author'] = $value;
+    
+                after_author:
+
+                $value = $payload['committer'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'committer';
+                    goto after_committer;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'committer';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit⚡️Author($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['committer'] = $value;
+    
+                after_committer:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -1767,6 +1884,50 @@ class CbRunIdRcb implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit⚡️Author(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit\Author
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['email'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'email';
+                    goto after_email;
+                }
+
+                $properties['email'] = $value;
+    
+                after_email:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit\Author', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit\Author::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit\Author(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit\Author', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\TemplateRepository\Permissions
         {
             $properties = []; 
@@ -2449,6 +2610,7 @@ class CbRunIdRcb implements ObjectMapper
         if ($head_commit === null) {
             goto after_head_commit;
         }
+        $head_commit = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit($head_commit);
         after_head_commit:        $result['head_commit'] = $head_commit;
 
         

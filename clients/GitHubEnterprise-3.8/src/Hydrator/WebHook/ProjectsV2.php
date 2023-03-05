@@ -456,8 +456,17 @@ class ProjectsV2 implements ObjectMapper
                 $value = $payload['deleted_by'] ?? null;
     
                 if ($value === null) {
-                    $properties['deleted_by'] = null;
+                    $missingFields[] = 'deleted_by';
                     goto after_deleted_by;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'deleted_by';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['deleted_by'] = $value;
@@ -1625,6 +1634,7 @@ class ProjectsV2 implements ObjectMapper
         if ($deleted_by === null) {
             goto after_deleted_by;
         }
+        $deleted_by = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($deleted_by);
         after_deleted_by:        $result['deleted_by'] = $deleted_by;
 
 

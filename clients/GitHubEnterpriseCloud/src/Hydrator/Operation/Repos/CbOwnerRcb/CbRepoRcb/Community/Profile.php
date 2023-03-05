@@ -25,6 +25,9 @@ class Profile implements ObjectMapper
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\CommunityProfile' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CommunityProfile($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CommunityProfile\Files' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CommunityProfile⚡️Files($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeOfConductSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeOfConductSimple($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CommunityHealthFile' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CommunityHealthFile($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️LicenseSimple($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -136,8 +139,17 @@ class Profile implements ObjectMapper
                 $value = $payload['code_of_conduct'] ?? null;
     
                 if ($value === null) {
-                    $properties['code_of_conduct'] = null;
+                    $missingFields[] = 'code_of_conduct';
                     goto after_code_of_conduct;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'code_of_conduct';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeOfConductSimple($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['code_of_conduct'] = $value;
@@ -147,8 +159,17 @@ class Profile implements ObjectMapper
                 $value = $payload['code_of_conduct_file'] ?? null;
     
                 if ($value === null) {
-                    $properties['code_of_conduct_file'] = null;
+                    $missingFields[] = 'code_of_conduct_file';
                     goto after_code_of_conduct_file;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'code_of_conduct_file';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CommunityHealthFile($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['code_of_conduct_file'] = $value;
@@ -158,8 +179,17 @@ class Profile implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $properties['license'] = null;
+                    $missingFields[] = 'license';
                     goto after_license;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'license';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️LicenseSimple($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['license'] = $value;
@@ -169,8 +199,17 @@ class Profile implements ObjectMapper
                 $value = $payload['contributing'] ?? null;
     
                 if ($value === null) {
-                    $properties['contributing'] = null;
+                    $missingFields[] = 'contributing';
                     goto after_contributing;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'contributing';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CommunityHealthFile($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['contributing'] = $value;
@@ -180,8 +219,17 @@ class Profile implements ObjectMapper
                 $value = $payload['readme'] ?? null;
     
                 if ($value === null) {
-                    $properties['readme'] = null;
+                    $missingFields[] = 'readme';
                     goto after_readme;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'readme';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CommunityHealthFile($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['readme'] = $value;
@@ -191,8 +239,17 @@ class Profile implements ObjectMapper
                 $value = $payload['issue_template'] ?? null;
     
                 if ($value === null) {
-                    $properties['issue_template'] = null;
+                    $missingFields[] = 'issue_template';
                     goto after_issue_template;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'issue_template';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CommunityHealthFile($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['issue_template'] = $value;
@@ -202,8 +259,17 @@ class Profile implements ObjectMapper
                 $value = $payload['pull_request_template'] ?? null;
     
                 if ($value === null) {
-                    $properties['pull_request_template'] = null;
+                    $missingFields[] = 'pull_request_template';
                     goto after_pull_request_template;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'pull_request_template';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CommunityHealthFile($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['pull_request_template'] = $value;
@@ -222,6 +288,204 @@ class Profile implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CommunityProfile\Files(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CommunityProfile\Files', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeOfConductSimple(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeOfConductSimple
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['key'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'key';
+                    goto after_key;
+                }
+
+                $properties['key'] = $value;
+    
+                after_key:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeOfConductSimple', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeOfConductSimple::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeOfConductSimple(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeOfConductSimple', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CommunityHealthFile(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CommunityHealthFile
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CommunityHealthFile', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CommunityHealthFile::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CommunityHealthFile(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CommunityHealthFile', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️LicenseSimple(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['key'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'key';
+                    goto after_key;
+                }
+
+                $properties['key'] = $value;
+    
+                after_key:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['spdx_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'spdx_id';
+                    goto after_spdx_id;
+                }
+
+                $properties['spdx_id'] = $value;
+    
+                after_spdx_id:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple', $exception, stack: $this->hydrationStack);
             }
         }
     

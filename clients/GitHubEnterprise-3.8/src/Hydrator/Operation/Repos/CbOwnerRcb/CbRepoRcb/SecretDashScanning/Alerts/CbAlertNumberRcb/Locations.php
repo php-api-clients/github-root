@@ -25,6 +25,7 @@ class Locations implements ObjectMapper
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\SecretScanningLocation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecretScanningLocation($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\SecretScanningLocationIssueComment' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecretScanningLocationIssueComment($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -50,8 +51,17 @@ class Locations implements ObjectMapper
                 $value = $payload['details'] ?? null;
     
                 if ($value === null) {
-                    $properties['details'] = null;
+                    $missingFields[] = 'details';
                     goto after_details;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'details';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecretScanningLocationIssueComment($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['details'] = $value;
@@ -125,6 +135,39 @@ class Locations implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterprise\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecretScanningLocationIssueComment(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SecretScanningLocationIssueComment
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['issue_comment_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'issue_comment_url';
+                    goto after_issue_comment_url;
+                }
+
+                $properties['issue_comment_url'] = $value;
+    
+                after_issue_comment_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecretScanningLocationIssueComment', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SecretScanningLocationIssueComment::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\SecretScanningLocationIssueComment(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecretScanningLocationIssueComment', $exception, stack: $this->hydrationStack);
             }
         }
     
@@ -232,6 +275,7 @@ class Locations implements ObjectMapper
         if ($details === null) {
             goto after_details;
         }
+        $details = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecretScanningLocationIssueComment($details);
         after_details:        $result['details'] = $details;
 
 

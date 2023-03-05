@@ -34,7 +34,7 @@ final readonly class Environment
     public ?string $updated_at;
     /**
      * Built-in deployment protection rules for the environment.
-     * @var array<mixed>
+     * @var array<Schema\Environment\ProtectionRules>
      */
     public array $protection_rules;
     /**

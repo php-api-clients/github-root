@@ -27,12 +27,14 @@ class RequestedReviewers implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\PullRequestSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestSimple($payload),
                 'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($payload),
+                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\GitHubAE\Schema\Milestone' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Milestone($payload),
                 'ApiClients\Client\GitHubAE\Schema\PullRequestSimple\Head' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestSimple⚡️Head($payload),
                 'ApiClients\Client\GitHubAE\Schema\PullRequestSimple\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestSimple⚡️Links($payload),
                 'ApiClients\Client\GitHubAE\Schema\AutoMerge' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AutoMerge($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($payload),
                 'ApiClients\Client\GitHubAE\Schema\Link' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Link($payload),
-                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\GitHubAE\Schema\LicenseSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️LicenseSimple($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
@@ -271,8 +273,17 @@ class RequestedReviewers implements ObjectMapper
                 $value = $payload['user'] ?? null;
     
                 if ($value === null) {
-                    $properties['user'] = null;
+                    $missingFields[] = 'user';
                     goto after_user;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'user';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['user'] = $value;
@@ -304,8 +315,17 @@ class RequestedReviewers implements ObjectMapper
                 $value = $payload['milestone'] ?? null;
     
                 if ($value === null) {
-                    $properties['milestone'] = null;
+                    $missingFields[] = 'milestone';
                     goto after_milestone;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'milestone';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Milestone($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['milestone'] = $value;
@@ -381,8 +401,17 @@ class RequestedReviewers implements ObjectMapper
                 $value = $payload['assignee'] ?? null;
     
                 if ($value === null) {
-                    $properties['assignee'] = null;
+                    $missingFields[] = 'assignee';
                     goto after_assignee;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'assignee';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['assignee'] = $value;
@@ -661,6 +690,466 @@ class RequestedReviewers implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleUser
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['email'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'email';
+                    goto after_email;
+                }
+
+                $properties['email'] = $value;
+    
+                after_email:
+
+                $value = $payload['login'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'login';
+                    goto after_login;
+                }
+
+                $properties['login'] = $value;
+    
+                after_login:
+
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
+                $value = $payload['avatar_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'avatar_url';
+                    goto after_avatar_url;
+                }
+
+                $properties['avatar_url'] = $value;
+    
+                after_avatar_url:
+
+                $value = $payload['gravatar_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'gravatar_id';
+                    goto after_gravatar_id;
+                }
+
+                $properties['gravatar_id'] = $value;
+    
+                after_gravatar_id:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+                $value = $payload['followers_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'followers_url';
+                    goto after_followers_url;
+                }
+
+                $properties['followers_url'] = $value;
+    
+                after_followers_url:
+
+                $value = $payload['following_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'following_url';
+                    goto after_following_url;
+                }
+
+                $properties['following_url'] = $value;
+    
+                after_following_url:
+
+                $value = $payload['gists_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'gists_url';
+                    goto after_gists_url;
+                }
+
+                $properties['gists_url'] = $value;
+    
+                after_gists_url:
+
+                $value = $payload['starred_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'starred_url';
+                    goto after_starred_url;
+                }
+
+                $properties['starred_url'] = $value;
+    
+                after_starred_url:
+
+                $value = $payload['subscriptions_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'subscriptions_url';
+                    goto after_subscriptions_url;
+                }
+
+                $properties['subscriptions_url'] = $value;
+    
+                after_subscriptions_url:
+
+                $value = $payload['organizations_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'organizations_url';
+                    goto after_organizations_url;
+                }
+
+                $properties['organizations_url'] = $value;
+    
+                after_organizations_url:
+
+                $value = $payload['repos_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'repos_url';
+                    goto after_repos_url;
+                }
+
+                $properties['repos_url'] = $value;
+    
+                after_repos_url:
+
+                $value = $payload['events_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'events_url';
+                    goto after_events_url;
+                }
+
+                $properties['events_url'] = $value;
+    
+                after_events_url:
+
+                $value = $payload['received_events_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'received_events_url';
+                    goto after_received_events_url;
+                }
+
+                $properties['received_events_url'] = $value;
+    
+                after_received_events_url:
+
+                $value = $payload['type'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'type';
+                    goto after_type;
+                }
+
+                $properties['type'] = $value;
+    
+                after_type:
+
+                $value = $payload['site_admin'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'site_admin';
+                    goto after_site_admin;
+                }
+
+                $properties['site_admin'] = $value;
+    
+                after_site_admin:
+
+                $value = $payload['starred_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'starred_at';
+                    goto after_starred_at;
+                }
+
+                $properties['starred_at'] = $value;
+    
+                after_starred_at:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\SimpleUser(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Milestone(array $payload): \ApiClients\Client\GitHubAE\Schema\Milestone
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+                $value = $payload['labels_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'labels_url';
+                    goto after_labels_url;
+                }
+
+                $properties['labels_url'] = $value;
+    
+                after_labels_url:
+
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
+                $value = $payload['number'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'number';
+                    goto after_number;
+                }
+
+                $properties['number'] = $value;
+    
+                after_number:
+
+                $value = $payload['state'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'state';
+                    goto after_state;
+                }
+
+                $properties['state'] = $value;
+    
+                after_state:
+
+                $value = $payload['title'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'title';
+                    goto after_title;
+                }
+
+                $properties['title'] = $value;
+    
+                after_title:
+
+                $value = $payload['description'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'description';
+                    goto after_description;
+                }
+
+                $properties['description'] = $value;
+    
+                after_description:
+
+                $value = $payload['creator'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'creator';
+                    goto after_creator;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'creator';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['creator'] = $value;
+    
+                after_creator:
+
+                $value = $payload['open_issues'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'open_issues';
+                    goto after_open_issues;
+                }
+
+                $properties['open_issues'] = $value;
+    
+                after_open_issues:
+
+                $value = $payload['closed_issues'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'closed_issues';
+                    goto after_closed_issues;
+                }
+
+                $properties['closed_issues'] = $value;
+    
+                after_closed_issues:
+
+                $value = $payload['created_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'created_at';
+                    goto after_created_at;
+                }
+
+                $properties['created_at'] = $value;
+    
+                after_created_at:
+
+                $value = $payload['updated_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'updated_at';
+                    goto after_updated_at;
+                }
+
+                $properties['updated_at'] = $value;
+    
+                after_updated_at:
+
+                $value = $payload['closed_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'closed_at';
+                    goto after_closed_at;
+                }
+
+                $properties['closed_at'] = $value;
+    
+                after_closed_at:
+
+                $value = $payload['due_on'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'due_on';
+                    goto after_due_on;
+                }
+
+                $properties['due_on'] = $value;
+    
+                after_due_on:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Milestone', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Milestone::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\Milestone(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Milestone', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestSimple⚡️Head(array $payload): \ApiClients\Client\GitHubAE\Schema\PullRequestSimple\Head
         {
             $properties = []; 
@@ -723,8 +1212,17 @@ class RequestedReviewers implements ObjectMapper
                 $value = $payload['user'] ?? null;
     
                 if ($value === null) {
-                    $properties['user'] = null;
+                    $missingFields[] = 'user';
                     goto after_user;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'user';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['user'] = $value;
@@ -1057,8 +1555,17 @@ class RequestedReviewers implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $properties['license'] = null;
+                    $missingFields[] = 'license';
                     goto after_license;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'license';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️LicenseSimple($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['license'] = $value;
@@ -1068,8 +1575,17 @@ class RequestedReviewers implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $properties['organization'] = null;
+                    $missingFields[] = 'organization';
                     goto after_organization;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'organization';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['organization'] = $value;
@@ -2109,12 +2625,23 @@ class RequestedReviewers implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleUser
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️LicenseSimple(array $payload): \ApiClients\Client\GitHubAE\Schema\LicenseSimple
         {
             $properties = []; 
             $missingFields = [];
             try {
                 
+                $value = $payload['key'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'key';
+                    goto after_key;
+                }
+
+                $properties['key'] = $value;
+    
+                after_key:
+
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
@@ -2125,72 +2652,6 @@ class RequestedReviewers implements ObjectMapper
                 $properties['name'] = $value;
     
                 after_name:
-
-                $value = $payload['email'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'email';
-                    goto after_email;
-                }
-
-                $properties['email'] = $value;
-    
-                after_email:
-
-                $value = $payload['login'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'login';
-                    goto after_login;
-                }
-
-                $properties['login'] = $value;
-    
-                after_login:
-
-                $value = $payload['id'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'id';
-                    goto after_id;
-                }
-
-                $properties['id'] = $value;
-    
-                after_id:
-
-                $value = $payload['node_id'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'node_id';
-                    goto after_node_id;
-                }
-
-                $properties['node_id'] = $value;
-    
-                after_node_id:
-
-                $value = $payload['avatar_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'avatar_url';
-                    goto after_avatar_url;
-                }
-
-                $properties['avatar_url'] = $value;
-    
-                after_avatar_url:
-
-                $value = $payload['gravatar_id'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
-                    goto after_gravatar_id;
-                }
-
-                $properties['gravatar_id'] = $value;
-    
-                after_gravatar_id:
 
                 $value = $payload['url'] ?? null;
     
@@ -2203,6 +2664,28 @@ class RequestedReviewers implements ObjectMapper
     
                 after_url:
 
+                $value = $payload['spdx_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'spdx_id';
+                    goto after_spdx_id;
+                }
+
+                $properties['spdx_id'] = $value;
+    
+                after_spdx_id:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
@@ -2214,150 +2697,18 @@ class RequestedReviewers implements ObjectMapper
     
                 after_html_url:
 
-                $value = $payload['followers_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'followers_url';
-                    goto after_followers_url;
-                }
-
-                $properties['followers_url'] = $value;
-    
-                after_followers_url:
-
-                $value = $payload['following_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'following_url';
-                    goto after_following_url;
-                }
-
-                $properties['following_url'] = $value;
-    
-                after_following_url:
-
-                $value = $payload['gists_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'gists_url';
-                    goto after_gists_url;
-                }
-
-                $properties['gists_url'] = $value;
-    
-                after_gists_url:
-
-                $value = $payload['starred_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'starred_url';
-                    goto after_starred_url;
-                }
-
-                $properties['starred_url'] = $value;
-    
-                after_starred_url:
-
-                $value = $payload['subscriptions_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
-                    goto after_subscriptions_url;
-                }
-
-                $properties['subscriptions_url'] = $value;
-    
-                after_subscriptions_url:
-
-                $value = $payload['organizations_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'organizations_url';
-                    goto after_organizations_url;
-                }
-
-                $properties['organizations_url'] = $value;
-    
-                after_organizations_url:
-
-                $value = $payload['repos_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'repos_url';
-                    goto after_repos_url;
-                }
-
-                $properties['repos_url'] = $value;
-    
-                after_repos_url:
-
-                $value = $payload['events_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'events_url';
-                    goto after_events_url;
-                }
-
-                $properties['events_url'] = $value;
-    
-                after_events_url:
-
-                $value = $payload['received_events_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'received_events_url';
-                    goto after_received_events_url;
-                }
-
-                $properties['received_events_url'] = $value;
-    
-                after_received_events_url:
-
-                $value = $payload['type'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'type';
-                    goto after_type;
-                }
-
-                $properties['type'] = $value;
-    
-                after_type:
-
-                $value = $payload['site_admin'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'site_admin';
-                    goto after_site_admin;
-                }
-
-                $properties['site_admin'] = $value;
-    
-                after_site_admin:
-
-                $value = $payload['starred_at'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'starred_at';
-                    goto after_starred_at;
-                }
-
-                $properties['starred_at'] = $value;
-    
-                after_starred_at:
-
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\LicenseSimple', $exception, stack: $this->hydrationStack);
             }
             
             if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\LicenseSimple::class, $missingFields, stack: $this->hydrationStack);
             }
             
             try {
-                return new \ApiClients\Client\GitHubAE\Schema\SimpleUser(...$properties);
+                return new \ApiClients\Client\GitHubAE\Schema\LicenseSimple(...$properties);
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\LicenseSimple', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -3944,6 +4295,7 @@ class RequestedReviewers implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($user);
         after_user:        $result['user'] = $user;
 
         
@@ -3976,6 +4328,7 @@ class RequestedReviewers implements ObjectMapper
         if ($milestone === null) {
             goto after_milestone;
         }
+        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Milestone($milestone);
         after_milestone:        $result['milestone'] = $milestone;
 
         
@@ -4032,6 +4385,7 @@ class RequestedReviewers implements ObjectMapper
         if ($assignee === null) {
             goto after_assignee;
         }
+        $assignee = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($assignee);
         after_assignee:        $result['assignee'] = $assignee;
 
         

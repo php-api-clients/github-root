@@ -18,8 +18,8 @@ final readonly class Errors
     public string $message;
     public ?string $code;
     public int $index;
-    public mixed $value;
-    public function __construct(string $resource, string $field, string $message, string $code, int $index, mixed $value)
+    public ?array $value;
+    public function __construct(string $resource, string $field, string $message, string $code, int $index, array $value)
     {
         $this->resource = $resource;
         $this->field = $field;

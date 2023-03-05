@@ -25,6 +25,7 @@ class Locations implements ObjectMapper
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\SecretScanningLocation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecretScanningLocation($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️SecretScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\SecretScanningLocationCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecretScanningLocationCommit($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -50,8 +51,17 @@ class Locations implements ObjectMapper
                 $value = $payload['details'] ?? null;
     
                 if ($value === null) {
-                    $properties['details'] = null;
+                    $missingFields[] = 'details';
                     goto after_details;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'details';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecretScanningLocationCommit($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['details'] = $value;
@@ -125,6 +135,127 @@ class Locations implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterprise\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecretScanningLocationCommit(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SecretScanningLocationCommit
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['path'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'path';
+                    goto after_path;
+                }
+
+                $properties['path'] = $value;
+    
+                after_path:
+
+                $value = $payload['start_line'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'start_line';
+                    goto after_start_line;
+                }
+
+                $properties['start_line'] = $value;
+    
+                after_start_line:
+
+                $value = $payload['end_line'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'end_line';
+                    goto after_end_line;
+                }
+
+                $properties['end_line'] = $value;
+    
+                after_end_line:
+
+                $value = $payload['start_column'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'start_column';
+                    goto after_start_column;
+                }
+
+                $properties['start_column'] = $value;
+    
+                after_start_column:
+
+                $value = $payload['end_column'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'end_column';
+                    goto after_end_column;
+                }
+
+                $properties['end_column'] = $value;
+    
+                after_end_column:
+
+                $value = $payload['blob_sha'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'blob_sha';
+                    goto after_blob_sha;
+                }
+
+                $properties['blob_sha'] = $value;
+    
+                after_blob_sha:
+
+                $value = $payload['blob_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'blob_url';
+                    goto after_blob_url;
+                }
+
+                $properties['blob_url'] = $value;
+    
+                after_blob_url:
+
+                $value = $payload['commit_sha'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'commit_sha';
+                    goto after_commit_sha;
+                }
+
+                $properties['commit_sha'] = $value;
+    
+                after_commit_sha:
+
+                $value = $payload['commit_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'commit_url';
+                    goto after_commit_url;
+                }
+
+                $properties['commit_url'] = $value;
+    
+                after_commit_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecretScanningLocationCommit', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SecretScanningLocationCommit::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\SecretScanningLocationCommit(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecretScanningLocationCommit', $exception, stack: $this->hydrationStack);
             }
         }
     
@@ -232,6 +363,7 @@ class Locations implements ObjectMapper
         if ($details === null) {
             goto after_details;
         }
+        $details = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecretScanningLocationCommit($details);
         after_details:        $result['details'] = $details;
 
 

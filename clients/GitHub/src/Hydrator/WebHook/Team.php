@@ -740,7 +740,7 @@ class Team implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $properties['created_at'] = null;
+                    $missingFields[] = 'created_at';
                     goto after_created_at;
                 }
 
@@ -1317,7 +1317,7 @@ class Team implements ObjectMapper
                 $value = $payload['pushed_at'] ?? null;
     
                 if ($value === null) {
-                    $properties['pushed_at'] = null;
+                    $missingFields[] = 'pushed_at';
                     goto after_pushed_at;
                 }
 

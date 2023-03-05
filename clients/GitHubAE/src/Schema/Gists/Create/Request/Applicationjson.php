@@ -21,8 +21,8 @@ final readonly class Applicationjson
      * Names and content for the files that make up the gist
      */
     public ?Schema\Gists\Create\Request\Applicationjson\Files $files;
-    public mixed $public;
-    public function __construct(string $description, Schema\Gists\Create\Request\Applicationjson\Files $files, mixed $public)
+    public string $public;
+    public function __construct(string $description, Schema\Gists\Create\Request\Applicationjson\Files $files, string $public)
     {
         $this->description = $description;
         $this->files = $files;

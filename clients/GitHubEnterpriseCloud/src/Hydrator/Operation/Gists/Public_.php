@@ -205,8 +205,17 @@ class Public_ implements ObjectMapper
                 $value = $payload['user'] ?? null;
     
                 if ($value === null) {
-                    $properties['user'] = null;
+                    $missingFields[] = 'user';
                     goto after_user;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'user';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['user'] = $value;
@@ -898,6 +907,7 @@ class Public_ implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($user);
         after_user:        $result['user'] = $user;
 
         

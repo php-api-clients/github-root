@@ -27,8 +27,9 @@ class Repos implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ScimError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimError($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseSimple($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
@@ -90,8 +91,17 @@ class Repos implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $properties['license'] = null;
+                    $missingFields[] = 'license';
                     goto after_license;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'license';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseSimple($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['license'] = $value;
@@ -101,8 +111,17 @@ class Repos implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $properties['organization'] = null;
+                    $missingFields[] = 'organization';
                     goto after_organization;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'organization';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['organization'] = $value;
@@ -1274,79 +1293,90 @@ class Repos implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseSimple(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple
         {
             $properties = []; 
             $missingFields = [];
             try {
                 
-                $value = $payload['admin'] ?? null;
+                $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin';
-                    goto after_admin;
+                    $missingFields[] = 'key';
+                    goto after_key;
                 }
 
-                $properties['admin'] = $value;
+                $properties['key'] = $value;
     
-                after_admin:
+                after_key:
 
-                $value = $payload['pull'] ?? null;
+                $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull';
-                    goto after_pull;
+                    $missingFields[] = 'name';
+                    goto after_name;
                 }
 
-                $properties['pull'] = $value;
+                $properties['name'] = $value;
     
-                after_pull:
+                after_name:
 
-                $value = $payload['triage'] ?? null;
+                $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'triage';
-                    goto after_triage;
+                    $missingFields[] = 'url';
+                    goto after_url;
                 }
 
-                $properties['triage'] = $value;
+                $properties['url'] = $value;
     
-                after_triage:
+                after_url:
 
-                $value = $payload['push'] ?? null;
+                $value = $payload['spdx_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'push';
-                    goto after_push;
+                    $missingFields[] = 'spdx_id';
+                    goto after_spdx_id;
                 }
 
-                $properties['push'] = $value;
+                $properties['spdx_id'] = $value;
     
-                after_push:
+                after_spdx_id:
 
-                $value = $payload['maintain'] ?? null;
+                $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'maintain';
-                    goto after_maintain;
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
                 }
 
-                $properties['maintain'] = $value;
+                $properties['node_id'] = $value;
     
-                after_maintain:
+                after_node_id:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
 
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple', $exception, stack: $this->hydrationStack);
             }
             
             if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple::class, $missingFields, stack: $this->hydrationStack);
             }
             
             try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions(...$properties);
+                return new \ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple(...$properties);
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -1600,6 +1630,83 @@ class Repos implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterprise\Schema\SimpleUser(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['admin'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'admin';
+                    goto after_admin;
+                }
+
+                $properties['admin'] = $value;
+    
+                after_admin:
+
+                $value = $payload['pull'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'pull';
+                    goto after_pull;
+                }
+
+                $properties['pull'] = $value;
+    
+                after_pull:
+
+                $value = $payload['triage'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'triage';
+                    goto after_triage;
+                }
+
+                $properties['triage'] = $value;
+    
+                after_triage:
+
+                $value = $payload['push'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'push';
+                    goto after_push;
+                }
+
+                $properties['push'] = $value;
+    
+                after_push:
+
+                $value = $payload['maintain'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'maintain';
+                    goto after_maintain;
+                }
+
+                $properties['maintain'] = $value;
+    
+                after_maintain:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -2961,14 +3068,12 @@ class Repos implements ObjectMapper
         if ($license === null) {
             goto after_license;
         }
+        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseSimple($license);
         after_license:        $result['license'] = $license;
 
         
         $organization = $object->organization;
-
-        if ($organization === null) {
-            goto after_organization;
-        }
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($organization);
         after_organization:        $result['organization'] = $organization;
 
         

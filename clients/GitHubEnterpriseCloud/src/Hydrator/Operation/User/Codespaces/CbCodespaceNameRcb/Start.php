@@ -28,6 +28,7 @@ class Start implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ScimError($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\MinimalRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MinimalRepository($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceMachine' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodespaceMachine($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Codespace\GitStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Codespace⚡️GitStatus($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Codespace\RuntimeConstraints' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Codespace⚡️RuntimeConstraints($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
@@ -153,8 +154,17 @@ class Start implements ObjectMapper
                 $value = $payload['machine'] ?? null;
     
                 if ($value === null) {
-                    $properties['machine'] = null;
+                    $missingFields[] = 'machine';
                     goto after_machine;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'machine';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodespaceMachine($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['machine'] = $value;
@@ -1890,6 +1900,105 @@ class Start implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodespaceMachine(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceMachine
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['display_name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'display_name';
+                    goto after_display_name;
+                }
+
+                $properties['display_name'] = $value;
+    
+                after_display_name:
+
+                $value = $payload['operating_system'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'operating_system';
+                    goto after_operating_system;
+                }
+
+                $properties['operating_system'] = $value;
+    
+                after_operating_system:
+
+                $value = $payload['storage_in_bytes'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'storage_in_bytes';
+                    goto after_storage_in_bytes;
+                }
+
+                $properties['storage_in_bytes'] = $value;
+    
+                after_storage_in_bytes:
+
+                $value = $payload['memory_in_bytes'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'memory_in_bytes';
+                    goto after_memory_in_bytes;
+                }
+
+                $properties['memory_in_bytes'] = $value;
+    
+                after_memory_in_bytes:
+
+                $value = $payload['cpus'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'cpus';
+                    goto after_cpus;
+                }
+
+                $properties['cpus'] = $value;
+    
+                after_cpus:
+
+                $value = $payload['prebuild_availability'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'prebuild_availability';
+                    goto after_prebuild_availability;
+                }
+
+                $properties['prebuild_availability'] = $value;
+    
+                after_prebuild_availability:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceMachine', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceMachine::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceMachine(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceMachine', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Codespace⚡️GitStatus(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Codespace\GitStatus
         {
             $properties = []; 
@@ -2501,6 +2610,7 @@ class Start implements ObjectMapper
         if ($machine === null) {
             goto after_machine;
         }
+        $machine = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodespaceMachine($machine);
         after_machine:        $result['machine'] = $machine;
 
         

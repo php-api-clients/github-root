@@ -22,7 +22,7 @@ final readonly class ProjectCard
     public ?string $column_url;
     public string $content_url;
     public ?string $created_at;
-    public ?Schema\WebhookIssueCommentDeleted\Comment\User $creator;
+    public ?Schema\WebhookIssueCommentCreated\Issue\Assignee $creator;
     /**
      * The project card's ID
      */
@@ -32,7 +32,7 @@ final readonly class ProjectCard
     public ?string $project_url;
     public ?string $updated_at;
     public ?string $url;
-    public function __construct(int $after_id, bool $archived, int $column_id, string $column_url, string $content_url, string $created_at, Schema\WebhookIssueCommentDeleted\Comment\User $creator, int $id, string $node_id, string $note, string $project_url, string $updated_at, string $url)
+    public function __construct(int $after_id, bool $archived, int $column_id, string $column_url, string $content_url, string $created_at, Schema\WebhookIssueCommentCreated\Issue\Assignee $creator, int $id, string $node_id, string $note, string $project_url, string $updated_at, string $url)
     {
         $this->after_id = $after_id;
         $this->archived = $archived;

@@ -18,10 +18,10 @@ final readonly class NpmMetadata
     public ?string $npm_user;
     public ?Schema\WebhookCheckSuiteCompleted\ActionsMeta $author;
     public ?Schema\WebhookCheckSuiteCompleted\ActionsMeta $bugs;
-    public ?Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $dependencies;
-    public ?Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $dev_dependencies;
-    public ?Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $peer_dependencies;
-    public ?Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $optional_dependencies;
+    public ?Schema\WebhookDeploymentStatusCreated\Deployment\Payload $dependencies;
+    public ?Schema\WebhookDeploymentStatusCreated\Deployment\Payload $dev_dependencies;
+    public ?Schema\WebhookDeploymentStatusCreated\Deployment\Payload $peer_dependencies;
+    public ?Schema\WebhookDeploymentStatusCreated\Deployment\Payload $optional_dependencies;
     public ?string $description;
     public ?Schema\WebhookCheckSuiteCompleted\ActionsMeta $dist;
     public ?string $git_head;
@@ -29,20 +29,20 @@ final readonly class NpmMetadata
     public ?string $license;
     public ?string $main;
     public ?Schema\WebhookCheckSuiteCompleted\ActionsMeta $repository;
-    public ?Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $scripts;
+    public ?Schema\WebhookDeploymentStatusCreated\Deployment\Payload $scripts;
     public ?string $id;
     public ?string $node_version;
     public ?string $npm_version;
     public ?bool $has_shrinkwrap;
     /**
-     * @var array<Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies>
+     * @var array<Schema\WebhookDeploymentStatusCreated\Deployment\Payload>
      */
     public ?array $maintainers;
     /**
-     * @var array<Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies>
+     * @var array<Schema\WebhookDeploymentStatusCreated\Deployment\Payload>
      */
     public ?array $contributors;
-    public ?Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $engines;
+    public ?Schema\WebhookDeploymentStatusCreated\Deployment\Payload $engines;
     /**
      * @var array<string>
      */
@@ -51,8 +51,8 @@ final readonly class NpmMetadata
      * @var array<string>
      */
     public ?array $files;
-    public ?Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $bin;
-    public ?Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $man;
+    public ?Schema\WebhookDeploymentStatusCreated\Deployment\Payload $bin;
+    public ?Schema\WebhookDeploymentStatusCreated\Deployment\Payload $man;
     public ?Schema\WebhookCheckSuiteCompleted\ActionsMeta $directories;
     /**
      * @var array<string>
@@ -68,7 +68,7 @@ final readonly class NpmMetadata
     public ?string $commit_oid;
     public ?bool $published_via_actions;
     public ?int $deleted_by_id;
-    public function __construct(string $name, string $version, string $npm_user, Schema\WebhookCheckSuiteCompleted\ActionsMeta $author, Schema\WebhookCheckSuiteCompleted\ActionsMeta $bugs, Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $dependencies, Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $dev_dependencies, Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $peer_dependencies, Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $optional_dependencies, string $description, Schema\WebhookCheckSuiteCompleted\ActionsMeta $dist, string $git_head, string $homepage, string $license, string $main, Schema\WebhookCheckSuiteCompleted\ActionsMeta $repository, Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $scripts, string $id, string $node_version, string $npm_version, bool $has_shrinkwrap, array $maintainers, array $contributors, Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $engines, array $keywords, array $files, Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $bin, Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $man, Schema\WebhookCheckSuiteCompleted\ActionsMeta $directories, array $os, array $cpu, string $readme, string $installation_command, int $release_id, string $commit_oid, bool $published_via_actions, int $deleted_by_id)
+    public function __construct(string $name, string $version, string $npm_user, Schema\WebhookCheckSuiteCompleted\ActionsMeta $author, Schema\WebhookCheckSuiteCompleted\ActionsMeta $bugs, Schema\WebhookDeploymentStatusCreated\Deployment\Payload $dependencies, Schema\WebhookDeploymentStatusCreated\Deployment\Payload $dev_dependencies, Schema\WebhookDeploymentStatusCreated\Deployment\Payload $peer_dependencies, Schema\WebhookDeploymentStatusCreated\Deployment\Payload $optional_dependencies, string $description, Schema\WebhookCheckSuiteCompleted\ActionsMeta $dist, string $git_head, string $homepage, string $license, string $main, Schema\WebhookCheckSuiteCompleted\ActionsMeta $repository, Schema\WebhookDeploymentStatusCreated\Deployment\Payload $scripts, string $id, string $node_version, string $npm_version, bool $has_shrinkwrap, array $maintainers, array $contributors, Schema\WebhookDeploymentStatusCreated\Deployment\Payload $engines, array $keywords, array $files, Schema\WebhookDeploymentStatusCreated\Deployment\Payload $bin, Schema\WebhookDeploymentStatusCreated\Deployment\Payload $man, Schema\WebhookCheckSuiteCompleted\ActionsMeta $directories, array $os, array $cpu, string $readme, string $installation_command, int $release_id, string $commit_oid, bool $published_via_actions, int $deleted_by_id)
     {
         $this->name = $name;
         $this->version = $version;

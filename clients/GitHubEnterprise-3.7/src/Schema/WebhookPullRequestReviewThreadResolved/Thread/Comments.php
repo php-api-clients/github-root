@@ -101,8 +101,8 @@ final readonly class Comments
      * URL for the pull request review comment
      */
     public ?string $url;
-    public ?Schema\WebhookIssueCommentDeleted\Comment\User $user;
-    public function __construct(Schema\WebhookPullRequestReviewCommentCreated\Comment\Links $_links, string $author_association, string $body, string $commit_id, string $created_at, string $diff_hunk, string $html_url, int $id, int $in_reply_to_id, int $line, string $node_id, string $original_commit_id, int $original_line, int $original_position, int $original_start_line, string $path, int $position, int $pull_request_review_id, string $pull_request_url, Schema\Discussion\Reactions $reactions, string $side, int $start_line, string $start_side, string $updated_at, string $url, Schema\WebhookIssueCommentDeleted\Comment\User $user)
+    public ?Schema\WebhookIssueCommentCreated\Issue\Assignee $user;
+    public function __construct(Schema\WebhookPullRequestReviewCommentCreated\Comment\Links $_links, string $author_association, string $body, string $commit_id, string $created_at, string $diff_hunk, string $html_url, int $id, int $in_reply_to_id, int $line, string $node_id, string $original_commit_id, int $original_line, int $original_position, int $original_start_line, string $path, int $position, int $pull_request_review_id, string $pull_request_url, Schema\Discussion\Reactions $reactions, string $side, int $start_line, string $start_side, string $updated_at, string $url, Schema\WebhookIssueCommentCreated\Issue\Assignee $user)
     {
         $this->_links = $_links;
         $this->author_association = $author_association;

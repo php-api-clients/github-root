@@ -16,7 +16,7 @@ final readonly class Milestone
     public ?string $closed_at;
     public ?int $closed_issues;
     public ?string $created_at;
-    public ?Schema\WebhookIssueCommentDeleted\Comment\User $creator;
+    public ?Schema\WebhookIssueCommentCreated\Issue\Assignee $creator;
     public ?string $description;
     public ?string $due_on;
     public ?string $html_url;
@@ -38,7 +38,7 @@ final readonly class Milestone
     public ?string $title;
     public ?string $updated_at;
     public ?string $url;
-    public function __construct(string $closed_at, int $closed_issues, string $created_at, Schema\WebhookIssueCommentDeleted\Comment\User $creator, string $description, string $due_on, string $html_url, int $id, string $labels_url, string $node_id, int $number, int $open_issues, string $state, string $title, string $updated_at, string $url)
+    public function __construct(string $closed_at, int $closed_issues, string $created_at, Schema\WebhookIssueCommentCreated\Issue\Assignee $creator, string $description, string $due_on, string $html_url, int $id, string $labels_url, string $node_id, int $number, int $open_issues, string $state, string $title, string $updated_at, string $url)
     {
         $this->closed_at = $closed_at;
         $this->closed_issues = $closed_issues;

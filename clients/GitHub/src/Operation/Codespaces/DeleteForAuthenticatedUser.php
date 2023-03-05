@@ -28,9 +28,9 @@ final class DeleteForAuthenticatedUser
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{codespace_name}'), array($this->codespace_name), self::PATH));
     }
     /**
-     * @return Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies|Schema\BasicError
+     * @return Schema\WebhookDeploymentStatusCreated\Deployment\Payload|Schema\BasicError
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies|Schema\BasicError
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\WebhookDeploymentStatusCreated\Deployment\Payload|Schema\BasicError
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -39,8 +39,8 @@ final class DeleteForAuthenticatedUser
             case 202:
                 switch ($contentType) {
                     case 'application/json':
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\WebhookPackagePublished\\Package\\PackageVersion\\NpmMetadata\\Dependencies', $body);
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\WebhookDeploymentStatusCreated\Deployment\Payload::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject('Schema\\WebhookDeploymentStatusCreated\\Deployment\\Payload', $body);
                 }
                 break;
             /**Resource not found**/

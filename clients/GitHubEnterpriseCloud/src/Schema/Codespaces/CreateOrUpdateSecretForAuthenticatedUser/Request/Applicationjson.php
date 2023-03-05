@@ -23,7 +23,7 @@ final readonly class Applicationjson
     public ?string $key_id;
     /**
      * An array of repository ids that can access the user secret. You can manage the list of selected repositories using the [List selected repositories for a user secret](https://docs.github.com/enterprise-cloud@latest//rest/reference/codespaces#list-selected-repositories-for-a-user-secret), [Set selected repositories for a user secret](https://docs.github.com/enterprise-cloud@latest//rest/reference/codespaces#set-selected-repositories-for-a-user-secret), and [Remove a selected repository from a user secret](https://docs.github.com/enterprise-cloud@latest//rest/reference/codespaces#remove-a-selected-repository-from-a-user-secret) endpoints.
-     * @var array<mixed>
+     * @var array<string>
      */
     public array $selected_repository_ids;
     public function __construct(string $encrypted_value, string $key_id, array $selected_repository_ids)

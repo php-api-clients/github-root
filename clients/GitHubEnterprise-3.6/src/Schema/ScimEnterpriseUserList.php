@@ -24,7 +24,7 @@ final readonly class ScimEnterpriseUserList
     public ?int $totalResults;
     /**
      * Information about each provisioned account.
-     * @var array<mixed>
+     * @var array<Schema\ScimEnterpriseUserList\Resources>
      */
     public ?array $Resources;
     /**

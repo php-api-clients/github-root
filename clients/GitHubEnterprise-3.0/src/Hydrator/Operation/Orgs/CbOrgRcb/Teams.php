@@ -28,6 +28,7 @@ class Teams implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\TeamFull' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamFull($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Team\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Team⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\TeamSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamSimple($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrganizationFull($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull\Plan' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrganizationFull⚡️Plan($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
@@ -185,8 +186,17 @@ class Teams implements ObjectMapper
                 $value = $payload['parent'] ?? null;
     
                 if ($value === null) {
-                    $properties['parent'] = null;
+                    $missingFields[] = 'parent';
                     goto after_parent;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'parent';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamSimple($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['parent'] = $value;
@@ -405,8 +415,17 @@ class Teams implements ObjectMapper
                 $value = $payload['parent'] ?? null;
     
                 if ($value === null) {
-                    $properties['parent'] = null;
+                    $missingFields[] = 'parent';
                     goto after_parent;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'parent';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamSimple($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['parent'] = $value;
@@ -632,6 +651,160 @@ class Teams implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterprise\Schema\Team\Permissions(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Team\Permissions', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamSimple(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\TeamSimple
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['members_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'members_url';
+                    goto after_members_url;
+                }
+
+                $properties['members_url'] = $value;
+    
+                after_members_url:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['description'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'description';
+                    goto after_description;
+                }
+
+                $properties['description'] = $value;
+    
+                after_description:
+
+                $value = $payload['permission'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'permission';
+                    goto after_permission;
+                }
+
+                $properties['permission'] = $value;
+    
+                after_permission:
+
+                $value = $payload['privacy'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'privacy';
+                    goto after_privacy;
+                }
+
+                $properties['privacy'] = $value;
+    
+                after_privacy:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+                $value = $payload['repositories_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'repositories_url';
+                    goto after_repositories_url;
+                }
+
+                $properties['repositories_url'] = $value;
+    
+                after_repositories_url:
+
+                $value = $payload['slug'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'slug';
+                    goto after_slug;
+                }
+
+                $properties['slug'] = $value;
+    
+                after_slug:
+
+                $value = $payload['ldap_dn'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'ldap_dn';
+                    goto after_ldap_dn;
+                }
+
+                $properties['ldap_dn'] = $value;
+    
+                after_ldap_dn:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TeamSimple', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\TeamSimple::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\TeamSimple(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TeamSimple', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -1447,6 +1620,7 @@ class Teams implements ObjectMapper
         if ($parent === null) {
             goto after_parent;
         }
+        $parent = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamSimple($parent);
         after_parent:        $result['parent'] = $parent;
 
 
@@ -1585,10 +1759,7 @@ class Teams implements ObjectMapper
 
         
         $parent = $object->parent;
-
-        if ($parent === null) {
-            goto after_parent;
-        }
+        $parent = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamSimple($parent);
         after_parent:        $result['parent'] = $parent;
 
         

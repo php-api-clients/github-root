@@ -12,11 +12,14 @@ final readonly class Operations
     public const SCHEMA_JSON = '{"required":["op"],"type":"object","properties":{"op":{"enum":["add","remove","replace"],"type":"string"},"path":{"type":"string"},"value":{"oneOf":[{"type":"string"},{"type":"object"},{"type":"array","items":{}}]}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"op":"generated_op","path":"generated_path","value":"generated_value"}';
+    public const SCHEMA_EXAMPLE_DATA = '{"op":"generated_op","path":"generated_path","value":[null]}';
     public ?string $op;
     public string $path;
-    public mixed $value;
-    public function __construct(string $op, string $path, mixed $value)
+    /**
+     * @var array<mixed>
+     */
+    public array $value;
+    public function __construct(string $op, string $path, array $value)
     {
         $this->op = $op;
         $this->path = $path;

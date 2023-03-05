@@ -75,7 +75,7 @@ final readonly class PullRequest
     public ?string $patch_url;
     public ?bool $rebaseable;
     /**
-     * @var array<mixed>
+     * @var array<Schema\WebhookMembershipAdded\Team>
      */
     public ?array $requested_reviewers;
     /**

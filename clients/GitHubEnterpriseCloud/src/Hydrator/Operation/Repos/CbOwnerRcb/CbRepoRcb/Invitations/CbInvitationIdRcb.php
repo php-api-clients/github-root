@@ -76,8 +76,17 @@ class CbInvitationIdRcb implements ObjectMapper
                 $value = $payload['invitee'] ?? null;
     
                 if ($value === null) {
-                    $properties['invitee'] = null;
+                    $missingFields[] = 'invitee';
                     goto after_invitee;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'invitee';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['invitee'] = $value;
@@ -87,8 +96,17 @@ class CbInvitationIdRcb implements ObjectMapper
                 $value = $payload['inviter'] ?? null;
     
                 if ($value === null) {
-                    $properties['inviter'] = null;
+                    $missingFields[] = 'inviter';
                     goto after_inviter;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'inviter';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
                 }
 
                 $properties['inviter'] = $value;
@@ -1911,6 +1929,7 @@ class CbInvitationIdRcb implements ObjectMapper
         if ($invitee === null) {
             goto after_invitee;
         }
+        $invitee = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($invitee);
         after_invitee:        $result['invitee'] = $invitee;
 
         
@@ -1919,6 +1938,7 @@ class CbInvitationIdRcb implements ObjectMapper
         if ($inviter === null) {
             goto after_inviter;
         }
+        $inviter = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($inviter);
         after_inviter:        $result['inviter'] = $inviter;
 
         

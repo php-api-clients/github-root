@@ -35,8 +35,8 @@ final readonly class Review
     public ?string $pull_request_url;
     public ?string $state;
     public ?string $submitted_at;
-    public ?Schema\WebhookIssueCommentDeleted\Comment\User $user;
-    public function __construct(Schema\WebhookPullRequestReviewDismissed\Review\Links $_links, string $author_association, string $body, string $commit_id, string $html_url, int $id, string $node_id, string $pull_request_url, string $state, string $submitted_at, Schema\WebhookIssueCommentDeleted\Comment\User $user)
+    public ?Schema\WebhookIssueCommentCreated\Issue\Assignee $user;
+    public function __construct(Schema\WebhookPullRequestReviewDismissed\Review\Links $_links, string $author_association, string $body, string $commit_id, string $html_url, int $id, string $node_id, string $pull_request_url, string $state, string $submitted_at, Schema\WebhookIssueCommentCreated\Issue\Assignee $user)
     {
         $this->_links = $_links;
         $this->author_association = $author_association;
