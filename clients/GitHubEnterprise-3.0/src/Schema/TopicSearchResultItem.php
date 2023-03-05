@@ -12,7 +12,7 @@ final readonly class TopicSearchResultItem
     public const SCHEMA_JSON = '{"title":"Topic Search Result Item","required":["name","display_name","short_description","description","created_by","released","created_at","updated_at","featured","curated","score"],"type":"object","properties":{"name":{"type":"string"},"display_name":{"type":["string","null"]},"short_description":{"type":["string","null"]},"description":{"type":["string","null"]},"created_by":{"type":["string","null"]},"released":{"type":["string","null"]},"created_at":{"type":"string","format":"date-time"},"updated_at":{"type":"string","format":"date-time"},"featured":{"type":"boolean"},"curated":{"type":"boolean"},"score":{"type":"number"},"repository_count":{"type":["integer","null"]},"logo_url":{"type":["string","null"],"format":"uri"},"text_matches":{"title":"Search Result Text Matches","type":"array","items":{"type":"object","properties":{"object_url":{"type":"string"},"object_type":{"type":["string","null"]},"property":{"type":"string"},"fragment":{"type":"string"},"matches":{"type":"array","items":{"type":"object","properties":{"text":{"type":"string"},"indices":{"type":"array","items":{"type":"integer"}}}}}}}},"related":{"type":["array","null"],"items":{"type":"object","properties":{"topic_relation":{"type":"object","properties":{"id":{"type":"integer"},"name":{"type":"string"},"topic_id":{"type":"integer"},"relation_type":{"type":"string"}}}}}},"aliases":{"type":["array","null"],"items":{"type":"object","properties":{"topic_relation":{"type":"object","properties":{"id":{"type":"integer"},"name":{"type":"string"},"topic_id":{"type":"integer"},"relation_type":{"type":"string"}}}}}}},"description":"Topic Search Result Item"}';
     public const SCHEMA_TITLE = 'Topic Search Result Item';
     public const SCHEMA_DESCRIPTION = 'Topic Search Result Item';
-    public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","display_name":"generated_display_name","short_description":"generated_short_description","description":"generated_description","created_by":"generated_created_by","released":"generated_released","created_at":"generated_created_at","updated_at":"generated_updated_at","featured":false,"curated":false,"score":13,"repository_count":13,"logo_url":"generated_logo_url","text_matches":[null],"related":null,"aliases":null}';
+    public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","display_name":"generated_display_name","short_description":"generated_short_description","description":"generated_description","created_by":"generated_created_by","released":"generated_released","created_at":"generated_created_at","updated_at":"generated_updated_at","featured":false,"curated":false,"score":13,"repository_count":13,"logo_url":"generated_logo_url","text_matches":[null],"related":[null],"aliases":[null]}';
     public ?string $name;
     public ?string $display_name;
     public ?string $short_description;
@@ -30,7 +30,13 @@ final readonly class TopicSearchResultItem
      * @var array<Schema\SearchResultTextMatches>
      */
     public array $text_matches;
+    /**
+     * @var array<Schema\TopicSearchResultItem\Related>
+     */
     public ?array $related;
+    /**
+     * @var array<Schema\TopicSearchResultItem\Related>
+     */
     public ?array $aliases;
     public function __construct(string $name, string $display_name, string $short_description, string $description, string $created_by, string $released, string $created_at, string $updated_at, bool $featured, bool $curated, int $score, int $repository_count, string $logo_url, array $text_matches, array $related, array $aliases)
     {
