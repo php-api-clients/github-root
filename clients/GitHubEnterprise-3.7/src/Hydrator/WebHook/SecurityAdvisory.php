@@ -36,6 +36,12 @@ class SecurityAdvisory implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Cvss' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Cvss($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Cwes' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Cwes($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Identifiers' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Identifiers($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\References' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️References($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\FirstPatchedVersion' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities⚡️FirstPatchedVersion($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\Package' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities⚡️Package($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryUpdated' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryUpdated($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryWithdrawn' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryWithdrawn($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryWithdrawn\SecurityAdvisory' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryWithdrawn⚡️SecurityAdvisory($payload),
@@ -3602,6 +3608,288 @@ class SecurityAdvisory implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Cwes(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Cwes
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['cwe_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'cwe_id';
+                    goto after_cwe_id;
+                }
+
+                $properties['cwe_id'] = $value;
+    
+                after_cwe_id:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Cwes', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Cwes::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Cwes(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Cwes', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Identifiers(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Identifiers
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['type'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'type';
+                    goto after_type;
+                }
+
+                $properties['type'] = $value;
+    
+                after_type:
+
+                $value = $payload['value'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'value';
+                    goto after_value;
+                }
+
+                $properties['value'] = $value;
+    
+                after_value:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Identifiers', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Identifiers::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Identifiers(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Identifiers', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️References(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\References
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\References', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\References::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\References(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\References', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['first_patched_version'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'first_patched_version';
+                    goto after_first_patched_version;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'first_patched_version';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities⚡️FirstPatchedVersion($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['first_patched_version'] = $value;
+    
+                after_first_patched_version:
+
+                $value = $payload['package'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'package';
+                    goto after_package;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'package';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities⚡️Package($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['package'] = $value;
+    
+                after_package:
+
+                $value = $payload['severity'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'severity';
+                    goto after_severity;
+                }
+
+                $properties['severity'] = $value;
+    
+                after_severity:
+
+                $value = $payload['vulnerable_version_range'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'vulnerable_version_range';
+                    goto after_vulnerable_version_range;
+                }
+
+                $properties['vulnerable_version_range'] = $value;
+    
+                after_vulnerable_version_range:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities⚡️FirstPatchedVersion(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\FirstPatchedVersion
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['identifier'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'identifier';
+                    goto after_identifier;
+                }
+
+                $properties['identifier'] = $value;
+    
+                after_identifier:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\FirstPatchedVersion', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\FirstPatchedVersion::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\FirstPatchedVersion(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\FirstPatchedVersion', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities⚡️Package(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\Package
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['ecosystem'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'ecosystem';
+                    goto after_ecosystem;
+                }
+
+                $properties['ecosystem'] = $value;
+    
+                after_ecosystem:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\Package', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\Package::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\Package(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\Package', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryUpdated(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryUpdated
         {
             $properties = []; 
@@ -4094,6 +4382,12 @@ class SecurityAdvisory implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Cvss' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Cvss($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Cwes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Cwes($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Identifiers' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Identifiers($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\References' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️References($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\FirstPatchedVersion' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities⚡️FirstPatchedVersion($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\Package' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities⚡️Package($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryUpdated' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryUpdated($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryWithdrawn' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryWithdrawn($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryWithdrawn\SecurityAdvisory' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryWithdrawn⚡️SecurityAdvisory($object),
@@ -6495,6 +6789,158 @@ class SecurityAdvisory implements ObjectMapper
             goto after_vector_string;
         }
         after_vector_string:        $result['vector_string'] = $vector_string;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Cwes(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Cwes);
+        $result = [];
+        
+        $cwe_id = $object->cwe_id;
+
+        if ($cwe_id === null) {
+            goto after_cwe_id;
+        }
+        after_cwe_id:        $result['cwe_id'] = $cwe_id;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Identifiers(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Identifiers);
+        $result = [];
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $value = $object->value;
+
+        if ($value === null) {
+            goto after_value;
+        }
+        after_value:        $result['value'] = $value;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️References(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\References);
+        $result = [];
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities);
+        $result = [];
+        
+        $first_patched_version = $object->first_patched_version;
+
+        if ($first_patched_version === null) {
+            goto after_first_patched_version;
+        }
+        $first_patched_version = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities⚡️FirstPatchedVersion($first_patched_version);
+        after_first_patched_version:        $result['first_patched_version'] = $first_patched_version;
+
+        
+        $package = $object->package;
+
+        if ($package === null) {
+            goto after_package;
+        }
+        $package = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities⚡️Package($package);
+        after_package:        $result['package'] = $package;
+
+        
+        $severity = $object->severity;
+
+        if ($severity === null) {
+            goto after_severity;
+        }
+        after_severity:        $result['severity'] = $severity;
+
+        
+        $vulnerable_version_range = $object->vulnerable_version_range;
+
+        if ($vulnerable_version_range === null) {
+            goto after_vulnerable_version_range;
+        }
+        after_vulnerable_version_range:        $result['vulnerable_version_range'] = $vulnerable_version_range;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities⚡️FirstPatchedVersion(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\FirstPatchedVersion);
+        $result = [];
+        
+        $identifier = $object->identifier;
+
+        if ($identifier === null) {
+            goto after_identifier;
+        }
+        after_identifier:        $result['identifier'] = $identifier;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookSecurityAdvisoryPublished⚡️SecurityAdvisory⚡️Vulnerabilities⚡️Package(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\Package);
+        $result = [];
+        
+        $ecosystem = $object->ecosystem;
+
+        if ($ecosystem === null) {
+            goto after_ecosystem;
+        }
+        after_ecosystem:        $result['ecosystem'] = $ecosystem;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
 
 
         return $result;

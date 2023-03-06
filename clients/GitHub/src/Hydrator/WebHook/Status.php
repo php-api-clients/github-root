@@ -24,12 +24,15 @@ class Status implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHub\Schema\WebhookStatus' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus($payload),
+                'ApiClients\Client\GitHub\Schema\WebhookStatus\Branches' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Branches($payload),
+                'ApiClients\Client\GitHub\Schema\WebhookStatus\Branches\Commit' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Branches⚡️Commit($payload),
                 'ApiClients\Client\GitHub\Schema\WebhookStatus\Commit' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Commit($payload),
                 'ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Commit⚡️Author($payload),
                 'ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Commit⚡️Commit($payload),
                 'ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Commit⚡️Commit⚡️Author($payload),
                 'ApiClients\Client\GitHub\Schema\ShortBranch\Commit' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️ShortBranch⚡️Commit($payload),
                 'ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit\Verification' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Commit⚡️Commit⚡️Verification($payload),
+                'ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Parents' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Commit⚡️Parents($payload),
                 'ApiClients\Client\GitHub\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Enterprise($payload),
                 'ApiClients\Client\GitHub\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️SimpleInstallation($payload),
                 'ApiClients\Client\GitHub\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️OrganizationSimple($payload),
@@ -304,6 +307,114 @@ class Status implements ObjectMapper
                 return new \ApiClients\Client\GitHub\Schema\WebhookStatus(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookStatus', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Branches(array $payload): \ApiClients\Client\GitHub\Schema\WebhookStatus\Branches
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['commit'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'commit';
+                    goto after_commit;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'commit';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Branches⚡️Commit($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['commit'] = $value;
+    
+                after_commit:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['protected'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'protected';
+                    goto after_protected;
+                }
+
+                $properties['protected'] = $value;
+    
+                after_protected:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookStatus\Branches', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\WebhookStatus\Branches::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHub\Schema\WebhookStatus\Branches(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookStatus\Branches', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Branches⚡️Commit(array $payload): \ApiClients\Client\GitHub\Schema\WebhookStatus\Branches\Commit
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['sha'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'sha';
+                    goto after_sha;
+                }
+
+                $properties['sha'] = $value;
+    
+                after_sha:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookStatus\Branches\Commit', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\WebhookStatus\Branches\Commit::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHub\Schema\WebhookStatus\Branches\Commit(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookStatus\Branches\Commit', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -1005,6 +1116,61 @@ class Status implements ObjectMapper
                 return new \ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit\Verification(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit\Verification', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Commit⚡️Parents(array $payload): \ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Parents
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+                $value = $payload['sha'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'sha';
+                    goto after_sha;
+                }
+
+                $properties['sha'] = $value;
+    
+                after_sha:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Parents', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Parents::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Parents(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Parents', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -4218,12 +4384,15 @@ class Status implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHub\Schema\WebhookStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus($object),
+                'ApiClients\Client\GitHub\Schema\WebhookStatus\Branches' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Branches($object),
+                'ApiClients\Client\GitHub\Schema\WebhookStatus\Branches\Commit' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Branches⚡️Commit($object),
                 'ApiClients\Client\GitHub\Schema\WebhookStatus\Commit' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Commit($object),
                 'ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Commit⚡️Author($object),
                 'ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Commit⚡️Commit($object),
                 'ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Commit⚡️Commit⚡️Author($object),
                 'ApiClients\Client\GitHub\Schema\ShortBranch\Commit' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️ShortBranch⚡️Commit($object),
                 'ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit\Verification' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Commit⚡️Commit⚡️Verification($object),
+                'ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Parents' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Commit⚡️Parents($object),
                 'ApiClients\Client\GitHub\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Enterprise($object),
                 'ApiClients\Client\GitHub\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️SimpleInstallation($object),
                 'ApiClients\Client\GitHub\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️OrganizationSimple($object),
@@ -4448,6 +4617,65 @@ class Status implements ObjectMapper
             goto after_updated_at;
         }
         after_updated_at:        $result['updated_at'] = $updated_at;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Branches(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\WebhookStatus\Branches);
+        $result = [];
+        
+        $commit = $object->commit;
+
+        if ($commit === null) {
+            goto after_commit;
+        }
+        $commit = $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Branches⚡️Commit($commit);
+        after_commit:        $result['commit'] = $commit;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $protected = $object->protected;
+
+        if ($protected === null) {
+            goto after_protected;
+        }
+        after_protected:        $result['protected'] = $protected;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Branches⚡️Commit(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\WebhookStatus\Branches\Commit);
+        $result = [];
+        
+        $sha = $object->sha;
+
+        if ($sha === null) {
+            goto after_sha;
+        }
+        after_sha:        $result['sha'] = $sha;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
 
 
         return $result;
@@ -4877,6 +5105,39 @@ class Status implements ObjectMapper
             goto after_verified;
         }
         after_verified:        $result['verified'] = $verified;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookStatus⚡️Commit⚡️Parents(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Parents);
+        $result = [];
+        
+        $html_url = $object->html_url;
+
+        if ($html_url === null) {
+            goto after_html_url;
+        }
+        after_html_url:        $result['html_url'] = $html_url;
+
+        
+        $sha = $object->sha;
+
+        if ($sha === null) {
+            goto after_sha;
+        }
+        after_sha:        $result['sha'] = $sha;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
 
 
         return $result;

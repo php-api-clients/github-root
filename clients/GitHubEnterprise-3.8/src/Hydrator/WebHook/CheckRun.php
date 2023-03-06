@@ -29,6 +29,9 @@ class CheckRun implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Integration\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Integration⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleCheckSuite' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleCheckSuite($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal⚡️Head($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head\Repo' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct($payload),
@@ -1182,6 +1185,220 @@ class CheckRun implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterprise\Schema\SimpleCheckSuite(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SimpleCheckSuite', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['number'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'number';
+                    goto after_number;
+                }
+
+                $properties['number'] = $value;
+    
+                after_number:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['head'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'head';
+                    goto after_head;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'head';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal⚡️Head($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['head'] = $value;
+    
+                after_head:
+
+                $value = $payload['base'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'base';
+                    goto after_base;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'base';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal⚡️Head($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['base'] = $value;
+    
+                after_base:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal⚡️Head(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['ref'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'ref';
+                    goto after_ref;
+                }
+
+                $properties['ref'] = $value;
+    
+                after_ref:
+
+                $value = $payload['sha'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'sha';
+                    goto after_sha;
+                }
+
+                $properties['sha'] = $value;
+    
+                after_sha:
+
+                $value = $payload['repo'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'repo';
+                    goto after_repo;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'repo';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['repo'] = $value;
+    
+                after_repo:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head\Repo
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head\Repo', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head\Repo::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head\Repo(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head\Repo', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -6154,6 +6371,9 @@ class CheckRun implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Integration\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Integration⚡️Permissions($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleCheckSuite' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleCheckSuite($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal⚡️Head($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head\Repo' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct($object),
@@ -6935,6 +7155,124 @@ class CheckRun implements ObjectMapper
             goto after_url;
         }
         after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal);
+        $result = [];
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $number = $object->number;
+
+        if ($number === null) {
+            goto after_number;
+        }
+        after_number:        $result['number'] = $number;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $head = $object->head;
+
+        if ($head === null) {
+            goto after_head;
+        }
+        $head = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal⚡️Head($head);
+        after_head:        $result['head'] = $head;
+
+        
+        $base = $object->base;
+
+        if ($base === null) {
+            goto after_base;
+        }
+        $base = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal⚡️Head($base);
+        after_base:        $result['base'] = $base;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal⚡️Head(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head);
+        $result = [];
+        
+        $ref = $object->ref;
+
+        if ($ref === null) {
+            goto after_ref;
+        }
+        after_ref:        $result['ref'] = $ref;
+
+        
+        $sha = $object->sha;
+
+        if ($sha === null) {
+            goto after_sha;
+        }
+        after_sha:        $result['sha'] = $sha;
+
+        
+        $repo = $object->repo;
+
+        if ($repo === null) {
+            goto after_repo;
+        }
+        $repo = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($repo);
+        after_repo:        $result['repo'] = $repo;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequestMinimal\Head\Repo);
+        $result = [];
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
 
 
         return $result;

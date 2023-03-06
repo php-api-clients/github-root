@@ -24,9 +24,10 @@ class Push implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\WebhookPush' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPush($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Commits' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPush⚡️Commits($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit⚡️Author($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Enterprise($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\HeadCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPush⚡️HeadCommit($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit⚡️Author($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleInstallation($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrganizationSimple($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Pusher' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPush⚡️Pusher($payload),
@@ -297,6 +298,233 @@ class Push implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookPush(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPush', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPush⚡️Commits(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Commits
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['added'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'added';
+                    goto after_added;
+                }
+
+                $properties['added'] = $value;
+    
+                after_added:
+
+                $value = $payload['author'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'author';
+                    goto after_author;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'author';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit⚡️Author($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['author'] = $value;
+    
+                after_author:
+
+                $value = $payload['committer'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'committer';
+                    goto after_committer;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'committer';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit⚡️Author($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['committer'] = $value;
+    
+                after_committer:
+
+                $value = $payload['distinct'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'distinct';
+                    goto after_distinct;
+                }
+
+                $properties['distinct'] = $value;
+    
+                after_distinct:
+
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['message'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'message';
+                    goto after_message;
+                }
+
+                $properties['message'] = $value;
+    
+                after_message:
+
+                $value = $payload['modified'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'modified';
+                    goto after_modified;
+                }
+
+                $properties['modified'] = $value;
+    
+                after_modified:
+
+                $value = $payload['removed'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'removed';
+                    goto after_removed;
+                }
+
+                $properties['removed'] = $value;
+    
+                after_removed:
+
+                $value = $payload['timestamp'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'timestamp';
+                    goto after_timestamp;
+                }
+
+                $properties['timestamp'] = $value;
+    
+                after_timestamp:
+
+                $value = $payload['tree_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'tree_id';
+                    goto after_tree_id;
+                }
+
+                $properties['tree_id'] = $value;
+    
+                after_tree_id:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Commits', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Commits::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Commits(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Commits', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit⚡️Author(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['date'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'date';
+                    goto after_date;
+                }
+
+                $properties['date'] = $value;
+    
+                after_date:
+
+                $value = $payload['email'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'email';
+                    goto after_email;
+                }
+
+                $properties['email'] = $value;
+    
+                after_email:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['username'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'username';
+                    goto after_username;
+                }
+
+                $properties['username'] = $value;
+    
+                after_username:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -590,72 +818,6 @@ class Push implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\HeadCommit(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\HeadCommit', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit⚡️Author(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['date'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'date';
-                    goto after_date;
-                }
-
-                $properties['date'] = $value;
-    
-                after_date:
-
-                $value = $payload['email'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'email';
-                    goto after_email;
-                }
-
-                $properties['email'] = $value;
-    
-                after_email:
-
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'name';
-                    goto after_name;
-                }
-
-                $properties['name'] = $value;
-    
-                after_name:
-
-                $value = $payload['username'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'username';
-                    goto after_username;
-                }
-
-                $properties['username'] = $value;
-    
-                after_username:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -2645,9 +2807,10 @@ class Push implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPush' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPush($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Commits' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPush⚡️Commits($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit⚡️Author($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Enterprise($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\HeadCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPush⚡️HeadCommit($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit⚡️Author($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleInstallation($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrganizationSimple($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Pusher' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPush⚡️Pusher($object),
@@ -2865,6 +3028,150 @@ class Push implements ObjectMapper
     }
 
     
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPush⚡️Commits(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Commits);
+        $result = [];
+        
+        $added = $object->added;
+        static $addedSerializer0;
+
+        if ($addedSerializer0 === null) {
+            $addedSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $added = $addedSerializer0->serialize($added, $this);
+        after_added:        $result['added'] = $added;
+
+        
+        $author = $object->author;
+
+        if ($author === null) {
+            goto after_author;
+        }
+        $author = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit⚡️Author($author);
+        after_author:        $result['author'] = $author;
+
+        
+        $committer = $object->committer;
+
+        if ($committer === null) {
+            goto after_committer;
+        }
+        $committer = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit⚡️Author($committer);
+        after_committer:        $result['committer'] = $committer;
+
+        
+        $distinct = $object->distinct;
+
+        if ($distinct === null) {
+            goto after_distinct;
+        }
+        after_distinct:        $result['distinct'] = $distinct;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $message = $object->message;
+
+        if ($message === null) {
+            goto after_message;
+        }
+        after_message:        $result['message'] = $message;
+
+        
+        $modified = $object->modified;
+        static $modifiedSerializer0;
+
+        if ($modifiedSerializer0 === null) {
+            $modifiedSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $modified = $modifiedSerializer0->serialize($modified, $this);
+        after_modified:        $result['modified'] = $modified;
+
+        
+        $removed = $object->removed;
+        static $removedSerializer0;
+
+        if ($removedSerializer0 === null) {
+            $removedSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $removed = $removedSerializer0->serialize($removed, $this);
+        after_removed:        $result['removed'] = $removed;
+
+        
+        $timestamp = $object->timestamp;
+
+        if ($timestamp === null) {
+            goto after_timestamp;
+        }
+        after_timestamp:        $result['timestamp'] = $timestamp;
+
+        
+        $tree_id = $object->tree_id;
+
+        if ($tree_id === null) {
+            goto after_tree_id;
+        }
+        after_tree_id:        $result['tree_id'] = $tree_id;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit⚡️Author(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author);
+        $result = [];
+        
+        $date = $object->date;
+        after_date:        $result['date'] = $date;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $username = $object->username;
+        after_username:        $result['username'] = $username;
+
+
+        return $result;
+    }
+
+    
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Enterprise(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Enterprise);
@@ -3059,39 +3366,6 @@ class Push implements ObjectMapper
             goto after_url;
         }
         after_url:        $result['url'] = $url;
-
-
-        return $result;
-    }
-
-    
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit⚡️Author(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author);
-        $result = [];
-        
-        $date = $object->date;
-        after_date:        $result['date'] = $date;
-
-        
-        $email = $object->email;
-
-        if ($email === null) {
-            goto after_email;
-        }
-        after_email:        $result['email'] = $email;
-
-        
-        $name = $object->name;
-
-        if ($name === null) {
-            goto after_name;
-        }
-        after_name:        $result['name'] = $name;
-
-        
-        $username = $object->username;
-        after_username:        $result['username'] = $username;
 
 
         return $result;

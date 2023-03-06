@@ -29,6 +29,7 @@ class Installation implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\AppPermissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AppPermissions($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimple($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationCreated\Repositories' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookInstallationCreated⚡️Repositories($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️LicenseSimple($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️Permissions($payload),
@@ -1398,6 +1399,83 @@ class Installation implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimple(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookInstallationCreated⚡️Repositories(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationCreated\Repositories
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['full_name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'full_name';
+                    goto after_full_name;
+                }
+
+                $properties['full_name'] = $value;
+    
+                after_full_name:
+
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
+                $value = $payload['private'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'private';
+                    goto after_private;
+                }
+
+                $properties['private'] = $value;
+    
+                after_private:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationCreated\Repositories', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationCreated\Repositories::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationCreated\Repositories(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationCreated\Repositories', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -4906,6 +4984,7 @@ class Installation implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\AppPermissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AppPermissions($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimple($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationCreated\Repositories' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookInstallationCreated⚡️Repositories($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️LicenseSimple($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️Permissions($object),
@@ -5875,6 +5954,55 @@ class Installation implements ObjectMapper
             goto after_description;
         }
         after_description:        $result['description'] = $description;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookInstallationCreated⚡️Repositories(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationCreated\Repositories);
+        $result = [];
+        
+        $full_name = $object->full_name;
+
+        if ($full_name === null) {
+            goto after_full_name;
+        }
+        after_full_name:        $result['full_name'] = $full_name;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $node_id = $object->node_id;
+
+        if ($node_id === null) {
+            goto after_node_id;
+        }
+        after_node_id:        $result['node_id'] = $node_id;
+
+        
+        $private = $object->private;
+
+        if ($private === null) {
+            goto after_private;
+        }
+        after_private:        $result['private'] = $private;
 
 
         return $result;

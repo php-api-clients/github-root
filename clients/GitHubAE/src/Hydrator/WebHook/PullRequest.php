@@ -39,7 +39,11 @@ class PullRequest implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\Head' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️Head($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\Head\Repo' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️Head⚡️Repo($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssuesAssigned\Issue\Milestone' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesAssigned⚡️Issue⚡️Milestone($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\RequestedReviewers' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️RequestedReviewers($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($payload),
                 'ApiClients\Client\GitHubAE\Schema\LicenseSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️LicenseSimple($payload),
                 'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
@@ -83,7 +87,6 @@ class PullRequest implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Title' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Title($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestEdited\PullRequest' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestEdited⚡️PullRequest($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestLabeled' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestLabeled($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestLocked' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestLocked($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestLocked\PullRequest' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestLocked⚡️PullRequest($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestMilestoned' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestMilestoned($payload),
@@ -4602,6 +4605,105 @@ class PullRequest implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['color'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'color';
+                    goto after_color;
+                }
+
+                $properties['color'] = $value;
+    
+                after_color:
+
+                $value = $payload['default'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'default';
+                    goto after_default;
+                }
+
+                $properties['default'] = $value;
+    
+                after_default:
+
+                $value = $payload['description'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'description';
+                    goto after_description;
+                }
+
+                $properties['description'] = $value;
+    
+                after_description:
+
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesAssigned⚡️Issue⚡️Milestone(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssuesAssigned\Issue\Milestone
         {
             $properties = []; 
@@ -4805,6 +4907,497 @@ class PullRequest implements ObjectMapper
                 return new \ApiClients\Client\GitHubAE\Schema\WebhookIssuesAssigned\Issue\Milestone(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesAssigned\Issue\Milestone', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️RequestedReviewers(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\RequestedReviewers
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['deleted'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'deleted';
+                    goto after_deleted;
+                }
+
+                $properties['deleted'] = $value;
+    
+                after_deleted:
+
+                $value = $payload['description'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'description';
+                    goto after_description;
+                }
+
+                $properties['description'] = $value;
+    
+                after_description:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['members_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'members_url';
+                    goto after_members_url;
+                }
+
+                $properties['members_url'] = $value;
+    
+                after_members_url:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
+                $value = $payload['parent'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'parent';
+                    goto after_parent;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'parent';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['parent'] = $value;
+    
+                after_parent:
+
+                $value = $payload['permission'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'permission';
+                    goto after_permission;
+                }
+
+                $properties['permission'] = $value;
+    
+                after_permission:
+
+                $value = $payload['privacy'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'privacy';
+                    goto after_privacy;
+                }
+
+                $properties['privacy'] = $value;
+    
+                after_privacy:
+
+                $value = $payload['repositories_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'repositories_url';
+                    goto after_repositories_url;
+                }
+
+                $properties['repositories_url'] = $value;
+    
+                after_repositories_url:
+
+                $value = $payload['slug'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'slug';
+                    goto after_slug;
+                }
+
+                $properties['slug'] = $value;
+    
+                after_slug:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\RequestedReviewers', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\RequestedReviewers::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\RequestedReviewers(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\RequestedReviewers', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['description'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'description';
+                    goto after_description;
+                }
+
+                $properties['description'] = $value;
+    
+                after_description:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['members_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'members_url';
+                    goto after_members_url;
+                }
+
+                $properties['members_url'] = $value;
+    
+                after_members_url:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
+                $value = $payload['permission'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'permission';
+                    goto after_permission;
+                }
+
+                $properties['permission'] = $value;
+    
+                after_permission:
+
+                $value = $payload['privacy'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'privacy';
+                    goto after_privacy;
+                }
+
+                $properties['privacy'] = $value;
+    
+                after_privacy:
+
+                $value = $payload['repositories_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'repositories_url';
+                    goto after_repositories_url;
+                }
+
+                $properties['repositories_url'] = $value;
+    
+                after_repositories_url:
+
+                $value = $payload['slug'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'slug';
+                    goto after_slug;
+                }
+
+                $properties['slug'] = $value;
+    
+                after_slug:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['deleted'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'deleted';
+                    goto after_deleted;
+                }
+
+                $properties['deleted'] = $value;
+    
+                after_deleted:
+
+                $value = $payload['description'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'description';
+                    goto after_description;
+                }
+
+                $properties['description'] = $value;
+    
+                after_description:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['members_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'members_url';
+                    goto after_members_url;
+                }
+
+                $properties['members_url'] = $value;
+    
+                after_members_url:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
+                $value = $payload['parent'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'parent';
+                    goto after_parent;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'parent';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['parent'] = $value;
+    
+                after_parent:
+
+                $value = $payload['permission'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'permission';
+                    goto after_permission;
+                }
+
+                $properties['permission'] = $value;
+    
+                after_permission:
+
+                $value = $payload['privacy'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'privacy';
+                    goto after_privacy;
+                }
+
+                $properties['privacy'] = $value;
+    
+                after_privacy:
+
+                $value = $payload['repositories_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'repositories_url';
+                    goto after_repositories_url;
+                }
+
+                $properties['repositories_url'] = $value;
+    
+                after_repositories_url:
+
+                $value = $payload['slug'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'slug';
+                    goto after_slug;
+                }
+
+                $properties['slug'] = $value;
+    
+                after_slug:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -20657,105 +21250,6 @@ class PullRequest implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['color'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'color';
-                    goto after_color;
-                }
-
-                $properties['color'] = $value;
-    
-                after_color:
-
-                $value = $payload['default'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'default';
-                    goto after_default;
-                }
-
-                $properties['default'] = $value;
-    
-                after_default:
-
-                $value = $payload['description'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'description';
-                    goto after_description;
-                }
-
-                $properties['description'] = $value;
-    
-                after_description:
-
-                $value = $payload['id'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'id';
-                    goto after_id;
-                }
-
-                $properties['id'] = $value;
-    
-                after_id:
-
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'name';
-                    goto after_name;
-                }
-
-                $properties['name'] = $value;
-    
-                after_name:
-
-                $value = $payload['node_id'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'node_id';
-                    goto after_node_id;
-                }
-
-                $properties['node_id'] = $value;
-    
-                after_node_id:
-
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'url';
-                    goto after_url;
-                }
-
-                $properties['url'] = $value;
-    
-                after_url:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
         private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestLocked(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPullRequestLocked
         {
             $properties = []; 
@@ -31033,7 +31527,11 @@ class PullRequest implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\Head' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️Head($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\Head\Repo' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️Head⚡️Repo($object),
+                'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssuesAssigned\Issue\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesAssigned⚡️Issue⚡️Milestone($object),
+                'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\RequestedReviewers' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️RequestedReviewers($object),
+                'ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($object),
+                'ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team($object),
                 'ApiClients\Client\GitHubAE\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($object),
                 'ApiClients\Client\GitHubAE\Schema\LicenseSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️LicenseSimple($object),
                 'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
@@ -31077,7 +31575,6 @@ class PullRequest implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Title' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Title($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestEdited\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestEdited⚡️PullRequest($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestLabeled' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestLabeled($object),
-                'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestLocked' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestLocked($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestLocked\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestLocked⚡️PullRequest($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestMilestoned' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestMilestoned($object),
@@ -33831,6 +34328,71 @@ class PullRequest implements ObjectMapper
     }
 
     
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label);
+        $result = [];
+        
+        $color = $object->color;
+
+        if ($color === null) {
+            goto after_color;
+        }
+        after_color:        $result['color'] = $color;
+
+        
+        $default = $object->default;
+
+        if ($default === null) {
+            goto after_default;
+        }
+        after_default:        $result['default'] = $default;
+
+        
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+        after_description:        $result['description'] = $description;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $node_id = $object->node_id;
+
+        if ($node_id === null) {
+            goto after_node_id;
+        }
+        after_node_id:        $result['node_id'] = $node_id;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesAssigned⚡️Issue⚡️Milestone(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssuesAssigned\Issue\Milestone);
@@ -33962,6 +34524,291 @@ class PullRequest implements ObjectMapper
         if ($url === null) {
             goto after_url;
         }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️RequestedReviewers(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\RequestedReviewers);
+        $result = [];
+        
+        $deleted = $object->deleted;
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+        after_description:        $result['description'] = $description;
+
+        
+        $html_url = $object->html_url;
+
+        if ($html_url === null) {
+            goto after_html_url;
+        }
+        after_html_url:        $result['html_url'] = $html_url;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $members_url = $object->members_url;
+
+        if ($members_url === null) {
+            goto after_members_url;
+        }
+        after_members_url:        $result['members_url'] = $members_url;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $node_id = $object->node_id;
+
+        if ($node_id === null) {
+            goto after_node_id;
+        }
+        after_node_id:        $result['node_id'] = $node_id;
+
+        
+        $parent = $object->parent;
+
+        if ($parent === null) {
+            goto after_parent;
+        }
+        $parent = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($parent);
+        after_parent:        $result['parent'] = $parent;
+
+        
+        $permission = $object->permission;
+
+        if ($permission === null) {
+            goto after_permission;
+        }
+        after_permission:        $result['permission'] = $permission;
+
+        
+        $privacy = $object->privacy;
+
+        if ($privacy === null) {
+            goto after_privacy;
+        }
+        after_privacy:        $result['privacy'] = $privacy;
+
+        
+        $repositories_url = $object->repositories_url;
+
+        if ($repositories_url === null) {
+            goto after_repositories_url;
+        }
+        after_repositories_url:        $result['repositories_url'] = $repositories_url;
+
+        
+        $slug = $object->slug;
+
+        if ($slug === null) {
+            goto after_slug;
+        }
+        after_slug:        $result['slug'] = $slug;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_);
+        $result = [];
+        
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+        after_description:        $result['description'] = $description;
+
+        
+        $html_url = $object->html_url;
+
+        if ($html_url === null) {
+            goto after_html_url;
+        }
+        after_html_url:        $result['html_url'] = $html_url;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $members_url = $object->members_url;
+
+        if ($members_url === null) {
+            goto after_members_url;
+        }
+        after_members_url:        $result['members_url'] = $members_url;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $node_id = $object->node_id;
+
+        if ($node_id === null) {
+            goto after_node_id;
+        }
+        after_node_id:        $result['node_id'] = $node_id;
+
+        
+        $permission = $object->permission;
+
+        if ($permission === null) {
+            goto after_permission;
+        }
+        after_permission:        $result['permission'] = $permission;
+
+        
+        $privacy = $object->privacy;
+
+        if ($privacy === null) {
+            goto after_privacy;
+        }
+        after_privacy:        $result['privacy'] = $privacy;
+
+        
+        $repositories_url = $object->repositories_url;
+
+        if ($repositories_url === null) {
+            goto after_repositories_url;
+        }
+        after_repositories_url:        $result['repositories_url'] = $repositories_url;
+
+        
+        $slug = $object->slug;
+
+        if ($slug === null) {
+            goto after_slug;
+        }
+        after_slug:        $result['slug'] = $slug;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team);
+        $result = [];
+        
+        $deleted = $object->deleted;
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+        after_description:        $result['description'] = $description;
+
+        
+        $html_url = $object->html_url;
+        after_html_url:        $result['html_url'] = $html_url;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $members_url = $object->members_url;
+        after_members_url:        $result['members_url'] = $members_url;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $node_id = $object->node_id;
+        after_node_id:        $result['node_id'] = $node_id;
+
+        
+        $parent = $object->parent;
+
+        if ($parent === null) {
+            goto after_parent;
+        }
+        $parent = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($parent);
+        after_parent:        $result['parent'] = $parent;
+
+        
+        $permission = $object->permission;
+        after_permission:        $result['permission'] = $permission;
+
+        
+        $privacy = $object->privacy;
+        after_privacy:        $result['privacy'] = $privacy;
+
+        
+        $repositories_url = $object->repositories_url;
+        after_repositories_url:        $result['repositories_url'] = $repositories_url;
+
+        
+        $slug = $object->slug;
+        after_slug:        $result['slug'] = $slug;
+
+        
+        $url = $object->url;
         after_url:        $result['url'] = $url;
 
 
@@ -43913,71 +44760,6 @@ class PullRequest implements ObjectMapper
         }
         $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
-
-
-        return $result;
-    }
-
-    
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label);
-        $result = [];
-        
-        $color = $object->color;
-
-        if ($color === null) {
-            goto after_color;
-        }
-        after_color:        $result['color'] = $color;
-
-        
-        $default = $object->default;
-
-        if ($default === null) {
-            goto after_default;
-        }
-        after_default:        $result['default'] = $default;
-
-        
-        $description = $object->description;
-
-        if ($description === null) {
-            goto after_description;
-        }
-        after_description:        $result['description'] = $description;
-
-        
-        $id = $object->id;
-
-        if ($id === null) {
-            goto after_id;
-        }
-        after_id:        $result['id'] = $id;
-
-        
-        $name = $object->name;
-
-        if ($name === null) {
-            goto after_name;
-        }
-        after_name:        $result['name'] = $name;
-
-        
-        $node_id = $object->node_id;
-
-        if ($node_id === null) {
-            goto after_node_id;
-        }
-        after_node_id:        $result['node_id'] = $node_id;
-
-        
-        $url = $object->url;
-
-        if ($url === null) {
-            goto after_url;
-        }
-        after_url:        $result['url'] = $url;
 
 
         return $result;

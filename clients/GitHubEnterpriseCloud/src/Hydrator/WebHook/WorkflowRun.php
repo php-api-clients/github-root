@@ -40,6 +40,7 @@ class WorkflowRun implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunCompleted⚡️WorkflowRun⚡️HeadCommit($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadCommit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunCompleted⚡️WorkflowRun⚡️HeadCommit⚡️Author($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunCompleted⚡️WorkflowRun⚡️HeadRepository($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDeploymentCreated\WorkflowRun\ReferencedWorkflows' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDeploymentCreated⚡️WorkflowRun⚡️ReferencedWorkflows($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectCardMoved\ProjectCard\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunInProgress' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunInProgress($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunInProgress\WorkflowRun' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunInProgress⚡️WorkflowRun($payload),
@@ -50,6 +51,9 @@ class WorkflowRun implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit⚡️Author($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunRequested\WorkflowRun\HeadRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunRequested⚡️WorkflowRun⚡️HeadRepository($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunRequested\WorkflowRun\PullRequests' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunRequested⚡️WorkflowRun⚡️PullRequests($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base\Repo' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base⚡️Repo($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -4906,6 +4910,61 @@ class WorkflowRun implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDeploymentCreated⚡️WorkflowRun⚡️ReferencedWorkflows(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDeploymentCreated\WorkflowRun\ReferencedWorkflows
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['path'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'path';
+                    goto after_path;
+                }
+
+                $properties['path'] = $value;
+    
+                after_path:
+
+                $value = $payload['ref'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'ref';
+                    goto after_ref;
+                }
+
+                $properties['ref'] = $value;
+    
+                after_ref:
+
+                $value = $payload['sha'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'sha';
+                    goto after_sha;
+                }
+
+                $properties['sha'] = $value;
+    
+                after_sha:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDeploymentCreated\WorkflowRun\ReferencedWorkflows', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDeploymentCreated\WorkflowRun\ReferencedWorkflows::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDeploymentCreated\WorkflowRun\ReferencedWorkflows(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDeploymentCreated\WorkflowRun\ReferencedWorkflows', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectCardMoved\ProjectCard\Creator
         {
             $properties = []; 
@@ -7862,6 +7921,220 @@ class WorkflowRun implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunRequested\WorkflowRun\HeadRepository', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunRequested⚡️WorkflowRun⚡️PullRequests(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunRequested\WorkflowRun\PullRequests
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['base'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'base';
+                    goto after_base;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'base';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['base'] = $value;
+    
+                after_base:
+
+                $value = $payload['head'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'head';
+                    goto after_head;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'head';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['head'] = $value;
+    
+                after_head:
+
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['number'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'number';
+                    goto after_number;
+                }
+
+                $properties['number'] = $value;
+    
+                after_number:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunRequested\WorkflowRun\PullRequests', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunRequested\WorkflowRun\PullRequests::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunRequested\WorkflowRun\PullRequests(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunRequested\WorkflowRun\PullRequests', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['ref'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'ref';
+                    goto after_ref;
+                }
+
+                $properties['ref'] = $value;
+    
+                after_ref:
+
+                $value = $payload['repo'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'repo';
+                    goto after_repo;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'repo';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base⚡️Repo($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['repo'] = $value;
+    
+                after_repo:
+
+                $value = $payload['sha'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'sha';
+                    goto after_sha;
+                }
+
+                $properties['sha'] = $value;
+    
+                after_sha:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base⚡️Repo(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base\Repo
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base\Repo', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base\Repo::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base\Repo(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base\Repo', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -7891,6 +8164,7 @@ class WorkflowRun implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunCompleted⚡️WorkflowRun⚡️HeadCommit($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunCompleted⚡️WorkflowRun⚡️HeadCommit⚡️Author($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunCompleted⚡️WorkflowRun⚡️HeadRepository($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDeploymentCreated\WorkflowRun\ReferencedWorkflows' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDeploymentCreated⚡️WorkflowRun⚡️ReferencedWorkflows($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectCardMoved\ProjectCard\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunInProgress' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunInProgress($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunInProgress\WorkflowRun' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunInProgress⚡️WorkflowRun($object),
@@ -7901,6 +8175,9 @@ class WorkflowRun implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️HeadCommit⚡️Author($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunRequested\WorkflowRun\HeadRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunRequested⚡️WorkflowRun⚡️HeadRepository($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunRequested\WorkflowRun\PullRequests' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunRequested⚡️WorkflowRun⚡️PullRequests($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base\Repo' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base⚡️Repo($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -11053,6 +11330,35 @@ class WorkflowRun implements ObjectMapper
     }
 
     
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDeploymentCreated⚡️WorkflowRun⚡️ReferencedWorkflows(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDeploymentCreated\WorkflowRun\ReferencedWorkflows);
+        $result = [];
+        
+        $path = $object->path;
+
+        if ($path === null) {
+            goto after_path;
+        }
+        after_path:        $result['path'] = $path;
+
+        
+        $ref = $object->ref;
+        after_ref:        $result['ref'] = $ref;
+
+        
+        $sha = $object->sha;
+
+        if ($sha === null) {
+            goto after_sha;
+        }
+        after_sha:        $result['sha'] = $sha;
+
+
+        return $result;
+    }
+
+    
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectCardMoved\ProjectCard\Creator);
@@ -12777,6 +13083,124 @@ class WorkflowRun implements ObjectMapper
             goto after_trees_url;
         }
         after_trees_url:        $result['trees_url'] = $trees_url;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookWorkflowRunRequested⚡️WorkflowRun⚡️PullRequests(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookWorkflowRunRequested\WorkflowRun\PullRequests);
+        $result = [];
+        
+        $base = $object->base;
+
+        if ($base === null) {
+            goto after_base;
+        }
+        $base = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base($base);
+        after_base:        $result['base'] = $base;
+
+        
+        $head = $object->head;
+
+        if ($head === null) {
+            goto after_head;
+        }
+        $head = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base($head);
+        after_head:        $result['head'] = $head;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $number = $object->number;
+
+        if ($number === null) {
+            goto after_number;
+        }
+        after_number:        $result['number'] = $number;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base);
+        $result = [];
+        
+        $ref = $object->ref;
+
+        if ($ref === null) {
+            goto after_ref;
+        }
+        after_ref:        $result['ref'] = $ref;
+
+        
+        $repo = $object->repo;
+
+        if ($repo === null) {
+            goto after_repo;
+        }
+        $repo = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base⚡️Repo($repo);
+        after_repo:        $result['repo'] = $repo;
+
+        
+        $sha = $object->sha;
+
+        if ($sha === null) {
+            goto after_sha;
+        }
+        after_sha:        $result['sha'] = $sha;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base⚡️Repo(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base\Repo);
+        $result = [];
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
 
         
         $url = $object->url;

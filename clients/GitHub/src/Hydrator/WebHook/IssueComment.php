@@ -34,6 +34,7 @@ class IssueComment implements ObjectMapper
                 'ApiClients\Client\GitHub\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️SimpleInstallation($payload),
                 'ApiClients\Client\GitHub\Schema\WebhookIssueCommentCreated\Issue' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue($payload),
                 'ApiClients\Client\GitHub\Schema\WebhookIssueCommentCreated\Issue\Assignee' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($payload),
+                'ApiClients\Client\GitHub\Schema\WebhookDiscussionLabeled\Label' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label($payload),
                 'ApiClients\Client\GitHub\Schema\WebhookDiscussionCreated\Discussion\Reactions' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookDiscussionCreated⚡️Discussion⚡️Reactions($payload),
                 'ApiClients\Client\GitHub\Schema\WebhookDeploymentCreated\WorkflowRun\HeadRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookDeploymentCreated⚡️WorkflowRun⚡️HeadRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHub\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️OrganizationSimple($payload),
@@ -2139,6 +2140,105 @@ class IssueComment implements ObjectMapper
                 return new \ApiClients\Client\GitHub\Schema\WebhookIssueCommentCreated\Issue\Assignee(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookIssueCommentCreated\Issue\Assignee', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label(array $payload): \ApiClients\Client\GitHub\Schema\WebhookDiscussionLabeled\Label
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['color'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'color';
+                    goto after_color;
+                }
+
+                $properties['color'] = $value;
+    
+                after_color:
+
+                $value = $payload['default'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'default';
+                    goto after_default;
+                }
+
+                $properties['default'] = $value;
+    
+                after_default:
+
+                $value = $payload['description'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'description';
+                    goto after_description;
+                }
+
+                $properties['description'] = $value;
+    
+                after_description:
+
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'node_id';
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookDiscussionLabeled\Label', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\WebhookDiscussionLabeled\Label::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHub\Schema\WebhookDiscussionLabeled\Label(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookDiscussionLabeled\Label', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -5929,6 +6029,7 @@ class IssueComment implements ObjectMapper
                 'ApiClients\Client\GitHub\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️SimpleInstallation($object),
                 'ApiClients\Client\GitHub\Schema\WebhookIssueCommentCreated\Issue' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue($object),
                 'ApiClients\Client\GitHub\Schema\WebhookIssueCommentCreated\Issue\Assignee' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($object),
+                'ApiClients\Client\GitHub\Schema\WebhookDiscussionLabeled\Label' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label($object),
                 'ApiClients\Client\GitHub\Schema\WebhookDiscussionCreated\Discussion\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookDiscussionCreated⚡️Discussion⚡️Reactions($object),
                 'ApiClients\Client\GitHub\Schema\WebhookDeploymentCreated\WorkflowRun\HeadRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookDeploymentCreated⚡️WorkflowRun⚡️HeadRepository⚡️Owner($object),
                 'ApiClients\Client\GitHub\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️OrganizationSimple($object),
@@ -7129,6 +7230,71 @@ class IssueComment implements ObjectMapper
 
         
         $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\WebhookDiscussionLabeled\Label);
+        $result = [];
+        
+        $color = $object->color;
+
+        if ($color === null) {
+            goto after_color;
+        }
+        after_color:        $result['color'] = $color;
+
+        
+        $default = $object->default;
+
+        if ($default === null) {
+            goto after_default;
+        }
+        after_default:        $result['default'] = $default;
+
+        
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+        after_description:        $result['description'] = $description;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $node_id = $object->node_id;
+
+        if ($node_id === null) {
+            goto after_node_id;
+        }
+        after_node_id:        $result['node_id'] = $node_id;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
         after_url:        $result['url'] = $url;
 
 

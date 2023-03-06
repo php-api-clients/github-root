@@ -37,8 +37,10 @@ class WorkflowJob implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobCompleted\WorkflowJob' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobCompleted⚡️WorkflowJob($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobInProgress' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobInProgress($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobInProgress\WorkflowJob' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobInProgress⚡️WorkflowJob($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobInProgress\WorkflowJob\Steps' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobInProgress⚡️WorkflowJob⚡️Steps($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobQueued($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued\WorkflowJob' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobQueued⚡️WorkflowJob($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued\WorkflowJob\Steps' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobQueued⚡️WorkflowJob⚡️Steps($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -4098,6 +4100,94 @@ class WorkflowJob implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobInProgress⚡️WorkflowJob⚡️Steps(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobInProgress\WorkflowJob\Steps
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['completed_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'completed_at';
+                    goto after_completed_at;
+                }
+
+                $properties['completed_at'] = $value;
+    
+                after_completed_at:
+
+                $value = $payload['conclusion'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'conclusion';
+                    goto after_conclusion;
+                }
+
+                $properties['conclusion'] = $value;
+    
+                after_conclusion:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['number'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'number';
+                    goto after_number;
+                }
+
+                $properties['number'] = $value;
+    
+                after_number:
+
+                $value = $payload['started_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'started_at';
+                    goto after_started_at;
+                }
+
+                $properties['started_at'] = $value;
+    
+                after_started_at:
+
+                $value = $payload['status'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'status';
+                    goto after_status;
+                }
+
+                $properties['status'] = $value;
+    
+                after_status:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobInProgress\WorkflowJob\Steps', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobInProgress\WorkflowJob\Steps::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobInProgress\WorkflowJob\Steps(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobInProgress\WorkflowJob\Steps', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobQueued(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued
         {
             $properties = []; 
@@ -4524,6 +4614,94 @@ class WorkflowJob implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued\WorkflowJob', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobQueued⚡️WorkflowJob⚡️Steps(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued\WorkflowJob\Steps
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['completed_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'completed_at';
+                    goto after_completed_at;
+                }
+
+                $properties['completed_at'] = $value;
+    
+                after_completed_at:
+
+                $value = $payload['conclusion'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'conclusion';
+                    goto after_conclusion;
+                }
+
+                $properties['conclusion'] = $value;
+    
+                after_conclusion:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['number'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'number';
+                    goto after_number;
+                }
+
+                $properties['number'] = $value;
+    
+                after_number:
+
+                $value = $payload['started_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'started_at';
+                    goto after_started_at;
+                }
+
+                $properties['started_at'] = $value;
+    
+                after_started_at:
+
+                $value = $payload['status'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'status';
+                    goto after_status;
+                }
+
+                $properties['status'] = $value;
+    
+                after_status:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued\WorkflowJob\Steps', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued\WorkflowJob\Steps::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued\WorkflowJob\Steps(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued\WorkflowJob\Steps', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -4550,8 +4728,10 @@ class WorkflowJob implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobCompleted\WorkflowJob' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobCompleted⚡️WorkflowJob($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobInProgress' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobInProgress($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobInProgress\WorkflowJob' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobInProgress⚡️WorkflowJob($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobInProgress\WorkflowJob\Steps' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobInProgress⚡️WorkflowJob⚡️Steps($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobQueued($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued\WorkflowJob' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobQueued⚡️WorkflowJob($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued\WorkflowJob\Steps' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobQueued⚡️WorkflowJob⚡️Steps($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -7162,6 +7342,63 @@ class WorkflowJob implements ObjectMapper
     }
 
     
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobInProgress⚡️WorkflowJob⚡️Steps(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobInProgress\WorkflowJob\Steps);
+        $result = [];
+        
+        $completed_at = $object->completed_at;
+
+        if ($completed_at === null) {
+            goto after_completed_at;
+        }
+        after_completed_at:        $result['completed_at'] = $completed_at;
+
+        
+        $conclusion = $object->conclusion;
+
+        if ($conclusion === null) {
+            goto after_conclusion;
+        }
+        after_conclusion:        $result['conclusion'] = $conclusion;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $number = $object->number;
+
+        if ($number === null) {
+            goto after_number;
+        }
+        after_number:        $result['number'] = $number;
+
+        
+        $started_at = $object->started_at;
+
+        if ($started_at === null) {
+            goto after_started_at;
+        }
+        after_started_at:        $result['started_at'] = $started_at;
+
+        
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+        after_status:        $result['status'] = $status;
+
+
+        return $result;
+    }
+
+    
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobQueued(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued);
@@ -7424,6 +7661,63 @@ class WorkflowJob implements ObjectMapper
             goto after_url;
         }
         after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookWorkflowJobQueued⚡️WorkflowJob⚡️Steps(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookWorkflowJobQueued\WorkflowJob\Steps);
+        $result = [];
+        
+        $completed_at = $object->completed_at;
+
+        if ($completed_at === null) {
+            goto after_completed_at;
+        }
+        after_completed_at:        $result['completed_at'] = $completed_at;
+
+        
+        $conclusion = $object->conclusion;
+
+        if ($conclusion === null) {
+            goto after_conclusion;
+        }
+        after_conclusion:        $result['conclusion'] = $conclusion;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $number = $object->number;
+
+        if ($number === null) {
+            goto after_number;
+        }
+        after_number:        $result['number'] = $number;
+
+        
+        $started_at = $object->started_at;
+
+        if ($started_at === null) {
+            goto after_started_at;
+        }
+        after_started_at:        $result['started_at'] = $started_at;
+
+        
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+        after_status:        $result['status'] = $status;
 
 
         return $result;

@@ -33,6 +33,9 @@ class Package implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️ContainerMetadata($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Tag' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️ContainerMetadata⚡️Tag($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NpmMetadata($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata⚡️Value($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\PackageFiles' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️PackageFiles($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\Release' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️Release($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\Registry' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️Registry($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($payload),
@@ -45,6 +48,7 @@ class Package implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated⚡️Package($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated⚡️Package⚡️PackageVersion($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion\PackageFiles' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated⚡️Package⚡️PackageVersion⚡️PackageFiles($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion\Release' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated⚡️Package⚡️PackageVersion⚡️Release($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\AuditLogEvent\Config' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AuditLogEvent⚡️Config($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\ActionsMeta' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($payload),
@@ -2013,6 +2017,279 @@ class Package implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['value'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'value';
+                    goto after_value;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'value';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata⚡️Value($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['value'] = $value;
+    
+                after_value:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata⚡️Value(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'url';
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['branch'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'branch';
+                    goto after_branch;
+                }
+
+                $properties['branch'] = $value;
+    
+                after_branch:
+
+                $value = $payload['commit'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'commit';
+                    goto after_commit;
+                }
+
+                $properties['commit'] = $value;
+    
+                after_commit:
+
+                $value = $payload['type'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'type';
+                    goto after_type;
+                }
+
+                $properties['type'] = $value;
+    
+                after_type:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️PackageFiles(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\PackageFiles
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['content_type'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'content_type';
+                    goto after_content_type;
+                }
+
+                $properties['content_type'] = $value;
+    
+                after_content_type:
+
+                $value = $payload['created_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'created_at';
+                    goto after_created_at;
+                }
+
+                $properties['created_at'] = $value;
+    
+                after_created_at:
+
+                $value = $payload['download_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'download_url';
+                    goto after_download_url;
+                }
+
+                $properties['download_url'] = $value;
+    
+                after_download_url:
+
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['md5'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'md5';
+                    goto after_md5;
+                }
+
+                $properties['md5'] = $value;
+    
+                after_md5:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['sha1'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'sha1';
+                    goto after_sha1;
+                }
+
+                $properties['sha1'] = $value;
+    
+                after_sha1:
+
+                $value = $payload['sha256'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'sha256';
+                    goto after_sha256;
+                }
+
+                $properties['sha256'] = $value;
+    
+                after_sha256:
+
+                $value = $payload['size'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'size';
+                    goto after_size;
+                }
+
+                $properties['size'] = $value;
+    
+                after_size:
+
+                $value = $payload['state'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'state';
+                    goto after_state;
+                }
+
+                $properties['state'] = $value;
+    
+                after_state:
+
+                $value = $payload['updated_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'updated_at';
+                    goto after_updated_at;
+                }
+
+                $properties['updated_at'] = $value;
+    
+                after_updated_at:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\PackageFiles', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\PackageFiles::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\PackageFiles(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\PackageFiles', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -5763,6 +6040,149 @@ class Package implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated⚡️Package⚡️PackageVersion⚡️PackageFiles(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion\PackageFiles
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['content_type'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'content_type';
+                    goto after_content_type;
+                }
+
+                $properties['content_type'] = $value;
+    
+                after_content_type:
+
+                $value = $payload['created_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'created_at';
+                    goto after_created_at;
+                }
+
+                $properties['created_at'] = $value;
+    
+                after_created_at:
+
+                $value = $payload['download_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'download_url';
+                    goto after_download_url;
+                }
+
+                $properties['download_url'] = $value;
+    
+                after_download_url:
+
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'id';
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['md5'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'md5';
+                    goto after_md5;
+                }
+
+                $properties['md5'] = $value;
+    
+                after_md5:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'name';
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['sha1'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'sha1';
+                    goto after_sha1;
+                }
+
+                $properties['sha1'] = $value;
+    
+                after_sha1:
+
+                $value = $payload['sha256'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'sha256';
+                    goto after_sha256;
+                }
+
+                $properties['sha256'] = $value;
+    
+                after_sha256:
+
+                $value = $payload['size'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'size';
+                    goto after_size;
+                }
+
+                $properties['size'] = $value;
+    
+                after_size:
+
+                $value = $payload['state'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'state';
+                    goto after_state;
+                }
+
+                $properties['state'] = $value;
+    
+                after_state:
+
+                $value = $payload['updated_at'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'updated_at';
+                    goto after_updated_at;
+                }
+
+                $properties['updated_at'] = $value;
+    
+                after_updated_at:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion\PackageFiles', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion\PackageFiles::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion\PackageFiles(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion\PackageFiles', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated⚡️Package⚡️PackageVersion⚡️Release(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion\Release
         {
             $properties = []; 
@@ -5979,6 +6399,9 @@ class Package implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️ContainerMetadata($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Tag' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️ContainerMetadata⚡️Tag($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NpmMetadata($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata⚡️Value($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\PackageFiles' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️PackageFiles($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\Release' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️Release($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\Registry' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️Registry($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($object),
@@ -5991,6 +6414,7 @@ class Package implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated⚡️Package($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated⚡️Package⚡️PackageVersion($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion\PackageFiles' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated⚡️Package⚡️PackageVersion⚡️PackageFiles($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion\Release' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated⚡️Package⚡️PackageVersion⚡️Release($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -7191,6 +7615,178 @@ class Package implements ObjectMapper
             goto after_deleted_by_id;
         }
         after_deleted_by_id:        $result['deleted_by_id'] = $deleted_by_id;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata);
+        $result = [];
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $value = $object->value;
+
+        if ($value === null) {
+            goto after_value;
+        }
+        $value = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata⚡️Value($value);
+        after_value:        $result['value'] = $value;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata⚡️Value(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value);
+        $result = [];
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $branch = $object->branch;
+
+        if ($branch === null) {
+            goto after_branch;
+        }
+        after_branch:        $result['branch'] = $branch;
+
+        
+        $commit = $object->commit;
+
+        if ($commit === null) {
+            goto after_commit;
+        }
+        after_commit:        $result['commit'] = $commit;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️PackageFiles(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookPackagePublished\Package\PackageVersion\PackageFiles);
+        $result = [];
+        
+        $content_type = $object->content_type;
+
+        if ($content_type === null) {
+            goto after_content_type;
+        }
+        after_content_type:        $result['content_type'] = $content_type;
+
+        
+        $created_at = $object->created_at;
+
+        if ($created_at === null) {
+            goto after_created_at;
+        }
+        after_created_at:        $result['created_at'] = $created_at;
+
+        
+        $download_url = $object->download_url;
+
+        if ($download_url === null) {
+            goto after_download_url;
+        }
+        after_download_url:        $result['download_url'] = $download_url;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $md5 = $object->md5;
+
+        if ($md5 === null) {
+            goto after_md5;
+        }
+        after_md5:        $result['md5'] = $md5;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $sha1 = $object->sha1;
+
+        if ($sha1 === null) {
+            goto after_sha1;
+        }
+        after_sha1:        $result['sha1'] = $sha1;
+
+        
+        $sha256 = $object->sha256;
+
+        if ($sha256 === null) {
+            goto after_sha256;
+        }
+        after_sha256:        $result['sha256'] = $sha256;
+
+        
+        $size = $object->size;
+
+        if ($size === null) {
+            goto after_size;
+        }
+        after_size:        $result['size'] = $size;
+
+        
+        $state = $object->state;
+
+        if ($state === null) {
+            goto after_state;
+        }
+        after_state:        $result['state'] = $state;
+
+        
+        $updated_at = $object->updated_at;
+
+        if ($updated_at === null) {
+            goto after_updated_at;
+        }
+        after_updated_at:        $result['updated_at'] = $updated_at;
 
 
         return $result;
@@ -9610,6 +10206,103 @@ class Package implements ObjectMapper
             goto after_version;
         }
         after_version:        $result['version'] = $version;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated⚡️Package⚡️PackageVersion⚡️PackageFiles(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion\PackageFiles);
+        $result = [];
+        
+        $content_type = $object->content_type;
+
+        if ($content_type === null) {
+            goto after_content_type;
+        }
+        after_content_type:        $result['content_type'] = $content_type;
+
+        
+        $created_at = $object->created_at;
+
+        if ($created_at === null) {
+            goto after_created_at;
+        }
+        after_created_at:        $result['created_at'] = $created_at;
+
+        
+        $download_url = $object->download_url;
+
+        if ($download_url === null) {
+            goto after_download_url;
+        }
+        after_download_url:        $result['download_url'] = $download_url;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $md5 = $object->md5;
+
+        if ($md5 === null) {
+            goto after_md5;
+        }
+        after_md5:        $result['md5'] = $md5;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $sha1 = $object->sha1;
+
+        if ($sha1 === null) {
+            goto after_sha1;
+        }
+        after_sha1:        $result['sha1'] = $sha1;
+
+        
+        $sha256 = $object->sha256;
+
+        if ($sha256 === null) {
+            goto after_sha256;
+        }
+        after_sha256:        $result['sha256'] = $sha256;
+
+        
+        $size = $object->size;
+
+        if ($size === null) {
+            goto after_size;
+        }
+        after_size:        $result['size'] = $size;
+
+        
+        $state = $object->state;
+
+        if ($state === null) {
+            goto after_state;
+        }
+        after_state:        $result['state'] = $state;
+
+        
+        $updated_at = $object->updated_at;
+
+        if ($updated_at === null) {
+            goto after_updated_at;
+        }
+        after_updated_at:        $result['updated_at'] = $updated_at;
 
 
         return $result;

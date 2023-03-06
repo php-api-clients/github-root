@@ -27,6 +27,7 @@ class Gollum implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Enterprise($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleInstallation($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimple($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookGollum\Pages' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookGollum⚡️Pages($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️LicenseSimple($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($payload),
@@ -498,6 +499,94 @@ class Gollum implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimple(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookGollum⚡️Pages(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookGollum\Pages
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['action'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'action';
+                    goto after_action;
+                }
+
+                $properties['action'] = $value;
+    
+                after_action:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'html_url';
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+                $value = $payload['page_name'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'page_name';
+                    goto after_page_name;
+                }
+
+                $properties['page_name'] = $value;
+    
+                after_page_name:
+
+                $value = $payload['sha'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'sha';
+                    goto after_sha;
+                }
+
+                $properties['sha'] = $value;
+    
+                after_sha:
+
+                $value = $payload['summary'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'summary';
+                    goto after_summary;
+                }
+
+                $properties['summary'] = $value;
+    
+                after_summary:
+
+                $value = $payload['title'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'title';
+                    goto after_title;
+                }
+
+                $properties['title'] = $value;
+    
+                after_title:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookGollum\Pages', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookGollum\Pages::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookGollum\Pages(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookGollum\Pages', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -3384,6 +3473,7 @@ class Gollum implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Enterprise($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleInstallation($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimple($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookGollum\Pages' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookGollum⚡️Pages($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️LicenseSimple($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($object),
@@ -3735,6 +3825,63 @@ class Gollum implements ObjectMapper
             goto after_description;
         }
         after_description:        $result['description'] = $description;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookGollum⚡️Pages(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookGollum\Pages);
+        $result = [];
+        
+        $action = $object->action;
+
+        if ($action === null) {
+            goto after_action;
+        }
+        after_action:        $result['action'] = $action;
+
+        
+        $html_url = $object->html_url;
+
+        if ($html_url === null) {
+            goto after_html_url;
+        }
+        after_html_url:        $result['html_url'] = $html_url;
+
+        
+        $page_name = $object->page_name;
+
+        if ($page_name === null) {
+            goto after_page_name;
+        }
+        after_page_name:        $result['page_name'] = $page_name;
+
+        
+        $sha = $object->sha;
+
+        if ($sha === null) {
+            goto after_sha;
+        }
+        after_sha:        $result['sha'] = $sha;
+
+        
+        $summary = $object->summary;
+
+        if ($summary === null) {
+            goto after_summary;
+        }
+        after_summary:        $result['summary'] = $summary;
+
+        
+        $title = $object->title;
+
+        if ($title === null) {
+            goto after_title;
+        }
+        after_title:        $result['title'] = $title;
 
 
         return $result;
