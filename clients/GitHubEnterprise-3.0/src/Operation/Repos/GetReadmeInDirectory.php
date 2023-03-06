@@ -1,0 +1,72 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHubEnterprise\Operation\Repos;
+
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
+final class GetReadmeInDirectory
+{
+    public const OPERATION_ID = 'repos/get-readme-in-directory';
+    public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/readme/{dir}';
+    private const METHOD = 'GET';
+    private const PATH = '/repos/{owner}/{repo}/readme/{dir}';
+    private string $owner;
+    private string $repo;
+    /**The alternate path to look for a README file**/
+    private string $dir;
+    /**The name of the commit/branch/tag. Default: the repository’s default branch (usually `master`)**/
+    private string $ref;
+    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
+    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme\CbDirRcb $hydrator;
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme\CbDirRcb $hydrator, string $owner, string $repo, string $dir, string $ref)
+    {
+        $this->owner = $owner;
+        $this->repo = $repo;
+        $this->dir = $dir;
+        $this->ref = $ref;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator = $hydrator;
+    }
+    function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    {
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{dir}', '{ref}'), array($this->owner, $this->repo, $this->dir, $this->ref), self::PATH . '?ref={ref}'));
+    }
+    /**
+     * @return Schema\ContentFile|Schema\BasicError|Schema\ValidationError
+     */
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\ContentFile|Schema\BasicError|Schema\ValidationError
+    {
+        $contentType = $response->getHeaderLine('Content-Type');
+        $body = json_decode($response->getBody()->getContents(), true);
+        switch ($response->getStatusCode()) {
+            /**Validation failed**/
+            case 200:
+                switch ($contentType) {
+                    case 'application/json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ContentFile::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject(Schema\ContentFile::class, $body);
+                }
+                break;
+            /**Validation failed**/
+            case 404:
+                switch ($contentType) {
+                    case 'application/json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                }
+                break;
+            /**Validation failed**/
+            case 422:
+                switch ($contentType) {
+                    case 'application/json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject(Schema\ValidationError::class, $body);
+                }
+                break;
+        }
+        throw new \RuntimeException('Unable to find matching response code and content type');
+    }
+}

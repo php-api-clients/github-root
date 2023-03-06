@@ -1,0 +1,49 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin;
+
+use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Operation;
+use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Client\GitHubAE\WebHook;
+final class GetGithubActionsPermissionsEnterprise
+{
+    public const OPERATION_ID = 'enterprise-admin/get-github-actions-permissions-enterprise';
+    public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/permissions';
+    private const METHOD = 'GET';
+    private const PATH = '/enterprises/{enterprise}/actions/permissions';
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
+    private string $enterprise;
+    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
+    private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions $hydrator;
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions $hydrator, string $enterprise)
+    {
+        $this->enterprise = $enterprise;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator = $hydrator;
+    }
+    function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    {
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}'), array($this->enterprise), self::PATH));
+    }
+    /**
+     * @return Schema\ActionsEnterprisePermissions
+     */
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\ActionsEnterprisePermissions
+    {
+        $contentType = $response->getHeaderLine('Content-Type');
+        $body = json_decode($response->getBody()->getContents(), true);
+        switch ($response->getStatusCode()) {
+            /**Response**/
+            case 200:
+                switch ($contentType) {
+                    case 'application/json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ActionsEnterprisePermissions::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject(Schema\ActionsEnterprisePermissions::class, $body);
+                }
+                break;
+        }
+        throw new \RuntimeException('Unable to find matching response code and content type');
+    }
+}
