@@ -24,10 +24,10 @@ class Instances implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeScanningAlertInstance($payload),
-                'ApiClients\Client\GitHub\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\GitHub\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Operation⚡️SecretScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($payload),
                 'ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($payload),
                 'ApiClients\Client\GitHub\Schema\CodeScanningAlertLocation' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeScanningAlertLocation($payload),
+                'ApiClients\Client\GitHub\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BasicError($payload),
+                'ApiClients\Client\GitHub\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Operation⚡️SecretScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -183,6 +183,116 @@ class Instances implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeScanningAlertInstance⚡️Message(array $payload): \ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['text'] ?? null;
+    
+                if ($value === null) {
+                    $properties['text'] = null;
+                    goto after_text;
+                }
+
+                $properties['text'] = $value;
+    
+                after_text:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeScanningAlertLocation(array $payload): \ApiClients\Client\GitHub\Schema\CodeScanningAlertLocation
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['path'] ?? null;
+    
+                if ($value === null) {
+                    $properties['path'] = null;
+                    goto after_path;
+                }
+
+                $properties['path'] = $value;
+    
+                after_path:
+
+                $value = $payload['start_line'] ?? null;
+    
+                if ($value === null) {
+                    $properties['start_line'] = null;
+                    goto after_start_line;
+                }
+
+                $properties['start_line'] = $value;
+    
+                after_start_line:
+
+                $value = $payload['end_line'] ?? null;
+    
+                if ($value === null) {
+                    $properties['end_line'] = null;
+                    goto after_end_line;
+                }
+
+                $properties['end_line'] = $value;
+    
+                after_end_line:
+
+                $value = $payload['start_column'] ?? null;
+    
+                if ($value === null) {
+                    $properties['start_column'] = null;
+                    goto after_start_column;
+                }
+
+                $properties['start_column'] = $value;
+    
+                after_start_column:
+
+                $value = $payload['end_column'] ?? null;
+    
+                if ($value === null) {
+                    $properties['end_column'] = null;
+                    goto after_end_column;
+                }
+
+                $properties['end_column'] = $value;
+    
+                after_end_column:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\CodeScanningAlertLocation', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\CodeScanningAlertLocation::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHub\Schema\CodeScanningAlertLocation(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\CodeScanningAlertLocation', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHub\Schema\BasicError
         {
             $properties = []; 
@@ -302,116 +412,6 @@ class Instances implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
             }
         }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeScanningAlertInstance⚡️Message(array $payload): \ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['text'] ?? null;
-    
-                if ($value === null) {
-                    $properties['text'] = null;
-                    goto after_text;
-                }
-
-                $properties['text'] = $value;
-    
-                after_text:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeScanningAlertLocation(array $payload): \ApiClients\Client\GitHub\Schema\CodeScanningAlertLocation
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['path'] ?? null;
-    
-                if ($value === null) {
-                    $properties['path'] = null;
-                    goto after_path;
-                }
-
-                $properties['path'] = $value;
-    
-                after_path:
-
-                $value = $payload['start_line'] ?? null;
-    
-                if ($value === null) {
-                    $properties['start_line'] = null;
-                    goto after_start_line;
-                }
-
-                $properties['start_line'] = $value;
-    
-                after_start_line:
-
-                $value = $payload['end_line'] ?? null;
-    
-                if ($value === null) {
-                    $properties['end_line'] = null;
-                    goto after_end_line;
-                }
-
-                $properties['end_line'] = $value;
-    
-                after_end_line:
-
-                $value = $payload['start_column'] ?? null;
-    
-                if ($value === null) {
-                    $properties['start_column'] = null;
-                    goto after_start_column;
-                }
-
-                $properties['start_column'] = $value;
-    
-                after_start_column:
-
-                $value = $payload['end_column'] ?? null;
-    
-                if ($value === null) {
-                    $properties['end_column'] = null;
-                    goto after_end_column;
-                }
-
-                $properties['end_column'] = $value;
-    
-                after_end_column:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\CodeScanningAlertLocation', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\CodeScanningAlertLocation::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHub\Schema\CodeScanningAlertLocation(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\CodeScanningAlertLocation', $exception, stack: $this->hydrationStack);
-            }
-        }
     
     public function serializeObject(object $object): mixed
     {
@@ -425,6 +425,8 @@ class Instances implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeScanningAlertInstance($object),
+                'ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($object),
+                'ApiClients\Client\GitHub\Schema\CodeScanningAlertLocation' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeScanningAlertLocation($object),
                 'ApiClients\Client\GitHub\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BasicError($object),
                 'ApiClients\Client\GitHub\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Operation⚡️SecretScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($object),
                 default => throw new \LogicException('No serialization defined for $className'),
@@ -593,6 +595,72 @@ class Instances implements ObjectMapper
         
         $classifications = $classificationsSerializer0->serialize($classifications, $this);
         after_classifications:        $result['classifications'] = $classifications;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeScanningAlertInstance⚡️Message(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message);
+        $result = [];
+        
+        $text = $object->text;
+
+        if ($text === null) {
+            goto after_text;
+        }
+        after_text:        $result['text'] = $text;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeScanningAlertLocation(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\CodeScanningAlertLocation);
+        $result = [];
+        
+        $path = $object->path;
+
+        if ($path === null) {
+            goto after_path;
+        }
+        after_path:        $result['path'] = $path;
+
+        
+        $start_line = $object->start_line;
+
+        if ($start_line === null) {
+            goto after_start_line;
+        }
+        after_start_line:        $result['start_line'] = $start_line;
+
+        
+        $end_line = $object->end_line;
+
+        if ($end_line === null) {
+            goto after_end_line;
+        }
+        after_end_line:        $result['end_line'] = $end_line;
+
+        
+        $start_column = $object->start_column;
+
+        if ($start_column === null) {
+            goto after_start_column;
+        }
+        after_start_column:        $result['start_column'] = $start_column;
+
+        
+        $end_column = $object->end_column;
+
+        if ($end_column === null) {
+            goto after_end_column;
+        }
+        after_end_column:        $result['end_column'] = $end_column;
 
 
         return $result;

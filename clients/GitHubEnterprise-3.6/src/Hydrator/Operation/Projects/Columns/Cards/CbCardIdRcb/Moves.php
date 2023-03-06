@@ -24,9 +24,12 @@ class Moves implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H403($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H403⚡️Errors($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H503($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H503⚡️Errors($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -93,6 +96,72 @@ class Moves implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H403⚡️Errors(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403\Errors
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['code'] ?? null;
+    
+                if ($value === null) {
+                    $properties['code'] = null;
+                    goto after_code;
+                }
+
+                $properties['code'] = $value;
+    
+                after_code:
+
+                $value = $payload['message'] ?? null;
+    
+                if ($value === null) {
+                    $properties['message'] = null;
+                    goto after_message;
+                }
+
+                $properties['message'] = $value;
+    
+                after_message:
+
+                $value = $payload['resource'] ?? null;
+    
+                if ($value === null) {
+                    $properties['resource'] = null;
+                    goto after_resource;
+                }
+
+                $properties['resource'] = $value;
+    
+                after_resource:
+
+                $value = $payload['field'] ?? null;
+    
+                if ($value === null) {
+                    $properties['field'] = null;
+                    goto after_field;
+                }
+
+                $properties['field'] = $value;
+    
+                after_field:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403\Errors', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403\Errors::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403\Errors(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403\Errors', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -239,6 +308,50 @@ class Moves implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H503⚡️Errors(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['code'] ?? null;
+    
+                if ($value === null) {
+                    $properties['code'] = null;
+                    goto after_code;
+                }
+
+                $properties['code'] = $value;
+    
+                after_code:
+
+                $value = $payload['message'] ?? null;
+    
+                if ($value === null) {
+                    $properties['message'] = null;
+                    goto after_message;
+                }
+
+                $properties['message'] = $value;
+    
+                after_message:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ValidationError
         {
             $properties = []; 
@@ -302,6 +415,94 @@ class Moves implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['resource'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'resource';
+                    goto after_resource;
+                }
+
+                $properties['resource'] = $value;
+    
+                after_resource:
+
+                $value = $payload['field'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'field';
+                    goto after_field;
+                }
+
+                $properties['field'] = $value;
+    
+                after_field:
+
+                $value = $payload['message'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'message';
+                    goto after_message;
+                }
+
+                $properties['message'] = $value;
+    
+                after_message:
+
+                $value = $payload['code'] ?? null;
+    
+                if ($value === null) {
+                    $properties['code'] = null;
+                    goto after_code;
+                }
+
+                $properties['code'] = $value;
+    
+                after_code:
+
+                $value = $payload['index'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'index';
+                    goto after_index;
+                }
+
+                $properties['index'] = $value;
+    
+                after_index:
+
+                $value = $payload['value'] ?? null;
+    
+                if ($value === null) {
+                    $properties['value'] = null;
+                    goto after_value;
+                }
+
+                $properties['value'] = $value;
+    
+                after_value:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -315,9 +516,12 @@ class Moves implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H403($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H403⚡️Errors($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H503($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H503⚡️Errors($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -433,6 +637,47 @@ class Moves implements ObjectMapper
     }
 
     
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H403⚡️Errors(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403\Errors);
+        $result = [];
+        
+        $code = $object->code;
+
+        if ($code === null) {
+            goto after_code;
+        }
+        after_code:        $result['code'] = $code;
+
+        
+        $message = $object->message;
+
+        if ($message === null) {
+            goto after_message;
+        }
+        after_message:        $result['message'] = $message;
+
+        
+        $resource = $object->resource;
+
+        if ($resource === null) {
+            goto after_resource;
+        }
+        after_resource:        $result['resource'] = $resource;
+
+        
+        $field = $object->field;
+
+        if ($field === null) {
+            goto after_field;
+        }
+        after_field:        $result['field'] = $field;
+
+
+        return $result;
+    }
+
+    
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\BasicError);
@@ -524,6 +769,31 @@ class Moves implements ObjectMapper
     }
 
     
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H503⚡️Errors(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors);
+        $result = [];
+        
+        $code = $object->code;
+
+        if ($code === null) {
+            goto after_code;
+        }
+        after_code:        $result['code'] = $code;
+
+        
+        $message = $object->message;
+
+        if ($message === null) {
+            goto after_message;
+        }
+        after_message:        $result['message'] = $message;
+
+
+        return $result;
+    }
+
+    
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ValidationError);
@@ -556,6 +826,55 @@ class Moves implements ObjectMapper
         
         $errors = $errorsSerializer0->serialize($errors, $this);
         after_errors:        $result['errors'] = $errors;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors);
+        $result = [];
+        
+        $resource = $object->resource;
+        after_resource:        $result['resource'] = $resource;
+
+        
+        $field = $object->field;
+        after_field:        $result['field'] = $field;
+
+        
+        $message = $object->message;
+        after_message:        $result['message'] = $message;
+
+        
+        $code = $object->code;
+
+        if ($code === null) {
+            goto after_code;
+        }
+        after_code:        $result['code'] = $code;
+
+        
+        $index = $object->index;
+        after_index:        $result['index'] = $index;
+
+        
+        $value = $object->value;
+
+        if ($value === null) {
+            goto after_value;
+        }
+        static $valueSerializer0;
+
+        if ($valueSerializer0 === null) {
+            $valueSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $value = $valueSerializer0->serialize($value, $this);
+        after_value:        $result['value'] = $value;
 
 
         return $result;

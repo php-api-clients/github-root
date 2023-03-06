@@ -26,10 +26,10 @@ class Comments implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment($payload),
                 'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links($payload),
-                'ApiClients\Client\GitHubAE\Schema\ReactionRollup' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup($payload),
                 'ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Self_' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️Self_($payload),
                 'ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Html' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️Html($payload),
                 'ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\PullRequest' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️PullRequest($payload),
+                'ApiClients\Client\GitHubAE\Schema\ReactionRollup' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -727,6 +727,105 @@ class Comments implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️Self_(array $payload): \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Self_
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['href'] ?? null;
+    
+                if ($value === null) {
+                    $properties['href'] = null;
+                    goto after_href;
+                }
+
+                $properties['href'] = $value;
+    
+                after_href:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Self_', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Self_::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Self_(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Self_', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️Html(array $payload): \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Html
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['href'] ?? null;
+    
+                if ($value === null) {
+                    $properties['href'] = null;
+                    goto after_href;
+                }
+
+                $properties['href'] = $value;
+    
+                after_href:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Html', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Html::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Html(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Html', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️PullRequest(array $payload): \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\PullRequest
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['href'] ?? null;
+    
+                if ($value === null) {
+                    $properties['href'] = null;
+                    goto after_href;
+                }
+
+                $properties['href'] = $value;
+    
+                after_href:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\PullRequest', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\PullRequest::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\PullRequest(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\PullRequest', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup(array $payload): \ApiClients\Client\GitHubAE\Schema\ReactionRollup
         {
             $properties = []; 
@@ -857,105 +956,6 @@ class Comments implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ReactionRollup', $exception, stack: $this->hydrationStack);
             }
         }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️Self_(array $payload): \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Self_
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['href'] ?? null;
-    
-                if ($value === null) {
-                    $properties['href'] = null;
-                    goto after_href;
-                }
-
-                $properties['href'] = $value;
-    
-                after_href:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Self_', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Self_::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Self_(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Self_', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️Html(array $payload): \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Html
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['href'] ?? null;
-    
-                if ($value === null) {
-                    $properties['href'] = null;
-                    goto after_href;
-                }
-
-                $properties['href'] = $value;
-    
-                after_href:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Html', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Html::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Html(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Html', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️PullRequest(array $payload): \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\PullRequest
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['href'] ?? null;
-    
-                if ($value === null) {
-                    $properties['href'] = null;
-                    goto after_href;
-                }
-
-                $properties['href'] = $value;
-    
-                after_href:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\PullRequest', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\PullRequest::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\PullRequest(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\PullRequest', $exception, stack: $this->hydrationStack);
-            }
-        }
     
     public function serializeObject(object $object): mixed
     {
@@ -969,6 +969,12 @@ class Comments implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment($object),
+                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
+                'ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links($object),
+                'ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Self_' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️Self_($object),
+                'ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Html' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️Html($object),
+                'ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️PullRequest($object),
+                'ApiClients\Client\GitHubAE\Schema\ReactionRollup' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -1244,6 +1250,355 @@ class Comments implements ObjectMapper
         
         $body_text = $object->body_text;
         after_body_text:        $result['body_text'] = $body_text;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleUser);
+        $result = [];
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $login = $object->login;
+
+        if ($login === null) {
+            goto after_login;
+        }
+        after_login:        $result['login'] = $login;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $node_id = $object->node_id;
+
+        if ($node_id === null) {
+            goto after_node_id;
+        }
+        after_node_id:        $result['node_id'] = $node_id;
+
+        
+        $avatar_url = $object->avatar_url;
+
+        if ($avatar_url === null) {
+            goto after_avatar_url;
+        }
+        after_avatar_url:        $result['avatar_url'] = $avatar_url;
+
+        
+        $gravatar_id = $object->gravatar_id;
+
+        if ($gravatar_id === null) {
+            goto after_gravatar_id;
+        }
+        after_gravatar_id:        $result['gravatar_id'] = $gravatar_id;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $html_url = $object->html_url;
+
+        if ($html_url === null) {
+            goto after_html_url;
+        }
+        after_html_url:        $result['html_url'] = $html_url;
+
+        
+        $followers_url = $object->followers_url;
+
+        if ($followers_url === null) {
+            goto after_followers_url;
+        }
+        after_followers_url:        $result['followers_url'] = $followers_url;
+
+        
+        $following_url = $object->following_url;
+
+        if ($following_url === null) {
+            goto after_following_url;
+        }
+        after_following_url:        $result['following_url'] = $following_url;
+
+        
+        $gists_url = $object->gists_url;
+
+        if ($gists_url === null) {
+            goto after_gists_url;
+        }
+        after_gists_url:        $result['gists_url'] = $gists_url;
+
+        
+        $starred_url = $object->starred_url;
+
+        if ($starred_url === null) {
+            goto after_starred_url;
+        }
+        after_starred_url:        $result['starred_url'] = $starred_url;
+
+        
+        $subscriptions_url = $object->subscriptions_url;
+
+        if ($subscriptions_url === null) {
+            goto after_subscriptions_url;
+        }
+        after_subscriptions_url:        $result['subscriptions_url'] = $subscriptions_url;
+
+        
+        $organizations_url = $object->organizations_url;
+
+        if ($organizations_url === null) {
+            goto after_organizations_url;
+        }
+        after_organizations_url:        $result['organizations_url'] = $organizations_url;
+
+        
+        $repos_url = $object->repos_url;
+
+        if ($repos_url === null) {
+            goto after_repos_url;
+        }
+        after_repos_url:        $result['repos_url'] = $repos_url;
+
+        
+        $events_url = $object->events_url;
+
+        if ($events_url === null) {
+            goto after_events_url;
+        }
+        after_events_url:        $result['events_url'] = $events_url;
+
+        
+        $received_events_url = $object->received_events_url;
+
+        if ($received_events_url === null) {
+            goto after_received_events_url;
+        }
+        after_received_events_url:        $result['received_events_url'] = $received_events_url;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $site_admin = $object->site_admin;
+
+        if ($site_admin === null) {
+            goto after_site_admin;
+        }
+        after_site_admin:        $result['site_admin'] = $site_admin;
+
+        
+        $starred_at = $object->starred_at;
+        after_starred_at:        $result['starred_at'] = $starred_at;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links);
+        $result = [];
+        
+        $self = $object->self;
+
+        if ($self === null) {
+            goto after_self;
+        }
+        $self = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️Self_($self);
+        after_self:        $result['self'] = $self;
+
+        
+        $html = $object->html;
+
+        if ($html === null) {
+            goto after_html;
+        }
+        $html = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️Html($html);
+        after_html:        $result['html'] = $html;
+
+        
+        $pull_request = $object->pull_request;
+
+        if ($pull_request === null) {
+            goto after_pull_request;
+        }
+        $pull_request = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️PullRequest($pull_request);
+        after_pull_request:        $result['pull_request'] = $pull_request;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️Self_(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Self_);
+        $result = [];
+        
+        $href = $object->href;
+
+        if ($href === null) {
+            goto after_href;
+        }
+        after_href:        $result['href'] = $href;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️Html(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\Html);
+        $result = [];
+        
+        $href = $object->href;
+
+        if ($href === null) {
+            goto after_href;
+        }
+        after_href:        $result['href'] = $href;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestReviewComment⚡️Links⚡️PullRequest(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment\Links\PullRequest);
+        $result = [];
+        
+        $href = $object->href;
+
+        if ($href === null) {
+            goto after_href;
+        }
+        after_href:        $result['href'] = $href;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ReactionRollup);
+        $result = [];
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $total_count = $object->total_count;
+
+        if ($total_count === null) {
+            goto after_total_count;
+        }
+        after_total_count:        $result['total_count'] = $total_count;
+
+        
+        $_PLUSES_1 = $object->_PLUSES_1;
+
+        if ($_PLUSES_1 === null) {
+            goto after__PLUSES_1;
+        }
+        after__PLUSES_1:        $result['__p_l_u_s_e_s_1'] = $_PLUSES_1;
+
+        
+        $_MINUS_1 = $object->_MINUS_1;
+
+        if ($_MINUS_1 === null) {
+            goto after__MINUS_1;
+        }
+        after__MINUS_1:        $result['__m_i_n_u_s_1'] = $_MINUS_1;
+
+        
+        $laugh = $object->laugh;
+
+        if ($laugh === null) {
+            goto after_laugh;
+        }
+        after_laugh:        $result['laugh'] = $laugh;
+
+        
+        $confused = $object->confused;
+
+        if ($confused === null) {
+            goto after_confused;
+        }
+        after_confused:        $result['confused'] = $confused;
+
+        
+        $heart = $object->heart;
+
+        if ($heart === null) {
+            goto after_heart;
+        }
+        after_heart:        $result['heart'] = $heart;
+
+        
+        $hooray = $object->hooray;
+
+        if ($hooray === null) {
+            goto after_hooray;
+        }
+        after_hooray:        $result['hooray'] = $hooray;
+
+        
+        $eyes = $object->eyes;
+
+        if ($eyes === null) {
+            goto after_eyes;
+        }
+        after_eyes:        $result['eyes'] = $eyes;
+
+        
+        $rocket = $object->rocket;
+
+        if ($rocket === null) {
+            goto after_rocket;
+        }
+        after_rocket:        $result['rocket'] = $rocket;
 
 
         return $result;

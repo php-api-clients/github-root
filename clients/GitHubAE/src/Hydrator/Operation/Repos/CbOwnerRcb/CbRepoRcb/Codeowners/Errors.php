@@ -24,6 +24,7 @@ class Errors implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubAE\Schema\CodeownersErrors' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeownersErrors($payload),
+                'ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeownersErrors⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -70,6 +71,105 @@ class Errors implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeownersErrors', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeownersErrors⚡️Errors(array $payload): \ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['line'] ?? null;
+    
+                if ($value === null) {
+                    $properties['line'] = null;
+                    goto after_line;
+                }
+
+                $properties['line'] = $value;
+    
+                after_line:
+
+                $value = $payload['column'] ?? null;
+    
+                if ($value === null) {
+                    $properties['column'] = null;
+                    goto after_column;
+                }
+
+                $properties['column'] = $value;
+    
+                after_column:
+
+                $value = $payload['source'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'source';
+                    goto after_source;
+                }
+
+                $properties['source'] = $value;
+    
+                after_source:
+
+                $value = $payload['kind'] ?? null;
+    
+                if ($value === null) {
+                    $properties['kind'] = null;
+                    goto after_kind;
+                }
+
+                $properties['kind'] = $value;
+    
+                after_kind:
+
+                $value = $payload['suggestion'] ?? null;
+    
+                if ($value === null) {
+                    $properties['suggestion'] = null;
+                    goto after_suggestion;
+                }
+
+                $properties['suggestion'] = $value;
+    
+                after_suggestion:
+
+                $value = $payload['message'] ?? null;
+    
+                if ($value === null) {
+                    $properties['message'] = null;
+                    goto after_message;
+                }
+
+                $properties['message'] = $value;
+    
+                after_message:
+
+                $value = $payload['path'] ?? null;
+    
+                if ($value === null) {
+                    $properties['path'] = null;
+                    goto after_path;
+                }
+
+                $properties['path'] = $value;
+    
+                after_path:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -83,6 +183,7 @@ class Errors implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubAE\Schema\CodeownersErrors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeownersErrors($object),
+                'ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeownersErrors⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -176,6 +277,67 @@ class Errors implements ObjectMapper
         
         $errors = $errorsSerializer0->serialize($errors, $this);
         after_errors:        $result['errors'] = $errors;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeownersErrors⚡️Errors(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors);
+        $result = [];
+        
+        $line = $object->line;
+
+        if ($line === null) {
+            goto after_line;
+        }
+        after_line:        $result['line'] = $line;
+
+        
+        $column = $object->column;
+
+        if ($column === null) {
+            goto after_column;
+        }
+        after_column:        $result['column'] = $column;
+
+        
+        $source = $object->source;
+        after_source:        $result['source'] = $source;
+
+        
+        $kind = $object->kind;
+
+        if ($kind === null) {
+            goto after_kind;
+        }
+        after_kind:        $result['kind'] = $kind;
+
+        
+        $suggestion = $object->suggestion;
+
+        if ($suggestion === null) {
+            goto after_suggestion;
+        }
+        after_suggestion:        $result['suggestion'] = $suggestion;
+
+        
+        $message = $object->message;
+
+        if ($message === null) {
+            goto after_message;
+        }
+        after_message:        $result['message'] = $message;
+
+        
+        $path = $object->path;
+
+        if ($path === null) {
+            goto after_path;
+        }
+        after_path:        $result['path'] = $path;
 
 
         return $result;

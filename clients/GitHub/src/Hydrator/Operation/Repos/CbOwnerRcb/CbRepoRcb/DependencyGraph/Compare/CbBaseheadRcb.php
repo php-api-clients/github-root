@@ -24,6 +24,7 @@ class CbBaseheadRcb implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHub\Schema\DependencyGraphDiff' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️DependencyGraphDiff($payload),
+                'ApiClients\Client\GitHub\Schema\DependencyGraphDiff\Vulnerabilities' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️DependencyGraphDiff⚡️Vulnerabilities($payload),
                 'ApiClients\Client\GitHub\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -172,6 +173,72 @@ class CbBaseheadRcb implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️DependencyGraphDiff⚡️Vulnerabilities(array $payload): \ApiClients\Client\GitHub\Schema\DependencyGraphDiff\Vulnerabilities
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['severity'] ?? null;
+    
+                if ($value === null) {
+                    $properties['severity'] = null;
+                    goto after_severity;
+                }
+
+                $properties['severity'] = $value;
+    
+                after_severity:
+
+                $value = $payload['advisory_ghsa_id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['advisory_ghsa_id'] = null;
+                    goto after_advisory_ghsa_id;
+                }
+
+                $properties['advisory_ghsa_id'] = $value;
+    
+                after_advisory_ghsa_id:
+
+                $value = $payload['advisory_summary'] ?? null;
+    
+                if ($value === null) {
+                    $properties['advisory_summary'] = null;
+                    goto after_advisory_summary;
+                }
+
+                $properties['advisory_summary'] = $value;
+    
+                after_advisory_summary:
+
+                $value = $payload['advisory_url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['advisory_url'] = null;
+                    goto after_advisory_url;
+                }
+
+                $properties['advisory_url'] = $value;
+    
+                after_advisory_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\DependencyGraphDiff\Vulnerabilities', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\DependencyGraphDiff\Vulnerabilities::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHub\Schema\DependencyGraphDiff\Vulnerabilities(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\DependencyGraphDiff\Vulnerabilities', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHub\Schema\BasicError
         {
             $properties = []; 
@@ -249,6 +316,7 @@ class CbBaseheadRcb implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHub\Schema\DependencyGraphDiff' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️DependencyGraphDiff($object),
+                'ApiClients\Client\GitHub\Schema\DependencyGraphDiff\Vulnerabilities' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️DependencyGraphDiff⚡️Vulnerabilities($object),
                 'ApiClients\Client\GitHub\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -415,6 +483,47 @@ class CbBaseheadRcb implements ObjectMapper
             goto after_scope;
         }
         after_scope:        $result['scope'] = $scope;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️DependencyGraphDiff⚡️Vulnerabilities(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\DependencyGraphDiff\Vulnerabilities);
+        $result = [];
+        
+        $severity = $object->severity;
+
+        if ($severity === null) {
+            goto after_severity;
+        }
+        after_severity:        $result['severity'] = $severity;
+
+        
+        $advisory_ghsa_id = $object->advisory_ghsa_id;
+
+        if ($advisory_ghsa_id === null) {
+            goto after_advisory_ghsa_id;
+        }
+        after_advisory_ghsa_id:        $result['advisory_ghsa_id'] = $advisory_ghsa_id;
+
+        
+        $advisory_summary = $object->advisory_summary;
+
+        if ($advisory_summary === null) {
+            goto after_advisory_summary;
+        }
+        after_advisory_summary:        $result['advisory_summary'] = $advisory_summary;
+
+        
+        $advisory_url = $object->advisory_url;
+
+        if ($advisory_url === null) {
+            goto after_advisory_url;
+        }
+        after_advisory_url:        $result['advisory_url'] = $advisory_url;
 
 
         return $result;

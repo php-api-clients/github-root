@@ -24,11 +24,12 @@ class CbTeamIdRcb implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\TeamFull' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamFull($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\TeamSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamSimple($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\TeamOrganization' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamOrganization($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull\Plan' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrganizationFull⚡️Plan($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -268,137 +269,6 @@ class CbTeamIdRcb implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterprise\Schema\TeamFull(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TeamFull', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\BasicError
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['message'] ?? null;
-    
-                if ($value === null) {
-                    $properties['message'] = null;
-                    goto after_message;
-                }
-
-                $properties['message'] = $value;
-    
-                after_message:
-
-                $value = $payload['documentation_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['documentation_url'] = null;
-                    goto after_documentation_url;
-                }
-
-                $properties['documentation_url'] = $value;
-    
-                after_documentation_url:
-
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
-                }
-
-                $properties['url'] = $value;
-    
-                after_url:
-
-                $value = $payload['status'] ?? null;
-    
-                if ($value === null) {
-                    $properties['status'] = null;
-                    goto after_status;
-                }
-
-                $properties['status'] = $value;
-    
-                after_status:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\BasicError(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ValidationError
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['message'] ?? null;
-    
-                if ($value === null) {
-                    $properties['message'] = null;
-                    goto after_message;
-                }
-
-                $properties['message'] = $value;
-    
-                after_message:
-
-                $value = $payload['documentation_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['documentation_url'] = null;
-                    goto after_documentation_url;
-                }
-
-                $properties['documentation_url'] = $value;
-    
-                after_documentation_url:
-
-                $value = $payload['errors'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'errors';
-                    goto after_errors;
-                }
-
-                static $errorsCaster1;
-    
-                if ($errorsCaster1 === null) {
-                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
-));
-                }
-    
-                $value = $errorsCaster1->cast($value, $this);
-
-                $properties['errors'] = $value;
-    
-                after_errors:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ValidationError::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\ValidationError(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -1180,6 +1050,225 @@ class CbTeamIdRcb implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull\Plan', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\BasicError
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['message'] ?? null;
+    
+                if ($value === null) {
+                    $properties['message'] = null;
+                    goto after_message;
+                }
+
+                $properties['message'] = $value;
+    
+                after_message:
+
+                $value = $payload['documentation_url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['documentation_url'] = null;
+                    goto after_documentation_url;
+                }
+
+                $properties['documentation_url'] = $value;
+    
+                after_documentation_url:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['url'] = null;
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['status'] ?? null;
+    
+                if ($value === null) {
+                    $properties['status'] = null;
+                    goto after_status;
+                }
+
+                $properties['status'] = $value;
+    
+                after_status:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\BasicError(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ValidationError
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['message'] ?? null;
+    
+                if ($value === null) {
+                    $properties['message'] = null;
+                    goto after_message;
+                }
+
+                $properties['message'] = $value;
+    
+                after_message:
+
+                $value = $payload['documentation_url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['documentation_url'] = null;
+                    goto after_documentation_url;
+                }
+
+                $properties['documentation_url'] = $value;
+    
+                after_documentation_url:
+
+                $value = $payload['errors'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'errors';
+                    goto after_errors;
+                }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
+
+                $properties['errors'] = $value;
+    
+                after_errors:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ValidationError::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\ValidationError(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['resource'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'resource';
+                    goto after_resource;
+                }
+
+                $properties['resource'] = $value;
+    
+                after_resource:
+
+                $value = $payload['field'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'field';
+                    goto after_field;
+                }
+
+                $properties['field'] = $value;
+    
+                after_field:
+
+                $value = $payload['message'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'message';
+                    goto after_message;
+                }
+
+                $properties['message'] = $value;
+    
+                after_message:
+
+                $value = $payload['code'] ?? null;
+    
+                if ($value === null) {
+                    $properties['code'] = null;
+                    goto after_code;
+                }
+
+                $properties['code'] = $value;
+    
+                after_code:
+
+                $value = $payload['index'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'index';
+                    goto after_index;
+                }
+
+                $properties['index'] = $value;
+    
+                after_index:
+
+                $value = $payload['value'] ?? null;
+    
+                if ($value === null) {
+                    $properties['value'] = null;
+                    goto after_value;
+                }
+
+                $properties['value'] = $value;
+    
+                after_value:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -1193,8 +1282,12 @@ class CbTeamIdRcb implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\TeamFull' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamFull($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\TeamSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamSimple($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\TeamOrganization' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamOrganization($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull\Plan' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrganizationFull⚡️Plan($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -1411,6 +1504,466 @@ class CbTeamIdRcb implements ObjectMapper
     }
 
     
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamSimple(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\TeamSimple);
+        $result = [];
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $node_id = $object->node_id;
+
+        if ($node_id === null) {
+            goto after_node_id;
+        }
+        after_node_id:        $result['node_id'] = $node_id;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $members_url = $object->members_url;
+
+        if ($members_url === null) {
+            goto after_members_url;
+        }
+        after_members_url:        $result['members_url'] = $members_url;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+        after_description:        $result['description'] = $description;
+
+        
+        $permission = $object->permission;
+
+        if ($permission === null) {
+            goto after_permission;
+        }
+        after_permission:        $result['permission'] = $permission;
+
+        
+        $privacy = $object->privacy;
+        after_privacy:        $result['privacy'] = $privacy;
+
+        
+        $html_url = $object->html_url;
+
+        if ($html_url === null) {
+            goto after_html_url;
+        }
+        after_html_url:        $result['html_url'] = $html_url;
+
+        
+        $repositories_url = $object->repositories_url;
+
+        if ($repositories_url === null) {
+            goto after_repositories_url;
+        }
+        after_repositories_url:        $result['repositories_url'] = $repositories_url;
+
+        
+        $slug = $object->slug;
+
+        if ($slug === null) {
+            goto after_slug;
+        }
+        after_slug:        $result['slug'] = $slug;
+
+        
+        $ldap_dn = $object->ldap_dn;
+        after_ldap_dn:        $result['ldap_dn'] = $ldap_dn;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamOrganization(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\TeamOrganization);
+        $result = [];
+        
+        $login = $object->login;
+
+        if ($login === null) {
+            goto after_login;
+        }
+        after_login:        $result['login'] = $login;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $node_id = $object->node_id;
+
+        if ($node_id === null) {
+            goto after_node_id;
+        }
+        after_node_id:        $result['node_id'] = $node_id;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $repos_url = $object->repos_url;
+
+        if ($repos_url === null) {
+            goto after_repos_url;
+        }
+        after_repos_url:        $result['repos_url'] = $repos_url;
+
+        
+        $events_url = $object->events_url;
+
+        if ($events_url === null) {
+            goto after_events_url;
+        }
+        after_events_url:        $result['events_url'] = $events_url;
+
+        
+        $hooks_url = $object->hooks_url;
+
+        if ($hooks_url === null) {
+            goto after_hooks_url;
+        }
+        after_hooks_url:        $result['hooks_url'] = $hooks_url;
+
+        
+        $issues_url = $object->issues_url;
+
+        if ($issues_url === null) {
+            goto after_issues_url;
+        }
+        after_issues_url:        $result['issues_url'] = $issues_url;
+
+        
+        $members_url = $object->members_url;
+
+        if ($members_url === null) {
+            goto after_members_url;
+        }
+        after_members_url:        $result['members_url'] = $members_url;
+
+        
+        $public_members_url = $object->public_members_url;
+
+        if ($public_members_url === null) {
+            goto after_public_members_url;
+        }
+        after_public_members_url:        $result['public_members_url'] = $public_members_url;
+
+        
+        $avatar_url = $object->avatar_url;
+
+        if ($avatar_url === null) {
+            goto after_avatar_url;
+        }
+        after_avatar_url:        $result['avatar_url'] = $avatar_url;
+
+        
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+        after_description:        $result['description'] = $description;
+
+        
+        $name = $object->name;
+        after_name:        $result['name'] = $name;
+
+        
+        $company = $object->company;
+        after_company:        $result['company'] = $company;
+
+        
+        $blog = $object->blog;
+        after_blog:        $result['blog'] = $blog;
+
+        
+        $location = $object->location;
+        after_location:        $result['location'] = $location;
+
+        
+        $email = $object->email;
+        after_email:        $result['email'] = $email;
+
+        
+        $twitter_username = $object->twitter_username;
+
+        if ($twitter_username === null) {
+            goto after_twitter_username;
+        }
+        after_twitter_username:        $result['twitter_username'] = $twitter_username;
+
+        
+        $is_verified = $object->is_verified;
+        after_is_verified:        $result['is_verified'] = $is_verified;
+
+        
+        $has_organization_projects = $object->has_organization_projects;
+
+        if ($has_organization_projects === null) {
+            goto after_has_organization_projects;
+        }
+        after_has_organization_projects:        $result['has_organization_projects'] = $has_organization_projects;
+
+        
+        $has_repository_projects = $object->has_repository_projects;
+
+        if ($has_repository_projects === null) {
+            goto after_has_repository_projects;
+        }
+        after_has_repository_projects:        $result['has_repository_projects'] = $has_repository_projects;
+
+        
+        $public_repos = $object->public_repos;
+
+        if ($public_repos === null) {
+            goto after_public_repos;
+        }
+        after_public_repos:        $result['public_repos'] = $public_repos;
+
+        
+        $public_gists = $object->public_gists;
+
+        if ($public_gists === null) {
+            goto after_public_gists;
+        }
+        after_public_gists:        $result['public_gists'] = $public_gists;
+
+        
+        $followers = $object->followers;
+
+        if ($followers === null) {
+            goto after_followers;
+        }
+        after_followers:        $result['followers'] = $followers;
+
+        
+        $following = $object->following;
+
+        if ($following === null) {
+            goto after_following;
+        }
+        after_following:        $result['following'] = $following;
+
+        
+        $html_url = $object->html_url;
+
+        if ($html_url === null) {
+            goto after_html_url;
+        }
+        after_html_url:        $result['html_url'] = $html_url;
+
+        
+        $created_at = $object->created_at;
+
+        if ($created_at === null) {
+            goto after_created_at;
+        }
+        after_created_at:        $result['created_at'] = $created_at;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $total_private_repos = $object->total_private_repos;
+        after_total_private_repos:        $result['total_private_repos'] = $total_private_repos;
+
+        
+        $owned_private_repos = $object->owned_private_repos;
+        after_owned_private_repos:        $result['owned_private_repos'] = $owned_private_repos;
+
+        
+        $private_gists = $object->private_gists;
+
+        if ($private_gists === null) {
+            goto after_private_gists;
+        }
+        after_private_gists:        $result['private_gists'] = $private_gists;
+
+        
+        $disk_usage = $object->disk_usage;
+
+        if ($disk_usage === null) {
+            goto after_disk_usage;
+        }
+        after_disk_usage:        $result['disk_usage'] = $disk_usage;
+
+        
+        $collaborators = $object->collaborators;
+
+        if ($collaborators === null) {
+            goto after_collaborators;
+        }
+        after_collaborators:        $result['collaborators'] = $collaborators;
+
+        
+        $billing_email = $object->billing_email;
+
+        if ($billing_email === null) {
+            goto after_billing_email;
+        }
+        after_billing_email:        $result['billing_email'] = $billing_email;
+
+        
+        $plan = $object->plan;
+        $plan = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrganizationFull⚡️Plan($plan);
+        after_plan:        $result['plan'] = $plan;
+
+        
+        $default_repository_permission = $object->default_repository_permission;
+
+        if ($default_repository_permission === null) {
+            goto after_default_repository_permission;
+        }
+        after_default_repository_permission:        $result['default_repository_permission'] = $default_repository_permission;
+
+        
+        $members_can_create_repositories = $object->members_can_create_repositories;
+
+        if ($members_can_create_repositories === null) {
+            goto after_members_can_create_repositories;
+        }
+        after_members_can_create_repositories:        $result['members_can_create_repositories'] = $members_can_create_repositories;
+
+        
+        $two_factor_requirement_enabled = $object->two_factor_requirement_enabled;
+
+        if ($two_factor_requirement_enabled === null) {
+            goto after_two_factor_requirement_enabled;
+        }
+        after_two_factor_requirement_enabled:        $result['two_factor_requirement_enabled'] = $two_factor_requirement_enabled;
+
+        
+        $members_allowed_repository_creation_type = $object->members_allowed_repository_creation_type;
+        after_members_allowed_repository_creation_type:        $result['members_allowed_repository_creation_type'] = $members_allowed_repository_creation_type;
+
+        
+        $members_can_create_public_repositories = $object->members_can_create_public_repositories;
+        after_members_can_create_public_repositories:        $result['members_can_create_public_repositories'] = $members_can_create_public_repositories;
+
+        
+        $members_can_create_private_repositories = $object->members_can_create_private_repositories;
+        after_members_can_create_private_repositories:        $result['members_can_create_private_repositories'] = $members_can_create_private_repositories;
+
+        
+        $members_can_create_internal_repositories = $object->members_can_create_internal_repositories;
+        after_members_can_create_internal_repositories:        $result['members_can_create_internal_repositories'] = $members_can_create_internal_repositories;
+
+        
+        $members_can_create_pages = $object->members_can_create_pages;
+        after_members_can_create_pages:        $result['members_can_create_pages'] = $members_can_create_pages;
+
+        
+        $members_can_create_public_pages = $object->members_can_create_public_pages;
+        after_members_can_create_public_pages:        $result['members_can_create_public_pages'] = $members_can_create_public_pages;
+
+        
+        $members_can_create_private_pages = $object->members_can_create_private_pages;
+        after_members_can_create_private_pages:        $result['members_can_create_private_pages'] = $members_can_create_private_pages;
+
+        
+        $members_can_fork_private_repositories = $object->members_can_fork_private_repositories;
+
+        if ($members_can_fork_private_repositories === null) {
+            goto after_members_can_fork_private_repositories;
+        }
+        after_members_can_fork_private_repositories:        $result['members_can_fork_private_repositories'] = $members_can_fork_private_repositories;
+
+        
+        $updated_at = $object->updated_at;
+
+        if ($updated_at === null) {
+            goto after_updated_at;
+        }
+        after_updated_at:        $result['updated_at'] = $updated_at;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrganizationFull⚡️Plan(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull\Plan);
+        $result = [];
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $space = $object->space;
+
+        if ($space === null) {
+            goto after_space;
+        }
+        after_space:        $result['space'] = $space;
+
+        
+        $private_repos = $object->private_repos;
+
+        if ($private_repos === null) {
+            goto after_private_repos;
+        }
+        after_private_repos:        $result['private_repos'] = $private_repos;
+
+        
+        $filled_seats = $object->filled_seats;
+        after_filled_seats:        $result['filled_seats'] = $filled_seats;
+
+        
+        $seats = $object->seats;
+        after_seats:        $result['seats'] = $seats;
+
+
+        return $result;
+    }
+
+    
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\BasicError);
@@ -1484,6 +2037,55 @@ class CbTeamIdRcb implements ObjectMapper
         
         $errors = $errorsSerializer0->serialize($errors, $this);
         after_errors:        $result['errors'] = $errors;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors);
+        $result = [];
+        
+        $resource = $object->resource;
+        after_resource:        $result['resource'] = $resource;
+
+        
+        $field = $object->field;
+        after_field:        $result['field'] = $field;
+
+        
+        $message = $object->message;
+        after_message:        $result['message'] = $message;
+
+        
+        $code = $object->code;
+
+        if ($code === null) {
+            goto after_code;
+        }
+        after_code:        $result['code'] = $code;
+
+        
+        $index = $object->index;
+        after_index:        $result['index'] = $index;
+
+        
+        $value = $object->value;
+
+        if ($value === null) {
+            goto after_value;
+        }
+        static $valueSerializer0;
+
+        if ($valueSerializer0 === null) {
+            $valueSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $value = $valueSerializer0->serialize($value, $this);
+        after_value:        $result['value'] = $value;
 
 
         return $result;

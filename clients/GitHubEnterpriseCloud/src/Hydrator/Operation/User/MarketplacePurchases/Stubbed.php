@@ -24,9 +24,9 @@ class Stubbed implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\UserMarketplacePurchase' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️UserMarketplacePurchase($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceAccount' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceAccount($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceListingPlan' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceListingPlan($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -156,72 +156,6 @@ class Stubbed implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\UserMarketplacePurchase(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\UserMarketplacePurchase', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['message'] ?? null;
-    
-                if ($value === null) {
-                    $properties['message'] = null;
-                    goto after_message;
-                }
-
-                $properties['message'] = $value;
-    
-                after_message:
-
-                $value = $payload['documentation_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['documentation_url'] = null;
-                    goto after_documentation_url;
-                }
-
-                $properties['documentation_url'] = $value;
-    
-                after_documentation_url:
-
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
-                }
-
-                $properties['url'] = $value;
-    
-                after_url:
-
-                $value = $payload['status'] ?? null;
-    
-                if ($value === null) {
-                    $properties['status'] = null;
-                    goto after_status;
-                }
-
-                $properties['status'] = $value;
-    
-                after_status:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -488,6 +422,72 @@ class Stubbed implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceListingPlan', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['message'] ?? null;
+    
+                if ($value === null) {
+                    $properties['message'] = null;
+                    goto after_message;
+                }
+
+                $properties['message'] = $value;
+    
+                after_message:
+
+                $value = $payload['documentation_url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['documentation_url'] = null;
+                    goto after_documentation_url;
+                }
+
+                $properties['documentation_url'] = $value;
+    
+                after_documentation_url:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['url'] = null;
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['status'] ?? null;
+    
+                if ($value === null) {
+                    $properties['status'] = null;
+                    goto after_status;
+                }
+
+                $properties['status'] = $value;
+    
+                after_status:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -501,6 +501,8 @@ class Stubbed implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\UserMarketplacePurchase' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️UserMarketplacePurchase($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceAccount' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceAccount($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceListingPlan' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceListingPlan($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -644,6 +646,188 @@ class Stubbed implements ObjectMapper
         }
         $plan = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceListingPlan($plan);
         after_plan:        $result['plan'] = $plan;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceAccount(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceAccount);
+        $result = [];
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $node_id = $object->node_id;
+        after_node_id:        $result['node_id'] = $node_id;
+
+        
+        $login = $object->login;
+
+        if ($login === null) {
+            goto after_login;
+        }
+        after_login:        $result['login'] = $login;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $organization_billing_email = $object->organization_billing_email;
+
+        if ($organization_billing_email === null) {
+            goto after_organization_billing_email;
+        }
+        after_organization_billing_email:        $result['organization_billing_email'] = $organization_billing_email;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceListingPlan(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceListingPlan);
+        $result = [];
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $accounts_url = $object->accounts_url;
+
+        if ($accounts_url === null) {
+            goto after_accounts_url;
+        }
+        after_accounts_url:        $result['accounts_url'] = $accounts_url;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $number = $object->number;
+
+        if ($number === null) {
+            goto after_number;
+        }
+        after_number:        $result['number'] = $number;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+        after_description:        $result['description'] = $description;
+
+        
+        $monthly_price_in_cents = $object->monthly_price_in_cents;
+
+        if ($monthly_price_in_cents === null) {
+            goto after_monthly_price_in_cents;
+        }
+        after_monthly_price_in_cents:        $result['monthly_price_in_cents'] = $monthly_price_in_cents;
+
+        
+        $yearly_price_in_cents = $object->yearly_price_in_cents;
+
+        if ($yearly_price_in_cents === null) {
+            goto after_yearly_price_in_cents;
+        }
+        after_yearly_price_in_cents:        $result['yearly_price_in_cents'] = $yearly_price_in_cents;
+
+        
+        $price_model = $object->price_model;
+
+        if ($price_model === null) {
+            goto after_price_model;
+        }
+        after_price_model:        $result['price_model'] = $price_model;
+
+        
+        $has_free_trial = $object->has_free_trial;
+
+        if ($has_free_trial === null) {
+            goto after_has_free_trial;
+        }
+        after_has_free_trial:        $result['has_free_trial'] = $has_free_trial;
+
+        
+        $unit_name = $object->unit_name;
+
+        if ($unit_name === null) {
+            goto after_unit_name;
+        }
+        after_unit_name:        $result['unit_name'] = $unit_name;
+
+        
+        $state = $object->state;
+
+        if ($state === null) {
+            goto after_state;
+        }
+        after_state:        $result['state'] = $state;
+
+        
+        $bullets = $object->bullets;
+
+        if ($bullets === null) {
+            goto after_bullets;
+        }
+        static $bulletsSerializer0;
+
+        if ($bulletsSerializer0 === null) {
+            $bulletsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $bullets = $bulletsSerializer0->serialize($bullets, $this);
+        after_bullets:        $result['bullets'] = $bullets;
 
 
         return $result;

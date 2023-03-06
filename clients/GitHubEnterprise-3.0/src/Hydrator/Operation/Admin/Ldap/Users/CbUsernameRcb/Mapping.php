@@ -600,6 +600,7 @@ class Mapping implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\LdapMappingUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LdapMappingUser($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\LdapMappingUser\Plan' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LdapMappingUser⚡️Plan($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -997,6 +998,47 @@ class Mapping implements ObjectMapper
         
         $business_plus = $object->business_plus;
         after_business_plus:        $result['business_plus'] = $business_plus;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LdapMappingUser⚡️Plan(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\LdapMappingUser\Plan);
+        $result = [];
+        
+        $collaborators = $object->collaborators;
+
+        if ($collaborators === null) {
+            goto after_collaborators;
+        }
+        after_collaborators:        $result['collaborators'] = $collaborators;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $space = $object->space;
+
+        if ($space === null) {
+            goto after_space;
+        }
+        after_space:        $result['space'] = $space;
+
+        
+        $private_repos = $object->private_repos;
+
+        if ($private_repos === null) {
+            goto after_private_repos;
+        }
+        after_private_repos:        $result['private_repos'] = $private_repos;
 
 
         return $result;

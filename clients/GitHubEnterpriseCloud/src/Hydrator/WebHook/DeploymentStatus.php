@@ -49,7 +49,6 @@ class DeploymentStatus implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base\Repo' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base⚡️Repo($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDeploymentCreated\WorkflowRun\ReferencedWorkflows' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDeploymentCreated⚡️WorkflowRun⚡️ReferencedWorkflows($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogEvent\Config' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AuditLogEvent⚡️Config($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -539,15 +538,6 @@ class DeploymentStatus implements ObjectMapper
                 if ($value === null) {
                     $properties['payload'] = null;
                     goto after_payload;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'payload';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['payload'] = $value;
@@ -6715,28 +6705,6 @@ class DeploymentStatus implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDeploymentCreated\WorkflowRun\ReferencedWorkflows', $exception, stack: $this->hydrationStack);
             }
         }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AuditLogEvent⚡️Config(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogEvent\Config
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogEvent\Config', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogEvent\Config::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogEvent\Config(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogEvent\Config', $exception, stack: $this->hydrationStack);
-            }
-        }
     
     public function serializeObject(object $object): mixed
     {
@@ -7115,7 +7083,6 @@ class DeploymentStatus implements ObjectMapper
         if ($payload === null) {
             goto after_payload;
         }
-        $payload = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AuditLogEvent⚡️Config($payload);
         after_payload:        $result['payload'] = $payload;
 
         

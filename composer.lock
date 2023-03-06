@@ -881,12 +881,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/openapi-client-generator.git",
-                "reference": "52986c7af5d5ffc421f83a21a8e34caf6c9e608d"
+                "reference": "d5af94b64ffde6eb8aba051bf4932d8c3f30505a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/52986c7af5d5ffc421f83a21a8e34caf6c9e608d",
-                "reference": "52986c7af5d5ffc421f83a21a8e34caf6c9e608d",
+                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/d5af94b64ffde6eb8aba051bf4932d8c3f30505a",
+                "reference": "d5af94b64ffde6eb8aba051bf4932d8c3f30505a",
                 "shasum": ""
             },
             "require": {
@@ -947,7 +947,7 @@
                 "issues": "https://github.com/php-api-clients/openapi-client-generator/issues",
                 "source": "https://github.com/php-api-clients/openapi-client-generator/tree/master"
             },
-            "time": "2023-03-06T16:34:00+00:00"
+            "time": "2023-03-06T21:20:10+00:00"
         },
         {
             "name": "azjezz/psl",
@@ -2967,16 +2967,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.15.0",
+            "version": "2.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "3e8aebbca9f0ae6f618962c4ad514077fd365ab3"
+                "reference": "e864ac957acd66e1565f25efda61e37791a5db0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/3e8aebbca9f0ae6f618962c4ad514077fd365ab3",
-                "reference": "3e8aebbca9f0ae6f618962c4ad514077fd365ab3",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/e864ac957acd66e1565f25efda61e37791a5db0b",
+                "reference": "e864ac957acd66e1565f25efda61e37791a5db0b",
                 "shasum": ""
             },
             "require": {
@@ -3026,7 +3026,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.15.0"
+                "source": "https://github.com/filp/whoops/tree/2.15.1"
             },
             "funding": [
                 {
@@ -3034,7 +3034,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-03T12:00:00+00:00"
+            "time": "2023-03-06T18:09:13+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

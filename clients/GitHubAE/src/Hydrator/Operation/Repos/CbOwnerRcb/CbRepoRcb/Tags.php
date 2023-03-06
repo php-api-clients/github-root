@@ -171,6 +171,7 @@ class Tags implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubAE\Schema\Tag' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Tag($object),
+                'ApiClients\Client\GitHubAE\Schema\ShortBranch\Commit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ShortBranch⚡️Commit($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -288,6 +289,31 @@ class Tags implements ObjectMapper
             goto after_node_id;
         }
         after_node_id:        $result['node_id'] = $node_id;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ShortBranch⚡️Commit(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ShortBranch\Commit);
+        $result = [];
+        
+        $sha = $object->sha;
+
+        if ($sha === null) {
+            goto after_sha;
+        }
+        after_sha:        $result['sha'] = $sha;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
 
 
         return $result;

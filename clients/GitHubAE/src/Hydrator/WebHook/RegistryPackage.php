@@ -51,8 +51,6 @@ class RegistryPackage implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookRegistryPackageUpdated⚡️RegistryPackage⚡️PackageVersion($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\PackageFiles' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookRegistryPackageUpdated⚡️RegistryPackage⚡️PackageVersion⚡️PackageFiles($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\Release' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookRegistryPackageUpdated⚡️RegistryPackage⚡️PackageVersion⚡️Release($payload),
-                'ApiClients\Client\GitHubAE\Schema\AuditLogEvent\Config' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -971,17 +969,8 @@ class RegistryPackage implements ObjectMapper
                 $value = $payload['body'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'body';
+                    $properties['body'] = null;
                     goto after_body;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'body';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['body'] = $value;
@@ -1349,15 +1338,6 @@ class RegistryPackage implements ObjectMapper
                     goto after_labels;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'labels';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['labels'] = $value;
     
                 after_labels:
@@ -1367,15 +1347,6 @@ class RegistryPackage implements ObjectMapper
                 if ($value === null) {
                     $properties['manifest'] = null;
                     goto after_manifest;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'manifest';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['manifest'] = $value;
@@ -1508,15 +1479,6 @@ class RegistryPackage implements ObjectMapper
                     goto after_author;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'author';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['author'] = $value;
     
                 after_author:
@@ -1526,15 +1488,6 @@ class RegistryPackage implements ObjectMapper
                 if ($value === null) {
                     $properties['bugs'] = null;
                     goto after_bugs;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'bugs';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['bugs'] = $value;
@@ -1548,15 +1501,6 @@ class RegistryPackage implements ObjectMapper
                     goto after_dependencies;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'dependencies';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['dependencies'] = $value;
     
                 after_dependencies:
@@ -1566,15 +1510,6 @@ class RegistryPackage implements ObjectMapper
                 if ($value === null) {
                     $properties['dev_dependencies'] = null;
                     goto after_dev_dependencies;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'dev_dependencies';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['dev_dependencies'] = $value;
@@ -1588,15 +1523,6 @@ class RegistryPackage implements ObjectMapper
                     goto after_peer_dependencies;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'peer_dependencies';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['peer_dependencies'] = $value;
     
                 after_peer_dependencies:
@@ -1606,15 +1532,6 @@ class RegistryPackage implements ObjectMapper
                 if ($value === null) {
                     $properties['optional_dependencies'] = null;
                     goto after_optional_dependencies;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'optional_dependencies';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['optional_dependencies'] = $value;
@@ -1637,15 +1554,6 @@ class RegistryPackage implements ObjectMapper
                 if ($value === null) {
                     $properties['dist'] = null;
                     goto after_dist;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'dist';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['dist'] = $value;
@@ -1703,15 +1611,6 @@ class RegistryPackage implements ObjectMapper
                     goto after_repository;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'repository';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['repository'] = $value;
     
                 after_repository:
@@ -1721,15 +1620,6 @@ class RegistryPackage implements ObjectMapper
                 if ($value === null) {
                     $properties['scripts'] = null;
                     goto after_scripts;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'scripts';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['scripts'] = $value;
@@ -1809,15 +1699,6 @@ class RegistryPackage implements ObjectMapper
                     goto after_engines;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'engines';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['engines'] = $value;
     
                 after_engines:
@@ -1851,15 +1732,6 @@ class RegistryPackage implements ObjectMapper
                     goto after_bin;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'bin';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['bin'] = $value;
     
                 after_bin:
@@ -1871,15 +1743,6 @@ class RegistryPackage implements ObjectMapper
                     goto after_man;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'man';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['man'] = $value;
     
                 after_man:
@@ -1889,15 +1752,6 @@ class RegistryPackage implements ObjectMapper
                 if ($value === null) {
                     $properties['directories'] = null;
                     goto after_directories;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'directories';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['directories'] = $value;
@@ -5771,15 +5625,6 @@ class RegistryPackage implements ObjectMapper
                     goto after_registry;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'registry';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['registry'] = $value;
     
                 after_registry:
@@ -6416,50 +6261,6 @@ class RegistryPackage implements ObjectMapper
                 return new \ApiClients\Client\GitHubAE\Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\Release(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\Release', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config(array $payload): \ApiClients\Client\GitHubAE\Schema\AuditLogEvent\Config
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\AuditLogEvent\Config', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\AuditLogEvent\Config::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\AuditLogEvent\Config(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\AuditLogEvent\Config', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta', $exception, stack: $this->hydrationStack);
             }
         }
     
@@ -7121,7 +6922,10 @@ class RegistryPackage implements ObjectMapper
 
         
         $body = $object->body;
-        $body = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($body);
+
+        if ($body === null) {
+            goto after_body;
+        }
         after_body:        $result['body'] = $body;
 
         
@@ -7333,7 +7137,6 @@ class RegistryPackage implements ObjectMapper
         if ($labels === null) {
             goto after_labels;
         }
-        $labels = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($labels);
         after_labels:        $result['labels'] = $labels;
 
         
@@ -7342,7 +7145,6 @@ class RegistryPackage implements ObjectMapper
         if ($manifest === null) {
             goto after_manifest;
         }
-        $manifest = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($manifest);
         after_manifest:        $result['manifest'] = $manifest;
 
         
@@ -7418,7 +7220,6 @@ class RegistryPackage implements ObjectMapper
         if ($author === null) {
             goto after_author;
         }
-        $author = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($author);
         after_author:        $result['author'] = $author;
 
         
@@ -7427,7 +7228,6 @@ class RegistryPackage implements ObjectMapper
         if ($bugs === null) {
             goto after_bugs;
         }
-        $bugs = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($bugs);
         after_bugs:        $result['bugs'] = $bugs;
 
         
@@ -7436,7 +7236,6 @@ class RegistryPackage implements ObjectMapper
         if ($dependencies === null) {
             goto after_dependencies;
         }
-        $dependencies = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($dependencies);
         after_dependencies:        $result['dependencies'] = $dependencies;
 
         
@@ -7445,7 +7244,6 @@ class RegistryPackage implements ObjectMapper
         if ($dev_dependencies === null) {
             goto after_dev_dependencies;
         }
-        $dev_dependencies = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($dev_dependencies);
         after_dev_dependencies:        $result['dev_dependencies'] = $dev_dependencies;
 
         
@@ -7454,7 +7252,6 @@ class RegistryPackage implements ObjectMapper
         if ($peer_dependencies === null) {
             goto after_peer_dependencies;
         }
-        $peer_dependencies = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($peer_dependencies);
         after_peer_dependencies:        $result['peer_dependencies'] = $peer_dependencies;
 
         
@@ -7463,7 +7260,6 @@ class RegistryPackage implements ObjectMapper
         if ($optional_dependencies === null) {
             goto after_optional_dependencies;
         }
-        $optional_dependencies = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($optional_dependencies);
         after_optional_dependencies:        $result['optional_dependencies'] = $optional_dependencies;
 
         
@@ -7480,7 +7276,6 @@ class RegistryPackage implements ObjectMapper
         if ($dist === null) {
             goto after_dist;
         }
-        $dist = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($dist);
         after_dist:        $result['dist'] = $dist;
 
         
@@ -7521,7 +7316,6 @@ class RegistryPackage implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($repository);
         after_repository:        $result['repository'] = $repository;
 
         
@@ -7530,7 +7324,6 @@ class RegistryPackage implements ObjectMapper
         if ($scripts === null) {
             goto after_scripts;
         }
-        $scripts = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($scripts);
         after_scripts:        $result['scripts'] = $scripts;
 
         
@@ -7603,7 +7396,6 @@ class RegistryPackage implements ObjectMapper
         if ($engines === null) {
             goto after_engines;
         }
-        $engines = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($engines);
         after_engines:        $result['engines'] = $engines;
 
         
@@ -7644,7 +7436,6 @@ class RegistryPackage implements ObjectMapper
         if ($bin === null) {
             goto after_bin;
         }
-        $bin = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($bin);
         after_bin:        $result['bin'] = $bin;
 
         
@@ -7653,7 +7444,6 @@ class RegistryPackage implements ObjectMapper
         if ($man === null) {
             goto after_man;
         }
-        $man = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($man);
         after_man:        $result['man'] = $man;
 
         
@@ -7662,7 +7452,6 @@ class RegistryPackage implements ObjectMapper
         if ($directories === null) {
             goto after_directories;
         }
-        $directories = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️Config($directories);
         after_directories:        $result['directories'] = $directories;
 
         
@@ -10203,7 +9992,6 @@ class RegistryPackage implements ObjectMapper
         if ($registry === null) {
             goto after_registry;
         }
-        $registry = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($registry);
         after_registry:        $result['registry'] = $registry;
 
         

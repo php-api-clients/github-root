@@ -24,8 +24,9 @@ class CbEnvironmentNameRcb implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\Environment' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Environment($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Environment\ProtectionRules' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Environment⚡️ProtectionRules($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicySettings' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DeploymentBranchPolicySettings($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -171,6 +172,105 @@ class CbEnvironmentNameRcb implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Environment⚡️ProtectionRules(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Environment\ProtectionRules
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['id'] = null;
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['node_id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['node_id'] = null;
+                    goto after_node_id;
+                }
+
+                $properties['node_id'] = $value;
+    
+                after_node_id:
+
+                $value = $payload['type'] ?? null;
+    
+                if ($value === null) {
+                    $properties['type'] = null;
+                    goto after_type;
+                }
+
+                $properties['type'] = $value;
+    
+                after_type:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Environment\ProtectionRules', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Environment\ProtectionRules::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Environment\ProtectionRules(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Environment\ProtectionRules', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DeploymentBranchPolicySettings(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicySettings
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['protected_branches'] ?? null;
+    
+                if ($value === null) {
+                    $properties['protected_branches'] = null;
+                    goto after_protected_branches;
+                }
+
+                $properties['protected_branches'] = $value;
+    
+                after_protected_branches:
+
+                $value = $payload['custom_branch_policies'] ?? null;
+    
+                if ($value === null) {
+                    $properties['custom_branch_policies'] = null;
+                    goto after_custom_branch_policies;
+                }
+
+                $properties['custom_branch_policies'] = $value;
+    
+                after_custom_branch_policies:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicySettings', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicySettings::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicySettings(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicySettings', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError
         {
             $properties = []; 
@@ -235,50 +335,6 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
             }
         }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DeploymentBranchPolicySettings(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicySettings
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['protected_branches'] ?? null;
-    
-                if ($value === null) {
-                    $properties['protected_branches'] = null;
-                    goto after_protected_branches;
-                }
-
-                $properties['protected_branches'] = $value;
-    
-                after_protected_branches:
-
-                $value = $payload['custom_branch_policies'] ?? null;
-    
-                if ($value === null) {
-                    $properties['custom_branch_policies'] = null;
-                    goto after_custom_branch_policies;
-                }
-
-                $properties['custom_branch_policies'] = $value;
-    
-                after_custom_branch_policies:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicySettings', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicySettings::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicySettings(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicySettings', $exception, stack: $this->hydrationStack);
-            }
-        }
     
     public function serializeObject(object $object): mixed
     {
@@ -292,6 +348,8 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Environment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Environment($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Environment\ProtectionRules' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Environment⚡️ProtectionRules($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicySettings' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DeploymentBranchPolicySettings($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -447,6 +505,64 @@ class CbEnvironmentNameRcb implements ObjectMapper
         }
         $deployment_branch_policy = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DeploymentBranchPolicySettings($deployment_branch_policy);
         after_deployment_branch_policy:        $result['deployment_branch_policy'] = $deployment_branch_policy;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Environment⚡️ProtectionRules(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Environment\ProtectionRules);
+        $result = [];
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $node_id = $object->node_id;
+
+        if ($node_id === null) {
+            goto after_node_id;
+        }
+        after_node_id:        $result['node_id'] = $node_id;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DeploymentBranchPolicySettings(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicySettings);
+        $result = [];
+        
+        $protected_branches = $object->protected_branches;
+
+        if ($protected_branches === null) {
+            goto after_protected_branches;
+        }
+        after_protected_branches:        $result['protected_branches'] = $protected_branches;
+
+        
+        $custom_branch_policies = $object->custom_branch_policies;
+
+        if ($custom_branch_policies === null) {
+            goto after_custom_branch_policies;
+        }
+        after_custom_branch_policies:        $result['custom_branch_policies'] = $custom_branch_policies;
 
 
         return $result;

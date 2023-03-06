@@ -24,6 +24,9 @@ class Users implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList\Resources' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList⚡️Resources($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList\Resources\Members' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseGroupList⚡️Resources⚡️Members($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Meta' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Meta($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ScimError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -113,6 +116,201 @@ class Users implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList⚡️Resources(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList\Resources
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['id'] = null;
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['groups'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'groups';
+                    goto after_groups;
+                }
+
+                static $groupsCaster1;
+    
+                if ($groupsCaster1 === null) {
+                    $groupsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ScimEnterpriseGroupList\\Resources\\Members',
+));
+                }
+    
+                $value = $groupsCaster1->cast($value, $this);
+
+                $properties['groups'] = $value;
+    
+                after_groups:
+
+                $value = $payload['meta'] ?? null;
+    
+                if ($value === null) {
+                    $properties['meta'] = null;
+                    goto after_meta;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'meta';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Meta($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['meta'] = $value;
+    
+                after_meta:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList\Resources', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList\Resources::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList\Resources(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList\Resources', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseGroupList⚡️Resources⚡️Members(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList\Resources\Members
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['value'] ?? null;
+    
+                if ($value === null) {
+                    $properties['value'] = null;
+                    goto after_value;
+                }
+
+                $properties['value'] = $value;
+    
+                after_value:
+
+                $value = $payload['ref'] ?? null;
+    
+                if ($value === null) {
+                    $properties['ref'] = null;
+                    goto after_ref;
+                }
+
+                $properties['ref'] = $value;
+    
+                after_ref:
+
+                $value = $payload['display'] ?? null;
+    
+                if ($value === null) {
+                    $properties['display'] = null;
+                    goto after_display;
+                }
+
+                $properties['display'] = $value;
+    
+                after_display:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList\Resources\Members', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList\Resources\Members::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList\Resources\Members(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList\Resources\Members', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Meta(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Meta
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['resource_type'] ?? null;
+    
+                if ($value === null) {
+                    $properties['resourceType'] = null;
+                    goto after_resourceType;
+                }
+
+                $properties['resourceType'] = $value;
+    
+                after_resourceType:
+
+                $value = $payload['created'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'created';
+                    goto after_created;
+                }
+
+                $properties['created'] = $value;
+    
+                after_created:
+
+                $value = $payload['last_modified'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'last_modified';
+                    goto after_lastModified;
+                }
+
+                $properties['lastModified'] = $value;
+    
+                after_lastModified:
+
+                $value = $payload['location'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'location';
+                    goto after_location;
+                }
+
+                $properties['location'] = $value;
+    
+                after_location:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Meta', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Meta::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\Meta(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Meta', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -216,6 +414,9 @@ class Users implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList\Resources' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList⚡️Resources($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList\Resources\Members' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseGroupList⚡️Resources⚡️Members($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\Meta' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Meta($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\ScimError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -350,6 +551,107 @@ class Users implements ObjectMapper
             goto after_itemsPerPage;
         }
         after_itemsPerPage:        $result['items_per_page'] = $itemsPerPage;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList⚡️Resources(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList\Resources);
+        $result = [];
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $groups = $object->groups;
+        static $groupsSerializer0;
+
+        if ($groupsSerializer0 === null) {
+            $groupsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ScimEnterpriseGroupList\\Resources\\Members',
+));
+        }
+        
+        $groups = $groupsSerializer0->serialize($groups, $this);
+        after_groups:        $result['groups'] = $groups;
+
+        
+        $meta = $object->meta;
+
+        if ($meta === null) {
+            goto after_meta;
+        }
+        $meta = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Meta($meta);
+        after_meta:        $result['meta'] = $meta;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseGroupList⚡️Resources⚡️Members(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList\Resources\Members);
+        $result = [];
+        
+        $value = $object->value;
+
+        if ($value === null) {
+            goto after_value;
+        }
+        after_value:        $result['value'] = $value;
+
+        
+        $ref = $object->ref;
+
+        if ($ref === null) {
+            goto after_ref;
+        }
+        after_ref:        $result['ref'] = $ref;
+
+        
+        $display = $object->display;
+
+        if ($display === null) {
+            goto after_display;
+        }
+        after_display:        $result['display'] = $display;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Meta(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Meta);
+        $result = [];
+        
+        $resourceType = $object->resourceType;
+
+        if ($resourceType === null) {
+            goto after_resourceType;
+        }
+        after_resourceType:        $result['resource_type'] = $resourceType;
+
+        
+        $created = $object->created;
+        after_created:        $result['created'] = $created;
+
+        
+        $lastModified = $object->lastModified;
+        after_lastModified:        $result['last_modified'] = $lastModified;
+
+        
+        $location = $object->location;
+        after_location:        $result['location'] = $location;
 
 
         return $result;

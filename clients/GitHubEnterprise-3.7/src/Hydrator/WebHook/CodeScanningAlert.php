@@ -54,7 +54,6 @@ class CodeScanningAlert implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookCodeScanningAlertReopened\Alert' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCodeScanningAlertReopened⚡️Alert($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookCodeScanningAlertReopenedByUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCodeScanningAlertReopenedByUser($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookCodeScanningAlertReopenedByUser\Alert' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCodeScanningAlertReopenedByUser⚡️Alert($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\ActionsMeta' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -5740,15 +5739,6 @@ class CodeScanningAlert implements ObjectMapper
                     goto after_dismissed_by;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'dismissed_by';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['dismissed_by'] = $value;
     
                 after_dismissed_by:
@@ -6225,28 +6215,6 @@ class CodeScanningAlert implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookCodeScanningAlertReopenedByUser\Alert(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookCodeScanningAlertReopenedByUser\Alert', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\ActionsMeta
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\ActionsMeta', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\ActionsMeta::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\ActionsMeta(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookCheckSuiteCompleted\ActionsMeta', $exception, stack: $this->hydrationStack);
             }
         }
     
@@ -9753,7 +9721,6 @@ class CodeScanningAlert implements ObjectMapper
         if ($dismissed_by === null) {
             goto after_dismissed_by;
         }
-        $dismissed_by = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($dismissed_by);
         after_dismissed_by:        $result['dismissed_by'] = $dismissed_by;
 
         

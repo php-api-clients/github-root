@@ -270,6 +270,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Artifact' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Artifact($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Artifact\WorkflowRun' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Artifact⚡️WorkflowRun($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -435,6 +436,55 @@ class CbArtifactIdRcb implements ObjectMapper
         }
         $workflow_run = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Artifact⚡️WorkflowRun($workflow_run);
         after_workflow_run:        $result['workflow_run'] = $workflow_run;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Artifact⚡️WorkflowRun(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Artifact\WorkflowRun);
+        $result = [];
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $repository_id = $object->repository_id;
+
+        if ($repository_id === null) {
+            goto after_repository_id;
+        }
+        after_repository_id:        $result['repository_id'] = $repository_id;
+
+        
+        $head_repository_id = $object->head_repository_id;
+
+        if ($head_repository_id === null) {
+            goto after_head_repository_id;
+        }
+        after_head_repository_id:        $result['head_repository_id'] = $head_repository_id;
+
+        
+        $head_branch = $object->head_branch;
+
+        if ($head_branch === null) {
+            goto after_head_branch;
+        }
+        after_head_branch:        $result['head_branch'] = $head_branch;
+
+        
+        $head_sha = $object->head_sha;
+
+        if ($head_sha === null) {
+            goto after_head_sha;
+        }
+        after_head_sha:        $result['head_sha'] = $head_sha;
 
 
         return $result;

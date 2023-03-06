@@ -24,6 +24,11 @@ class Topics implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Topics\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Search⚡️Topics⚡️Response⚡️Applicationjson⚡️H200($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches⚡️Matches($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related\TopicRelation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Reactions⚡️CreateForCommitComment⚡️Response⚡️Applicationjson⚡️H415($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -95,6 +100,473 @@ class Topics implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['name'] = null;
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['display_name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['display_name'] = null;
+                    goto after_display_name;
+                }
+
+                $properties['display_name'] = $value;
+    
+                after_display_name:
+
+                $value = $payload['short_description'] ?? null;
+    
+                if ($value === null) {
+                    $properties['short_description'] = null;
+                    goto after_short_description;
+                }
+
+                $properties['short_description'] = $value;
+    
+                after_short_description:
+
+                $value = $payload['description'] ?? null;
+    
+                if ($value === null) {
+                    $properties['description'] = null;
+                    goto after_description;
+                }
+
+                $properties['description'] = $value;
+    
+                after_description:
+
+                $value = $payload['created_by'] ?? null;
+    
+                if ($value === null) {
+                    $properties['created_by'] = null;
+                    goto after_created_by;
+                }
+
+                $properties['created_by'] = $value;
+    
+                after_created_by:
+
+                $value = $payload['released'] ?? null;
+    
+                if ($value === null) {
+                    $properties['released'] = null;
+                    goto after_released;
+                }
+
+                $properties['released'] = $value;
+    
+                after_released:
+
+                $value = $payload['created_at'] ?? null;
+    
+                if ($value === null) {
+                    $properties['created_at'] = null;
+                    goto after_created_at;
+                }
+
+                $properties['created_at'] = $value;
+    
+                after_created_at:
+
+                $value = $payload['updated_at'] ?? null;
+    
+                if ($value === null) {
+                    $properties['updated_at'] = null;
+                    goto after_updated_at;
+                }
+
+                $properties['updated_at'] = $value;
+    
+                after_updated_at:
+
+                $value = $payload['featured'] ?? null;
+    
+                if ($value === null) {
+                    $properties['featured'] = null;
+                    goto after_featured;
+                }
+
+                $properties['featured'] = $value;
+    
+                after_featured:
+
+                $value = $payload['curated'] ?? null;
+    
+                if ($value === null) {
+                    $properties['curated'] = null;
+                    goto after_curated;
+                }
+
+                $properties['curated'] = $value;
+    
+                after_curated:
+
+                $value = $payload['score'] ?? null;
+    
+                if ($value === null) {
+                    $properties['score'] = null;
+                    goto after_score;
+                }
+
+                $properties['score'] = $value;
+    
+                after_score:
+
+                $value = $payload['repository_count'] ?? null;
+    
+                if ($value === null) {
+                    $properties['repository_count'] = null;
+                    goto after_repository_count;
+                }
+
+                $properties['repository_count'] = $value;
+    
+                after_repository_count:
+
+                $value = $payload['logo_url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['logo_url'] = null;
+                    goto after_logo_url;
+                }
+
+                $properties['logo_url'] = $value;
+    
+                after_logo_url:
+
+                $value = $payload['text_matches'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'text_matches';
+                    goto after_text_matches;
+                }
+
+                static $text_matchesCaster1;
+    
+                if ($text_matchesCaster1 === null) {
+                    $text_matchesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SearchResultTextMatches',
+));
+                }
+    
+                $value = $text_matchesCaster1->cast($value, $this);
+
+                $properties['text_matches'] = $value;
+    
+                after_text_matches:
+
+                $value = $payload['related'] ?? null;
+    
+                if ($value === null) {
+                    $properties['related'] = null;
+                    goto after_related;
+                }
+
+                static $relatedCaster1;
+    
+                if ($relatedCaster1 === null) {
+                    $relatedCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem\\Related',
+));
+                }
+    
+                $value = $relatedCaster1->cast($value, $this);
+
+                $properties['related'] = $value;
+    
+                after_related:
+
+                $value = $payload['aliases'] ?? null;
+    
+                if ($value === null) {
+                    $properties['aliases'] = null;
+                    goto after_aliases;
+                }
+
+                static $aliasesCaster1;
+    
+                if ($aliasesCaster1 === null) {
+                    $aliasesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem\\Related',
+));
+                }
+    
+                $value = $aliasesCaster1->cast($value, $this);
+
+                $properties['aliases'] = $value;
+    
+                after_aliases:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['object_url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['object_url'] = null;
+                    goto after_object_url;
+                }
+
+                $properties['object_url'] = $value;
+    
+                after_object_url:
+
+                $value = $payload['object_type'] ?? null;
+    
+                if ($value === null) {
+                    $properties['object_type'] = null;
+                    goto after_object_type;
+                }
+
+                $properties['object_type'] = $value;
+    
+                after_object_type:
+
+                $value = $payload['property'] ?? null;
+    
+                if ($value === null) {
+                    $properties['property'] = null;
+                    goto after_property;
+                }
+
+                $properties['property'] = $value;
+    
+                after_property:
+
+                $value = $payload['fragment'] ?? null;
+    
+                if ($value === null) {
+                    $properties['fragment'] = null;
+                    goto after_fragment;
+                }
+
+                $properties['fragment'] = $value;
+    
+                after_fragment:
+
+                $value = $payload['matches'] ?? null;
+    
+                if ($value === null) {
+                    $properties['matches'] = null;
+                    goto after_matches;
+                }
+
+                static $matchesCaster1;
+    
+                if ($matchesCaster1 === null) {
+                    $matchesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SearchResultTextMatches\\Matches',
+));
+                }
+    
+                $value = $matchesCaster1->cast($value, $this);
+
+                $properties['matches'] = $value;
+    
+                after_matches:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches⚡️Matches(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['text'] ?? null;
+    
+                if ($value === null) {
+                    $properties['text'] = null;
+                    goto after_text;
+                }
+
+                $properties['text'] = $value;
+    
+                after_text:
+
+                $value = $payload['indices'] ?? null;
+    
+                if ($value === null) {
+                    $properties['indices'] = null;
+                    goto after_indices;
+                }
+
+                $properties['indices'] = $value;
+    
+                after_indices:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['topic_relation'] ?? null;
+    
+                if ($value === null) {
+                    $properties['topic_relation'] = null;
+                    goto after_topic_relation;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'topic_relation';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['topic_relation'] = $value;
+    
+                after_topic_relation:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related\TopicRelation
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['id'] = null;
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['name'] = null;
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['topic_id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['topic_id'] = null;
+                    goto after_topic_id;
+                }
+
+                $properties['topic_id'] = $value;
+    
+                after_topic_id:
+
+                $value = $payload['relation_type'] ?? null;
+    
+                if ($value === null) {
+                    $properties['relation_type'] = null;
+                    goto after_relation_type;
+                }
+
+                $properties['relation_type'] = $value;
+    
+                after_relation_type:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related\TopicRelation', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related\TopicRelation::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related\TopicRelation(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related\TopicRelation', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Reactions⚡️CreateForCommitComment⚡️Response⚡️Applicationjson⚡️H415(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415
         {
             $properties = []; 
@@ -150,6 +622,11 @@ class Topics implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Topics\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Search⚡️Topics⚡️Response⚡️Applicationjson⚡️H200($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches⚡️Matches($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related\TopicRelation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Reactions⚡️CreateForCommitComment⚡️Response⚡️Applicationjson⚡️H415($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -260,6 +737,316 @@ class Topics implements ObjectMapper
         
         $items = $itemsSerializer0->serialize($items, $this);
         after_items:        $result['items'] = $items;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem);
+        $result = [];
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $display_name = $object->display_name;
+
+        if ($display_name === null) {
+            goto after_display_name;
+        }
+        after_display_name:        $result['display_name'] = $display_name;
+
+        
+        $short_description = $object->short_description;
+
+        if ($short_description === null) {
+            goto after_short_description;
+        }
+        after_short_description:        $result['short_description'] = $short_description;
+
+        
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+        after_description:        $result['description'] = $description;
+
+        
+        $created_by = $object->created_by;
+
+        if ($created_by === null) {
+            goto after_created_by;
+        }
+        after_created_by:        $result['created_by'] = $created_by;
+
+        
+        $released = $object->released;
+
+        if ($released === null) {
+            goto after_released;
+        }
+        after_released:        $result['released'] = $released;
+
+        
+        $created_at = $object->created_at;
+
+        if ($created_at === null) {
+            goto after_created_at;
+        }
+        after_created_at:        $result['created_at'] = $created_at;
+
+        
+        $updated_at = $object->updated_at;
+
+        if ($updated_at === null) {
+            goto after_updated_at;
+        }
+        after_updated_at:        $result['updated_at'] = $updated_at;
+
+        
+        $featured = $object->featured;
+
+        if ($featured === null) {
+            goto after_featured;
+        }
+        after_featured:        $result['featured'] = $featured;
+
+        
+        $curated = $object->curated;
+
+        if ($curated === null) {
+            goto after_curated;
+        }
+        after_curated:        $result['curated'] = $curated;
+
+        
+        $score = $object->score;
+
+        if ($score === null) {
+            goto after_score;
+        }
+        after_score:        $result['score'] = $score;
+
+        
+        $repository_count = $object->repository_count;
+
+        if ($repository_count === null) {
+            goto after_repository_count;
+        }
+        after_repository_count:        $result['repository_count'] = $repository_count;
+
+        
+        $logo_url = $object->logo_url;
+
+        if ($logo_url === null) {
+            goto after_logo_url;
+        }
+        after_logo_url:        $result['logo_url'] = $logo_url;
+
+        
+        $text_matches = $object->text_matches;
+        static $text_matchesSerializer0;
+
+        if ($text_matchesSerializer0 === null) {
+            $text_matchesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SearchResultTextMatches',
+));
+        }
+        
+        $text_matches = $text_matchesSerializer0->serialize($text_matches, $this);
+        after_text_matches:        $result['text_matches'] = $text_matches;
+
+        
+        $related = $object->related;
+
+        if ($related === null) {
+            goto after_related;
+        }
+        static $relatedSerializer0;
+
+        if ($relatedSerializer0 === null) {
+            $relatedSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem\\Related',
+));
+        }
+        
+        $related = $relatedSerializer0->serialize($related, $this);
+        after_related:        $result['related'] = $related;
+
+        
+        $aliases = $object->aliases;
+
+        if ($aliases === null) {
+            goto after_aliases;
+        }
+        static $aliasesSerializer0;
+
+        if ($aliasesSerializer0 === null) {
+            $aliasesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem\\Related',
+));
+        }
+        
+        $aliases = $aliasesSerializer0->serialize($aliases, $this);
+        after_aliases:        $result['aliases'] = $aliases;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches);
+        $result = [];
+        
+        $object_url = $object->object_url;
+
+        if ($object_url === null) {
+            goto after_object_url;
+        }
+        after_object_url:        $result['object_url'] = $object_url;
+
+        
+        $object_type = $object->object_type;
+
+        if ($object_type === null) {
+            goto after_object_type;
+        }
+        after_object_type:        $result['object_type'] = $object_type;
+
+        
+        $property = $object->property;
+
+        if ($property === null) {
+            goto after_property;
+        }
+        after_property:        $result['property'] = $property;
+
+        
+        $fragment = $object->fragment;
+
+        if ($fragment === null) {
+            goto after_fragment;
+        }
+        after_fragment:        $result['fragment'] = $fragment;
+
+        
+        $matches = $object->matches;
+
+        if ($matches === null) {
+            goto after_matches;
+        }
+        static $matchesSerializer0;
+
+        if ($matchesSerializer0 === null) {
+            $matchesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SearchResultTextMatches\\Matches',
+));
+        }
+        
+        $matches = $matchesSerializer0->serialize($matches, $this);
+        after_matches:        $result['matches'] = $matches;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches⚡️Matches(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches);
+        $result = [];
+        
+        $text = $object->text;
+
+        if ($text === null) {
+            goto after_text;
+        }
+        after_text:        $result['text'] = $text;
+
+        
+        $indices = $object->indices;
+
+        if ($indices === null) {
+            goto after_indices;
+        }
+        static $indicesSerializer0;
+
+        if ($indicesSerializer0 === null) {
+            $indicesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $indices = $indicesSerializer0->serialize($indices, $this);
+        after_indices:        $result['indices'] = $indices;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related);
+        $result = [];
+        
+        $topic_relation = $object->topic_relation;
+
+        if ($topic_relation === null) {
+            goto after_topic_relation;
+        }
+        $topic_relation = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($topic_relation);
+        after_topic_relation:        $result['topic_relation'] = $topic_relation;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related\TopicRelation);
+        $result = [];
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $topic_id = $object->topic_id;
+
+        if ($topic_id === null) {
+            goto after_topic_id;
+        }
+        after_topic_id:        $result['topic_id'] = $topic_id;
+
+        
+        $relation_type = $object->relation_type;
+
+        if ($relation_type === null) {
+            goto after_relation_type;
+        }
+        after_relation_type:        $result['relation_type'] = $relation_type;
 
 
         return $result;

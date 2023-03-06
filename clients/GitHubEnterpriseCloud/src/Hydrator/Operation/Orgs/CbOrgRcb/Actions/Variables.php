@@ -24,6 +24,7 @@ class Variables implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListOrgVariables\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Actions⚡️ListOrgVariables⚡️Response⚡️Applicationjson⚡️H200($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationActionsVariable' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationActionsVariable($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -81,6 +82,94 @@ class Variables implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListOrgVariables\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationActionsVariable(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationActionsVariable
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['name'] = null;
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['value'] ?? null;
+    
+                if ($value === null) {
+                    $properties['value'] = null;
+                    goto after_value;
+                }
+
+                $properties['value'] = $value;
+    
+                after_value:
+
+                $value = $payload['created_at'] ?? null;
+    
+                if ($value === null) {
+                    $properties['created_at'] = null;
+                    goto after_created_at;
+                }
+
+                $properties['created_at'] = $value;
+    
+                after_created_at:
+
+                $value = $payload['updated_at'] ?? null;
+    
+                if ($value === null) {
+                    $properties['updated_at'] = null;
+                    goto after_updated_at;
+                }
+
+                $properties['updated_at'] = $value;
+    
+                after_updated_at:
+
+                $value = $payload['visibility'] ?? null;
+    
+                if ($value === null) {
+                    $properties['visibility'] = null;
+                    goto after_visibility;
+                }
+
+                $properties['visibility'] = $value;
+    
+                after_visibility:
+
+                $value = $payload['selected_repositories_url'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'selected_repositories_url';
+                    goto after_selected_repositories_url;
+                }
+
+                $properties['selected_repositories_url'] = $value;
+    
+                after_selected_repositories_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationActionsVariable', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationActionsVariable::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationActionsVariable(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationActionsVariable', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -94,6 +183,7 @@ class Variables implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListOrgVariables\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Actions⚡️ListOrgVariables⚡️Response⚡️Applicationjson⚡️H200($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationActionsVariable' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationActionsVariable($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -195,6 +285,59 @@ class Variables implements ObjectMapper
         
         $variables = $variablesSerializer0->serialize($variables, $this);
         after_variables:        $result['variables'] = $variables;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationActionsVariable(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationActionsVariable);
+        $result = [];
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $value = $object->value;
+
+        if ($value === null) {
+            goto after_value;
+        }
+        after_value:        $result['value'] = $value;
+
+        
+        $created_at = $object->created_at;
+
+        if ($created_at === null) {
+            goto after_created_at;
+        }
+        after_created_at:        $result['created_at'] = $created_at;
+
+        
+        $updated_at = $object->updated_at;
+
+        if ($updated_at === null) {
+            goto after_updated_at;
+        }
+        after_updated_at:        $result['updated_at'] = $updated_at;
+
+        
+        $visibility = $object->visibility;
+
+        if ($visibility === null) {
+            goto after_visibility;
+        }
+        after_visibility:        $result['visibility'] = $visibility;
+
+        
+        $selected_repositories_url = $object->selected_repositories_url;
+        after_selected_repositories_url:        $result['selected_repositories_url'] = $selected_repositories_url;
 
 
         return $result;

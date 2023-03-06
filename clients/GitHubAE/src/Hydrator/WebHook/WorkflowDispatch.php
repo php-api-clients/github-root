@@ -34,7 +34,6 @@ class WorkflowDispatch implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookRepositoryDispatchSample\ClientPayload' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookRepositoryDispatchSample⚡️ClientPayload($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -71,15 +70,6 @@ class WorkflowDispatch implements ObjectMapper
                 if ($value === null) {
                     $properties['inputs'] = null;
                     goto after_inputs;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'inputs';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookRepositoryDispatchSample⚡️ClientPayload($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['inputs'] = $value;
@@ -3279,28 +3269,6 @@ class WorkflowDispatch implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
             }
         }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookRepositoryDispatchSample⚡️ClientPayload(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookRepositoryDispatchSample\ClientPayload
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookRepositoryDispatchSample\ClientPayload', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookRepositoryDispatchSample\ClientPayload::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\WebhookRepositoryDispatchSample\ClientPayload(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookRepositoryDispatchSample\ClientPayload', $exception, stack: $this->hydrationStack);
-            }
-        }
     
     public function serializeObject(object $object): mixed
     {
@@ -3412,7 +3380,6 @@ class WorkflowDispatch implements ObjectMapper
         if ($inputs === null) {
             goto after_inputs;
         }
-        $inputs = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookRepositoryDispatchSample⚡️ClientPayload($inputs);
         after_inputs:        $result['inputs'] = $inputs;
 
         

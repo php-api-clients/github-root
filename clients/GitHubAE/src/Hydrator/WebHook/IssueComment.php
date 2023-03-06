@@ -49,7 +49,6 @@ class IssueComment implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Changes($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Changes\Body' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Changes⚡️Body($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -1734,15 +1733,6 @@ class IssueComment implements ObjectMapper
                     goto after_milestone;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'milestone';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['milestone'] = $value;
     
                 after_milestone:
@@ -1774,15 +1764,6 @@ class IssueComment implements ObjectMapper
                 if ($value === null) {
                     $properties['performed_via_github_app'] = null;
                     goto after_performed_via_github_app;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'performed_via_github_app';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['performed_via_github_app'] = $value;
@@ -5883,28 +5864,6 @@ class IssueComment implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Changes\Body', $exception, stack: $this->hydrationStack);
             }
         }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta', $exception, stack: $this->hydrationStack);
-            }
-        }
     
     public function serializeObject(object $object): mixed
     {
@@ -6970,7 +6929,6 @@ class IssueComment implements ObjectMapper
         if ($milestone === null) {
             goto after_milestone;
         }
-        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($milestone);
         after_milestone:        $result['milestone'] = $milestone;
 
         
@@ -6987,7 +6945,6 @@ class IssueComment implements ObjectMapper
         if ($performed_via_github_app === null) {
             goto after_performed_via_github_app;
         }
-        $performed_via_github_app = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($performed_via_github_app);
         after_performed_via_github_app:        $result['performed_via_github_app'] = $performed_via_github_app;
 
         

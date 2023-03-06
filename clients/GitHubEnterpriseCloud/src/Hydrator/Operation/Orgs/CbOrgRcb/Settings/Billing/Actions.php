@@ -303,6 +303,7 @@ class Actions implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsBillingUsage' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsBillingUsage($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsBillingUsage\MinutesUsedBreakdown' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsBillingUsage⚡️MinutesUsedBreakdown($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -412,6 +413,135 @@ class Actions implements ObjectMapper
         }
         $minutes_used_breakdown = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsBillingUsage⚡️MinutesUsedBreakdown($minutes_used_breakdown);
         after_minutes_used_breakdown:        $result['minutes_used_breakdown'] = $minutes_used_breakdown;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsBillingUsage⚡️MinutesUsedBreakdown(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsBillingUsage\MinutesUsedBreakdown);
+        $result = [];
+        
+        $UBUNTU = $object->UBUNTU;
+
+        if ($UBUNTU === null) {
+            goto after_UBUNTU;
+        }
+        after_UBUNTU:        $result['u_b_u_n_t_u'] = $UBUNTU;
+
+        
+        $MACOS = $object->MACOS;
+
+        if ($MACOS === null) {
+            goto after_MACOS;
+        }
+        after_MACOS:        $result['m_a_c_o_s'] = $MACOS;
+
+        
+        $WINDOWS = $object->WINDOWS;
+
+        if ($WINDOWS === null) {
+            goto after_WINDOWS;
+        }
+        after_WINDOWS:        $result['w_i_n_d_o_w_s'] = $WINDOWS;
+
+        
+        $ubuntu_4_core = $object->ubuntu_4_core;
+
+        if ($ubuntu_4_core === null) {
+            goto after_ubuntu_4_core;
+        }
+        after_ubuntu_4_core:        $result['ubuntu_4_core'] = $ubuntu_4_core;
+
+        
+        $ubuntu_8_core = $object->ubuntu_8_core;
+
+        if ($ubuntu_8_core === null) {
+            goto after_ubuntu_8_core;
+        }
+        after_ubuntu_8_core:        $result['ubuntu_8_core'] = $ubuntu_8_core;
+
+        
+        $ubuntu_16_core = $object->ubuntu_16_core;
+
+        if ($ubuntu_16_core === null) {
+            goto after_ubuntu_16_core;
+        }
+        after_ubuntu_16_core:        $result['ubuntu_16_core'] = $ubuntu_16_core;
+
+        
+        $ubuntu_32_core = $object->ubuntu_32_core;
+
+        if ($ubuntu_32_core === null) {
+            goto after_ubuntu_32_core;
+        }
+        after_ubuntu_32_core:        $result['ubuntu_32_core'] = $ubuntu_32_core;
+
+        
+        $ubuntu_64_core = $object->ubuntu_64_core;
+
+        if ($ubuntu_64_core === null) {
+            goto after_ubuntu_64_core;
+        }
+        after_ubuntu_64_core:        $result['ubuntu_64_core'] = $ubuntu_64_core;
+
+        
+        $windows_4_core = $object->windows_4_core;
+
+        if ($windows_4_core === null) {
+            goto after_windows_4_core;
+        }
+        after_windows_4_core:        $result['windows_4_core'] = $windows_4_core;
+
+        
+        $windows_8_core = $object->windows_8_core;
+
+        if ($windows_8_core === null) {
+            goto after_windows_8_core;
+        }
+        after_windows_8_core:        $result['windows_8_core'] = $windows_8_core;
+
+        
+        $windows_16_core = $object->windows_16_core;
+
+        if ($windows_16_core === null) {
+            goto after_windows_16_core;
+        }
+        after_windows_16_core:        $result['windows_16_core'] = $windows_16_core;
+
+        
+        $windows_32_core = $object->windows_32_core;
+
+        if ($windows_32_core === null) {
+            goto after_windows_32_core;
+        }
+        after_windows_32_core:        $result['windows_32_core'] = $windows_32_core;
+
+        
+        $windows_64_core = $object->windows_64_core;
+
+        if ($windows_64_core === null) {
+            goto after_windows_64_core;
+        }
+        after_windows_64_core:        $result['windows_64_core'] = $windows_64_core;
+
+        
+        $macos_12_core = $object->macos_12_core;
+
+        if ($macos_12_core === null) {
+            goto after_macos_12_core;
+        }
+        after_macos_12_core:        $result['macos_12_core'] = $macos_12_core;
+
+        
+        $total = $object->total;
+
+        if ($total === null) {
+            goto after_total;
+        }
+        after_total:        $result['total'] = $total;
 
 
         return $result;

@@ -30,6 +30,8 @@ class Settings implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubSsl' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Cas' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Saml' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubOauth' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth($payload),
@@ -40,8 +42,6 @@ class Settings implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\BranchProtection\RequiredLinearHistory' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Collectd' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -1133,6 +1133,116 @@ class Settings implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['user'] ?? null;
+    
+                if ($value === null) {
+                    $properties['user'] = null;
+                    goto after_user;
+                }
+
+                $properties['user'] = $value;
+    
+                after_user:
+
+                $value = $payload['org'] ?? null;
+    
+                if ($value === null) {
+                    $properties['org'] = null;
+                    goto after_org;
+                }
+
+                $properties['org'] = $value;
+    
+                after_org:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['uid'] ?? null;
+    
+                if ($value === null) {
+                    $properties['uid'] = null;
+                    goto after_uid;
+                }
+
+                $properties['uid'] = $value;
+    
+                after_uid:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['name'] = null;
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['mail'] ?? null;
+    
+                if ($value === null) {
+                    $properties['mail'] = null;
+                    goto after_mail;
+                }
+
+                $properties['mail'] = $value;
+    
+                after_mail:
+
+                $value = $payload['key'] ?? null;
+    
+                if ($value === null) {
+                    $properties['key'] = null;
+                    goto after_key;
+                }
+
+                $properties['key'] = $value;
+    
+                after_key:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Cas
         {
             $properties = []; 
@@ -1813,116 +1923,6 @@ class Settings implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping', $exception, stack: $this->hydrationStack);
             }
         }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['user'] ?? null;
-    
-                if ($value === null) {
-                    $properties['user'] = null;
-                    goto after_user;
-                }
-
-                $properties['user'] = $value;
-    
-                after_user:
-
-                $value = $payload['org'] ?? null;
-    
-                if ($value === null) {
-                    $properties['org'] = null;
-                    goto after_org;
-                }
-
-                $properties['org'] = $value;
-    
-                after_org:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['uid'] ?? null;
-    
-                if ($value === null) {
-                    $properties['uid'] = null;
-                    goto after_uid;
-                }
-
-                $properties['uid'] = $value;
-    
-                after_uid:
-
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['name'] = null;
-                    goto after_name;
-                }
-
-                $properties['name'] = $value;
-    
-                after_name:
-
-                $value = $payload['mail'] ?? null;
-    
-                if ($value === null) {
-                    $properties['mail'] = null;
-                    goto after_mail;
-                }
-
-                $properties['mail'] = $value;
-    
-                after_mail:
-
-                $value = $payload['key'] ?? null;
-    
-                if ($value === null) {
-                    $properties['key'] = null;
-                    goto after_key;
-                }
-
-                $properties['key'] = $value;
-    
-                after_key:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile', $exception, stack: $this->hydrationStack);
-            }
-        }
     
     public function serializeObject(object $object): mixed
     {
@@ -1936,6 +1936,24 @@ class Settings implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Avatar' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Customer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubSsl' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Cas' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Saml' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubOauth' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Smtp' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ntp' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Snmp' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Syslog' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\BranchProtection\RequiredLinearHistory' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Collectd' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -2037,6 +2055,1129 @@ class Settings implements ObjectMapper
         
         $run_list = $run_listSerializer0->serialize($run_list, $this);
         after_run_list:        $result['run_list'] = $run_list;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise);
+        $result = [];
+        
+        $private_mode = $object->private_mode;
+
+        if ($private_mode === null) {
+            goto after_private_mode;
+        }
+        after_private_mode:        $result['private_mode'] = $private_mode;
+
+        
+        $public_pages = $object->public_pages;
+
+        if ($public_pages === null) {
+            goto after_public_pages;
+        }
+        after_public_pages:        $result['public_pages'] = $public_pages;
+
+        
+        $subdomain_isolation = $object->subdomain_isolation;
+
+        if ($subdomain_isolation === null) {
+            goto after_subdomain_isolation;
+        }
+        after_subdomain_isolation:        $result['subdomain_isolation'] = $subdomain_isolation;
+
+        
+        $signup_enabled = $object->signup_enabled;
+
+        if ($signup_enabled === null) {
+            goto after_signup_enabled;
+        }
+        after_signup_enabled:        $result['signup_enabled'] = $signup_enabled;
+
+        
+        $github_hostname = $object->github_hostname;
+
+        if ($github_hostname === null) {
+            goto after_github_hostname;
+        }
+        after_github_hostname:        $result['github_hostname'] = $github_hostname;
+
+        
+        $identicons_host = $object->identicons_host;
+
+        if ($identicons_host === null) {
+            goto after_identicons_host;
+        }
+        after_identicons_host:        $result['identicons_host'] = $identicons_host;
+
+        
+        $http_proxy = $object->http_proxy;
+
+        if ($http_proxy === null) {
+            goto after_http_proxy;
+        }
+        after_http_proxy:        $result['http_proxy'] = $http_proxy;
+
+        
+        $auth_mode = $object->auth_mode;
+
+        if ($auth_mode === null) {
+            goto after_auth_mode;
+        }
+        after_auth_mode:        $result['auth_mode'] = $auth_mode;
+
+        
+        $expire_sessions = $object->expire_sessions;
+
+        if ($expire_sessions === null) {
+            goto after_expire_sessions;
+        }
+        after_expire_sessions:        $result['expire_sessions'] = $expire_sessions;
+
+        
+        $admin_password = $object->admin_password;
+
+        if ($admin_password === null) {
+            goto after_admin_password;
+        }
+        after_admin_password:        $result['admin_password'] = $admin_password;
+
+        
+        $configuration_id = $object->configuration_id;
+
+        if ($configuration_id === null) {
+            goto after_configuration_id;
+        }
+        after_configuration_id:        $result['configuration_id'] = $configuration_id;
+
+        
+        $configuration_run_count = $object->configuration_run_count;
+
+        if ($configuration_run_count === null) {
+            goto after_configuration_run_count;
+        }
+        after_configuration_run_count:        $result['configuration_run_count'] = $configuration_run_count;
+
+        
+        $avatar = $object->avatar;
+
+        if ($avatar === null) {
+            goto after_avatar;
+        }
+        $avatar = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar($avatar);
+        after_avatar:        $result['avatar'] = $avatar;
+
+        
+        $customer = $object->customer;
+
+        if ($customer === null) {
+            goto after_customer;
+        }
+        $customer = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer($customer);
+        after_customer:        $result['customer'] = $customer;
+
+        
+        $license = $object->license;
+
+        if ($license === null) {
+            goto after_license;
+        }
+        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License($license);
+        after_license:        $result['license'] = $license;
+
+        
+        $github_ssl = $object->github_ssl;
+
+        if ($github_ssl === null) {
+            goto after_github_ssl;
+        }
+        $github_ssl = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl($github_ssl);
+        after_github_ssl:        $result['github_ssl'] = $github_ssl;
+
+        
+        $ldap = $object->ldap;
+
+        if ($ldap === null) {
+            goto after_ldap;
+        }
+        $ldap = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap($ldap);
+        after_ldap:        $result['ldap'] = $ldap;
+
+        
+        $cas = $object->cas;
+
+        if ($cas === null) {
+            goto after_cas;
+        }
+        $cas = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas($cas);
+        after_cas:        $result['cas'] = $cas;
+
+        
+        $saml = $object->saml;
+
+        if ($saml === null) {
+            goto after_saml;
+        }
+        $saml = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml($saml);
+        after_saml:        $result['saml'] = $saml;
+
+        
+        $github_oauth = $object->github_oauth;
+
+        if ($github_oauth === null) {
+            goto after_github_oauth;
+        }
+        $github_oauth = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth($github_oauth);
+        after_github_oauth:        $result['github_oauth'] = $github_oauth;
+
+        
+        $smtp = $object->smtp;
+
+        if ($smtp === null) {
+            goto after_smtp;
+        }
+        $smtp = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp($smtp);
+        after_smtp:        $result['smtp'] = $smtp;
+
+        
+        $ntp = $object->ntp;
+
+        if ($ntp === null) {
+            goto after_ntp;
+        }
+        $ntp = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp($ntp);
+        after_ntp:        $result['ntp'] = $ntp;
+
+        
+        $timezone = $object->timezone;
+
+        if ($timezone === null) {
+            goto after_timezone;
+        }
+        after_timezone:        $result['timezone'] = $timezone;
+
+        
+        $snmp = $object->snmp;
+
+        if ($snmp === null) {
+            goto after_snmp;
+        }
+        $snmp = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp($snmp);
+        after_snmp:        $result['snmp'] = $snmp;
+
+        
+        $syslog = $object->syslog;
+
+        if ($syslog === null) {
+            goto after_syslog;
+        }
+        $syslog = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog($syslog);
+        after_syslog:        $result['syslog'] = $syslog;
+
+        
+        $assets = $object->assets;
+
+        if ($assets === null) {
+            goto after_assets;
+        }
+        after_assets:        $result['assets'] = $assets;
+
+        
+        $pages = $object->pages;
+
+        if ($pages === null) {
+            goto after_pages;
+        }
+        $pages = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($pages);
+        after_pages:        $result['pages'] = $pages;
+
+        
+        $collectd = $object->collectd;
+
+        if ($collectd === null) {
+            goto after_collectd;
+        }
+        $collectd = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd($collectd);
+        after_collectd:        $result['collectd'] = $collectd;
+
+        
+        $mapping = $object->mapping;
+
+        if ($mapping === null) {
+            goto after_mapping;
+        }
+        $mapping = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping($mapping);
+        after_mapping:        $result['mapping'] = $mapping;
+
+        
+        $load_balancer = $object->load_balancer;
+
+        if ($load_balancer === null) {
+            goto after_load_balancer;
+        }
+        after_load_balancer:        $result['load_balancer'] = $load_balancer;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Avatar);
+        $result = [];
+        
+        $enabled = $object->enabled;
+
+        if ($enabled === null) {
+            goto after_enabled;
+        }
+        after_enabled:        $result['enabled'] = $enabled;
+
+        
+        $uri = $object->uri;
+
+        if ($uri === null) {
+            goto after_uri;
+        }
+        after_uri:        $result['uri'] = $uri;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Customer);
+        $result = [];
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $uuid = $object->uuid;
+
+        if ($uuid === null) {
+            goto after_uuid;
+        }
+        after_uuid:        $result['uuid'] = $uuid;
+
+        
+        $secret_key_data = $object->secret_key_data;
+
+        if ($secret_key_data === null) {
+            goto after_secret_key_data;
+        }
+        after_secret_key_data:        $result['secret_key_data'] = $secret_key_data;
+
+        
+        $public_key_data = $object->public_key_data;
+
+        if ($public_key_data === null) {
+            goto after_public_key_data;
+        }
+        after_public_key_data:        $result['public_key_data'] = $public_key_data;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\License);
+        $result = [];
+        
+        $seats = $object->seats;
+
+        if ($seats === null) {
+            goto after_seats;
+        }
+        after_seats:        $result['seats'] = $seats;
+
+        
+        $evaluation = $object->evaluation;
+
+        if ($evaluation === null) {
+            goto after_evaluation;
+        }
+        after_evaluation:        $result['evaluation'] = $evaluation;
+
+        
+        $perpetual = $object->perpetual;
+
+        if ($perpetual === null) {
+            goto after_perpetual;
+        }
+        after_perpetual:        $result['perpetual'] = $perpetual;
+
+        
+        $unlimited_seating = $object->unlimited_seating;
+
+        if ($unlimited_seating === null) {
+            goto after_unlimited_seating;
+        }
+        after_unlimited_seating:        $result['unlimited_seating'] = $unlimited_seating;
+
+        
+        $support_key = $object->support_key;
+
+        if ($support_key === null) {
+            goto after_support_key;
+        }
+        after_support_key:        $result['support_key'] = $support_key;
+
+        
+        $ssh_allowed = $object->ssh_allowed;
+
+        if ($ssh_allowed === null) {
+            goto after_ssh_allowed;
+        }
+        after_ssh_allowed:        $result['ssh_allowed'] = $ssh_allowed;
+
+        
+        $cluster_support = $object->cluster_support;
+
+        if ($cluster_support === null) {
+            goto after_cluster_support;
+        }
+        after_cluster_support:        $result['cluster_support'] = $cluster_support;
+
+        
+        $expire_at = $object->expire_at;
+
+        if ($expire_at === null) {
+            goto after_expire_at;
+        }
+        after_expire_at:        $result['expire_at'] = $expire_at;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubSsl);
+        $result = [];
+        
+        $enabled = $object->enabled;
+
+        if ($enabled === null) {
+            goto after_enabled;
+        }
+        after_enabled:        $result['enabled'] = $enabled;
+
+        
+        $cert = $object->cert;
+
+        if ($cert === null) {
+            goto after_cert;
+        }
+        after_cert:        $result['cert'] = $cert;
+
+        
+        $key = $object->key;
+
+        if ($key === null) {
+            goto after_key;
+        }
+        after_key:        $result['key'] = $key;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap);
+        $result = [];
+        
+        $host = $object->host;
+
+        if ($host === null) {
+            goto after_host;
+        }
+        after_host:        $result['host'] = $host;
+
+        
+        $port = $object->port;
+
+        if ($port === null) {
+            goto after_port;
+        }
+        after_port:        $result['port'] = $port;
+
+        
+        $base = $object->base;
+
+        if ($base === null) {
+            goto after_base;
+        }
+        static $baseSerializer0;
+
+        if ($baseSerializer0 === null) {
+            $baseSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $base = $baseSerializer0->serialize($base, $this);
+        after_base:        $result['base'] = $base;
+
+        
+        $uid = $object->uid;
+
+        if ($uid === null) {
+            goto after_uid;
+        }
+        after_uid:        $result['uid'] = $uid;
+
+        
+        $bind_dn = $object->bind_dn;
+
+        if ($bind_dn === null) {
+            goto after_bind_dn;
+        }
+        after_bind_dn:        $result['bind_dn'] = $bind_dn;
+
+        
+        $password = $object->password;
+
+        if ($password === null) {
+            goto after_password;
+        }
+        after_password:        $result['password'] = $password;
+
+        
+        $method = $object->method;
+
+        if ($method === null) {
+            goto after_method;
+        }
+        after_method:        $result['method'] = $method;
+
+        
+        $search_strategy = $object->search_strategy;
+
+        if ($search_strategy === null) {
+            goto after_search_strategy;
+        }
+        after_search_strategy:        $result['search_strategy'] = $search_strategy;
+
+        
+        $user_groups = $object->user_groups;
+
+        if ($user_groups === null) {
+            goto after_user_groups;
+        }
+        static $user_groupsSerializer0;
+
+        if ($user_groupsSerializer0 === null) {
+            $user_groupsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $user_groups = $user_groupsSerializer0->serialize($user_groups, $this);
+        after_user_groups:        $result['user_groups'] = $user_groups;
+
+        
+        $admin_group = $object->admin_group;
+
+        if ($admin_group === null) {
+            goto after_admin_group;
+        }
+        after_admin_group:        $result['admin_group'] = $admin_group;
+
+        
+        $virtual_attribute_enabled = $object->virtual_attribute_enabled;
+
+        if ($virtual_attribute_enabled === null) {
+            goto after_virtual_attribute_enabled;
+        }
+        after_virtual_attribute_enabled:        $result['virtual_attribute_enabled'] = $virtual_attribute_enabled;
+
+        
+        $recursive_group_search = $object->recursive_group_search;
+
+        if ($recursive_group_search === null) {
+            goto after_recursive_group_search;
+        }
+        after_recursive_group_search:        $result['recursive_group_search'] = $recursive_group_search;
+
+        
+        $posix_support = $object->posix_support;
+
+        if ($posix_support === null) {
+            goto after_posix_support;
+        }
+        after_posix_support:        $result['posix_support'] = $posix_support;
+
+        
+        $user_sync_emails = $object->user_sync_emails;
+
+        if ($user_sync_emails === null) {
+            goto after_user_sync_emails;
+        }
+        after_user_sync_emails:        $result['user_sync_emails'] = $user_sync_emails;
+
+        
+        $user_sync_keys = $object->user_sync_keys;
+
+        if ($user_sync_keys === null) {
+            goto after_user_sync_keys;
+        }
+        after_user_sync_keys:        $result['user_sync_keys'] = $user_sync_keys;
+
+        
+        $user_sync_interval = $object->user_sync_interval;
+
+        if ($user_sync_interval === null) {
+            goto after_user_sync_interval;
+        }
+        after_user_sync_interval:        $result['user_sync_interval'] = $user_sync_interval;
+
+        
+        $team_sync_interval = $object->team_sync_interval;
+
+        if ($team_sync_interval === null) {
+            goto after_team_sync_interval;
+        }
+        after_team_sync_interval:        $result['team_sync_interval'] = $team_sync_interval;
+
+        
+        $sync_enabled = $object->sync_enabled;
+
+        if ($sync_enabled === null) {
+            goto after_sync_enabled;
+        }
+        after_sync_enabled:        $result['sync_enabled'] = $sync_enabled;
+
+        
+        $reconciliation = $object->reconciliation;
+
+        if ($reconciliation === null) {
+            goto after_reconciliation;
+        }
+        $reconciliation = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation($reconciliation);
+        after_reconciliation:        $result['reconciliation'] = $reconciliation;
+
+        
+        $profile = $object->profile;
+
+        if ($profile === null) {
+            goto after_profile;
+        }
+        $profile = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile($profile);
+        after_profile:        $result['profile'] = $profile;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation);
+        $result = [];
+        
+        $user = $object->user;
+
+        if ($user === null) {
+            goto after_user;
+        }
+        after_user:        $result['user'] = $user;
+
+        
+        $org = $object->org;
+
+        if ($org === null) {
+            goto after_org;
+        }
+        after_org:        $result['org'] = $org;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile);
+        $result = [];
+        
+        $uid = $object->uid;
+
+        if ($uid === null) {
+            goto after_uid;
+        }
+        after_uid:        $result['uid'] = $uid;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $mail = $object->mail;
+
+        if ($mail === null) {
+            goto after_mail;
+        }
+        after_mail:        $result['mail'] = $mail;
+
+        
+        $key = $object->key;
+
+        if ($key === null) {
+            goto after_key;
+        }
+        after_key:        $result['key'] = $key;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Cas);
+        $result = [];
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Saml);
+        $result = [];
+        
+        $sso_url = $object->sso_url;
+
+        if ($sso_url === null) {
+            goto after_sso_url;
+        }
+        after_sso_url:        $result['sso_url'] = $sso_url;
+
+        
+        $certificate = $object->certificate;
+
+        if ($certificate === null) {
+            goto after_certificate;
+        }
+        after_certificate:        $result['certificate'] = $certificate;
+
+        
+        $certificate_path = $object->certificate_path;
+
+        if ($certificate_path === null) {
+            goto after_certificate_path;
+        }
+        after_certificate_path:        $result['certificate_path'] = $certificate_path;
+
+        
+        $issuer = $object->issuer;
+
+        if ($issuer === null) {
+            goto after_issuer;
+        }
+        after_issuer:        $result['issuer'] = $issuer;
+
+        
+        $idp_initiated_sso = $object->idp_initiated_sso;
+
+        if ($idp_initiated_sso === null) {
+            goto after_idp_initiated_sso;
+        }
+        after_idp_initiated_sso:        $result['idp_initiated_sso'] = $idp_initiated_sso;
+
+        
+        $disable_admin_demote = $object->disable_admin_demote;
+
+        if ($disable_admin_demote === null) {
+            goto after_disable_admin_demote;
+        }
+        after_disable_admin_demote:        $result['disable_admin_demote'] = $disable_admin_demote;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubOauth);
+        $result = [];
+        
+        $client_id = $object->client_id;
+
+        if ($client_id === null) {
+            goto after_client_id;
+        }
+        after_client_id:        $result['client_id'] = $client_id;
+
+        
+        $client_secret = $object->client_secret;
+
+        if ($client_secret === null) {
+            goto after_client_secret;
+        }
+        after_client_secret:        $result['client_secret'] = $client_secret;
+
+        
+        $organization_name = $object->organization_name;
+
+        if ($organization_name === null) {
+            goto after_organization_name;
+        }
+        after_organization_name:        $result['organization_name'] = $organization_name;
+
+        
+        $organization_team = $object->organization_team;
+
+        if ($organization_team === null) {
+            goto after_organization_team;
+        }
+        after_organization_team:        $result['organization_team'] = $organization_team;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Smtp);
+        $result = [];
+        
+        $enabled = $object->enabled;
+
+        if ($enabled === null) {
+            goto after_enabled;
+        }
+        after_enabled:        $result['enabled'] = $enabled;
+
+        
+        $address = $object->address;
+
+        if ($address === null) {
+            goto after_address;
+        }
+        after_address:        $result['address'] = $address;
+
+        
+        $authentication = $object->authentication;
+
+        if ($authentication === null) {
+            goto after_authentication;
+        }
+        after_authentication:        $result['authentication'] = $authentication;
+
+        
+        $port = $object->port;
+
+        if ($port === null) {
+            goto after_port;
+        }
+        after_port:        $result['port'] = $port;
+
+        
+        $domain = $object->domain;
+
+        if ($domain === null) {
+            goto after_domain;
+        }
+        after_domain:        $result['domain'] = $domain;
+
+        
+        $username = $object->username;
+
+        if ($username === null) {
+            goto after_username;
+        }
+        after_username:        $result['username'] = $username;
+
+        
+        $user_name = $object->user_name;
+
+        if ($user_name === null) {
+            goto after_user_name;
+        }
+        after_user_name:        $result['user_name'] = $user_name;
+
+        
+        $enable_starttls_auto = $object->enable_starttls_auto;
+
+        if ($enable_starttls_auto === null) {
+            goto after_enable_starttls_auto;
+        }
+        after_enable_starttls_auto:        $result['enable_starttls_auto'] = $enable_starttls_auto;
+
+        
+        $password = $object->password;
+
+        if ($password === null) {
+            goto after_password;
+        }
+        after_password:        $result['password'] = $password;
+
+        
+        $discard_MINUS_to_MINUS_noreply_MINUS_address = $object->discard_MINUS_to_MINUS_noreply_MINUS_address;
+
+        if ($discard_MINUS_to_MINUS_noreply_MINUS_address === null) {
+            goto after_discard_MINUS_to_MINUS_noreply_MINUS_address;
+        }
+        after_discard_MINUS_to_MINUS_noreply_MINUS_address:        $result['discard__m_i_n_u_s_to__m_i_n_u_s_noreply__m_i_n_u_s_address'] = $discard_MINUS_to_MINUS_noreply_MINUS_address;
+
+        
+        $support_address = $object->support_address;
+
+        if ($support_address === null) {
+            goto after_support_address;
+        }
+        after_support_address:        $result['support_address'] = $support_address;
+
+        
+        $support_address_type = $object->support_address_type;
+
+        if ($support_address_type === null) {
+            goto after_support_address_type;
+        }
+        after_support_address_type:        $result['support_address_type'] = $support_address_type;
+
+        
+        $noreply_address = $object->noreply_address;
+
+        if ($noreply_address === null) {
+            goto after_noreply_address;
+        }
+        after_noreply_address:        $result['noreply_address'] = $noreply_address;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ntp);
+        $result = [];
+        
+        $primary_server = $object->primary_server;
+
+        if ($primary_server === null) {
+            goto after_primary_server;
+        }
+        after_primary_server:        $result['primary_server'] = $primary_server;
+
+        
+        $secondary_server = $object->secondary_server;
+
+        if ($secondary_server === null) {
+            goto after_secondary_server;
+        }
+        after_secondary_server:        $result['secondary_server'] = $secondary_server;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Snmp);
+        $result = [];
+        
+        $enabled = $object->enabled;
+
+        if ($enabled === null) {
+            goto after_enabled;
+        }
+        after_enabled:        $result['enabled'] = $enabled;
+
+        
+        $community = $object->community;
+
+        if ($community === null) {
+            goto after_community;
+        }
+        after_community:        $result['community'] = $community;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Syslog);
+        $result = [];
+        
+        $enabled = $object->enabled;
+
+        if ($enabled === null) {
+            goto after_enabled;
+        }
+        after_enabled:        $result['enabled'] = $enabled;
+
+        
+        $server = $object->server;
+
+        if ($server === null) {
+            goto after_server;
+        }
+        after_server:        $result['server'] = $server;
+
+        
+        $protocol_name = $object->protocol_name;
+
+        if ($protocol_name === null) {
+            goto after_protocol_name;
+        }
+        after_protocol_name:        $result['protocol_name'] = $protocol_name;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\BranchProtection\RequiredLinearHistory);
+        $result = [];
+        
+        $enabled = $object->enabled;
+
+        if ($enabled === null) {
+            goto after_enabled;
+        }
+        after_enabled:        $result['enabled'] = $enabled;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Collectd);
+        $result = [];
+        
+        $enabled = $object->enabled;
+
+        if ($enabled === null) {
+            goto after_enabled;
+        }
+        after_enabled:        $result['enabled'] = $enabled;
+
+        
+        $server = $object->server;
+
+        if ($server === null) {
+            goto after_server;
+        }
+        after_server:        $result['server'] = $server;
+
+        
+        $port = $object->port;
+
+        if ($port === null) {
+            goto after_port;
+        }
+        after_port:        $result['port'] = $port;
+
+        
+        $encryption = $object->encryption;
+
+        if ($encryption === null) {
+            goto after_encryption;
+        }
+        after_encryption:        $result['encryption'] = $encryption;
+
+        
+        $username = $object->username;
+
+        if ($username === null) {
+            goto after_username;
+        }
+        after_username:        $result['username'] = $username;
+
+        
+        $password = $object->password;
+
+        if ($password === null) {
+            goto after_password;
+        }
+        after_password:        $result['password'] = $password;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping);
+        $result = [];
+        
+        $enabled = $object->enabled;
+
+        if ($enabled === null) {
+            goto after_enabled;
+        }
+        after_enabled:        $result['enabled'] = $enabled;
+
+        
+        $tileserver = $object->tileserver;
+
+        if ($tileserver === null) {
+            goto after_tileserver;
+        }
+        after_tileserver:        $result['tileserver'] = $tileserver;
+
+        
+        $basemap = $object->basemap;
+
+        if ($basemap === null) {
+            goto after_basemap;
+        }
+        after_basemap:        $result['basemap'] = $basemap;
+
+        
+        $token = $object->token;
+
+        if ($token === null) {
+            goto after_token;
+        }
+        after_token:        $result['token'] = $token;
 
 
         return $result;

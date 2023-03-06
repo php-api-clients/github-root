@@ -270,6 +270,7 @@ class Meta implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ApiOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ApiOverview($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ApiOverview\SshKeyFingerprints' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ApiOverview⚡️SshKeyFingerprints($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -479,6 +480,47 @@ class Meta implements ObjectMapper
         
         $dependabot = $dependabotSerializer0->serialize($dependabot, $this);
         after_dependabot:        $result['dependabot'] = $dependabot;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ApiOverview⚡️SshKeyFingerprints(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ApiOverview\SshKeyFingerprints);
+        $result = [];
+        
+        $SHA256_RSA = $object->SHA256_RSA;
+
+        if ($SHA256_RSA === null) {
+            goto after_SHA256_RSA;
+        }
+        after_SHA256_RSA:        $result['s_h_a256__r_s_a'] = $SHA256_RSA;
+
+        
+        $SHA256_DSA = $object->SHA256_DSA;
+
+        if ($SHA256_DSA === null) {
+            goto after_SHA256_DSA;
+        }
+        after_SHA256_DSA:        $result['s_h_a256__d_s_a'] = $SHA256_DSA;
+
+        
+        $SHA256_ECDSA = $object->SHA256_ECDSA;
+
+        if ($SHA256_ECDSA === null) {
+            goto after_SHA256_ECDSA;
+        }
+        after_SHA256_ECDSA:        $result['s_h_a256__e_c_d_s_a'] = $SHA256_ECDSA;
+
+        
+        $SHA256_ED25519 = $object->SHA256_ED25519;
+
+        if ($SHA256_ED25519 === null) {
+            goto after_SHA256_ED25519;
+        }
+        after_SHA256_ED25519:        $result['s_h_a256__e_d25519'] = $SHA256_ED25519;
 
 
         return $result;

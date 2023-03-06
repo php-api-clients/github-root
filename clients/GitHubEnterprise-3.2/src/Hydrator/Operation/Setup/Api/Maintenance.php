@@ -24,6 +24,7 @@ class Maintenance implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MaintenanceStatus($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MaintenanceStatus⚡️ConnectionServices($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -92,6 +93,50 @@ class Maintenance implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MaintenanceStatus⚡️ConnectionServices(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['name'] = null;
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['number'] ?? null;
+    
+                if ($value === null) {
+                    $properties['number'] = null;
+                    goto after_number;
+                }
+
+                $properties['number'] = $value;
+    
+                after_number:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -105,6 +150,7 @@ class Maintenance implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MaintenanceStatus($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MaintenanceStatus⚡️ConnectionServices($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -214,6 +260,31 @@ class Maintenance implements ObjectMapper
         
         $connection_services = $connection_servicesSerializer0->serialize($connection_services, $this);
         after_connection_services:        $result['connection_services'] = $connection_services;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MaintenanceStatus⚡️ConnectionServices(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices);
+        $result = [];
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $number = $object->number;
+
+        if ($number === null) {
+            goto after_number;
+        }
+        after_number:        $result['number'] = $number;
 
 
         return $result;

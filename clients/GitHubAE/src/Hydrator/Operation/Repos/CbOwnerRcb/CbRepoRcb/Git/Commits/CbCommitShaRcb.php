@@ -24,10 +24,11 @@ class CbCommitShaRcb implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubAE\Schema\GitCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit($payload),
-                'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubAE\Schema\GitCommit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Author($payload),
                 'ApiClients\Client\GitHubAE\Schema\GitCommit\Tree' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Tree($payload),
+                'ApiClients\Client\GitHubAE\Schema\GitCommit\Parents' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Parents($payload),
                 'ApiClients\Client\GitHubAE\Schema\GitCommit\Verification' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Verification($payload),
+                'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -211,72 +212,6 @@ class CbCommitShaRcb implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubAE\Schema\BasicError
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['message'] ?? null;
-    
-                if ($value === null) {
-                    $properties['message'] = null;
-                    goto after_message;
-                }
-
-                $properties['message'] = $value;
-    
-                after_message:
-
-                $value = $payload['documentation_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['documentation_url'] = null;
-                    goto after_documentation_url;
-                }
-
-                $properties['documentation_url'] = $value;
-    
-                after_documentation_url:
-
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
-                }
-
-                $properties['url'] = $value;
-    
-                after_url:
-
-                $value = $payload['status'] ?? null;
-    
-                if ($value === null) {
-                    $properties['status'] = null;
-                    goto after_status;
-                }
-
-                $properties['status'] = $value;
-    
-                after_status:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\BasicError(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
         private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Author(array $payload): \ApiClients\Client\GitHubAE\Schema\GitCommit\Author
         {
             $properties = []; 
@@ -376,6 +311,61 @@ class CbCommitShaRcb implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Parents(array $payload): \ApiClients\Client\GitHubAE\Schema\GitCommit\Parents
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['sha'] ?? null;
+    
+                if ($value === null) {
+                    $properties['sha'] = null;
+                    goto after_sha;
+                }
+
+                $properties['sha'] = $value;
+    
+                after_sha:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['url'] = null;
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['html_url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['html_url'] = null;
+                    goto after_html_url;
+                }
+
+                $properties['html_url'] = $value;
+    
+                after_html_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GitCommit\Parents', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\GitCommit\Parents::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\GitCommit\Parents(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GitCommit\Parents', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Verification(array $payload): \ApiClients\Client\GitHubAE\Schema\GitCommit\Verification
         {
             $properties = []; 
@@ -440,6 +430,72 @@ class CbCommitShaRcb implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GitCommit\Verification', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubAE\Schema\BasicError
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['message'] ?? null;
+    
+                if ($value === null) {
+                    $properties['message'] = null;
+                    goto after_message;
+                }
+
+                $properties['message'] = $value;
+    
+                after_message:
+
+                $value = $payload['documentation_url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['documentation_url'] = null;
+                    goto after_documentation_url;
+                }
+
+                $properties['documentation_url'] = $value;
+    
+                after_documentation_url:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['url'] = null;
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['status'] ?? null;
+    
+                if ($value === null) {
+                    $properties['status'] = null;
+                    goto after_status;
+                }
+
+                $properties['status'] = $value;
+    
+                after_status:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\BasicError(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -453,6 +509,10 @@ class CbCommitShaRcb implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubAE\Schema\GitCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit($object),
+                'ApiClients\Client\GitHubAE\Schema\GitCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Author($object),
+                'ApiClients\Client\GitHubAE\Schema\GitCommit\Tree' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Tree($object),
+                'ApiClients\Client\GitHubAE\Schema\GitCommit\Parents' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Parents($object),
+                'ApiClients\Client\GitHubAE\Schema\GitCommit\Verification' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Verification($object),
                 'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -623,6 +683,138 @@ class CbCommitShaRcb implements ObjectMapper
             goto after_html_url;
         }
         after_html_url:        $result['html_url'] = $html_url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Author(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GitCommit\Author);
+        $result = [];
+        
+        $date = $object->date;
+
+        if ($date === null) {
+            goto after_date;
+        }
+        after_date:        $result['date'] = $date;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Tree(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GitCommit\Tree);
+        $result = [];
+        
+        $sha = $object->sha;
+
+        if ($sha === null) {
+            goto after_sha;
+        }
+        after_sha:        $result['sha'] = $sha;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Parents(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GitCommit\Parents);
+        $result = [];
+        
+        $sha = $object->sha;
+
+        if ($sha === null) {
+            goto after_sha;
+        }
+        after_sha:        $result['sha'] = $sha;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $html_url = $object->html_url;
+
+        if ($html_url === null) {
+            goto after_html_url;
+        }
+        after_html_url:        $result['html_url'] = $html_url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Verification(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GitCommit\Verification);
+        $result = [];
+        
+        $verified = $object->verified;
+
+        if ($verified === null) {
+            goto after_verified;
+        }
+        after_verified:        $result['verified'] = $verified;
+
+        
+        $reason = $object->reason;
+
+        if ($reason === null) {
+            goto after_reason;
+        }
+        after_reason:        $result['reason'] = $reason;
+
+        
+        $signature = $object->signature;
+
+        if ($signature === null) {
+            goto after_signature;
+        }
+        after_signature:        $result['signature'] = $signature;
+
+        
+        $payload = $object->payload;
+
+        if ($payload === null) {
+            goto after_payload;
+        }
+        after_payload:        $result['payload'] = $payload;
 
 
         return $result;

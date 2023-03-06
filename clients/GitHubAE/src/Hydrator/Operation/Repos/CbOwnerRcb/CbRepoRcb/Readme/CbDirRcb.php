@@ -24,9 +24,10 @@ class CbDirRcb implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubAE\Schema\ContentFile' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentFile($payload),
+                'ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($payload),
                 'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($payload),
-                'ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($payload),
+                'ApiClients\Client\GitHubAE\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -217,6 +218,61 @@ class CbDirRcb implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentTree⚡️Entries⚡️Links(array $payload): \ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['git'] ?? null;
+    
+                if ($value === null) {
+                    $properties['git'] = null;
+                    goto after_git;
+                }
+
+                $properties['git'] = $value;
+    
+                after_git:
+
+                $value = $payload['html'] ?? null;
+    
+                if ($value === null) {
+                    $properties['html'] = null;
+                    goto after_html;
+                }
+
+                $properties['html'] = $value;
+    
+                after_html:
+
+                $value = $payload['self'] ?? null;
+    
+                if ($value === null) {
+                    $properties['self'] = null;
+                    goto after_self;
+                }
+
+                $properties['self'] = $value;
+    
+                after_self:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubAE\Schema\BasicError
         {
             $properties = []; 
@@ -348,57 +404,90 @@ class CbDirRcb implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentTree⚡️Entries⚡️Links(array $payload): \ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\GitHubAE\Schema\ValidationError\Errors
         {
             $properties = []; 
             $missingFields = [];
             try {
                 
-                $value = $payload['git'] ?? null;
+                $value = $payload['resource'] ?? null;
     
                 if ($value === null) {
-                    $properties['git'] = null;
-                    goto after_git;
+                    $missingFields[] = 'resource';
+                    goto after_resource;
                 }
 
-                $properties['git'] = $value;
+                $properties['resource'] = $value;
     
-                after_git:
+                after_resource:
 
-                $value = $payload['html'] ?? null;
+                $value = $payload['field'] ?? null;
     
                 if ($value === null) {
-                    $properties['html'] = null;
-                    goto after_html;
+                    $missingFields[] = 'field';
+                    goto after_field;
                 }
 
-                $properties['html'] = $value;
+                $properties['field'] = $value;
     
-                after_html:
+                after_field:
 
-                $value = $payload['self'] ?? null;
+                $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $properties['self'] = null;
-                    goto after_self;
+                    $missingFields[] = 'message';
+                    goto after_message;
                 }
 
-                $properties['self'] = $value;
+                $properties['message'] = $value;
     
-                after_self:
+                after_message:
+
+                $value = $payload['code'] ?? null;
+    
+                if ($value === null) {
+                    $properties['code'] = null;
+                    goto after_code;
+                }
+
+                $properties['code'] = $value;
+    
+                after_code:
+
+                $value = $payload['index'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'index';
+                    goto after_index;
+                }
+
+                $properties['index'] = $value;
+    
+                after_index:
+
+                $value = $payload['value'] ?? null;
+    
+                if ($value === null) {
+                    $properties['value'] = null;
+                    goto after_value;
+                }
+
+                $properties['value'] = $value;
+    
+                after_value:
 
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
             }
             
             if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links::class, $missingFields, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
             }
             
             try {
-                return new \ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links(...$properties);
+                return new \ApiClients\Client\GitHubAE\Schema\ValidationError\Errors(...$properties);
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
             }
         }
     
@@ -414,8 +503,10 @@ class CbDirRcb implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubAE\Schema\ContentFile' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentFile($object),
+                'ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($object),
                 'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
                 'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($object),
+                'ApiClients\Client\GitHubAE\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -603,6 +694,39 @@ class CbDirRcb implements ObjectMapper
     }
 
     
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentTree⚡️Entries⚡️Links(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links);
+        $result = [];
+        
+        $git = $object->git;
+
+        if ($git === null) {
+            goto after_git;
+        }
+        after_git:        $result['git'] = $git;
+
+        
+        $html = $object->html;
+
+        if ($html === null) {
+            goto after_html;
+        }
+        after_html:        $result['html'] = $html;
+
+        
+        $self = $object->self;
+
+        if ($self === null) {
+            goto after_self;
+        }
+        after_self:        $result['self'] = $self;
+
+
+        return $result;
+    }
+
+    
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BasicError);
@@ -676,6 +800,55 @@ class CbDirRcb implements ObjectMapper
         
         $errors = $errorsSerializer0->serialize($errors, $this);
         after_errors:        $result['errors'] = $errors;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ValidationError\Errors);
+        $result = [];
+        
+        $resource = $object->resource;
+        after_resource:        $result['resource'] = $resource;
+
+        
+        $field = $object->field;
+        after_field:        $result['field'] = $field;
+
+        
+        $message = $object->message;
+        after_message:        $result['message'] = $message;
+
+        
+        $code = $object->code;
+
+        if ($code === null) {
+            goto after_code;
+        }
+        after_code:        $result['code'] = $code;
+
+        
+        $index = $object->index;
+        after_index:        $result['index'] = $index;
+
+        
+        $value = $object->value;
+
+        if ($value === null) {
+            goto after_value;
+        }
+        static $valueSerializer0;
+
+        if ($valueSerializer0 === null) {
+            $valueSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $value = $valueSerializer0->serialize($value, $this);
+        after_value:        $result['value'] = $value;
 
 
         return $result;

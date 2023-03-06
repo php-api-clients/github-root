@@ -24,6 +24,7 @@ class Caches implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheList' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsCacheList($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheList\ActionsCaches' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsCacheList⚡️ActionsCaches($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -81,6 +82,105 @@ class Caches implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheList', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsCacheList⚡️ActionsCaches(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheList\ActionsCaches
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['id'] = null;
+                    goto after_id;
+                }
+
+                $properties['id'] = $value;
+    
+                after_id:
+
+                $value = $payload['ref'] ?? null;
+    
+                if ($value === null) {
+                    $properties['ref'] = null;
+                    goto after_ref;
+                }
+
+                $properties['ref'] = $value;
+    
+                after_ref:
+
+                $value = $payload['key'] ?? null;
+    
+                if ($value === null) {
+                    $properties['key'] = null;
+                    goto after_key;
+                }
+
+                $properties['key'] = $value;
+    
+                after_key:
+
+                $value = $payload['version'] ?? null;
+    
+                if ($value === null) {
+                    $properties['version'] = null;
+                    goto after_version;
+                }
+
+                $properties['version'] = $value;
+    
+                after_version:
+
+                $value = $payload['last_accessed_at'] ?? null;
+    
+                if ($value === null) {
+                    $properties['last_accessed_at'] = null;
+                    goto after_last_accessed_at;
+                }
+
+                $properties['last_accessed_at'] = $value;
+    
+                after_last_accessed_at:
+
+                $value = $payload['created_at'] ?? null;
+    
+                if ($value === null) {
+                    $properties['created_at'] = null;
+                    goto after_created_at;
+                }
+
+                $properties['created_at'] = $value;
+    
+                after_created_at:
+
+                $value = $payload['size_in_bytes'] ?? null;
+    
+                if ($value === null) {
+                    $properties['size_in_bytes'] = null;
+                    goto after_size_in_bytes;
+                }
+
+                $properties['size_in_bytes'] = $value;
+    
+                after_size_in_bytes:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheList\ActionsCaches', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheList\ActionsCaches::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheList\ActionsCaches(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheList\ActionsCaches', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -94,6 +194,7 @@ class Caches implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheList' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsCacheList($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheList\ActionsCaches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsCacheList⚡️ActionsCaches($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -195,6 +296,71 @@ class Caches implements ObjectMapper
         
         $actions_caches = $actions_cachesSerializer0->serialize($actions_caches, $this);
         after_actions_caches:        $result['actions_caches'] = $actions_caches;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsCacheList⚡️ActionsCaches(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheList\ActionsCaches);
+        $result = [];
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $ref = $object->ref;
+
+        if ($ref === null) {
+            goto after_ref;
+        }
+        after_ref:        $result['ref'] = $ref;
+
+        
+        $key = $object->key;
+
+        if ($key === null) {
+            goto after_key;
+        }
+        after_key:        $result['key'] = $key;
+
+        
+        $version = $object->version;
+
+        if ($version === null) {
+            goto after_version;
+        }
+        after_version:        $result['version'] = $version;
+
+        
+        $last_accessed_at = $object->last_accessed_at;
+
+        if ($last_accessed_at === null) {
+            goto after_last_accessed_at;
+        }
+        after_last_accessed_at:        $result['last_accessed_at'] = $last_accessed_at;
+
+        
+        $created_at = $object->created_at;
+
+        if ($created_at === null) {
+            goto after_created_at;
+        }
+        after_created_at:        $result['created_at'] = $created_at;
+
+        
+        $size_in_bytes = $object->size_in_bytes;
+
+        if ($size_in_bytes === null) {
+            goto after_size_in_bytes;
+        }
+        after_size_in_bytes:        $result['size_in_bytes'] = $size_in_bytes;
 
 
         return $result;

@@ -26,6 +26,7 @@ class Timing implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage($payload),
                 'ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable($payload),
                 'ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Ubuntu' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable⚡️Ubuntu($payload),
+                'ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Ubuntu\JobRuns' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable⚡️Ubuntu⚡️JobRuns($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -229,6 +230,50 @@ class Timing implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Ubuntu', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable⚡️Ubuntu⚡️JobRuns(array $payload): \ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Ubuntu\JobRuns
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['job_id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['job_id'] = null;
+                    goto after_job_id;
+                }
+
+                $properties['job_id'] = $value;
+    
+                after_job_id:
+
+                $value = $payload['duration_ms'] ?? null;
+    
+                if ($value === null) {
+                    $properties['duration_ms'] = null;
+                    goto after_duration_ms;
+                }
+
+                $properties['duration_ms'] = $value;
+    
+                after_duration_ms:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Ubuntu\JobRuns', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Ubuntu\JobRuns::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Ubuntu\JobRuns(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Ubuntu\JobRuns', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -242,6 +287,9 @@ class Timing implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage($object),
+                'ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable($object),
+                'ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Ubuntu' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable⚡️Ubuntu($object),
+                'ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Ubuntu\JobRuns' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable⚡️Ubuntu⚡️JobRuns($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -331,6 +379,105 @@ class Timing implements ObjectMapper
         
         $run_duration_ms = $object->run_duration_ms;
         after_run_duration_ms:        $result['run_duration_ms'] = $run_duration_ms;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable);
+        $result = [];
+        
+        $UBUNTU = $object->UBUNTU;
+
+        if ($UBUNTU === null) {
+            goto after_UBUNTU;
+        }
+        $UBUNTU = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable⚡️Ubuntu($UBUNTU);
+        after_UBUNTU:        $result['u_b_u_n_t_u'] = $UBUNTU;
+
+        
+        $MACOS = $object->MACOS;
+
+        if ($MACOS === null) {
+            goto after_MACOS;
+        }
+        $MACOS = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable⚡️Ubuntu($MACOS);
+        after_MACOS:        $result['m_a_c_o_s'] = $MACOS;
+
+        
+        $WINDOWS = $object->WINDOWS;
+
+        if ($WINDOWS === null) {
+            goto after_WINDOWS;
+        }
+        $WINDOWS = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable⚡️Ubuntu($WINDOWS);
+        after_WINDOWS:        $result['w_i_n_d_o_w_s'] = $WINDOWS;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable⚡️Ubuntu(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Ubuntu);
+        $result = [];
+        
+        $total_ms = $object->total_ms;
+
+        if ($total_ms === null) {
+            goto after_total_ms;
+        }
+        after_total_ms:        $result['total_ms'] = $total_ms;
+
+        
+        $jobs = $object->jobs;
+
+        if ($jobs === null) {
+            goto after_jobs;
+        }
+        after_jobs:        $result['jobs'] = $jobs;
+
+        
+        $job_runs = $object->job_runs;
+        static $job_runsSerializer0;
+
+        if ($job_runsSerializer0 === null) {
+            $job_runsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WorkflowRunUsage\\Billable\\Ubuntu\\JobRuns',
+));
+        }
+        
+        $job_runs = $job_runsSerializer0->serialize($job_runs, $this);
+        after_job_runs:        $result['job_runs'] = $job_runs;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable⚡️Ubuntu⚡️JobRuns(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Ubuntu\JobRuns);
+        $result = [];
+        
+        $job_id = $object->job_id;
+
+        if ($job_id === null) {
+            goto after_job_id;
+        }
+        after_job_id:        $result['job_id'] = $job_id;
+
+        
+        $duration_ms = $object->duration_ms;
+
+        if ($duration_ms === null) {
+            goto after_duration_ms;
+        }
+        after_duration_ms:        $result['duration_ms'] = $duration_ms;
 
 
         return $result;

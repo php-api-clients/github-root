@@ -461,6 +461,8 @@ class Feeds implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Feed' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Feed($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\Feed\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Feed⚡️Links($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\LinkWithType' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -602,6 +604,106 @@ class Feeds implements ObjectMapper
         }
         $_links = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Feed⚡️Links($_links);
         after__links:        $result['_links'] = $_links;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Feed⚡️Links(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Feed\Links);
+        $result = [];
+        
+        $timeline = $object->timeline;
+
+        if ($timeline === null) {
+            goto after_timeline;
+        }
+        $timeline = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($timeline);
+        after_timeline:        $result['timeline'] = $timeline;
+
+        
+        $user = $object->user;
+
+        if ($user === null) {
+            goto after_user;
+        }
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($user);
+        after_user:        $result['user'] = $user;
+
+        
+        $security_advisories = $object->security_advisories;
+        $security_advisories = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($security_advisories);
+        after_security_advisories:        $result['security_advisories'] = $security_advisories;
+
+        
+        $current_user = $object->current_user;
+        $current_user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($current_user);
+        after_current_user:        $result['current_user'] = $current_user;
+
+        
+        $current_user_public = $object->current_user_public;
+        $current_user_public = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($current_user_public);
+        after_current_user_public:        $result['current_user_public'] = $current_user_public;
+
+        
+        $current_user_actor = $object->current_user_actor;
+        $current_user_actor = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($current_user_actor);
+        after_current_user_actor:        $result['current_user_actor'] = $current_user_actor;
+
+        
+        $current_user_organization = $object->current_user_organization;
+        $current_user_organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($current_user_organization);
+        after_current_user_organization:        $result['current_user_organization'] = $current_user_organization;
+
+        
+        $current_user_organizations = $object->current_user_organizations;
+        static $current_user_organizationsSerializer0;
+
+        if ($current_user_organizationsSerializer0 === null) {
+            $current_user_organizationsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\LinkWithType',
+));
+        }
+        
+        $current_user_organizations = $current_user_organizationsSerializer0->serialize($current_user_organizations, $this);
+        after_current_user_organizations:        $result['current_user_organizations'] = $current_user_organizations;
+
+        
+        $repository_discussions = $object->repository_discussions;
+        $repository_discussions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($repository_discussions);
+        after_repository_discussions:        $result['repository_discussions'] = $repository_discussions;
+
+        
+        $repository_discussions_category = $object->repository_discussions_category;
+        $repository_discussions_category = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($repository_discussions_category);
+        after_repository_discussions_category:        $result['repository_discussions_category'] = $repository_discussions_category;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\LinkWithType);
+        $result = [];
+        
+        $href = $object->href;
+
+        if ($href === null) {
+            goto after_href;
+        }
+        after_href:        $result['href'] = $href;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
 
 
         return $result;

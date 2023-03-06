@@ -24,8 +24,8 @@ class Caches implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Repos⚡️ListCacheInfo⚡️Response⚡️Applicationjson⚡️H200($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Repos⚡️ListCacheInfo⚡️Response⚡️Applicationjson⚡️H200⚡️Git($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -95,6 +95,50 @@ class Caches implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Repos⚡️ListCacheInfo⚡️Response⚡️Applicationjson⚡️H200⚡️Git(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['sync_status'] ?? null;
+    
+                if ($value === null) {
+                    $properties['sync_status'] = null;
+                    goto after_sync_status;
+                }
+
+                $properties['sync_status'] = $value;
+    
+                after_sync_status:
+
+                $value = $payload['last_sync'] ?? null;
+    
+                if ($value === null) {
+                    $properties['last_sync'] = null;
+                    goto after_last_sync;
+                }
+
+                $properties['last_sync'] = $value;
+    
+                after_last_sync:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\BasicError
         {
             $properties = []; 
@@ -159,50 +203,6 @@ class Caches implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
             }
         }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Repos⚡️ListCacheInfo⚡️Response⚡️Applicationjson⚡️H200⚡️Git(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['sync_status'] ?? null;
-    
-                if ($value === null) {
-                    $properties['sync_status'] = null;
-                    goto after_sync_status;
-                }
-
-                $properties['sync_status'] = $value;
-    
-                after_sync_status:
-
-                $value = $payload['last_sync'] ?? null;
-    
-                if ($value === null) {
-                    $properties['last_sync'] = null;
-                    goto after_last_sync;
-                }
-
-                $properties['last_sync'] = $value;
-    
-                after_last_sync:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git', $exception, stack: $this->hydrationStack);
-            }
-        }
     
     public function serializeObject(object $object): mixed
     {
@@ -216,6 +216,7 @@ class Caches implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Repos⚡️ListCacheInfo⚡️Response⚡️Applicationjson⚡️H200($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Repos⚡️ListCacheInfo⚡️Response⚡️Applicationjson⚡️H200⚡️Git($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -318,6 +319,31 @@ class Caches implements ObjectMapper
         }
         $git = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Repos⚡️ListCacheInfo⚡️Response⚡️Applicationjson⚡️H200⚡️Git($git);
         after_git:        $result['git'] = $git;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Repos⚡️ListCacheInfo⚡️Response⚡️Applicationjson⚡️H200⚡️Git(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git);
+        $result = [];
+        
+        $sync_status = $object->sync_status;
+
+        if ($sync_status === null) {
+            goto after_sync_status;
+        }
+        after_sync_status:        $result['sync_status'] = $sync_status;
+
+        
+        $last_sync = $object->last_sync;
+
+        if ($last_sync === null) {
+            goto after_last_sync;
+        }
+        after_last_sync:        $result['last_sync'] = $last_sync;
 
 
         return $result;

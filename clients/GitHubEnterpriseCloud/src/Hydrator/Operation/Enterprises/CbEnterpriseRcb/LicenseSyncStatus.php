@@ -24,6 +24,8 @@ class LicenseSyncStatus implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -70,6 +72,125 @@ class LicenseSyncStatus implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['server_id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['server_id'] = null;
+                    goto after_server_id;
+                }
+
+                $properties['server_id'] = $value;
+    
+                after_server_id:
+
+                $value = $payload['hostname'] ?? null;
+    
+                if ($value === null) {
+                    $properties['hostname'] = null;
+                    goto after_hostname;
+                }
+
+                $properties['hostname'] = $value;
+    
+                after_hostname:
+
+                $value = $payload['last_sync'] ?? null;
+    
+                if ($value === null) {
+                    $properties['last_sync'] = null;
+                    goto after_last_sync;
+                }
+
+                if (is_array($value)) {
+                    try {
+                        $this->hydrationStack[] = 'last_sync';
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($value);
+                    } finally {
+                        array_pop($this->hydrationStack);
+                    }
+                }
+
+                $properties['last_sync'] = $value;
+    
+                after_last_sync:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['date'] ?? null;
+    
+                if ($value === null) {
+                    $properties['date'] = null;
+                    goto after_date;
+                }
+
+                $properties['date'] = $value;
+    
+                after_date:
+
+                $value = $payload['status'] ?? null;
+    
+                if ($value === null) {
+                    $properties['status'] = null;
+                    goto after_status;
+                }
+
+                $properties['status'] = $value;
+    
+                after_status:
+
+                $value = $payload['error'] ?? null;
+    
+                if ($value === null) {
+                    $properties['error'] = null;
+                    goto after_error;
+                }
+
+                $properties['error'] = $value;
+    
+                after_error:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -83,6 +204,8 @@ class LicenseSyncStatus implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -176,6 +299,73 @@ class LicenseSyncStatus implements ObjectMapper
         
         $server_instances = $server_instancesSerializer0->serialize($server_instances, $this);
         after_server_instances:        $result['server_instances'] = $server_instances;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances);
+        $result = [];
+        
+        $server_id = $object->server_id;
+
+        if ($server_id === null) {
+            goto after_server_id;
+        }
+        after_server_id:        $result['server_id'] = $server_id;
+
+        
+        $hostname = $object->hostname;
+
+        if ($hostname === null) {
+            goto after_hostname;
+        }
+        after_hostname:        $result['hostname'] = $hostname;
+
+        
+        $last_sync = $object->last_sync;
+
+        if ($last_sync === null) {
+            goto after_last_sync;
+        }
+        $last_sync = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($last_sync);
+        after_last_sync:        $result['last_sync'] = $last_sync;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync);
+        $result = [];
+        
+        $date = $object->date;
+
+        if ($date === null) {
+            goto after_date;
+        }
+        after_date:        $result['date'] = $date;
+
+        
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+        after_status:        $result['status'] = $status;
+
+        
+        $error = $object->error;
+
+        if ($error === null) {
+            goto after_error;
+        }
+        after_error:        $result['error'] = $error;
 
 
         return $result;

@@ -23,7 +23,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads $operation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb🌀Downloads = null;
     private ?Hydrator\Operation\Admin\PreReceiveHooks $operation🌀Admin🌀PreReceiveHooks = null;
     private ?Hydrator\Operation\Admin\Tokens $operation🌀Admin🌀Tokens = null;
-    private ?Hydrator\Operation\Admin\Users $operation🌀Admin🌀Users = null;
     private ?Hydrator\Operation\App $operation🌀App = null;
     private ?Hydrator\Operation\AppManifests\CbCodeRcb\Conversions $operation🌀AppManifests🌀CbCodeRcb🌀Conversions = null;
     private ?Hydrator\Operation\App\Hook\Config $operation🌀App🌀Hook🌀Config = null;
@@ -39,16 +38,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\Enterprise\Announcement $operation🌀Enterprise🌀Announcement = null;
     private ?Hydrator\Operation\Enterprise\Settings\License $operation🌀Enterprise🌀Settings🌀License = null;
     private ?Hydrator\Operation\Enterprise\Stats\All $operation🌀Enterprise🌀Stats🌀All = null;
-    private ?Hydrator\Operation\Enterprise\Stats\Comments $operation🌀Enterprise🌀Stats🌀Comments = null;
-    private ?Hydrator\Operation\Enterprise\Stats\Gists $operation🌀Enterprise🌀Stats🌀Gists = null;
-    private ?Hydrator\Operation\Enterprise\Stats\Hooks $operation🌀Enterprise🌀Stats🌀Hooks = null;
-    private ?Hydrator\Operation\Enterprise\Stats\Issues $operation🌀Enterprise🌀Stats🌀Issues = null;
-    private ?Hydrator\Operation\Enterprise\Stats\Milestones $operation🌀Enterprise🌀Stats🌀Milestones = null;
-    private ?Hydrator\Operation\Enterprise\Stats\Orgs $operation🌀Enterprise🌀Stats🌀Orgs = null;
-    private ?Hydrator\Operation\Enterprise\Stats\Pages $operation🌀Enterprise🌀Stats🌀Pages = null;
-    private ?Hydrator\Operation\Enterprise\Stats\Pulls $operation🌀Enterprise🌀Stats🌀Pulls = null;
-    private ?Hydrator\Operation\Enterprise\Stats\Repos $operation🌀Enterprise🌀Stats🌀Repos = null;
-    private ?Hydrator\Operation\Enterprise\Stats\Users $operation🌀Enterprise🌀Stats🌀Users = null;
     private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions = null;
     private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\Organizations $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀Organizations = null;
     private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\SelectedActions $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀SelectedActions = null;
@@ -57,7 +46,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners = null;
     private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\Downloads $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀Downloads = null;
     private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RegistrationToken $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀RegistrationToken = null;
-    private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb = null;
     private ?Hydrator\Operation\Events $operation🌀Events = null;
     private ?Hydrator\Operation\Feeds $operation🌀Feeds = null;
     private ?Hydrator\Operation\Gists $operation🌀Gists = null;
@@ -68,8 +56,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\Gitignore\Templates $operation🌀Gitignore🌀Templates = null;
     private ?Hydrator\Operation\Gitignore\Templates\CbNameRcb $operation🌀Gitignore🌀Templates🌀CbNameRcb = null;
     private ?Hydrator\Operation\Installation\Repositories $operation🌀Installation🌀Repositories = null;
-    private ?Hydrator\Operation\Issues $operation🌀Issues = null;
-    private ?Hydrator\Operation\Licenses $operation🌀Licenses = null;
     private ?Hydrator\Operation\Licenses\CbLicenseRcb $operation🌀Licenses🌀CbLicenseRcb = null;
     private ?Hydrator\Operation\Meta $operation🌀Meta = null;
     private ?Hydrator\Operation\Notifications $operation🌀Notifications = null;
@@ -90,7 +76,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\Orgs\CbOrgRcb\OutsideCollaborators\CbUsernameRcb $operation🌀Orgs🌀CbOrgRcb🌀OutsideCollaborators🌀CbUsernameRcb = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\PreReceiveHooks $operation🌀Orgs🌀CbOrgRcb🌀PreReceiveHooks = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Projects $operation🌀Orgs🌀CbOrgRcb🌀Projects = null;
-    private ?Hydrator\Operation\Orgs\CbOrgRcb\Repos $operation🌀Orgs🌀CbOrgRcb🌀Repos = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams $operation🌀Orgs🌀CbOrgRcb🌀Teams = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments = null;
@@ -105,25 +90,17 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\RateLimit $operation🌀RateLimit = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Approvals $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Approvals = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Jobs $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Jobs = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\PendingDeployments $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀PendingDeployments = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\EnforceAdmins $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀EnforceAdmins = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredPullRequestReviews $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredPullRequestReviews = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckRuns $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckRuns = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb\Annotations $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashRuns🌀CbCheckRunIdRcb🌀Annotations = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckSuites $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckSuites = null;
@@ -131,7 +108,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\CheckDashRuns $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀CheckDashRuns = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Alerts $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Alerts = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb\Instances $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb🌀Instances = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Analyses $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Analyses = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Analyses\CbAnalysisIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Analyses🌀CbAnalysisIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Sarifs $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Sarifs = null;
@@ -141,7 +117,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Collaborators\CbUsernameRcb\Permission $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Collaborators🌀CbUsernameRcb🌀Permission = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\BranchesDashWhereDashHead $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀BranchesDashWhereDashHead = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Pulls $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Pulls = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\CheckSuites $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀CheckSuites = null;
@@ -153,7 +128,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contributors $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Contributors = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb\DeploymentDashBranchDashPolicies $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb🌀DeploymentDashBranchDashPolicies = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Blobs $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Blobs = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Blobs\CbFileShaRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Blobs🌀CbFileShaRcb = null;
@@ -162,7 +136,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Tags $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Events $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Events = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels = null;
@@ -170,20 +143,17 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Keys = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Languages $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Languages = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\License $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀License = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreReceiveHooks $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreReceiveHooks = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Files $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Files = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Merge $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Merge = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\RequestedReviewers $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀RequestedReviewers = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Comments $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Comments = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases = null;
-    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Assets\CbAssetIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Assets🌀CbAssetIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\SecretScanning\Alerts $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretScanning🌀Alerts = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stargazers $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stargazers = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\CodeFrequency $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀CodeFrequency = null;
@@ -217,207 +187,177 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     {
         return match ($className) {
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Root' => $this->getObjectMapperOperation🌀Root()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook' => $this->getObjectMapperOperation🌀Admin🌀Hooks()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook2' => $this->getObjectMapperOperation🌀Admin🌀Hooks🌀CbHookIdRcb()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook\\Config' => $this->getObjectMapperOperation🌀Admin🌀Hooks()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook2', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook2\\Config' => $this->getObjectMapperOperation🌀Admin🌀Hooks🌀CbHookIdRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\PublicKeyFull' => $this->getObjectMapperOperation🌀Admin🌀Keys()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\LdapMappingTeam' => $this->getObjectMapperOperation🌀Admin🌀Ldap🌀Teams🌀CbTeamIdRcb🌀Mapping()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\SyncLdapMappingForTeam\\Response\\Applicationjson\\H201' => $this->getObjectMapperOperation🌀Admin🌀Ldap🌀Teams🌀CbTeamIdRcb🌀Sync()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\LdapMappingUser' => $this->getObjectMapperOperation🌀Admin🌀Ldap🌀Users🌀CbUsernameRcb🌀Mapping()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\LdapMappingUser', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\LdapMappingUser\\Plan' => $this->getObjectMapperOperation🌀Admin🌀Ldap🌀Users🌀CbUsernameRcb🌀Mapping()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationSimple' => $this->getObjectMapperOperation🌀Admin🌀Organizations()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\UpdateOrgName\\Response\\Applicationjson\\H202' => $this->getObjectMapperOperation🌀Admin🌀Organizations🌀CbOrgRcb()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PreReceiveEnvironment' => $this->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422' => $this->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PreReceiveEnvironment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PreReceiveEnvironment\\Download' => $this->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422\\Errors' => $this->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\PreReceiveEnvironmentDownloadStatus' => $this->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb🌀Downloads()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PreReceiveHook' => $this->getObjectMapperOperation🌀Admin🌀PreReceiveHooks()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Authorization' => $this->getObjectMapperOperation🌀Admin🌀Tokens()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleUser' => $this->getObjectMapperOperation🌀Admin🌀Users()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Integration' => $this->getObjectMapperOperation🌀App()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PreReceiveHook', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PreReceiveHook\\ScriptRepository' => $this->getObjectMapperOperation🌀Admin🌀PreReceiveHooks()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Authorization', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Authorization\\App', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleUser', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ScopedInstallation', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AppPermissions' => $this->getObjectMapperOperation🌀Admin🌀Tokens()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Integration', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Integration\\Permissions' => $this->getObjectMapperOperation🌀App()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Apps\\CreateFromManifest\\Response\\Applicationjson\\H201', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BasicError', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationErrorSimple' => $this->getObjectMapperOperation🌀AppManifests🌀CbCodeRcb🌀Conversions()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\WebhookConfig' => $this->getObjectMapperOperation🌀App🌀Hook🌀Config()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\HookDeliveryItem', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ScimError', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError' => $this->getObjectMapperOperation🌀App🌀Hook🌀Deliveries()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\HookDelivery' => $this->getObjectMapperOperation🌀App🌀Hook🌀Deliveries🌀CbDeliveryIdRcb()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\HookDeliveryItem', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ScimError', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors' => $this->getObjectMapperOperation🌀App🌀Hook🌀Deliveries()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\HookDelivery', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\HookDelivery\\Request', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\HookDelivery\\Response' => $this->getObjectMapperOperation🌀App🌀Hook🌀Deliveries🌀CbDeliveryIdRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Apps\\RedeliverWebhookDelivery\\Response\\Applicationjson\\H202' => $this->getObjectMapperOperation🌀App🌀Hook🌀Deliveries🌀CbDeliveryIdRcb🌀Attempts()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Installation' => $this->getObjectMapperOperation🌀App🌀Installations()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\InstallationToken' => $this->getObjectMapperOperation🌀App🌀Installations🌀CbInstallationIdRcb🌀AccessTokens()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Installation', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Enterprise' => $this->getObjectMapperOperation🌀App🌀Installations()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\InstallationToken', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\LicenseSimple', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository\\Permissions', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository\\TemplateRepository', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository\\TemplateRepository\\Owner', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository\\TemplateRepository\\Permissions' => $this->getObjectMapperOperation🌀App🌀Installations🌀CbInstallationIdRcb🌀AccessTokens()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ApplicationGrant' => $this->getObjectMapperOperation🌀Applications🌀Grants()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Apps\\CheckAuthorization\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Applications🌀CbClientIdRcb🌀Tokens🌀CbAccessTokenRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeOfConduct' => $this->getObjectMapperOperation🌀CodesOfConduct()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Emojis\\Get\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Emojis()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Announcement' => $this->getObjectMapperOperation🌀Enterprise🌀Announcement()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\LicenseInfo' => $this->getObjectMapperOperation🌀Enterprise🌀Settings🌀License()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀All()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseCommentOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Comments()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseGistOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Gists()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseHookOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Hooks()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseIssueOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Issues()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseMilestoneOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Milestones()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseOrganizationOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Orgs()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterprisePageOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Pages()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterprisePullRequestOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Pulls()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseRepositoryOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Repos()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseUserOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Users()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseRepositoryOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseHookOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterprisePageOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseOrganizationOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseUserOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterprisePullRequestOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseIssueOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseMilestoneOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseGistOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseCommentOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀All()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsEnterprisePermissions' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\ListSelectedOrganizationsEnabledGithubActionsEnterprise\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀Organizations()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\SelectedActions' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀SelectedActions()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\ListSelfHostedRunnerGroupsForEnterprise\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RunnerGroupsEnterprise' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerGroups()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\ListSelfHostedRunnersInGroupForEnterprise\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\ListSelfHostedRunnersInGroupForEnterprise\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Runner', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RunnerLabel' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\ListSelfHostedRunnersForEnterprise\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\RunnerApplication' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀Downloads()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\AuthenticationToken' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀RegistrationToken()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Runner' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Event', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Activity\\ListPublicEvents\\Response\\Applicationjson\\H503' => $this->getObjectMapperOperation🌀Events()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Feed' => $this->getObjectMapperOperation🌀Feeds()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BaseGist', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistSimple' => $this->getObjectMapperOperation🌀Gists()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Gists\\Get\\Response\\Applicationjson\\H403' => $this->getObjectMapperOperation🌀Gists🌀CbGistIdRcb()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Event', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Actor', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Event\\Repo', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Event\\Payload', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Issue', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Issue\\Labels', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Milestone', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Issue\\PullRequest', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ReactionRollup', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueComment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Event\\Payload\\Pages', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Activity\\ListPublicEvents\\Response\\Applicationjson\\H503' => $this->getObjectMapperOperation🌀Events()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Feed', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Feed\\Links', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\LinkWithType' => $this->getObjectMapperOperation🌀Feeds()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BaseGist', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistSimple', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistSimple\\Forks', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PublicUser', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistHistory', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistHistory\\ChangeStatus', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistSimple\\ForkOf' => $this->getObjectMapperOperation🌀Gists()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Gists\\Get\\Response\\Applicationjson\\H403', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Gists\\Get\\Response\\Applicationjson\\H403\\Block' => $this->getObjectMapperOperation🌀Gists🌀CbGistIdRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistComment' => $this->getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Comments()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistCommit' => $this->getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Commits()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Gists\\CheckIsStarred\\Response\\Applicationjson\\H404' => $this->getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Star()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Gitignore\\GetAllTemplates\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Gitignore🌀Templates()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitignoreTemplate' => $this->getObjectMapperOperation🌀Gitignore🌀Templates🌀CbNameRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Apps\\ListReposAccessibleToInstallation\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Installation🌀Repositories()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Issue' => $this->getObjectMapperOperation🌀Issues()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\LicenseSimple' => $this->getObjectMapperOperation🌀Licenses()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\License' => $this->getObjectMapperOperation🌀Licenses🌀CbLicenseRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ApiOverview' => $this->getObjectMapperOperation🌀Meta()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Thread', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Activity\\MarkNotificationsAsRead\\Response\\Applicationjson\\H202' => $this->getObjectMapperOperation🌀Notifications()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Thread', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\MinimalRepository', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\MinimalRepository\\License', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Thread\\Subject', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Activity\\MarkNotificationsAsRead\\Response\\Applicationjson\\H202' => $this->getObjectMapperOperation🌀Notifications()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ThreadSubscription' => $this->getObjectMapperOperation🌀Notifications🌀Threads🌀CbThreadIdRcb🌀Subscription()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationFull', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Orgs\\Update\\Response\\Applicationjson\\H422' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationFull', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationFull\\Plan', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Orgs\\Update\\Response\\Applicationjson\\H422' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsOrganizationPermissions' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListSelectedRepositoriesEnabledGithubActionsOrganization\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀Repositories()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListSelfHostedRunnerGroupsForOrg\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RunnerGroupsOrg' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerGroups()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListRepoAccessToSelfHostedRunnerGroupInOrg\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Repositories()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListSelfHostedRunnersForOrg\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListOrgSecrets\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListOrgSecrets\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationActionsSecret' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsPublicKey' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀PublicKey()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationActionsSecret', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EmptyObject' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EmptyObject' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListSelectedReposForOrgSecret\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb🌀Repositories()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrgHook' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrgHook', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrgHook\\Config' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Orgs\\ListAppInstallations\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Installations()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrgMembership' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Memberships🌀CbUsernameRcb()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrgMembership', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrgMembership\\Permissions' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Memberships🌀CbUsernameRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Orgs\\RemoveOutsideCollaborator\\Response\\Applicationjson\\H422' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀OutsideCollaborators🌀CbUsernameRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrgPreReceiveHook' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀PreReceiveHooks()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Project' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Projects()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\MinimalRepository', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Repos()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Team', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamFull' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Team', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Team\\Permissions', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamSimple', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamFull', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamOrganization' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamDiscussion' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamDiscussionComment' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Reaction' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamMembership' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Memberships🌀CbUsernameRcb()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamProject' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamProject', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamProject\\Permissions' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamRepository' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProjectCard', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Projects\\DeleteCard\\Response\\Applicationjson\\H403' => $this->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CbCardIdRcb()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Projects\\MoveCard\\Response\\Applicationjson\\H403', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Projects\\MoveCard\\Response\\Applicationjson\\H503' => $this->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CbCardIdRcb🌀Moves()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Projects\\MoveCard\\Response\\Applicationjson\\H403', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Projects\\MoveCard\\Response\\Applicationjson\\H403\\Errors', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Projects\\MoveCard\\Response\\Applicationjson\\H503', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Projects\\MoveCard\\Response\\Applicationjson\\H503\\Errors' => $this->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CbCardIdRcb🌀Moves()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProjectColumn' => $this->getObjectMapperOperation🌀Projects🌀Columns🌀CbColumnIdRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProjectCollaboratorPermission' => $this->getObjectMapperOperation🌀Projects🌀CbProjectIdRcb🌀Collaborators🌀CbUsernameRcb🌀Permission()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\RateLimitOverview' => $this->getObjectMapperOperation🌀RateLimit()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\FullRepository' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListArtifactsForRepo\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Artifact' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Job' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\RateLimitOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RateLimitOverview\\Resources', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RateLimit' => $this->getObjectMapperOperation🌀RateLimit()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\FullRepository', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FullRepository\\Permissions', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeOfConductSimple', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SecurityAndAnalysis', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SecurityAndAnalysis\\AdvancedSecurity' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListArtifactsForRepo\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Artifact', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Artifact\\WorkflowRun' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Job', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Job\\Steps' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsRepositoryPermissions' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListWorkflowRunsForRepo\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\WorkflowRun' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnvironmentApprovals' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Approvals()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListWorkflowRunsForRepo\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\WorkflowRun', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestMinimal', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestMinimal\\Head', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestMinimal\\Head\\Repo', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleCommit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleCommit\\Author' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnvironmentApprovals', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnvironmentApprovals\\Environments' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Approvals()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListJobsForWorkflowRun\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Jobs()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PendingDeployment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Deployment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀PendingDeployments()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListRepoSecrets\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsSecret' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListRepoWorkflows\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Workflow' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ShortBranch' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchWithProtection' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchProtection', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranch' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranchAdminEnforced' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀EnforceAdmins()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranchPullRequestReview' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredPullRequestReviews()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\StatusCheckPolicy' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckRun' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckRuns()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PendingDeployment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PendingDeployment\\Environment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PendingDeployment\\Reviewers', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Deployment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀PendingDeployments()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListRepoSecrets\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsSecret' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListRepoWorkflows\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Workflow' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ShortBranch', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ShortBranch\\Commit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchProtection', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranchRequiredStatusCheck', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranchAdminEnforced', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranchPullRequestReview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranchPullRequestReview\\DismissalRestrictions', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy\\Teams', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy\\Apps', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy\\Apps\\Owner', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy\\Apps\\Permissions', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchProtection\\RequiredLinearHistory', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchProtection\\RequiredSignatures' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchWithProtection', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Commit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Commit\\Commit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitUser', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Commit\\Commit\\Tree', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Verification', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Commit\\Parents', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Commit\\Stats', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\DiffEntry', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchWithProtection\\Links' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranch', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\StatusCheckPolicy', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranch\\RequiredPullRequestReviews', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranch\\RequiredPullRequestReviews\\DismissalRestrictions', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranch\\EnforceAdmins', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranch\\RequiredLinearHistory', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranch\\RequiredConversationResolution' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckRun', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckRun\\Output', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckRun\\CheckSuite', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\DeploymentSimple' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckRuns()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckAnnotation' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashRuns🌀CbCheckRunIdRcb🌀Annotations()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckSuite' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckSuites()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckSuitePreference' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckSuites🌀Preferences()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckSuitePreference', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckSuitePreference\\Preferences', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckSuitePreference\\Preferences\\AutoTriggerChecks' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckSuites🌀Preferences()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Checks\\ListForSuite\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀CheckDashRuns()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertItems' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Alerts()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlert' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertInstance' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb🌀Instances()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertItems', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertRuleSummary', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAnalysisTool', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertInstance', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertInstance\\Message', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertLocation' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Alerts()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlert', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertRule' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAnalysis' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Analyses()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\CodeScanning\\GetAnalysis\\Response\\ApplicationjsonPlusSarif\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAnalysisDeletion' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Analyses🌀CbAnalysisIdRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningSarifsReceipt' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Sarifs()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningSarifsStatus' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Sarifs🌀CbSarifIdRcb()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Collaborator' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Collaborators()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Collaborator', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Collaborator\\Permissions' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Collaborators()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\RepositoryInvitation' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Collaborators🌀CbUsernameRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\RepositoryCollaboratorPermission' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Collaborators🌀CbUsernameRcb🌀Permission()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitComment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Reactions\\CreateForCommitComment\\Response\\Applicationjson\\H415' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Commit' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchShort' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀BranchesDashWhereDashHead()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestSimple' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Pulls()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchShort', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchShort\\Commit' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀BranchesDashWhereDashHead()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestSimple', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestSimple\\Labels', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestSimple\\Head', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestSimple\\Links', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Link', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AutoMerge' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Pulls()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Checks\\ListSuitesForRef\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀CheckSuites()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CombinedCommitStatus' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀Status()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CombinedCommitStatus', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleCommitStatus' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀Status()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Status' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀Statuses()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitComparison' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Compare🌀CbBaseheadRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContentReferenceAttachment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀ContentReferences🌀CbContentReferenceIdRcb🌀Attachments()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContentTree', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Repos\\GetContent\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Contents🌀CbPathRcb()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContentTree', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContentTree\\Entries', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContentTree\\Entries\\Links', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Repos\\GetContent\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Content', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Content\\Links', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Commit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Commit\\Author', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Commit\\Tree', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Commit\\Parents', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Commit\\Verification' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Contents🌀CbPathRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Contributor' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Contributors()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\DeploymentStatus' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Repos\\GetAllEnvironments\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Environment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Repos\\GetAllEnvironments\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Environment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Environment\\ProtectionRules', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\DeploymentBranchPolicySettings' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Repos\\ListDeploymentBranchPolicies\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\DeploymentBranchPolicy' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb🌀DeploymentDashBranchDashPolicies()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ShortBlob' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Blobs()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Blob' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Blobs🌀CbFileShaRcb()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitCommit' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Commits()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitRef' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀MatchingRefs🌀CbRefRcb()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitTag' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitTree' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Hook' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueComment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEvent' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitCommit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitCommit\\Author', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitCommit\\Tree', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitCommit\\Parents', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitCommit\\Verification' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Commits()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitRef', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitRef\\Object_' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀MatchingRefs🌀CbRefRcb()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitTag', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitTag\\Tagger', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitTag\\Object_' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitTree', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitTree\\Tree' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Hook', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Hook\\Config', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\HookResponse' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEvent', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEventLabel', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEventDismissedReview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEventMilestone', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEventProjectCard', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEventRename' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEventForIssue' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Events()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Label' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\TimelineIssueEvents' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Timeline()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\DeployKey' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Keys()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Language' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Languages()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\LicenseContent' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀License()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Milestone' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Page' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PageBuild', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PageBuildStatus' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Page', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PagesSourceHash', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PagesHttpsCertificate' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PageBuild', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PageBuild\\Error', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PageBuildStatus' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\RepositoryPreReceiveHook' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreReceiveHooks()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReviewComment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\DiffEntry' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Files()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Labels', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Head', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Head\\Repo', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Head\\Repo\\Owner', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Head\\Repo\\License', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Base', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Base\\Repo' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReviewComment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReviewComment\\Links', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReviewComment\\Links\\Self_', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReviewComment\\Links\\Html', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReviewComment\\Links\\PullRequest' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestMergeResult' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Merge()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReviewRequest' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀RequestedReviewers()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReview' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ReviewComment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Comments()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TimelineReviewedEvent\\Links', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TimelineReviewedEvent\\Links\\Html' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ReviewComment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ReviewComment\\Links' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Comments()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContentFile' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Release' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ReleaseAsset' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Assets🌀CbAssetIdRcb()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Release', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ReleaseAsset' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\SecretScanningAlert' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretScanning🌀Alerts()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Activity\\ListStargazersForRepo\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stargazers()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Repos\\GetCodeFrequencyStats\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀CodeFrequency()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitActivity' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀CommitActivity()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContributorActivity' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀Contributors()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContributorActivity', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContributorActivity\\Weeks' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀Contributors()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ParticipationStats' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀Participation()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\RepositorySubscription' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscription()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Tag' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Tags()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Topic' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Topics()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Code\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Search🌀Code()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Commits\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Search🌀Commits()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\IssuesAndPullRequests\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Search🌀Issues()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Labels\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Search🌀Labels()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Repos\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Search🌀Repositories()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Topics\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Search🌀Topics()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Users\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Search🌀Users()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ConfigurationStatus' => $this->getObjectMapperOperation🌀Setup🌀Api🌀Configcheck()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\MaintenanceStatus' => $this->getObjectMapperOperation🌀Setup🌀Api🌀Maintenance()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings' => $this->getObjectMapperOperation🌀Setup🌀Api🌀Settings()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Code\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeSearchResultItem', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SearchResultTextMatches', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SearchResultTextMatches\\Matches' => $this->getObjectMapperOperation🌀Search🌀Code()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Commits\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitSearchResultItem', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitSearchResultItem\\Commit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitSearchResultItem\\Commit\\Author' => $this->getObjectMapperOperation🌀Search🌀Commits()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\IssuesAndPullRequests\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueSearchResultItem', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueSearchResultItem\\Labels' => $this->getObjectMapperOperation🌀Search🌀Issues()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Labels\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\LabelSearchResultItem' => $this->getObjectMapperOperation🌀Search🌀Labels()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Repos\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RepoSearchResultItem' => $this->getObjectMapperOperation🌀Search🌀Repositories()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Topics\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem\\Related', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem\\Related\\TopicRelation' => $this->getObjectMapperOperation🌀Search🌀Topics()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Users\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\UserSearchResultItem' => $this->getObjectMapperOperation🌀Search🌀Users()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ConfigurationStatus', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ConfigurationStatus\\Progress' => $this->getObjectMapperOperation🌀Setup🌀Api🌀Configcheck()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\MaintenanceStatus', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\MaintenanceStatus\\ConnectionServices' => $this->getObjectMapperOperation🌀Setup🌀Api🌀Maintenance()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Avatar', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Customer', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\License', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\GithubSsl', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Ldap', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Ldap\\Reconciliation', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Ldap\\Profile', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Cas', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Saml', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\GithubOauth', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Smtp', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Ntp', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Snmp', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Syslog', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Collectd', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Mapping' => $this->getObjectMapperOperation🌀Setup🌀Api🌀Settings()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\SshKey' => $this->getObjectMapperOperation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Users\\GetAuthenticated\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PrivateUser' => $this->getObjectMapperOperation🌀User()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Email' => $this->getObjectMapperOperation🌀User🌀Emails()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GpgKey' => $this->getObjectMapperOperation🌀User🌀GpgKeys()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GpgKey', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GpgKey\\Emails', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GpgKey\\Subkeys' => $this->getObjectMapperOperation🌀User🌀GpgKeys()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Apps\\ListInstallationReposForAuthenticatedUser\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀User🌀Installations🌀CbInstallationIdRcb🌀Repositories()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Key' => $this->getObjectMapperOperation🌀User🌀Keys()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\StarredRepository' => $this->getObjectMapperOperation🌀User🌀Starred()->hydrateObject($className, $payload),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Hovercard' => $this->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Hovercard()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Hovercard', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Hovercard\\Contexts' => $this->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Hovercard()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\KeySimple' => $this->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Keys()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Activity\\ListReposStarredByUser\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Starred()->hydrateObject($className, $payload),
         };
@@ -436,207 +376,177 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     {
         return match ($object::class) {
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Root' => $this->getObjectMapperOperation🌀Root()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook' => $this->getObjectMapperOperation🌀Admin🌀Hooks()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook2' => $this->getObjectMapperOperation🌀Admin🌀Hooks🌀CbHookIdRcb()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook\\Config' => $this->getObjectMapperOperation🌀Admin🌀Hooks()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook2', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook2\\Config' => $this->getObjectMapperOperation🌀Admin🌀Hooks🌀CbHookIdRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\PublicKeyFull' => $this->getObjectMapperOperation🌀Admin🌀Keys()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\LdapMappingTeam' => $this->getObjectMapperOperation🌀Admin🌀Ldap🌀Teams🌀CbTeamIdRcb🌀Mapping()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\SyncLdapMappingForTeam\\Response\\Applicationjson\\H201' => $this->getObjectMapperOperation🌀Admin🌀Ldap🌀Teams🌀CbTeamIdRcb🌀Sync()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\LdapMappingUser' => $this->getObjectMapperOperation🌀Admin🌀Ldap🌀Users🌀CbUsernameRcb🌀Mapping()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\LdapMappingUser', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\LdapMappingUser\\Plan' => $this->getObjectMapperOperation🌀Admin🌀Ldap🌀Users🌀CbUsernameRcb🌀Mapping()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationSimple' => $this->getObjectMapperOperation🌀Admin🌀Organizations()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\UpdateOrgName\\Response\\Applicationjson\\H202' => $this->getObjectMapperOperation🌀Admin🌀Organizations🌀CbOrgRcb()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PreReceiveEnvironment' => $this->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422' => $this->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PreReceiveEnvironment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PreReceiveEnvironment\\Download' => $this->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422\\Errors' => $this->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\PreReceiveEnvironmentDownloadStatus' => $this->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb🌀Downloads()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PreReceiveHook' => $this->getObjectMapperOperation🌀Admin🌀PreReceiveHooks()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Authorization' => $this->getObjectMapperOperation🌀Admin🌀Tokens()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleUser' => $this->getObjectMapperOperation🌀Admin🌀Users()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Integration' => $this->getObjectMapperOperation🌀App()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PreReceiveHook', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PreReceiveHook\\ScriptRepository' => $this->getObjectMapperOperation🌀Admin🌀PreReceiveHooks()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Authorization', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Authorization\\App', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleUser', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ScopedInstallation', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AppPermissions' => $this->getObjectMapperOperation🌀Admin🌀Tokens()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Integration', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Integration\\Permissions' => $this->getObjectMapperOperation🌀App()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Apps\\CreateFromManifest\\Response\\Applicationjson\\H201', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BasicError', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationErrorSimple' => $this->getObjectMapperOperation🌀AppManifests🌀CbCodeRcb🌀Conversions()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\WebhookConfig' => $this->getObjectMapperOperation🌀App🌀Hook🌀Config()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\HookDeliveryItem', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ScimError', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError' => $this->getObjectMapperOperation🌀App🌀Hook🌀Deliveries()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\HookDelivery' => $this->getObjectMapperOperation🌀App🌀Hook🌀Deliveries🌀CbDeliveryIdRcb()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\HookDeliveryItem', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ScimError', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors' => $this->getObjectMapperOperation🌀App🌀Hook🌀Deliveries()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\HookDelivery', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\HookDelivery\\Request', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\HookDelivery\\Response' => $this->getObjectMapperOperation🌀App🌀Hook🌀Deliveries🌀CbDeliveryIdRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Apps\\RedeliverWebhookDelivery\\Response\\Applicationjson\\H202' => $this->getObjectMapperOperation🌀App🌀Hook🌀Deliveries🌀CbDeliveryIdRcb🌀Attempts()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Installation' => $this->getObjectMapperOperation🌀App🌀Installations()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\InstallationToken' => $this->getObjectMapperOperation🌀App🌀Installations🌀CbInstallationIdRcb🌀AccessTokens()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Installation', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Enterprise' => $this->getObjectMapperOperation🌀App🌀Installations()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\InstallationToken', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\LicenseSimple', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository\\Permissions', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository\\TemplateRepository', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository\\TemplateRepository\\Owner', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository\\TemplateRepository\\Permissions' => $this->getObjectMapperOperation🌀App🌀Installations🌀CbInstallationIdRcb🌀AccessTokens()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ApplicationGrant' => $this->getObjectMapperOperation🌀Applications🌀Grants()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Apps\\CheckAuthorization\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Applications🌀CbClientIdRcb🌀Tokens🌀CbAccessTokenRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeOfConduct' => $this->getObjectMapperOperation🌀CodesOfConduct()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Emojis\\Get\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Emojis()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Announcement' => $this->getObjectMapperOperation🌀Enterprise🌀Announcement()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\LicenseInfo' => $this->getObjectMapperOperation🌀Enterprise🌀Settings🌀License()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀All()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseCommentOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Comments()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseGistOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Gists()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseHookOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Hooks()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseIssueOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Issues()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseMilestoneOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Milestones()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseOrganizationOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Orgs()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterprisePageOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Pages()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterprisePullRequestOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Pulls()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseRepositoryOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Repos()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseUserOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀Users()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseRepositoryOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseHookOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterprisePageOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseOrganizationOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseUserOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterprisePullRequestOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseIssueOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseMilestoneOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseGistOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseCommentOverview' => $this->getObjectMapperOperation🌀Enterprise🌀Stats🌀All()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsEnterprisePermissions' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\ListSelectedOrganizationsEnabledGithubActionsEnterprise\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀Organizations()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\SelectedActions' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀SelectedActions()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\ListSelfHostedRunnerGroupsForEnterprise\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RunnerGroupsEnterprise' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerGroups()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\ListSelfHostedRunnersInGroupForEnterprise\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\ListSelfHostedRunnersInGroupForEnterprise\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Runner', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RunnerLabel' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\ListSelfHostedRunnersForEnterprise\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\RunnerApplication' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀Downloads()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\AuthenticationToken' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀RegistrationToken()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Runner' => $this->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Event', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Activity\\ListPublicEvents\\Response\\Applicationjson\\H503' => $this->getObjectMapperOperation🌀Events()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Feed' => $this->getObjectMapperOperation🌀Feeds()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BaseGist', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistSimple' => $this->getObjectMapperOperation🌀Gists()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Gists\\Get\\Response\\Applicationjson\\H403' => $this->getObjectMapperOperation🌀Gists🌀CbGistIdRcb()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Event', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Actor', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Event\\Repo', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Event\\Payload', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Issue', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Issue\\Labels', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Milestone', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Issue\\PullRequest', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ReactionRollup', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueComment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Event\\Payload\\Pages', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Activity\\ListPublicEvents\\Response\\Applicationjson\\H503' => $this->getObjectMapperOperation🌀Events()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Feed', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Feed\\Links', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\LinkWithType' => $this->getObjectMapperOperation🌀Feeds()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BaseGist', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistSimple', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistSimple\\Forks', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PublicUser', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistHistory', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistHistory\\ChangeStatus', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistSimple\\ForkOf' => $this->getObjectMapperOperation🌀Gists()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Gists\\Get\\Response\\Applicationjson\\H403', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Gists\\Get\\Response\\Applicationjson\\H403\\Block' => $this->getObjectMapperOperation🌀Gists🌀CbGistIdRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistComment' => $this->getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Comments()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\GistCommit' => $this->getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Commits()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Gists\\CheckIsStarred\\Response\\Applicationjson\\H404' => $this->getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Star()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Gitignore\\GetAllTemplates\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Gitignore🌀Templates()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitignoreTemplate' => $this->getObjectMapperOperation🌀Gitignore🌀Templates🌀CbNameRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Apps\\ListReposAccessibleToInstallation\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Installation🌀Repositories()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Issue' => $this->getObjectMapperOperation🌀Issues()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\LicenseSimple' => $this->getObjectMapperOperation🌀Licenses()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\License' => $this->getObjectMapperOperation🌀Licenses🌀CbLicenseRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ApiOverview' => $this->getObjectMapperOperation🌀Meta()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Thread', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Activity\\MarkNotificationsAsRead\\Response\\Applicationjson\\H202' => $this->getObjectMapperOperation🌀Notifications()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Thread', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\MinimalRepository', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\MinimalRepository\\License', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Thread\\Subject', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Activity\\MarkNotificationsAsRead\\Response\\Applicationjson\\H202' => $this->getObjectMapperOperation🌀Notifications()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ThreadSubscription' => $this->getObjectMapperOperation🌀Notifications🌀Threads🌀CbThreadIdRcb🌀Subscription()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationFull', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Orgs\\Update\\Response\\Applicationjson\\H422' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationFull', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationFull\\Plan', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Orgs\\Update\\Response\\Applicationjson\\H422' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsOrganizationPermissions' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListSelectedRepositoriesEnabledGithubActionsOrganization\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀Repositories()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListSelfHostedRunnerGroupsForOrg\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RunnerGroupsOrg' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerGroups()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListRepoAccessToSelfHostedRunnerGroupInOrg\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Repositories()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListSelfHostedRunnersForOrg\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListOrgSecrets\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListOrgSecrets\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationActionsSecret' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsPublicKey' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀PublicKey()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationActionsSecret', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EmptyObject' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EmptyObject' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListSelectedReposForOrgSecret\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb🌀Repositories()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrgHook' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrgHook', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrgHook\\Config' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Orgs\\ListAppInstallations\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Installations()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrgMembership' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Memberships🌀CbUsernameRcb()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrgMembership', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrgMembership\\Permissions' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Memberships🌀CbUsernameRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Orgs\\RemoveOutsideCollaborator\\Response\\Applicationjson\\H422' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀OutsideCollaborators🌀CbUsernameRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrgPreReceiveHook' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀PreReceiveHooks()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Project' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Projects()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\MinimalRepository', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Repos()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Team', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamFull' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Team', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Team\\Permissions', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamSimple', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamFull', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamOrganization' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamDiscussion' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamDiscussionComment' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Reaction' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamMembership' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Memberships🌀CbUsernameRcb()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamProject' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamProject', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamProject\\Permissions' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamRepository' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProjectCard', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Projects\\DeleteCard\\Response\\Applicationjson\\H403' => $this->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CbCardIdRcb()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Projects\\MoveCard\\Response\\Applicationjson\\H403', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Projects\\MoveCard\\Response\\Applicationjson\\H503' => $this->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CbCardIdRcb🌀Moves()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Projects\\MoveCard\\Response\\Applicationjson\\H403', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Projects\\MoveCard\\Response\\Applicationjson\\H403\\Errors', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Projects\\MoveCard\\Response\\Applicationjson\\H503', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Projects\\MoveCard\\Response\\Applicationjson\\H503\\Errors' => $this->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CbCardIdRcb🌀Moves()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProjectColumn' => $this->getObjectMapperOperation🌀Projects🌀Columns🌀CbColumnIdRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProjectCollaboratorPermission' => $this->getObjectMapperOperation🌀Projects🌀CbProjectIdRcb🌀Collaborators🌀CbUsernameRcb🌀Permission()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\RateLimitOverview' => $this->getObjectMapperOperation🌀RateLimit()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\FullRepository' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListArtifactsForRepo\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Artifact' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Job' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\RateLimitOverview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RateLimitOverview\\Resources', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RateLimit' => $this->getObjectMapperOperation🌀RateLimit()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\FullRepository', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FullRepository\\Permissions', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeOfConductSimple', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SecurityAndAnalysis', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SecurityAndAnalysis\\AdvancedSecurity' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListArtifactsForRepo\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Artifact', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Artifact\\WorkflowRun' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Job', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Job\\Steps' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsRepositoryPermissions' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListWorkflowRunsForRepo\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\WorkflowRun' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnvironmentApprovals' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Approvals()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListWorkflowRunsForRepo\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\WorkflowRun', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestMinimal', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestMinimal\\Head', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestMinimal\\Head\\Repo', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleCommit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleCommit\\Author' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnvironmentApprovals', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnvironmentApprovals\\Environments' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Approvals()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListJobsForWorkflowRun\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Jobs()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PendingDeployment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Deployment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀PendingDeployments()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListRepoSecrets\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsSecret' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListRepoWorkflows\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Workflow' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ShortBranch' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchWithProtection' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchProtection', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranch' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranchAdminEnforced' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀EnforceAdmins()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranchPullRequestReview' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredPullRequestReviews()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\StatusCheckPolicy' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckRun' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckRuns()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PendingDeployment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PendingDeployment\\Environment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PendingDeployment\\Reviewers', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Deployment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀PendingDeployments()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListRepoSecrets\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsSecret' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Actions\\ListRepoWorkflows\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Workflow' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ShortBranch', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ShortBranch\\Commit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchProtection', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranchRequiredStatusCheck', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranchAdminEnforced', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranchPullRequestReview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranchPullRequestReview\\DismissalRestrictions', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy\\Teams', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy\\Apps', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy\\Apps\\Owner', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy\\Apps\\Permissions', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchProtection\\RequiredLinearHistory', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchProtection\\RequiredSignatures' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchWithProtection', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Commit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Commit\\Commit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitUser', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Commit\\Commit\\Tree', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Verification', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Commit\\Parents', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Commit\\Stats', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\DiffEntry', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchWithProtection\\Links' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranch', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\StatusCheckPolicy', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranch\\RequiredPullRequestReviews', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranch\\RequiredPullRequestReviews\\DismissalRestrictions', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranch\\EnforceAdmins', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranch\\RequiredLinearHistory', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ProtectedBranch\\RequiredConversationResolution' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckRun', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckRun\\Output', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckRun\\CheckSuite', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\DeploymentSimple' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckRuns()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckAnnotation' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashRuns🌀CbCheckRunIdRcb🌀Annotations()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckSuite' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckSuites()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckSuitePreference' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckSuites🌀Preferences()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckSuitePreference', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckSuitePreference\\Preferences', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckSuitePreference\\Preferences\\AutoTriggerChecks' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckSuites🌀Preferences()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Checks\\ListForSuite\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀CheckDashRuns()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertItems' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Alerts()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlert' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertInstance' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb🌀Instances()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertItems', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertRuleSummary', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAnalysisTool', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertInstance', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertInstance\\Message', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertLocation' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Alerts()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlert', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAlertRule' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAnalysis' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Analyses()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\CodeScanning\\GetAnalysis\\Response\\ApplicationjsonPlusSarif\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningAnalysisDeletion' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Analyses🌀CbAnalysisIdRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningSarifsReceipt' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Sarifs()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeScanningSarifsStatus' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Sarifs🌀CbSarifIdRcb()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Collaborator' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Collaborators()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Collaborator', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Collaborator\\Permissions' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Collaborators()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\RepositoryInvitation' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Collaborators🌀CbUsernameRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\RepositoryCollaboratorPermission' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Collaborators🌀CbUsernameRcb🌀Permission()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitComment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Reactions\\CreateForCommitComment\\Response\\Applicationjson\\H415' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Commit' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchShort' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀BranchesDashWhereDashHead()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestSimple' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Pulls()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchShort', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchShort\\Commit' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀BranchesDashWhereDashHead()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestSimple', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestSimple\\Labels', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestSimple\\Head', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestSimple\\Links', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Link', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AutoMerge' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Pulls()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Checks\\ListSuitesForRef\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀CheckSuites()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CombinedCommitStatus' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀Status()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\CombinedCommitStatus', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleCommitStatus' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀Status()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Status' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀Statuses()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitComparison' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Compare🌀CbBaseheadRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContentReferenceAttachment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀ContentReferences🌀CbContentReferenceIdRcb🌀Attachments()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContentTree', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Repos\\GetContent\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Contents🌀CbPathRcb()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContentTree', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContentTree\\Entries', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContentTree\\Entries\\Links', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Repos\\GetContent\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Content', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Content\\Links', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Commit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Commit\\Author', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Commit\\Tree', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Commit\\Parents', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Commit\\Verification' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Contents🌀CbPathRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Contributor' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Contributors()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\DeploymentStatus' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Repos\\GetAllEnvironments\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Environment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Repos\\GetAllEnvironments\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Environment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Environment\\ProtectionRules', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\DeploymentBranchPolicySettings' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Repos\\ListDeploymentBranchPolicies\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\DeploymentBranchPolicy' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb🌀DeploymentDashBranchDashPolicies()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ShortBlob' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Blobs()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Blob' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Blobs🌀CbFileShaRcb()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitCommit' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Commits()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitRef' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀MatchingRefs🌀CbRefRcb()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitTag' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitTree' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Hook' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueComment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEvent' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitCommit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitCommit\\Author', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitCommit\\Tree', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitCommit\\Parents', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitCommit\\Verification' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Commits()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitRef', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitRef\\Object_' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀MatchingRefs🌀CbRefRcb()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitTag', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitTag\\Tagger', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitTag\\Object_' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitTree', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GitTree\\Tree' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Hook', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Hook\\Config', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\HookResponse' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEvent', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEventLabel', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEventDismissedReview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEventMilestone', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEventProjectCard', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEventRename' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueEventForIssue' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Events()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Label' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\TimelineIssueEvents' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Timeline()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\DeployKey' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Keys()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Language' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Languages()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\LicenseContent' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀License()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Milestone' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Page' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PageBuild', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PageBuildStatus' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Page', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PagesSourceHash', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PagesHttpsCertificate' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PageBuild', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PageBuild\\Error', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PageBuildStatus' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\RepositoryPreReceiveHook' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreReceiveHooks()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReviewComment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\DiffEntry' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Files()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Labels', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Head', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Head\\Repo', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Head\\Repo\\Owner', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Head\\Repo\\License', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Base', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Base\\Repo' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReviewComment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReviewComment\\Links', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReviewComment\\Links\\Self_', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReviewComment\\Links\\Html', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReviewComment\\Links\\PullRequest' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestMergeResult' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Merge()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReviewRequest' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀RequestedReviewers()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReview' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ReviewComment' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Comments()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequestReview', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TimelineReviewedEvent\\Links', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TimelineReviewedEvent\\Links\\Html' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ReviewComment', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ReviewComment\\Links' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Comments()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContentFile' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Release' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ReleaseAsset' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Assets🌀CbAssetIdRcb()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Release', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ReleaseAsset' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\SecretScanningAlert' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretScanning🌀Alerts()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Activity\\ListStargazersForRepo\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stargazers()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Repos\\GetCodeFrequencyStats\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀CodeFrequency()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitActivity' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀CommitActivity()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContributorActivity' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀Contributors()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContributorActivity', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContributorActivity\\Weeks' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀Contributors()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\ParticipationStats' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀Participation()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\RepositorySubscription' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscription()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Tag' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Tags()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Topic' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Topics()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Code\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Search🌀Code()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Commits\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Search🌀Commits()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\IssuesAndPullRequests\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Search🌀Issues()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Labels\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Search🌀Labels()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Repos\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Search🌀Repositories()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Topics\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Search🌀Topics()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Users\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Search🌀Users()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ConfigurationStatus' => $this->getObjectMapperOperation🌀Setup🌀Api🌀Configcheck()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\MaintenanceStatus' => $this->getObjectMapperOperation🌀Setup🌀Api🌀Maintenance()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings' => $this->getObjectMapperOperation🌀Setup🌀Api🌀Settings()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Code\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeSearchResultItem', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SearchResultTextMatches', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SearchResultTextMatches\\Matches' => $this->getObjectMapperOperation🌀Search🌀Code()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Commits\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitSearchResultItem', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitSearchResultItem\\Commit', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitSearchResultItem\\Commit\\Author' => $this->getObjectMapperOperation🌀Search🌀Commits()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\IssuesAndPullRequests\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueSearchResultItem', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\IssueSearchResultItem\\Labels' => $this->getObjectMapperOperation🌀Search🌀Issues()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Labels\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\LabelSearchResultItem' => $this->getObjectMapperOperation🌀Search🌀Labels()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Repos\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RepoSearchResultItem' => $this->getObjectMapperOperation🌀Search🌀Repositories()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Topics\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem\\Related', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem\\Related\\TopicRelation' => $this->getObjectMapperOperation🌀Search🌀Topics()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Search\\Users\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\UserSearchResultItem' => $this->getObjectMapperOperation🌀Search🌀Users()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\ConfigurationStatus', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ConfigurationStatus\\Progress' => $this->getObjectMapperOperation🌀Setup🌀Api🌀Configcheck()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\MaintenanceStatus', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\MaintenanceStatus\\ConnectionServices' => $this->getObjectMapperOperation🌀Setup🌀Api🌀Maintenance()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Avatar', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Customer', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\License', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\GithubSsl', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Ldap', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Ldap\\Reconciliation', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Ldap\\Profile', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Cas', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Saml', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\GithubOauth', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Smtp', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Ntp', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Snmp', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Syslog', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Collectd', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\EnterpriseSettings\\Enterprise\\Mapping' => $this->getObjectMapperOperation🌀Setup🌀Api🌀Settings()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\SshKey' => $this->getObjectMapperOperation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Users\\GetAuthenticated\\Response\\Applicationjson\\H200', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PrivateUser' => $this->getObjectMapperOperation🌀User()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Email' => $this->getObjectMapperOperation🌀User🌀Emails()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GpgKey' => $this->getObjectMapperOperation🌀User🌀GpgKeys()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\GpgKey', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GpgKey\\Emails', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GpgKey\\Subkeys' => $this->getObjectMapperOperation🌀User🌀GpgKeys()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Apps\\ListInstallationReposForAuthenticatedUser\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀User🌀Installations🌀CbInstallationIdRcb🌀Repositories()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Key' => $this->getObjectMapperOperation🌀User🌀Keys()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\StarredRepository' => $this->getObjectMapperOperation🌀User🌀Starred()->serializeObject($object),
-            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Hovercard' => $this->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Hovercard()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterprise\\Schema\\Hovercard', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Hovercard\\Contexts' => $this->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Hovercard()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\KeySimple' => $this->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Keys()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Activity\\ListReposStarredByUser\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Starred()->serializeObject($object),
         };
@@ -749,13 +659,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Admin🌀Tokens;
     }
-    public function getObjectMapperOperation🌀Admin🌀Users() : Hydrator\Operation\Admin\Users
-    {
-        if ($this->operation🌀Admin🌀Users instanceof Hydrator\Operation\Admin\Users === false) {
-            $this->operation🌀Admin🌀Users = new Hydrator\Operation\Admin\Users();
-        }
-        return $this->operation🌀Admin🌀Users;
-    }
     public function getObjectMapperOperation🌀App() : Hydrator\Operation\App
     {
         if ($this->operation🌀App instanceof Hydrator\Operation\App === false) {
@@ -861,76 +764,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Enterprise🌀Stats🌀All;
     }
-    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Comments() : Hydrator\Operation\Enterprise\Stats\Comments
-    {
-        if ($this->operation🌀Enterprise🌀Stats🌀Comments instanceof Hydrator\Operation\Enterprise\Stats\Comments === false) {
-            $this->operation🌀Enterprise🌀Stats🌀Comments = new Hydrator\Operation\Enterprise\Stats\Comments();
-        }
-        return $this->operation🌀Enterprise🌀Stats🌀Comments;
-    }
-    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Gists() : Hydrator\Operation\Enterprise\Stats\Gists
-    {
-        if ($this->operation🌀Enterprise🌀Stats🌀Gists instanceof Hydrator\Operation\Enterprise\Stats\Gists === false) {
-            $this->operation🌀Enterprise🌀Stats🌀Gists = new Hydrator\Operation\Enterprise\Stats\Gists();
-        }
-        return $this->operation🌀Enterprise🌀Stats🌀Gists;
-    }
-    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Hooks() : Hydrator\Operation\Enterprise\Stats\Hooks
-    {
-        if ($this->operation🌀Enterprise🌀Stats🌀Hooks instanceof Hydrator\Operation\Enterprise\Stats\Hooks === false) {
-            $this->operation🌀Enterprise🌀Stats🌀Hooks = new Hydrator\Operation\Enterprise\Stats\Hooks();
-        }
-        return $this->operation🌀Enterprise🌀Stats🌀Hooks;
-    }
-    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Issues() : Hydrator\Operation\Enterprise\Stats\Issues
-    {
-        if ($this->operation🌀Enterprise🌀Stats🌀Issues instanceof Hydrator\Operation\Enterprise\Stats\Issues === false) {
-            $this->operation🌀Enterprise🌀Stats🌀Issues = new Hydrator\Operation\Enterprise\Stats\Issues();
-        }
-        return $this->operation🌀Enterprise🌀Stats🌀Issues;
-    }
-    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Milestones() : Hydrator\Operation\Enterprise\Stats\Milestones
-    {
-        if ($this->operation🌀Enterprise🌀Stats🌀Milestones instanceof Hydrator\Operation\Enterprise\Stats\Milestones === false) {
-            $this->operation🌀Enterprise🌀Stats🌀Milestones = new Hydrator\Operation\Enterprise\Stats\Milestones();
-        }
-        return $this->operation🌀Enterprise🌀Stats🌀Milestones;
-    }
-    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Orgs() : Hydrator\Operation\Enterprise\Stats\Orgs
-    {
-        if ($this->operation🌀Enterprise🌀Stats🌀Orgs instanceof Hydrator\Operation\Enterprise\Stats\Orgs === false) {
-            $this->operation🌀Enterprise🌀Stats🌀Orgs = new Hydrator\Operation\Enterprise\Stats\Orgs();
-        }
-        return $this->operation🌀Enterprise🌀Stats🌀Orgs;
-    }
-    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Pages() : Hydrator\Operation\Enterprise\Stats\Pages
-    {
-        if ($this->operation🌀Enterprise🌀Stats🌀Pages instanceof Hydrator\Operation\Enterprise\Stats\Pages === false) {
-            $this->operation🌀Enterprise🌀Stats🌀Pages = new Hydrator\Operation\Enterprise\Stats\Pages();
-        }
-        return $this->operation🌀Enterprise🌀Stats🌀Pages;
-    }
-    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Pulls() : Hydrator\Operation\Enterprise\Stats\Pulls
-    {
-        if ($this->operation🌀Enterprise🌀Stats🌀Pulls instanceof Hydrator\Operation\Enterprise\Stats\Pulls === false) {
-            $this->operation🌀Enterprise🌀Stats🌀Pulls = new Hydrator\Operation\Enterprise\Stats\Pulls();
-        }
-        return $this->operation🌀Enterprise🌀Stats🌀Pulls;
-    }
-    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Repos() : Hydrator\Operation\Enterprise\Stats\Repos
-    {
-        if ($this->operation🌀Enterprise🌀Stats🌀Repos instanceof Hydrator\Operation\Enterprise\Stats\Repos === false) {
-            $this->operation🌀Enterprise🌀Stats🌀Repos = new Hydrator\Operation\Enterprise\Stats\Repos();
-        }
-        return $this->operation🌀Enterprise🌀Stats🌀Repos;
-    }
-    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Users() : Hydrator\Operation\Enterprise\Stats\Users
-    {
-        if ($this->operation🌀Enterprise🌀Stats🌀Users instanceof Hydrator\Operation\Enterprise\Stats\Users === false) {
-            $this->operation🌀Enterprise🌀Stats🌀Users = new Hydrator\Operation\Enterprise\Stats\Users();
-        }
-        return $this->operation🌀Enterprise🌀Stats🌀Users;
-    }
     public function getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions() : Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions
     {
         if ($this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions instanceof Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions === false) {
@@ -986,13 +819,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
             $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀RegistrationToken = new Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RegistrationToken();
         }
         return $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀RegistrationToken;
-    }
-    public function getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb() : Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb
-    {
-        if ($this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb instanceof Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb === false) {
-            $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb = new Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb();
-        }
-        return $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb;
     }
     public function getObjectMapperOperation🌀Events() : Hydrator\Operation\Events
     {
@@ -1063,20 +889,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
             $this->operation🌀Installation🌀Repositories = new Hydrator\Operation\Installation\Repositories();
         }
         return $this->operation🌀Installation🌀Repositories;
-    }
-    public function getObjectMapperOperation🌀Issues() : Hydrator\Operation\Issues
-    {
-        if ($this->operation🌀Issues instanceof Hydrator\Operation\Issues === false) {
-            $this->operation🌀Issues = new Hydrator\Operation\Issues();
-        }
-        return $this->operation🌀Issues;
-    }
-    public function getObjectMapperOperation🌀Licenses() : Hydrator\Operation\Licenses
-    {
-        if ($this->operation🌀Licenses instanceof Hydrator\Operation\Licenses === false) {
-            $this->operation🌀Licenses = new Hydrator\Operation\Licenses();
-        }
-        return $this->operation🌀Licenses;
     }
     public function getObjectMapperOperation🌀Licenses🌀CbLicenseRcb() : Hydrator\Operation\Licenses\CbLicenseRcb
     {
@@ -1218,13 +1030,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Projects;
     }
-    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Repos() : Hydrator\Operation\Orgs\CbOrgRcb\Repos
-    {
-        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Repos instanceof Hydrator\Operation\Orgs\CbOrgRcb\Repos === false) {
-            $this->operation🌀Orgs🌀CbOrgRcb🌀Repos = new Hydrator\Operation\Orgs\CbOrgRcb\Repos();
-        }
-        return $this->operation🌀Orgs🌀CbOrgRcb🌀Repos;
-    }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams() : Hydrator\Operation\Orgs\CbOrgRcb\Teams
     {
         if ($this->operation🌀Orgs🌀CbOrgRcb🌀Teams instanceof Hydrator\Operation\Orgs\CbOrgRcb\Teams === false) {
@@ -1323,13 +1128,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts;
     }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb;
-    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb === false) {
@@ -1350,13 +1148,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs;
-    }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Approvals() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Approvals
     {
@@ -1386,26 +1177,12 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets;
     }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb;
-    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows;
-    }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches
     {
@@ -1427,34 +1204,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection;
-    }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀EnforceAdmins() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\EnforceAdmins
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀EnforceAdmins instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\EnforceAdmins === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀EnforceAdmins = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\EnforceAdmins();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀EnforceAdmins;
-    }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredPullRequestReviews() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredPullRequestReviews
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredPullRequestReviews instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredPullRequestReviews === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredPullRequestReviews = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredPullRequestReviews();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredPullRequestReviews;
-    }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks;
-    }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckRuns() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckRuns
     {
@@ -1504,13 +1253,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb;
-    }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb🌀Instances() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb\Instances
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb🌀Instances instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb\Instances === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb🌀Instances = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb\Instances();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb🌀Instances;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Analyses() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Analyses
     {
@@ -1574,13 +1316,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions;
-    }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀BranchesDashWhereDashHead() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\BranchesDashWhereDashHead
     {
@@ -1659,13 +1394,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments;
     }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb;
-    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb🌀DeploymentDashBranchDashPolicies() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb\DeploymentDashBranchDashPolicies
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb🌀DeploymentDashBranchDashPolicies instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb\DeploymentDashBranchDashPolicies === false) {
@@ -1722,13 +1450,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks;
     }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments;
-    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events === false) {
@@ -1778,13 +1499,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀License;
     }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones;
-    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages === false) {
@@ -1819,13 +1533,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments;
-    }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Files() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Files
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Files instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Files === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Files = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Files();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Files;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Merge() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Merge
     {
@@ -1868,13 +1575,6 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases;
-    }
-    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Assets🌀CbAssetIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Assets\CbAssetIdRcb
-    {
-        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Assets🌀CbAssetIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Assets\CbAssetIdRcb === false) {
-            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Assets🌀CbAssetIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Assets\CbAssetIdRcb();
-        }
-        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Assets🌀CbAssetIdRcb;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretScanning🌀Alerts() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\SecretScanning\Alerts
     {

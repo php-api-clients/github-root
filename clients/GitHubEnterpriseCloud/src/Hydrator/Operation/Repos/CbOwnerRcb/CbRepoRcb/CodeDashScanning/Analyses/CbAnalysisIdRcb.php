@@ -24,11 +24,11 @@ class CbAnalysisIdRcb implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysis' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysis($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysisTool($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisDeletion' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysisDeletion($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ScimError($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysisTool($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -226,6 +226,61 @@ class CbAnalysisIdRcb implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysis(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysis', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysisTool(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['name'] = null;
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['version'] ?? null;
+    
+                if ($value === null) {
+                    $properties['version'] = null;
+                    goto after_version;
+                }
+
+                $properties['version'] = $value;
+    
+                after_version:
+
+                $value = $payload['guid'] ?? null;
+    
+                if ($value === null) {
+                    $properties['guid'] = null;
+                    goto after_guid;
+                }
+
+                $properties['guid'] = $value;
+    
+                after_guid:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -481,61 +536,6 @@ class CbAnalysisIdRcb implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimError', $exception, stack: $this->hydrationStack);
             }
         }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysisTool(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['name'] = null;
-                    goto after_name;
-                }
-
-                $properties['name'] = $value;
-    
-                after_name:
-
-                $value = $payload['version'] ?? null;
-    
-                if ($value === null) {
-                    $properties['version'] = null;
-                    goto after_version;
-                }
-
-                $properties['version'] = $value;
-    
-                after_version:
-
-                $value = $payload['guid'] ?? null;
-    
-                if ($value === null) {
-                    $properties['guid'] = null;
-                    goto after_guid;
-                }
-
-                $properties['guid'] = $value;
-    
-                after_guid:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool', $exception, stack: $this->hydrationStack);
-            }
-        }
     
     public function serializeObject(object $object): mixed
     {
@@ -549,6 +549,7 @@ class CbAnalysisIdRcb implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysis' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysis($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysisTool($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisDeletion' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysisDeletion($object),
@@ -746,6 +747,39 @@ class CbAnalysisIdRcb implements ObjectMapper
             goto after_warning;
         }
         after_warning:        $result['warning'] = $warning;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysisTool(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool);
+        $result = [];
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $version = $object->version;
+
+        if ($version === null) {
+            goto after_version;
+        }
+        after_version:        $result['version'] = $version;
+
+        
+        $guid = $object->guid;
+
+        if ($guid === null) {
+            goto after_guid;
+        }
+        after_guid:        $result['guid'] = $guid;
 
 
         return $result;

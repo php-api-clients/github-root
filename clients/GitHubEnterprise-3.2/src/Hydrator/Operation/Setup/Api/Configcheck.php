@@ -24,6 +24,7 @@ class Configcheck implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ConfigurationStatus($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ConfigurationStatus⚡️Progress($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -81,6 +82,50 @@ class Configcheck implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ConfigurationStatus⚡️Progress(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['status'] ?? null;
+    
+                if ($value === null) {
+                    $properties['status'] = null;
+                    goto after_status;
+                }
+
+                $properties['status'] = $value;
+    
+                after_status:
+
+                $value = $payload['key'] ?? null;
+    
+                if ($value === null) {
+                    $properties['key'] = null;
+                    goto after_key;
+                }
+
+                $properties['key'] = $value;
+    
+                after_key:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -94,6 +139,7 @@ class Configcheck implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ConfigurationStatus($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ConfigurationStatus⚡️Progress($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -195,6 +241,31 @@ class Configcheck implements ObjectMapper
         
         $progress = $progressSerializer0->serialize($progress, $this);
         after_progress:        $result['progress'] = $progress;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ConfigurationStatus⚡️Progress(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress);
+        $result = [];
+        
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+        after_status:        $result['status'] = $status;
+
+        
+        $key = $object->key;
+
+        if ($key === null) {
+            goto after_key;
+        }
+        after_key:        $result['key'] = $key;
 
 
         return $result;

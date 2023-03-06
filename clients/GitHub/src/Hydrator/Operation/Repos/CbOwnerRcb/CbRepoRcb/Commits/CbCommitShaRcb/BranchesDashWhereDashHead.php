@@ -24,8 +24,9 @@ class BranchesDashWhereDashHead implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHub\Schema\BranchShort' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BranchShort($payload),
-                'ApiClients\Client\GitHub\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️ValidationError($payload),
                 'ApiClients\Client\GitHub\Schema\BranchShort\Commit' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BranchShort⚡️Commit($payload),
+                'ApiClients\Client\GitHub\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️ValidationError($payload),
+                'ApiClients\Client\GitHub\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️ValidationError⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -95,6 +96,50 @@ class BranchesDashWhereDashHead implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BranchShort⚡️Commit(array $payload): \ApiClients\Client\GitHub\Schema\BranchShort\Commit
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['sha'] ?? null;
+    
+                if ($value === null) {
+                    $properties['sha'] = null;
+                    goto after_sha;
+                }
+
+                $properties['sha'] = $value;
+    
+                after_sha:
+
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['url'] = null;
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\BranchShort\Commit', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\BranchShort\Commit::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHub\Schema\BranchShort\Commit(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\BranchShort\Commit', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\GitHub\Schema\ValidationError
         {
             $properties = []; 
@@ -160,46 +205,90 @@ class BranchesDashWhereDashHead implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BranchShort⚡️Commit(array $payload): \ApiClients\Client\GitHub\Schema\BranchShort\Commit
+        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\GitHub\Schema\ValidationError\Errors
         {
             $properties = []; 
             $missingFields = [];
             try {
                 
-                $value = $payload['sha'] ?? null;
+                $value = $payload['resource'] ?? null;
     
                 if ($value === null) {
-                    $properties['sha'] = null;
-                    goto after_sha;
+                    $missingFields[] = 'resource';
+                    goto after_resource;
                 }
 
-                $properties['sha'] = $value;
+                $properties['resource'] = $value;
     
-                after_sha:
+                after_resource:
 
-                $value = $payload['url'] ?? null;
+                $value = $payload['field'] ?? null;
     
                 if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
+                    $missingFields[] = 'field';
+                    goto after_field;
                 }
 
-                $properties['url'] = $value;
+                $properties['field'] = $value;
     
-                after_url:
+                after_field:
+
+                $value = $payload['message'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'message';
+                    goto after_message;
+                }
+
+                $properties['message'] = $value;
+    
+                after_message:
+
+                $value = $payload['code'] ?? null;
+    
+                if ($value === null) {
+                    $properties['code'] = null;
+                    goto after_code;
+                }
+
+                $properties['code'] = $value;
+    
+                after_code:
+
+                $value = $payload['index'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'index';
+                    goto after_index;
+                }
+
+                $properties['index'] = $value;
+    
+                after_index:
+
+                $value = $payload['value'] ?? null;
+    
+                if ($value === null) {
+                    $properties['value'] = null;
+                    goto after_value;
+                }
+
+                $properties['value'] = $value;
+    
+                after_value:
 
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\BranchShort\Commit', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
             }
             
             if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\BranchShort\Commit::class, $missingFields, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
             }
             
             try {
-                return new \ApiClients\Client\GitHub\Schema\BranchShort\Commit(...$properties);
+                return new \ApiClients\Client\GitHub\Schema\ValidationError\Errors(...$properties);
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\BranchShort\Commit', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
             }
         }
     
@@ -215,7 +304,9 @@ class BranchesDashWhereDashHead implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHub\Schema\BranchShort' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BranchShort($object),
+                'ApiClients\Client\GitHub\Schema\BranchShort\Commit' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BranchShort⚡️Commit($object),
                 'ApiClients\Client\GitHub\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️ValidationError($object),
+                'ApiClients\Client\GitHub\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️ValidationError⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -323,6 +414,31 @@ class BranchesDashWhereDashHead implements ObjectMapper
     }
 
     
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BranchShort⚡️Commit(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\BranchShort\Commit);
+        $result = [];
+        
+        $sha = $object->sha;
+
+        if ($sha === null) {
+            goto after_sha;
+        }
+        after_sha:        $result['sha'] = $sha;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
     private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️ValidationError(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHub\Schema\ValidationError);
@@ -355,6 +471,55 @@ class BranchesDashWhereDashHead implements ObjectMapper
         
         $errors = $errorsSerializer0->serialize($errors, $this);
         after_errors:        $result['errors'] = $errors;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\ValidationError\Errors);
+        $result = [];
+        
+        $resource = $object->resource;
+        after_resource:        $result['resource'] = $resource;
+
+        
+        $field = $object->field;
+        after_field:        $result['field'] = $field;
+
+        
+        $message = $object->message;
+        after_message:        $result['message'] = $message;
+
+        
+        $code = $object->code;
+
+        if ($code === null) {
+            goto after_code;
+        }
+        after_code:        $result['code'] = $code;
+
+        
+        $index = $object->index;
+        after_index:        $result['index'] = $index;
+
+        
+        $value = $object->value;
+
+        if ($value === null) {
+            goto after_value;
+        }
+        static $valueSerializer0;
+
+        if ($valueSerializer0 === null) {
+            $valueSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $value = $valueSerializer0->serialize($value, $this);
+        after_value:        $result['value'] = $value;
 
 
         return $result;

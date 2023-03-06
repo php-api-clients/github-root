@@ -24,6 +24,7 @@ class GroupDashMappings implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping⚡️Groups($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -70,6 +71,83 @@ class GroupDashMappings implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping⚡️Groups(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['group_id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['group_id'] = null;
+                    goto after_group_id;
+                }
+
+                $properties['group_id'] = $value;
+    
+                after_group_id:
+
+                $value = $payload['group_name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['group_name'] = null;
+                    goto after_group_name;
+                }
+
+                $properties['group_name'] = $value;
+    
+                after_group_name:
+
+                $value = $payload['group_description'] ?? null;
+    
+                if ($value === null) {
+                    $properties['group_description'] = null;
+                    goto after_group_description;
+                }
+
+                $properties['group_description'] = $value;
+    
+                after_group_description:
+
+                $value = $payload['status'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'status';
+                    goto after_status;
+                }
+
+                $properties['status'] = $value;
+    
+                after_status:
+
+                $value = $payload['synced_at'] ?? null;
+    
+                if ($value === null) {
+                    $properties['synced_at'] = null;
+                    goto after_synced_at;
+                }
+
+                $properties['synced_at'] = $value;
+    
+                after_synced_at:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -83,6 +161,7 @@ class GroupDashMappings implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping⚡️Groups($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -176,6 +255,51 @@ class GroupDashMappings implements ObjectMapper
         
         $groups = $groupsSerializer0->serialize($groups, $this);
         after_groups:        $result['groups'] = $groups;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping⚡️Groups(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups);
+        $result = [];
+        
+        $group_id = $object->group_id;
+
+        if ($group_id === null) {
+            goto after_group_id;
+        }
+        after_group_id:        $result['group_id'] = $group_id;
+
+        
+        $group_name = $object->group_name;
+
+        if ($group_name === null) {
+            goto after_group_name;
+        }
+        after_group_name:        $result['group_name'] = $group_name;
+
+        
+        $group_description = $object->group_description;
+
+        if ($group_description === null) {
+            goto after_group_description;
+        }
+        after_group_description:        $result['group_description'] = $group_description;
+
+        
+        $status = $object->status;
+        after_status:        $result['status'] = $status;
+
+        
+        $synced_at = $object->synced_at;
+
+        if ($synced_at === null) {
+            goto after_synced_at;
+        }
+        after_synced_at:        $result['synced_at'] = $synced_at;
 
 
         return $result;

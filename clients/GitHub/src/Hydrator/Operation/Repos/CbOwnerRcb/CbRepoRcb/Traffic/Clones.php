@@ -24,6 +24,7 @@ class Clones implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHub\Schema\CloneTraffic' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CloneTraffic($payload),
+                'ApiClients\Client\GitHub\Schema\Traffic' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Traffic($payload),
                 'ApiClients\Client\GitHub\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -91,6 +92,61 @@ class Clones implements ObjectMapper
                 return new \ApiClients\Client\GitHub\Schema\CloneTraffic(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\CloneTraffic', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Traffic(array $payload): \ApiClients\Client\GitHub\Schema\Traffic
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['timestamp'] ?? null;
+    
+                if ($value === null) {
+                    $properties['timestamp'] = null;
+                    goto after_timestamp;
+                }
+
+                $properties['timestamp'] = $value;
+    
+                after_timestamp:
+
+                $value = $payload['uniques'] ?? null;
+    
+                if ($value === null) {
+                    $properties['uniques'] = null;
+                    goto after_uniques;
+                }
+
+                $properties['uniques'] = $value;
+    
+                after_uniques:
+
+                $value = $payload['count'] ?? null;
+    
+                if ($value === null) {
+                    $properties['count'] = null;
+                    goto after_count;
+                }
+
+                $properties['count'] = $value;
+    
+                after_count:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\Traffic', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\Traffic::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHub\Schema\Traffic(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\Traffic', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -172,6 +228,7 @@ class Clones implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHub\Schema\CloneTraffic' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CloneTraffic($object),
+                'ApiClients\Client\GitHub\Schema\Traffic' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Traffic($object),
                 'ApiClients\Client\GitHub\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -282,6 +339,39 @@ class Clones implements ObjectMapper
         
         $clones = $clonesSerializer0->serialize($clones, $this);
         after_clones:        $result['clones'] = $clones;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Traffic(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\Traffic);
+        $result = [];
+        
+        $timestamp = $object->timestamp;
+
+        if ($timestamp === null) {
+            goto after_timestamp;
+        }
+        after_timestamp:        $result['timestamp'] = $timestamp;
+
+        
+        $uniques = $object->uniques;
+
+        if ($uniques === null) {
+            goto after_uniques;
+        }
+        after_uniques:        $result['uniques'] = $uniques;
+
+        
+        $count = $object->count;
+
+        if ($count === null) {
+            goto after_count;
+        }
+        after_count:        $result['count'] = $count;
 
 
         return $result;

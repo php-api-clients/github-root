@@ -24,9 +24,10 @@ class Hooks implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgHook($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook\Config' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgHook⚡️Config($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook\Config' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgHook⚡️Config($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -184,6 +185,72 @@ class Hooks implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgHook⚡️Config(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook\Config
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['url'] = null;
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['insecure_ssl'] ?? null;
+    
+                if ($value === null) {
+                    $properties['insecure_ssl'] = null;
+                    goto after_insecure_ssl;
+                }
+
+                $properties['insecure_ssl'] = $value;
+    
+                after_insecure_ssl:
+
+                $value = $payload['content_type'] ?? null;
+    
+                if ($value === null) {
+                    $properties['content_type'] = null;
+                    goto after_content_type;
+                }
+
+                $properties['content_type'] = $value;
+    
+                after_content_type:
+
+                $value = $payload['secret'] ?? null;
+    
+                if ($value === null) {
+                    $properties['secret'] = null;
+                    goto after_secret;
+                }
+
+                $properties['secret'] = $value;
+    
+                after_secret:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook\Config', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook\Config::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook\Config(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook\Config', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError
         {
             $properties = []; 
@@ -315,68 +382,90 @@ class Hooks implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgHook⚡️Config(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook\Config
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors
         {
             $properties = []; 
             $missingFields = [];
             try {
                 
-                $value = $payload['url'] ?? null;
+                $value = $payload['resource'] ?? null;
     
                 if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
+                    $missingFields[] = 'resource';
+                    goto after_resource;
                 }
 
-                $properties['url'] = $value;
+                $properties['resource'] = $value;
     
-                after_url:
+                after_resource:
 
-                $value = $payload['insecure_ssl'] ?? null;
+                $value = $payload['field'] ?? null;
     
                 if ($value === null) {
-                    $properties['insecure_ssl'] = null;
-                    goto after_insecure_ssl;
+                    $missingFields[] = 'field';
+                    goto after_field;
                 }
 
-                $properties['insecure_ssl'] = $value;
+                $properties['field'] = $value;
     
-                after_insecure_ssl:
+                after_field:
 
-                $value = $payload['content_type'] ?? null;
+                $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $properties['content_type'] = null;
-                    goto after_content_type;
+                    $missingFields[] = 'message';
+                    goto after_message;
                 }
 
-                $properties['content_type'] = $value;
+                $properties['message'] = $value;
     
-                after_content_type:
+                after_message:
 
-                $value = $payload['secret'] ?? null;
+                $value = $payload['code'] ?? null;
     
                 if ($value === null) {
-                    $properties['secret'] = null;
-                    goto after_secret;
+                    $properties['code'] = null;
+                    goto after_code;
                 }
 
-                $properties['secret'] = $value;
+                $properties['code'] = $value;
     
-                after_secret:
+                after_code:
+
+                $value = $payload['index'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'index';
+                    goto after_index;
+                }
+
+                $properties['index'] = $value;
+    
+                after_index:
+
+                $value = $payload['value'] ?? null;
+    
+                if ($value === null) {
+                    $properties['value'] = null;
+                    goto after_value;
+                }
+
+                $properties['value'] = $value;
+    
+                after_value:
 
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook\Config', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
             }
             
             if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook\Config::class, $missingFields, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
             }
             
             try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook\Config(...$properties);
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors(...$properties);
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook\Config', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
             }
         }
     
@@ -392,8 +481,10 @@ class Hooks implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgHook($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook\Config' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgHook⚡️Config($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -569,6 +660,47 @@ class Hooks implements ObjectMapper
     }
 
     
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgHook⚡️Config(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook\Config);
+        $result = [];
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $insecure_ssl = $object->insecure_ssl;
+
+        if ($insecure_ssl === null) {
+            goto after_insecure_ssl;
+        }
+        after_insecure_ssl:        $result['insecure_ssl'] = $insecure_ssl;
+
+        
+        $content_type = $object->content_type;
+
+        if ($content_type === null) {
+            goto after_content_type;
+        }
+        after_content_type:        $result['content_type'] = $content_type;
+
+        
+        $secret = $object->secret;
+
+        if ($secret === null) {
+            goto after_secret;
+        }
+        after_secret:        $result['secret'] = $secret;
+
+
+        return $result;
+    }
+
+    
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError);
@@ -642,6 +774,55 @@ class Hooks implements ObjectMapper
         
         $errors = $errorsSerializer0->serialize($errors, $this);
         after_errors:        $result['errors'] = $errors;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors);
+        $result = [];
+        
+        $resource = $object->resource;
+        after_resource:        $result['resource'] = $resource;
+
+        
+        $field = $object->field;
+        after_field:        $result['field'] = $field;
+
+        
+        $message = $object->message;
+        after_message:        $result['message'] = $message;
+
+        
+        $code = $object->code;
+
+        if ($code === null) {
+            goto after_code;
+        }
+        after_code:        $result['code'] = $code;
+
+        
+        $index = $object->index;
+        after_index:        $result['index'] = $index;
+
+        
+        $value = $object->value;
+
+        if ($value === null) {
+            goto after_value;
+        }
+        static $valueSerializer0;
+
+        if ($valueSerializer0 === null) {
+            $valueSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $value = $valueSerializer0->serialize($value, $this);
+        after_value:        $result['value'] = $value;
 
 
         return $result;

@@ -24,8 +24,8 @@ class CbHookIdRcb implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubAE\Schema\GlobalHook' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook($payload),
-                'ApiClients\Client\GitHubAE\Schema\GlobalHook2' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2($payload),
                 'ApiClients\Client\GitHubAE\Schema\GlobalHook\Config' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config($payload),
+                'ApiClients\Client\GitHubAE\Schema\GlobalHook2' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2($payload),
                 'ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2⚡️Config($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -173,6 +173,72 @@ class CbHookIdRcb implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config(array $payload): \ApiClients\Client\GitHubAE\Schema\GlobalHook\Config
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['url'] = null;
+                    goto after_url;
+                }
+
+                $properties['url'] = $value;
+    
+                after_url:
+
+                $value = $payload['content_type'] ?? null;
+    
+                if ($value === null) {
+                    $properties['content_type'] = null;
+                    goto after_content_type;
+                }
+
+                $properties['content_type'] = $value;
+    
+                after_content_type:
+
+                $value = $payload['insecure_ssl'] ?? null;
+    
+                if ($value === null) {
+                    $properties['insecure_ssl'] = null;
+                    goto after_insecure_ssl;
+                }
+
+                $properties['insecure_ssl'] = $value;
+    
+                after_insecure_ssl:
+
+                $value = $payload['secret'] ?? null;
+    
+                if ($value === null) {
+                    $properties['secret'] = null;
+                    goto after_secret;
+                }
+
+                $properties['secret'] = $value;
+    
+                after_secret:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook\Config', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\GlobalHook\Config::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\GlobalHook\Config(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook\Config', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2(array $payload): \ApiClients\Client\GitHubAE\Schema\GlobalHook2
         {
             $properties = []; 
@@ -314,72 +380,6 @@ class CbHookIdRcb implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config(array $payload): \ApiClients\Client\GitHubAE\Schema\GlobalHook\Config
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
-                }
-
-                $properties['url'] = $value;
-    
-                after_url:
-
-                $value = $payload['content_type'] ?? null;
-    
-                if ($value === null) {
-                    $properties['content_type'] = null;
-                    goto after_content_type;
-                }
-
-                $properties['content_type'] = $value;
-    
-                after_content_type:
-
-                $value = $payload['insecure_ssl'] ?? null;
-    
-                if ($value === null) {
-                    $properties['insecure_ssl'] = null;
-                    goto after_insecure_ssl;
-                }
-
-                $properties['insecure_ssl'] = $value;
-    
-                after_insecure_ssl:
-
-                $value = $payload['secret'] ?? null;
-    
-                if ($value === null) {
-                    $properties['secret'] = null;
-                    goto after_secret;
-                }
-
-                $properties['secret'] = $value;
-    
-                after_secret:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook\Config', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\GlobalHook\Config::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\GlobalHook\Config(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook\Config', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
         private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2⚡️Config(array $payload): \ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config
         {
             $properties = []; 
@@ -446,7 +446,9 @@ class CbHookIdRcb implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubAE\Schema\GlobalHook' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook($object),
+                'ApiClients\Client\GitHubAE\Schema\GlobalHook\Config' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config($object),
                 'ApiClients\Client\GitHubAE\Schema\GlobalHook2' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2($object),
+                'ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2⚡️Config($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -618,6 +620,47 @@ class CbHookIdRcb implements ObjectMapper
     }
 
     
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GlobalHook\Config);
+        $result = [];
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $content_type = $object->content_type;
+
+        if ($content_type === null) {
+            goto after_content_type;
+        }
+        after_content_type:        $result['content_type'] = $content_type;
+
+        
+        $insecure_ssl = $object->insecure_ssl;
+
+        if ($insecure_ssl === null) {
+            goto after_insecure_ssl;
+        }
+        after_insecure_ssl:        $result['insecure_ssl'] = $insecure_ssl;
+
+        
+        $secret = $object->secret;
+
+        if ($secret === null) {
+            goto after_secret;
+        }
+        after_secret:        $result['secret'] = $secret;
+
+
+        return $result;
+    }
+
+    
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GlobalHook2);
@@ -710,6 +753,39 @@ class CbHookIdRcb implements ObjectMapper
             goto after_ping_url;
         }
         after_ping_url:        $result['ping_url'] = $ping_url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2⚡️Config(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config);
+        $result = [];
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $content_type = $object->content_type;
+
+        if ($content_type === null) {
+            goto after_content_type;
+        }
+        after_content_type:        $result['content_type'] = $content_type;
+
+        
+        $insecure_ssl = $object->insecure_ssl;
+
+        if ($insecure_ssl === null) {
+            goto after_insecure_ssl;
+        }
+        after_insecure_ssl:        $result['insecure_ssl'] = $insecure_ssl;
 
 
         return $result;

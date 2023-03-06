@@ -24,6 +24,8 @@ class CbGroupIdRcb implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ExternalGroup($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Teams' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ExternalGroup⚡️Teams($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Members' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ExternalGroup⚡️Members($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -124,6 +126,116 @@ class CbGroupIdRcb implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ExternalGroup⚡️Teams(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Teams
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['team_id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['team_id'] = null;
+                    goto after_team_id;
+                }
+
+                $properties['team_id'] = $value;
+    
+                after_team_id:
+
+                $value = $payload['team_name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['team_name'] = null;
+                    goto after_team_name;
+                }
+
+                $properties['team_name'] = $value;
+    
+                after_team_name:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Teams', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Teams::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Teams(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Teams', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ExternalGroup⚡️Members(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Members
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['member_id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['member_id'] = null;
+                    goto after_member_id;
+                }
+
+                $properties['member_id'] = $value;
+    
+                after_member_id:
+
+                $value = $payload['member_login'] ?? null;
+    
+                if ($value === null) {
+                    $properties['member_login'] = null;
+                    goto after_member_login;
+                }
+
+                $properties['member_login'] = $value;
+    
+                after_member_login:
+
+                $value = $payload['member_name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['member_name'] = null;
+                    goto after_member_name;
+                }
+
+                $properties['member_name'] = $value;
+    
+                after_member_name:
+
+                $value = $payload['member_email'] ?? null;
+    
+                if ($value === null) {
+                    $properties['member_email'] = null;
+                    goto after_member_email;
+                }
+
+                $properties['member_email'] = $value;
+    
+                after_member_email:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Members', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Members::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Members(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Members', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -137,6 +249,8 @@ class CbGroupIdRcb implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ExternalGroup($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Teams' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ExternalGroup⚡️Teams($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Members' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ExternalGroup⚡️Members($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -267,6 +381,72 @@ class CbGroupIdRcb implements ObjectMapper
         
         $members = $membersSerializer0->serialize($members, $this);
         after_members:        $result['members'] = $members;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ExternalGroup⚡️Teams(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Teams);
+        $result = [];
+        
+        $team_id = $object->team_id;
+
+        if ($team_id === null) {
+            goto after_team_id;
+        }
+        after_team_id:        $result['team_id'] = $team_id;
+
+        
+        $team_name = $object->team_name;
+
+        if ($team_name === null) {
+            goto after_team_name;
+        }
+        after_team_name:        $result['team_name'] = $team_name;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ExternalGroup⚡️Members(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Members);
+        $result = [];
+        
+        $member_id = $object->member_id;
+
+        if ($member_id === null) {
+            goto after_member_id;
+        }
+        after_member_id:        $result['member_id'] = $member_id;
+
+        
+        $member_login = $object->member_login;
+
+        if ($member_login === null) {
+            goto after_member_login;
+        }
+        after_member_login:        $result['member_login'] = $member_login;
+
+        
+        $member_name = $object->member_name;
+
+        if ($member_name === null) {
+            goto after_member_name;
+        }
+        after_member_name:        $result['member_name'] = $member_name;
+
+        
+        $member_email = $object->member_email;
+
+        if ($member_email === null) {
+            goto after_member_email;
+        }
+        after_member_email:        $result['member_email'] = $member_email;
 
 
         return $result;

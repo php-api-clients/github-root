@@ -51,7 +51,6 @@ class CheckSuite implements ObjectMapper
                 'ApiClients\Client\GitHub\Schema\WebhookCheckSuiteRerequested\ActionsMeta\RerunInfo' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookCheckSuiteRerequested⚡️ActionsMeta⚡️RerunInfo($payload),
                 'ApiClients\Client\GitHub\Schema\WebhookCheckSuiteRerequested\CheckSuite' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookCheckSuiteRerequested⚡️CheckSuite($payload),
                 'ApiClients\Client\GitHub\Schema\WebhookCheckSuiteRerequested\CheckSuite\App' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookCheckSuiteRerequested⚡️CheckSuite⚡️App($payload),
-                'ApiClients\Client\GitHub\Schema\WebhookCheckSuiteCompleted\ActionsMeta' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -79,15 +78,6 @@ class CheckSuite implements ObjectMapper
                 if ($value === null) {
                     $properties['actions_meta'] = null;
                     goto after_actions_meta;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'actions_meta';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['actions_meta'] = $value;
@@ -4918,15 +4908,6 @@ class CheckSuite implements ObjectMapper
                     goto after_actions_meta;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'actions_meta';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['actions_meta'] = $value;
     
                 after_actions_meta:
@@ -6164,28 +6145,6 @@ class CheckSuite implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookCheckSuiteRerequested\CheckSuite\App', $exception, stack: $this->hydrationStack);
             }
         }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta(array $payload): \ApiClients\Client\GitHub\Schema\WebhookCheckSuiteCompleted\ActionsMeta
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookCheckSuiteCompleted\ActionsMeta', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\WebhookCheckSuiteCompleted\ActionsMeta::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHub\Schema\WebhookCheckSuiteCompleted\ActionsMeta(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookCheckSuiteCompleted\ActionsMeta', $exception, stack: $this->hydrationStack);
-            }
-        }
     
     public function serializeObject(object $object): mixed
     {
@@ -6317,7 +6276,6 @@ class CheckSuite implements ObjectMapper
         if ($actions_meta === null) {
             goto after_actions_meta;
         }
-        $actions_meta = $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($actions_meta);
         after_actions_meta:        $result['actions_meta'] = $actions_meta;
 
         
@@ -9365,7 +9323,6 @@ class CheckSuite implements ObjectMapper
         if ($actions_meta === null) {
             goto after_actions_meta;
         }
-        $actions_meta = $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($actions_meta);
         after_actions_meta:        $result['actions_meta'] = $actions_meta;
 
         

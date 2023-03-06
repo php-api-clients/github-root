@@ -237,6 +237,7 @@ class PreReceiveEnvironments implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment($object),
+                'ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment\Download' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment⚡️Download($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -386,6 +387,47 @@ class PreReceiveEnvironments implements ObjectMapper
         }
         $download = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment⚡️Download($download);
         after_download:        $result['download'] = $download;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment⚡️Download(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment\Download);
+        $result = [];
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $state = $object->state;
+
+        if ($state === null) {
+            goto after_state;
+        }
+        after_state:        $result['state'] = $state;
+
+        
+        $downloaded_at = $object->downloaded_at;
+
+        if ($downloaded_at === null) {
+            goto after_downloaded_at;
+        }
+        after_downloaded_at:        $result['downloaded_at'] = $downloaded_at;
+
+        
+        $message = $object->message;
+
+        if ($message === null) {
+            goto after_message;
+        }
+        after_message:        $result['message'] = $message;
 
 
         return $result;

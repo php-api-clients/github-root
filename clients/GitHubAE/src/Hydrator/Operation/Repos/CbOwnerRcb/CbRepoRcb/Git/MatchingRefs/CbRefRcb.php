@@ -171,6 +171,7 @@ class CbRefRcb implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubAE\Schema\GitRef' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitRef($object),
+                'ApiClients\Client\GitHubAE\Schema\GitRef\Object_' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitRef⚡️Object_($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -280,6 +281,39 @@ class CbRefRcb implements ObjectMapper
         }
         $object = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitRef⚡️Object_($object);
         after_object:        $result['object'] = $object;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitRef⚡️Object_(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GitRef\Object_);
+        $result = [];
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $sha = $object->sha;
+
+        if ($sha === null) {
+            goto after_sha;
+        }
+        after_sha:        $result['sha'] = $sha;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
 
 
         return $result;

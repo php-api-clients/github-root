@@ -26,7 +26,6 @@ class ServerDashStatistics implements ObjectMapper
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GithubConnect' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GithubConnect($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Comments' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Gists' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Hooks' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks($payload),
@@ -37,6 +36,7 @@ class ServerDashStatistics implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pulls' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Repos' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Users' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -430,50 +430,6 @@ class ServerDashStatistics implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_dormant_users'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_dormant_users'] = null;
-                    goto after_total_dormant_users;
-                }
-
-                $properties['total_dormant_users'] = $value;
-    
-                after_total_dormant_users:
-
-                $value = $payload['dormancy_threshold'] ?? null;
-    
-                if ($value === null) {
-                    $properties['dormancy_threshold'] = null;
-                    goto after_dormancy_threshold;
-                }
-
-                $properties['dormancy_threshold'] = $value;
-    
-                after_dormancy_threshold:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -1070,6 +1026,50 @@ class ServerDashStatistics implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Users', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['total_dormant_users'] ?? null;
+    
+                if ($value === null) {
+                    $properties['total_dormant_users'] = null;
+                    goto after_total_dormant_users;
+                }
+
+                $properties['total_dormant_users'] = $value;
+    
+                after_total_dormant_users:
+
+                $value = $payload['dormancy_threshold'] ?? null;
+    
+                if ($value === null) {
+                    $properties['dormancy_threshold'] = null;
+                    goto after_dormancy_threshold;
+                }
+
+                $properties['dormancy_threshold'] = $value;
+    
+                after_dormancy_threshold:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -1083,6 +1083,19 @@ class ServerDashStatistics implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GithubConnect' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GithubConnect($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Comments' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Gists' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Hooks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Issues' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Milestones' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Orgs' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pages' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pulls' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Repos' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Users' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -1226,6 +1239,517 @@ class ServerDashStatistics implements ObjectMapper
         }
         $dormant_users = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers($dormant_users);
         after_dormant_users:        $result['dormant_users'] = $dormant_users;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GithubConnect(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GithubConnect);
+        $result = [];
+        
+        $features_enabled = $object->features_enabled;
+
+        if ($features_enabled === null) {
+            goto after_features_enabled;
+        }
+        static $features_enabledSerializer0;
+
+        if ($features_enabledSerializer0 === null) {
+            $features_enabledSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $features_enabled = $features_enabledSerializer0->serialize($features_enabled, $this);
+        after_features_enabled:        $result['features_enabled'] = $features_enabled;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats);
+        $result = [];
+        
+        $comments = $object->comments;
+
+        if ($comments === null) {
+            goto after_comments;
+        }
+        $comments = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments($comments);
+        after_comments:        $result['comments'] = $comments;
+
+        
+        $gists = $object->gists;
+
+        if ($gists === null) {
+            goto after_gists;
+        }
+        $gists = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists($gists);
+        after_gists:        $result['gists'] = $gists;
+
+        
+        $hooks = $object->hooks;
+
+        if ($hooks === null) {
+            goto after_hooks;
+        }
+        $hooks = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks($hooks);
+        after_hooks:        $result['hooks'] = $hooks;
+
+        
+        $issues = $object->issues;
+
+        if ($issues === null) {
+            goto after_issues;
+        }
+        $issues = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues($issues);
+        after_issues:        $result['issues'] = $issues;
+
+        
+        $milestones = $object->milestones;
+
+        if ($milestones === null) {
+            goto after_milestones;
+        }
+        $milestones = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones($milestones);
+        after_milestones:        $result['milestones'] = $milestones;
+
+        
+        $orgs = $object->orgs;
+
+        if ($orgs === null) {
+            goto after_orgs;
+        }
+        $orgs = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs($orgs);
+        after_orgs:        $result['orgs'] = $orgs;
+
+        
+        $pages = $object->pages;
+
+        if ($pages === null) {
+            goto after_pages;
+        }
+        $pages = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages($pages);
+        after_pages:        $result['pages'] = $pages;
+
+        
+        $pulls = $object->pulls;
+
+        if ($pulls === null) {
+            goto after_pulls;
+        }
+        $pulls = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls($pulls);
+        after_pulls:        $result['pulls'] = $pulls;
+
+        
+        $repos = $object->repos;
+
+        if ($repos === null) {
+            goto after_repos;
+        }
+        $repos = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos($repos);
+        after_repos:        $result['repos'] = $repos;
+
+        
+        $users = $object->users;
+
+        if ($users === null) {
+            goto after_users;
+        }
+        $users = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users($users);
+        after_users:        $result['users'] = $users;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Comments);
+        $result = [];
+        
+        $total_commit_comments = $object->total_commit_comments;
+
+        if ($total_commit_comments === null) {
+            goto after_total_commit_comments;
+        }
+        after_total_commit_comments:        $result['total_commit_comments'] = $total_commit_comments;
+
+        
+        $total_gist_comments = $object->total_gist_comments;
+
+        if ($total_gist_comments === null) {
+            goto after_total_gist_comments;
+        }
+        after_total_gist_comments:        $result['total_gist_comments'] = $total_gist_comments;
+
+        
+        $total_issue_comments = $object->total_issue_comments;
+
+        if ($total_issue_comments === null) {
+            goto after_total_issue_comments;
+        }
+        after_total_issue_comments:        $result['total_issue_comments'] = $total_issue_comments;
+
+        
+        $total_pull_request_comments = $object->total_pull_request_comments;
+
+        if ($total_pull_request_comments === null) {
+            goto after_total_pull_request_comments;
+        }
+        after_total_pull_request_comments:        $result['total_pull_request_comments'] = $total_pull_request_comments;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Gists);
+        $result = [];
+        
+        $total_gists = $object->total_gists;
+
+        if ($total_gists === null) {
+            goto after_total_gists;
+        }
+        after_total_gists:        $result['total_gists'] = $total_gists;
+
+        
+        $private_gists = $object->private_gists;
+
+        if ($private_gists === null) {
+            goto after_private_gists;
+        }
+        after_private_gists:        $result['private_gists'] = $private_gists;
+
+        
+        $public_gists = $object->public_gists;
+
+        if ($public_gists === null) {
+            goto after_public_gists;
+        }
+        after_public_gists:        $result['public_gists'] = $public_gists;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Hooks);
+        $result = [];
+        
+        $total_hooks = $object->total_hooks;
+
+        if ($total_hooks === null) {
+            goto after_total_hooks;
+        }
+        after_total_hooks:        $result['total_hooks'] = $total_hooks;
+
+        
+        $active_hooks = $object->active_hooks;
+
+        if ($active_hooks === null) {
+            goto after_active_hooks;
+        }
+        after_active_hooks:        $result['active_hooks'] = $active_hooks;
+
+        
+        $inactive_hooks = $object->inactive_hooks;
+
+        if ($inactive_hooks === null) {
+            goto after_inactive_hooks;
+        }
+        after_inactive_hooks:        $result['inactive_hooks'] = $inactive_hooks;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Issues);
+        $result = [];
+        
+        $total_issues = $object->total_issues;
+
+        if ($total_issues === null) {
+            goto after_total_issues;
+        }
+        after_total_issues:        $result['total_issues'] = $total_issues;
+
+        
+        $open_issues = $object->open_issues;
+
+        if ($open_issues === null) {
+            goto after_open_issues;
+        }
+        after_open_issues:        $result['open_issues'] = $open_issues;
+
+        
+        $closed_issues = $object->closed_issues;
+
+        if ($closed_issues === null) {
+            goto after_closed_issues;
+        }
+        after_closed_issues:        $result['closed_issues'] = $closed_issues;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Milestones);
+        $result = [];
+        
+        $total_milestones = $object->total_milestones;
+
+        if ($total_milestones === null) {
+            goto after_total_milestones;
+        }
+        after_total_milestones:        $result['total_milestones'] = $total_milestones;
+
+        
+        $open_milestones = $object->open_milestones;
+
+        if ($open_milestones === null) {
+            goto after_open_milestones;
+        }
+        after_open_milestones:        $result['open_milestones'] = $open_milestones;
+
+        
+        $closed_milestones = $object->closed_milestones;
+
+        if ($closed_milestones === null) {
+            goto after_closed_milestones;
+        }
+        after_closed_milestones:        $result['closed_milestones'] = $closed_milestones;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Orgs);
+        $result = [];
+        
+        $total_orgs = $object->total_orgs;
+
+        if ($total_orgs === null) {
+            goto after_total_orgs;
+        }
+        after_total_orgs:        $result['total_orgs'] = $total_orgs;
+
+        
+        $disabled_orgs = $object->disabled_orgs;
+
+        if ($disabled_orgs === null) {
+            goto after_disabled_orgs;
+        }
+        after_disabled_orgs:        $result['disabled_orgs'] = $disabled_orgs;
+
+        
+        $total_teams = $object->total_teams;
+
+        if ($total_teams === null) {
+            goto after_total_teams;
+        }
+        after_total_teams:        $result['total_teams'] = $total_teams;
+
+        
+        $total_team_members = $object->total_team_members;
+
+        if ($total_team_members === null) {
+            goto after_total_team_members;
+        }
+        after_total_team_members:        $result['total_team_members'] = $total_team_members;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pages);
+        $result = [];
+        
+        $total_pages = $object->total_pages;
+
+        if ($total_pages === null) {
+            goto after_total_pages;
+        }
+        after_total_pages:        $result['total_pages'] = $total_pages;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pulls);
+        $result = [];
+        
+        $total_pulls = $object->total_pulls;
+
+        if ($total_pulls === null) {
+            goto after_total_pulls;
+        }
+        after_total_pulls:        $result['total_pulls'] = $total_pulls;
+
+        
+        $merged_pulls = $object->merged_pulls;
+
+        if ($merged_pulls === null) {
+            goto after_merged_pulls;
+        }
+        after_merged_pulls:        $result['merged_pulls'] = $merged_pulls;
+
+        
+        $mergeable_pulls = $object->mergeable_pulls;
+
+        if ($mergeable_pulls === null) {
+            goto after_mergeable_pulls;
+        }
+        after_mergeable_pulls:        $result['mergeable_pulls'] = $mergeable_pulls;
+
+        
+        $unmergeable_pulls = $object->unmergeable_pulls;
+
+        if ($unmergeable_pulls === null) {
+            goto after_unmergeable_pulls;
+        }
+        after_unmergeable_pulls:        $result['unmergeable_pulls'] = $unmergeable_pulls;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Repos);
+        $result = [];
+        
+        $total_repos = $object->total_repos;
+
+        if ($total_repos === null) {
+            goto after_total_repos;
+        }
+        after_total_repos:        $result['total_repos'] = $total_repos;
+
+        
+        $root_repos = $object->root_repos;
+
+        if ($root_repos === null) {
+            goto after_root_repos;
+        }
+        after_root_repos:        $result['root_repos'] = $root_repos;
+
+        
+        $fork_repos = $object->fork_repos;
+
+        if ($fork_repos === null) {
+            goto after_fork_repos;
+        }
+        after_fork_repos:        $result['fork_repos'] = $fork_repos;
+
+        
+        $org_repos = $object->org_repos;
+
+        if ($org_repos === null) {
+            goto after_org_repos;
+        }
+        after_org_repos:        $result['org_repos'] = $org_repos;
+
+        
+        $total_pushes = $object->total_pushes;
+
+        if ($total_pushes === null) {
+            goto after_total_pushes;
+        }
+        after_total_pushes:        $result['total_pushes'] = $total_pushes;
+
+        
+        $total_wikis = $object->total_wikis;
+
+        if ($total_wikis === null) {
+            goto after_total_wikis;
+        }
+        after_total_wikis:        $result['total_wikis'] = $total_wikis;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Users);
+        $result = [];
+        
+        $total_users = $object->total_users;
+
+        if ($total_users === null) {
+            goto after_total_users;
+        }
+        after_total_users:        $result['total_users'] = $total_users;
+
+        
+        $admin_users = $object->admin_users;
+
+        if ($admin_users === null) {
+            goto after_admin_users;
+        }
+        after_admin_users:        $result['admin_users'] = $admin_users;
+
+        
+        $suspended_users = $object->suspended_users;
+
+        if ($suspended_users === null) {
+            goto after_suspended_users;
+        }
+        after_suspended_users:        $result['suspended_users'] = $suspended_users;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers);
+        $result = [];
+        
+        $total_dormant_users = $object->total_dormant_users;
+
+        if ($total_dormant_users === null) {
+            goto after_total_dormant_users;
+        }
+        after_total_dormant_users:        $result['total_dormant_users'] = $total_dormant_users;
+
+        
+        $dormancy_threshold = $object->dormancy_threshold;
+
+        if ($dormancy_threshold === null) {
+            goto after_dormancy_threshold;
+        }
+        after_dormancy_threshold:        $result['dormancy_threshold'] = $dormancy_threshold;
 
 
         return $result;

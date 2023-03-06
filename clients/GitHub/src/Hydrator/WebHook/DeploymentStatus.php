@@ -49,7 +49,6 @@ class DeploymentStatus implements ObjectMapper
                 'ApiClients\Client\GitHub\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base($payload),
                 'ApiClients\Client\GitHub\Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base\Repo' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️PullRequests⚡️Base⚡️Repo($payload),
                 'ApiClients\Client\GitHub\Schema\WebhookDeploymentCreated\WorkflowRun\ReferencedWorkflows' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookDeploymentCreated⚡️WorkflowRun⚡️ReferencedWorkflows($payload),
-                'ApiClients\Client\GitHub\Schema\WebhookDeploymentStatusCreated\Deployment\Payload' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookDeploymentStatusCreated⚡️Deployment⚡️Payload($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -539,15 +538,6 @@ class DeploymentStatus implements ObjectMapper
                 if ($value === null) {
                     $properties['payload'] = null;
                     goto after_payload;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'payload';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookDeploymentStatusCreated⚡️Deployment⚡️Payload($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['payload'] = $value;
@@ -6715,28 +6705,6 @@ class DeploymentStatus implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookDeploymentCreated\WorkflowRun\ReferencedWorkflows', $exception, stack: $this->hydrationStack);
             }
         }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookDeploymentStatusCreated⚡️Deployment⚡️Payload(array $payload): \ApiClients\Client\GitHub\Schema\WebhookDeploymentStatusCreated\Deployment\Payload
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookDeploymentStatusCreated\Deployment\Payload', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\WebhookDeploymentStatusCreated\Deployment\Payload::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHub\Schema\WebhookDeploymentStatusCreated\Deployment\Payload(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\WebhookDeploymentStatusCreated\Deployment\Payload', $exception, stack: $this->hydrationStack);
-            }
-        }
     
     public function serializeObject(object $object): mixed
     {
@@ -7115,7 +7083,6 @@ class DeploymentStatus implements ObjectMapper
         if ($payload === null) {
             goto after_payload;
         }
-        $payload = $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookDeploymentStatusCreated⚡️Deployment⚡️Payload($payload);
         after_payload:        $result['payload'] = $payload;
 
         

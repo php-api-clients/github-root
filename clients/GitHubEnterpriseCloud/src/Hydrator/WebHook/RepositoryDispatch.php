@@ -34,7 +34,6 @@ class RepositoryDispatch implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookRepositoryDispatchSample\ClientPayload' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookRepositoryDispatchSample⚡️ClientPayload($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -73,15 +72,6 @@ class RepositoryDispatch implements ObjectMapper
                 if ($value === null) {
                     $properties['client_payload'] = null;
                     goto after_client_payload;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'client_payload';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookRepositoryDispatchSample⚡️ClientPayload($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['client_payload'] = $value;
@@ -3400,28 +3390,6 @@ class RepositoryDispatch implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
             }
         }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookRepositoryDispatchSample⚡️ClientPayload(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookRepositoryDispatchSample\ClientPayload
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookRepositoryDispatchSample\ClientPayload', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookRepositoryDispatchSample\ClientPayload::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookRepositoryDispatchSample\ClientPayload(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookRepositoryDispatchSample\ClientPayload', $exception, stack: $this->hydrationStack);
-            }
-        }
     
     public function serializeObject(object $object): mixed
     {
@@ -3544,7 +3512,6 @@ class RepositoryDispatch implements ObjectMapper
         if ($client_payload === null) {
             goto after_client_payload;
         }
-        $client_payload = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookRepositoryDispatchSample⚡️ClientPayload($client_payload);
         after_client_payload:        $result['client_payload'] = $client_payload;
 
         

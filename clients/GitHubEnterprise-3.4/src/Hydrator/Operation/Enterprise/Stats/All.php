@@ -866,6 +866,16 @@ class All implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseOverview($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseRepositoryOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseRepositoryOverview($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseHookOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseHookOverview($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterprisePageOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterprisePageOverview($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseOrganizationOverview($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseUserOverview($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterprisePullRequestOverview($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseIssueOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseIssueOverview($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseMilestoneOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseMilestoneOverview($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseGistOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseGistOverview($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseCommentOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseCommentOverview($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -1032,6 +1042,368 @@ class All implements ObjectMapper
         }
         $comments = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseCommentOverview($comments);
         after_comments:        $result['comments'] = $comments;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseRepositoryOverview(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseRepositoryOverview);
+        $result = [];
+        
+        $total_repos = $object->total_repos;
+
+        if ($total_repos === null) {
+            goto after_total_repos;
+        }
+        after_total_repos:        $result['total_repos'] = $total_repos;
+
+        
+        $root_repos = $object->root_repos;
+
+        if ($root_repos === null) {
+            goto after_root_repos;
+        }
+        after_root_repos:        $result['root_repos'] = $root_repos;
+
+        
+        $fork_repos = $object->fork_repos;
+
+        if ($fork_repos === null) {
+            goto after_fork_repos;
+        }
+        after_fork_repos:        $result['fork_repos'] = $fork_repos;
+
+        
+        $org_repos = $object->org_repos;
+
+        if ($org_repos === null) {
+            goto after_org_repos;
+        }
+        after_org_repos:        $result['org_repos'] = $org_repos;
+
+        
+        $total_pushes = $object->total_pushes;
+
+        if ($total_pushes === null) {
+            goto after_total_pushes;
+        }
+        after_total_pushes:        $result['total_pushes'] = $total_pushes;
+
+        
+        $total_wikis = $object->total_wikis;
+
+        if ($total_wikis === null) {
+            goto after_total_wikis;
+        }
+        after_total_wikis:        $result['total_wikis'] = $total_wikis;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseHookOverview(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseHookOverview);
+        $result = [];
+        
+        $total_hooks = $object->total_hooks;
+
+        if ($total_hooks === null) {
+            goto after_total_hooks;
+        }
+        after_total_hooks:        $result['total_hooks'] = $total_hooks;
+
+        
+        $active_hooks = $object->active_hooks;
+
+        if ($active_hooks === null) {
+            goto after_active_hooks;
+        }
+        after_active_hooks:        $result['active_hooks'] = $active_hooks;
+
+        
+        $inactive_hooks = $object->inactive_hooks;
+
+        if ($inactive_hooks === null) {
+            goto after_inactive_hooks;
+        }
+        after_inactive_hooks:        $result['inactive_hooks'] = $inactive_hooks;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterprisePageOverview(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterprisePageOverview);
+        $result = [];
+        
+        $total_pages = $object->total_pages;
+
+        if ($total_pages === null) {
+            goto after_total_pages;
+        }
+        after_total_pages:        $result['total_pages'] = $total_pages;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseOrganizationOverview(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview);
+        $result = [];
+        
+        $total_orgs = $object->total_orgs;
+
+        if ($total_orgs === null) {
+            goto after_total_orgs;
+        }
+        after_total_orgs:        $result['total_orgs'] = $total_orgs;
+
+        
+        $disabled_orgs = $object->disabled_orgs;
+
+        if ($disabled_orgs === null) {
+            goto after_disabled_orgs;
+        }
+        after_disabled_orgs:        $result['disabled_orgs'] = $disabled_orgs;
+
+        
+        $total_teams = $object->total_teams;
+
+        if ($total_teams === null) {
+            goto after_total_teams;
+        }
+        after_total_teams:        $result['total_teams'] = $total_teams;
+
+        
+        $total_team_members = $object->total_team_members;
+
+        if ($total_team_members === null) {
+            goto after_total_team_members;
+        }
+        after_total_team_members:        $result['total_team_members'] = $total_team_members;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseUserOverview(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview);
+        $result = [];
+        
+        $total_users = $object->total_users;
+
+        if ($total_users === null) {
+            goto after_total_users;
+        }
+        after_total_users:        $result['total_users'] = $total_users;
+
+        
+        $admin_users = $object->admin_users;
+
+        if ($admin_users === null) {
+            goto after_admin_users;
+        }
+        after_admin_users:        $result['admin_users'] = $admin_users;
+
+        
+        $suspended_users = $object->suspended_users;
+
+        if ($suspended_users === null) {
+            goto after_suspended_users;
+        }
+        after_suspended_users:        $result['suspended_users'] = $suspended_users;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterprisePullRequestOverview(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview);
+        $result = [];
+        
+        $total_pulls = $object->total_pulls;
+
+        if ($total_pulls === null) {
+            goto after_total_pulls;
+        }
+        after_total_pulls:        $result['total_pulls'] = $total_pulls;
+
+        
+        $merged_pulls = $object->merged_pulls;
+
+        if ($merged_pulls === null) {
+            goto after_merged_pulls;
+        }
+        after_merged_pulls:        $result['merged_pulls'] = $merged_pulls;
+
+        
+        $mergeable_pulls = $object->mergeable_pulls;
+
+        if ($mergeable_pulls === null) {
+            goto after_mergeable_pulls;
+        }
+        after_mergeable_pulls:        $result['mergeable_pulls'] = $mergeable_pulls;
+
+        
+        $unmergeable_pulls = $object->unmergeable_pulls;
+
+        if ($unmergeable_pulls === null) {
+            goto after_unmergeable_pulls;
+        }
+        after_unmergeable_pulls:        $result['unmergeable_pulls'] = $unmergeable_pulls;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseIssueOverview(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseIssueOverview);
+        $result = [];
+        
+        $total_issues = $object->total_issues;
+
+        if ($total_issues === null) {
+            goto after_total_issues;
+        }
+        after_total_issues:        $result['total_issues'] = $total_issues;
+
+        
+        $open_issues = $object->open_issues;
+
+        if ($open_issues === null) {
+            goto after_open_issues;
+        }
+        after_open_issues:        $result['open_issues'] = $open_issues;
+
+        
+        $closed_issues = $object->closed_issues;
+
+        if ($closed_issues === null) {
+            goto after_closed_issues;
+        }
+        after_closed_issues:        $result['closed_issues'] = $closed_issues;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseMilestoneOverview(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseMilestoneOverview);
+        $result = [];
+        
+        $total_milestones = $object->total_milestones;
+
+        if ($total_milestones === null) {
+            goto after_total_milestones;
+        }
+        after_total_milestones:        $result['total_milestones'] = $total_milestones;
+
+        
+        $open_milestones = $object->open_milestones;
+
+        if ($open_milestones === null) {
+            goto after_open_milestones;
+        }
+        after_open_milestones:        $result['open_milestones'] = $open_milestones;
+
+        
+        $closed_milestones = $object->closed_milestones;
+
+        if ($closed_milestones === null) {
+            goto after_closed_milestones;
+        }
+        after_closed_milestones:        $result['closed_milestones'] = $closed_milestones;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseGistOverview(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseGistOverview);
+        $result = [];
+        
+        $total_gists = $object->total_gists;
+
+        if ($total_gists === null) {
+            goto after_total_gists;
+        }
+        after_total_gists:        $result['total_gists'] = $total_gists;
+
+        
+        $private_gists = $object->private_gists;
+
+        if ($private_gists === null) {
+            goto after_private_gists;
+        }
+        after_private_gists:        $result['private_gists'] = $private_gists;
+
+        
+        $public_gists = $object->public_gists;
+
+        if ($public_gists === null) {
+            goto after_public_gists;
+        }
+        after_public_gists:        $result['public_gists'] = $public_gists;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseCommentOverview(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseCommentOverview);
+        $result = [];
+        
+        $total_commit_comments = $object->total_commit_comments;
+
+        if ($total_commit_comments === null) {
+            goto after_total_commit_comments;
+        }
+        after_total_commit_comments:        $result['total_commit_comments'] = $total_commit_comments;
+
+        
+        $total_gist_comments = $object->total_gist_comments;
+
+        if ($total_gist_comments === null) {
+            goto after_total_gist_comments;
+        }
+        after_total_gist_comments:        $result['total_gist_comments'] = $total_gist_comments;
+
+        
+        $total_issue_comments = $object->total_issue_comments;
+
+        if ($total_issue_comments === null) {
+            goto after_total_issue_comments;
+        }
+        after_total_issue_comments:        $result['total_issue_comments'] = $total_issue_comments;
+
+        
+        $total_pull_request_comments = $object->total_pull_request_comments;
+
+        if ($total_pull_request_comments === null) {
+            goto after_total_pull_request_comments;
+        }
+        after_total_pull_request_comments:        $result['total_pull_request_comments'] = $total_pull_request_comments;
 
 
         return $result;

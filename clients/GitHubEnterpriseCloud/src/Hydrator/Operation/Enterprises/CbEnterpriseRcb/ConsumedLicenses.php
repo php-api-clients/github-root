@@ -24,6 +24,7 @@ class ConsumedLicenses implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetConsumedLicenses($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetConsumedLicenses⚡️Users($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -92,6 +93,226 @@ class ConsumedLicenses implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetConsumedLicenses⚡️Users(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['github_com_login'] ?? null;
+    
+                if ($value === null) {
+                    $properties['github_com_login'] = null;
+                    goto after_github_com_login;
+                }
+
+                $properties['github_com_login'] = $value;
+    
+                after_github_com_login:
+
+                $value = $payload['github_com_name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['github_com_name'] = null;
+                    goto after_github_com_name;
+                }
+
+                $properties['github_com_name'] = $value;
+    
+                after_github_com_name:
+
+                $value = $payload['enterprise_server_user_ids'] ?? null;
+    
+                if ($value === null) {
+                    $properties['enterprise_server_user_ids'] = null;
+                    goto after_enterprise_server_user_ids;
+                }
+
+                $properties['enterprise_server_user_ids'] = $value;
+    
+                after_enterprise_server_user_ids:
+
+                $value = $payload['github_com_user'] ?? null;
+    
+                if ($value === null) {
+                    $properties['github_com_user'] = null;
+                    goto after_github_com_user;
+                }
+
+                $properties['github_com_user'] = $value;
+    
+                after_github_com_user:
+
+                $value = $payload['enterprise_server_user'] ?? null;
+    
+                if ($value === null) {
+                    $properties['enterprise_server_user'] = null;
+                    goto after_enterprise_server_user;
+                }
+
+                $properties['enterprise_server_user'] = $value;
+    
+                after_enterprise_server_user:
+
+                $value = $payload['visual_studio_subscription_user'] ?? null;
+    
+                if ($value === null) {
+                    $properties['visual_studio_subscription_user'] = null;
+                    goto after_visual_studio_subscription_user;
+                }
+
+                $properties['visual_studio_subscription_user'] = $value;
+    
+                after_visual_studio_subscription_user:
+
+                $value = $payload['license_type'] ?? null;
+    
+                if ($value === null) {
+                    $properties['license_type'] = null;
+                    goto after_license_type;
+                }
+
+                $properties['license_type'] = $value;
+    
+                after_license_type:
+
+                $value = $payload['github_com_profile'] ?? null;
+    
+                if ($value === null) {
+                    $properties['github_com_profile'] = null;
+                    goto after_github_com_profile;
+                }
+
+                $properties['github_com_profile'] = $value;
+    
+                after_github_com_profile:
+
+                $value = $payload['github_com_member_roles'] ?? null;
+    
+                if ($value === null) {
+                    $properties['github_com_member_roles'] = null;
+                    goto after_github_com_member_roles;
+                }
+
+                $properties['github_com_member_roles'] = $value;
+    
+                after_github_com_member_roles:
+
+                $value = $payload['github_com_enterprise_roles'] ?? null;
+    
+                if ($value === null) {
+                    $properties['github_com_enterprise_roles'] = null;
+                    goto after_github_com_enterprise_roles;
+                }
+
+                $properties['github_com_enterprise_roles'] = $value;
+    
+                after_github_com_enterprise_roles:
+
+                $value = $payload['github_com_verified_domain_emails'] ?? null;
+    
+                if ($value === null) {
+                    $properties['github_com_verified_domain_emails'] = null;
+                    goto after_github_com_verified_domain_emails;
+                }
+
+                $properties['github_com_verified_domain_emails'] = $value;
+    
+                after_github_com_verified_domain_emails:
+
+                $value = $payload['github_com_saml_name_id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['github_com_saml_name_id'] = null;
+                    goto after_github_com_saml_name_id;
+                }
+
+                $properties['github_com_saml_name_id'] = $value;
+    
+                after_github_com_saml_name_id:
+
+                $value = $payload['github_com_orgs_with_pending_invites'] ?? null;
+    
+                if ($value === null) {
+                    $properties['github_com_orgs_with_pending_invites'] = null;
+                    goto after_github_com_orgs_with_pending_invites;
+                }
+
+                $properties['github_com_orgs_with_pending_invites'] = $value;
+    
+                after_github_com_orgs_with_pending_invites:
+
+                $value = $payload['github_com_two_factor_auth'] ?? null;
+    
+                if ($value === null) {
+                    $properties['github_com_two_factor_auth'] = null;
+                    goto after_github_com_two_factor_auth;
+                }
+
+                $properties['github_com_two_factor_auth'] = $value;
+    
+                after_github_com_two_factor_auth:
+
+                $value = $payload['enterprise_server_emails'] ?? null;
+    
+                if ($value === null) {
+                    $properties['enterprise_server_emails'] = null;
+                    goto after_enterprise_server_emails;
+                }
+
+                $properties['enterprise_server_emails'] = $value;
+    
+                after_enterprise_server_emails:
+
+                $value = $payload['visual_studio_license_status'] ?? null;
+    
+                if ($value === null) {
+                    $properties['visual_studio_license_status'] = null;
+                    goto after_visual_studio_license_status;
+                }
+
+                $properties['visual_studio_license_status'] = $value;
+    
+                after_visual_studio_license_status:
+
+                $value = $payload['visual_studio_subscription_email'] ?? null;
+    
+                if ($value === null) {
+                    $properties['visual_studio_subscription_email'] = null;
+                    goto after_visual_studio_subscription_email;
+                }
+
+                $properties['visual_studio_subscription_email'] = $value;
+    
+                after_visual_studio_subscription_email:
+
+                $value = $payload['total_user_accounts'] ?? null;
+    
+                if ($value === null) {
+                    $properties['total_user_accounts'] = null;
+                    goto after_total_user_accounts;
+                }
+
+                $properties['total_user_accounts'] = $value;
+    
+                after_total_user_accounts:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -105,6 +326,7 @@ class ConsumedLicenses implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetConsumedLicenses($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetConsumedLicenses⚡️Users($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -214,6 +436,207 @@ class ConsumedLicenses implements ObjectMapper
         
         $users = $usersSerializer0->serialize($users, $this);
         after_users:        $result['users'] = $users;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetConsumedLicenses⚡️Users(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users);
+        $result = [];
+        
+        $github_com_login = $object->github_com_login;
+
+        if ($github_com_login === null) {
+            goto after_github_com_login;
+        }
+        after_github_com_login:        $result['github_com_login'] = $github_com_login;
+
+        
+        $github_com_name = $object->github_com_name;
+
+        if ($github_com_name === null) {
+            goto after_github_com_name;
+        }
+        after_github_com_name:        $result['github_com_name'] = $github_com_name;
+
+        
+        $enterprise_server_user_ids = $object->enterprise_server_user_ids;
+
+        if ($enterprise_server_user_ids === null) {
+            goto after_enterprise_server_user_ids;
+        }
+        static $enterprise_server_user_idsSerializer0;
+
+        if ($enterprise_server_user_idsSerializer0 === null) {
+            $enterprise_server_user_idsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $enterprise_server_user_ids = $enterprise_server_user_idsSerializer0->serialize($enterprise_server_user_ids, $this);
+        after_enterprise_server_user_ids:        $result['enterprise_server_user_ids'] = $enterprise_server_user_ids;
+
+        
+        $github_com_user = $object->github_com_user;
+
+        if ($github_com_user === null) {
+            goto after_github_com_user;
+        }
+        after_github_com_user:        $result['github_com_user'] = $github_com_user;
+
+        
+        $enterprise_server_user = $object->enterprise_server_user;
+
+        if ($enterprise_server_user === null) {
+            goto after_enterprise_server_user;
+        }
+        after_enterprise_server_user:        $result['enterprise_server_user'] = $enterprise_server_user;
+
+        
+        $visual_studio_subscription_user = $object->visual_studio_subscription_user;
+
+        if ($visual_studio_subscription_user === null) {
+            goto after_visual_studio_subscription_user;
+        }
+        after_visual_studio_subscription_user:        $result['visual_studio_subscription_user'] = $visual_studio_subscription_user;
+
+        
+        $license_type = $object->license_type;
+
+        if ($license_type === null) {
+            goto after_license_type;
+        }
+        after_license_type:        $result['license_type'] = $license_type;
+
+        
+        $github_com_profile = $object->github_com_profile;
+
+        if ($github_com_profile === null) {
+            goto after_github_com_profile;
+        }
+        after_github_com_profile:        $result['github_com_profile'] = $github_com_profile;
+
+        
+        $github_com_member_roles = $object->github_com_member_roles;
+
+        if ($github_com_member_roles === null) {
+            goto after_github_com_member_roles;
+        }
+        static $github_com_member_rolesSerializer0;
+
+        if ($github_com_member_rolesSerializer0 === null) {
+            $github_com_member_rolesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $github_com_member_roles = $github_com_member_rolesSerializer0->serialize($github_com_member_roles, $this);
+        after_github_com_member_roles:        $result['github_com_member_roles'] = $github_com_member_roles;
+
+        
+        $github_com_enterprise_roles = $object->github_com_enterprise_roles;
+
+        if ($github_com_enterprise_roles === null) {
+            goto after_github_com_enterprise_roles;
+        }
+        static $github_com_enterprise_rolesSerializer0;
+
+        if ($github_com_enterprise_rolesSerializer0 === null) {
+            $github_com_enterprise_rolesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $github_com_enterprise_roles = $github_com_enterprise_rolesSerializer0->serialize($github_com_enterprise_roles, $this);
+        after_github_com_enterprise_roles:        $result['github_com_enterprise_roles'] = $github_com_enterprise_roles;
+
+        
+        $github_com_verified_domain_emails = $object->github_com_verified_domain_emails;
+
+        if ($github_com_verified_domain_emails === null) {
+            goto after_github_com_verified_domain_emails;
+        }
+        static $github_com_verified_domain_emailsSerializer0;
+
+        if ($github_com_verified_domain_emailsSerializer0 === null) {
+            $github_com_verified_domain_emailsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $github_com_verified_domain_emails = $github_com_verified_domain_emailsSerializer0->serialize($github_com_verified_domain_emails, $this);
+        after_github_com_verified_domain_emails:        $result['github_com_verified_domain_emails'] = $github_com_verified_domain_emails;
+
+        
+        $github_com_saml_name_id = $object->github_com_saml_name_id;
+
+        if ($github_com_saml_name_id === null) {
+            goto after_github_com_saml_name_id;
+        }
+        after_github_com_saml_name_id:        $result['github_com_saml_name_id'] = $github_com_saml_name_id;
+
+        
+        $github_com_orgs_with_pending_invites = $object->github_com_orgs_with_pending_invites;
+
+        if ($github_com_orgs_with_pending_invites === null) {
+            goto after_github_com_orgs_with_pending_invites;
+        }
+        static $github_com_orgs_with_pending_invitesSerializer0;
+
+        if ($github_com_orgs_with_pending_invitesSerializer0 === null) {
+            $github_com_orgs_with_pending_invitesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $github_com_orgs_with_pending_invites = $github_com_orgs_with_pending_invitesSerializer0->serialize($github_com_orgs_with_pending_invites, $this);
+        after_github_com_orgs_with_pending_invites:        $result['github_com_orgs_with_pending_invites'] = $github_com_orgs_with_pending_invites;
+
+        
+        $github_com_two_factor_auth = $object->github_com_two_factor_auth;
+
+        if ($github_com_two_factor_auth === null) {
+            goto after_github_com_two_factor_auth;
+        }
+        after_github_com_two_factor_auth:        $result['github_com_two_factor_auth'] = $github_com_two_factor_auth;
+
+        
+        $enterprise_server_emails = $object->enterprise_server_emails;
+
+        if ($enterprise_server_emails === null) {
+            goto after_enterprise_server_emails;
+        }
+        static $enterprise_server_emailsSerializer0;
+
+        if ($enterprise_server_emailsSerializer0 === null) {
+            $enterprise_server_emailsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $enterprise_server_emails = $enterprise_server_emailsSerializer0->serialize($enterprise_server_emails, $this);
+        after_enterprise_server_emails:        $result['enterprise_server_emails'] = $enterprise_server_emails;
+
+        
+        $visual_studio_license_status = $object->visual_studio_license_status;
+
+        if ($visual_studio_license_status === null) {
+            goto after_visual_studio_license_status;
+        }
+        after_visual_studio_license_status:        $result['visual_studio_license_status'] = $visual_studio_license_status;
+
+        
+        $visual_studio_subscription_email = $object->visual_studio_subscription_email;
+
+        if ($visual_studio_subscription_email === null) {
+            goto after_visual_studio_subscription_email;
+        }
+        after_visual_studio_subscription_email:        $result['visual_studio_subscription_email'] = $visual_studio_subscription_email;
+
+        
+        $total_user_accounts = $object->total_user_accounts;
+
+        if ($total_user_accounts === null) {
+            goto after_total_user_accounts;
+        }
+        after_total_user_accounts:        $result['total_user_accounts'] = $total_user_accounts;
 
 
         return $result;

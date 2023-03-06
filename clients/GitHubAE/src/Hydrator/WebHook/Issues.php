@@ -88,7 +88,6 @@ class Issues implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssuesUnlocked' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesUnlocked($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssuesUnlocked\Issue' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesUnlocked⚡️Issue($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssuesUnpinned' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesUnpinned($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -5547,15 +5546,6 @@ class Issues implements ObjectMapper
                     goto after_assignee;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'assignee';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['assignee'] = $value;
     
                 after_assignee:
@@ -5730,15 +5720,6 @@ class Issues implements ObjectMapper
                     goto after_milestone;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'milestone';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['milestone'] = $value;
     
                 after_milestone:
@@ -5770,15 +5751,6 @@ class Issues implements ObjectMapper
                 if ($value === null) {
                     $properties['performed_via_github_app'] = null;
                     goto after_performed_via_github_app;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'performed_via_github_app';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['performed_via_github_app'] = $value;
@@ -7821,15 +7793,6 @@ class Issues implements ObjectMapper
                     goto after_assignee;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'assignee';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['assignee'] = $value;
     
                 after_assignee:
@@ -8044,15 +8007,6 @@ class Issues implements ObjectMapper
                 if ($value === null) {
                     $properties['performed_via_github_app'] = null;
                     goto after_performed_via_github_app;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'performed_via_github_app';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['performed_via_github_app'] = $value;
@@ -10255,15 +10209,6 @@ class Issues implements ObjectMapper
                     goto after_assignee;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'assignee';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['assignee'] = $value;
     
                 after_assignee:
@@ -10438,15 +10383,6 @@ class Issues implements ObjectMapper
                     goto after_milestone;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'milestone';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['milestone'] = $value;
     
                 after_milestone:
@@ -10478,15 +10414,6 @@ class Issues implements ObjectMapper
                 if ($value === null) {
                     $properties['performed_via_github_app'] = null;
                     goto after_performed_via_github_app;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'performed_via_github_app';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['performed_via_github_app'] = $value;
@@ -10812,15 +10739,6 @@ class Issues implements ObjectMapper
                     goto after_assignee;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'assignee';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['assignee'] = $value;
     
                 after_assignee:
@@ -11035,15 +10953,6 @@ class Issues implements ObjectMapper
                 if ($value === null) {
                     $properties['performed_via_github_app'] = null;
                     goto after_performed_via_github_app;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'performed_via_github_app';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['performed_via_github_app'] = $value;
@@ -14369,15 +14278,6 @@ class Issues implements ObjectMapper
                     goto after_assignee;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'assignee';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['assignee'] = $value;
     
                 after_assignee:
@@ -14552,15 +14452,6 @@ class Issues implements ObjectMapper
                     goto after_milestone;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'milestone';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['milestone'] = $value;
     
                 after_milestone:
@@ -14592,15 +14483,6 @@ class Issues implements ObjectMapper
                 if ($value === null) {
                     $properties['performed_via_github_app'] = null;
                     goto after_performed_via_github_app;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'performed_via_github_app';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['performed_via_github_app'] = $value;
@@ -16537,15 +16419,6 @@ class Issues implements ObjectMapper
                     goto after_assignee;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'assignee';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['assignee'] = $value;
     
                 after_assignee:
@@ -16718,15 +16591,6 @@ class Issues implements ObjectMapper
                 if ($value === null) {
                     $properties['milestone'] = null;
                     goto after_milestone;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'milestone';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['milestone'] = $value;
@@ -17037,28 +16901,6 @@ class Issues implements ObjectMapper
                 return new \ApiClients\Client\GitHubAE\Schema\WebhookIssuesUnpinned(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesUnpinned', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\ActionsMeta', $exception, stack: $this->hydrationStack);
             }
         }
     
@@ -20601,7 +20443,6 @@ class Issues implements ObjectMapper
         if ($assignee === null) {
             goto after_assignee;
         }
-        $assignee = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($assignee);
         after_assignee:        $result['assignee'] = $assignee;
 
         
@@ -20688,7 +20529,6 @@ class Issues implements ObjectMapper
         if ($milestone === null) {
             goto after_milestone;
         }
-        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($milestone);
         after_milestone:        $result['milestone'] = $milestone;
 
         
@@ -20705,7 +20545,6 @@ class Issues implements ObjectMapper
         if ($performed_via_github_app === null) {
             goto after_performed_via_github_app;
         }
-        $performed_via_github_app = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($performed_via_github_app);
         after_performed_via_github_app:        $result['performed_via_github_app'] = $performed_via_github_app;
 
         
@@ -21913,7 +21752,6 @@ class Issues implements ObjectMapper
         if ($assignee === null) {
             goto after_assignee;
         }
-        $assignee = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($assignee);
         after_assignee:        $result['assignee'] = $assignee;
 
         
@@ -22017,7 +21855,6 @@ class Issues implements ObjectMapper
         if ($performed_via_github_app === null) {
             goto after_performed_via_github_app;
         }
-        $performed_via_github_app = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($performed_via_github_app);
         after_performed_via_github_app:        $result['performed_via_github_app'] = $performed_via_github_app;
 
         
@@ -23176,7 +23013,6 @@ class Issues implements ObjectMapper
         if ($assignee === null) {
             goto after_assignee;
         }
-        $assignee = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($assignee);
         after_assignee:        $result['assignee'] = $assignee;
 
         
@@ -23267,7 +23103,6 @@ class Issues implements ObjectMapper
         if ($milestone === null) {
             goto after_milestone;
         }
-        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($milestone);
         after_milestone:        $result['milestone'] = $milestone;
 
         
@@ -23284,7 +23119,6 @@ class Issues implements ObjectMapper
         if ($performed_via_github_app === null) {
             goto after_performed_via_github_app;
         }
-        $performed_via_github_app = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($performed_via_github_app);
         after_performed_via_github_app:        $result['performed_via_github_app'] = $performed_via_github_app;
 
         
@@ -23412,7 +23246,6 @@ class Issues implements ObjectMapper
         if ($assignee === null) {
             goto after_assignee;
         }
-        $assignee = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($assignee);
         after_assignee:        $result['assignee'] = $assignee;
 
         
@@ -23516,7 +23349,6 @@ class Issues implements ObjectMapper
         if ($performed_via_github_app === null) {
             goto after_performed_via_github_app;
         }
-        $performed_via_github_app = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($performed_via_github_app);
         after_performed_via_github_app:        $result['performed_via_github_app'] = $performed_via_github_app;
 
         
@@ -25401,7 +25233,6 @@ class Issues implements ObjectMapper
         if ($assignee === null) {
             goto after_assignee;
         }
-        $assignee = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($assignee);
         after_assignee:        $result['assignee'] = $assignee;
 
         
@@ -25488,7 +25319,6 @@ class Issues implements ObjectMapper
         if ($milestone === null) {
             goto after_milestone;
         }
-        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($milestone);
         after_milestone:        $result['milestone'] = $milestone;
 
         
@@ -25505,7 +25335,6 @@ class Issues implements ObjectMapper
         if ($performed_via_github_app === null) {
             goto after_performed_via_github_app;
         }
-        $performed_via_github_app = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($performed_via_github_app);
         after_performed_via_github_app:        $result['performed_via_github_app'] = $performed_via_github_app;
 
         
@@ -26543,7 +26372,6 @@ class Issues implements ObjectMapper
         if ($assignee === null) {
             goto after_assignee;
         }
-        $assignee = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($assignee);
         after_assignee:        $result['assignee'] = $assignee;
 
         
@@ -26634,7 +26462,6 @@ class Issues implements ObjectMapper
         if ($milestone === null) {
             goto after_milestone;
         }
-        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️ActionsMeta($milestone);
         after_milestone:        $result['milestone'] = $milestone;
 
         

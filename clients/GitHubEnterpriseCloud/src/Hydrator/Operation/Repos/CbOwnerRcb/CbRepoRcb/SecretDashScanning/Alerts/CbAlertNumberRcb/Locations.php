@@ -24,8 +24,8 @@ class Locations implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocation($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueComment' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationIssueComment($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -84,6 +84,39 @@ class Locations implements ObjectMapper
         }
 
         
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationIssueComment(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueComment
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['issue_comment_url'] ?? null;
+    
+                if ($value === null) {
+                    $properties['issue_comment_url'] = null;
+                    goto after_issue_comment_url;
+                }
+
+                $properties['issue_comment_url'] = $value;
+    
+                after_issue_comment_url:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueComment', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueComment::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueComment(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueComment', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503
         {
             $properties = []; 
@@ -137,39 +170,6 @@ class Locations implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
             }
         }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationIssueComment(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueComment
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['issue_comment_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['issue_comment_url'] = null;
-                    goto after_issue_comment_url;
-                }
-
-                $properties['issue_comment_url'] = $value;
-    
-                after_issue_comment_url:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueComment', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueComment::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueComment(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueComment', $exception, stack: $this->hydrationStack);
-            }
-        }
     
     public function serializeObject(object $object): mixed
     {
@@ -183,6 +183,7 @@ class Locations implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocation($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueComment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationIssueComment($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -277,6 +278,23 @@ class Locations implements ObjectMapper
         }
         $details = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationIssueComment($details);
         after_details:        $result['details'] = $details;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationIssueComment(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueComment);
+        $result = [];
+        
+        $issue_comment_url = $object->issue_comment_url;
+
+        if ($issue_comment_url === null) {
+            goto after_issue_comment_url;
+        }
+        after_issue_comment_url:        $result['issue_comment_url'] = $issue_comment_url;
 
 
         return $result;

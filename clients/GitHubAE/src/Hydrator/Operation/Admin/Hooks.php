@@ -248,6 +248,7 @@ class Hooks implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubAE\Schema\GlobalHook' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook($object),
+                'ApiClients\Client\GitHubAE\Schema\GlobalHook\Config' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -413,6 +414,47 @@ class Hooks implements ObjectMapper
             goto after_ping_url;
         }
         after_ping_url:        $result['ping_url'] = $ping_url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GlobalHook\Config);
+        $result = [];
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $content_type = $object->content_type;
+
+        if ($content_type === null) {
+            goto after_content_type;
+        }
+        after_content_type:        $result['content_type'] = $content_type;
+
+        
+        $insecure_ssl = $object->insecure_ssl;
+
+        if ($insecure_ssl === null) {
+            goto after_insecure_ssl;
+        }
+        after_insecure_ssl:        $result['insecure_ssl'] = $insecure_ssl;
+
+        
+        $secret = $object->secret;
+
+        if ($secret === null) {
+            goto after_secret;
+        }
+        after_secret:        $result['secret'] = $secret;
 
 
         return $result;

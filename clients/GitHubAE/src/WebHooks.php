@@ -105,7 +105,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         $error = new \RuntimeException('No event matching given headers and data');
         try {
             if ($this->branchProtectionRule instanceof WebHook\BranchProtectionRule === false) {
-                $this->branchProtectionRule = new WebHook\BranchProtectionRule($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀BranchProtectionRule());
+                $this->branchProtectionRule = new WebHook\BranchProtectionRule($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝BranchProtectionRule());
             }
             return $this->branchProtectionRule->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -114,7 +114,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaaa:
         try {
             if ($this->checkRun instanceof WebHook\CheckRun === false) {
-                $this->checkRun = new WebHook\CheckRun($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀CheckRun());
+                $this->checkRun = new WebHook\CheckRun($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝CheckRun());
             }
             return $this->checkRun->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -123,7 +123,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaab:
         try {
             if ($this->checkSuite instanceof WebHook\CheckSuite === false) {
-                $this->checkSuite = new WebHook\CheckSuite($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀CheckSuite());
+                $this->checkSuite = new WebHook\CheckSuite($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝CheckSuite());
             }
             return $this->checkSuite->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -132,7 +132,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaac:
         try {
             if ($this->codeScanningAlert instanceof WebHook\CodeScanningAlert === false) {
-                $this->codeScanningAlert = new WebHook\CodeScanningAlert($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀CodeScanningAlert());
+                $this->codeScanningAlert = new WebHook\CodeScanningAlert($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝CodeScanningAlert());
             }
             return $this->codeScanningAlert->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -141,7 +141,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaad:
         try {
             if ($this->commitComment instanceof WebHook\CommitComment === false) {
-                $this->commitComment = new WebHook\CommitComment($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀CommitComment());
+                $this->commitComment = new WebHook\CommitComment($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝CommitComment());
             }
             return $this->commitComment->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -150,7 +150,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaae:
         try {
             if ($this->create instanceof WebHook\Create === false) {
-                $this->create = new WebHook\Create($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Create());
+                $this->create = new WebHook\Create($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Create());
             }
             return $this->create->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -159,7 +159,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaaf:
         try {
             if ($this->delete instanceof WebHook\Delete === false) {
-                $this->delete = new WebHook\Delete($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Delete());
+                $this->delete = new WebHook\Delete($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Delete());
             }
             return $this->delete->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -168,7 +168,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaag:
         try {
             if ($this->dependabotAlert instanceof WebHook\DependabotAlert === false) {
-                $this->dependabotAlert = new WebHook\DependabotAlert($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀DependabotAlert());
+                $this->dependabotAlert = new WebHook\DependabotAlert($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝DependabotAlert());
             }
             return $this->dependabotAlert->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -177,7 +177,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaah:
         try {
             if ($this->deployKey instanceof WebHook\DeployKey === false) {
-                $this->deployKey = new WebHook\DeployKey($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀DeployKey());
+                $this->deployKey = new WebHook\DeployKey($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝DeployKey());
             }
             return $this->deployKey->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -186,7 +186,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaai:
         try {
             if ($this->deployment instanceof WebHook\Deployment === false) {
-                $this->deployment = new WebHook\Deployment($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Deployment());
+                $this->deployment = new WebHook\Deployment($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Deployment());
             }
             return $this->deployment->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -195,7 +195,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaaj:
         try {
             if ($this->deploymentStatus instanceof WebHook\DeploymentStatus === false) {
-                $this->deploymentStatus = new WebHook\DeploymentStatus($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀DeploymentStatus());
+                $this->deploymentStatus = new WebHook\DeploymentStatus($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝DeploymentStatus());
             }
             return $this->deploymentStatus->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -204,7 +204,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaak:
         try {
             if ($this->discussion instanceof WebHook\Discussion === false) {
-                $this->discussion = new WebHook\Discussion($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Discussion());
+                $this->discussion = new WebHook\Discussion($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Discussion());
             }
             return $this->discussion->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -213,7 +213,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaal:
         try {
             if ($this->discussionComment instanceof WebHook\DiscussionComment === false) {
-                $this->discussionComment = new WebHook\DiscussionComment($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀DiscussionComment());
+                $this->discussionComment = new WebHook\DiscussionComment($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝DiscussionComment());
             }
             return $this->discussionComment->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -222,7 +222,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaam:
         try {
             if ($this->fork instanceof WebHook\Fork === false) {
-                $this->fork = new WebHook\Fork($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Fork());
+                $this->fork = new WebHook\Fork($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Fork());
             }
             return $this->fork->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -231,7 +231,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaan:
         try {
             if ($this->githubAppAuthorization instanceof WebHook\GithubAppAuthorization === false) {
-                $this->githubAppAuthorization = new WebHook\GithubAppAuthorization($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀GithubAppAuthorization());
+                $this->githubAppAuthorization = new WebHook\GithubAppAuthorization($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝GithubAppAuthorization());
             }
             return $this->githubAppAuthorization->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -240,7 +240,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaao:
         try {
             if ($this->gollum instanceof WebHook\Gollum === false) {
-                $this->gollum = new WebHook\Gollum($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Gollum());
+                $this->gollum = new WebHook\Gollum($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Gollum());
             }
             return $this->gollum->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -249,7 +249,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaap:
         try {
             if ($this->installation instanceof WebHook\Installation === false) {
-                $this->installation = new WebHook\Installation($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Installation());
+                $this->installation = new WebHook\Installation($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Installation());
             }
             return $this->installation->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -258,7 +258,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaaq:
         try {
             if ($this->installationRepositories instanceof WebHook\InstallationRepositories === false) {
-                $this->installationRepositories = new WebHook\InstallationRepositories($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀InstallationRepositories());
+                $this->installationRepositories = new WebHook\InstallationRepositories($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝InstallationRepositories());
             }
             return $this->installationRepositories->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -267,7 +267,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaar:
         try {
             if ($this->installationTarget instanceof WebHook\InstallationTarget === false) {
-                $this->installationTarget = new WebHook\InstallationTarget($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀InstallationTarget());
+                $this->installationTarget = new WebHook\InstallationTarget($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝InstallationTarget());
             }
             return $this->installationTarget->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -276,7 +276,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaas:
         try {
             if ($this->issueComment instanceof WebHook\IssueComment === false) {
-                $this->issueComment = new WebHook\IssueComment($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀IssueComment());
+                $this->issueComment = new WebHook\IssueComment($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝IssueComment());
             }
             return $this->issueComment->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -285,7 +285,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaat:
         try {
             if ($this->issues instanceof WebHook\Issues === false) {
-                $this->issues = new WebHook\Issues($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Issues());
+                $this->issues = new WebHook\Issues($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Issues());
             }
             return $this->issues->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -294,7 +294,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaau:
         try {
             if ($this->label instanceof WebHook\Label === false) {
-                $this->label = new WebHook\Label($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Label());
+                $this->label = new WebHook\Label($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Label());
             }
             return $this->label->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -303,7 +303,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaav:
         try {
             if ($this->member instanceof WebHook\Member === false) {
-                $this->member = new WebHook\Member($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Member());
+                $this->member = new WebHook\Member($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Member());
             }
             return $this->member->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -312,7 +312,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaaw:
         try {
             if ($this->membership instanceof WebHook\Membership === false) {
-                $this->membership = new WebHook\Membership($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Membership());
+                $this->membership = new WebHook\Membership($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Membership());
             }
             return $this->membership->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -321,7 +321,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaax:
         try {
             if ($this->mergeGroup instanceof WebHook\MergeGroup === false) {
-                $this->mergeGroup = new WebHook\MergeGroup($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀MergeGroup());
+                $this->mergeGroup = new WebHook\MergeGroup($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝MergeGroup());
             }
             return $this->mergeGroup->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -330,7 +330,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaay:
         try {
             if ($this->meta instanceof WebHook\Meta === false) {
-                $this->meta = new WebHook\Meta($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Meta());
+                $this->meta = new WebHook\Meta($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Meta());
             }
             return $this->meta->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -339,7 +339,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaaz:
         try {
             if ($this->milestone instanceof WebHook\Milestone === false) {
-                $this->milestone = new WebHook\Milestone($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Milestone());
+                $this->milestone = new WebHook\Milestone($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Milestone());
             }
             return $this->milestone->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -348,7 +348,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaba:
         try {
             if ($this->organization instanceof WebHook\Organization === false) {
-                $this->organization = new WebHook\Organization($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Organization());
+                $this->organization = new WebHook\Organization($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Organization());
             }
             return $this->organization->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -357,7 +357,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabb:
         try {
             if ($this->package instanceof WebHook\Package === false) {
-                $this->package = new WebHook\Package($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Package());
+                $this->package = new WebHook\Package($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Package());
             }
             return $this->package->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -366,7 +366,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabc:
         try {
             if ($this->pageBuild instanceof WebHook\PageBuild === false) {
-                $this->pageBuild = new WebHook\PageBuild($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀PageBuild());
+                $this->pageBuild = new WebHook\PageBuild($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝PageBuild());
             }
             return $this->pageBuild->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -375,7 +375,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabd:
         try {
             if ($this->ping instanceof WebHook\Ping === false) {
-                $this->ping = new WebHook\Ping($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Ping());
+                $this->ping = new WebHook\Ping($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Ping());
             }
             return $this->ping->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -384,7 +384,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabe:
         try {
             if ($this->projectCard instanceof WebHook\ProjectCard === false) {
-                $this->projectCard = new WebHook\ProjectCard($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀ProjectCard());
+                $this->projectCard = new WebHook\ProjectCard($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝ProjectCard());
             }
             return $this->projectCard->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -393,7 +393,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabf:
         try {
             if ($this->project instanceof WebHook\Project === false) {
-                $this->project = new WebHook\Project($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Project());
+                $this->project = new WebHook\Project($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Project());
             }
             return $this->project->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -402,7 +402,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabg:
         try {
             if ($this->projectColumn instanceof WebHook\ProjectColumn === false) {
-                $this->projectColumn = new WebHook\ProjectColumn($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀ProjectColumn());
+                $this->projectColumn = new WebHook\ProjectColumn($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝ProjectColumn());
             }
             return $this->projectColumn->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -411,7 +411,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabh:
         try {
             if ($this->projectsV2 instanceof WebHook\ProjectsV2 === false) {
-                $this->projectsV2 = new WebHook\ProjectsV2($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀ProjectsV2());
+                $this->projectsV2 = new WebHook\ProjectsV2($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝ProjectsV2());
             }
             return $this->projectsV2->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -420,7 +420,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabi:
         try {
             if ($this->public instanceof WebHook\Public_ === false) {
-                $this->public = new WebHook\Public_($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Public_());
+                $this->public = new WebHook\Public_($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Public_());
             }
             return $this->public->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -429,7 +429,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabj:
         try {
             if ($this->pullRequest instanceof WebHook\PullRequest === false) {
-                $this->pullRequest = new WebHook\PullRequest($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀PullRequest());
+                $this->pullRequest = new WebHook\PullRequest($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝PullRequest());
             }
             return $this->pullRequest->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -438,7 +438,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabk:
         try {
             if ($this->pullRequestReviewComment instanceof WebHook\PullRequestReviewComment === false) {
-                $this->pullRequestReviewComment = new WebHook\PullRequestReviewComment($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀PullRequestReviewComment());
+                $this->pullRequestReviewComment = new WebHook\PullRequestReviewComment($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝PullRequestReviewComment());
             }
             return $this->pullRequestReviewComment->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -447,7 +447,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabl:
         try {
             if ($this->pullRequestReview instanceof WebHook\PullRequestReview === false) {
-                $this->pullRequestReview = new WebHook\PullRequestReview($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀PullRequestReview());
+                $this->pullRequestReview = new WebHook\PullRequestReview($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝PullRequestReview());
             }
             return $this->pullRequestReview->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -456,7 +456,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabm:
         try {
             if ($this->pullRequestReviewThread instanceof WebHook\PullRequestReviewThread === false) {
-                $this->pullRequestReviewThread = new WebHook\PullRequestReviewThread($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀PullRequestReviewThread());
+                $this->pullRequestReviewThread = new WebHook\PullRequestReviewThread($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝PullRequestReviewThread());
             }
             return $this->pullRequestReviewThread->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -465,7 +465,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabn:
         try {
             if ($this->push instanceof WebHook\Push === false) {
-                $this->push = new WebHook\Push($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Push());
+                $this->push = new WebHook\Push($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Push());
             }
             return $this->push->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -474,7 +474,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabo:
         try {
             if ($this->registryPackage instanceof WebHook\RegistryPackage === false) {
-                $this->registryPackage = new WebHook\RegistryPackage($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀RegistryPackage());
+                $this->registryPackage = new WebHook\RegistryPackage($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝RegistryPackage());
             }
             return $this->registryPackage->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -483,7 +483,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabp:
         try {
             if ($this->release instanceof WebHook\Release === false) {
-                $this->release = new WebHook\Release($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Release());
+                $this->release = new WebHook\Release($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Release());
             }
             return $this->release->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -492,7 +492,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabq:
         try {
             if ($this->repository instanceof WebHook\Repository === false) {
-                $this->repository = new WebHook\Repository($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Repository());
+                $this->repository = new WebHook\Repository($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Repository());
             }
             return $this->repository->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -501,7 +501,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabr:
         try {
             if ($this->repositoryDispatch instanceof WebHook\RepositoryDispatch === false) {
-                $this->repositoryDispatch = new WebHook\RepositoryDispatch($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀RepositoryDispatch());
+                $this->repositoryDispatch = new WebHook\RepositoryDispatch($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝RepositoryDispatch());
             }
             return $this->repositoryDispatch->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -510,7 +510,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabs:
         try {
             if ($this->secretScanningAlert instanceof WebHook\SecretScanningAlert === false) {
-                $this->secretScanningAlert = new WebHook\SecretScanningAlert($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀SecretScanningAlert());
+                $this->secretScanningAlert = new WebHook\SecretScanningAlert($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝SecretScanningAlert());
             }
             return $this->secretScanningAlert->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -519,7 +519,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabt:
         try {
             if ($this->secretScanningAlertLocation instanceof WebHook\SecretScanningAlertLocation === false) {
-                $this->secretScanningAlertLocation = new WebHook\SecretScanningAlertLocation($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀SecretScanningAlertLocation());
+                $this->secretScanningAlertLocation = new WebHook\SecretScanningAlertLocation($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝SecretScanningAlertLocation());
             }
             return $this->secretScanningAlertLocation->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -528,7 +528,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabu:
         try {
             if ($this->securityAndAnalysis instanceof WebHook\SecurityAndAnalysis === false) {
-                $this->securityAndAnalysis = new WebHook\SecurityAndAnalysis($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀SecurityAndAnalysis());
+                $this->securityAndAnalysis = new WebHook\SecurityAndAnalysis($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝SecurityAndAnalysis());
             }
             return $this->securityAndAnalysis->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -537,7 +537,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabv:
         try {
             if ($this->sponsorship instanceof WebHook\Sponsorship === false) {
-                $this->sponsorship = new WebHook\Sponsorship($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Sponsorship());
+                $this->sponsorship = new WebHook\Sponsorship($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Sponsorship());
             }
             return $this->sponsorship->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -546,7 +546,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabw:
         try {
             if ($this->star instanceof WebHook\Star === false) {
-                $this->star = new WebHook\Star($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Star());
+                $this->star = new WebHook\Star($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Star());
             }
             return $this->star->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -555,7 +555,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabx:
         try {
             if ($this->status instanceof WebHook\Status === false) {
-                $this->status = new WebHook\Status($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Status());
+                $this->status = new WebHook\Status($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Status());
             }
             return $this->status->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -564,7 +564,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaby:
         try {
             if ($this->teamAdd instanceof WebHook\TeamAdd === false) {
-                $this->teamAdd = new WebHook\TeamAdd($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀TeamAdd());
+                $this->teamAdd = new WebHook\TeamAdd($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝TeamAdd());
             }
             return $this->teamAdd->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -573,7 +573,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaabz:
         try {
             if ($this->team instanceof WebHook\Team === false) {
-                $this->team = new WebHook\Team($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Team());
+                $this->team = new WebHook\Team($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Team());
             }
             return $this->team->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -582,7 +582,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaaca:
         try {
             if ($this->user instanceof WebHook\User === false) {
-                $this->user = new WebHook\User($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀User());
+                $this->user = new WebHook\User($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝User());
             }
             return $this->user->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -591,7 +591,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaacb:
         try {
             if ($this->watch instanceof WebHook\Watch === false) {
-                $this->watch = new WebHook\Watch($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀Watch());
+                $this->watch = new WebHook\Watch($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Watch());
             }
             return $this->watch->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -600,7 +600,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaacc:
         try {
             if ($this->workflowDispatch instanceof WebHook\WorkflowDispatch === false) {
-                $this->workflowDispatch = new WebHook\WorkflowDispatch($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀WorkflowDispatch());
+                $this->workflowDispatch = new WebHook\WorkflowDispatch($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝WorkflowDispatch());
             }
             return $this->workflowDispatch->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -609,7 +609,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaacd:
         try {
             if ($this->workflowJob instanceof WebHook\WorkflowJob === false) {
-                $this->workflowJob = new WebHook\WorkflowJob($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀WorkflowJob());
+                $this->workflowJob = new WebHook\WorkflowJob($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝WorkflowJob());
             }
             return $this->workflowJob->resolve($headers, $data);
         } catch (\Throwable $error) {
@@ -618,7 +618,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         webhooks_aaace:
         try {
             if ($this->workflowRun instanceof WebHook\WorkflowRun === false) {
-                $this->workflowRun = new WebHook\WorkflowRun($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🌀WorkflowRun());
+                $this->workflowRun = new WebHook\WorkflowRun($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝WorkflowRun());
             }
             return $this->workflowRun->resolve($headers, $data);
         } catch (\Throwable $error) {

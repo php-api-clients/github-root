@@ -24,6 +24,7 @@ class ExternalGroups implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubAE\Schema\ExternalGroups' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroups($payload),
+                'ApiClients\Client\GitHubAE\Schema\ExternalGroups\Groups' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroups⚡️Groups($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -70,6 +71,61 @@ class ExternalGroups implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ExternalGroups', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroups⚡️Groups(array $payload): \ApiClients\Client\GitHubAE\Schema\ExternalGroups\Groups
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['group_id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['group_id'] = null;
+                    goto after_group_id;
+                }
+
+                $properties['group_id'] = $value;
+    
+                after_group_id:
+
+                $value = $payload['group_name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['group_name'] = null;
+                    goto after_group_name;
+                }
+
+                $properties['group_name'] = $value;
+    
+                after_group_name:
+
+                $value = $payload['updated_at'] ?? null;
+    
+                if ($value === null) {
+                    $properties['updated_at'] = null;
+                    goto after_updated_at;
+                }
+
+                $properties['updated_at'] = $value;
+    
+                after_updated_at:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ExternalGroups\Groups', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ExternalGroups\Groups::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubAE\Schema\ExternalGroups\Groups(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ExternalGroups\Groups', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -83,6 +139,7 @@ class ExternalGroups implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubAE\Schema\ExternalGroups' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroups($object),
+                'ApiClients\Client\GitHubAE\Schema\ExternalGroups\Groups' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroups⚡️Groups($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -176,6 +233,39 @@ class ExternalGroups implements ObjectMapper
         
         $groups = $groupsSerializer0->serialize($groups, $this);
         after_groups:        $result['groups'] = $groups;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroups⚡️Groups(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ExternalGroups\Groups);
+        $result = [];
+        
+        $group_id = $object->group_id;
+
+        if ($group_id === null) {
+            goto after_group_id;
+        }
+        after_group_id:        $result['group_id'] = $group_id;
+
+        
+        $group_name = $object->group_name;
+
+        if ($group_name === null) {
+            goto after_group_name;
+        }
+        after_group_name:        $result['group_name'] = $group_name;
+
+        
+        $updated_at = $object->updated_at;
+
+        if ($updated_at === null) {
+            goto after_updated_at;
+        }
+        after_updated_at:        $result['updated_at'] = $updated_at;
 
 
         return $result;

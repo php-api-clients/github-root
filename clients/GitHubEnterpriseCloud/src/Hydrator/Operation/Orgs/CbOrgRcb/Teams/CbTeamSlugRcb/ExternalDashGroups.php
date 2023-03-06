@@ -24,7 +24,10 @@ class ExternalDashGroups implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroups($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups\Groups' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroups⚡️Groups($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroup($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Teams' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroup⚡️Teams($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Members' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroup⚡️Members($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -69,6 +72,61 @@ class ExternalDashGroups implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroups⚡️Groups(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups\Groups
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['group_id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['group_id'] = null;
+                    goto after_group_id;
+                }
+
+                $properties['group_id'] = $value;
+    
+                after_group_id:
+
+                $value = $payload['group_name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['group_name'] = null;
+                    goto after_group_name;
+                }
+
+                $properties['group_name'] = $value;
+    
+                after_group_name:
+
+                $value = $payload['updated_at'] ?? null;
+    
+                if ($value === null) {
+                    $properties['updated_at'] = null;
+                    goto after_updated_at;
+                }
+
+                $properties['updated_at'] = $value;
+    
+                after_updated_at:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups\Groups', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups\Groups::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups\Groups(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups\Groups', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -168,6 +226,116 @@ class ExternalDashGroups implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroup⚡️Teams(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Teams
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['team_id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['team_id'] = null;
+                    goto after_team_id;
+                }
+
+                $properties['team_id'] = $value;
+    
+                after_team_id:
+
+                $value = $payload['team_name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['team_name'] = null;
+                    goto after_team_name;
+                }
+
+                $properties['team_name'] = $value;
+    
+                after_team_name:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Teams', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Teams::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Teams(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Teams', $exception, stack: $this->hydrationStack);
+            }
+        }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroup⚡️Members(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Members
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['member_id'] ?? null;
+    
+                if ($value === null) {
+                    $properties['member_id'] = null;
+                    goto after_member_id;
+                }
+
+                $properties['member_id'] = $value;
+    
+                after_member_id:
+
+                $value = $payload['member_login'] ?? null;
+    
+                if ($value === null) {
+                    $properties['member_login'] = null;
+                    goto after_member_login;
+                }
+
+                $properties['member_login'] = $value;
+    
+                after_member_login:
+
+                $value = $payload['member_name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['member_name'] = null;
+                    goto after_member_name;
+                }
+
+                $properties['member_name'] = $value;
+    
+                after_member_name:
+
+                $value = $payload['member_email'] ?? null;
+    
+                if ($value === null) {
+                    $properties['member_email'] = null;
+                    goto after_member_email;
+                }
+
+                $properties['member_email'] = $value;
+    
+                after_member_email:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Members', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Members::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Members(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Members', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -181,7 +349,10 @@ class ExternalDashGroups implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroups($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups\Groups' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroups⚡️Groups($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroup($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Teams' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroup⚡️Teams($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Members' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroup⚡️Members($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -281,6 +452,39 @@ class ExternalDashGroups implements ObjectMapper
     }
 
     
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroups⚡️Groups(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups\Groups);
+        $result = [];
+        
+        $group_id = $object->group_id;
+
+        if ($group_id === null) {
+            goto after_group_id;
+        }
+        after_group_id:        $result['group_id'] = $group_id;
+
+        
+        $group_name = $object->group_name;
+
+        if ($group_name === null) {
+            goto after_group_name;
+        }
+        after_group_name:        $result['group_name'] = $group_name;
+
+        
+        $updated_at = $object->updated_at;
+
+        if ($updated_at === null) {
+            goto after_updated_at;
+        }
+        after_updated_at:        $result['updated_at'] = $updated_at;
+
+
+        return $result;
+    }
+
+    
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroup(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup);
@@ -338,6 +542,72 @@ class ExternalDashGroups implements ObjectMapper
         
         $members = $membersSerializer0->serialize($members, $this);
         after_members:        $result['members'] = $members;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroup⚡️Teams(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Teams);
+        $result = [];
+        
+        $team_id = $object->team_id;
+
+        if ($team_id === null) {
+            goto after_team_id;
+        }
+        after_team_id:        $result['team_id'] = $team_id;
+
+        
+        $team_name = $object->team_name;
+
+        if ($team_name === null) {
+            goto after_team_name;
+        }
+        after_team_name:        $result['team_name'] = $team_name;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExternalGroup⚡️Members(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Members);
+        $result = [];
+        
+        $member_id = $object->member_id;
+
+        if ($member_id === null) {
+            goto after_member_id;
+        }
+        after_member_id:        $result['member_id'] = $member_id;
+
+        
+        $member_login = $object->member_login;
+
+        if ($member_login === null) {
+            goto after_member_login;
+        }
+        after_member_login:        $result['member_login'] = $member_login;
+
+        
+        $member_name = $object->member_name;
+
+        if ($member_name === null) {
+            goto after_member_name;
+        }
+        after_member_name:        $result['member_name'] = $member_name;
+
+        
+        $member_email = $object->member_email;
+
+        if ($member_email === null) {
+            goto after_member_email;
+        }
+        after_member_email:        $result['member_email'] = $member_email;
 
 
         return $result;

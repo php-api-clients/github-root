@@ -1103,6 +1103,10 @@ class CbAccessTokenRcb implements ObjectMapper
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Authorization' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Authorization($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\Authorization\App' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Authorization⚡️App($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\ScopedInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScopedInstallation($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\AppPermissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AppPermissions($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -1335,6 +1339,536 @@ class CbAccessTokenRcb implements ObjectMapper
         $installation = $object->installation;
         $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScopedInstallation($installation);
         after_installation:        $result['installation'] = $installation;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Authorization⚡️App(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Authorization\App);
+        $result = [];
+        
+        $client_id = $object->client_id;
+
+        if ($client_id === null) {
+            goto after_client_id;
+        }
+        after_client_id:        $result['client_id'] = $client_id;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SimpleUser);
+        $result = [];
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $login = $object->login;
+
+        if ($login === null) {
+            goto after_login;
+        }
+        after_login:        $result['login'] = $login;
+
+        
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $node_id = $object->node_id;
+
+        if ($node_id === null) {
+            goto after_node_id;
+        }
+        after_node_id:        $result['node_id'] = $node_id;
+
+        
+        $avatar_url = $object->avatar_url;
+
+        if ($avatar_url === null) {
+            goto after_avatar_url;
+        }
+        after_avatar_url:        $result['avatar_url'] = $avatar_url;
+
+        
+        $gravatar_id = $object->gravatar_id;
+
+        if ($gravatar_id === null) {
+            goto after_gravatar_id;
+        }
+        after_gravatar_id:        $result['gravatar_id'] = $gravatar_id;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $html_url = $object->html_url;
+
+        if ($html_url === null) {
+            goto after_html_url;
+        }
+        after_html_url:        $result['html_url'] = $html_url;
+
+        
+        $followers_url = $object->followers_url;
+
+        if ($followers_url === null) {
+            goto after_followers_url;
+        }
+        after_followers_url:        $result['followers_url'] = $followers_url;
+
+        
+        $following_url = $object->following_url;
+
+        if ($following_url === null) {
+            goto after_following_url;
+        }
+        after_following_url:        $result['following_url'] = $following_url;
+
+        
+        $gists_url = $object->gists_url;
+
+        if ($gists_url === null) {
+            goto after_gists_url;
+        }
+        after_gists_url:        $result['gists_url'] = $gists_url;
+
+        
+        $starred_url = $object->starred_url;
+
+        if ($starred_url === null) {
+            goto after_starred_url;
+        }
+        after_starred_url:        $result['starred_url'] = $starred_url;
+
+        
+        $subscriptions_url = $object->subscriptions_url;
+
+        if ($subscriptions_url === null) {
+            goto after_subscriptions_url;
+        }
+        after_subscriptions_url:        $result['subscriptions_url'] = $subscriptions_url;
+
+        
+        $organizations_url = $object->organizations_url;
+
+        if ($organizations_url === null) {
+            goto after_organizations_url;
+        }
+        after_organizations_url:        $result['organizations_url'] = $organizations_url;
+
+        
+        $repos_url = $object->repos_url;
+
+        if ($repos_url === null) {
+            goto after_repos_url;
+        }
+        after_repos_url:        $result['repos_url'] = $repos_url;
+
+        
+        $events_url = $object->events_url;
+
+        if ($events_url === null) {
+            goto after_events_url;
+        }
+        after_events_url:        $result['events_url'] = $events_url;
+
+        
+        $received_events_url = $object->received_events_url;
+
+        if ($received_events_url === null) {
+            goto after_received_events_url;
+        }
+        after_received_events_url:        $result['received_events_url'] = $received_events_url;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $site_admin = $object->site_admin;
+
+        if ($site_admin === null) {
+            goto after_site_admin;
+        }
+        after_site_admin:        $result['site_admin'] = $site_admin;
+
+        
+        $starred_at = $object->starred_at;
+        after_starred_at:        $result['starred_at'] = $starred_at;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScopedInstallation(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ScopedInstallation);
+        $result = [];
+        
+        $permissions = $object->permissions;
+
+        if ($permissions === null) {
+            goto after_permissions;
+        }
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AppPermissions($permissions);
+        after_permissions:        $result['permissions'] = $permissions;
+
+        
+        $repository_selection = $object->repository_selection;
+
+        if ($repository_selection === null) {
+            goto after_repository_selection;
+        }
+        after_repository_selection:        $result['repository_selection'] = $repository_selection;
+
+        
+        $single_file_name = $object->single_file_name;
+
+        if ($single_file_name === null) {
+            goto after_single_file_name;
+        }
+        after_single_file_name:        $result['single_file_name'] = $single_file_name;
+
+        
+        $has_multiple_single_files = $object->has_multiple_single_files;
+        after_has_multiple_single_files:        $result['has_multiple_single_files'] = $has_multiple_single_files;
+
+        
+        $single_file_paths = $object->single_file_paths;
+        static $single_file_pathsSerializer0;
+
+        if ($single_file_pathsSerializer0 === null) {
+            $single_file_pathsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $single_file_paths = $single_file_pathsSerializer0->serialize($single_file_paths, $this);
+        after_single_file_paths:        $result['single_file_paths'] = $single_file_paths;
+
+        
+        $repositories_url = $object->repositories_url;
+
+        if ($repositories_url === null) {
+            goto after_repositories_url;
+        }
+        after_repositories_url:        $result['repositories_url'] = $repositories_url;
+
+        
+        $account = $object->account;
+
+        if ($account === null) {
+            goto after_account;
+        }
+        $account = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($account);
+        after_account:        $result['account'] = $account;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AppPermissions(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\AppPermissions);
+        $result = [];
+        
+        $actions = $object->actions;
+
+        if ($actions === null) {
+            goto after_actions;
+        }
+        after_actions:        $result['actions'] = $actions;
+
+        
+        $administration = $object->administration;
+
+        if ($administration === null) {
+            goto after_administration;
+        }
+        after_administration:        $result['administration'] = $administration;
+
+        
+        $checks = $object->checks;
+
+        if ($checks === null) {
+            goto after_checks;
+        }
+        after_checks:        $result['checks'] = $checks;
+
+        
+        $contents = $object->contents;
+
+        if ($contents === null) {
+            goto after_contents;
+        }
+        after_contents:        $result['contents'] = $contents;
+
+        
+        $deployments = $object->deployments;
+
+        if ($deployments === null) {
+            goto after_deployments;
+        }
+        after_deployments:        $result['deployments'] = $deployments;
+
+        
+        $environments = $object->environments;
+
+        if ($environments === null) {
+            goto after_environments;
+        }
+        after_environments:        $result['environments'] = $environments;
+
+        
+        $issues = $object->issues;
+
+        if ($issues === null) {
+            goto after_issues;
+        }
+        after_issues:        $result['issues'] = $issues;
+
+        
+        $metadata = $object->metadata;
+
+        if ($metadata === null) {
+            goto after_metadata;
+        }
+        after_metadata:        $result['metadata'] = $metadata;
+
+        
+        $packages = $object->packages;
+
+        if ($packages === null) {
+            goto after_packages;
+        }
+        after_packages:        $result['packages'] = $packages;
+
+        
+        $pages = $object->pages;
+
+        if ($pages === null) {
+            goto after_pages;
+        }
+        after_pages:        $result['pages'] = $pages;
+
+        
+        $pull_requests = $object->pull_requests;
+
+        if ($pull_requests === null) {
+            goto after_pull_requests;
+        }
+        after_pull_requests:        $result['pull_requests'] = $pull_requests;
+
+        
+        $repository_hooks = $object->repository_hooks;
+
+        if ($repository_hooks === null) {
+            goto after_repository_hooks;
+        }
+        after_repository_hooks:        $result['repository_hooks'] = $repository_hooks;
+
+        
+        $repository_projects = $object->repository_projects;
+
+        if ($repository_projects === null) {
+            goto after_repository_projects;
+        }
+        after_repository_projects:        $result['repository_projects'] = $repository_projects;
+
+        
+        $secret_scanning_alerts = $object->secret_scanning_alerts;
+
+        if ($secret_scanning_alerts === null) {
+            goto after_secret_scanning_alerts;
+        }
+        after_secret_scanning_alerts:        $result['secret_scanning_alerts'] = $secret_scanning_alerts;
+
+        
+        $secrets = $object->secrets;
+
+        if ($secrets === null) {
+            goto after_secrets;
+        }
+        after_secrets:        $result['secrets'] = $secrets;
+
+        
+        $security_events = $object->security_events;
+
+        if ($security_events === null) {
+            goto after_security_events;
+        }
+        after_security_events:        $result['security_events'] = $security_events;
+
+        
+        $single_file = $object->single_file;
+
+        if ($single_file === null) {
+            goto after_single_file;
+        }
+        after_single_file:        $result['single_file'] = $single_file;
+
+        
+        $statuses = $object->statuses;
+
+        if ($statuses === null) {
+            goto after_statuses;
+        }
+        after_statuses:        $result['statuses'] = $statuses;
+
+        
+        $vulnerability_alerts = $object->vulnerability_alerts;
+
+        if ($vulnerability_alerts === null) {
+            goto after_vulnerability_alerts;
+        }
+        after_vulnerability_alerts:        $result['vulnerability_alerts'] = $vulnerability_alerts;
+
+        
+        $workflows = $object->workflows;
+
+        if ($workflows === null) {
+            goto after_workflows;
+        }
+        after_workflows:        $result['workflows'] = $workflows;
+
+        
+        $members = $object->members;
+
+        if ($members === null) {
+            goto after_members;
+        }
+        after_members:        $result['members'] = $members;
+
+        
+        $organization_administration = $object->organization_administration;
+
+        if ($organization_administration === null) {
+            goto after_organization_administration;
+        }
+        after_organization_administration:        $result['organization_administration'] = $organization_administration;
+
+        
+        $organization_hooks = $object->organization_hooks;
+
+        if ($organization_hooks === null) {
+            goto after_organization_hooks;
+        }
+        after_organization_hooks:        $result['organization_hooks'] = $organization_hooks;
+
+        
+        $organization_plan = $object->organization_plan;
+
+        if ($organization_plan === null) {
+            goto after_organization_plan;
+        }
+        after_organization_plan:        $result['organization_plan'] = $organization_plan;
+
+        
+        $organization_projects = $object->organization_projects;
+
+        if ($organization_projects === null) {
+            goto after_organization_projects;
+        }
+        after_organization_projects:        $result['organization_projects'] = $organization_projects;
+
+        
+        $organization_packages = $object->organization_packages;
+
+        if ($organization_packages === null) {
+            goto after_organization_packages;
+        }
+        after_organization_packages:        $result['organization_packages'] = $organization_packages;
+
+        
+        $organization_secrets = $object->organization_secrets;
+
+        if ($organization_secrets === null) {
+            goto after_organization_secrets;
+        }
+        after_organization_secrets:        $result['organization_secrets'] = $organization_secrets;
+
+        
+        $organization_self_hosted_runners = $object->organization_self_hosted_runners;
+
+        if ($organization_self_hosted_runners === null) {
+            goto after_organization_self_hosted_runners;
+        }
+        after_organization_self_hosted_runners:        $result['organization_self_hosted_runners'] = $organization_self_hosted_runners;
+
+        
+        $organization_user_blocking = $object->organization_user_blocking;
+
+        if ($organization_user_blocking === null) {
+            goto after_organization_user_blocking;
+        }
+        after_organization_user_blocking:        $result['organization_user_blocking'] = $organization_user_blocking;
+
+        
+        $team_discussions = $object->team_discussions;
+
+        if ($team_discussions === null) {
+            goto after_team_discussions;
+        }
+        after_team_discussions:        $result['team_discussions'] = $team_discussions;
+
+        
+        $content_references = $object->content_references;
+
+        if ($content_references === null) {
+            goto after_content_references;
+        }
+        after_content_references:        $result['content_references'] = $content_references;
 
 
         return $result;

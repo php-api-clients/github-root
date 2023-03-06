@@ -24,6 +24,7 @@ class CbJobIdRcb implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHub\Schema\Job' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Job($payload),
+                'ApiClients\Client\GitHub\Schema\Job\Steps' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Job⚡️Steps($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -312,6 +313,94 @@ class CbJobIdRcb implements ObjectMapper
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\Job', $exception, stack: $this->hydrationStack);
             }
         }
+
+        
+        private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Job⚡️Steps(array $payload): \ApiClients\Client\GitHub\Schema\Job\Steps
+        {
+            $properties = []; 
+            $missingFields = [];
+            try {
+                
+                $value = $payload['status'] ?? null;
+    
+                if ($value === null) {
+                    $properties['status'] = null;
+                    goto after_status;
+                }
+
+                $properties['status'] = $value;
+    
+                after_status:
+
+                $value = $payload['conclusion'] ?? null;
+    
+                if ($value === null) {
+                    $properties['conclusion'] = null;
+                    goto after_conclusion;
+                }
+
+                $properties['conclusion'] = $value;
+    
+                after_conclusion:
+
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['name'] = null;
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
+                $value = $payload['number'] ?? null;
+    
+                if ($value === null) {
+                    $properties['number'] = null;
+                    goto after_number;
+                }
+
+                $properties['number'] = $value;
+    
+                after_number:
+
+                $value = $payload['started_at'] ?? null;
+    
+                if ($value === null) {
+                    $properties['started_at'] = null;
+                    goto after_started_at;
+                }
+
+                $properties['started_at'] = $value;
+    
+                after_started_at:
+
+                $value = $payload['completed_at'] ?? null;
+    
+                if ($value === null) {
+                    $properties['completed_at'] = null;
+                    goto after_completed_at;
+                }
+
+                $properties['completed_at'] = $value;
+    
+                after_completed_at:
+
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\Job\Steps', $exception, stack: $this->hydrationStack);
+            }
+            
+            if (count($missingFields) > 0) {
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\Job\Steps::class, $missingFields, stack: $this->hydrationStack);
+            }
+            
+            try {
+                return new \ApiClients\Client\GitHub\Schema\Job\Steps(...$properties);
+            } catch (\Throwable $exception) {
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\Job\Steps', $exception, stack: $this->hydrationStack);
+            }
+        }
     
     public function serializeObject(object $object): mixed
     {
@@ -325,6 +414,7 @@ class CbJobIdRcb implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHub\Schema\Job' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Job($object),
+                'ApiClients\Client\GitHub\Schema\Job\Steps' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Job⚡️Steps($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -594,6 +684,63 @@ class CbJobIdRcb implements ObjectMapper
             goto after_head_branch;
         }
         after_head_branch:        $result['head_branch'] = $head_branch;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Job⚡️Steps(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\Job\Steps);
+        $result = [];
+        
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+        after_status:        $result['status'] = $status;
+
+        
+        $conclusion = $object->conclusion;
+
+        if ($conclusion === null) {
+            goto after_conclusion;
+        }
+        after_conclusion:        $result['conclusion'] = $conclusion;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $number = $object->number;
+
+        if ($number === null) {
+            goto after_number;
+        }
+        after_number:        $result['number'] = $number;
+
+        
+        $started_at = $object->started_at;
+
+        if ($started_at === null) {
+            goto after_started_at;
+        }
+        after_started_at:        $result['started_at'] = $started_at;
+
+        
+        $completed_at = $object->completed_at;
+
+        if ($completed_at === null) {
+            goto after_completed_at;
+        }
+        after_completed_at:        $result['completed_at'] = $completed_at;
 
 
         return $result;

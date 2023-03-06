@@ -501,6 +501,10 @@ class Profile implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHub\Schema\CommunityProfile' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CommunityProfile($object),
+                'ApiClients\Client\GitHub\Schema\CommunityProfile\Files' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CommunityProfile⚡️Files($object),
+                'ApiClients\Client\GitHub\Schema\CodeOfConductSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeOfConductSimple($object),
+                'ApiClients\Client\GitHub\Schema\CommunityHealthFile' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CommunityHealthFile($object),
+                'ApiClients\Client\GitHub\Schema\LicenseSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️LicenseSimple($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -622,6 +626,197 @@ class Profile implements ObjectMapper
         
         $content_reports_enabled = $object->content_reports_enabled;
         after_content_reports_enabled:        $result['content_reports_enabled'] = $content_reports_enabled;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CommunityProfile⚡️Files(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\CommunityProfile\Files);
+        $result = [];
+        
+        $code_of_conduct = $object->code_of_conduct;
+
+        if ($code_of_conduct === null) {
+            goto after_code_of_conduct;
+        }
+        $code_of_conduct = $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeOfConductSimple($code_of_conduct);
+        after_code_of_conduct:        $result['code_of_conduct'] = $code_of_conduct;
+
+        
+        $code_of_conduct_file = $object->code_of_conduct_file;
+
+        if ($code_of_conduct_file === null) {
+            goto after_code_of_conduct_file;
+        }
+        $code_of_conduct_file = $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CommunityHealthFile($code_of_conduct_file);
+        after_code_of_conduct_file:        $result['code_of_conduct_file'] = $code_of_conduct_file;
+
+        
+        $license = $object->license;
+
+        if ($license === null) {
+            goto after_license;
+        }
+        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️LicenseSimple($license);
+        after_license:        $result['license'] = $license;
+
+        
+        $contributing = $object->contributing;
+
+        if ($contributing === null) {
+            goto after_contributing;
+        }
+        $contributing = $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CommunityHealthFile($contributing);
+        after_contributing:        $result['contributing'] = $contributing;
+
+        
+        $readme = $object->readme;
+
+        if ($readme === null) {
+            goto after_readme;
+        }
+        $readme = $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CommunityHealthFile($readme);
+        after_readme:        $result['readme'] = $readme;
+
+        
+        $issue_template = $object->issue_template;
+
+        if ($issue_template === null) {
+            goto after_issue_template;
+        }
+        $issue_template = $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CommunityHealthFile($issue_template);
+        after_issue_template:        $result['issue_template'] = $issue_template;
+
+        
+        $pull_request_template = $object->pull_request_template;
+
+        if ($pull_request_template === null) {
+            goto after_pull_request_template;
+        }
+        $pull_request_template = $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CommunityHealthFile($pull_request_template);
+        after_pull_request_template:        $result['pull_request_template'] = $pull_request_template;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CodeOfConductSimple(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\CodeOfConductSimple);
+        $result = [];
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $key = $object->key;
+
+        if ($key === null) {
+            goto after_key;
+        }
+        after_key:        $result['key'] = $key;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $html_url = $object->html_url;
+
+        if ($html_url === null) {
+            goto after_html_url;
+        }
+        after_html_url:        $result['html_url'] = $html_url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️CommunityHealthFile(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\CommunityHealthFile);
+        $result = [];
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $html_url = $object->html_url;
+
+        if ($html_url === null) {
+            goto after_html_url;
+        }
+        after_html_url:        $result['html_url'] = $html_url;
+
+
+        return $result;
+    }
+
+    
+    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️LicenseSimple(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHub\Schema\LicenseSimple);
+        $result = [];
+        
+        $key = $object->key;
+
+        if ($key === null) {
+            goto after_key;
+        }
+        after_key:        $result['key'] = $key;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $spdx_id = $object->spdx_id;
+
+        if ($spdx_id === null) {
+            goto after_spdx_id;
+        }
+        after_spdx_id:        $result['spdx_id'] = $spdx_id;
+
+        
+        $node_id = $object->node_id;
+
+        if ($node_id === null) {
+            goto after_node_id;
+        }
+        after_node_id:        $result['node_id'] = $node_id;
+
+        
+        $html_url = $object->html_url;
+        after_html_url:        $result['html_url'] = $html_url;
 
 
         return $result;
