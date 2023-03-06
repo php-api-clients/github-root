@@ -195,16 +195,6 @@ class AuditLog implements ObjectMapper
                     goto after_config;
                 }
 
-                static $configCaster1;
-    
-                if ($configCaster1 === null) {
-                    $configCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AuditLogEvent\\Config',
-));
-                }
-    
-                $value = $configCaster1->cast($value, $this);
-
                 $properties['config'] = $value;
     
                 after_config:
@@ -215,16 +205,6 @@ class AuditLog implements ObjectMapper
                     $properties['config_was'] = null;
                     goto after_config_was;
                 }
-
-                static $config_wasCaster1;
-    
-                if ($config_wasCaster1 === null) {
-                    $config_wasCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AuditLogEvent\\Config',
-));
-                }
-    
-                $value = $config_wasCaster1->cast($value, $this);
 
                 $properties['config_was'] = $value;
     
@@ -303,16 +283,6 @@ class AuditLog implements ObjectMapper
                     goto after_events;
                 }
 
-                static $eventsCaster1;
-    
-                if ($eventsCaster1 === null) {
-                    $eventsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AuditLogEvent\\Config',
-));
-                }
-    
-                $value = $eventsCaster1->cast($value, $this);
-
                 $properties['events'] = $value;
     
                 after_events:
@@ -323,16 +293,6 @@ class AuditLog implements ObjectMapper
                     $properties['events_were'] = null;
                     goto after_events_were;
                 }
-
-                static $events_wereCaster1;
-    
-                if ($events_wereCaster1 === null) {
-                    $events_wereCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AuditLogEvent\\Config',
-));
-                }
-    
-                $value = $events_wereCaster1->cast($value, $this);
 
                 $properties['events_were'] = $value;
     
@@ -807,15 +767,6 @@ class AuditLog implements ObjectMapper
         if ($config === null) {
             goto after_config;
         }
-        static $configSerializer0;
-
-        if ($configSerializer0 === null) {
-            $configSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AuditLogEvent\\Config',
-));
-        }
-        
-        $config = $configSerializer0->serialize($config, $this);
         after_config:        $result['config'] = $config;
 
         
@@ -824,15 +775,6 @@ class AuditLog implements ObjectMapper
         if ($config_was === null) {
             goto after_config_was;
         }
-        static $config_wasSerializer0;
-
-        if ($config_wasSerializer0 === null) {
-            $config_wasSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AuditLogEvent\\Config',
-));
-        }
-        
-        $config_was = $config_wasSerializer0->serialize($config_was, $this);
         after_config_was:        $result['config_was'] = $config_was;
 
         
@@ -889,15 +831,6 @@ class AuditLog implements ObjectMapper
         if ($events === null) {
             goto after_events;
         }
-        static $eventsSerializer0;
-
-        if ($eventsSerializer0 === null) {
-            $eventsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AuditLogEvent\\Config',
-));
-        }
-        
-        $events = $eventsSerializer0->serialize($events, $this);
         after_events:        $result['events'] = $events;
 
         
@@ -906,15 +839,6 @@ class AuditLog implements ObjectMapper
         if ($events_were === null) {
             goto after_events_were;
         }
-        static $events_wereSerializer0;
-
-        if ($events_wereSerializer0 === null) {
-            $events_wereSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AuditLogEvent\\Config',
-));
-        }
-        
-        $events_were = $events_wereSerializer0->serialize($events_were, $this);
         after_events_were:        $result['events_were'] = $events_were;
 
         

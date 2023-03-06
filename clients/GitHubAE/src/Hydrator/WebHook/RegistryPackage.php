@@ -1103,16 +1103,6 @@ class RegistryPackage implements ObjectMapper
                     goto after_metadata;
                 }
 
-                static $metadataCaster1;
-    
-                if ($metadataCaster1 === null) {
-                    $metadataCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\AuditLogEvent\\Data',
-));
-                }
-    
-                $value = $metadataCaster1->cast($value, $this);
-
                 $properties['metadata'] = $value;
     
                 after_metadata:
@@ -6999,15 +6989,6 @@ class RegistryPackage implements ObjectMapper
         if ($metadata === null) {
             goto after_metadata;
         }
-        static $metadataSerializer0;
-
-        if ($metadataSerializer0 === null) {
-            $metadataSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\AuditLogEvent\\Data',
-));
-        }
-        
-        $metadata = $metadataSerializer0->serialize($metadata, $this);
         after_metadata:        $result['metadata'] = $metadata;
 
         

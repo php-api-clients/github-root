@@ -1135,16 +1135,6 @@ class Package implements ObjectMapper
                     goto after_metadata;
                 }
 
-                static $metadataCaster1;
-    
-                if ($metadataCaster1 === null) {
-                    $metadataCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\AuditLogEvent\\Data',
-));
-                }
-    
-                $value = $metadataCaster1->cast($value, $this);
-
                 $properties['metadata'] = $value;
     
                 after_metadata:
@@ -1720,16 +1710,6 @@ class Package implements ObjectMapper
                     goto after_maintainers;
                 }
 
-                static $maintainersCaster1;
-    
-                if ($maintainersCaster1 === null) {
-                    $maintainersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\AuditLogEvent\\Config',
-));
-                }
-    
-                $value = $maintainersCaster1->cast($value, $this);
-
                 $properties['maintainers'] = $value;
     
                 after_maintainers:
@@ -1740,16 +1720,6 @@ class Package implements ObjectMapper
                     $properties['contributors'] = null;
                     goto after_contributors;
                 }
-
-                static $contributorsCaster1;
-    
-                if ($contributorsCaster1 === null) {
-                    $contributorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\AuditLogEvent\\Config',
-));
-                }
-    
-                $value = $contributorsCaster1->cast($value, $this);
 
                 $properties['contributors'] = $value;
     
@@ -6821,15 +6791,6 @@ class Package implements ObjectMapper
         if ($metadata === null) {
             goto after_metadata;
         }
-        static $metadataSerializer0;
-
-        if ($metadataSerializer0 === null) {
-            $metadataSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\AuditLogEvent\\Data',
-));
-        }
-        
-        $metadata = $metadataSerializer0->serialize($metadata, $this);
         after_metadata:        $result['metadata'] = $metadata;
 
         
@@ -7186,15 +7147,6 @@ class Package implements ObjectMapper
         if ($maintainers === null) {
             goto after_maintainers;
         }
-        static $maintainersSerializer0;
-
-        if ($maintainersSerializer0 === null) {
-            $maintainersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\AuditLogEvent\\Config',
-));
-        }
-        
-        $maintainers = $maintainersSerializer0->serialize($maintainers, $this);
         after_maintainers:        $result['maintainers'] = $maintainers;
 
         
@@ -7203,15 +7155,6 @@ class Package implements ObjectMapper
         if ($contributors === null) {
             goto after_contributors;
         }
-        static $contributorsSerializer0;
-
-        if ($contributorsSerializer0 === null) {
-            $contributorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\AuditLogEvent\\Config',
-));
-        }
-        
-        $contributors = $contributorsSerializer0->serialize($contributors, $this);
         after_contributors:        $result['contributors'] = $contributors;
 
         

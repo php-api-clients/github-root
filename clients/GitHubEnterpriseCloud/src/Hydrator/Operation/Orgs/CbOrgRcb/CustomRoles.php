@@ -75,7 +75,7 @@ class CustomRoles implements ObjectMapper
                 $value = $payload['base_role'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'base_role';
+                    $properties['base_role'] = null;
                     goto after_base_role;
                 }
 
@@ -86,7 +86,7 @@ class CustomRoles implements ObjectMapper
                 $value = $payload['permissions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'permissions';
+                    $properties['permissions'] = null;
                     goto after_permissions;
                 }
 
@@ -97,7 +97,7 @@ class CustomRoles implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization';
+                    $properties['organization'] = null;
                     goto after_organization;
                 }
 
@@ -117,7 +117,7 @@ class CustomRoles implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -128,7 +128,7 @@ class CustomRoles implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -742,10 +742,18 @@ class CustomRoles implements ObjectMapper
 
         
         $base_role = $object->base_role;
+
+        if ($base_role === null) {
+            goto after_base_role;
+        }
         after_base_role:        $result['base_role'] = $base_role;
 
         
         $permissions = $object->permissions;
+
+        if ($permissions === null) {
+            goto after_permissions;
+        }
         static $permissionsSerializer0;
 
         if ($permissionsSerializer0 === null) {
@@ -758,15 +766,27 @@ class CustomRoles implements ObjectMapper
 
         
         $organization = $object->organization;
+
+        if ($organization === null) {
+            goto after_organization;
+        }
         $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $created_at = $object->created_at;
+
+        if ($created_at === null) {
+            goto after_created_at;
+        }
         after_created_at:        $result['created_at'] = $created_at;
 
         
         $updated_at = $object->updated_at;
+
+        if ($updated_at === null) {
+            goto after_updated_at;
+        }
         after_updated_at:        $result['updated_at'] = $updated_at;
 
 

@@ -4731,19 +4731,9 @@ class Release implements ObjectMapper
                 $value = $payload['assets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assets';
+                    $properties['assets'] = null;
                     goto after_assets;
                 }
-
-                static $assetsCaster1;
-    
-                if ($assetsCaster1 === null) {
-                    $assetsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $assetsCaster1->cast($value, $this);
 
                 $properties['assets'] = $value;
     
@@ -5343,19 +5333,9 @@ class Release implements ObjectMapper
                 $value = $payload['assets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assets';
+                    $properties['assets'] = null;
                     goto after_assets;
                 }
-
-                static $assetsCaster1;
-    
-                if ($assetsCaster1 === null) {
-                    $assetsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $assetsCaster1->cast($value, $this);
 
                 $properties['assets'] = $value;
     
@@ -5888,19 +5868,9 @@ class Release implements ObjectMapper
                 $value = $payload['assets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assets';
+                    $properties['assets'] = null;
                     goto after_assets;
                 }
-
-                static $assetsCaster1;
-    
-                if ($assetsCaster1 === null) {
-                    $assetsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $assetsCaster1->cast($value, $this);
 
                 $properties['assets'] = $value;
     
@@ -9066,15 +9036,10 @@ class Release implements ObjectMapper
         $result = [];
         
         $assets = $object->assets;
-        static $assetsSerializer0;
 
-        if ($assetsSerializer0 === null) {
-            $assetsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($assets === null) {
+            goto after_assets;
         }
-        
-        $assets = $assetsSerializer0->serialize($assets, $this);
         after_assets:        $result['assets'] = $assets;
 
         
@@ -9389,15 +9354,10 @@ class Release implements ObjectMapper
         $result = [];
         
         $assets = $object->assets;
-        static $assetsSerializer0;
 
-        if ($assetsSerializer0 === null) {
-            $assetsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($assets === null) {
+            goto after_assets;
         }
-        
-        $assets = $assetsSerializer0->serialize($assets, $this);
         after_assets:        $result['assets'] = $assets;
 
         
@@ -9610,15 +9570,10 @@ class Release implements ObjectMapper
         $result = [];
         
         $assets = $object->assets;
-        static $assetsSerializer0;
 
-        if ($assetsSerializer0 === null) {
-            $assetsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($assets === null) {
+            goto after_assets;
         }
-        
-        $assets = $assetsSerializer0->serialize($assets, $this);
         after_assets:        $result['assets'] = $assets;
 
         

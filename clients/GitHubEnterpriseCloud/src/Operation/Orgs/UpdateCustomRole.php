@@ -30,7 +30,7 @@ final class UpdateCustomRole
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\Orgs\UpdateCustomRole\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\OrganizationCustomRepositoryRoleUpdateSchema::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{role_id}'), array($this->org, $this->role_id), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     /**

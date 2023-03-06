@@ -1566,19 +1566,9 @@ class IssueComment implements ObjectMapper
                 $value = $payload['assignees'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees';
+                    $properties['assignees'] = null;
                     goto after_assignees;
                 }
-
-                static $assigneesCaster1;
-    
-                if ($assigneesCaster1 === null) {
-                    $assigneesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $assigneesCaster1->cast($value, $this);
 
                 $properties['assignees'] = $value;
     
@@ -6839,15 +6829,10 @@ class IssueComment implements ObjectMapper
 
         
         $assignees = $object->assignees;
-        static $assigneesSerializer0;
 
-        if ($assigneesSerializer0 === null) {
-            $assigneesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($assignees === null) {
+            goto after_assignees;
         }
-        
-        $assignees = $assigneesSerializer0->serialize($assignees, $this);
         after_assignees:        $result['assignees'] = $assignees;
 
         

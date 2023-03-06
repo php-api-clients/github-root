@@ -5553,19 +5553,9 @@ class Issues implements ObjectMapper
                 $value = $payload['assignees'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees';
+                    $properties['assignees'] = null;
                     goto after_assignees;
                 }
-
-                static $assigneesCaster1;
-    
-                if ($assigneesCaster1 === null) {
-                    $assigneesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $assigneesCaster1->cast($value, $this);
 
                 $properties['assignees'] = $value;
     
@@ -5673,19 +5663,9 @@ class Issues implements ObjectMapper
                 $value = $payload['labels'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels';
+                    $properties['labels'] = null;
                     goto after_labels;
                 }
-
-                static $labelsCaster1;
-    
-                if ($labelsCaster1 === null) {
-                    $labelsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $labelsCaster1->cast($value, $this);
 
                 $properties['labels'] = $value;
     
@@ -7800,19 +7780,9 @@ class Issues implements ObjectMapper
                 $value = $payload['assignees'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees';
+                    $properties['assignees'] = null;
                     goto after_assignees;
                 }
-
-                static $assigneesCaster1;
-    
-                if ($assigneesCaster1 === null) {
-                    $assigneesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $assigneesCaster1->cast($value, $this);
 
                 $properties['assignees'] = $value;
     
@@ -7920,19 +7890,9 @@ class Issues implements ObjectMapper
                 $value = $payload['labels'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels';
+                    $properties['labels'] = null;
                     goto after_labels;
                 }
-
-                static $labelsCaster1;
-    
-                if ($labelsCaster1 === null) {
-                    $labelsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $labelsCaster1->cast($value, $this);
 
                 $properties['labels'] = $value;
     
@@ -10216,19 +10176,9 @@ class Issues implements ObjectMapper
                 $value = $payload['assignees'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees';
+                    $properties['assignees'] = null;
                     goto after_assignees;
                 }
-
-                static $assigneesCaster1;
-    
-                if ($assigneesCaster1 === null) {
-                    $assigneesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $assigneesCaster1->cast($value, $this);
 
                 $properties['assignees'] = $value;
     
@@ -10336,19 +10286,9 @@ class Issues implements ObjectMapper
                 $value = $payload['labels'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels';
+                    $properties['labels'] = null;
                     goto after_labels;
                 }
-
-                static $labelsCaster1;
-    
-                if ($labelsCaster1 === null) {
-                    $labelsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $labelsCaster1->cast($value, $this);
 
                 $properties['labels'] = $value;
     
@@ -10746,19 +10686,9 @@ class Issues implements ObjectMapper
                 $value = $payload['assignees'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees';
+                    $properties['assignees'] = null;
                     goto after_assignees;
                 }
-
-                static $assigneesCaster1;
-    
-                if ($assigneesCaster1 === null) {
-                    $assigneesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $assigneesCaster1->cast($value, $this);
 
                 $properties['assignees'] = $value;
     
@@ -10866,19 +10796,9 @@ class Issues implements ObjectMapper
                 $value = $payload['labels'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels';
+                    $properties['labels'] = null;
                     goto after_labels;
                 }
-
-                static $labelsCaster1;
-    
-                if ($labelsCaster1 === null) {
-                    $labelsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $labelsCaster1->cast($value, $this);
 
                 $properties['labels'] = $value;
     
@@ -14285,19 +14205,9 @@ class Issues implements ObjectMapper
                 $value = $payload['assignees'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees';
+                    $properties['assignees'] = null;
                     goto after_assignees;
                 }
-
-                static $assigneesCaster1;
-    
-                if ($assigneesCaster1 === null) {
-                    $assigneesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $assigneesCaster1->cast($value, $this);
 
                 $properties['assignees'] = $value;
     
@@ -14405,19 +14315,9 @@ class Issues implements ObjectMapper
                 $value = $payload['labels'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels';
+                    $properties['labels'] = null;
                     goto after_labels;
                 }
-
-                static $labelsCaster1;
-    
-                if ($labelsCaster1 === null) {
-                    $labelsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $labelsCaster1->cast($value, $this);
 
                 $properties['labels'] = $value;
     
@@ -16426,19 +16326,9 @@ class Issues implements ObjectMapper
                 $value = $payload['assignees'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees';
+                    $properties['assignees'] = null;
                     goto after_assignees;
                 }
-
-                static $assigneesCaster1;
-    
-                if ($assigneesCaster1 === null) {
-                    $assigneesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $assigneesCaster1->cast($value, $this);
 
                 $properties['assignees'] = $value;
     
@@ -16546,19 +16436,9 @@ class Issues implements ObjectMapper
                 $value = $payload['labels'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels';
+                    $properties['labels'] = null;
                     goto after_labels;
                 }
-
-                static $labelsCaster1;
-    
-                if ($labelsCaster1 === null) {
-                    $labelsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
-                }
-    
-                $value = $labelsCaster1->cast($value, $this);
 
                 $properties['labels'] = $value;
     
@@ -20447,15 +20327,10 @@ class Issues implements ObjectMapper
 
         
         $assignees = $object->assignees;
-        static $assigneesSerializer0;
 
-        if ($assigneesSerializer0 === null) {
-            $assigneesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($assignees === null) {
+            goto after_assignees;
         }
-        
-        $assignees = $assigneesSerializer0->serialize($assignees, $this);
         after_assignees:        $result['assignees'] = $assignees;
 
         
@@ -20504,15 +20379,10 @@ class Issues implements ObjectMapper
 
         
         $labels = $object->labels;
-        static $labelsSerializer0;
 
-        if ($labelsSerializer0 === null) {
-            $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($labels === null) {
+            goto after_labels;
         }
-        
-        $labels = $labelsSerializer0->serialize($labels, $this);
         after_labels:        $result['labels'] = $labels;
 
         
@@ -21756,15 +21626,10 @@ class Issues implements ObjectMapper
 
         
         $assignees = $object->assignees;
-        static $assigneesSerializer0;
 
-        if ($assigneesSerializer0 === null) {
-            $assigneesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($assignees === null) {
+            goto after_assignees;
         }
-        
-        $assignees = $assigneesSerializer0->serialize($assignees, $this);
         after_assignees:        $result['assignees'] = $assignees;
 
         
@@ -21813,15 +21678,10 @@ class Issues implements ObjectMapper
 
         
         $labels = $object->labels;
-        static $labelsSerializer0;
 
-        if ($labelsSerializer0 === null) {
-            $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($labels === null) {
+            goto after_labels;
         }
-        
-        $labels = $labelsSerializer0->serialize($labels, $this);
         after_labels:        $result['labels'] = $labels;
 
         
@@ -23017,15 +22877,10 @@ class Issues implements ObjectMapper
 
         
         $assignees = $object->assignees;
-        static $assigneesSerializer0;
 
-        if ($assigneesSerializer0 === null) {
-            $assigneesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($assignees === null) {
+            goto after_assignees;
         }
-        
-        $assignees = $assigneesSerializer0->serialize($assignees, $this);
         after_assignees:        $result['assignees'] = $assignees;
 
         
@@ -23074,15 +22929,10 @@ class Issues implements ObjectMapper
 
         
         $labels = $object->labels;
-        static $labelsSerializer0;
 
-        if ($labelsSerializer0 === null) {
-            $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($labels === null) {
+            goto after_labels;
         }
-        
-        $labels = $labelsSerializer0->serialize($labels, $this);
         after_labels:        $result['labels'] = $labels;
 
         
@@ -23250,15 +23100,10 @@ class Issues implements ObjectMapper
 
         
         $assignees = $object->assignees;
-        static $assigneesSerializer0;
 
-        if ($assigneesSerializer0 === null) {
-            $assigneesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($assignees === null) {
+            goto after_assignees;
         }
-        
-        $assignees = $assigneesSerializer0->serialize($assignees, $this);
         after_assignees:        $result['assignees'] = $assignees;
 
         
@@ -23307,15 +23152,10 @@ class Issues implements ObjectMapper
 
         
         $labels = $object->labels;
-        static $labelsSerializer0;
 
-        if ($labelsSerializer0 === null) {
-            $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($labels === null) {
+            goto after_labels;
         }
-        
-        $labels = $labelsSerializer0->serialize($labels, $this);
         after_labels:        $result['labels'] = $labels;
 
         
@@ -25237,15 +25077,10 @@ class Issues implements ObjectMapper
 
         
         $assignees = $object->assignees;
-        static $assigneesSerializer0;
 
-        if ($assigneesSerializer0 === null) {
-            $assigneesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($assignees === null) {
+            goto after_assignees;
         }
-        
-        $assignees = $assigneesSerializer0->serialize($assignees, $this);
         after_assignees:        $result['assignees'] = $assignees;
 
         
@@ -25294,15 +25129,10 @@ class Issues implements ObjectMapper
 
         
         $labels = $object->labels;
-        static $labelsSerializer0;
 
-        if ($labelsSerializer0 === null) {
-            $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($labels === null) {
+            goto after_labels;
         }
-        
-        $labels = $labelsSerializer0->serialize($labels, $this);
         after_labels:        $result['labels'] = $labels;
 
         
@@ -26376,15 +26206,10 @@ class Issues implements ObjectMapper
 
         
         $assignees = $object->assignees;
-        static $assigneesSerializer0;
 
-        if ($assigneesSerializer0 === null) {
-            $assigneesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($assignees === null) {
+            goto after_assignees;
         }
-        
-        $assignees = $assigneesSerializer0->serialize($assignees, $this);
         after_assignees:        $result['assignees'] = $assignees;
 
         
@@ -26433,15 +26258,10 @@ class Issues implements ObjectMapper
 
         
         $labels = $object->labels;
-        static $labelsSerializer0;
 
-        if ($labelsSerializer0 === null) {
-            $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookCheckSuiteCompleted\\ActionsMeta',
-));
+        if ($labels === null) {
+            goto after_labels;
         }
-        
-        $labels = $labelsSerializer0->serialize($labels, $this);
         after_labels:        $result['labels'] = $labels;
 
         
