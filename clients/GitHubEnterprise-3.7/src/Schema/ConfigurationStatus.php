@@ -12,7 +12,7 @@ final readonly class ConfigurationStatus
     public const SCHEMA_JSON = '{"type":"object","properties":{"status":{"type":"string"},"progress":{"type":"array","items":{"required":["status","key"],"type":"object","properties":{"status":{"type":"string"},"key":{"type":"string"}}}}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"status":"generated_status","progress":[null]}';
+    public const SCHEMA_EXAMPLE_DATA = '{"status":"generated_status","progress":[{"status":"generated_status","key":"generated_key"}]}';
     public ?string $status;
     /**
      * @var array<Schema\ConfigurationStatus\Progress>

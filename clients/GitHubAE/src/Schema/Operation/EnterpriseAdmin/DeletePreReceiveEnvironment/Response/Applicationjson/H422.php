@@ -12,7 +12,7 @@ final readonly class H422
     public const SCHEMA_JSON = '{"type":"object","properties":{"message":{"type":"string"},"errors":{"type":"array","items":{"type":"object","properties":{"resource":{"type":"string"},"code":{"type":"string"},"message":{"type":"string"}}}}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message","errors":[null]}';
+    public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message","errors":[{"resource":"generated_resource","code":"generated_code","message":"generated_message"}]}';
     public ?string $message;
     /**
      * @var array<Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors>

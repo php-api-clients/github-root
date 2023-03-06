@@ -12,7 +12,7 @@ final readonly class MaintenanceStatus
     public const SCHEMA_JSON = '{"type":"object","properties":{"status":{"type":"string"},"scheduled_time":{"type":"string"},"connection_services":{"type":"array","items":{"required":["name","number"],"type":"object","properties":{"name":{"type":"string"},"number":{"type":"integer"}}}}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"status":"generated_status","scheduled_time":"generated_scheduled_time","connection_services":[null]}';
+    public const SCHEMA_EXAMPLE_DATA = '{"status":"generated_status","scheduled_time":"generated_scheduled_time","connection_services":[{"name":"generated_name","number":13}]}';
     public ?string $status;
     public ?string $scheduled_time;
     /**

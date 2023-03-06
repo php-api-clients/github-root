@@ -12,7 +12,7 @@ final readonly class Applicationjson
     public const SCHEMA_JSON = '{"required":["selected_repository_ids"],"type":"object","properties":{"selected_repository_ids":{"type":"array","items":{"type":"integer"},"description":"The IDs of the repositories that can access the organization variable."}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"selected_repository_ids":[null]}';
+    public const SCHEMA_EXAMPLE_DATA = '{"selected_repository_ids":[13]}';
     /**
      * The IDs of the repositories that can access the organization variable.
      * @var array<int>

@@ -12,7 +12,7 @@ final readonly class Applicationjson
     public const SCHEMA_JSON = '{"type":"object","properties":{"scopes":{"type":"array","items":{"type":"string"},"description":"A list of [scopes](https:\\/\\/docs.github.com\\/enterprise-server@3.1\\/apps\\/building-oauth-apps\\/understanding-scopes-for-oauth-apps\\/)."}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"scopes":[null]}';
+    public const SCHEMA_EXAMPLE_DATA = '{"scopes":["generated_scopes"]}';
     /**
      * A list of [scopes](https://docs.github.com/enterprise-server@3.1/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      * @var array<string>

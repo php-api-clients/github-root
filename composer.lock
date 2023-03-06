@@ -881,12 +881,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/openapi-client-generator.git",
-                "reference": "387f77b05c6c2e2981ab20021abdc527b1639220"
+                "reference": "17cf550d430d7e0b8236098f0fdd2a27ff28d17c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/387f77b05c6c2e2981ab20021abdc527b1639220",
-                "reference": "387f77b05c6c2e2981ab20021abdc527b1639220",
+                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/17cf550d430d7e0b8236098f0fdd2a27ff28d17c",
+                "reference": "17cf550d430d7e0b8236098f0fdd2a27ff28d17c",
                 "shasum": ""
             },
             "require": {
@@ -901,6 +901,7 @@
                 "react/async": "^4.0",
                 "react/http": "^1.8",
                 "reactivex/rxphp": "^2.0",
+                "rikudou/array-merge-recursive": "^1.0",
                 "ringcentral/psr7": "^1.3",
                 "symfony/yaml": "^5.4",
                 "twig/twig": "^3.5",
@@ -946,7 +947,7 @@
                 "issues": "https://github.com/php-api-clients/openapi-client-generator/issues",
                 "source": "https://github.com/php-api-clients/openapi-client-generator/tree/master"
             },
-            "time": "2023-03-05T21:36:07+00:00"
+            "time": "2023-03-06T10:54:24+00:00"
         },
         {
             "name": "azjezz/psl",
@@ -7788,6 +7789,52 @@
             "time": "2022-11-02T21:46:22+00:00"
         },
         {
+            "name": "rikudou/array-merge-recursive",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RikudouSage/ArrayMergeRecursive.git",
+                "reference": "90379c4906bd0fd54a2816486a7511c5d50dd86d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RikudouSage/ArrayMergeRecursive/zipball/90379c4906bd0fd54a2816486a7511c5d50dd86d",
+                "reference": "90379c4906bd0fd54a2816486a7511c5d50dd86d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.18",
+                "php-coveralls/php-coveralls": "^2.4",
+                "phpstan/phpstan": "^0.12.84",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/array_merge_recursive.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "WTFPL"
+            ],
+            "authors": [
+                {
+                    "name": "Dominik Chrastecky",
+                    "email": "dominik@chrastecky.cz"
+                }
+            ],
+            "description": "Replacement of built-in array_merge_recursive function that doesn't add values to array but replaces them",
+            "support": {
+                "issues": "https://github.com/RikudouSage/ArrayMergeRecursive/issues",
+                "source": "https://github.com/RikudouSage/ArrayMergeRecursive/tree/v1.0.3"
+            },
+            "time": "2021-04-22T14:29:38+00:00"
+        },
+        {
             "name": "ringcentral/psr7",
             "version": "1.3.0",
             "source": {
@@ -7975,22 +8022,22 @@
         },
         {
             "name": "roave/better-reflection",
-            "version": "6.7.0",
+            "version": "6.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/BetterReflection.git",
-                "reference": "eb41dec4e97d67a5718891a15b8ff4a0b65db3b2"
+                "reference": "cc6e8c4606fb52d3bc2b56dbb6dda72e840bb8b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/BetterReflection/zipball/eb41dec4e97d67a5718891a15b8ff4a0b65db3b2",
-                "reference": "eb41dec4e97d67a5718891a15b8ff4a0b65db3b2",
+                "url": "https://api.github.com/repos/Roave/BetterReflection/zipball/cc6e8c4606fb52d3bc2b56dbb6dda72e840bb8b0",
+                "reference": "cc6e8c4606fb52d3bc2b56dbb6dda72e840bb8b0",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "jetbrains/phpstorm-stubs": "2022.3",
-                "nikic/php-parser": "^4.15.3",
+                "nikic/php-parser": "^4.15.4",
                 "php": "~8.1.0 || ~8.2.0",
                 "roave/signature": "^1.7"
             },
@@ -7999,11 +8046,11 @@
             },
             "require-dev": {
                 "doctrine/coding-standard": "^11.1.0",
-                "phpstan/phpstan": "^1.9.16",
-                "phpstan/phpstan-phpunit": "^1.3.3",
-                "phpunit/phpunit": "10.0.5",
-                "roave/infection-static-analysis-plugin": "^1.28.0",
-                "vimeo/psalm": "5.6.0"
+                "phpstan/phpstan": "^1.10.3",
+                "phpstan/phpstan-phpunit": "^1.3.10",
+                "phpunit/phpunit": "10.0.14",
+                "roave/infection-static-analysis-plugin": "^1.29.0",
+                "vimeo/psalm": "5.7.7"
             },
             "suggest": {
                 "composer/composer": "Required to use the ComposerSourceLocator"
@@ -8043,9 +8090,9 @@
             "description": "Better Reflection - an improved code reflection API",
             "support": {
                 "issues": "https://github.com/Roave/BetterReflection/issues",
-                "source": "https://github.com/Roave/BetterReflection/tree/6.7.0"
+                "source": "https://github.com/Roave/BetterReflection/tree/6.8.0"
             },
-            "time": "2023-02-08T15:16:19+00:00"
+            "time": "2023-03-06T09:15:25+00:00"
         },
         {
             "name": "roave/infection-static-analysis-plugin",
