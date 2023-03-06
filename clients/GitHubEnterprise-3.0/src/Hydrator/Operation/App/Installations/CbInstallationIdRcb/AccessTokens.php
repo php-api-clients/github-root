@@ -42,7 +42,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['token'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'token';
+                    $properties['token'] = null;
                     goto after_token;
                 }
 
@@ -53,7 +53,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['expires_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'expires_at';
+                    $properties['expires_at'] = null;
                     goto after_expires_at;
                 }
 
@@ -98,6 +98,16 @@ class AccessTokens implements ObjectMapper
                     $missingFields[] = 'repositories';
                     goto after_repositories;
                 }
+
+                static $repositoriesCaster1;
+    
+                if ($repositoriesCaster1 === null) {
+                    $repositoriesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository',
+));
+                }
+    
+                $value = $repositoriesCaster1->cast($value, $this);
 
                 $properties['repositories'] = $value;
     
@@ -161,7 +171,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -172,7 +182,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -183,7 +193,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -194,7 +204,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -227,7 +237,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -238,7 +248,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -271,7 +281,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -282,7 +292,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -296,6 +306,16 @@ class AccessTokens implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -326,7 +346,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['actions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'actions';
+                    $properties['actions'] = null;
                     goto after_actions;
                 }
 
@@ -337,7 +357,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['administration'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'administration';
+                    $properties['administration'] = null;
                     goto after_administration;
                 }
 
@@ -348,7 +368,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['checks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'checks';
+                    $properties['checks'] = null;
                     goto after_checks;
                 }
 
@@ -359,7 +379,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['contents'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents';
+                    $properties['contents'] = null;
                     goto after_contents;
                 }
 
@@ -370,7 +390,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['deployments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments';
+                    $properties['deployments'] = null;
                     goto after_deployments;
                 }
 
@@ -381,7 +401,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['environments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'environments';
+                    $properties['environments'] = null;
                     goto after_environments;
                 }
 
@@ -392,7 +412,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues';
+                    $properties['issues'] = null;
                     goto after_issues;
                 }
 
@@ -403,7 +423,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['metadata'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'metadata';
+                    $properties['metadata'] = null;
                     goto after_metadata;
                 }
 
@@ -414,7 +434,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['packages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'packages';
+                    $properties['packages'] = null;
                     goto after_packages;
                 }
 
@@ -425,7 +445,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pages';
+                    $properties['pages'] = null;
                     goto after_pages;
                 }
 
@@ -436,7 +456,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['pull_requests'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull_requests';
+                    $properties['pull_requests'] = null;
                     goto after_pull_requests;
                 }
 
@@ -447,7 +467,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['repository_hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_hooks';
+                    $properties['repository_hooks'] = null;
                     goto after_repository_hooks;
                 }
 
@@ -458,7 +478,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['repository_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_projects';
+                    $properties['repository_projects'] = null;
                     goto after_repository_projects;
                 }
 
@@ -469,7 +489,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['secret_scanning_alerts'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secret_scanning_alerts';
+                    $properties['secret_scanning_alerts'] = null;
                     goto after_secret_scanning_alerts;
                 }
 
@@ -480,7 +500,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['secrets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secrets';
+                    $properties['secrets'] = null;
                     goto after_secrets;
                 }
 
@@ -491,7 +511,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['security_events'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'security_events';
+                    $properties['security_events'] = null;
                     goto after_security_events;
                 }
 
@@ -502,7 +522,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['single_file'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'single_file';
+                    $properties['single_file'] = null;
                     goto after_single_file;
                 }
 
@@ -513,7 +533,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['statuses'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses';
+                    $properties['statuses'] = null;
                     goto after_statuses;
                 }
 
@@ -524,7 +544,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['vulnerability_alerts'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'vulnerability_alerts';
+                    $properties['vulnerability_alerts'] = null;
                     goto after_vulnerability_alerts;
                 }
 
@@ -535,7 +555,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['workflows'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'workflows';
+                    $properties['workflows'] = null;
                     goto after_workflows;
                 }
 
@@ -546,7 +566,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['members'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'members';
+                    $properties['members'] = null;
                     goto after_members;
                 }
 
@@ -557,7 +577,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['organization_administration'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_administration';
+                    $properties['organization_administration'] = null;
                     goto after_organization_administration;
                 }
 
@@ -568,7 +588,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['organization_hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_hooks';
+                    $properties['organization_hooks'] = null;
                     goto after_organization_hooks;
                 }
 
@@ -579,7 +599,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['organization_plan'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_plan';
+                    $properties['organization_plan'] = null;
                     goto after_organization_plan;
                 }
 
@@ -590,7 +610,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['organization_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_projects';
+                    $properties['organization_projects'] = null;
                     goto after_organization_projects;
                 }
 
@@ -601,7 +621,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['organization_packages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_packages';
+                    $properties['organization_packages'] = null;
                     goto after_organization_packages;
                 }
 
@@ -612,7 +632,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['organization_secrets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_secrets';
+                    $properties['organization_secrets'] = null;
                     goto after_organization_secrets;
                 }
 
@@ -623,7 +643,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['organization_self_hosted_runners'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_self_hosted_runners';
+                    $properties['organization_self_hosted_runners'] = null;
                     goto after_organization_self_hosted_runners;
                 }
 
@@ -634,7 +654,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['organization_user_blocking'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_user_blocking';
+                    $properties['organization_user_blocking'] = null;
                     goto after_organization_user_blocking;
                 }
 
@@ -645,7 +665,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['team_discussions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'team_discussions';
+                    $properties['team_discussions'] = null;
                     goto after_team_discussions;
                 }
 
@@ -656,7 +676,7 @@ class AccessTokens implements ObjectMapper
                 $value = $payload['content_references'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'content_references';
+                    $properties['content_references'] = null;
                     goto after_content_references;
                 }
 
@@ -801,7 +821,8 @@ class AccessTokens implements ObjectMapper
         static $repositoriesSerializer0;
 
         if ($repositoriesSerializer0 === null) {
-            $repositoriesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $repositoriesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository',
 ));
         }
         
@@ -924,7 +945,8 @@ class AccessTokens implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
 ));
         }
         

@@ -13,27 +13,7 @@ final readonly class ReactionRollup
     public const SCHEMA_TITLE = 'Reaction Rollup';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url","total_count":13,"_PLUSES_1":13,"_MINUS_1":13,"laugh":13,"confused":13,"heart":13,"hooray":13,"eyes":13,"rocket":13}';
-    public ?string $url;
-    public ?int $total_count;
-    public ?int $_PLUSES_1;
-    public ?int $_MINUS_1;
-    public ?int $laugh;
-    public ?int $confused;
-    public ?int $heart;
-    public ?int $hooray;
-    public ?int $eyes;
-    public ?int $rocket;
-    public function __construct(string $url, int $total_count, int $_PLUSES_1, int $_MINUS_1, int $laugh, int $confused, int $heart, int $hooray, int $eyes, int $rocket)
+    public function __construct(public ?string $url, public ?int $total_count, public ?int $_PLUSES_1, public ?int $_MINUS_1, public ?int $laugh, public ?int $confused, public ?int $heart, public ?int $hooray, public ?int $eyes, public ?int $rocket)
     {
-        $this->url = $url;
-        $this->total_count = $total_count;
-        $this->_PLUSES_1 = $_PLUSES_1;
-        $this->_MINUS_1 = $_MINUS_1;
-        $this->laugh = $laugh;
-        $this->confused = $confused;
-        $this->heart = $heart;
-        $this->hooray = $hooray;
-        $this->eyes = $eyes;
-        $this->rocket = $rocket;
     }
 }

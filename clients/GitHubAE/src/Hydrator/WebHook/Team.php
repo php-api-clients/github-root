@@ -28,9 +28,9 @@ class Team implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($payload),
                 'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License($payload),
                 'ApiClients\Client\GitHubAE\Schema\Discussion\AnswerChosenBy' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️AnswerChosenBy($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($payload),
@@ -59,7 +59,7 @@ class Team implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -110,7 +110,7 @@ class Team implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization';
+                    $properties['organization'] = null;
                     goto after_organization;
                 }
 
@@ -170,7 +170,7 @@ class Team implements ObjectMapper
                 $value = $payload['team'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'team';
+                    $properties['team'] = null;
                     goto after_team;
                 }
 
@@ -212,7 +212,7 @@ class Team implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -223,7 +223,7 @@ class Team implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -234,7 +234,7 @@ class Team implements ObjectMapper
                 $value = $payload['website_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'website_url';
+                    $properties['website_url'] = null;
                     goto after_website_url;
                 }
 
@@ -245,7 +245,7 @@ class Team implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -256,7 +256,7 @@ class Team implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -267,7 +267,7 @@ class Team implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -278,7 +278,7 @@ class Team implements ObjectMapper
                 $value = $payload['slug'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'slug';
+                    $properties['slug'] = null;
                     goto after_slug;
                 }
 
@@ -289,7 +289,7 @@ class Team implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -300,7 +300,7 @@ class Team implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -311,7 +311,7 @@ class Team implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -344,7 +344,7 @@ class Team implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -355,7 +355,7 @@ class Team implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -388,7 +388,7 @@ class Team implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -399,7 +399,7 @@ class Team implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -410,7 +410,7 @@ class Team implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -421,7 +421,7 @@ class Team implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -432,7 +432,7 @@ class Team implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -443,7 +443,7 @@ class Team implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -454,7 +454,7 @@ class Team implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -465,7 +465,7 @@ class Team implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -476,7 +476,7 @@ class Team implements ObjectMapper
                 $value = $payload['members_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'members_url';
+                    $properties['members_url'] = null;
                     goto after_members_url;
                 }
 
@@ -487,7 +487,7 @@ class Team implements ObjectMapper
                 $value = $payload['public_members_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'public_members_url';
+                    $properties['public_members_url'] = null;
                     goto after_public_members_url;
                 }
 
@@ -498,7 +498,7 @@ class Team implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -509,7 +509,7 @@ class Team implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -608,7 +608,7 @@ class Team implements ObjectMapper
                 $value = $payload['archive_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archive_url';
+                    $properties['archive_url'] = null;
                     goto after_archive_url;
                 }
 
@@ -619,7 +619,7 @@ class Team implements ObjectMapper
                 $value = $payload['archived'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archived';
+                    $properties['archived'] = null;
                     goto after_archived;
                 }
 
@@ -630,7 +630,7 @@ class Team implements ObjectMapper
                 $value = $payload['assignees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees_url';
+                    $properties['assignees_url'] = null;
                     goto after_assignees_url;
                 }
 
@@ -641,7 +641,7 @@ class Team implements ObjectMapper
                 $value = $payload['blobs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'blobs_url';
+                    $properties['blobs_url'] = null;
                     goto after_blobs_url;
                 }
 
@@ -652,7 +652,7 @@ class Team implements ObjectMapper
                 $value = $payload['branches_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'branches_url';
+                    $properties['branches_url'] = null;
                     goto after_branches_url;
                 }
 
@@ -663,7 +663,7 @@ class Team implements ObjectMapper
                 $value = $payload['clone_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'clone_url';
+                    $properties['clone_url'] = null;
                     goto after_clone_url;
                 }
 
@@ -674,7 +674,7 @@ class Team implements ObjectMapper
                 $value = $payload['collaborators_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'collaborators_url';
+                    $properties['collaborators_url'] = null;
                     goto after_collaborators_url;
                 }
 
@@ -685,7 +685,7 @@ class Team implements ObjectMapper
                 $value = $payload['comments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'comments_url';
+                    $properties['comments_url'] = null;
                     goto after_comments_url;
                 }
 
@@ -696,7 +696,7 @@ class Team implements ObjectMapper
                 $value = $payload['commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commits_url';
+                    $properties['commits_url'] = null;
                     goto after_commits_url;
                 }
 
@@ -707,7 +707,7 @@ class Team implements ObjectMapper
                 $value = $payload['compare_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'compare_url';
+                    $properties['compare_url'] = null;
                     goto after_compare_url;
                 }
 
@@ -718,7 +718,7 @@ class Team implements ObjectMapper
                 $value = $payload['contents_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents_url';
+                    $properties['contents_url'] = null;
                     goto after_contents_url;
                 }
 
@@ -729,7 +729,7 @@ class Team implements ObjectMapper
                 $value = $payload['contributors_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contributors_url';
+                    $properties['contributors_url'] = null;
                     goto after_contributors_url;
                 }
 
@@ -740,7 +740,7 @@ class Team implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -751,7 +751,7 @@ class Team implements ObjectMapper
                 $value = $payload['default_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default_branch';
+                    $properties['default_branch'] = null;
                     goto after_default_branch;
                 }
 
@@ -773,7 +773,7 @@ class Team implements ObjectMapper
                 $value = $payload['deployments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments_url';
+                    $properties['deployments_url'] = null;
                     goto after_deployments_url;
                 }
 
@@ -784,7 +784,7 @@ class Team implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -806,7 +806,7 @@ class Team implements ObjectMapper
                 $value = $payload['downloads_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'downloads_url';
+                    $properties['downloads_url'] = null;
                     goto after_downloads_url;
                 }
 
@@ -817,7 +817,7 @@ class Team implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -828,7 +828,7 @@ class Team implements ObjectMapper
                 $value = $payload['fork'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'fork';
+                    $properties['fork'] = null;
                     goto after_fork;
                 }
 
@@ -839,7 +839,7 @@ class Team implements ObjectMapper
                 $value = $payload['forks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks';
+                    $properties['forks'] = null;
                     goto after_forks;
                 }
 
@@ -850,7 +850,7 @@ class Team implements ObjectMapper
                 $value = $payload['forks_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_count';
+                    $properties['forks_count'] = null;
                     goto after_forks_count;
                 }
 
@@ -861,7 +861,7 @@ class Team implements ObjectMapper
                 $value = $payload['forks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_url';
+                    $properties['forks_url'] = null;
                     goto after_forks_url;
                 }
 
@@ -872,7 +872,7 @@ class Team implements ObjectMapper
                 $value = $payload['full_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'full_name';
+                    $properties['full_name'] = null;
                     goto after_full_name;
                 }
 
@@ -883,7 +883,7 @@ class Team implements ObjectMapper
                 $value = $payload['git_commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_commits_url';
+                    $properties['git_commits_url'] = null;
                     goto after_git_commits_url;
                 }
 
@@ -894,7 +894,7 @@ class Team implements ObjectMapper
                 $value = $payload['git_refs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_refs_url';
+                    $properties['git_refs_url'] = null;
                     goto after_git_refs_url;
                 }
 
@@ -905,7 +905,7 @@ class Team implements ObjectMapper
                 $value = $payload['git_tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_tags_url';
+                    $properties['git_tags_url'] = null;
                     goto after_git_tags_url;
                 }
 
@@ -916,7 +916,7 @@ class Team implements ObjectMapper
                 $value = $payload['git_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_url';
+                    $properties['git_url'] = null;
                     goto after_git_url;
                 }
 
@@ -927,7 +927,7 @@ class Team implements ObjectMapper
                 $value = $payload['has_downloads'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_downloads';
+                    $properties['has_downloads'] = null;
                     goto after_has_downloads;
                 }
 
@@ -938,7 +938,7 @@ class Team implements ObjectMapper
                 $value = $payload['has_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_issues';
+                    $properties['has_issues'] = null;
                     goto after_has_issues;
                 }
 
@@ -949,7 +949,7 @@ class Team implements ObjectMapper
                 $value = $payload['has_pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_pages';
+                    $properties['has_pages'] = null;
                     goto after_has_pages;
                 }
 
@@ -960,7 +960,7 @@ class Team implements ObjectMapper
                 $value = $payload['has_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_projects';
+                    $properties['has_projects'] = null;
                     goto after_has_projects;
                 }
 
@@ -971,7 +971,7 @@ class Team implements ObjectMapper
                 $value = $payload['has_wiki'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_wiki';
+                    $properties['has_wiki'] = null;
                     goto after_has_wiki;
                 }
 
@@ -982,7 +982,7 @@ class Team implements ObjectMapper
                 $value = $payload['homepage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'homepage';
+                    $properties['homepage'] = null;
                     goto after_homepage;
                 }
 
@@ -993,7 +993,7 @@ class Team implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -1004,7 +1004,7 @@ class Team implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -1015,7 +1015,7 @@ class Team implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1037,7 +1037,7 @@ class Team implements ObjectMapper
                 $value = $payload['issue_comment_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_comment_url';
+                    $properties['issue_comment_url'] = null;
                     goto after_issue_comment_url;
                 }
 
@@ -1048,7 +1048,7 @@ class Team implements ObjectMapper
                 $value = $payload['issue_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_events_url';
+                    $properties['issue_events_url'] = null;
                     goto after_issue_events_url;
                 }
 
@@ -1059,7 +1059,7 @@ class Team implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -1070,7 +1070,7 @@ class Team implements ObjectMapper
                 $value = $payload['keys_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'keys_url';
+                    $properties['keys_url'] = null;
                     goto after_keys_url;
                 }
 
@@ -1081,7 +1081,7 @@ class Team implements ObjectMapper
                 $value = $payload['labels_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels_url';
+                    $properties['labels_url'] = null;
                     goto after_labels_url;
                 }
 
@@ -1092,7 +1092,7 @@ class Team implements ObjectMapper
                 $value = $payload['language'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'language';
+                    $properties['language'] = null;
                     goto after_language;
                 }
 
@@ -1103,7 +1103,7 @@ class Team implements ObjectMapper
                 $value = $payload['languages_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'languages_url';
+                    $properties['languages_url'] = null;
                     goto after_languages_url;
                 }
 
@@ -1114,14 +1114,14 @@ class Team implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'license';
+                    $properties['license'] = null;
                     goto after_license;
                 }
 
                 if (is_array($value)) {
                     try {
                         $this->hydrationStack[] = 'license';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License($value);
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License($value);
                     } finally {
                         array_pop($this->hydrationStack);
                     }
@@ -1145,7 +1145,7 @@ class Team implements ObjectMapper
                 $value = $payload['merges_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merges_url';
+                    $properties['merges_url'] = null;
                     goto after_merges_url;
                 }
 
@@ -1156,7 +1156,7 @@ class Team implements ObjectMapper
                 $value = $payload['milestones_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'milestones_url';
+                    $properties['milestones_url'] = null;
                     goto after_milestones_url;
                 }
 
@@ -1167,7 +1167,7 @@ class Team implements ObjectMapper
                 $value = $payload['mirror_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'mirror_url';
+                    $properties['mirror_url'] = null;
                     goto after_mirror_url;
                 }
 
@@ -1178,7 +1178,7 @@ class Team implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1189,7 +1189,7 @@ class Team implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -1200,7 +1200,7 @@ class Team implements ObjectMapper
                 $value = $payload['notifications_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'notifications_url';
+                    $properties['notifications_url'] = null;
                     goto after_notifications_url;
                 }
 
@@ -1211,7 +1211,7 @@ class Team implements ObjectMapper
                 $value = $payload['open_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues';
+                    $properties['open_issues'] = null;
                     goto after_open_issues;
                 }
 
@@ -1222,7 +1222,7 @@ class Team implements ObjectMapper
                 $value = $payload['open_issues_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues_count';
+                    $properties['open_issues_count'] = null;
                     goto after_open_issues_count;
                 }
 
@@ -1244,7 +1244,7 @@ class Team implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -1271,7 +1271,7 @@ class Team implements ObjectMapper
                 if (is_array($value)) {
                     try {
                         $this->hydrationStack[] = 'permissions';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions($value);
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions($value);
                     } finally {
                         array_pop($this->hydrationStack);
                     }
@@ -1284,7 +1284,7 @@ class Team implements ObjectMapper
                 $value = $payload['private'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'private';
+                    $properties['private'] = null;
                     goto after_private;
                 }
 
@@ -1306,7 +1306,7 @@ class Team implements ObjectMapper
                 $value = $payload['pulls_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pulls_url';
+                    $properties['pulls_url'] = null;
                     goto after_pulls_url;
                 }
 
@@ -1317,7 +1317,7 @@ class Team implements ObjectMapper
                 $value = $payload['pushed_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pushed_at';
+                    $properties['pushed_at'] = null;
                     goto after_pushed_at;
                 }
 
@@ -1328,7 +1328,7 @@ class Team implements ObjectMapper
                 $value = $payload['releases_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'releases_url';
+                    $properties['releases_url'] = null;
                     goto after_releases_url;
                 }
 
@@ -1339,7 +1339,7 @@ class Team implements ObjectMapper
                 $value = $payload['role_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'role_name';
+                    $properties['role_name'] = null;
                     goto after_role_name;
                 }
 
@@ -1350,7 +1350,7 @@ class Team implements ObjectMapper
                 $value = $payload['size'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'size';
+                    $properties['size'] = null;
                     goto after_size;
                 }
 
@@ -1361,7 +1361,7 @@ class Team implements ObjectMapper
                 $value = $payload['ssh_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ssh_url';
+                    $properties['ssh_url'] = null;
                     goto after_ssh_url;
                 }
 
@@ -1383,7 +1383,7 @@ class Team implements ObjectMapper
                 $value = $payload['stargazers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_count';
+                    $properties['stargazers_count'] = null;
                     goto after_stargazers_count;
                 }
 
@@ -1394,7 +1394,7 @@ class Team implements ObjectMapper
                 $value = $payload['stargazers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_url';
+                    $properties['stargazers_url'] = null;
                     goto after_stargazers_url;
                 }
 
@@ -1405,7 +1405,7 @@ class Team implements ObjectMapper
                 $value = $payload['statuses_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses_url';
+                    $properties['statuses_url'] = null;
                     goto after_statuses_url;
                 }
 
@@ -1416,7 +1416,7 @@ class Team implements ObjectMapper
                 $value = $payload['subscribers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscribers_url';
+                    $properties['subscribers_url'] = null;
                     goto after_subscribers_url;
                 }
 
@@ -1427,7 +1427,7 @@ class Team implements ObjectMapper
                 $value = $payload['subscription_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscription_url';
+                    $properties['subscription_url'] = null;
                     goto after_subscription_url;
                 }
 
@@ -1438,7 +1438,7 @@ class Team implements ObjectMapper
                 $value = $payload['svn_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'svn_url';
+                    $properties['svn_url'] = null;
                     goto after_svn_url;
                 }
 
@@ -1449,7 +1449,7 @@ class Team implements ObjectMapper
                 $value = $payload['tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tags_url';
+                    $properties['tags_url'] = null;
                     goto after_tags_url;
                 }
 
@@ -1460,7 +1460,7 @@ class Team implements ObjectMapper
                 $value = $payload['teams_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams_url';
+                    $properties['teams_url'] = null;
                     goto after_teams_url;
                 }
 
@@ -1471,7 +1471,7 @@ class Team implements ObjectMapper
                 $value = $payload['topics'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'topics';
+                    $properties['topics'] = null;
                     goto after_topics;
                 }
 
@@ -1482,7 +1482,7 @@ class Team implements ObjectMapper
                 $value = $payload['trees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'trees_url';
+                    $properties['trees_url'] = null;
                     goto after_trees_url;
                 }
 
@@ -1493,7 +1493,7 @@ class Team implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -1504,7 +1504,7 @@ class Team implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -1515,7 +1515,7 @@ class Team implements ObjectMapper
                 $value = $payload['visibility'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'visibility';
+                    $properties['visibility'] = null;
                     goto after_visibility;
                 }
 
@@ -1526,7 +1526,7 @@ class Team implements ObjectMapper
                 $value = $payload['watchers'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'watchers';
+                    $properties['watchers'] = null;
                     goto after_watchers;
                 }
 
@@ -1537,7 +1537,7 @@ class Team implements ObjectMapper
                 $value = $payload['watchers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'watchers_count';
+                    $properties['watchers_count'] = null;
                     goto after_watchers_count;
                 }
 
@@ -1561,7 +1561,7 @@ class Team implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\License
         {
             $properties = []; 
             $missingFields = [];
@@ -1570,7 +1570,7 @@ class Team implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 
@@ -1581,7 +1581,7 @@ class Team implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1592,7 +1592,7 @@ class Team implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -1603,7 +1603,7 @@ class Team implements ObjectMapper
                 $value = $payload['spdx_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'spdx_id';
+                    $properties['spdx_id'] = null;
                     goto after_spdx_id;
                 }
 
@@ -1614,7 +1614,7 @@ class Team implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -1623,17 +1623,17 @@ class Team implements ObjectMapper
                 after_url:
 
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\License', $exception, stack: $this->hydrationStack);
             }
             
             if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License::class, $missingFields, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\License::class, $missingFields, stack: $this->hydrationStack);
             }
             
             try {
-                return new \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License(...$properties);
+                return new \ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\License(...$properties);
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\License', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -1669,7 +1669,7 @@ class Team implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -1746,7 +1746,7 @@ class Team implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1757,7 +1757,7 @@ class Team implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -1891,7 +1891,7 @@ class Team implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions
         {
             $properties = []; 
             $missingFields = [];
@@ -1900,7 +1900,7 @@ class Team implements ObjectMapper
                 $value = $payload['admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin';
+                    $properties['admin'] = null;
                     goto after_admin;
                 }
 
@@ -1922,7 +1922,7 @@ class Team implements ObjectMapper
                 $value = $payload['pull'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull';
+                    $properties['pull'] = null;
                     goto after_pull;
                 }
 
@@ -1933,7 +1933,7 @@ class Team implements ObjectMapper
                 $value = $payload['push'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'push';
+                    $properties['push'] = null;
                     goto after_push;
                 }
 
@@ -1953,17 +1953,17 @@ class Team implements ObjectMapper
                 after_triage:
 
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions', $exception, stack: $this->hydrationStack);
             }
             
             if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
             }
             
             try {
-                return new \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions(...$properties);
+                return new \ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions(...$properties);
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -1977,7 +1977,7 @@ class Team implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1988,7 +1988,7 @@ class Team implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -1999,7 +1999,7 @@ class Team implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -2010,7 +2010,7 @@ class Team implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -2021,7 +2021,7 @@ class Team implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -2032,7 +2032,7 @@ class Team implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -2043,7 +2043,7 @@ class Team implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -2054,7 +2054,7 @@ class Team implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -2065,7 +2065,7 @@ class Team implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -2076,7 +2076,7 @@ class Team implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -2087,7 +2087,7 @@ class Team implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -2098,7 +2098,7 @@ class Team implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -2109,7 +2109,7 @@ class Team implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -2120,7 +2120,7 @@ class Team implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -2131,7 +2131,7 @@ class Team implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -2142,7 +2142,7 @@ class Team implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -2153,7 +2153,7 @@ class Team implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -2164,7 +2164,7 @@ class Team implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -2175,7 +2175,7 @@ class Team implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -2186,7 +2186,7 @@ class Team implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -2241,7 +2241,7 @@ class Team implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -2263,7 +2263,7 @@ class Team implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -2285,7 +2285,7 @@ class Team implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -2307,7 +2307,7 @@ class Team implements ObjectMapper
                 $value = $payload['parent'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'parent';
+                    $properties['parent'] = null;
                     goto after_parent;
                 }
 
@@ -2404,7 +2404,7 @@ class Team implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -2415,7 +2415,7 @@ class Team implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -2426,7 +2426,7 @@ class Team implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -2437,7 +2437,7 @@ class Team implements ObjectMapper
                 $value = $payload['members_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'members_url';
+                    $properties['members_url'] = null;
                     goto after_members_url;
                 }
 
@@ -2448,7 +2448,7 @@ class Team implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -2459,7 +2459,7 @@ class Team implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -2470,7 +2470,7 @@ class Team implements ObjectMapper
                 $value = $payload['permission'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'permission';
+                    $properties['permission'] = null;
                     goto after_permission;
                 }
 
@@ -2481,7 +2481,7 @@ class Team implements ObjectMapper
                 $value = $payload['privacy'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'privacy';
+                    $properties['privacy'] = null;
                     goto after_privacy;
                 }
 
@@ -2492,7 +2492,7 @@ class Team implements ObjectMapper
                 $value = $payload['repositories_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repositories_url';
+                    $properties['repositories_url'] = null;
                     goto after_repositories_url;
                 }
 
@@ -2503,7 +2503,7 @@ class Team implements ObjectMapper
                 $value = $payload['slug'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'slug';
+                    $properties['slug'] = null;
                     goto after_slug;
                 }
 
@@ -2514,7 +2514,7 @@ class Team implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -2547,7 +2547,7 @@ class Team implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -2598,7 +2598,7 @@ class Team implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization';
+                    $properties['organization'] = null;
                     goto after_organization;
                 }
 
@@ -2638,7 +2638,7 @@ class Team implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -2658,7 +2658,7 @@ class Team implements ObjectMapper
                 $value = $payload['team'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'team';
+                    $properties['team'] = null;
                     goto after_team;
                 }
 
@@ -2700,7 +2700,7 @@ class Team implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -2751,7 +2751,7 @@ class Team implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization';
+                    $properties['organization'] = null;
                     goto after_organization;
                 }
 
@@ -2811,7 +2811,7 @@ class Team implements ObjectMapper
                 $value = $payload['team'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'team';
+                    $properties['team'] = null;
                     goto after_team;
                 }
 
@@ -2853,7 +2853,7 @@ class Team implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -2864,7 +2864,7 @@ class Team implements ObjectMapper
                 $value = $payload['changes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'changes';
+                    $properties['changes'] = null;
                     goto after_changes;
                 }
 
@@ -2924,7 +2924,7 @@ class Team implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization';
+                    $properties['organization'] = null;
                     goto after_organization;
                 }
 
@@ -2964,7 +2964,7 @@ class Team implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -2984,7 +2984,7 @@ class Team implements ObjectMapper
                 $value = $payload['team'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'team';
+                    $properties['team'] = null;
                     goto after_team;
                 }
 
@@ -3026,7 +3026,7 @@ class Team implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -3046,7 +3046,7 @@ class Team implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -3066,7 +3066,7 @@ class Team implements ObjectMapper
                 $value = $payload['privacy'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'privacy';
+                    $properties['privacy'] = null;
                     goto after_privacy;
                 }
 
@@ -3086,7 +3086,7 @@ class Team implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -3128,7 +3128,7 @@ class Team implements ObjectMapper
                 $value = $payload['from'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'from';
+                    $properties['from'] = null;
                     goto after_from;
                 }
 
@@ -3161,7 +3161,7 @@ class Team implements ObjectMapper
                 $value = $payload['from'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'from';
+                    $properties['from'] = null;
                     goto after_from;
                 }
 
@@ -3194,7 +3194,7 @@ class Team implements ObjectMapper
                 $value = $payload['from'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'from';
+                    $properties['from'] = null;
                     goto after_from;
                 }
 
@@ -3227,7 +3227,7 @@ class Team implements ObjectMapper
                 $value = $payload['permissions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'permissions';
+                    $properties['permissions'] = null;
                     goto after_permissions;
                 }
 
@@ -3269,7 +3269,7 @@ class Team implements ObjectMapper
                 $value = $payload['from'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'from';
+                    $properties['from'] = null;
                     goto after_from;
                 }
 
@@ -3311,7 +3311,7 @@ class Team implements ObjectMapper
                 $value = $payload['admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin';
+                    $properties['admin'] = null;
                     goto after_admin;
                 }
 
@@ -3322,7 +3322,7 @@ class Team implements ObjectMapper
                 $value = $payload['pull'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull';
+                    $properties['pull'] = null;
                     goto after_pull;
                 }
 
@@ -3333,7 +3333,7 @@ class Team implements ObjectMapper
                 $value = $payload['push'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'push';
+                    $properties['push'] = null;
                     goto after_push;
                 }
 
@@ -3366,7 +3366,7 @@ class Team implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -3417,7 +3417,7 @@ class Team implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization';
+                    $properties['organization'] = null;
                     goto after_organization;
                 }
 
@@ -3457,7 +3457,7 @@ class Team implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -3477,7 +3477,7 @@ class Team implements ObjectMapper
                 $value = $payload['team'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'team';
+                    $properties['team'] = null;
                     goto after_team;
                 }
 
@@ -3525,9 +3525,9 @@ class Team implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($object),
                 'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository($object),
-                'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License($object),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License($object),
                 'ApiClients\Client\GitHubAE\Schema\Discussion\AnswerChosenBy' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️AnswerChosenBy($object),
-                'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions($object),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions($object),
                 'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($object),
@@ -4279,7 +4279,7 @@ class Team implements ObjectMapper
         if ($license === null) {
             goto after_license;
         }
-        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License($license);
+        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License($license);
         after_license:        $result['license'] = $license;
 
         
@@ -4365,7 +4365,7 @@ class Team implements ObjectMapper
 
         
         $permissions = $object->permissions;
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -4565,9 +4565,9 @@ class Team implements ObjectMapper
     }
 
     
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\License);
         $result = [];
         
         $key = $object->key;
@@ -4719,9 +4719,9 @@ class Team implements ObjectMapper
     }
 
     
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions);
         $result = [];
         
         $admin = $object->admin;

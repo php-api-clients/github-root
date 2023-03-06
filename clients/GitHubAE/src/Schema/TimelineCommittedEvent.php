@@ -13,44 +13,14 @@ final readonly class TimelineCommittedEvent
     public const SCHEMA_TITLE = 'Timeline Committed Event';
     public const SCHEMA_DESCRIPTION = 'Timeline Committed Event';
     public const SCHEMA_EXAMPLE_DATA = '{"event":"generated_event","sha":"7638417db6d59f3c431d3e1f261cc637155684cd","node_id":"generated_node_id","url":"generated_url","author":{"date":"2014-08-09T08:02:04+12:00","email":"monalisa.octocat@example.com","name":"Monalisa Octocat"},"committer":{"date":"2014-08-09T08:02:04+12:00","email":"monalisa.octocat@example.com","name":"Monalisa Octocat"},"message":"Fix #42","tree":{"sha":"7638417db6d59f3c431d3e1f261cc637155684cd","url":"generated_url"},"parents":[{"sha":"7638417db6d59f3c431d3e1f261cc637155684cd","url":"generated_url","html_url":"generated_html_url"}],"verification":{"verified":false,"reason":"generated_reason","signature":"generated_signature","payload":"generated_payload"},"html_url":"generated_html_url"}';
-    public string $event;
     /**
-     * SHA for the commit
+     * sha: SHA for the commit
+     * author: Identifying information for the git-user
+     * committer: Identifying information for the git-user
+     * message: Message describing the purpose of the commit
+     * @param ?array<\ApiClients\Client\GitHubAE\Schema\GitCommit\Parents> $parents
      */
-    public ?string $sha;
-    public ?string $node_id;
-    public ?string $url;
-    /**
-     * Identifying information for the git-user
-     */
-    public ?Schema\GitCommit\Author $author;
-    /**
-     * Identifying information for the git-user
-     */
-    public ?Schema\GitCommit\Author $committer;
-    /**
-     * Message describing the purpose of the commit
-     */
-    public ?string $message;
-    public ?Schema\GitCommit\Tree $tree;
-    /**
-     * @var array<Schema\GitCommit\Parents>
-     */
-    public ?array $parents;
-    public ?Schema\GitCommit\Verification $verification;
-    public ?string $html_url;
-    public function __construct(string $event, string $sha, string $node_id, string $url, Schema\GitCommit\Author $author, Schema\GitCommit\Author $committer, string $message, Schema\GitCommit\Tree $tree, array $parents, Schema\GitCommit\Verification $verification, string $html_url)
+    public function __construct(public string $event, public ?string $sha, public ?string $node_id, public ?string $url, public ?Schema\GitCommit\Author $author, public ?Schema\GitCommit\Author $committer, public ?string $message, public ?Schema\GitCommit\Tree $tree, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\GitCommit\Parents::class)] public ?array $parents, public ?Schema\GitCommit\Verification $verification, public ?string $html_url)
     {
-        $this->event = $event;
-        $this->sha = $sha;
-        $this->node_id = $node_id;
-        $this->url = $url;
-        $this->author = $author;
-        $this->committer = $committer;
-        $this->message = $message;
-        $this->tree = $tree;
-        $this->parents = $parents;
-        $this->verification = $verification;
-        $this->html_url = $html_url;
     }
 }

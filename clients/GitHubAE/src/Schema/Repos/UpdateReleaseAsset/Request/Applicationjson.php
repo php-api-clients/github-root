@@ -14,18 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","label":"generated_label","state":"\\"uploaded\\""}';
     /**
-     * The file name of the asset.
+     * name: The file name of the asset.
+     * label: An alternate short description of the asset. Used in place of the filename.
      */
-    public ?string $name;
-    /**
-     * An alternate short description of the asset. Used in place of the filename.
-     */
-    public ?string $label;
-    public ?string $state;
-    public function __construct(string $name, string $label, string $state)
+    public function __construct(public ?string $name, public ?string $label, public ?string $state)
     {
-        $this->name = $name;
-        $this->label = $label;
-        $this->state = $state;
     }
 }

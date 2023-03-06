@@ -14,12 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"assignees":["generated_assignees"]}';
     /**
-     * Usernames of people to assign this issue to. _NOTE: Only users with push access can add assignees to an issue. Assignees are silently ignored otherwise._
-     * @var array<string>
+     * assignees: Usernames of people to assign this issue to. _NOTE: Only users with push access can add assignees to an issue. Assignees are silently ignored otherwise._
+     * @param ?array<string> $assignees
      */
-    public ?array $assignees;
-    public function __construct(array $assignees)
+    public function __construct(public ?array $assignees)
     {
-        $this->assignees = $assignees;
     }
 }

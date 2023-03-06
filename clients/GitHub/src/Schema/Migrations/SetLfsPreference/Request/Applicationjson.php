@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"use_lfs":"generated_use_lfs"}';
     /**
-     * Whether to store large files during the import. `opt_in` means large files will be stored using Git LFS. `opt_out` means large files will be removed during the import.
+     * use_lfs: Whether to store large files during the import. `opt_in` means large files will be stored using Git LFS. `opt_out` means large files will be removed during the import.
      */
-    public ?string $use_lfs;
-    public function __construct(string $use_lfs)
+    public function __construct(public ?string $use_lfs)
     {
-        $this->use_lfs = $use_lfs;
     }
 }

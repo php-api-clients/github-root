@@ -14,16 +14,10 @@ final readonly class Cvss
     public const SCHEMA_DESCRIPTION = 'Details for the advisory pertaining to the Common Vulnerability Scoring System.';
     public const SCHEMA_EXAMPLE_DATA = '{"score":13,"vector_string":"generated_vector_string"}';
     /**
-     * The overall CVSS score of the advisory.
+     * score: The overall CVSS score of the advisory.
+     * vector_string: The full CVSS vector string for the advisory.
      */
-    public ?int $score;
-    /**
-     * The full CVSS vector string for the advisory.
-     */
-    public ?string $vector_string;
-    public function __construct(int $score, string $vector_string)
+    public function __construct(public ?int $score, public ?string $vector_string)
     {
-        $this->score = $score;
-        $this->vector_string = $vector_string;
     }
 }

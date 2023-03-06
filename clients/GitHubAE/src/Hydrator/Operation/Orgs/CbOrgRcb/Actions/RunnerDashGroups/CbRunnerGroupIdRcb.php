@@ -38,7 +38,7 @@ class CbRunnerGroupIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -49,7 +49,7 @@ class CbRunnerGroupIdRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -60,7 +60,7 @@ class CbRunnerGroupIdRcb implements ObjectMapper
                 $value = $payload['visibility'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'visibility';
+                    $properties['visibility'] = null;
                     goto after_visibility;
                 }
 
@@ -71,7 +71,7 @@ class CbRunnerGroupIdRcb implements ObjectMapper
                 $value = $payload['default'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default';
+                    $properties['default'] = null;
                     goto after_default;
                 }
 
@@ -93,7 +93,7 @@ class CbRunnerGroupIdRcb implements ObjectMapper
                 $value = $payload['runners_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'runners_url';
+                    $properties['runners_url'] = null;
                     goto after_runners_url;
                 }
 
@@ -104,7 +104,7 @@ class CbRunnerGroupIdRcb implements ObjectMapper
                 $value = $payload['inherited'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'inherited';
+                    $properties['inherited'] = null;
                     goto after_inherited;
                 }
 
@@ -126,7 +126,7 @@ class CbRunnerGroupIdRcb implements ObjectMapper
                 $value = $payload['allows_public_repositories'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allows_public_repositories';
+                    $properties['allows_public_repositories'] = null;
                     goto after_allows_public_repositories;
                 }
 

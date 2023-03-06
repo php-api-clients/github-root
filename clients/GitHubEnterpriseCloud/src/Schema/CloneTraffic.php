@@ -13,16 +13,10 @@ final readonly class CloneTraffic
     public const SCHEMA_TITLE = 'Clone Traffic';
     public const SCHEMA_DESCRIPTION = 'Clone Traffic';
     public const SCHEMA_EXAMPLE_DATA = '{"count":173,"uniques":128,"clones":[{"timestamp":"generated_timestamp","uniques":13,"count":13}]}';
-    public ?int $count;
-    public ?int $uniques;
     /**
-     * @var array<Schema\Traffic>
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\Traffic> $clones
      */
-    public ?array $clones;
-    public function __construct(int $count, int $uniques, array $clones)
+    public function __construct(public ?int $count, public ?int $uniques, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Traffic::class)] public ?array $clones)
     {
-        $this->count = $count;
-        $this->uniques = $uniques;
-        $this->clones = $clones;
     }
 }

@@ -13,14 +13,10 @@ final readonly class H200
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_count":13,"runner_groups":[{"id":13,"name":"generated_name","visibility":"generated_visibility","default":false,"selected_organizations_url":"generated_selected_organizations_url","runners_url":"generated_runners_url","allows_public_repositories":false,"workflow_restrictions_read_only":false,"restricted_to_workflows":false,"selected_workflows":["generated_selected_workflows"]}]}';
-    public ?int $total_count;
     /**
-     * @var array<Schema\RunnerGroupsEnterprise>
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise> $runner_groups
      */
-    public ?array $runner_groups;
-    public function __construct(int $total_count, array $runner_groups)
+    public function __construct(public ?int $total_count, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\RunnerGroupsEnterprise::class)] public ?array $runner_groups)
     {
-        $this->total_count = $total_count;
-        $this->runner_groups = $runner_groups;
     }
 }

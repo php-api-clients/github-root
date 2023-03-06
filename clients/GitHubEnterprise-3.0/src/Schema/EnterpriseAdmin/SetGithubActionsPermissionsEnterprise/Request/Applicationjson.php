@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enabled_organizations":"generated_enabled_organizations","allowed_actions":"generated_allowed_actions"}';
     /**
-     * The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+     * enabled_organizations: The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+     * allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
      */
-    public ?string $enabled_organizations;
-    /**
-     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
-     */
-    public string $allowed_actions;
-    public function __construct(string $enabled_organizations, string $allowed_actions)
+    public function __construct(public ?string $enabled_organizations, public string $allowed_actions)
     {
-        $this->enabled_organizations = $enabled_organizations;
-        $this->allowed_actions = $allowed_actions;
     }
 }

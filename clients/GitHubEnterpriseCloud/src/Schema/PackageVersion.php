@@ -14,34 +14,10 @@ final readonly class PackageVersion
     public const SCHEMA_DESCRIPTION = 'A version of a software package';
     public const SCHEMA_EXAMPLE_DATA = '{"id":1,"name":"latest","url":"https:\\/\\/api.github.com\\/orgs\\/github\\/packages\\/container\\/super-linter\\/versions\\/786068","package_html_url":"https:\\/\\/github.com\\/orgs\\/github\\/packages\\/container\\/package\\/super-linter","html_url":"https:\\/\\/github.com\\/orgs\\/github\\/packages\\/container\\/super-linter\\/786068","license":"MIT","description":"generated_description","created_at":"2011-04-10T20:09:31Z","updated_at":"2014-03-03T18:58:10Z","deleted_at":"2014-03-03T18:58:10Z","metadata":{"package_type":"docker","container":{"tags":["generated_tags"]},"docker":{"tag":["generated_tag"]}}}';
     /**
-     * Unique identifier of the package version.
+     * id: Unique identifier of the package version.
+     * name: The name of the package version.
      */
-    public ?int $id;
-    /**
-     * The name of the package version.
-     */
-    public ?string $name;
-    public ?string $url;
-    public ?string $package_html_url;
-    public string $html_url;
-    public string $license;
-    public string $description;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public string $deleted_at;
-    public Schema\PackageVersion\Metadata $metadata;
-    public function __construct(int $id, string $name, string $url, string $package_html_url, string $html_url, string $license, string $description, string $created_at, string $updated_at, string $deleted_at, Schema\PackageVersion\Metadata $metadata)
+    public function __construct(public ?int $id, public ?string $name, public ?string $url, public ?string $package_html_url, public string $html_url, public string $license, public string $description, public ?string $created_at, public ?string $updated_at, public string $deleted_at, public Schema\PackageVersion\Metadata $metadata)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->url = $url;
-        $this->package_html_url = $package_html_url;
-        $this->html_url = $html_url;
-        $this->license = $license;
-        $this->description = $description;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->deleted_at = $deleted_at;
-        $this->metadata = $metadata;
     }
 }

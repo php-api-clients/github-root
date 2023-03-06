@@ -39,7 +39,7 @@ class Actions implements ObjectMapper
                 $value = $payload['total_minutes_used'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_minutes_used';
+                    $properties['total_minutes_used'] = null;
                     goto after_total_minutes_used;
                 }
 
@@ -50,7 +50,7 @@ class Actions implements ObjectMapper
                 $value = $payload['total_paid_minutes_used'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_paid_minutes_used';
+                    $properties['total_paid_minutes_used'] = null;
                     goto after_total_paid_minutes_used;
                 }
 
@@ -61,7 +61,7 @@ class Actions implements ObjectMapper
                 $value = $payload['included_minutes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'included_minutes';
+                    $properties['included_minutes'] = null;
                     goto after_included_minutes;
                 }
 
@@ -72,7 +72,7 @@ class Actions implements ObjectMapper
                 $value = $payload['minutes_used_breakdown'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'minutes_used_breakdown';
+                    $properties['minutes_used_breakdown'] = null;
                     goto after_minutes_used_breakdown;
                 }
 
@@ -114,7 +114,7 @@ class Actions implements ObjectMapper
                 $value = $payload['u_b_u_n_t_u'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'u_b_u_n_t_u';
+                    $properties['UBUNTU'] = null;
                     goto after_UBUNTU;
                 }
 
@@ -125,7 +125,7 @@ class Actions implements ObjectMapper
                 $value = $payload['m_a_c_o_s'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'm_a_c_o_s';
+                    $properties['MACOS'] = null;
                     goto after_MACOS;
                 }
 
@@ -136,7 +136,7 @@ class Actions implements ObjectMapper
                 $value = $payload['w_i_n_d_o_w_s'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'w_i_n_d_o_w_s';
+                    $properties['WINDOWS'] = null;
                     goto after_WINDOWS;
                 }
 
@@ -147,7 +147,7 @@ class Actions implements ObjectMapper
                 $value = $payload['ubuntu_4_core'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ubuntu_4_core';
+                    $properties['ubuntu_4_core'] = null;
                     goto after_ubuntu_4_core;
                 }
 
@@ -158,7 +158,7 @@ class Actions implements ObjectMapper
                 $value = $payload['ubuntu_8_core'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ubuntu_8_core';
+                    $properties['ubuntu_8_core'] = null;
                     goto after_ubuntu_8_core;
                 }
 
@@ -169,7 +169,7 @@ class Actions implements ObjectMapper
                 $value = $payload['ubuntu_16_core'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ubuntu_16_core';
+                    $properties['ubuntu_16_core'] = null;
                     goto after_ubuntu_16_core;
                 }
 
@@ -180,7 +180,7 @@ class Actions implements ObjectMapper
                 $value = $payload['ubuntu_32_core'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ubuntu_32_core';
+                    $properties['ubuntu_32_core'] = null;
                     goto after_ubuntu_32_core;
                 }
 
@@ -191,7 +191,7 @@ class Actions implements ObjectMapper
                 $value = $payload['ubuntu_64_core'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ubuntu_64_core';
+                    $properties['ubuntu_64_core'] = null;
                     goto after_ubuntu_64_core;
                 }
 
@@ -202,7 +202,7 @@ class Actions implements ObjectMapper
                 $value = $payload['windows_4_core'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'windows_4_core';
+                    $properties['windows_4_core'] = null;
                     goto after_windows_4_core;
                 }
 
@@ -213,7 +213,7 @@ class Actions implements ObjectMapper
                 $value = $payload['windows_8_core'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'windows_8_core';
+                    $properties['windows_8_core'] = null;
                     goto after_windows_8_core;
                 }
 
@@ -224,7 +224,7 @@ class Actions implements ObjectMapper
                 $value = $payload['windows_16_core'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'windows_16_core';
+                    $properties['windows_16_core'] = null;
                     goto after_windows_16_core;
                 }
 
@@ -235,7 +235,7 @@ class Actions implements ObjectMapper
                 $value = $payload['windows_32_core'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'windows_32_core';
+                    $properties['windows_32_core'] = null;
                     goto after_windows_32_core;
                 }
 
@@ -246,7 +246,7 @@ class Actions implements ObjectMapper
                 $value = $payload['windows_64_core'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'windows_64_core';
+                    $properties['windows_64_core'] = null;
                     goto after_windows_64_core;
                 }
 
@@ -257,7 +257,7 @@ class Actions implements ObjectMapper
                 $value = $payload['macos_12_core'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'macos_12_core';
+                    $properties['macos_12_core'] = null;
                     goto after_macos_12_core;
                 }
 
@@ -268,7 +268,7 @@ class Actions implements ObjectMapper
                 $value = $payload['total'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total';
+                    $properties['total'] = null;
                     goto after_total;
                 }
 

@@ -14,21 +14,11 @@ final readonly class PageDeployment
     public const SCHEMA_DESCRIPTION = 'The GitHub Pages deployment status.';
     public const SCHEMA_EXAMPLE_DATA = '{"status_url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/pages\\/deployments\\/4fd754f7e594640989b406850d0bc8f06a121251\\/status","page_url":"hello-world.github.io","preview_url":"monalisa-1231a2312sa32-23sda74.drafts.github.io"}';
     /**
-     * The URI to monitor GitHub Pages deployment status.
+     * status_url: The URI to monitor GitHub Pages deployment status.
+     * page_url: The URI to the deployed GitHub Pages.
+     * preview_url: The URI to the deployed GitHub Pages preview.
      */
-    public ?string $status_url;
-    /**
-     * The URI to the deployed GitHub Pages.
-     */
-    public ?string $page_url;
-    /**
-     * The URI to the deployed GitHub Pages preview.
-     */
-    public string $preview_url;
-    public function __construct(string $status_url, string $page_url, string $preview_url)
+    public function __construct(public ?string $status_url, public ?string $page_url, public string $preview_url)
     {
-        $this->status_url = $status_url;
-        $this->page_url = $page_url;
-        $this->preview_url = $preview_url;
     }
 }

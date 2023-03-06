@@ -14,17 +14,11 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"schemas":["generated_schemas"],"Operations":[{"op":"replace","path":"generated_path","value":{"active":false}}]}';
     /**
-     * @var array<string>
+     * @param array<string> $schemas
+     * Operations: Set of operations to be performed
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\Scim\UpdateAttributeForUser\Request\Applicationjson\Operations> $Operations
      */
-    public array $schemas;
-    /**
-     * Set of operations to be performed
-     * @var array<Schema\Scim\UpdateAttributeForUser\Request\Applicationjson\Operations>
-     */
-    public ?array $Operations;
-    public function __construct(array $schemas, array $Operations)
+    public function __construct(public array $schemas, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Scim\UpdateAttributeForUser\Request\Applicationjson\Operations::class)] public ?array $Operations)
     {
-        $this->schemas = $schemas;
-        $this->Operations = $Operations;
     }
 }

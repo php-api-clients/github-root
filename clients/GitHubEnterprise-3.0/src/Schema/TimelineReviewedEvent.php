@@ -13,50 +13,14 @@ final readonly class TimelineReviewedEvent
     public const SCHEMA_TITLE = 'Timeline Reviewed Event';
     public const SCHEMA_DESCRIPTION = 'Timeline Reviewed Event';
     public const SCHEMA_EXAMPLE_DATA = '{"event":"generated_event","id":42,"node_id":"MDE3OlB1bGxSZXF1ZXN0UmV2aWV3ODA=","user":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"body":"This looks great.","state":"CHANGES_REQUESTED","html_url":"https:\\/\\/github.com\\/octocat\\/Hello-World\\/pull\\/12#pullrequestreview-80","pull_request_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/12","_links":{"html":{"href":"generated_href"},"pull_request":{"href":"generated_href"}},"submitted_at":"generated_submitted_at","commit_id":"54bb654c9e6025347f57900a4a5c2313a96b8035","body_html":"generated_body_html","body_text":"generated_body_text","author_association":"OWNER"}';
-    public ?string $event;
     /**
-     * Unique identifier of the review
+     * id: Unique identifier of the review
+     * user: Simple User
+     * body: The text of the review.
+     * commit_id: A commit SHA for the review.
+     * author_association: How the author is associated with the repository.
      */
-    public ?int $id;
-    public ?string $node_id;
-    /**
-     * Simple User
-     */
-    public ?Schema\SimpleUser $user;
-    /**
-     * The text of the review.
-     */
-    public ?string $body;
-    public ?string $state;
-    public ?string $html_url;
-    public ?string $pull_request_url;
-    public ?Schema\TimelineReviewedEvent\Links $_links;
-    public string $submitted_at;
-    /**
-     * A commit SHA for the review.
-     */
-    public ?string $commit_id;
-    public string $body_html;
-    public string $body_text;
-    /**
-     * How the author is associated with the repository.
-     */
-    public ?string $author_association;
-    public function __construct(string $event, int $id, string $node_id, Schema\SimpleUser $user, string $body, string $state, string $html_url, string $pull_request_url, Schema\TimelineReviewedEvent\Links $_links, string $submitted_at, string $commit_id, string $body_html, string $body_text, string $author_association)
+    public function __construct(public ?string $event, public ?int $id, public ?string $node_id, public ?Schema\SimpleUser $user, public ?string $body, public ?string $state, public ?string $html_url, public ?string $pull_request_url, public ?Schema\TimelineReviewedEvent\Links $_links, public string $submitted_at, public ?string $commit_id, public string $body_html, public string $body_text, public ?string $author_association)
     {
-        $this->event = $event;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->user = $user;
-        $this->body = $body;
-        $this->state = $state;
-        $this->html_url = $html_url;
-        $this->pull_request_url = $pull_request_url;
-        $this->_links = $_links;
-        $this->submitted_at = $submitted_at;
-        $this->commit_id = $commit_id;
-        $this->body_html = $body_html;
-        $this->body_text = $body_text;
-        $this->author_association = $author_association;
     }
 }

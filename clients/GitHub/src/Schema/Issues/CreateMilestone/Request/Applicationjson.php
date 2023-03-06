@@ -14,26 +14,12 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"title":"generated_title","state":"generated_state","description":"generated_description","due_on":"generated_due_on"}';
     /**
-     * The title of the milestone.
+     * title: The title of the milestone.
+     * state: The state of the milestone. Either `open` or `closed`.
+     * description: A description of the milestone.
+     * due_on: The milestone due date. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
      */
-    public ?string $title;
-    /**
-     * The state of the milestone. Either `open` or `closed`.
-     */
-    public string $state;
-    /**
-     * A description of the milestone.
-     */
-    public string $description;
-    /**
-     * The milestone due date. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public string $due_on;
-    public function __construct(string $title, string $state, string $description, string $due_on)
+    public function __construct(public ?string $title, public string $state, public string $description, public string $due_on)
     {
-        $this->title = $title;
-        $this->state = $state;
-        $this->description = $description;
-        $this->due_on = $due_on;
     }
 }

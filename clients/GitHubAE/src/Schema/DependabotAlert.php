@@ -14,73 +14,21 @@ final readonly class DependabotAlert
     public const SCHEMA_DESCRIPTION = 'A Dependabot alert.';
     public const SCHEMA_EXAMPLE_DATA = '{"number":13,"state":"generated_state","dependency":{"package":{"ecosystem":"generated_ecosystem","name":"generated_name"},"manifest_path":"generated_manifest_path","scope":"generated_scope"},"security_advisory":{"ghsa_id":"generated_ghsa_id","cve_id":"generated_cve_id","summary":"generated_summary","description":"generated_description","vulnerabilities":[{"package":{"ecosystem":"generated_ecosystem","name":"generated_name"},"severity":"generated_severity","vulnerable_version_range":"generated_vulnerable_version_range","first_patched_version":{"identifier":"generated_identifier"}}],"severity":"generated_severity","cvss":{"score":13,"vector_string":"generated_vector_string"},"cwes":[{"cwe_id":"generated_cwe_id","name":"generated_name"}],"identifiers":[{"type":"generated_type","value":"generated_value"}],"references":[{"url":"generated_url"}],"published_at":"generated_published_at","updated_at":"generated_updated_at","withdrawn_at":"generated_withdrawn_at"},"security_vulnerability":{"package":{"ecosystem":"generated_ecosystem","name":"generated_name"},"severity":"generated_severity","vulnerable_version_range":"generated_vulnerable_version_range","first_patched_version":{"identifier":"generated_identifier"}},"url":"generated_url","html_url":"generated_html_url","created_at":"generated_created_at","updated_at":"generated_updated_at","dismissed_at":"generated_dismissed_at","dismissed_by":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"dismissed_reason":"generated_dismissed_reason","dismissed_comment":"generated_dismissed_comment","fixed_at":"generated_fixed_at"}';
     /**
-     * The security alert number.
+     * number: The security alert number.
+     * state: The state of the Dependabot alert.
+     * dependency: Details for the vulnerable dependency.
+     * security_advisory: Details for the GitHub Security Advisory.
+     * security_vulnerability: Details pertaining to one vulnerable version range for the advisory.
+     * url: The REST API URL of the alert resource.
+     * html_url: The GitHub URL of the alert resource.
+     * created_at: The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     * updated_at: The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     * dismissed_at: The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     * dismissed_reason: The reason that the alert was dismissed.
+     * dismissed_comment: An optional comment associated with the alert's dismissal.
+     * fixed_at: The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
      */
-    public ?int $number;
-    /**
-     * The state of the Dependabot alert.
-     */
-    public ?string $state;
-    /**
-     * Details for the vulnerable dependency.
-     */
-    public ?Schema\DependabotAlert\Dependency $dependency;
-    /**
-     * Details for the GitHub Security Advisory.
-     */
-    public ?Schema\DependabotAlertSecurityAdvisory $security_advisory;
-    /**
-     * Details pertaining to one vulnerable version range for the advisory.
-     */
-    public ?Schema\DependabotAlertSecurityVulnerability $security_vulnerability;
-    /**
-     * The REST API URL of the alert resource.
-     */
-    public ?string $url;
-    /**
-     * The GitHub URL of the alert resource.
-     */
-    public ?string $html_url;
-    /**
-     * The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $created_at;
-    /**
-     * The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $updated_at;
-    /**
-     * The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $dismissed_at;
-    public ?Schema\SimpleUser $dismissed_by;
-    /**
-     * The reason that the alert was dismissed.
-     */
-    public ?string $dismissed_reason;
-    /**
-     * An optional comment associated with the alert's dismissal.
-     */
-    public ?string $dismissed_comment;
-    /**
-     * The time that the alert was no longer detected and was considered fixed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $fixed_at;
-    public function __construct(int $number, string $state, Schema\DependabotAlert\Dependency $dependency, Schema\DependabotAlertSecurityAdvisory $security_advisory, Schema\DependabotAlertSecurityVulnerability $security_vulnerability, string $url, string $html_url, string $created_at, string $updated_at, string $dismissed_at, Schema\SimpleUser $dismissed_by, string $dismissed_reason, string $dismissed_comment, string $fixed_at)
+    public function __construct(public ?int $number, public ?string $state, public ?Schema\DependabotAlert\Dependency $dependency, public ?Schema\DependabotAlertSecurityAdvisory $security_advisory, public ?Schema\DependabotAlertSecurityVulnerability $security_vulnerability, public ?string $url, public ?string $html_url, public ?string $created_at, public ?string $updated_at, public ?string $dismissed_at, public ?Schema\SimpleUser $dismissed_by, public ?string $dismissed_reason, public ?string $dismissed_comment, public ?string $fixed_at)
     {
-        $this->number = $number;
-        $this->state = $state;
-        $this->dependency = $dependency;
-        $this->security_advisory = $security_advisory;
-        $this->security_vulnerability = $security_vulnerability;
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->dismissed_at = $dismissed_at;
-        $this->dismissed_by = $dismissed_by;
-        $this->dismissed_reason = $dismissed_reason;
-        $this->dismissed_comment = $dismissed_comment;
-        $this->fixed_at = $fixed_at;
     }
 }

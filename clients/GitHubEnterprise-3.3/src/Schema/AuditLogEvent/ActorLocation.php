@@ -13,9 +13,7 @@ final readonly class ActorLocation
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"country_name":"generated_country_name"}';
-    public ?string $country_name;
-    public function __construct(string $country_name)
+    public function __construct(public ?string $country_name)
     {
-        $this->country_name = $country_name;
     }
 }

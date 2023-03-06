@@ -13,17 +13,7 @@ final readonly class Registry
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"about_url":"generated_about_url","name":"generated_name","type":"generated_type","url":"generated_url","vendor":"generated_vendor"}';
-    public ?string $about_url;
-    public ?string $name;
-    public ?string $type;
-    public ?string $url;
-    public ?string $vendor;
-    public function __construct(string $about_url, string $name, string $type, string $url, string $vendor)
+    public function __construct(public ?string $about_url, public ?string $name, public ?string $type, public ?string $url, public ?string $vendor)
     {
-        $this->about_url = $about_url;
-        $this->name = $name;
-        $this->type = $type;
-        $this->url = $url;
-        $this->vendor = $vendor;
     }
 }

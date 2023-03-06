@@ -52,16 +52,11 @@ class Discussion implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionEdited\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionEdited⚡️Changes($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionCommentEdited\Changes\Body' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionCommentEdited⚡️Changes⚡️Body($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLabeled' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionLabeled($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLabeled\Discussion' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionLabeled⚡️Discussion($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLabeled\Label' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLocked' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionLocked($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionPinned' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionPinned($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewDiscussion' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewDiscussion($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionUnanswered' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionUnanswered($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionUnlabeled' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionUnlabeled($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionUnlocked' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionUnlocked($payload),
@@ -80,7 +75,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -91,7 +86,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['answer'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'answer';
+                    $properties['answer'] = null;
                     goto after_answer;
                 }
 
@@ -111,7 +106,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['discussion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussion';
+                    $properties['discussion'] = null;
                     goto after_discussion;
                 }
 
@@ -191,7 +186,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -211,7 +206,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -253,7 +248,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['author_association'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'author_association';
+                    $properties['author_association'] = null;
                     goto after_author_association;
                 }
 
@@ -264,7 +259,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['body'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'body';
+                    $properties['body'] = null;
                     goto after_body;
                 }
 
@@ -275,7 +270,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['child_comment_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'child_comment_count';
+                    $properties['child_comment_count'] = null;
                     goto after_child_comment_count;
                 }
 
@@ -286,7 +281,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -297,7 +292,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['discussion_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussion_id';
+                    $properties['discussion_id'] = null;
                     goto after_discussion_id;
                 }
 
@@ -308,7 +303,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -319,7 +314,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -330,7 +325,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -372,7 +367,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_url';
+                    $properties['repository_url'] = null;
                     goto after_repository_url;
                 }
 
@@ -383,7 +378,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -394,7 +389,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['user'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user';
+                    $properties['user'] = null;
                     goto after_user;
                 }
 
@@ -436,7 +431,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['__p_l_u_s_e_s_1'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = '__p_l_u_s_e_s_1';
+                    $properties['_PLUSES_1'] = null;
                     goto after__PLUSES_1;
                 }
 
@@ -447,7 +442,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['__m_i_n_u_s_1'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = '__m_i_n_u_s_1';
+                    $properties['_MINUS_1'] = null;
                     goto after__MINUS_1;
                 }
 
@@ -458,7 +453,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['confused'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'confused';
+                    $properties['confused'] = null;
                     goto after_confused;
                 }
 
@@ -469,7 +464,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['eyes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'eyes';
+                    $properties['eyes'] = null;
                     goto after_eyes;
                 }
 
@@ -480,7 +475,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['heart'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'heart';
+                    $properties['heart'] = null;
                     goto after_heart;
                 }
 
@@ -491,7 +486,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['hooray'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooray';
+                    $properties['hooray'] = null;
                     goto after_hooray;
                 }
 
@@ -502,7 +497,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['laugh'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'laugh';
+                    $properties['laugh'] = null;
                     goto after_laugh;
                 }
 
@@ -513,7 +508,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['rocket'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'rocket';
+                    $properties['rocket'] = null;
                     goto after_rocket;
                 }
 
@@ -524,7 +519,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -535,7 +530,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -590,7 +585,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -667,7 +662,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -678,7 +673,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -821,7 +816,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['active_lock_reason'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'active_lock_reason';
+                    $properties['active_lock_reason'] = null;
                     goto after_active_lock_reason;
                 }
 
@@ -832,7 +827,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['answer_chosen_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'answer_chosen_at';
+                    $properties['answer_chosen_at'] = null;
                     goto after_answer_chosen_at;
                 }
 
@@ -843,7 +838,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['answer_chosen_by'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'answer_chosen_by';
+                    $properties['answer_chosen_by'] = null;
                     goto after_answer_chosen_by;
                 }
 
@@ -863,7 +858,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['answer_html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'answer_html_url';
+                    $properties['answer_html_url'] = null;
                     goto after_answer_html_url;
                 }
 
@@ -874,7 +869,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['author_association'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'author_association';
+                    $properties['author_association'] = null;
                     goto after_author_association;
                 }
 
@@ -885,7 +880,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['body'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'body';
+                    $properties['body'] = null;
                     goto after_body;
                 }
 
@@ -896,7 +891,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['category'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'category';
+                    $properties['category'] = null;
                     goto after_category;
                 }
 
@@ -916,7 +911,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['comments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'comments';
+                    $properties['comments'] = null;
                     goto after_comments;
                 }
 
@@ -927,7 +922,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -938,7 +933,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -949,7 +944,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -960,7 +955,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['locked'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'locked';
+                    $properties['locked'] = null;
                     goto after_locked;
                 }
 
@@ -971,7 +966,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -982,7 +977,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['number'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'number';
+                    $properties['number'] = null;
                     goto after_number;
                 }
 
@@ -1013,7 +1008,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_url';
+                    $properties['repository_url'] = null;
                     goto after_repository_url;
                 }
 
@@ -1024,7 +1019,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'state';
+                    $properties['state'] = null;
                     goto after_state;
                 }
 
@@ -1046,7 +1041,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['title'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'title';
+                    $properties['title'] = null;
                     goto after_title;
                 }
 
@@ -1057,7 +1052,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -1068,7 +1063,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['user'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user';
+                    $properties['user'] = null;
                     goto after_user;
                 }
 
@@ -1110,7 +1105,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -1121,7 +1116,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -1132,7 +1127,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['emoji'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'emoji';
+                    $properties['emoji'] = null;
                     goto after_emoji;
                 }
 
@@ -1143,7 +1138,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1154,7 +1149,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['is_answerable'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_answerable';
+                    $properties['is_answerable'] = null;
                     goto after_is_answerable;
                 }
 
@@ -1165,7 +1160,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1187,7 +1182,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_id';
+                    $properties['repository_id'] = null;
                     goto after_repository_id;
                 }
 
@@ -1198,7 +1193,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['slug'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'slug';
+                    $properties['slug'] = null;
                     goto after_slug;
                 }
 
@@ -1209,7 +1204,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -1242,7 +1237,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -1253,7 +1248,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -1264,7 +1259,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['website_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'website_url';
+                    $properties['website_url'] = null;
                     goto after_website_url;
                 }
 
@@ -1275,7 +1270,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1286,7 +1281,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -1297,7 +1292,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1308,7 +1303,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['slug'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'slug';
+                    $properties['slug'] = null;
                     goto after_slug;
                 }
 
@@ -1319,7 +1314,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -1330,7 +1325,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -1341,7 +1336,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -1374,7 +1369,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1385,7 +1380,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -1418,7 +1413,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -1429,7 +1424,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1440,7 +1435,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -1451,7 +1446,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -1462,7 +1457,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -1473,7 +1468,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -1484,7 +1479,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -1495,7 +1490,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -1506,7 +1501,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['members_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'members_url';
+                    $properties['members_url'] = null;
                     goto after_members_url;
                 }
 
@@ -1517,7 +1512,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['public_members_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'public_members_url';
+                    $properties['public_members_url'] = null;
                     goto after_public_members_url;
                 }
 
@@ -1528,7 +1523,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -1539,7 +1534,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -1572,7 +1567,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1583,7 +1578,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -1594,7 +1589,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1605,7 +1600,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['full_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'full_name';
+                    $properties['full_name'] = null;
                     goto after_full_name;
                 }
 
@@ -1616,7 +1611,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'license';
+                    $properties['license'] = null;
                     goto after_license;
                 }
 
@@ -1656,7 +1651,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['forks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks';
+                    $properties['forks'] = null;
                     goto after_forks;
                 }
 
@@ -1687,7 +1682,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -1707,7 +1702,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['private'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'private';
+                    $properties['private'] = null;
                     goto after_private;
                 }
 
@@ -1718,7 +1713,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -1729,7 +1724,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -1740,7 +1735,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['fork'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'fork';
+                    $properties['fork'] = null;
                     goto after_fork;
                 }
 
@@ -1751,7 +1746,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -1762,7 +1757,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['archive_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archive_url';
+                    $properties['archive_url'] = null;
                     goto after_archive_url;
                 }
 
@@ -1773,7 +1768,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['assignees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees_url';
+                    $properties['assignees_url'] = null;
                     goto after_assignees_url;
                 }
 
@@ -1784,7 +1779,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['blobs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'blobs_url';
+                    $properties['blobs_url'] = null;
                     goto after_blobs_url;
                 }
 
@@ -1795,7 +1790,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['branches_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'branches_url';
+                    $properties['branches_url'] = null;
                     goto after_branches_url;
                 }
 
@@ -1806,7 +1801,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['collaborators_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'collaborators_url';
+                    $properties['collaborators_url'] = null;
                     goto after_collaborators_url;
                 }
 
@@ -1817,7 +1812,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['comments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'comments_url';
+                    $properties['comments_url'] = null;
                     goto after_comments_url;
                 }
 
@@ -1828,7 +1823,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commits_url';
+                    $properties['commits_url'] = null;
                     goto after_commits_url;
                 }
 
@@ -1839,7 +1834,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['compare_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'compare_url';
+                    $properties['compare_url'] = null;
                     goto after_compare_url;
                 }
 
@@ -1850,7 +1845,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['contents_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents_url';
+                    $properties['contents_url'] = null;
                     goto after_contents_url;
                 }
 
@@ -1861,7 +1856,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['contributors_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contributors_url';
+                    $properties['contributors_url'] = null;
                     goto after_contributors_url;
                 }
 
@@ -1872,7 +1867,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['deployments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments_url';
+                    $properties['deployments_url'] = null;
                     goto after_deployments_url;
                 }
 
@@ -1883,7 +1878,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['downloads_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'downloads_url';
+                    $properties['downloads_url'] = null;
                     goto after_downloads_url;
                 }
 
@@ -1894,7 +1889,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -1905,7 +1900,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['forks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_url';
+                    $properties['forks_url'] = null;
                     goto after_forks_url;
                 }
 
@@ -1916,7 +1911,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['git_commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_commits_url';
+                    $properties['git_commits_url'] = null;
                     goto after_git_commits_url;
                 }
 
@@ -1927,7 +1922,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['git_refs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_refs_url';
+                    $properties['git_refs_url'] = null;
                     goto after_git_refs_url;
                 }
 
@@ -1938,7 +1933,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['git_tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_tags_url';
+                    $properties['git_tags_url'] = null;
                     goto after_git_tags_url;
                 }
 
@@ -1949,7 +1944,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['git_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_url';
+                    $properties['git_url'] = null;
                     goto after_git_url;
                 }
 
@@ -1960,7 +1955,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['issue_comment_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_comment_url';
+                    $properties['issue_comment_url'] = null;
                     goto after_issue_comment_url;
                 }
 
@@ -1971,7 +1966,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['issue_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_events_url';
+                    $properties['issue_events_url'] = null;
                     goto after_issue_events_url;
                 }
 
@@ -1982,7 +1977,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -1993,7 +1988,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['keys_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'keys_url';
+                    $properties['keys_url'] = null;
                     goto after_keys_url;
                 }
 
@@ -2004,7 +1999,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['labels_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels_url';
+                    $properties['labels_url'] = null;
                     goto after_labels_url;
                 }
 
@@ -2015,7 +2010,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['languages_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'languages_url';
+                    $properties['languages_url'] = null;
                     goto after_languages_url;
                 }
 
@@ -2026,7 +2021,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['merges_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merges_url';
+                    $properties['merges_url'] = null;
                     goto after_merges_url;
                 }
 
@@ -2037,7 +2032,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['milestones_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'milestones_url';
+                    $properties['milestones_url'] = null;
                     goto after_milestones_url;
                 }
 
@@ -2048,7 +2043,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['notifications_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'notifications_url';
+                    $properties['notifications_url'] = null;
                     goto after_notifications_url;
                 }
 
@@ -2059,7 +2054,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['pulls_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pulls_url';
+                    $properties['pulls_url'] = null;
                     goto after_pulls_url;
                 }
 
@@ -2070,7 +2065,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['releases_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'releases_url';
+                    $properties['releases_url'] = null;
                     goto after_releases_url;
                 }
 
@@ -2081,7 +2076,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['ssh_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ssh_url';
+                    $properties['ssh_url'] = null;
                     goto after_ssh_url;
                 }
 
@@ -2092,7 +2087,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['stargazers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_url';
+                    $properties['stargazers_url'] = null;
                     goto after_stargazers_url;
                 }
 
@@ -2103,7 +2098,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['statuses_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses_url';
+                    $properties['statuses_url'] = null;
                     goto after_statuses_url;
                 }
 
@@ -2114,7 +2109,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['subscribers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscribers_url';
+                    $properties['subscribers_url'] = null;
                     goto after_subscribers_url;
                 }
 
@@ -2125,7 +2120,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['subscription_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscription_url';
+                    $properties['subscription_url'] = null;
                     goto after_subscription_url;
                 }
 
@@ -2136,7 +2131,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tags_url';
+                    $properties['tags_url'] = null;
                     goto after_tags_url;
                 }
 
@@ -2147,7 +2142,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['teams_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams_url';
+                    $properties['teams_url'] = null;
                     goto after_teams_url;
                 }
 
@@ -2158,7 +2153,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['trees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'trees_url';
+                    $properties['trees_url'] = null;
                     goto after_trees_url;
                 }
 
@@ -2169,7 +2164,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['clone_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'clone_url';
+                    $properties['clone_url'] = null;
                     goto after_clone_url;
                 }
 
@@ -2180,7 +2175,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['mirror_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'mirror_url';
+                    $properties['mirror_url'] = null;
                     goto after_mirror_url;
                 }
 
@@ -2191,7 +2186,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -2202,7 +2197,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['svn_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'svn_url';
+                    $properties['svn_url'] = null;
                     goto after_svn_url;
                 }
 
@@ -2213,7 +2208,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['homepage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'homepage';
+                    $properties['homepage'] = null;
                     goto after_homepage;
                 }
 
@@ -2224,7 +2219,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['language'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'language';
+                    $properties['language'] = null;
                     goto after_language;
                 }
 
@@ -2235,7 +2230,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['forks_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_count';
+                    $properties['forks_count'] = null;
                     goto after_forks_count;
                 }
 
@@ -2246,7 +2241,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['stargazers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_count';
+                    $properties['stargazers_count'] = null;
                     goto after_stargazers_count;
                 }
 
@@ -2257,7 +2252,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['watchers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'watchers_count';
+                    $properties['watchers_count'] = null;
                     goto after_watchers_count;
                 }
 
@@ -2268,7 +2263,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['size'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'size';
+                    $properties['size'] = null;
                     goto after_size;
                 }
 
@@ -2279,7 +2274,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['default_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default_branch';
+                    $properties['default_branch'] = null;
                     goto after_default_branch;
                 }
 
@@ -2290,7 +2285,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['open_issues_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues_count';
+                    $properties['open_issues_count'] = null;
                     goto after_open_issues_count;
                 }
 
@@ -2323,7 +2318,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['has_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_issues';
+                    $properties['has_issues'] = null;
                     goto after_has_issues;
                 }
 
@@ -2334,7 +2329,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['has_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_projects';
+                    $properties['has_projects'] = null;
                     goto after_has_projects;
                 }
 
@@ -2345,7 +2340,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['has_wiki'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_wiki';
+                    $properties['has_wiki'] = null;
                     goto after_has_wiki;
                 }
 
@@ -2356,7 +2351,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['has_pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_pages';
+                    $properties['has_pages'] = null;
                     goto after_has_pages;
                 }
 
@@ -2367,7 +2362,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['has_downloads'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_downloads';
+                    $properties['has_downloads'] = null;
                     goto after_has_downloads;
                 }
 
@@ -2389,7 +2384,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['archived'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archived';
+                    $properties['archived'] = null;
                     goto after_archived;
                 }
 
@@ -2400,7 +2395,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['disabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'disabled';
+                    $properties['disabled'] = null;
                     goto after_disabled;
                 }
 
@@ -2422,7 +2417,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['pushed_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pushed_at';
+                    $properties['pushed_at'] = null;
                     goto after_pushed_at;
                 }
 
@@ -2433,7 +2428,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -2444,7 +2439,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -2466,7 +2461,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['template_repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'template_repository';
+                    $properties['template_repository'] = null;
                     goto after_template_repository;
                 }
 
@@ -2651,7 +2646,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['open_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues';
+                    $properties['open_issues'] = null;
                     goto after_open_issues;
                 }
 
@@ -2662,7 +2657,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['watchers'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'watchers';
+                    $properties['watchers'] = null;
                     goto after_watchers;
                 }
 
@@ -2728,7 +2723,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 
@@ -2739,7 +2734,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -2750,7 +2745,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -2761,7 +2756,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['spdx_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'spdx_id';
+                    $properties['spdx_id'] = null;
                     goto after_spdx_id;
                 }
 
@@ -2772,7 +2767,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -2816,7 +2811,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -2827,7 +2822,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -2838,7 +2833,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -2849,7 +2844,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -2860,7 +2855,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -2871,7 +2866,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -2882,7 +2877,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -2893,7 +2888,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -2904,7 +2899,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -2915,7 +2910,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -2926,7 +2921,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -2937,7 +2932,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -2948,7 +2943,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -2959,7 +2954,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -2970,7 +2965,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -2981,7 +2976,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -2992,7 +2987,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -3003,7 +2998,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -3014,7 +3009,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -3025,7 +3020,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -3069,7 +3064,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin';
+                    $properties['admin'] = null;
                     goto after_admin;
                 }
 
@@ -3080,7 +3075,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['pull'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull';
+                    $properties['pull'] = null;
                     goto after_pull;
                 }
 
@@ -3102,7 +3097,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['push'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'push';
+                    $properties['push'] = null;
                     goto after_push;
                 }
 
@@ -3146,7 +3141,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -3157,7 +3152,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -3168,7 +3163,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -3179,7 +3174,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['full_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'full_name';
+                    $properties['full_name'] = null;
                     goto after_full_name;
                 }
 
@@ -3190,7 +3185,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -3210,7 +3205,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['private'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'private';
+                    $properties['private'] = null;
                     goto after_private;
                 }
 
@@ -3221,7 +3216,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -3232,7 +3227,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -3243,7 +3238,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['fork'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'fork';
+                    $properties['fork'] = null;
                     goto after_fork;
                 }
 
@@ -3254,7 +3249,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -3265,7 +3260,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['archive_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archive_url';
+                    $properties['archive_url'] = null;
                     goto after_archive_url;
                 }
 
@@ -3276,7 +3271,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['assignees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees_url';
+                    $properties['assignees_url'] = null;
                     goto after_assignees_url;
                 }
 
@@ -3287,7 +3282,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['blobs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'blobs_url';
+                    $properties['blobs_url'] = null;
                     goto after_blobs_url;
                 }
 
@@ -3298,7 +3293,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['branches_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'branches_url';
+                    $properties['branches_url'] = null;
                     goto after_branches_url;
                 }
 
@@ -3309,7 +3304,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['collaborators_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'collaborators_url';
+                    $properties['collaborators_url'] = null;
                     goto after_collaborators_url;
                 }
 
@@ -3320,7 +3315,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['comments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'comments_url';
+                    $properties['comments_url'] = null;
                     goto after_comments_url;
                 }
 
@@ -3331,7 +3326,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commits_url';
+                    $properties['commits_url'] = null;
                     goto after_commits_url;
                 }
 
@@ -3342,7 +3337,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['compare_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'compare_url';
+                    $properties['compare_url'] = null;
                     goto after_compare_url;
                 }
 
@@ -3353,7 +3348,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['contents_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents_url';
+                    $properties['contents_url'] = null;
                     goto after_contents_url;
                 }
 
@@ -3364,7 +3359,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['contributors_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contributors_url';
+                    $properties['contributors_url'] = null;
                     goto after_contributors_url;
                 }
 
@@ -3375,7 +3370,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['deployments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments_url';
+                    $properties['deployments_url'] = null;
                     goto after_deployments_url;
                 }
 
@@ -3386,7 +3381,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['downloads_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'downloads_url';
+                    $properties['downloads_url'] = null;
                     goto after_downloads_url;
                 }
 
@@ -3397,7 +3392,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -3408,7 +3403,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['forks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_url';
+                    $properties['forks_url'] = null;
                     goto after_forks_url;
                 }
 
@@ -3419,7 +3414,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['git_commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_commits_url';
+                    $properties['git_commits_url'] = null;
                     goto after_git_commits_url;
                 }
 
@@ -3430,7 +3425,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['git_refs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_refs_url';
+                    $properties['git_refs_url'] = null;
                     goto after_git_refs_url;
                 }
 
@@ -3441,7 +3436,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['git_tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_tags_url';
+                    $properties['git_tags_url'] = null;
                     goto after_git_tags_url;
                 }
 
@@ -3452,7 +3447,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['git_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_url';
+                    $properties['git_url'] = null;
                     goto after_git_url;
                 }
 
@@ -3463,7 +3458,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['issue_comment_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_comment_url';
+                    $properties['issue_comment_url'] = null;
                     goto after_issue_comment_url;
                 }
 
@@ -3474,7 +3469,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['issue_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_events_url';
+                    $properties['issue_events_url'] = null;
                     goto after_issue_events_url;
                 }
 
@@ -3485,7 +3480,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -3496,7 +3491,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['keys_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'keys_url';
+                    $properties['keys_url'] = null;
                     goto after_keys_url;
                 }
 
@@ -3507,7 +3502,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['labels_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels_url';
+                    $properties['labels_url'] = null;
                     goto after_labels_url;
                 }
 
@@ -3518,7 +3513,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['languages_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'languages_url';
+                    $properties['languages_url'] = null;
                     goto after_languages_url;
                 }
 
@@ -3529,7 +3524,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['merges_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merges_url';
+                    $properties['merges_url'] = null;
                     goto after_merges_url;
                 }
 
@@ -3540,7 +3535,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['milestones_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'milestones_url';
+                    $properties['milestones_url'] = null;
                     goto after_milestones_url;
                 }
 
@@ -3551,7 +3546,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['notifications_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'notifications_url';
+                    $properties['notifications_url'] = null;
                     goto after_notifications_url;
                 }
 
@@ -3562,7 +3557,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['pulls_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pulls_url';
+                    $properties['pulls_url'] = null;
                     goto after_pulls_url;
                 }
 
@@ -3573,7 +3568,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['releases_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'releases_url';
+                    $properties['releases_url'] = null;
                     goto after_releases_url;
                 }
 
@@ -3584,7 +3579,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['ssh_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ssh_url';
+                    $properties['ssh_url'] = null;
                     goto after_ssh_url;
                 }
 
@@ -3595,7 +3590,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['stargazers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_url';
+                    $properties['stargazers_url'] = null;
                     goto after_stargazers_url;
                 }
 
@@ -3606,7 +3601,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['statuses_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses_url';
+                    $properties['statuses_url'] = null;
                     goto after_statuses_url;
                 }
 
@@ -3617,7 +3612,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['subscribers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscribers_url';
+                    $properties['subscribers_url'] = null;
                     goto after_subscribers_url;
                 }
 
@@ -3628,7 +3623,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['subscription_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscription_url';
+                    $properties['subscription_url'] = null;
                     goto after_subscription_url;
                 }
 
@@ -3639,7 +3634,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tags_url';
+                    $properties['tags_url'] = null;
                     goto after_tags_url;
                 }
 
@@ -3650,7 +3645,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['teams_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams_url';
+                    $properties['teams_url'] = null;
                     goto after_teams_url;
                 }
 
@@ -3661,7 +3656,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['trees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'trees_url';
+                    $properties['trees_url'] = null;
                     goto after_trees_url;
                 }
 
@@ -3672,7 +3667,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['clone_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'clone_url';
+                    $properties['clone_url'] = null;
                     goto after_clone_url;
                 }
 
@@ -3683,7 +3678,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['mirror_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'mirror_url';
+                    $properties['mirror_url'] = null;
                     goto after_mirror_url;
                 }
 
@@ -3694,7 +3689,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -3705,7 +3700,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['svn_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'svn_url';
+                    $properties['svn_url'] = null;
                     goto after_svn_url;
                 }
 
@@ -3716,7 +3711,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['homepage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'homepage';
+                    $properties['homepage'] = null;
                     goto after_homepage;
                 }
 
@@ -3727,7 +3722,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['language'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'language';
+                    $properties['language'] = null;
                     goto after_language;
                 }
 
@@ -3738,7 +3733,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['forks_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_count';
+                    $properties['forks_count'] = null;
                     goto after_forks_count;
                 }
 
@@ -3749,7 +3744,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['stargazers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_count';
+                    $properties['stargazers_count'] = null;
                     goto after_stargazers_count;
                 }
 
@@ -3760,7 +3755,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['watchers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'watchers_count';
+                    $properties['watchers_count'] = null;
                     goto after_watchers_count;
                 }
 
@@ -3771,7 +3766,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['size'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'size';
+                    $properties['size'] = null;
                     goto after_size;
                 }
 
@@ -3782,7 +3777,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['default_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default_branch';
+                    $properties['default_branch'] = null;
                     goto after_default_branch;
                 }
 
@@ -3793,7 +3788,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['open_issues_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues_count';
+                    $properties['open_issues_count'] = null;
                     goto after_open_issues_count;
                 }
 
@@ -3804,7 +3799,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['is_template'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_template';
+                    $properties['is_template'] = null;
                     goto after_is_template;
                 }
 
@@ -3815,7 +3810,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['topics'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'topics';
+                    $properties['topics'] = null;
                     goto after_topics;
                 }
 
@@ -3826,7 +3821,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['has_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_issues';
+                    $properties['has_issues'] = null;
                     goto after_has_issues;
                 }
 
@@ -3837,7 +3832,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['has_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_projects';
+                    $properties['has_projects'] = null;
                     goto after_has_projects;
                 }
 
@@ -3848,7 +3843,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['has_wiki'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_wiki';
+                    $properties['has_wiki'] = null;
                     goto after_has_wiki;
                 }
 
@@ -3859,7 +3854,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['has_pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_pages';
+                    $properties['has_pages'] = null;
                     goto after_has_pages;
                 }
 
@@ -3870,7 +3865,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['has_downloads'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_downloads';
+                    $properties['has_downloads'] = null;
                     goto after_has_downloads;
                 }
 
@@ -3881,7 +3876,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['archived'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archived';
+                    $properties['archived'] = null;
                     goto after_archived;
                 }
 
@@ -3892,7 +3887,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['disabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'disabled';
+                    $properties['disabled'] = null;
                     goto after_disabled;
                 }
 
@@ -3903,7 +3898,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['visibility'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'visibility';
+                    $properties['visibility'] = null;
                     goto after_visibility;
                 }
 
@@ -3914,7 +3909,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['pushed_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pushed_at';
+                    $properties['pushed_at'] = null;
                     goto after_pushed_at;
                 }
 
@@ -3925,7 +3920,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -3936,7 +3931,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -3947,7 +3942,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['permissions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'permissions';
+                    $properties['permissions'] = null;
                     goto after_permissions;
                 }
 
@@ -3967,7 +3962,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['allow_rebase_merge'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_rebase_merge';
+                    $properties['allow_rebase_merge'] = null;
                     goto after_allow_rebase_merge;
                 }
 
@@ -3978,7 +3973,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['temp_clone_token'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'temp_clone_token';
+                    $properties['temp_clone_token'] = null;
                     goto after_temp_clone_token;
                 }
 
@@ -3989,7 +3984,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['allow_squash_merge'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_squash_merge';
+                    $properties['allow_squash_merge'] = null;
                     goto after_allow_squash_merge;
                 }
 
@@ -4000,7 +3995,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['allow_auto_merge'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_auto_merge';
+                    $properties['allow_auto_merge'] = null;
                     goto after_allow_auto_merge;
                 }
 
@@ -4011,7 +4006,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['delete_branch_on_merge'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'delete_branch_on_merge';
+                    $properties['delete_branch_on_merge'] = null;
                     goto after_delete_branch_on_merge;
                 }
 
@@ -4022,7 +4017,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['allow_update_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_update_branch';
+                    $properties['allow_update_branch'] = null;
                     goto after_allow_update_branch;
                 }
 
@@ -4033,7 +4028,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['use_squash_pr_title_as_default'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'use_squash_pr_title_as_default';
+                    $properties['use_squash_pr_title_as_default'] = null;
                     goto after_use_squash_pr_title_as_default;
                 }
 
@@ -4044,7 +4039,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['squash_merge_commit_title'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'squash_merge_commit_title';
+                    $properties['squash_merge_commit_title'] = null;
                     goto after_squash_merge_commit_title;
                 }
 
@@ -4055,7 +4050,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['squash_merge_commit_message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'squash_merge_commit_message';
+                    $properties['squash_merge_commit_message'] = null;
                     goto after_squash_merge_commit_message;
                 }
 
@@ -4066,7 +4061,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['merge_commit_title'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merge_commit_title';
+                    $properties['merge_commit_title'] = null;
                     goto after_merge_commit_title;
                 }
 
@@ -4077,7 +4072,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['merge_commit_message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merge_commit_message';
+                    $properties['merge_commit_message'] = null;
                     goto after_merge_commit_message;
                 }
 
@@ -4088,7 +4083,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['allow_merge_commit'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_merge_commit';
+                    $properties['allow_merge_commit'] = null;
                     goto after_allow_merge_commit;
                 }
 
@@ -4099,7 +4094,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['subscribers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscribers_count';
+                    $properties['subscribers_count'] = null;
                     goto after_subscribers_count;
                 }
 
@@ -4110,7 +4105,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['network_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'network_count';
+                    $properties['network_count'] = null;
                     goto after_network_count;
                 }
 
@@ -4143,7 +4138,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -4154,7 +4149,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -4165,7 +4160,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -4176,7 +4171,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -4187,7 +4182,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -4198,7 +4193,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -4209,7 +4204,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -4220,7 +4215,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -4231,7 +4226,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -4242,7 +4237,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -4253,7 +4248,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -4264,7 +4259,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -4275,7 +4270,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -4286,7 +4281,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -4297,7 +4292,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -4308,7 +4303,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -4319,7 +4314,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -4330,7 +4325,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -4363,7 +4358,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin';
+                    $properties['admin'] = null;
                     goto after_admin;
                 }
 
@@ -4374,7 +4369,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['maintain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'maintain';
+                    $properties['maintain'] = null;
                     goto after_maintain;
                 }
 
@@ -4385,7 +4380,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['push'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'push';
+                    $properties['push'] = null;
                     goto after_push;
                 }
 
@@ -4396,7 +4391,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['triage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'triage';
+                    $properties['triage'] = null;
                     goto after_triage;
                 }
 
@@ -4407,7 +4402,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['pull'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull';
+                    $properties['pull'] = null;
                     goto after_pull;
                 }
 
@@ -4440,7 +4435,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -4451,7 +4446,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['changes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'changes';
+                    $properties['changes'] = null;
                     goto after_changes;
                 }
 
@@ -4471,7 +4466,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['discussion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussion';
+                    $properties['discussion'] = null;
                     goto after_discussion;
                 }
 
@@ -4551,7 +4546,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -4571,7 +4566,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -4613,7 +4608,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['category'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'category';
+                    $properties['category'] = null;
                     goto after_category;
                 }
 
@@ -4655,7 +4650,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['from'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'from';
+                    $properties['from'] = null;
                     goto after_from;
                 }
 
@@ -4697,7 +4692,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -4708,7 +4703,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['discussion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussion';
+                    $properties['discussion'] = null;
                     goto after_discussion;
                 }
 
@@ -4788,7 +4783,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -4808,7 +4803,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -4883,7 +4878,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['answer_html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'answer_html_url';
+                    $properties['answer_html_url'] = null;
                     goto after_answer_html_url;
                 }
 
@@ -4905,7 +4900,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['body'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'body';
+                    $properties['body'] = null;
                     goto after_body;
                 }
 
@@ -4980,7 +4975,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['locked'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'locked';
+                    $properties['locked'] = null;
                     goto after_locked;
                 }
 
@@ -5044,7 +5039,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'state';
+                    $properties['state'] = null;
                     goto after_state;
                 }
 
@@ -5130,7 +5125,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -5141,7 +5136,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -5152,7 +5147,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['emoji'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'emoji';
+                    $properties['emoji'] = null;
                     goto after_emoji;
                 }
 
@@ -5163,7 +5158,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -5174,7 +5169,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['is_answerable'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_answerable';
+                    $properties['is_answerable'] = null;
                     goto after_is_answerable;
                 }
 
@@ -5185,7 +5180,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -5196,7 +5191,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -5207,7 +5202,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_id';
+                    $properties['repository_id'] = null;
                     goto after_repository_id;
                 }
 
@@ -5218,7 +5213,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['slug'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'slug';
+                    $properties['slug'] = null;
                     goto after_slug;
                 }
 
@@ -5229,7 +5224,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -5262,7 +5257,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['__p_l_u_s_e_s_1'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = '__p_l_u_s_e_s_1';
+                    $properties['_PLUSES_1'] = null;
                     goto after__PLUSES_1;
                 }
 
@@ -5273,7 +5268,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['__m_i_n_u_s_1'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = '__m_i_n_u_s_1';
+                    $properties['_MINUS_1'] = null;
                     goto after__MINUS_1;
                 }
 
@@ -5284,7 +5279,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['confused'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'confused';
+                    $properties['confused'] = null;
                     goto after_confused;
                 }
 
@@ -5295,7 +5290,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['eyes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'eyes';
+                    $properties['eyes'] = null;
                     goto after_eyes;
                 }
 
@@ -5306,7 +5301,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['heart'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'heart';
+                    $properties['heart'] = null;
                     goto after_heart;
                 }
 
@@ -5317,7 +5312,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['hooray'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooray';
+                    $properties['hooray'] = null;
                     goto after_hooray;
                 }
 
@@ -5328,7 +5323,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['laugh'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'laugh';
+                    $properties['laugh'] = null;
                     goto after_laugh;
                 }
 
@@ -5339,7 +5334,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['rocket'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'rocket';
+                    $properties['rocket'] = null;
                     goto after_rocket;
                 }
 
@@ -5350,7 +5345,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -5361,7 +5356,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -5394,7 +5389,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -5405,7 +5400,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -5416,7 +5411,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -5427,7 +5422,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -5438,7 +5433,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -5449,7 +5444,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -5460,7 +5455,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -5471,7 +5466,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -5482,7 +5477,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -5493,7 +5488,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -5504,7 +5499,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -5515,7 +5510,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -5526,7 +5521,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -5537,7 +5532,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -5548,7 +5543,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -5559,7 +5554,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -5570,7 +5565,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -5581,7 +5576,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -5614,7 +5609,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -5625,7 +5620,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['discussion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussion';
+                    $properties['discussion'] = null;
                     goto after_discussion;
                 }
 
@@ -5705,7 +5700,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -5725,7 +5720,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -5767,7 +5762,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -5798,7 +5793,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['discussion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussion';
+                    $properties['discussion'] = null;
                     goto after_discussion;
                 }
 
@@ -5878,7 +5873,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -5898,7 +5893,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -5940,7 +5935,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['body'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'body';
+                    $properties['body'] = null;
                     goto after_body;
                 }
 
@@ -5960,7 +5955,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['title'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'title';
+                    $properties['title'] = null;
                     goto after_title;
                 }
 
@@ -6002,7 +5997,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['from'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'from';
+                    $properties['from'] = null;
                     goto after_from;
                 }
 
@@ -6035,7 +6030,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -6046,14 +6041,14 @@ class Discussion implements ObjectMapper
                 $value = $payload['discussion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussion';
+                    $properties['discussion'] = null;
                     goto after_discussion;
                 }
 
                 if (is_array($value)) {
                     try {
                         $this->hydrationStack[] = 'discussion';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionLabeled⚡️Discussion($value);
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion($value);
                     } finally {
                         array_pop($this->hydrationStack);
                     }
@@ -6106,7 +6101,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['label'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'label';
+                    $properties['label'] = null;
                     goto after_label;
                 }
 
@@ -6146,7 +6141,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -6166,7 +6161,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -6199,295 +6194,6 @@ class Discussion implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionLabeled⚡️Discussion(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLabeled\Discussion
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['active_lock_reason'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'active_lock_reason';
-                    goto after_active_lock_reason;
-                }
-
-                $properties['active_lock_reason'] = $value;
-    
-                after_active_lock_reason:
-
-                $value = $payload['answer_chosen_at'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'answer_chosen_at';
-                    goto after_answer_chosen_at;
-                }
-
-                $properties['answer_chosen_at'] = $value;
-    
-                after_answer_chosen_at:
-
-                $value = $payload['answer_chosen_by'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'answer_chosen_by';
-                    goto after_answer_chosen_by;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'answer_chosen_by';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['answer_chosen_by'] = $value;
-    
-                after_answer_chosen_by:
-
-                $value = $payload['answer_html_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'answer_html_url';
-                    goto after_answer_html_url;
-                }
-
-                $properties['answer_html_url'] = $value;
-    
-                after_answer_html_url:
-
-                $value = $payload['author_association'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'author_association';
-                    goto after_author_association;
-                }
-
-                $properties['author_association'] = $value;
-    
-                after_author_association:
-
-                $value = $payload['body'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'body';
-                    goto after_body;
-                }
-
-                $properties['body'] = $value;
-    
-                after_body:
-
-                $value = $payload['category'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'category';
-                    goto after_category;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'category';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️Category($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['category'] = $value;
-    
-                after_category:
-
-                $value = $payload['comments'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'comments';
-                    goto after_comments;
-                }
-
-                $properties['comments'] = $value;
-    
-                after_comments:
-
-                $value = $payload['created_at'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'created_at';
-                    goto after_created_at;
-                }
-
-                $properties['created_at'] = $value;
-    
-                after_created_at:
-
-                $value = $payload['html_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'html_url';
-                    goto after_html_url;
-                }
-
-                $properties['html_url'] = $value;
-    
-                after_html_url:
-
-                $value = $payload['id'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'id';
-                    goto after_id;
-                }
-
-                $properties['id'] = $value;
-    
-                after_id:
-
-                $value = $payload['locked'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'locked';
-                    goto after_locked;
-                }
-
-                $properties['locked'] = $value;
-    
-                after_locked:
-
-                $value = $payload['node_id'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'node_id';
-                    goto after_node_id;
-                }
-
-                $properties['node_id'] = $value;
-    
-                after_node_id:
-
-                $value = $payload['number'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'number';
-                    goto after_number;
-                }
-
-                $properties['number'] = $value;
-    
-                after_number:
-
-                $value = $payload['reactions'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'reactions';
-                    goto after_reactions;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'reactions';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️Reactions($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['reactions'] = $value;
-    
-                after_reactions:
-
-                $value = $payload['repository_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'repository_url';
-                    goto after_repository_url;
-                }
-
-                $properties['repository_url'] = $value;
-    
-                after_repository_url:
-
-                $value = $payload['state'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'state';
-                    goto after_state;
-                }
-
-                $properties['state'] = $value;
-    
-                after_state:
-
-                $value = $payload['timeline_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'timeline_url';
-                    goto after_timeline_url;
-                }
-
-                $properties['timeline_url'] = $value;
-    
-                after_timeline_url:
-
-                $value = $payload['title'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'title';
-                    goto after_title;
-                }
-
-                $properties['title'] = $value;
-    
-                after_title:
-
-                $value = $payload['updated_at'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'updated_at';
-                    goto after_updated_at;
-                }
-
-                $properties['updated_at'] = $value;
-    
-                after_updated_at:
-
-                $value = $payload['user'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'user';
-                    goto after_user;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'user';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['user'] = $value;
-    
-                after_user:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLabeled\Discussion', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLabeled\Discussion::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLabeled\Discussion(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLabeled\Discussion', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLabeled\Label
         {
             $properties = []; 
@@ -6497,7 +6203,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['color'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'color';
+                    $properties['color'] = null;
                     goto after_color;
                 }
 
@@ -6508,7 +6214,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['default'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default';
+                    $properties['default'] = null;
                     goto after_default;
                 }
 
@@ -6519,7 +6225,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -6530,7 +6236,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -6541,7 +6247,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -6552,7 +6258,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -6563,7 +6269,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -6596,7 +6302,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -6607,7 +6313,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['discussion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussion';
+                    $properties['discussion'] = null;
                     goto after_discussion;
                 }
 
@@ -6687,7 +6393,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -6707,7 +6413,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -6749,7 +6455,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -6760,7 +6466,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['discussion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussion';
+                    $properties['discussion'] = null;
                     goto after_discussion;
                 }
 
@@ -6840,7 +6546,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -6860,7 +6566,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -6902,7 +6608,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -6913,7 +6619,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['changes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'changes';
+                    $properties['changes'] = null;
                     goto after_changes;
                 }
 
@@ -6933,7 +6639,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['discussion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussion';
+                    $properties['discussion'] = null;
                     goto after_discussion;
                 }
 
@@ -7013,7 +6719,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -7033,7 +6739,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -7075,14 +6781,14 @@ class Discussion implements ObjectMapper
                 $value = $payload['new_discussion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'new_discussion';
+                    $properties['new_discussion'] = null;
                     goto after_new_discussion;
                 }
 
                 if (is_array($value)) {
                     try {
                         $this->hydrationStack[] = 'new_discussion';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewDiscussion($value);
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion($value);
                     } finally {
                         array_pop($this->hydrationStack);
                     }
@@ -7095,14 +6801,14 @@ class Discussion implements ObjectMapper
                 $value = $payload['new_repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'new_repository';
+                    $properties['new_repository'] = null;
                     goto after_new_repository;
                 }
 
                 if (is_array($value)) {
                     try {
                         $this->hydrationStack[] = 'new_repository';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository($value);
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($value);
                     } finally {
                         array_pop($this->hydrationStack);
                     }
@@ -7128,1499 +6834,6 @@ class Discussion implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewDiscussion(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewDiscussion
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['active_lock_reason'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'active_lock_reason';
-                    goto after_active_lock_reason;
-                }
-
-                $properties['active_lock_reason'] = $value;
-    
-                after_active_lock_reason:
-
-                $value = $payload['answer_chosen_at'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'answer_chosen_at';
-                    goto after_answer_chosen_at;
-                }
-
-                $properties['answer_chosen_at'] = $value;
-    
-                after_answer_chosen_at:
-
-                $value = $payload['answer_chosen_by'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'answer_chosen_by';
-                    goto after_answer_chosen_by;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'answer_chosen_by';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['answer_chosen_by'] = $value;
-    
-                after_answer_chosen_by:
-
-                $value = $payload['answer_html_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'answer_html_url';
-                    goto after_answer_html_url;
-                }
-
-                $properties['answer_html_url'] = $value;
-    
-                after_answer_html_url:
-
-                $value = $payload['author_association'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'author_association';
-                    goto after_author_association;
-                }
-
-                $properties['author_association'] = $value;
-    
-                after_author_association:
-
-                $value = $payload['body'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'body';
-                    goto after_body;
-                }
-
-                $properties['body'] = $value;
-    
-                after_body:
-
-                $value = $payload['category'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'category';
-                    goto after_category;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'category';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️Category($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['category'] = $value;
-    
-                after_category:
-
-                $value = $payload['comments'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'comments';
-                    goto after_comments;
-                }
-
-                $properties['comments'] = $value;
-    
-                after_comments:
-
-                $value = $payload['created_at'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'created_at';
-                    goto after_created_at;
-                }
-
-                $properties['created_at'] = $value;
-    
-                after_created_at:
-
-                $value = $payload['html_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'html_url';
-                    goto after_html_url;
-                }
-
-                $properties['html_url'] = $value;
-    
-                after_html_url:
-
-                $value = $payload['id'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'id';
-                    goto after_id;
-                }
-
-                $properties['id'] = $value;
-    
-                after_id:
-
-                $value = $payload['locked'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'locked';
-                    goto after_locked;
-                }
-
-                $properties['locked'] = $value;
-    
-                after_locked:
-
-                $value = $payload['node_id'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'node_id';
-                    goto after_node_id;
-                }
-
-                $properties['node_id'] = $value;
-    
-                after_node_id:
-
-                $value = $payload['number'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'number';
-                    goto after_number;
-                }
-
-                $properties['number'] = $value;
-    
-                after_number:
-
-                $value = $payload['reactions'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'reactions';
-                    goto after_reactions;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'reactions';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️Reactions($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['reactions'] = $value;
-    
-                after_reactions:
-
-                $value = $payload['repository_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'repository_url';
-                    goto after_repository_url;
-                }
-
-                $properties['repository_url'] = $value;
-    
-                after_repository_url:
-
-                $value = $payload['state'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'state';
-                    goto after_state;
-                }
-
-                $properties['state'] = $value;
-    
-                after_state:
-
-                $value = $payload['timeline_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'timeline_url';
-                    goto after_timeline_url;
-                }
-
-                $properties['timeline_url'] = $value;
-    
-                after_timeline_url:
-
-                $value = $payload['title'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'title';
-                    goto after_title;
-                }
-
-                $properties['title'] = $value;
-    
-                after_title:
-
-                $value = $payload['updated_at'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'updated_at';
-                    goto after_updated_at;
-                }
-
-                $properties['updated_at'] = $value;
-    
-                after_updated_at:
-
-                $value = $payload['user'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'user';
-                    goto after_user;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'user';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['user'] = $value;
-    
-                after_user:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewDiscussion', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewDiscussion::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewDiscussion(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewDiscussion', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['allow_auto_merge'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'allow_auto_merge';
-                    goto after_allow_auto_merge;
-                }
-
-                $properties['allow_auto_merge'] = $value;
-    
-                after_allow_auto_merge:
-
-                $value = $payload['allow_forking'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'allow_forking';
-                    goto after_allow_forking;
-                }
-
-                $properties['allow_forking'] = $value;
-    
-                after_allow_forking:
-
-                $value = $payload['allow_merge_commit'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'allow_merge_commit';
-                    goto after_allow_merge_commit;
-                }
-
-                $properties['allow_merge_commit'] = $value;
-    
-                after_allow_merge_commit:
-
-                $value = $payload['allow_rebase_merge'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'allow_rebase_merge';
-                    goto after_allow_rebase_merge;
-                }
-
-                $properties['allow_rebase_merge'] = $value;
-    
-                after_allow_rebase_merge:
-
-                $value = $payload['allow_squash_merge'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'allow_squash_merge';
-                    goto after_allow_squash_merge;
-                }
-
-                $properties['allow_squash_merge'] = $value;
-    
-                after_allow_squash_merge:
-
-                $value = $payload['allow_update_branch'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'allow_update_branch';
-                    goto after_allow_update_branch;
-                }
-
-                $properties['allow_update_branch'] = $value;
-    
-                after_allow_update_branch:
-
-                $value = $payload['archive_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'archive_url';
-                    goto after_archive_url;
-                }
-
-                $properties['archive_url'] = $value;
-    
-                after_archive_url:
-
-                $value = $payload['archived'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'archived';
-                    goto after_archived;
-                }
-
-                $properties['archived'] = $value;
-    
-                after_archived:
-
-                $value = $payload['assignees_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'assignees_url';
-                    goto after_assignees_url;
-                }
-
-                $properties['assignees_url'] = $value;
-    
-                after_assignees_url:
-
-                $value = $payload['blobs_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'blobs_url';
-                    goto after_blobs_url;
-                }
-
-                $properties['blobs_url'] = $value;
-    
-                after_blobs_url:
-
-                $value = $payload['branches_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'branches_url';
-                    goto after_branches_url;
-                }
-
-                $properties['branches_url'] = $value;
-    
-                after_branches_url:
-
-                $value = $payload['clone_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'clone_url';
-                    goto after_clone_url;
-                }
-
-                $properties['clone_url'] = $value;
-    
-                after_clone_url:
-
-                $value = $payload['collaborators_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'collaborators_url';
-                    goto after_collaborators_url;
-                }
-
-                $properties['collaborators_url'] = $value;
-    
-                after_collaborators_url:
-
-                $value = $payload['comments_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'comments_url';
-                    goto after_comments_url;
-                }
-
-                $properties['comments_url'] = $value;
-    
-                after_comments_url:
-
-                $value = $payload['commits_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'commits_url';
-                    goto after_commits_url;
-                }
-
-                $properties['commits_url'] = $value;
-    
-                after_commits_url:
-
-                $value = $payload['compare_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'compare_url';
-                    goto after_compare_url;
-                }
-
-                $properties['compare_url'] = $value;
-    
-                after_compare_url:
-
-                $value = $payload['contents_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'contents_url';
-                    goto after_contents_url;
-                }
-
-                $properties['contents_url'] = $value;
-    
-                after_contents_url:
-
-                $value = $payload['contributors_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'contributors_url';
-                    goto after_contributors_url;
-                }
-
-                $properties['contributors_url'] = $value;
-    
-                after_contributors_url:
-
-                $value = $payload['created_at'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'created_at';
-                    goto after_created_at;
-                }
-
-                $properties['created_at'] = $value;
-    
-                after_created_at:
-
-                $value = $payload['default_branch'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'default_branch';
-                    goto after_default_branch;
-                }
-
-                $properties['default_branch'] = $value;
-    
-                after_default_branch:
-
-                $value = $payload['delete_branch_on_merge'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'delete_branch_on_merge';
-                    goto after_delete_branch_on_merge;
-                }
-
-                $properties['delete_branch_on_merge'] = $value;
-    
-                after_delete_branch_on_merge:
-
-                $value = $payload['deployments_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'deployments_url';
-                    goto after_deployments_url;
-                }
-
-                $properties['deployments_url'] = $value;
-    
-                after_deployments_url:
-
-                $value = $payload['description'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'description';
-                    goto after_description;
-                }
-
-                $properties['description'] = $value;
-    
-                after_description:
-
-                $value = $payload['disabled'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'disabled';
-                    goto after_disabled;
-                }
-
-                $properties['disabled'] = $value;
-    
-                after_disabled:
-
-                $value = $payload['downloads_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'downloads_url';
-                    goto after_downloads_url;
-                }
-
-                $properties['downloads_url'] = $value;
-    
-                after_downloads_url:
-
-                $value = $payload['events_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'events_url';
-                    goto after_events_url;
-                }
-
-                $properties['events_url'] = $value;
-    
-                after_events_url:
-
-                $value = $payload['fork'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'fork';
-                    goto after_fork;
-                }
-
-                $properties['fork'] = $value;
-    
-                after_fork:
-
-                $value = $payload['forks'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'forks';
-                    goto after_forks;
-                }
-
-                $properties['forks'] = $value;
-    
-                after_forks:
-
-                $value = $payload['forks_count'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'forks_count';
-                    goto after_forks_count;
-                }
-
-                $properties['forks_count'] = $value;
-    
-                after_forks_count:
-
-                $value = $payload['forks_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'forks_url';
-                    goto after_forks_url;
-                }
-
-                $properties['forks_url'] = $value;
-    
-                after_forks_url:
-
-                $value = $payload['full_name'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'full_name';
-                    goto after_full_name;
-                }
-
-                $properties['full_name'] = $value;
-    
-                after_full_name:
-
-                $value = $payload['git_commits_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'git_commits_url';
-                    goto after_git_commits_url;
-                }
-
-                $properties['git_commits_url'] = $value;
-    
-                after_git_commits_url:
-
-                $value = $payload['git_refs_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'git_refs_url';
-                    goto after_git_refs_url;
-                }
-
-                $properties['git_refs_url'] = $value;
-    
-                after_git_refs_url:
-
-                $value = $payload['git_tags_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'git_tags_url';
-                    goto after_git_tags_url;
-                }
-
-                $properties['git_tags_url'] = $value;
-    
-                after_git_tags_url:
-
-                $value = $payload['git_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'git_url';
-                    goto after_git_url;
-                }
-
-                $properties['git_url'] = $value;
-    
-                after_git_url:
-
-                $value = $payload['has_downloads'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'has_downloads';
-                    goto after_has_downloads;
-                }
-
-                $properties['has_downloads'] = $value;
-    
-                after_has_downloads:
-
-                $value = $payload['has_issues'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'has_issues';
-                    goto after_has_issues;
-                }
-
-                $properties['has_issues'] = $value;
-    
-                after_has_issues:
-
-                $value = $payload['has_pages'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'has_pages';
-                    goto after_has_pages;
-                }
-
-                $properties['has_pages'] = $value;
-    
-                after_has_pages:
-
-                $value = $payload['has_projects'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'has_projects';
-                    goto after_has_projects;
-                }
-
-                $properties['has_projects'] = $value;
-    
-                after_has_projects:
-
-                $value = $payload['has_wiki'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'has_wiki';
-                    goto after_has_wiki;
-                }
-
-                $properties['has_wiki'] = $value;
-    
-                after_has_wiki:
-
-                $value = $payload['has_discussions'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'has_discussions';
-                    goto after_has_discussions;
-                }
-
-                $properties['has_discussions'] = $value;
-    
-                after_has_discussions:
-
-                $value = $payload['homepage'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'homepage';
-                    goto after_homepage;
-                }
-
-                $properties['homepage'] = $value;
-    
-                after_homepage:
-
-                $value = $payload['hooks_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'hooks_url';
-                    goto after_hooks_url;
-                }
-
-                $properties['hooks_url'] = $value;
-    
-                after_hooks_url:
-
-                $value = $payload['html_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'html_url';
-                    goto after_html_url;
-                }
-
-                $properties['html_url'] = $value;
-    
-                after_html_url:
-
-                $value = $payload['id'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'id';
-                    goto after_id;
-                }
-
-                $properties['id'] = $value;
-    
-                after_id:
-
-                $value = $payload['is_template'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'is_template';
-                    goto after_is_template;
-                }
-
-                $properties['is_template'] = $value;
-    
-                after_is_template:
-
-                $value = $payload['issue_comment_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'issue_comment_url';
-                    goto after_issue_comment_url;
-                }
-
-                $properties['issue_comment_url'] = $value;
-    
-                after_issue_comment_url:
-
-                $value = $payload['issue_events_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'issue_events_url';
-                    goto after_issue_events_url;
-                }
-
-                $properties['issue_events_url'] = $value;
-    
-                after_issue_events_url:
-
-                $value = $payload['issues_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'issues_url';
-                    goto after_issues_url;
-                }
-
-                $properties['issues_url'] = $value;
-    
-                after_issues_url:
-
-                $value = $payload['keys_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'keys_url';
-                    goto after_keys_url;
-                }
-
-                $properties['keys_url'] = $value;
-    
-                after_keys_url:
-
-                $value = $payload['labels_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'labels_url';
-                    goto after_labels_url;
-                }
-
-                $properties['labels_url'] = $value;
-    
-                after_labels_url:
-
-                $value = $payload['language'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'language';
-                    goto after_language;
-                }
-
-                $properties['language'] = $value;
-    
-                after_language:
-
-                $value = $payload['languages_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'languages_url';
-                    goto after_languages_url;
-                }
-
-                $properties['languages_url'] = $value;
-    
-                after_languages_url:
-
-                $value = $payload['license'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'license';
-                    goto after_license;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'license';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['license'] = $value;
-    
-                after_license:
-
-                $value = $payload['master_branch'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'master_branch';
-                    goto after_master_branch;
-                }
-
-                $properties['master_branch'] = $value;
-    
-                after_master_branch:
-
-                $value = $payload['merges_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'merges_url';
-                    goto after_merges_url;
-                }
-
-                $properties['merges_url'] = $value;
-    
-                after_merges_url:
-
-                $value = $payload['milestones_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'milestones_url';
-                    goto after_milestones_url;
-                }
-
-                $properties['milestones_url'] = $value;
-    
-                after_milestones_url:
-
-                $value = $payload['mirror_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'mirror_url';
-                    goto after_mirror_url;
-                }
-
-                $properties['mirror_url'] = $value;
-    
-                after_mirror_url:
-
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'name';
-                    goto after_name;
-                }
-
-                $properties['name'] = $value;
-    
-                after_name:
-
-                $value = $payload['node_id'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'node_id';
-                    goto after_node_id;
-                }
-
-                $properties['node_id'] = $value;
-    
-                after_node_id:
-
-                $value = $payload['notifications_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'notifications_url';
-                    goto after_notifications_url;
-                }
-
-                $properties['notifications_url'] = $value;
-    
-                after_notifications_url:
-
-                $value = $payload['open_issues'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'open_issues';
-                    goto after_open_issues;
-                }
-
-                $properties['open_issues'] = $value;
-    
-                after_open_issues:
-
-                $value = $payload['open_issues_count'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'open_issues_count';
-                    goto after_open_issues_count;
-                }
-
-                $properties['open_issues_count'] = $value;
-    
-                after_open_issues_count:
-
-                $value = $payload['organization'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'organization';
-                    goto after_organization;
-                }
-
-                $properties['organization'] = $value;
-    
-                after_organization:
-
-                $value = $payload['owner'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'owner';
-                    goto after_owner;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'owner';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['owner'] = $value;
-    
-                after_owner:
-
-                $value = $payload['permissions'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'permissions';
-                    goto after_permissions;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'permissions';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['permissions'] = $value;
-    
-                after_permissions:
-
-                $value = $payload['private'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'private';
-                    goto after_private;
-                }
-
-                $properties['private'] = $value;
-    
-                after_private:
-
-                $value = $payload['public'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'public';
-                    goto after_public;
-                }
-
-                $properties['public'] = $value;
-    
-                after_public:
-
-                $value = $payload['pulls_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'pulls_url';
-                    goto after_pulls_url;
-                }
-
-                $properties['pulls_url'] = $value;
-    
-                after_pulls_url:
-
-                $value = $payload['pushed_at'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'pushed_at';
-                    goto after_pushed_at;
-                }
-
-                $properties['pushed_at'] = $value;
-    
-                after_pushed_at:
-
-                $value = $payload['releases_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'releases_url';
-                    goto after_releases_url;
-                }
-
-                $properties['releases_url'] = $value;
-    
-                after_releases_url:
-
-                $value = $payload['role_name'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'role_name';
-                    goto after_role_name;
-                }
-
-                $properties['role_name'] = $value;
-    
-                after_role_name:
-
-                $value = $payload['size'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'size';
-                    goto after_size;
-                }
-
-                $properties['size'] = $value;
-    
-                after_size:
-
-                $value = $payload['ssh_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'ssh_url';
-                    goto after_ssh_url;
-                }
-
-                $properties['ssh_url'] = $value;
-    
-                after_ssh_url:
-
-                $value = $payload['stargazers'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'stargazers';
-                    goto after_stargazers;
-                }
-
-                $properties['stargazers'] = $value;
-    
-                after_stargazers:
-
-                $value = $payload['stargazers_count'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'stargazers_count';
-                    goto after_stargazers_count;
-                }
-
-                $properties['stargazers_count'] = $value;
-    
-                after_stargazers_count:
-
-                $value = $payload['stargazers_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'stargazers_url';
-                    goto after_stargazers_url;
-                }
-
-                $properties['stargazers_url'] = $value;
-    
-                after_stargazers_url:
-
-                $value = $payload['statuses_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'statuses_url';
-                    goto after_statuses_url;
-                }
-
-                $properties['statuses_url'] = $value;
-    
-                after_statuses_url:
-
-                $value = $payload['subscribers_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'subscribers_url';
-                    goto after_subscribers_url;
-                }
-
-                $properties['subscribers_url'] = $value;
-    
-                after_subscribers_url:
-
-                $value = $payload['subscription_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'subscription_url';
-                    goto after_subscription_url;
-                }
-
-                $properties['subscription_url'] = $value;
-    
-                after_subscription_url:
-
-                $value = $payload['svn_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'svn_url';
-                    goto after_svn_url;
-                }
-
-                $properties['svn_url'] = $value;
-    
-                after_svn_url:
-
-                $value = $payload['tags_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'tags_url';
-                    goto after_tags_url;
-                }
-
-                $properties['tags_url'] = $value;
-    
-                after_tags_url:
-
-                $value = $payload['teams_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'teams_url';
-                    goto after_teams_url;
-                }
-
-                $properties['teams_url'] = $value;
-    
-                after_teams_url:
-
-                $value = $payload['topics'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'topics';
-                    goto after_topics;
-                }
-
-                $properties['topics'] = $value;
-    
-                after_topics:
-
-                $value = $payload['trees_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'trees_url';
-                    goto after_trees_url;
-                }
-
-                $properties['trees_url'] = $value;
-    
-                after_trees_url:
-
-                $value = $payload['updated_at'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'updated_at';
-                    goto after_updated_at;
-                }
-
-                $properties['updated_at'] = $value;
-    
-                after_updated_at:
-
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'url';
-                    goto after_url;
-                }
-
-                $properties['url'] = $value;
-    
-                after_url:
-
-                $value = $payload['visibility'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'visibility';
-                    goto after_visibility;
-                }
-
-                $properties['visibility'] = $value;
-    
-                after_visibility:
-
-                $value = $payload['watchers'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'watchers';
-                    goto after_watchers;
-                }
-
-                $properties['watchers'] = $value;
-    
-                after_watchers:
-
-                $value = $payload['watchers_count'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'watchers_count';
-                    goto after_watchers_count;
-                }
-
-                $properties['watchers_count'] = $value;
-    
-                after_watchers_count:
-
-                $value = $payload['web_commit_signoff_required'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'web_commit_signoff_required';
-                    goto after_web_commit_signoff_required;
-                }
-
-                $properties['web_commit_signoff_required'] = $value;
-    
-                after_web_commit_signoff_required:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['key'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'key';
-                    goto after_key;
-                }
-
-                $properties['key'] = $value;
-    
-                after_key:
-
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'name';
-                    goto after_name;
-                }
-
-                $properties['name'] = $value;
-    
-                after_name:
-
-                $value = $payload['node_id'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'node_id';
-                    goto after_node_id;
-                }
-
-                $properties['node_id'] = $value;
-    
-                after_node_id:
-
-                $value = $payload['spdx_id'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'spdx_id';
-                    goto after_spdx_id;
-                }
-
-                $properties['spdx_id'] = $value;
-    
-                after_spdx_id:
-
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'url';
-                    goto after_url;
-                }
-
-                $properties['url'] = $value;
-    
-                after_url:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['admin'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'admin';
-                    goto after_admin;
-                }
-
-                $properties['admin'] = $value;
-    
-                after_admin:
-
-                $value = $payload['maintain'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'maintain';
-                    goto after_maintain;
-                }
-
-                $properties['maintain'] = $value;
-    
-                after_maintain:
-
-                $value = $payload['pull'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'pull';
-                    goto after_pull;
-                }
-
-                $properties['pull'] = $value;
-    
-                after_pull:
-
-                $value = $payload['push'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'push';
-                    goto after_push;
-                }
-
-                $properties['push'] = $value;
-    
-                after_push:
-
-                $value = $payload['triage'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'triage';
-                    goto after_triage;
-                }
-
-                $properties['triage'] = $value;
-    
-                after_triage:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
         private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionUnanswered(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionUnanswered
         {
             $properties = []; 
@@ -8630,7 +6843,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -8641,7 +6854,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['discussion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussion';
+                    $properties['discussion'] = null;
                     goto after_discussion;
                 }
 
@@ -8661,7 +6874,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['old_answer'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'old_answer';
+                    $properties['old_answer'] = null;
                     goto after_old_answer;
                 }
 
@@ -8701,7 +6914,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -8763,7 +6976,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -8774,7 +6987,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['discussion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussion';
+                    $properties['discussion'] = null;
                     goto after_discussion;
                 }
 
@@ -8834,7 +7047,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['label'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'label';
+                    $properties['label'] = null;
                     goto after_label;
                 }
 
@@ -8874,7 +7087,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -8894,7 +7107,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -8936,7 +7149,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -8947,7 +7160,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['discussion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussion';
+                    $properties['discussion'] = null;
                     goto after_discussion;
                 }
 
@@ -9027,7 +7240,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -9047,7 +7260,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -9089,7 +7302,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -9100,7 +7313,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['discussion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussion';
+                    $properties['discussion'] = null;
                     goto after_discussion;
                 }
 
@@ -9180,7 +7393,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -9200,7 +7413,7 @@ class Discussion implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -9272,16 +7485,11 @@ class Discussion implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionEdited\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionEdited⚡️Changes($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionCommentEdited\Changes\Body' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionCommentEdited⚡️Changes⚡️Body($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLabeled' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionLabeled($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLabeled\Discussion' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionLabeled⚡️Discussion($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLabeled\Label' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLocked' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionLocked($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionPinned' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionPinned($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewDiscussion' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewDiscussion($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionUnanswered' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionUnanswered($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionUnlabeled' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionUnlabeled($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionUnlocked' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionUnlocked($object),
@@ -12910,7 +11118,7 @@ class Discussion implements ObjectMapper
         if ($discussion === null) {
             goto after_discussion;
         }
-        $discussion = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionLabeled⚡️Discussion($discussion);
+        $discussion = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion($discussion);
         after_discussion:        $result['discussion'] = $discussion;
 
         
@@ -12954,179 +11162,6 @@ class Discussion implements ObjectMapper
         }
         $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
-
-
-        return $result;
-    }
-
-    
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionLabeled⚡️Discussion(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionLabeled\Discussion);
-        $result = [];
-        
-        $active_lock_reason = $object->active_lock_reason;
-
-        if ($active_lock_reason === null) {
-            goto after_active_lock_reason;
-        }
-        after_active_lock_reason:        $result['active_lock_reason'] = $active_lock_reason;
-
-        
-        $answer_chosen_at = $object->answer_chosen_at;
-
-        if ($answer_chosen_at === null) {
-            goto after_answer_chosen_at;
-        }
-        after_answer_chosen_at:        $result['answer_chosen_at'] = $answer_chosen_at;
-
-        
-        $answer_chosen_by = $object->answer_chosen_by;
-
-        if ($answer_chosen_by === null) {
-            goto after_answer_chosen_by;
-        }
-        $answer_chosen_by = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($answer_chosen_by);
-        after_answer_chosen_by:        $result['answer_chosen_by'] = $answer_chosen_by;
-
-        
-        $answer_html_url = $object->answer_html_url;
-
-        if ($answer_html_url === null) {
-            goto after_answer_html_url;
-        }
-        after_answer_html_url:        $result['answer_html_url'] = $answer_html_url;
-
-        
-        $author_association = $object->author_association;
-
-        if ($author_association === null) {
-            goto after_author_association;
-        }
-        after_author_association:        $result['author_association'] = $author_association;
-
-        
-        $body = $object->body;
-
-        if ($body === null) {
-            goto after_body;
-        }
-        after_body:        $result['body'] = $body;
-
-        
-        $category = $object->category;
-
-        if ($category === null) {
-            goto after_category;
-        }
-        $category = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️Category($category);
-        after_category:        $result['category'] = $category;
-
-        
-        $comments = $object->comments;
-
-        if ($comments === null) {
-            goto after_comments;
-        }
-        after_comments:        $result['comments'] = $comments;
-
-        
-        $created_at = $object->created_at;
-
-        if ($created_at === null) {
-            goto after_created_at;
-        }
-        after_created_at:        $result['created_at'] = $created_at;
-
-        
-        $html_url = $object->html_url;
-
-        if ($html_url === null) {
-            goto after_html_url;
-        }
-        after_html_url:        $result['html_url'] = $html_url;
-
-        
-        $id = $object->id;
-
-        if ($id === null) {
-            goto after_id;
-        }
-        after_id:        $result['id'] = $id;
-
-        
-        $locked = $object->locked;
-
-        if ($locked === null) {
-            goto after_locked;
-        }
-        after_locked:        $result['locked'] = $locked;
-
-        
-        $node_id = $object->node_id;
-
-        if ($node_id === null) {
-            goto after_node_id;
-        }
-        after_node_id:        $result['node_id'] = $node_id;
-
-        
-        $number = $object->number;
-
-        if ($number === null) {
-            goto after_number;
-        }
-        after_number:        $result['number'] = $number;
-
-        
-        $reactions = $object->reactions;
-        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️Reactions($reactions);
-        after_reactions:        $result['reactions'] = $reactions;
-
-        
-        $repository_url = $object->repository_url;
-
-        if ($repository_url === null) {
-            goto after_repository_url;
-        }
-        after_repository_url:        $result['repository_url'] = $repository_url;
-
-        
-        $state = $object->state;
-
-        if ($state === null) {
-            goto after_state;
-        }
-        after_state:        $result['state'] = $state;
-
-        
-        $timeline_url = $object->timeline_url;
-        after_timeline_url:        $result['timeline_url'] = $timeline_url;
-
-        
-        $title = $object->title;
-
-        if ($title === null) {
-            goto after_title;
-        }
-        after_title:        $result['title'] = $title;
-
-        
-        $updated_at = $object->updated_at;
-
-        if ($updated_at === null) {
-            goto after_updated_at;
-        }
-        after_updated_at:        $result['updated_at'] = $updated_at;
-
-        
-        $user = $object->user;
-
-        if ($user === null) {
-            goto after_user;
-        }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($user);
-        after_user:        $result['user'] = $user;
 
 
         return $result;
@@ -13394,7 +11429,7 @@ class Discussion implements ObjectMapper
         if ($new_discussion === null) {
             goto after_new_discussion;
         }
-        $new_discussion = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewDiscussion($new_discussion);
+        $new_discussion = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion($new_discussion);
         after_new_discussion:        $result['new_discussion'] = $new_discussion;
 
         
@@ -13403,959 +11438,8 @@ class Discussion implements ObjectMapper
         if ($new_repository === null) {
             goto after_new_repository;
         }
-        $new_repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository($new_repository);
+        $new_repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($new_repository);
         after_new_repository:        $result['new_repository'] = $new_repository;
-
-
-        return $result;
-    }
-
-    
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewDiscussion(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewDiscussion);
-        $result = [];
-        
-        $active_lock_reason = $object->active_lock_reason;
-
-        if ($active_lock_reason === null) {
-            goto after_active_lock_reason;
-        }
-        after_active_lock_reason:        $result['active_lock_reason'] = $active_lock_reason;
-
-        
-        $answer_chosen_at = $object->answer_chosen_at;
-
-        if ($answer_chosen_at === null) {
-            goto after_answer_chosen_at;
-        }
-        after_answer_chosen_at:        $result['answer_chosen_at'] = $answer_chosen_at;
-
-        
-        $answer_chosen_by = $object->answer_chosen_by;
-
-        if ($answer_chosen_by === null) {
-            goto after_answer_chosen_by;
-        }
-        $answer_chosen_by = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($answer_chosen_by);
-        after_answer_chosen_by:        $result['answer_chosen_by'] = $answer_chosen_by;
-
-        
-        $answer_html_url = $object->answer_html_url;
-
-        if ($answer_html_url === null) {
-            goto after_answer_html_url;
-        }
-        after_answer_html_url:        $result['answer_html_url'] = $answer_html_url;
-
-        
-        $author_association = $object->author_association;
-
-        if ($author_association === null) {
-            goto after_author_association;
-        }
-        after_author_association:        $result['author_association'] = $author_association;
-
-        
-        $body = $object->body;
-
-        if ($body === null) {
-            goto after_body;
-        }
-        after_body:        $result['body'] = $body;
-
-        
-        $category = $object->category;
-
-        if ($category === null) {
-            goto after_category;
-        }
-        $category = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️Category($category);
-        after_category:        $result['category'] = $category;
-
-        
-        $comments = $object->comments;
-
-        if ($comments === null) {
-            goto after_comments;
-        }
-        after_comments:        $result['comments'] = $comments;
-
-        
-        $created_at = $object->created_at;
-
-        if ($created_at === null) {
-            goto after_created_at;
-        }
-        after_created_at:        $result['created_at'] = $created_at;
-
-        
-        $html_url = $object->html_url;
-
-        if ($html_url === null) {
-            goto after_html_url;
-        }
-        after_html_url:        $result['html_url'] = $html_url;
-
-        
-        $id = $object->id;
-
-        if ($id === null) {
-            goto after_id;
-        }
-        after_id:        $result['id'] = $id;
-
-        
-        $locked = $object->locked;
-
-        if ($locked === null) {
-            goto after_locked;
-        }
-        after_locked:        $result['locked'] = $locked;
-
-        
-        $node_id = $object->node_id;
-
-        if ($node_id === null) {
-            goto after_node_id;
-        }
-        after_node_id:        $result['node_id'] = $node_id;
-
-        
-        $number = $object->number;
-
-        if ($number === null) {
-            goto after_number;
-        }
-        after_number:        $result['number'] = $number;
-
-        
-        $reactions = $object->reactions;
-        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️Reactions($reactions);
-        after_reactions:        $result['reactions'] = $reactions;
-
-        
-        $repository_url = $object->repository_url;
-
-        if ($repository_url === null) {
-            goto after_repository_url;
-        }
-        after_repository_url:        $result['repository_url'] = $repository_url;
-
-        
-        $state = $object->state;
-
-        if ($state === null) {
-            goto after_state;
-        }
-        after_state:        $result['state'] = $state;
-
-        
-        $timeline_url = $object->timeline_url;
-        after_timeline_url:        $result['timeline_url'] = $timeline_url;
-
-        
-        $title = $object->title;
-
-        if ($title === null) {
-            goto after_title;
-        }
-        after_title:        $result['title'] = $title;
-
-        
-        $updated_at = $object->updated_at;
-
-        if ($updated_at === null) {
-            goto after_updated_at;
-        }
-        after_updated_at:        $result['updated_at'] = $updated_at;
-
-        
-        $user = $object->user;
-
-        if ($user === null) {
-            goto after_user;
-        }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($user);
-        after_user:        $result['user'] = $user;
-
-
-        return $result;
-    }
-
-    
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository);
-        $result = [];
-        
-        $allow_auto_merge = $object->allow_auto_merge;
-        after_allow_auto_merge:        $result['allow_auto_merge'] = $allow_auto_merge;
-
-        
-        $allow_forking = $object->allow_forking;
-        after_allow_forking:        $result['allow_forking'] = $allow_forking;
-
-        
-        $allow_merge_commit = $object->allow_merge_commit;
-        after_allow_merge_commit:        $result['allow_merge_commit'] = $allow_merge_commit;
-
-        
-        $allow_rebase_merge = $object->allow_rebase_merge;
-        after_allow_rebase_merge:        $result['allow_rebase_merge'] = $allow_rebase_merge;
-
-        
-        $allow_squash_merge = $object->allow_squash_merge;
-        after_allow_squash_merge:        $result['allow_squash_merge'] = $allow_squash_merge;
-
-        
-        $allow_update_branch = $object->allow_update_branch;
-        after_allow_update_branch:        $result['allow_update_branch'] = $allow_update_branch;
-
-        
-        $archive_url = $object->archive_url;
-
-        if ($archive_url === null) {
-            goto after_archive_url;
-        }
-        after_archive_url:        $result['archive_url'] = $archive_url;
-
-        
-        $archived = $object->archived;
-
-        if ($archived === null) {
-            goto after_archived;
-        }
-        after_archived:        $result['archived'] = $archived;
-
-        
-        $assignees_url = $object->assignees_url;
-
-        if ($assignees_url === null) {
-            goto after_assignees_url;
-        }
-        after_assignees_url:        $result['assignees_url'] = $assignees_url;
-
-        
-        $blobs_url = $object->blobs_url;
-
-        if ($blobs_url === null) {
-            goto after_blobs_url;
-        }
-        after_blobs_url:        $result['blobs_url'] = $blobs_url;
-
-        
-        $branches_url = $object->branches_url;
-
-        if ($branches_url === null) {
-            goto after_branches_url;
-        }
-        after_branches_url:        $result['branches_url'] = $branches_url;
-
-        
-        $clone_url = $object->clone_url;
-
-        if ($clone_url === null) {
-            goto after_clone_url;
-        }
-        after_clone_url:        $result['clone_url'] = $clone_url;
-
-        
-        $collaborators_url = $object->collaborators_url;
-
-        if ($collaborators_url === null) {
-            goto after_collaborators_url;
-        }
-        after_collaborators_url:        $result['collaborators_url'] = $collaborators_url;
-
-        
-        $comments_url = $object->comments_url;
-
-        if ($comments_url === null) {
-            goto after_comments_url;
-        }
-        after_comments_url:        $result['comments_url'] = $comments_url;
-
-        
-        $commits_url = $object->commits_url;
-
-        if ($commits_url === null) {
-            goto after_commits_url;
-        }
-        after_commits_url:        $result['commits_url'] = $commits_url;
-
-        
-        $compare_url = $object->compare_url;
-
-        if ($compare_url === null) {
-            goto after_compare_url;
-        }
-        after_compare_url:        $result['compare_url'] = $compare_url;
-
-        
-        $contents_url = $object->contents_url;
-
-        if ($contents_url === null) {
-            goto after_contents_url;
-        }
-        after_contents_url:        $result['contents_url'] = $contents_url;
-
-        
-        $contributors_url = $object->contributors_url;
-
-        if ($contributors_url === null) {
-            goto after_contributors_url;
-        }
-        after_contributors_url:        $result['contributors_url'] = $contributors_url;
-
-        
-        $created_at = $object->created_at;
-
-        if ($created_at === null) {
-            goto after_created_at;
-        }
-        after_created_at:        $result['created_at'] = $created_at;
-
-        
-        $default_branch = $object->default_branch;
-
-        if ($default_branch === null) {
-            goto after_default_branch;
-        }
-        after_default_branch:        $result['default_branch'] = $default_branch;
-
-        
-        $delete_branch_on_merge = $object->delete_branch_on_merge;
-        after_delete_branch_on_merge:        $result['delete_branch_on_merge'] = $delete_branch_on_merge;
-
-        
-        $deployments_url = $object->deployments_url;
-
-        if ($deployments_url === null) {
-            goto after_deployments_url;
-        }
-        after_deployments_url:        $result['deployments_url'] = $deployments_url;
-
-        
-        $description = $object->description;
-
-        if ($description === null) {
-            goto after_description;
-        }
-        after_description:        $result['description'] = $description;
-
-        
-        $disabled = $object->disabled;
-        after_disabled:        $result['disabled'] = $disabled;
-
-        
-        $downloads_url = $object->downloads_url;
-
-        if ($downloads_url === null) {
-            goto after_downloads_url;
-        }
-        after_downloads_url:        $result['downloads_url'] = $downloads_url;
-
-        
-        $events_url = $object->events_url;
-
-        if ($events_url === null) {
-            goto after_events_url;
-        }
-        after_events_url:        $result['events_url'] = $events_url;
-
-        
-        $fork = $object->fork;
-
-        if ($fork === null) {
-            goto after_fork;
-        }
-        after_fork:        $result['fork'] = $fork;
-
-        
-        $forks = $object->forks;
-
-        if ($forks === null) {
-            goto after_forks;
-        }
-        after_forks:        $result['forks'] = $forks;
-
-        
-        $forks_count = $object->forks_count;
-
-        if ($forks_count === null) {
-            goto after_forks_count;
-        }
-        after_forks_count:        $result['forks_count'] = $forks_count;
-
-        
-        $forks_url = $object->forks_url;
-
-        if ($forks_url === null) {
-            goto after_forks_url;
-        }
-        after_forks_url:        $result['forks_url'] = $forks_url;
-
-        
-        $full_name = $object->full_name;
-
-        if ($full_name === null) {
-            goto after_full_name;
-        }
-        after_full_name:        $result['full_name'] = $full_name;
-
-        
-        $git_commits_url = $object->git_commits_url;
-
-        if ($git_commits_url === null) {
-            goto after_git_commits_url;
-        }
-        after_git_commits_url:        $result['git_commits_url'] = $git_commits_url;
-
-        
-        $git_refs_url = $object->git_refs_url;
-
-        if ($git_refs_url === null) {
-            goto after_git_refs_url;
-        }
-        after_git_refs_url:        $result['git_refs_url'] = $git_refs_url;
-
-        
-        $git_tags_url = $object->git_tags_url;
-
-        if ($git_tags_url === null) {
-            goto after_git_tags_url;
-        }
-        after_git_tags_url:        $result['git_tags_url'] = $git_tags_url;
-
-        
-        $git_url = $object->git_url;
-
-        if ($git_url === null) {
-            goto after_git_url;
-        }
-        after_git_url:        $result['git_url'] = $git_url;
-
-        
-        $has_downloads = $object->has_downloads;
-
-        if ($has_downloads === null) {
-            goto after_has_downloads;
-        }
-        after_has_downloads:        $result['has_downloads'] = $has_downloads;
-
-        
-        $has_issues = $object->has_issues;
-
-        if ($has_issues === null) {
-            goto after_has_issues;
-        }
-        after_has_issues:        $result['has_issues'] = $has_issues;
-
-        
-        $has_pages = $object->has_pages;
-
-        if ($has_pages === null) {
-            goto after_has_pages;
-        }
-        after_has_pages:        $result['has_pages'] = $has_pages;
-
-        
-        $has_projects = $object->has_projects;
-
-        if ($has_projects === null) {
-            goto after_has_projects;
-        }
-        after_has_projects:        $result['has_projects'] = $has_projects;
-
-        
-        $has_wiki = $object->has_wiki;
-
-        if ($has_wiki === null) {
-            goto after_has_wiki;
-        }
-        after_has_wiki:        $result['has_wiki'] = $has_wiki;
-
-        
-        $has_discussions = $object->has_discussions;
-
-        if ($has_discussions === null) {
-            goto after_has_discussions;
-        }
-        after_has_discussions:        $result['has_discussions'] = $has_discussions;
-
-        
-        $homepage = $object->homepage;
-
-        if ($homepage === null) {
-            goto after_homepage;
-        }
-        after_homepage:        $result['homepage'] = $homepage;
-
-        
-        $hooks_url = $object->hooks_url;
-
-        if ($hooks_url === null) {
-            goto after_hooks_url;
-        }
-        after_hooks_url:        $result['hooks_url'] = $hooks_url;
-
-        
-        $html_url = $object->html_url;
-
-        if ($html_url === null) {
-            goto after_html_url;
-        }
-        after_html_url:        $result['html_url'] = $html_url;
-
-        
-        $id = $object->id;
-
-        if ($id === null) {
-            goto after_id;
-        }
-        after_id:        $result['id'] = $id;
-
-        
-        $is_template = $object->is_template;
-        after_is_template:        $result['is_template'] = $is_template;
-
-        
-        $issue_comment_url = $object->issue_comment_url;
-
-        if ($issue_comment_url === null) {
-            goto after_issue_comment_url;
-        }
-        after_issue_comment_url:        $result['issue_comment_url'] = $issue_comment_url;
-
-        
-        $issue_events_url = $object->issue_events_url;
-
-        if ($issue_events_url === null) {
-            goto after_issue_events_url;
-        }
-        after_issue_events_url:        $result['issue_events_url'] = $issue_events_url;
-
-        
-        $issues_url = $object->issues_url;
-
-        if ($issues_url === null) {
-            goto after_issues_url;
-        }
-        after_issues_url:        $result['issues_url'] = $issues_url;
-
-        
-        $keys_url = $object->keys_url;
-
-        if ($keys_url === null) {
-            goto after_keys_url;
-        }
-        after_keys_url:        $result['keys_url'] = $keys_url;
-
-        
-        $labels_url = $object->labels_url;
-
-        if ($labels_url === null) {
-            goto after_labels_url;
-        }
-        after_labels_url:        $result['labels_url'] = $labels_url;
-
-        
-        $language = $object->language;
-
-        if ($language === null) {
-            goto after_language;
-        }
-        after_language:        $result['language'] = $language;
-
-        
-        $languages_url = $object->languages_url;
-
-        if ($languages_url === null) {
-            goto after_languages_url;
-        }
-        after_languages_url:        $result['languages_url'] = $languages_url;
-
-        
-        $license = $object->license;
-
-        if ($license === null) {
-            goto after_license;
-        }
-        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License($license);
-        after_license:        $result['license'] = $license;
-
-        
-        $master_branch = $object->master_branch;
-        after_master_branch:        $result['master_branch'] = $master_branch;
-
-        
-        $merges_url = $object->merges_url;
-
-        if ($merges_url === null) {
-            goto after_merges_url;
-        }
-        after_merges_url:        $result['merges_url'] = $merges_url;
-
-        
-        $milestones_url = $object->milestones_url;
-
-        if ($milestones_url === null) {
-            goto after_milestones_url;
-        }
-        after_milestones_url:        $result['milestones_url'] = $milestones_url;
-
-        
-        $mirror_url = $object->mirror_url;
-
-        if ($mirror_url === null) {
-            goto after_mirror_url;
-        }
-        after_mirror_url:        $result['mirror_url'] = $mirror_url;
-
-        
-        $name = $object->name;
-
-        if ($name === null) {
-            goto after_name;
-        }
-        after_name:        $result['name'] = $name;
-
-        
-        $node_id = $object->node_id;
-
-        if ($node_id === null) {
-            goto after_node_id;
-        }
-        after_node_id:        $result['node_id'] = $node_id;
-
-        
-        $notifications_url = $object->notifications_url;
-
-        if ($notifications_url === null) {
-            goto after_notifications_url;
-        }
-        after_notifications_url:        $result['notifications_url'] = $notifications_url;
-
-        
-        $open_issues = $object->open_issues;
-
-        if ($open_issues === null) {
-            goto after_open_issues;
-        }
-        after_open_issues:        $result['open_issues'] = $open_issues;
-
-        
-        $open_issues_count = $object->open_issues_count;
-
-        if ($open_issues_count === null) {
-            goto after_open_issues_count;
-        }
-        after_open_issues_count:        $result['open_issues_count'] = $open_issues_count;
-
-        
-        $organization = $object->organization;
-        after_organization:        $result['organization'] = $organization;
-
-        
-        $owner = $object->owner;
-
-        if ($owner === null) {
-            goto after_owner;
-        }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($owner);
-        after_owner:        $result['owner'] = $owner;
-
-        
-        $permissions = $object->permissions;
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions($permissions);
-        after_permissions:        $result['permissions'] = $permissions;
-
-        
-        $private = $object->private;
-
-        if ($private === null) {
-            goto after_private;
-        }
-        after_private:        $result['private'] = $private;
-
-        
-        $public = $object->public;
-        after_public:        $result['public'] = $public;
-
-        
-        $pulls_url = $object->pulls_url;
-
-        if ($pulls_url === null) {
-            goto after_pulls_url;
-        }
-        after_pulls_url:        $result['pulls_url'] = $pulls_url;
-
-        
-        $pushed_at = $object->pushed_at;
-
-        if ($pushed_at === null) {
-            goto after_pushed_at;
-        }
-        after_pushed_at:        $result['pushed_at'] = $pushed_at;
-
-        
-        $releases_url = $object->releases_url;
-
-        if ($releases_url === null) {
-            goto after_releases_url;
-        }
-        after_releases_url:        $result['releases_url'] = $releases_url;
-
-        
-        $role_name = $object->role_name;
-
-        if ($role_name === null) {
-            goto after_role_name;
-        }
-        after_role_name:        $result['role_name'] = $role_name;
-
-        
-        $size = $object->size;
-
-        if ($size === null) {
-            goto after_size;
-        }
-        after_size:        $result['size'] = $size;
-
-        
-        $ssh_url = $object->ssh_url;
-
-        if ($ssh_url === null) {
-            goto after_ssh_url;
-        }
-        after_ssh_url:        $result['ssh_url'] = $ssh_url;
-
-        
-        $stargazers = $object->stargazers;
-        after_stargazers:        $result['stargazers'] = $stargazers;
-
-        
-        $stargazers_count = $object->stargazers_count;
-
-        if ($stargazers_count === null) {
-            goto after_stargazers_count;
-        }
-        after_stargazers_count:        $result['stargazers_count'] = $stargazers_count;
-
-        
-        $stargazers_url = $object->stargazers_url;
-
-        if ($stargazers_url === null) {
-            goto after_stargazers_url;
-        }
-        after_stargazers_url:        $result['stargazers_url'] = $stargazers_url;
-
-        
-        $statuses_url = $object->statuses_url;
-
-        if ($statuses_url === null) {
-            goto after_statuses_url;
-        }
-        after_statuses_url:        $result['statuses_url'] = $statuses_url;
-
-        
-        $subscribers_url = $object->subscribers_url;
-
-        if ($subscribers_url === null) {
-            goto after_subscribers_url;
-        }
-        after_subscribers_url:        $result['subscribers_url'] = $subscribers_url;
-
-        
-        $subscription_url = $object->subscription_url;
-
-        if ($subscription_url === null) {
-            goto after_subscription_url;
-        }
-        after_subscription_url:        $result['subscription_url'] = $subscription_url;
-
-        
-        $svn_url = $object->svn_url;
-
-        if ($svn_url === null) {
-            goto after_svn_url;
-        }
-        after_svn_url:        $result['svn_url'] = $svn_url;
-
-        
-        $tags_url = $object->tags_url;
-
-        if ($tags_url === null) {
-            goto after_tags_url;
-        }
-        after_tags_url:        $result['tags_url'] = $tags_url;
-
-        
-        $teams_url = $object->teams_url;
-
-        if ($teams_url === null) {
-            goto after_teams_url;
-        }
-        after_teams_url:        $result['teams_url'] = $teams_url;
-
-        
-        $topics = $object->topics;
-
-        if ($topics === null) {
-            goto after_topics;
-        }
-        static $topicsSerializer0;
-
-        if ($topicsSerializer0 === null) {
-            $topicsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
-));
-        }
-        
-        $topics = $topicsSerializer0->serialize($topics, $this);
-        after_topics:        $result['topics'] = $topics;
-
-        
-        $trees_url = $object->trees_url;
-
-        if ($trees_url === null) {
-            goto after_trees_url;
-        }
-        after_trees_url:        $result['trees_url'] = $trees_url;
-
-        
-        $updated_at = $object->updated_at;
-
-        if ($updated_at === null) {
-            goto after_updated_at;
-        }
-        after_updated_at:        $result['updated_at'] = $updated_at;
-
-        
-        $url = $object->url;
-
-        if ($url === null) {
-            goto after_url;
-        }
-        after_url:        $result['url'] = $url;
-
-        
-        $visibility = $object->visibility;
-
-        if ($visibility === null) {
-            goto after_visibility;
-        }
-        after_visibility:        $result['visibility'] = $visibility;
-
-        
-        $watchers = $object->watchers;
-
-        if ($watchers === null) {
-            goto after_watchers;
-        }
-        after_watchers:        $result['watchers'] = $watchers;
-
-        
-        $watchers_count = $object->watchers_count;
-
-        if ($watchers_count === null) {
-            goto after_watchers_count;
-        }
-        after_watchers_count:        $result['watchers_count'] = $watchers_count;
-
-        
-        $web_commit_signoff_required = $object->web_commit_signoff_required;
-        after_web_commit_signoff_required:        $result['web_commit_signoff_required'] = $web_commit_signoff_required;
-
-
-        return $result;
-    }
-
-    
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License);
-        $result = [];
-        
-        $key = $object->key;
-
-        if ($key === null) {
-            goto after_key;
-        }
-        after_key:        $result['key'] = $key;
-
-        
-        $name = $object->name;
-
-        if ($name === null) {
-            goto after_name;
-        }
-        after_name:        $result['name'] = $name;
-
-        
-        $node_id = $object->node_id;
-
-        if ($node_id === null) {
-            goto after_node_id;
-        }
-        after_node_id:        $result['node_id'] = $node_id;
-
-        
-        $spdx_id = $object->spdx_id;
-
-        if ($spdx_id === null) {
-            goto after_spdx_id;
-        }
-        after_spdx_id:        $result['spdx_id'] = $spdx_id;
-
-        
-        $url = $object->url;
-
-        if ($url === null) {
-            goto after_url;
-        }
-        after_url:        $result['url'] = $url;
-
-
-        return $result;
-    }
-
-    
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions);
-        $result = [];
-        
-        $admin = $object->admin;
-
-        if ($admin === null) {
-            goto after_admin;
-        }
-        after_admin:        $result['admin'] = $admin;
-
-        
-        $maintain = $object->maintain;
-        after_maintain:        $result['maintain'] = $maintain;
-
-        
-        $pull = $object->pull;
-
-        if ($pull === null) {
-            goto after_pull;
-        }
-        after_pull:        $result['pull'] = $pull;
-
-        
-        $push = $object->push;
-
-        if ($push === null) {
-            goto after_push;
-        }
-        after_push:        $result['push'] = $push;
-
-        
-        $triage = $object->triage;
-        after_triage:        $result['triage'] = $triage;
 
 
         return $result;

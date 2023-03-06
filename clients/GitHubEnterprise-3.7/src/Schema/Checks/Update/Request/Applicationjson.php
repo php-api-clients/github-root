@@ -14,53 +14,19 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","details_url":"generated_details_url","external_id":"generated_external_id","started_at":"generated_started_at","status":"generated_status","conclusion":"generated_conclusion","completed_at":"generated_completed_at","output":{"title":"generated_title","summary":"generated_summary","text":"generated_text","annotations":[{"path":"generated_path","start_line":13,"end_line":13,"start_column":13,"end_column":13,"annotation_level":"generated_annotation_level","message":"generated_message","title":"generated_title","raw_details":"generated_raw_details"}],"images":[{"alt":"generated_alt","image_url":"generated_image_url","caption":"generated_caption"}]},"actions":[{"label":"generated_label","description":"generated_description","identifier":"generated_identifier"}]}';
     /**
-     * The name of the check. For example, "code-coverage".
-     */
-    public ?string $name;
-    /**
-     * The URL of the integrator's site that has the full details of the check.
-     */
-    public ?string $details_url;
-    /**
-     * A reference for the run on the integrator's system.
-     */
-    public ?string $external_id;
-    /**
-     * This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $started_at;
-    /**
-     * The current status.
-     */
-    public ?string $status;
-    /**
-    * **Required if you provide `completed_at` or a `status` of `completed`**. The final conclusion of the check. 
+    * name: The name of the check. For example, "code-coverage".
+    * details_url: The URL of the integrator's site that has the full details of the check.
+    * external_id: A reference for the run on the integrator's system.
+    * started_at: This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
+    * status: The current status.
+    * conclusion: **Required if you provide `completed_at` or a `status` of `completed`**. The final conclusion of the check. 
     **Note:** Providing `conclusion` will automatically set the `status` parameter to `completed`. You cannot change a check run conclusion to `stale`, only GitHub can set this.
+    * completed_at: The time the check completed. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
+    * output: Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run.
+    * actions: Possible further actions the integrator can perform, which a user may trigger. Each action includes a `label`, `identifier` and `description`. A maximum of three actions are accepted. See the [`actions` object](https://docs.github.com/enterprise-server@3.7/rest/reference/checks#actions-object) description. To learn more about check runs and requested actions, see "[Check runs and requested actions](https://docs.github.com/enterprise-server@3.7/rest/reference/checks#check-runs-and-requested-actions)."
+    * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\Checks\Create\Request\Applicationjson\Actions> $actions
     */
-    public ?string $conclusion;
-    /**
-     * The time the check completed. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $completed_at;
-    /**
-     * Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run.
-     */
-    public ?Schema\Checks\Update\Request\Applicationjson\Output $output;
-    /**
-     * Possible further actions the integrator can perform, which a user may trigger. Each action includes a `label`, `identifier` and `description`. A maximum of three actions are accepted. See the [`actions` object](https://docs.github.com/enterprise-server@3.7/rest/reference/checks#actions-object) description. To learn more about check runs and requested actions, see "[Check runs and requested actions](https://docs.github.com/enterprise-server@3.7/rest/reference/checks#check-runs-and-requested-actions)."
-     * @var array<Schema\Checks\Create\Request\Applicationjson\Actions>
-     */
-    public ?array $actions;
-    public function __construct(string $name, string $details_url, string $external_id, string $started_at, string $status, string $conclusion, string $completed_at, Schema\Checks\Update\Request\Applicationjson\Output $output, array $actions)
+    public function __construct(public ?string $name, public ?string $details_url, public ?string $external_id, public ?string $started_at, public ?string $status, public ?string $conclusion, public ?string $completed_at, public ?Schema\Checks\Update\Request\Applicationjson\Output $output, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Checks\Create\Request\Applicationjson\Actions::class)] public ?array $actions)
     {
-        $this->name = $name;
-        $this->details_url = $details_url;
-        $this->external_id = $external_id;
-        $this->started_at = $started_at;
-        $this->status = $status;
-        $this->conclusion = $conclusion;
-        $this->completed_at = $completed_at;
-        $this->output = $output;
-        $this->actions = $actions;
     }
 }

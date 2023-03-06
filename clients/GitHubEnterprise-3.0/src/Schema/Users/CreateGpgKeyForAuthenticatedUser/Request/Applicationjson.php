@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"armored_public_key":"generated_armored_public_key"}';
     /**
-     * A GPG key in ASCII-armored format.
+     * armored_public_key: A GPG key in ASCII-armored format.
      */
-    public ?string $armored_public_key;
-    public function __construct(string $armored_public_key)
+    public function __construct(public ?string $armored_public_key)
     {
-        $this->armored_public_key = $armored_public_key;
     }
 }

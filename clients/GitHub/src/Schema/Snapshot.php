@@ -14,43 +14,15 @@ final readonly class Snapshot
     public const SCHEMA_DESCRIPTION = 'Create a new snapshot of a repository\'s dependencies.';
     public const SCHEMA_EXAMPLE_DATA = '{"version":13,"job":{"id":"5622a2b0-63f6-4732-8c34-a1ab27e102a11","correlator":"yourworkflowname_yourjobname","html_url":"http:\\/\\/example.com\\/build"},"sha":"ddc951f4b1293222421f2c8df679786153acf689","ref":"refs\\/heads\\/main","detector":{"name":"docker buildtime detector","version":"1.0.0","url":"http:\\/\\/example.com\\/docker-buildtimer-detector"},"metadata":[],"manifests":[],"scanned":"2020-06-13T14:52:50-05:00"}';
     /**
-     * The version of the repository snapshot submission.
+     * version: The version of the repository snapshot submission.
+     * sha: The commit SHA associated with this dependency snapshot. Maximum length: 40 characters.
+     * ref: The repository branch that triggered this snapshot.
+     * detector: A description of the detector used.
+     * metadata: User-defined metadata to store domain-specific information limited to 8 keys with scalar values.
+     * manifests: A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.
+     * scanned: The time at which the snapshot was scanned.
      */
-    public ?int $version;
-    public ?Schema\Snapshot\Job $job;
-    /**
-     * The commit SHA associated with this dependency snapshot. Maximum length: 40 characters.
-     */
-    public ?string $sha;
-    /**
-     * The repository branch that triggered this snapshot.
-     */
-    public ?string $ref;
-    /**
-     * A description of the detector used.
-     */
-    public ?Schema\Snapshot\Detector $detector;
-    /**
-     * User-defined metadata to store domain-specific information limited to 8 keys with scalar values.
-     */
-    public Schema\Metadata $metadata;
-    /**
-     * A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.
-     */
-    public Schema\Snapshot\Manifests $manifests;
-    /**
-     * The time at which the snapshot was scanned.
-     */
-    public ?string $scanned;
-    public function __construct(int $version, Schema\Snapshot\Job $job, string $sha, string $ref, Schema\Snapshot\Detector $detector, Schema\Metadata $metadata, Schema\Snapshot\Manifests $manifests, string $scanned)
+    public function __construct(public ?int $version, public ?Schema\Snapshot\Job $job, public ?string $sha, public ?string $ref, public ?Schema\Snapshot\Detector $detector, public Schema\Metadata $metadata, public Schema\Snapshot\Manifests $manifests, public ?string $scanned)
     {
-        $this->version = $version;
-        $this->job = $job;
-        $this->sha = $sha;
-        $this->ref = $ref;
-        $this->detector = $detector;
-        $this->metadata = $metadata;
-        $this->manifests = $manifests;
-        $this->scanned = $scanned;
     }
 }

@@ -38,7 +38,7 @@ class Usage implements ObjectMapper
                 $value = $payload['full_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'full_name';
+                    $properties['full_name'] = null;
                     goto after_full_name;
                 }
 
@@ -49,7 +49,7 @@ class Usage implements ObjectMapper
                 $value = $payload['active_caches_size_in_bytes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'active_caches_size_in_bytes';
+                    $properties['active_caches_size_in_bytes'] = null;
                     goto after_active_caches_size_in_bytes;
                 }
 
@@ -60,7 +60,7 @@ class Usage implements ObjectMapper
                 $value = $payload['active_caches_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'active_caches_count';
+                    $properties['active_caches_count'] = null;
                     goto after_active_caches_count;
                 }
 

@@ -13,15 +13,7 @@ final readonly class Config
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"content_type":"generated_content_type","insecure_ssl":"generated_insecure_ssl","secret":"generated_secret","url":"generated_url"}';
-    public ?string $content_type;
-    public ?string $insecure_ssl;
-    public string $secret;
-    public ?string $url;
-    public function __construct(string $content_type, string $insecure_ssl, string $secret, string $url)
+    public function __construct(public ?string $content_type, public ?string $insecure_ssl, public string $secret, public ?string $url)
     {
-        $this->content_type = $content_type;
-        $this->insecure_ssl = $insecure_ssl;
-        $this->secret = $secret;
-        $this->url = $url;
     }
 }

@@ -13,13 +13,7 @@ final readonly class GitUser
     public const SCHEMA_TITLE = 'Git User';
     public const SCHEMA_DESCRIPTION = 'Metaproperties for Git author/committer information.';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"\\"Chris Wanstrath\\"","email":"\\"chris@ozmm.org\\"","date":"\\"2007-10-29T02:42:39.000-07:00\\""}';
-    public ?string $name;
-    public ?string $email;
-    public ?string $date;
-    public function __construct(string $name, string $email, string $date)
+    public function __construct(public ?string $name, public ?string $email, public ?string $date)
     {
-        $this->name = $name;
-        $this->email = $email;
-        $this->date = $date;
     }
 }

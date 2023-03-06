@@ -13,56 +13,12 @@ final readonly class BaseGist
     public const SCHEMA_TITLE = 'Base Gist';
     public const SCHEMA_DESCRIPTION = 'Base Gist';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url","forks_url":"generated_forks_url","commits_url":"generated_commits_url","id":"generated_id","node_id":"generated_node_id","git_pull_url":"generated_git_pull_url","git_push_url":"generated_git_push_url","html_url":"generated_html_url","files":[],"public":false,"created_at":"generated_created_at","updated_at":"generated_updated_at","description":"generated_description","comments":13,"user":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"comments_url":"generated_comments_url","owner":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"truncated":false,"forks":[null],"history":[null]}';
-    public ?string $url;
-    public ?string $forks_url;
-    public ?string $commits_url;
-    public ?string $id;
-    public ?string $node_id;
-    public ?string $git_pull_url;
-    public ?string $git_push_url;
-    public ?string $html_url;
-    public ?Schema\BaseGist\Files $files;
-    public ?bool $public;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public ?string $description;
-    public ?int $comments;
-    public ?Schema\SimpleUser $user;
-    public ?string $comments_url;
     /**
-     * Simple User
+     * owner: Simple User
+     * @param array<mixed> $forks
+     * @param array<mixed> $history
      */
-    public Schema\SimpleUser $owner;
-    public bool $truncated;
-    /**
-     * @var array<mixed>
-     */
-    public array $forks;
-    /**
-     * @var array<mixed>
-     */
-    public array $history;
-    public function __construct(string $url, string $forks_url, string $commits_url, string $id, string $node_id, string $git_pull_url, string $git_push_url, string $html_url, Schema\BaseGist\Files $files, bool $public, string $created_at, string $updated_at, string $description, int $comments, Schema\SimpleUser $user, string $comments_url, Schema\SimpleUser $owner, bool $truncated, array $forks, array $history)
+    public function __construct(public ?string $url, public ?string $forks_url, public ?string $commits_url, public ?string $id, public ?string $node_id, public ?string $git_pull_url, public ?string $git_push_url, public ?string $html_url, public ?Schema\BaseGist\Files $files, public ?bool $public, public ?string $created_at, public ?string $updated_at, public ?string $description, public ?int $comments, public ?Schema\SimpleUser $user, public ?string $comments_url, public Schema\SimpleUser $owner, public bool $truncated, public array $forks, public array $history)
     {
-        $this->url = $url;
-        $this->forks_url = $forks_url;
-        $this->commits_url = $commits_url;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->git_pull_url = $git_pull_url;
-        $this->git_push_url = $git_push_url;
-        $this->html_url = $html_url;
-        $this->files = $files;
-        $this->public = $public;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->description = $description;
-        $this->comments = $comments;
-        $this->user = $user;
-        $this->comments_url = $comments_url;
-        $this->owner = $owner;
-        $this->truncated = $truncated;
-        $this->forks = $forks;
-        $this->history = $history;
     }
 }

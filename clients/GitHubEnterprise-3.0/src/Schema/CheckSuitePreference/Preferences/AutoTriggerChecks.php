@@ -13,11 +13,7 @@ final readonly class AutoTriggerChecks
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"app_id":13,"setting":false}';
-    public ?int $app_id;
-    public ?bool $setting;
-    public function __construct(int $app_id, bool $setting)
+    public function __construct(public ?int $app_id, public ?bool $setting)
     {
-        $this->app_id = $app_id;
-        $this->setting = $setting;
     }
 }

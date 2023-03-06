@@ -38,7 +38,7 @@ class Issues implements ObjectMapper
                 $value = $payload['total_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_issues';
+                    $properties['total_issues'] = null;
                     goto after_total_issues;
                 }
 
@@ -49,7 +49,7 @@ class Issues implements ObjectMapper
                 $value = $payload['open_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues';
+                    $properties['open_issues'] = null;
                     goto after_open_issues;
                 }
 
@@ -60,7 +60,7 @@ class Issues implements ObjectMapper
                 $value = $payload['closed_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'closed_issues';
+                    $properties['closed_issues'] = null;
                     goto after_closed_issues;
                 }
 

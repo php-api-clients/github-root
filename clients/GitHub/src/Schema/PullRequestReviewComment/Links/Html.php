@@ -13,9 +13,7 @@ final readonly class Html
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"href":"https:\\/\\/github.com\\/octocat\\/Hello-World\\/pull\\/1#discussion-diff-1"}';
-    public ?string $href;
-    public function __construct(string $href)
+    public function __construct(public ?string $href)
     {
-        $this->href = $href;
     }
 }

@@ -14,33 +14,13 @@ final readonly class Runner
     public const SCHEMA_DESCRIPTION = 'A self hosted runner';
     public const SCHEMA_EXAMPLE_DATA = '{"id":5,"name":"iMac","os":"macos","status":"online","busy":false,"labels":[{"id":13,"name":"generated_name","type":"generated_type"}]}';
     /**
-     * The id of the runner.
+     * id: The id of the runner.
+     * name: The name of the runner.
+     * os: The Operating System of the runner.
+     * status: The status of the runner.
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerLabel> $labels
      */
-    public ?int $id;
-    /**
-     * The name of the runner.
-     */
-    public ?string $name;
-    /**
-     * The Operating System of the runner.
-     */
-    public ?string $os;
-    /**
-     * The status of the runner.
-     */
-    public ?string $status;
-    public ?bool $busy;
-    /**
-     * @var array<Schema\RunnerLabel>
-     */
-    public ?array $labels;
-    public function __construct(int $id, string $name, string $os, string $status, bool $busy, array $labels)
+    public function __construct(public ?int $id, public ?string $name, public ?string $os, public ?string $status, public ?bool $busy, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\RunnerLabel::class)] public ?array $labels)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->os = $os;
-        $this->status = $status;
-        $this->busy = $busy;
-        $this->labels = $labels;
     }
 }

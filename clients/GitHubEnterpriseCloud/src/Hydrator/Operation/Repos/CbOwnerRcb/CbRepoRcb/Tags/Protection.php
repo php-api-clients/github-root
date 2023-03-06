@@ -83,7 +83,7 @@ class Protection implements ObjectMapper
                 $value = $payload['pattern'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pattern';
+                    $properties['pattern'] = null;
                     goto after_pattern;
                 }
 
@@ -116,7 +116,7 @@ class Protection implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -127,7 +127,7 @@ class Protection implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -138,7 +138,7 @@ class Protection implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -149,7 +149,7 @@ class Protection implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 

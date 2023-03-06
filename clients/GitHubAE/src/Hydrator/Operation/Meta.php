@@ -39,7 +39,7 @@ class Meta implements ObjectMapper
                 $value = $payload['verifiable_password_authentication'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'verifiable_password_authentication';
+                    $properties['verifiable_password_authentication'] = null;
                     goto after_verifiable_password_authentication;
                 }
 
@@ -191,7 +191,7 @@ class Meta implements ObjectMapper
                 $value = $payload['s_h_a256__r_s_a'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 's_h_a256__r_s_a';
+                    $properties['SHA256_RSA'] = null;
                     goto after_SHA256_RSA;
                 }
 
@@ -202,7 +202,7 @@ class Meta implements ObjectMapper
                 $value = $payload['s_h_a256__d_s_a'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 's_h_a256__d_s_a';
+                    $properties['SHA256_DSA'] = null;
                     goto after_SHA256_DSA;
                 }
 
@@ -213,7 +213,7 @@ class Meta implements ObjectMapper
                 $value = $payload['s_h_a256__e_c_d_s_a'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 's_h_a256__e_c_d_s_a';
+                    $properties['SHA256_ECDSA'] = null;
                     goto after_SHA256_ECDSA;
                 }
 
@@ -224,7 +224,7 @@ class Meta implements ObjectMapper
                 $value = $payload['s_h_a256__e_d25519'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 's_h_a256__e_d25519';
+                    $properties['SHA256_ED25519'] = null;
                     goto after_SHA256_ED25519;
                 }
 

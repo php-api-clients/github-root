@@ -41,7 +41,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -52,7 +52,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -72,7 +72,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['guid'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'guid';
+                    $properties['guid'] = null;
                     goto after_guid;
                 }
 
@@ -83,7 +83,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'state';
+                    $properties['state'] = null;
                     goto after_state;
                 }
 
@@ -94,7 +94,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['lock_repositories'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'lock_repositories';
+                    $properties['lock_repositories'] = null;
                     goto after_lock_repositories;
                 }
 
@@ -105,7 +105,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['exclude_metadata'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'exclude_metadata';
+                    $properties['exclude_metadata'] = null;
                     goto after_exclude_metadata;
                 }
 
@@ -116,7 +116,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['exclude_git_data'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'exclude_git_data';
+                    $properties['exclude_git_data'] = null;
                     goto after_exclude_git_data;
                 }
 
@@ -127,7 +127,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['exclude_attachments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'exclude_attachments';
+                    $properties['exclude_attachments'] = null;
                     goto after_exclude_attachments;
                 }
 
@@ -138,7 +138,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['exclude_releases'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'exclude_releases';
+                    $properties['exclude_releases'] = null;
                     goto after_exclude_releases;
                 }
 
@@ -149,7 +149,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['exclude_owner_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'exclude_owner_projects';
+                    $properties['exclude_owner_projects'] = null;
                     goto after_exclude_owner_projects;
                 }
 
@@ -160,7 +160,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['org_metadata_only'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'org_metadata_only';
+                    $properties['org_metadata_only'] = null;
                     goto after_org_metadata_only;
                 }
 
@@ -171,9 +171,19 @@ class Migrations implements ObjectMapper
                 $value = $payload['repositories'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repositories';
+                    $properties['repositories'] = null;
                     goto after_repositories;
                 }
+
+                static $repositoriesCaster1;
+    
+                if ($repositoriesCaster1 === null) {
+                    $repositoriesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository',
+));
+                }
+    
+                $value = $repositoriesCaster1->cast($value, $this);
 
                 $properties['repositories'] = $value;
     
@@ -182,7 +192,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -193,7 +203,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -204,7 +214,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -215,7 +225,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -270,7 +280,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -281,7 +291,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -292,7 +302,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -303,7 +313,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -336,7 +346,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -347,7 +357,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -361,6 +371,16 @@ class Migrations implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -391,7 +411,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -402,7 +422,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -413,7 +433,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -424,7 +444,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -435,7 +455,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -446,7 +466,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -457,7 +477,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -468,7 +488,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -479,7 +499,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -490,7 +510,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -501,7 +521,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -512,7 +532,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -523,7 +543,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -534,7 +554,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -545,7 +565,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -556,7 +576,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -567,7 +587,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -578,7 +598,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -589,7 +609,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -600,7 +620,7 @@ class Migrations implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -823,7 +843,8 @@ class Migrations implements ObjectMapper
         static $repositoriesSerializer0;
 
         if ($repositoriesSerializer0 === null) {
-            $repositoriesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $repositoriesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository',
 ));
         }
         
@@ -949,7 +970,8 @@ class Migrations implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
 ));
         }
         

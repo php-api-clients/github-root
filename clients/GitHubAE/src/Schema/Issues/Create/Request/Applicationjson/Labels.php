@@ -13,15 +13,7 @@ final readonly class Labels
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"name":"generated_name","description":"generated_description","color":"generated_color"}';
-    public ?int $id;
-    public ?string $name;
-    public ?string $description;
-    public ?string $color;
-    public function __construct(int $id, string $name, string $description, string $color)
+    public function __construct(public ?int $id, public ?string $name, public ?string $description, public ?string $color)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->description = $description;
-        $this->color = $color;
     }
 }

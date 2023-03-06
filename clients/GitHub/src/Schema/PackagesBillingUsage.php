@@ -14,21 +14,11 @@ final readonly class PackagesBillingUsage
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_gigabytes_bandwidth_used":13,"total_paid_gigabytes_bandwidth_used":13,"included_gigabytes_bandwidth":13}';
     /**
-     * Sum of the free and paid storage space (GB) for GitHuub Packages.
+     * total_gigabytes_bandwidth_used: Sum of the free and paid storage space (GB) for GitHuub Packages.
+     * total_paid_gigabytes_bandwidth_used: Total paid storage space (GB) for GitHuub Packages.
+     * included_gigabytes_bandwidth: Free storage space (GB) for GitHub Packages.
      */
-    public ?int $total_gigabytes_bandwidth_used;
-    /**
-     * Total paid storage space (GB) for GitHuub Packages.
-     */
-    public ?int $total_paid_gigabytes_bandwidth_used;
-    /**
-     * Free storage space (GB) for GitHub Packages.
-     */
-    public ?int $included_gigabytes_bandwidth;
-    public function __construct(int $total_gigabytes_bandwidth_used, int $total_paid_gigabytes_bandwidth_used, int $included_gigabytes_bandwidth)
+    public function __construct(public ?int $total_gigabytes_bandwidth_used, public ?int $total_paid_gigabytes_bandwidth_used, public ?int $included_gigabytes_bandwidth)
     {
-        $this->total_gigabytes_bandwidth_used = $total_gigabytes_bandwidth_used;
-        $this->total_paid_gigabytes_bandwidth_used = $total_paid_gigabytes_bandwidth_used;
-        $this->included_gigabytes_bandwidth = $included_gigabytes_bandwidth;
     }
 }

@@ -13,11 +13,7 @@ final readonly class Cwes
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"cwe_id":"generated_cwe_id","name":"generated_name"}';
-    public ?string $cwe_id;
-    public ?string $name;
-    public function __construct(string $cwe_id, string $name)
+    public function __construct(public ?string $cwe_id, public ?string $name)
     {
-        $this->cwe_id = $cwe_id;
-        $this->name = $name;
     }
 }

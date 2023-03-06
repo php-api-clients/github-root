@@ -38,7 +38,7 @@ class Pulls implements ObjectMapper
                 $value = $payload['total_pulls'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_pulls';
+                    $properties['total_pulls'] = null;
                     goto after_total_pulls;
                 }
 
@@ -49,7 +49,7 @@ class Pulls implements ObjectMapper
                 $value = $payload['merged_pulls'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merged_pulls';
+                    $properties['merged_pulls'] = null;
                     goto after_merged_pulls;
                 }
 
@@ -60,7 +60,7 @@ class Pulls implements ObjectMapper
                 $value = $payload['mergeable_pulls'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'mergeable_pulls';
+                    $properties['mergeable_pulls'] = null;
                     goto after_mergeable_pulls;
                 }
 
@@ -71,7 +71,7 @@ class Pulls implements ObjectMapper
                 $value = $payload['unmergeable_pulls'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'unmergeable_pulls';
+                    $properties['unmergeable_pulls'] = null;
                     goto after_unmergeable_pulls;
                 }
 

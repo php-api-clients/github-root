@@ -66,7 +66,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -77,7 +77,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['actions_meta'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'actions_meta';
+                    $properties['actions_meta'] = null;
                     goto after_actions_meta;
                 }
 
@@ -97,7 +97,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['check_suite'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'check_suite';
+                    $properties['check_suite'] = null;
                     goto after_check_suite;
                 }
 
@@ -177,7 +177,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -197,7 +197,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -239,7 +239,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['after'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'after';
+                    $properties['after'] = null;
                     goto after_after;
                 }
 
@@ -250,7 +250,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['app'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'app';
+                    $properties['app'] = null;
                     goto after_app;
                 }
 
@@ -270,7 +270,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['before'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'before';
+                    $properties['before'] = null;
                     goto after_before;
                 }
 
@@ -281,7 +281,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['check_runs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'check_runs_url';
+                    $properties['check_runs_url'] = null;
                     goto after_check_runs_url;
                 }
 
@@ -292,7 +292,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['conclusion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'conclusion';
+                    $properties['conclusion'] = null;
                     goto after_conclusion;
                 }
 
@@ -303,7 +303,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -314,7 +314,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['head_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_branch';
+                    $properties['head_branch'] = null;
                     goto after_head_branch;
                 }
 
@@ -325,7 +325,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['head_commit'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_commit';
+                    $properties['head_commit'] = null;
                     goto after_head_commit;
                 }
 
@@ -345,7 +345,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['head_sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_sha';
+                    $properties['head_sha'] = null;
                     goto after_head_sha;
                 }
 
@@ -356,7 +356,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -367,7 +367,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['latest_check_runs_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'latest_check_runs_count';
+                    $properties['latest_check_runs_count'] = null;
                     goto after_latest_check_runs_count;
                 }
 
@@ -378,7 +378,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -389,9 +389,19 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['pull_requests'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull_requests';
+                    $properties['pull_requests'] = null;
                     goto after_pull_requests;
                 }
+
+                static $pull_requestsCaster1;
+    
+                if ($pull_requestsCaster1 === null) {
+                    $pull_requestsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\WebhookCheckSuiteCompleted\\CheckSuite\\PullRequests',
+));
+                }
+    
+                $value = $pull_requestsCaster1->cast($value, $this);
 
                 $properties['pull_requests'] = $value;
     
@@ -422,7 +432,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -433,7 +443,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -444,7 +454,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -477,7 +487,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -488,7 +498,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -510,7 +520,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['external_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'external_url';
+                    $properties['external_url'] = null;
                     goto after_external_url;
                 }
 
@@ -521,7 +531,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -532,7 +542,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -543,7 +553,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -554,7 +564,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -565,7 +575,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -616,7 +626,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -671,7 +681,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -748,7 +758,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -759,7 +769,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -902,7 +912,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['actions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'actions';
+                    $properties['actions'] = null;
                     goto after_actions;
                 }
 
@@ -913,7 +923,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['administration'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'administration';
+                    $properties['administration'] = null;
                     goto after_administration;
                 }
 
@@ -924,7 +934,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['checks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'checks';
+                    $properties['checks'] = null;
                     goto after_checks;
                 }
 
@@ -935,7 +945,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['content_references'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'content_references';
+                    $properties['content_references'] = null;
                     goto after_content_references;
                 }
 
@@ -946,7 +956,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['contents'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents';
+                    $properties['contents'] = null;
                     goto after_contents;
                 }
 
@@ -957,7 +967,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['deployments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments';
+                    $properties['deployments'] = null;
                     goto after_deployments;
                 }
 
@@ -968,7 +978,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['discussions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discussions';
+                    $properties['discussions'] = null;
                     goto after_discussions;
                 }
 
@@ -979,7 +989,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['emails'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'emails';
+                    $properties['emails'] = null;
                     goto after_emails;
                 }
 
@@ -990,7 +1000,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['environments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'environments';
+                    $properties['environments'] = null;
                     goto after_environments;
                 }
 
@@ -1001,7 +1011,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues';
+                    $properties['issues'] = null;
                     goto after_issues;
                 }
 
@@ -1012,7 +1022,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['keys'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'keys';
+                    $properties['keys'] = null;
                     goto after_keys;
                 }
 
@@ -1023,7 +1033,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['members'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'members';
+                    $properties['members'] = null;
                     goto after_members;
                 }
 
@@ -1034,7 +1044,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['metadata'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'metadata';
+                    $properties['metadata'] = null;
                     goto after_metadata;
                 }
 
@@ -1045,7 +1055,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['organization_administration'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_administration';
+                    $properties['organization_administration'] = null;
                     goto after_organization_administration;
                 }
 
@@ -1056,7 +1066,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['organization_hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_hooks';
+                    $properties['organization_hooks'] = null;
                     goto after_organization_hooks;
                 }
 
@@ -1067,7 +1077,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['organization_packages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_packages';
+                    $properties['organization_packages'] = null;
                     goto after_organization_packages;
                 }
 
@@ -1078,7 +1088,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['organization_plan'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_plan';
+                    $properties['organization_plan'] = null;
                     goto after_organization_plan;
                 }
 
@@ -1089,7 +1099,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['organization_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_projects';
+                    $properties['organization_projects'] = null;
                     goto after_organization_projects;
                 }
 
@@ -1100,7 +1110,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['organization_secrets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_secrets';
+                    $properties['organization_secrets'] = null;
                     goto after_organization_secrets;
                 }
 
@@ -1111,7 +1121,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['organization_self_hosted_runners'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_self_hosted_runners';
+                    $properties['organization_self_hosted_runners'] = null;
                     goto after_organization_self_hosted_runners;
                 }
 
@@ -1122,7 +1132,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['organization_user_blocking'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_user_blocking';
+                    $properties['organization_user_blocking'] = null;
                     goto after_organization_user_blocking;
                 }
 
@@ -1133,7 +1143,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['packages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'packages';
+                    $properties['packages'] = null;
                     goto after_packages;
                 }
 
@@ -1144,7 +1154,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pages';
+                    $properties['pages'] = null;
                     goto after_pages;
                 }
 
@@ -1155,7 +1165,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['pull_requests'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull_requests';
+                    $properties['pull_requests'] = null;
                     goto after_pull_requests;
                 }
 
@@ -1166,7 +1176,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['repository_hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_hooks';
+                    $properties['repository_hooks'] = null;
                     goto after_repository_hooks;
                 }
 
@@ -1177,7 +1187,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['repository_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_projects';
+                    $properties['repository_projects'] = null;
                     goto after_repository_projects;
                 }
 
@@ -1188,7 +1198,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['secret_scanning_alerts'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secret_scanning_alerts';
+                    $properties['secret_scanning_alerts'] = null;
                     goto after_secret_scanning_alerts;
                 }
 
@@ -1199,7 +1209,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['secrets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secrets';
+                    $properties['secrets'] = null;
                     goto after_secrets;
                 }
 
@@ -1210,7 +1220,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['security_events'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'security_events';
+                    $properties['security_events'] = null;
                     goto after_security_events;
                 }
 
@@ -1221,7 +1231,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['security_scanning_alert'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'security_scanning_alert';
+                    $properties['security_scanning_alert'] = null;
                     goto after_security_scanning_alert;
                 }
 
@@ -1232,7 +1242,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['single_file'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'single_file';
+                    $properties['single_file'] = null;
                     goto after_single_file;
                 }
 
@@ -1243,7 +1253,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['statuses'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses';
+                    $properties['statuses'] = null;
                     goto after_statuses;
                 }
 
@@ -1254,7 +1264,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['team_discussions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'team_discussions';
+                    $properties['team_discussions'] = null;
                     goto after_team_discussions;
                 }
 
@@ -1265,7 +1275,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['vulnerability_alerts'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'vulnerability_alerts';
+                    $properties['vulnerability_alerts'] = null;
                     goto after_vulnerability_alerts;
                 }
 
@@ -1276,7 +1286,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['workflows'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'workflows';
+                    $properties['workflows'] = null;
                     goto after_workflows;
                 }
 
@@ -1309,7 +1319,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['author'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'author';
+                    $properties['author'] = null;
                     goto after_author;
                 }
 
@@ -1329,7 +1339,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['committer'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'committer';
+                    $properties['committer'] = null;
                     goto after_committer;
                 }
 
@@ -1349,7 +1359,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1360,7 +1370,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -1371,7 +1381,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['timestamp'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'timestamp';
+                    $properties['timestamp'] = null;
                     goto after_timestamp;
                 }
 
@@ -1382,7 +1392,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['tree_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tree_id';
+                    $properties['tree_id'] = null;
                     goto after_tree_id;
                 }
 
@@ -1426,7 +1436,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -1437,7 +1447,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1481,7 +1491,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['base'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'base';
+                    $properties['base'] = null;
                     goto after_base;
                 }
 
@@ -1501,7 +1511,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['head'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head';
+                    $properties['head'] = null;
                     goto after_head;
                 }
 
@@ -1521,7 +1531,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1532,7 +1542,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['number'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'number';
+                    $properties['number'] = null;
                     goto after_number;
                 }
 
@@ -1543,7 +1553,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -1576,7 +1586,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['ref'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ref';
+                    $properties['ref'] = null;
                     goto after_ref;
                 }
 
@@ -1587,7 +1597,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['repo'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repo';
+                    $properties['repo'] = null;
                     goto after_repo;
                 }
 
@@ -1607,7 +1617,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -1640,7 +1650,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1651,7 +1661,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1662,7 +1672,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -1695,7 +1705,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -1706,7 +1716,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -1717,7 +1727,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['website_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'website_url';
+                    $properties['website_url'] = null;
                     goto after_website_url;
                 }
 
@@ -1728,7 +1738,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1739,7 +1749,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -1750,7 +1760,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1761,7 +1771,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['slug'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'slug';
+                    $properties['slug'] = null;
                     goto after_slug;
                 }
 
@@ -1772,7 +1782,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -1783,7 +1793,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -1794,7 +1804,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -1827,7 +1837,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1838,7 +1848,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -1871,7 +1881,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -1882,7 +1892,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1893,7 +1903,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -1904,7 +1914,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -1915,7 +1925,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -1926,7 +1936,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -1937,7 +1947,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -1948,7 +1958,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -1959,7 +1969,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['members_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'members_url';
+                    $properties['members_url'] = null;
                     goto after_members_url;
                 }
 
@@ -1970,7 +1980,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['public_members_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'public_members_url';
+                    $properties['public_members_url'] = null;
                     goto after_public_members_url;
                 }
 
@@ -1981,7 +1991,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -1992,7 +2002,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -2025,7 +2035,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -2036,7 +2046,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -2047,7 +2057,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -2058,7 +2068,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['full_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'full_name';
+                    $properties['full_name'] = null;
                     goto after_full_name;
                 }
 
@@ -2069,7 +2079,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'license';
+                    $properties['license'] = null;
                     goto after_license;
                 }
 
@@ -2109,7 +2119,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['forks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks';
+                    $properties['forks'] = null;
                     goto after_forks;
                 }
 
@@ -2140,7 +2150,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -2160,7 +2170,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['private'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'private';
+                    $properties['private'] = null;
                     goto after_private;
                 }
 
@@ -2171,7 +2181,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -2182,7 +2192,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -2193,7 +2203,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['fork'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'fork';
+                    $properties['fork'] = null;
                     goto after_fork;
                 }
 
@@ -2204,7 +2214,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -2215,7 +2225,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['archive_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archive_url';
+                    $properties['archive_url'] = null;
                     goto after_archive_url;
                 }
 
@@ -2226,7 +2236,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['assignees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees_url';
+                    $properties['assignees_url'] = null;
                     goto after_assignees_url;
                 }
 
@@ -2237,7 +2247,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['blobs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'blobs_url';
+                    $properties['blobs_url'] = null;
                     goto after_blobs_url;
                 }
 
@@ -2248,7 +2258,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['branches_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'branches_url';
+                    $properties['branches_url'] = null;
                     goto after_branches_url;
                 }
 
@@ -2259,7 +2269,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['collaborators_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'collaborators_url';
+                    $properties['collaborators_url'] = null;
                     goto after_collaborators_url;
                 }
 
@@ -2270,7 +2280,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['comments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'comments_url';
+                    $properties['comments_url'] = null;
                     goto after_comments_url;
                 }
 
@@ -2281,7 +2291,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commits_url';
+                    $properties['commits_url'] = null;
                     goto after_commits_url;
                 }
 
@@ -2292,7 +2302,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['compare_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'compare_url';
+                    $properties['compare_url'] = null;
                     goto after_compare_url;
                 }
 
@@ -2303,7 +2313,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['contents_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents_url';
+                    $properties['contents_url'] = null;
                     goto after_contents_url;
                 }
 
@@ -2314,7 +2324,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['contributors_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contributors_url';
+                    $properties['contributors_url'] = null;
                     goto after_contributors_url;
                 }
 
@@ -2325,7 +2335,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['deployments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments_url';
+                    $properties['deployments_url'] = null;
                     goto after_deployments_url;
                 }
 
@@ -2336,7 +2346,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['downloads_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'downloads_url';
+                    $properties['downloads_url'] = null;
                     goto after_downloads_url;
                 }
 
@@ -2347,7 +2357,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -2358,7 +2368,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['forks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_url';
+                    $properties['forks_url'] = null;
                     goto after_forks_url;
                 }
 
@@ -2369,7 +2379,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['git_commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_commits_url';
+                    $properties['git_commits_url'] = null;
                     goto after_git_commits_url;
                 }
 
@@ -2380,7 +2390,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['git_refs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_refs_url';
+                    $properties['git_refs_url'] = null;
                     goto after_git_refs_url;
                 }
 
@@ -2391,7 +2401,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['git_tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_tags_url';
+                    $properties['git_tags_url'] = null;
                     goto after_git_tags_url;
                 }
 
@@ -2402,7 +2412,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['git_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_url';
+                    $properties['git_url'] = null;
                     goto after_git_url;
                 }
 
@@ -2413,7 +2423,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['issue_comment_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_comment_url';
+                    $properties['issue_comment_url'] = null;
                     goto after_issue_comment_url;
                 }
 
@@ -2424,7 +2434,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['issue_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_events_url';
+                    $properties['issue_events_url'] = null;
                     goto after_issue_events_url;
                 }
 
@@ -2435,7 +2445,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -2446,7 +2456,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['keys_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'keys_url';
+                    $properties['keys_url'] = null;
                     goto after_keys_url;
                 }
 
@@ -2457,7 +2467,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['labels_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels_url';
+                    $properties['labels_url'] = null;
                     goto after_labels_url;
                 }
 
@@ -2468,7 +2478,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['languages_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'languages_url';
+                    $properties['languages_url'] = null;
                     goto after_languages_url;
                 }
 
@@ -2479,7 +2489,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['merges_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merges_url';
+                    $properties['merges_url'] = null;
                     goto after_merges_url;
                 }
 
@@ -2490,7 +2500,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['milestones_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'milestones_url';
+                    $properties['milestones_url'] = null;
                     goto after_milestones_url;
                 }
 
@@ -2501,7 +2511,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['notifications_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'notifications_url';
+                    $properties['notifications_url'] = null;
                     goto after_notifications_url;
                 }
 
@@ -2512,7 +2522,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['pulls_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pulls_url';
+                    $properties['pulls_url'] = null;
                     goto after_pulls_url;
                 }
 
@@ -2523,7 +2533,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['releases_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'releases_url';
+                    $properties['releases_url'] = null;
                     goto after_releases_url;
                 }
 
@@ -2534,7 +2544,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['ssh_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ssh_url';
+                    $properties['ssh_url'] = null;
                     goto after_ssh_url;
                 }
 
@@ -2545,7 +2555,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['stargazers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_url';
+                    $properties['stargazers_url'] = null;
                     goto after_stargazers_url;
                 }
 
@@ -2556,7 +2566,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['statuses_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses_url';
+                    $properties['statuses_url'] = null;
                     goto after_statuses_url;
                 }
 
@@ -2567,7 +2577,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['subscribers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscribers_url';
+                    $properties['subscribers_url'] = null;
                     goto after_subscribers_url;
                 }
 
@@ -2578,7 +2588,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['subscription_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscription_url';
+                    $properties['subscription_url'] = null;
                     goto after_subscription_url;
                 }
 
@@ -2589,7 +2599,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tags_url';
+                    $properties['tags_url'] = null;
                     goto after_tags_url;
                 }
 
@@ -2600,7 +2610,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['teams_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams_url';
+                    $properties['teams_url'] = null;
                     goto after_teams_url;
                 }
 
@@ -2611,7 +2621,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['trees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'trees_url';
+                    $properties['trees_url'] = null;
                     goto after_trees_url;
                 }
 
@@ -2622,7 +2632,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['clone_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'clone_url';
+                    $properties['clone_url'] = null;
                     goto after_clone_url;
                 }
 
@@ -2633,7 +2643,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['mirror_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'mirror_url';
+                    $properties['mirror_url'] = null;
                     goto after_mirror_url;
                 }
 
@@ -2644,7 +2654,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -2655,7 +2665,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['svn_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'svn_url';
+                    $properties['svn_url'] = null;
                     goto after_svn_url;
                 }
 
@@ -2666,7 +2676,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['homepage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'homepage';
+                    $properties['homepage'] = null;
                     goto after_homepage;
                 }
 
@@ -2677,7 +2687,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['language'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'language';
+                    $properties['language'] = null;
                     goto after_language;
                 }
 
@@ -2688,7 +2698,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['forks_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_count';
+                    $properties['forks_count'] = null;
                     goto after_forks_count;
                 }
 
@@ -2699,7 +2709,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['stargazers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_count';
+                    $properties['stargazers_count'] = null;
                     goto after_stargazers_count;
                 }
 
@@ -2710,7 +2720,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['watchers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'watchers_count';
+                    $properties['watchers_count'] = null;
                     goto after_watchers_count;
                 }
 
@@ -2721,7 +2731,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['size'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'size';
+                    $properties['size'] = null;
                     goto after_size;
                 }
 
@@ -2732,7 +2742,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['default_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default_branch';
+                    $properties['default_branch'] = null;
                     goto after_default_branch;
                 }
 
@@ -2743,7 +2753,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['open_issues_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues_count';
+                    $properties['open_issues_count'] = null;
                     goto after_open_issues_count;
                 }
 
@@ -2776,7 +2786,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['has_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_issues';
+                    $properties['has_issues'] = null;
                     goto after_has_issues;
                 }
 
@@ -2787,7 +2797,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['has_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_projects';
+                    $properties['has_projects'] = null;
                     goto after_has_projects;
                 }
 
@@ -2798,7 +2808,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['has_wiki'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_wiki';
+                    $properties['has_wiki'] = null;
                     goto after_has_wiki;
                 }
 
@@ -2809,7 +2819,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['has_pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_pages';
+                    $properties['has_pages'] = null;
                     goto after_has_pages;
                 }
 
@@ -2820,7 +2830,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['has_downloads'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_downloads';
+                    $properties['has_downloads'] = null;
                     goto after_has_downloads;
                 }
 
@@ -2842,7 +2852,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['archived'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archived';
+                    $properties['archived'] = null;
                     goto after_archived;
                 }
 
@@ -2853,7 +2863,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['disabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'disabled';
+                    $properties['disabled'] = null;
                     goto after_disabled;
                 }
 
@@ -2875,7 +2885,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['pushed_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pushed_at';
+                    $properties['pushed_at'] = null;
                     goto after_pushed_at;
                 }
 
@@ -2886,7 +2896,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -2897,7 +2907,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -2919,7 +2929,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['template_repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'template_repository';
+                    $properties['template_repository'] = null;
                     goto after_template_repository;
                 }
 
@@ -3104,7 +3114,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['open_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues';
+                    $properties['open_issues'] = null;
                     goto after_open_issues;
                 }
 
@@ -3115,7 +3125,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['watchers'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'watchers';
+                    $properties['watchers'] = null;
                     goto after_watchers;
                 }
 
@@ -3181,7 +3191,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 
@@ -3192,7 +3202,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -3203,7 +3213,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -3214,7 +3224,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['spdx_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'spdx_id';
+                    $properties['spdx_id'] = null;
                     goto after_spdx_id;
                 }
 
@@ -3225,7 +3235,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -3269,7 +3279,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -3280,7 +3290,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -3291,7 +3301,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -3302,7 +3312,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -3313,7 +3323,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -3324,7 +3334,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -3335,7 +3345,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -3346,7 +3356,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -3357,7 +3367,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -3368,7 +3378,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -3379,7 +3389,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -3390,7 +3400,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -3401,7 +3411,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -3412,7 +3422,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -3423,7 +3433,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -3434,7 +3444,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -3445,7 +3455,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -3456,7 +3466,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -3467,7 +3477,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -3478,7 +3488,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -3522,7 +3532,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin';
+                    $properties['admin'] = null;
                     goto after_admin;
                 }
 
@@ -3533,7 +3543,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['pull'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull';
+                    $properties['pull'] = null;
                     goto after_pull;
                 }
 
@@ -3555,7 +3565,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['push'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'push';
+                    $properties['push'] = null;
                     goto after_push;
                 }
 
@@ -3599,7 +3609,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -3610,7 +3620,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -3621,7 +3631,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -3632,7 +3642,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['full_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'full_name';
+                    $properties['full_name'] = null;
                     goto after_full_name;
                 }
 
@@ -3643,7 +3653,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -3663,7 +3673,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['private'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'private';
+                    $properties['private'] = null;
                     goto after_private;
                 }
 
@@ -3674,7 +3684,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -3685,7 +3695,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -3696,7 +3706,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['fork'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'fork';
+                    $properties['fork'] = null;
                     goto after_fork;
                 }
 
@@ -3707,7 +3717,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -3718,7 +3728,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['archive_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archive_url';
+                    $properties['archive_url'] = null;
                     goto after_archive_url;
                 }
 
@@ -3729,7 +3739,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['assignees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees_url';
+                    $properties['assignees_url'] = null;
                     goto after_assignees_url;
                 }
 
@@ -3740,7 +3750,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['blobs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'blobs_url';
+                    $properties['blobs_url'] = null;
                     goto after_blobs_url;
                 }
 
@@ -3751,7 +3761,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['branches_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'branches_url';
+                    $properties['branches_url'] = null;
                     goto after_branches_url;
                 }
 
@@ -3762,7 +3772,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['collaborators_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'collaborators_url';
+                    $properties['collaborators_url'] = null;
                     goto after_collaborators_url;
                 }
 
@@ -3773,7 +3783,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['comments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'comments_url';
+                    $properties['comments_url'] = null;
                     goto after_comments_url;
                 }
 
@@ -3784,7 +3794,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commits_url';
+                    $properties['commits_url'] = null;
                     goto after_commits_url;
                 }
 
@@ -3795,7 +3805,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['compare_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'compare_url';
+                    $properties['compare_url'] = null;
                     goto after_compare_url;
                 }
 
@@ -3806,7 +3816,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['contents_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents_url';
+                    $properties['contents_url'] = null;
                     goto after_contents_url;
                 }
 
@@ -3817,7 +3827,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['contributors_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contributors_url';
+                    $properties['contributors_url'] = null;
                     goto after_contributors_url;
                 }
 
@@ -3828,7 +3838,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['deployments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments_url';
+                    $properties['deployments_url'] = null;
                     goto after_deployments_url;
                 }
 
@@ -3839,7 +3849,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['downloads_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'downloads_url';
+                    $properties['downloads_url'] = null;
                     goto after_downloads_url;
                 }
 
@@ -3850,7 +3860,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -3861,7 +3871,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['forks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_url';
+                    $properties['forks_url'] = null;
                     goto after_forks_url;
                 }
 
@@ -3872,7 +3882,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['git_commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_commits_url';
+                    $properties['git_commits_url'] = null;
                     goto after_git_commits_url;
                 }
 
@@ -3883,7 +3893,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['git_refs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_refs_url';
+                    $properties['git_refs_url'] = null;
                     goto after_git_refs_url;
                 }
 
@@ -3894,7 +3904,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['git_tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_tags_url';
+                    $properties['git_tags_url'] = null;
                     goto after_git_tags_url;
                 }
 
@@ -3905,7 +3915,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['git_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_url';
+                    $properties['git_url'] = null;
                     goto after_git_url;
                 }
 
@@ -3916,7 +3926,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['issue_comment_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_comment_url';
+                    $properties['issue_comment_url'] = null;
                     goto after_issue_comment_url;
                 }
 
@@ -3927,7 +3937,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['issue_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_events_url';
+                    $properties['issue_events_url'] = null;
                     goto after_issue_events_url;
                 }
 
@@ -3938,7 +3948,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -3949,7 +3959,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['keys_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'keys_url';
+                    $properties['keys_url'] = null;
                     goto after_keys_url;
                 }
 
@@ -3960,7 +3970,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['labels_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels_url';
+                    $properties['labels_url'] = null;
                     goto after_labels_url;
                 }
 
@@ -3971,7 +3981,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['languages_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'languages_url';
+                    $properties['languages_url'] = null;
                     goto after_languages_url;
                 }
 
@@ -3982,7 +3992,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['merges_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merges_url';
+                    $properties['merges_url'] = null;
                     goto after_merges_url;
                 }
 
@@ -3993,7 +4003,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['milestones_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'milestones_url';
+                    $properties['milestones_url'] = null;
                     goto after_milestones_url;
                 }
 
@@ -4004,7 +4014,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['notifications_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'notifications_url';
+                    $properties['notifications_url'] = null;
                     goto after_notifications_url;
                 }
 
@@ -4015,7 +4025,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['pulls_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pulls_url';
+                    $properties['pulls_url'] = null;
                     goto after_pulls_url;
                 }
 
@@ -4026,7 +4036,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['releases_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'releases_url';
+                    $properties['releases_url'] = null;
                     goto after_releases_url;
                 }
 
@@ -4037,7 +4047,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['ssh_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ssh_url';
+                    $properties['ssh_url'] = null;
                     goto after_ssh_url;
                 }
 
@@ -4048,7 +4058,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['stargazers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_url';
+                    $properties['stargazers_url'] = null;
                     goto after_stargazers_url;
                 }
 
@@ -4059,7 +4069,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['statuses_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses_url';
+                    $properties['statuses_url'] = null;
                     goto after_statuses_url;
                 }
 
@@ -4070,7 +4080,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['subscribers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscribers_url';
+                    $properties['subscribers_url'] = null;
                     goto after_subscribers_url;
                 }
 
@@ -4081,7 +4091,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['subscription_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscription_url';
+                    $properties['subscription_url'] = null;
                     goto after_subscription_url;
                 }
 
@@ -4092,7 +4102,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tags_url';
+                    $properties['tags_url'] = null;
                     goto after_tags_url;
                 }
 
@@ -4103,7 +4113,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['teams_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams_url';
+                    $properties['teams_url'] = null;
                     goto after_teams_url;
                 }
 
@@ -4114,7 +4124,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['trees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'trees_url';
+                    $properties['trees_url'] = null;
                     goto after_trees_url;
                 }
 
@@ -4125,7 +4135,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['clone_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'clone_url';
+                    $properties['clone_url'] = null;
                     goto after_clone_url;
                 }
 
@@ -4136,7 +4146,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['mirror_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'mirror_url';
+                    $properties['mirror_url'] = null;
                     goto after_mirror_url;
                 }
 
@@ -4147,7 +4157,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -4158,7 +4168,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['svn_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'svn_url';
+                    $properties['svn_url'] = null;
                     goto after_svn_url;
                 }
 
@@ -4169,7 +4179,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['homepage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'homepage';
+                    $properties['homepage'] = null;
                     goto after_homepage;
                 }
 
@@ -4180,7 +4190,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['language'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'language';
+                    $properties['language'] = null;
                     goto after_language;
                 }
 
@@ -4191,7 +4201,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['forks_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_count';
+                    $properties['forks_count'] = null;
                     goto after_forks_count;
                 }
 
@@ -4202,7 +4212,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['stargazers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_count';
+                    $properties['stargazers_count'] = null;
                     goto after_stargazers_count;
                 }
 
@@ -4213,7 +4223,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['watchers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'watchers_count';
+                    $properties['watchers_count'] = null;
                     goto after_watchers_count;
                 }
 
@@ -4224,7 +4234,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['size'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'size';
+                    $properties['size'] = null;
                     goto after_size;
                 }
 
@@ -4235,7 +4245,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['default_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default_branch';
+                    $properties['default_branch'] = null;
                     goto after_default_branch;
                 }
 
@@ -4246,7 +4256,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['open_issues_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues_count';
+                    $properties['open_issues_count'] = null;
                     goto after_open_issues_count;
                 }
 
@@ -4257,7 +4267,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['is_template'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_template';
+                    $properties['is_template'] = null;
                     goto after_is_template;
                 }
 
@@ -4268,7 +4278,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['topics'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'topics';
+                    $properties['topics'] = null;
                     goto after_topics;
                 }
 
@@ -4279,7 +4289,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['has_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_issues';
+                    $properties['has_issues'] = null;
                     goto after_has_issues;
                 }
 
@@ -4290,7 +4300,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['has_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_projects';
+                    $properties['has_projects'] = null;
                     goto after_has_projects;
                 }
 
@@ -4301,7 +4311,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['has_wiki'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_wiki';
+                    $properties['has_wiki'] = null;
                     goto after_has_wiki;
                 }
 
@@ -4312,7 +4322,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['has_pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_pages';
+                    $properties['has_pages'] = null;
                     goto after_has_pages;
                 }
 
@@ -4323,7 +4333,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['has_downloads'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_downloads';
+                    $properties['has_downloads'] = null;
                     goto after_has_downloads;
                 }
 
@@ -4334,7 +4344,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['archived'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archived';
+                    $properties['archived'] = null;
                     goto after_archived;
                 }
 
@@ -4345,7 +4355,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['disabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'disabled';
+                    $properties['disabled'] = null;
                     goto after_disabled;
                 }
 
@@ -4356,7 +4366,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['visibility'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'visibility';
+                    $properties['visibility'] = null;
                     goto after_visibility;
                 }
 
@@ -4367,7 +4377,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['pushed_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pushed_at';
+                    $properties['pushed_at'] = null;
                     goto after_pushed_at;
                 }
 
@@ -4378,7 +4388,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -4389,7 +4399,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -4400,7 +4410,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['permissions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'permissions';
+                    $properties['permissions'] = null;
                     goto after_permissions;
                 }
 
@@ -4420,7 +4430,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['allow_rebase_merge'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_rebase_merge';
+                    $properties['allow_rebase_merge'] = null;
                     goto after_allow_rebase_merge;
                 }
 
@@ -4431,7 +4441,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['temp_clone_token'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'temp_clone_token';
+                    $properties['temp_clone_token'] = null;
                     goto after_temp_clone_token;
                 }
 
@@ -4442,7 +4452,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['allow_squash_merge'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_squash_merge';
+                    $properties['allow_squash_merge'] = null;
                     goto after_allow_squash_merge;
                 }
 
@@ -4453,7 +4463,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['allow_auto_merge'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_auto_merge';
+                    $properties['allow_auto_merge'] = null;
                     goto after_allow_auto_merge;
                 }
 
@@ -4464,7 +4474,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['delete_branch_on_merge'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'delete_branch_on_merge';
+                    $properties['delete_branch_on_merge'] = null;
                     goto after_delete_branch_on_merge;
                 }
 
@@ -4475,7 +4485,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['allow_update_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_update_branch';
+                    $properties['allow_update_branch'] = null;
                     goto after_allow_update_branch;
                 }
 
@@ -4486,7 +4496,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['use_squash_pr_title_as_default'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'use_squash_pr_title_as_default';
+                    $properties['use_squash_pr_title_as_default'] = null;
                     goto after_use_squash_pr_title_as_default;
                 }
 
@@ -4497,7 +4507,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['squash_merge_commit_title'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'squash_merge_commit_title';
+                    $properties['squash_merge_commit_title'] = null;
                     goto after_squash_merge_commit_title;
                 }
 
@@ -4508,7 +4518,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['squash_merge_commit_message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'squash_merge_commit_message';
+                    $properties['squash_merge_commit_message'] = null;
                     goto after_squash_merge_commit_message;
                 }
 
@@ -4519,7 +4529,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['merge_commit_title'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merge_commit_title';
+                    $properties['merge_commit_title'] = null;
                     goto after_merge_commit_title;
                 }
 
@@ -4530,7 +4540,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['merge_commit_message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merge_commit_message';
+                    $properties['merge_commit_message'] = null;
                     goto after_merge_commit_message;
                 }
 
@@ -4541,7 +4551,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['allow_merge_commit'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_merge_commit';
+                    $properties['allow_merge_commit'] = null;
                     goto after_allow_merge_commit;
                 }
 
@@ -4552,7 +4562,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['subscribers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscribers_count';
+                    $properties['subscribers_count'] = null;
                     goto after_subscribers_count;
                 }
 
@@ -4563,7 +4573,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['network_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'network_count';
+                    $properties['network_count'] = null;
                     goto after_network_count;
                 }
 
@@ -4596,7 +4606,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -4607,7 +4617,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -4618,7 +4628,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -4629,7 +4639,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -4640,7 +4650,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -4651,7 +4661,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -4662,7 +4672,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -4673,7 +4683,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -4684,7 +4694,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -4695,7 +4705,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -4706,7 +4716,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -4717,7 +4727,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -4728,7 +4738,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -4739,7 +4749,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -4750,7 +4760,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -4761,7 +4771,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -4772,7 +4782,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -4783,7 +4793,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -4816,7 +4826,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin';
+                    $properties['admin'] = null;
                     goto after_admin;
                 }
 
@@ -4827,7 +4837,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['maintain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'maintain';
+                    $properties['maintain'] = null;
                     goto after_maintain;
                 }
 
@@ -4838,7 +4848,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['push'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'push';
+                    $properties['push'] = null;
                     goto after_push;
                 }
 
@@ -4849,7 +4859,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['triage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'triage';
+                    $properties['triage'] = null;
                     goto after_triage;
                 }
 
@@ -4860,7 +4870,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['pull'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull';
+                    $properties['pull'] = null;
                     goto after_pull;
                 }
 
@@ -4893,7 +4903,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -4904,7 +4914,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['actions_meta'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'actions_meta';
+                    $properties['actions_meta'] = null;
                     goto after_actions_meta;
                 }
 
@@ -4924,7 +4934,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['check_suite'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'check_suite';
+                    $properties['check_suite'] = null;
                     goto after_check_suite;
                 }
 
@@ -5004,7 +5014,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -5024,7 +5034,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -5066,7 +5076,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['after'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'after';
+                    $properties['after'] = null;
                     goto after_after;
                 }
 
@@ -5077,7 +5087,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['app'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'app';
+                    $properties['app'] = null;
                     goto after_app;
                 }
 
@@ -5097,7 +5107,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['before'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'before';
+                    $properties['before'] = null;
                     goto after_before;
                 }
 
@@ -5108,7 +5118,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['check_runs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'check_runs_url';
+                    $properties['check_runs_url'] = null;
                     goto after_check_runs_url;
                 }
 
@@ -5119,7 +5129,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['conclusion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'conclusion';
+                    $properties['conclusion'] = null;
                     goto after_conclusion;
                 }
 
@@ -5130,7 +5140,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -5141,7 +5151,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['head_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_branch';
+                    $properties['head_branch'] = null;
                     goto after_head_branch;
                 }
 
@@ -5152,7 +5162,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['head_commit'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_commit';
+                    $properties['head_commit'] = null;
                     goto after_head_commit;
                 }
 
@@ -5172,7 +5182,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['head_sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_sha';
+                    $properties['head_sha'] = null;
                     goto after_head_sha;
                 }
 
@@ -5183,7 +5193,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -5194,7 +5204,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['latest_check_runs_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'latest_check_runs_count';
+                    $properties['latest_check_runs_count'] = null;
                     goto after_latest_check_runs_count;
                 }
 
@@ -5205,7 +5215,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -5216,9 +5226,19 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['pull_requests'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull_requests';
+                    $properties['pull_requests'] = null;
                     goto after_pull_requests;
                 }
+
+                static $pull_requestsCaster1;
+    
+                if ($pull_requestsCaster1 === null) {
+                    $pull_requestsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\WebhookCheckSuiteCompleted\\CheckSuite\\PullRequests',
+));
+                }
+    
+                $value = $pull_requestsCaster1->cast($value, $this);
 
                 $properties['pull_requests'] = $value;
     
@@ -5249,7 +5269,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -5260,7 +5280,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -5271,7 +5291,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -5304,7 +5324,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -5315,7 +5335,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -5337,7 +5357,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['external_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'external_url';
+                    $properties['external_url'] = null;
                     goto after_external_url;
                 }
 
@@ -5348,7 +5368,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -5359,7 +5379,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -5370,7 +5390,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -5381,7 +5401,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -5392,7 +5412,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -5443,7 +5463,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -5476,7 +5496,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -5487,7 +5507,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['actions_meta'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'actions_meta';
+                    $properties['actions_meta'] = null;
                     goto after_actions_meta;
                 }
 
@@ -5507,7 +5527,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['check_suite'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'check_suite';
+                    $properties['check_suite'] = null;
                     goto after_check_suite;
                 }
 
@@ -5587,7 +5607,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -5607,7 +5627,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -5649,7 +5669,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['rerun_info'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'rerun_info';
+                    $properties['rerun_info'] = null;
                     goto after_rerun_info;
                 }
 
@@ -5691,7 +5711,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['plan_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'plan_id';
+                    $properties['plan_id'] = null;
                     goto after_plan_id;
                 }
 
@@ -5702,7 +5722,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['job_ids'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'job_ids';
+                    $properties['job_ids'] = null;
                     goto after_job_ids;
                 }
 
@@ -5735,7 +5755,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['after'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'after';
+                    $properties['after'] = null;
                     goto after_after;
                 }
 
@@ -5746,7 +5766,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['app'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'app';
+                    $properties['app'] = null;
                     goto after_app;
                 }
 
@@ -5766,7 +5786,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['before'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'before';
+                    $properties['before'] = null;
                     goto after_before;
                 }
 
@@ -5777,7 +5797,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['check_runs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'check_runs_url';
+                    $properties['check_runs_url'] = null;
                     goto after_check_runs_url;
                 }
 
@@ -5788,7 +5808,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['conclusion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'conclusion';
+                    $properties['conclusion'] = null;
                     goto after_conclusion;
                 }
 
@@ -5799,7 +5819,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -5810,7 +5830,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['head_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_branch';
+                    $properties['head_branch'] = null;
                     goto after_head_branch;
                 }
 
@@ -5821,7 +5841,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['head_commit'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_commit';
+                    $properties['head_commit'] = null;
                     goto after_head_commit;
                 }
 
@@ -5841,7 +5861,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['head_sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_sha';
+                    $properties['head_sha'] = null;
                     goto after_head_sha;
                 }
 
@@ -5852,7 +5872,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -5863,7 +5883,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['latest_check_runs_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'latest_check_runs_count';
+                    $properties['latest_check_runs_count'] = null;
                     goto after_latest_check_runs_count;
                 }
 
@@ -5874,7 +5894,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -5885,9 +5905,19 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['pull_requests'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull_requests';
+                    $properties['pull_requests'] = null;
                     goto after_pull_requests;
                 }
+
+                static $pull_requestsCaster1;
+    
+                if ($pull_requestsCaster1 === null) {
+                    $pull_requestsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\WebhookCheckSuiteCompleted\\CheckSuite\\PullRequests',
+));
+                }
+    
+                $value = $pull_requestsCaster1->cast($value, $this);
 
                 $properties['pull_requests'] = $value;
     
@@ -5918,7 +5948,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -5929,7 +5959,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -5940,7 +5970,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -5973,7 +6003,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -5984,7 +6014,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -6006,7 +6036,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['external_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'external_url';
+                    $properties['external_url'] = null;
                     goto after_external_url;
                 }
 
@@ -6017,7 +6047,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -6028,7 +6058,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -6039,7 +6069,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -6050,7 +6080,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -6061,7 +6091,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -6112,7 +6142,7 @@ class CheckSuite implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -6448,7 +6478,8 @@ class CheckSuite implements ObjectMapper
         static $pull_requestsSerializer0;
 
         if ($pull_requestsSerializer0 === null) {
-            $pull_requestsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $pull_requestsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\WebhookCheckSuiteCompleted\\CheckSuite\\PullRequests',
 ));
         }
         
@@ -9495,7 +9526,8 @@ class CheckSuite implements ObjectMapper
         static $pull_requestsSerializer0;
 
         if ($pull_requestsSerializer0 === null) {
-            $pull_requestsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $pull_requestsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\WebhookCheckSuiteCompleted\\CheckSuite\\PullRequests',
 ));
         }
         
@@ -9872,7 +9904,8 @@ class CheckSuite implements ObjectMapper
         static $pull_requestsSerializer0;
 
         if ($pull_requestsSerializer0 === null) {
-            $pull_requestsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $pull_requestsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\WebhookCheckSuiteCompleted\\CheckSuite\\PullRequests',
 ));
         }
         

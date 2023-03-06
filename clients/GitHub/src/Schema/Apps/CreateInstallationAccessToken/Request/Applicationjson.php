@@ -14,23 +14,13 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"repositories":["generated_repositories"],"repository_ids":[1],"permissions":{"contents":"read","issues":"read","deployments":"write","single_file":"read","actions":"generated_actions","administration":"generated_administration","checks":"generated_checks","environments":"generated_environments","metadata":"generated_metadata","packages":"generated_packages","pages":"generated_pages","pull_requests":"generated_pull_requests","repository_announcement_banners":"generated_repository_announcement_banners","repository_hooks":"generated_repository_hooks","repository_projects":"generated_repository_projects","secret_scanning_alerts":"generated_secret_scanning_alerts","secrets":"generated_secrets","security_events":"generated_security_events","statuses":"generated_statuses","vulnerability_alerts":"generated_vulnerability_alerts","workflows":"generated_workflows","members":"generated_members","organization_administration":"generated_organization_administration","organization_custom_roles":"generated_organization_custom_roles","organization_announcement_banners":"generated_organization_announcement_banners","organization_hooks":"generated_organization_hooks","organization_plan":"generated_organization_plan","organization_projects":"generated_organization_projects","organization_packages":"generated_organization_packages","organization_secrets":"generated_organization_secrets","organization_self_hosted_runners":"generated_organization_self_hosted_runners","organization_user_blocking":"generated_organization_user_blocking","team_discussions":"generated_team_discussions"}}';
     /**
-     * List of repository names that the token should have access to
-     * @var array<string>
+     * repositories: List of repository names that the token should have access to
+     * @param ?array<string> $repositories
+     * repository_ids: List of repository IDs that the token should have access to
+     * @param ?array<int> $repository_ids
+     * permissions: The permissions granted to the user-to-server access token.
      */
-    public ?array $repositories;
-    /**
-     * List of repository IDs that the token should have access to
-     * @var array<int>
-     */
-    public ?array $repository_ids;
-    /**
-     * The permissions granted to the user-to-server access token.
-     */
-    public ?Schema\AppPermissions $permissions;
-    public function __construct(array $repositories, array $repository_ids, Schema\AppPermissions $permissions)
+    public function __construct(public ?array $repositories, public ?array $repository_ids, public ?Schema\AppPermissions $permissions)
     {
-        $this->repositories = $repositories;
-        $this->repository_ids = $repository_ids;
-        $this->permissions = $permissions;
     }
 }

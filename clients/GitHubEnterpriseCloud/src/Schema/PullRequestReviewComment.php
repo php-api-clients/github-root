@@ -14,128 +14,30 @@ final readonly class PullRequestReviewComment
     public const SCHEMA_DESCRIPTION = 'Pull Request Review Comments are comments on a portion of the Pull Request\'s diff.';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/comments\\/1","pull_request_review_id":42,"id":1,"node_id":"MDI0OlB1bGxSZXF1ZXN0UmV2aWV3Q29tbWVudDEw","diff_hunk":"@@ -16,33 +16,40 @@ public class Connection : IConnection...","path":"config\\/database.yaml","position":1,"original_position":4,"commit_id":"6dcb09b5b57875f334f61aebed695e2e4193db5e","original_commit_id":"9c48853fa3dc5c1c3d6f1f1cd1f2743e72652840","in_reply_to_id":8,"user":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"body":"We should probably include a check for null values here.","created_at":"2011-04-14T16:00:49Z","updated_at":"2011-04-14T16:00:49Z","html_url":"https:\\/\\/github.com\\/octocat\\/Hello-World\\/pull\\/1#discussion-diff-1","pull_request_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/1","author_association":"OWNER","_links":{"self":{"href":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/comments\\/1"},"html":{"href":"https:\\/\\/github.com\\/octocat\\/Hello-World\\/pull\\/1#discussion-diff-1"},"pull_request":{"href":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/1"}},"start_line":2,"original_start_line":2,"start_side":"generated_start_side","line":2,"original_line":2,"side":"generated_side","reactions":{"url":"generated_url","total_count":13,"_PLUSES_1":13,"_MINUS_1":13,"laugh":13,"confused":13,"heart":13,"hooray":13,"eyes":13,"rocket":13},"body_html":"\\"<p>comment body<\\/p>\\"","body_text":"\\"comment body\\""}';
     /**
-     * URL for the pull request review comment
+     * url: URL for the pull request review comment
+     * pull_request_review_id: The ID of the pull request review to which the comment belongs.
+     * id: The ID of the pull request review comment.
+     * node_id: The node ID of the pull request review comment.
+     * diff_hunk: The diff of the line that the comment refers to.
+     * path: The relative path of the file to which the comment applies.
+     * position: The line index in the diff to which the comment applies. This field is deprecated; use `line` instead.
+     * original_position: The index of the original line in the diff to which the comment applies. This field is deprecated; use `original_line` instead.
+     * commit_id: The SHA of the commit to which the comment applies.
+     * original_commit_id: The SHA of the original commit to which the comment applies.
+     * in_reply_to_id: The comment ID to reply to.
+     * user: A GitHub user.
+     * body: The text of the comment.
+     * html_url: HTML URL for the pull request review comment.
+     * pull_request_url: URL for the pull request that the review comment belongs to.
+     * author_association: How the author is associated with the repository.
+     * start_line: The first line of the range for a multi-line comment.
+     * original_start_line: The first line of the range for a multi-line comment.
+     * start_side: The side of the first line of the range for a multi-line comment.
+     * line: The line of the blob to which the comment applies. The last line of the range for a multi-line comment
+     * original_line: The line of the blob to which the comment applies. The last line of the range for a multi-line comment
+     * side: The side of the diff to which the comment applies. The side of the last line of the range for a multi-line comment
      */
-    public ?string $url;
-    /**
-     * The ID of the pull request review to which the comment belongs.
-     */
-    public ?int $pull_request_review_id;
-    /**
-     * The ID of the pull request review comment.
-     */
-    public ?int $id;
-    /**
-     * The node ID of the pull request review comment.
-     */
-    public ?string $node_id;
-    /**
-     * The diff of the line that the comment refers to.
-     */
-    public ?string $diff_hunk;
-    /**
-     * The relative path of the file to which the comment applies.
-     */
-    public ?string $path;
-    /**
-     * The line index in the diff to which the comment applies. This field is deprecated; use `line` instead.
-     */
-    public ?int $position;
-    /**
-     * The index of the original line in the diff to which the comment applies. This field is deprecated; use `original_line` instead.
-     */
-    public ?int $original_position;
-    /**
-     * The SHA of the commit to which the comment applies.
-     */
-    public ?string $commit_id;
-    /**
-     * The SHA of the original commit to which the comment applies.
-     */
-    public ?string $original_commit_id;
-    /**
-     * The comment ID to reply to.
-     */
-    public int $in_reply_to_id;
-    /**
-     * A GitHub user.
-     */
-    public ?Schema\SimpleUser $user;
-    /**
-     * The text of the comment.
-     */
-    public ?string $body;
-    public ?string $created_at;
-    public ?string $updated_at;
-    /**
-     * HTML URL for the pull request review comment.
-     */
-    public ?string $html_url;
-    /**
-     * URL for the pull request that the review comment belongs to.
-     */
-    public ?string $pull_request_url;
-    /**
-     * How the author is associated with the repository.
-     */
-    public ?string $author_association;
-    public ?Schema\PullRequestReviewComment\Links $_links;
-    /**
-     * The first line of the range for a multi-line comment.
-     */
-    public ?int $start_line;
-    /**
-     * The first line of the range for a multi-line comment.
-     */
-    public ?int $original_start_line;
-    /**
-     * The side of the first line of the range for a multi-line comment.
-     */
-    public ?string $start_side;
-    /**
-     * The line of the blob to which the comment applies. The last line of the range for a multi-line comment
-     */
-    public int $line;
-    /**
-     * The line of the blob to which the comment applies. The last line of the range for a multi-line comment
-     */
-    public int $original_line;
-    /**
-     * The side of the diff to which the comment applies. The side of the last line of the range for a multi-line comment
-     */
-    public string $side;
-    public Schema\ReactionRollup $reactions;
-    public string $body_html;
-    public string $body_text;
-    public function __construct(string $url, int $pull_request_review_id, int $id, string $node_id, string $diff_hunk, string $path, int $position, int $original_position, string $commit_id, string $original_commit_id, int $in_reply_to_id, Schema\SimpleUser $user, string $body, string $created_at, string $updated_at, string $html_url, string $pull_request_url, string $author_association, Schema\PullRequestReviewComment\Links $_links, int $start_line, int $original_start_line, string $start_side, int $line, int $original_line, string $side, Schema\ReactionRollup $reactions, string $body_html, string $body_text)
+    public function __construct(public ?string $url, public ?int $pull_request_review_id, public ?int $id, public ?string $node_id, public ?string $diff_hunk, public ?string $path, public ?int $position, public ?int $original_position, public ?string $commit_id, public ?string $original_commit_id, public int $in_reply_to_id, public ?Schema\SimpleUser $user, public ?string $body, public ?string $created_at, public ?string $updated_at, public ?string $html_url, public ?string $pull_request_url, public ?string $author_association, public ?Schema\PullRequestReviewComment\Links $_links, public ?int $start_line, public ?int $original_start_line, public ?string $start_side, public int $line, public int $original_line, public string $side, public Schema\ReactionRollup $reactions, public string $body_html, public string $body_text)
     {
-        $this->url = $url;
-        $this->pull_request_review_id = $pull_request_review_id;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->diff_hunk = $diff_hunk;
-        $this->path = $path;
-        $this->position = $position;
-        $this->original_position = $original_position;
-        $this->commit_id = $commit_id;
-        $this->original_commit_id = $original_commit_id;
-        $this->in_reply_to_id = $in_reply_to_id;
-        $this->user = $user;
-        $this->body = $body;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->html_url = $html_url;
-        $this->pull_request_url = $pull_request_url;
-        $this->author_association = $author_association;
-        $this->_links = $_links;
-        $this->start_line = $start_line;
-        $this->original_start_line = $original_start_line;
-        $this->start_side = $start_side;
-        $this->line = $line;
-        $this->original_line = $original_line;
-        $this->side = $side;
-        $this->reactions = $reactions;
-        $this->body_html = $body_html;
-        $this->body_text = $body_text;
     }
 }

@@ -13,69 +13,13 @@ final readonly class PackageVersion
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"author":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"body":"generated_body","body_html":"generated_body_html","created_at":"generated_created_at","description":"generated_description","docker_metadata":[null],"draft":false,"html_url":"generated_html_url","id":13,"installation_command":"generated_installation_command","manifest":"generated_manifest","metadata":[null],"name":"generated_name","package_files":[{"content_type":"generated_content_type","created_at":"generated_created_at","download_url":"generated_download_url","id":13,"md5":"generated_md5","name":"generated_name","sha1":"generated_sha1","sha256":"generated_sha256","size":13,"state":"generated_state","updated_at":"generated_updated_at"}],"package_url":"generated_package_url","prerelease":false,"release":{"author":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"created_at":"generated_created_at","draft":false,"html_url":"generated_html_url","id":13,"name":"generated_name","prerelease":false,"published_at":"generated_published_at","tag_name":"generated_tag_name","target_commitish":"generated_target_commitish","url":"generated_url"},"rubygems_metadata":[null],"source_url":"generated_source_url","summary":"generated_summary","tag_name":"generated_tag_name","target_commitish":"generated_target_commitish","target_oid":"generated_target_oid","updated_at":"generated_updated_at","version":"generated_version"}';
-    public ?Schema\Discussion\AnswerChosenBy $author;
-    public ?string $body;
-    public ?string $body_html;
-    public ?string $created_at;
-    public ?string $description;
     /**
-     * @var array<mixed>
+     * @param array<mixed> $docker_metadata
+     * @param ?array<mixed> $metadata
+     * @param ?array<\ApiClients\Client\GitHub\Schema\WebhookPackageUpdated\Package\PackageVersion\PackageFiles> $package_files
+     * @param array<mixed> $rubygems_metadata
      */
-    public array $docker_metadata;
-    public bool $draft;
-    public ?string $html_url;
-    public ?int $id;
-    public ?string $installation_command;
-    public string $manifest;
-    /**
-     * @var array<mixed>
-     */
-    public ?array $metadata;
-    public ?string $name;
-    /**
-     * @var array<Schema\WebhookPackageUpdated\Package\PackageVersion\PackageFiles>
-     */
-    public ?array $package_files;
-    public string $package_url;
-    public bool $prerelease;
-    public Schema\WebhookPackageUpdated\Package\PackageVersion\Release $release;
-    /**
-     * @var array<mixed>
-     */
-    public array $rubygems_metadata;
-    public string $source_url;
-    public ?string $summary;
-    public string $tag_name;
-    public ?string $target_commitish;
-    public ?string $target_oid;
-    public ?string $updated_at;
-    public ?string $version;
-    public function __construct(Schema\Discussion\AnswerChosenBy $author, string $body, string $body_html, string $created_at, string $description, array $docker_metadata, bool $draft, string $html_url, int $id, string $installation_command, string $manifest, array $metadata, string $name, array $package_files, string $package_url, bool $prerelease, Schema\WebhookPackageUpdated\Package\PackageVersion\Release $release, array $rubygems_metadata, string $source_url, string $summary, string $tag_name, string $target_commitish, string $target_oid, string $updated_at, string $version)
+    public function __construct(public ?Schema\Discussion\AnswerChosenBy $author, public ?string $body, public ?string $body_html, public ?string $created_at, public ?string $description, public array $docker_metadata, public bool $draft, public ?string $html_url, public ?int $id, public ?string $installation_command, public string $manifest, public ?array $metadata, public ?string $name, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\WebhookPackageUpdated\Package\PackageVersion\PackageFiles::class)] public ?array $package_files, public string $package_url, public bool $prerelease, public Schema\WebhookPackageUpdated\Package\PackageVersion\Release $release, public array $rubygems_metadata, public string $source_url, public ?string $summary, public string $tag_name, public ?string $target_commitish, public ?string $target_oid, public ?string $updated_at, public ?string $version)
     {
-        $this->author = $author;
-        $this->body = $body;
-        $this->body_html = $body_html;
-        $this->created_at = $created_at;
-        $this->description = $description;
-        $this->docker_metadata = $docker_metadata;
-        $this->draft = $draft;
-        $this->html_url = $html_url;
-        $this->id = $id;
-        $this->installation_command = $installation_command;
-        $this->manifest = $manifest;
-        $this->metadata = $metadata;
-        $this->name = $name;
-        $this->package_files = $package_files;
-        $this->package_url = $package_url;
-        $this->prerelease = $prerelease;
-        $this->release = $release;
-        $this->rubygems_metadata = $rubygems_metadata;
-        $this->source_url = $source_url;
-        $this->summary = $summary;
-        $this->tag_name = $tag_name;
-        $this->target_commitish = $target_commitish;
-        $this->target_oid = $target_oid;
-        $this->updated_at = $updated_at;
-        $this->version = $version;
     }
 }

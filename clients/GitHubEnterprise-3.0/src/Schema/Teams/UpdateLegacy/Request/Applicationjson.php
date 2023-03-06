@@ -14,39 +14,21 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","description":"generated_description","privacy":"generated_privacy","permission":"generated_permission","parent_team_id":13}';
     /**
-     * The name of the team.
-     */
-    public ?string $name;
-    /**
-     * The description of the team.
-     */
-    public string $description;
-    /**
-    * The level of privacy this team should have. Editing teams without specifying this parameter leaves `privacy` intact. The options are:  
+    * name: The name of the team.
+    * description: The description of the team.
+    * privacy: The level of privacy this team should have. Editing teams without specifying this parameter leaves `privacy` intact. The options are:  
     **For a non-nested team:**  
     \* `secret` - only visible to organization owners and members of this team.  
     \* `closed` - visible to all members of this organization.  
     **For a parent or child team:**  
     \* `closed` - visible to all members of this organization.
-    */
-    public string $privacy;
-    /**
-    * **Deprecated**. The permission that new repositories will be added to the team with when none is specified. Can be one of:  
+    * permission: **Deprecated**. The permission that new repositories will be added to the team with when none is specified. Can be one of:  
     \* `pull` - team members can pull, but not push to or administer newly-added repositories.  
     \* `push` - team members can pull and push, but not administer newly-added repositories.  
     \* `admin` - team members can pull, push and administer newly-added repositories.
+    * parent_team_id: The ID of a team to set as the parent team.
     */
-    public string $permission;
-    /**
-     * The ID of a team to set as the parent team.
-     */
-    public ?int $parent_team_id;
-    public function __construct(string $name, string $description, string $privacy, string $permission, int $parent_team_id)
+    public function __construct(public ?string $name, public string $description, public string $privacy, public string $permission, public ?int $parent_team_id)
     {
-        $this->name = $name;
-        $this->description = $description;
-        $this->privacy = $privacy;
-        $this->permission = $permission;
-        $this->parent_team_id = $parent_team_id;
     }
 }

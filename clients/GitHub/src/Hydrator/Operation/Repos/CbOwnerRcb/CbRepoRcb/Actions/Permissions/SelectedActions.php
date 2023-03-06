@@ -38,7 +38,7 @@ class SelectedActions implements ObjectMapper
                 $value = $payload['github_owned_allowed'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'github_owned_allowed';
+                    $properties['github_owned_allowed'] = null;
                     goto after_github_owned_allowed;
                 }
 
@@ -49,7 +49,7 @@ class SelectedActions implements ObjectMapper
                 $value = $payload['verified_allowed'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'verified_allowed';
+                    $properties['verified_allowed'] = null;
                     goto after_verified_allowed;
                 }
 
@@ -60,7 +60,7 @@ class SelectedActions implements ObjectMapper
                 $value = $payload['patterns_allowed'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'patterns_allowed';
+                    $properties['patterns_allowed'] = null;
                     goto after_patterns_allowed;
                 }
 

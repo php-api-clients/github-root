@@ -14,15 +14,13 @@ final readonly class ApplicationxWwwFormUrlencoded
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"maintenance":"generated_maintenance"}';
     /**
-    * A JSON string with the attributes `enabled` and `when`.
+    * maintenance: A JSON string with the attributes `enabled` and `when`.
     
     The possible values for `enabled` are `true` and `false`. When it's `false`, the attribute `when` is ignored and the maintenance mode is turned off. `when` defines the time period when the maintenance was enabled.
     
     The possible values for `when` are `now` or any date parseable by [mojombo/chronic](https://github.com/mojombo/chronic).
     */
-    public ?string $maintenance;
-    public function __construct(string $maintenance)
+    public function __construct(public ?string $maintenance)
     {
-        $this->maintenance = $maintenance;
     }
 }

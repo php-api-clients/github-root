@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enabled":false,"allowed_actions":"generated_allowed_actions"}';
     /**
-     * Whether GitHub Actions is enabled on the repository.
+     * enabled: Whether GitHub Actions is enabled on the repository.
+     * allowed_actions: The permissions policy that controls the actions and reusable workflows that are allowed to run.
      */
-    public ?bool $enabled;
-    /**
-     * The permissions policy that controls the actions and reusable workflows that are allowed to run.
-     */
-    public string $allowed_actions;
-    public function __construct(bool $enabled, string $allowed_actions)
+    public function __construct(public ?bool $enabled, public string $allowed_actions)
     {
-        $this->enabled = $enabled;
-        $this->allowed_actions = $allowed_actions;
     }
 }

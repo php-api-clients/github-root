@@ -39,7 +39,7 @@ class RegistrationToken implements ObjectMapper
                 $value = $payload['token'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'token';
+                    $properties['token'] = null;
                     goto after_token;
                 }
 
@@ -50,7 +50,7 @@ class RegistrationToken implements ObjectMapper
                 $value = $payload['expires_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'expires_at';
+                    $properties['expires_at'] = null;
                     goto after_expires_at;
                 }
 
@@ -85,6 +85,16 @@ class RegistrationToken implements ObjectMapper
                     goto after_repositories;
                 }
 
+                static $repositoriesCaster1;
+    
+                if ($repositoriesCaster1 === null) {
+                    $repositoriesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Repository',
+));
+                }
+    
+                $value = $repositoriesCaster1->cast($value, $this);
+
                 $properties['repositories'] = $value;
     
                 after_repositories:
@@ -92,7 +102,7 @@ class RegistrationToken implements ObjectMapper
                 $value = $payload['single_file'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'single_file';
+                    $properties['single_file'] = null;
                     goto after_single_file;
                 }
 
@@ -263,7 +273,8 @@ class RegistrationToken implements ObjectMapper
         static $repositoriesSerializer0;
 
         if ($repositoriesSerializer0 === null) {
-            $repositoriesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $repositoriesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Repository',
 ));
         }
         

@@ -38,7 +38,7 @@ class CredentialAuthorizations implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -49,7 +49,7 @@ class CredentialAuthorizations implements ObjectMapper
                 $value = $payload['credential_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'credential_id';
+                    $properties['credential_id'] = null;
                     goto after_credential_id;
                 }
 
@@ -60,7 +60,7 @@ class CredentialAuthorizations implements ObjectMapper
                 $value = $payload['credential_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'credential_type';
+                    $properties['credential_type'] = null;
                     goto after_credential_type;
                 }
 
@@ -82,7 +82,7 @@ class CredentialAuthorizations implements ObjectMapper
                 $value = $payload['credential_authorized_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'credential_authorized_at';
+                    $properties['credential_authorized_at'] = null;
                     goto after_credential_authorized_at;
                 }
 
@@ -115,7 +115,7 @@ class CredentialAuthorizations implements ObjectMapper
                 $value = $payload['credential_accessed_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'credential_accessed_at';
+                    $properties['credential_accessed_at'] = null;
                     goto after_credential_accessed_at;
                 }
 
@@ -126,7 +126,7 @@ class CredentialAuthorizations implements ObjectMapper
                 $value = $payload['authorized_credential_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'authorized_credential_id';
+                    $properties['authorized_credential_id'] = null;
                     goto after_authorized_credential_id;
                 }
 
@@ -137,7 +137,7 @@ class CredentialAuthorizations implements ObjectMapper
                 $value = $payload['authorized_credential_title'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'authorized_credential_title';
+                    $properties['authorized_credential_title'] = null;
                     goto after_authorized_credential_title;
                 }
 
@@ -148,7 +148,7 @@ class CredentialAuthorizations implements ObjectMapper
                 $value = $payload['authorized_credential_note'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'authorized_credential_note';
+                    $properties['authorized_credential_note'] = null;
                     goto after_authorized_credential_note;
                 }
 
@@ -159,7 +159,7 @@ class CredentialAuthorizations implements ObjectMapper
                 $value = $payload['authorized_credential_expires_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'authorized_credential_expires_at';
+                    $properties['authorized_credential_expires_at'] = null;
                     goto after_authorized_credential_expires_at;
                 }
 

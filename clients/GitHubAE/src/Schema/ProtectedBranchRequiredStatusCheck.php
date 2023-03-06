@@ -13,25 +13,11 @@ final readonly class ProtectedBranchRequiredStatusCheck
     public const SCHEMA_TITLE = 'Protected Branch Required Status Check';
     public const SCHEMA_DESCRIPTION = 'Protected Branch Required Status Check';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url","enforcement_level":"generated_enforcement_level","contexts":["generated_contexts"],"checks":[{"context":"generated_context","app_id":13}],"contexts_url":"generated_contexts_url","strict":false}';
-    public string $url;
-    public string $enforcement_level;
     /**
-     * @var array<string>
+     * @param ?array<string> $contexts
+     * @param ?array<\ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck\Checks> $checks
      */
-    public ?array $contexts;
-    /**
-     * @var array<Schema\ProtectedBranchRequiredStatusCheck\Checks>
-     */
-    public ?array $checks;
-    public string $contexts_url;
-    public bool $strict;
-    public function __construct(string $url, string $enforcement_level, array $contexts, array $checks, string $contexts_url, bool $strict)
+    public function __construct(public string $url, public string $enforcement_level, public ?array $contexts, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ProtectedBranchRequiredStatusCheck\Checks::class)] public ?array $checks, public string $contexts_url, public bool $strict)
     {
-        $this->url = $url;
-        $this->enforcement_level = $enforcement_level;
-        $this->contexts = $contexts;
-        $this->checks = $checks;
-        $this->contexts_url = $contexts_url;
-        $this->strict = $strict;
     }
 }

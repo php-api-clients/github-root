@@ -38,7 +38,7 @@ class Variables implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class Variables implements ObjectMapper
                 $value = $payload['variables'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'variables';
+                    $properties['variables'] = null;
                     goto after_variables;
                 }
+
+                static $variablesCaster1;
+    
+                if ($variablesCaster1 === null) {
+                    $variablesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\ActionsVariable',
+));
+                }
+    
+                $value = $variablesCaster1->cast($value, $this);
 
                 $properties['variables'] = $value;
     
@@ -178,7 +188,8 @@ class Variables implements ObjectMapper
         static $variablesSerializer0;
 
         if ($variablesSerializer0 === null) {
-            $variablesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $variablesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\ActionsVariable',
 ));
         }
         

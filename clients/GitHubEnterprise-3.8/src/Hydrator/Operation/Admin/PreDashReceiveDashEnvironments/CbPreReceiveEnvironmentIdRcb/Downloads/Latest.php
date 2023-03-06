@@ -38,7 +38,7 @@ class Latest implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -49,7 +49,7 @@ class Latest implements ObjectMapper
                 $value = $payload['state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'state';
+                    $properties['state'] = null;
                     goto after_state;
                 }
 
@@ -60,7 +60,7 @@ class Latest implements ObjectMapper
                 $value = $payload['downloaded_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'downloaded_at';
+                    $properties['downloaded_at'] = null;
                     goto after_downloaded_at;
                 }
 
@@ -71,7 +71,7 @@ class Latest implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 

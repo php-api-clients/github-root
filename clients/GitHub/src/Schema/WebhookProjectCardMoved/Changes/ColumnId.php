@@ -13,9 +13,7 @@ final readonly class ColumnId
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"from":13}';
-    public ?int $from;
-    public function __construct(int $from)
+    public function __construct(public ?int $from)
     {
-        $this->from = $from;
     }
 }

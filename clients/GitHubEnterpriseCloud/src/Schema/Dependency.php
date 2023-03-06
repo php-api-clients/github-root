@@ -14,32 +14,14 @@ final readonly class Dependency
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"package_url":"pkg:\\/npm\\/%40actions\\/http-client@1.0.11","metadata":[],"relationship":"direct","scope":"runtime","dependencies":["@actions\\/http-client"]}';
     /**
-     * Package-url (PURL) of dependency. See https://github.com/package-url/purl-spec for more details.
+     * package_url: Package-url (PURL) of dependency. See https://github.com/package-url/purl-spec for more details.
+     * metadata: User-defined metadata to store domain-specific information limited to 8 keys with scalar values.
+     * relationship: A notation of whether a dependency is requested directly by this manifest or is a dependency of another dependency.
+     * scope: A notation of whether the dependency is required for the primary build artifact (runtime) or is only used for development. Future versions of this specification may allow for more granular scopes.
+     * dependencies: Array of package-url (PURLs) of direct child dependencies.
+     * @param ?array<string> $dependencies
      */
-    public ?string $package_url;
-    /**
-     * User-defined metadata to store domain-specific information limited to 8 keys with scalar values.
-     */
-    public ?Schema\Metadata $metadata;
-    /**
-     * A notation of whether a dependency is requested directly by this manifest or is a dependency of another dependency.
-     */
-    public ?string $relationship;
-    /**
-     * A notation of whether the dependency is required for the primary build artifact (runtime) or is only used for development. Future versions of this specification may allow for more granular scopes.
-     */
-    public ?string $scope;
-    /**
-     * Array of package-url (PURLs) of direct child dependencies.
-     * @var array<string>
-     */
-    public ?array $dependencies;
-    public function __construct(string $package_url, Schema\Metadata $metadata, string $relationship, string $scope, array $dependencies)
+    public function __construct(public ?string $package_url, public ?Schema\Metadata $metadata, public ?string $relationship, public ?string $scope, public ?array $dependencies)
     {
-        $this->package_url = $package_url;
-        $this->metadata = $metadata;
-        $this->relationship = $relationship;
-        $this->scope = $scope;
-        $this->dependencies = $dependencies;
     }
 }

@@ -13,16 +13,10 @@ final readonly class GetConsumedLicenses
     public const SCHEMA_TITLE = 'Enterprise Consumed Licenses';
     public const SCHEMA_DESCRIPTION = 'A breakdown of the licenses consumed by an enterprise.';
     public const SCHEMA_EXAMPLE_DATA = '{"total_seats_consumed":13,"total_seats_purchased":13,"users":[{"github_com_login":"generated_github_com_login","github_com_name":"generated_github_com_name","enterprise_server_user_ids":["generated_enterprise_server_user_ids"],"github_com_user":false,"enterprise_server_user":false,"visual_studio_subscription_user":false,"license_type":"generated_license_type","github_com_profile":"generated_github_com_profile","github_com_member_roles":["generated_github_com_member_roles"],"github_com_enterprise_roles":["generated_github_com_enterprise_roles"],"github_com_verified_domain_emails":["generated_github_com_verified_domain_emails"],"github_com_saml_name_id":"generated_github_com_saml_name_id","github_com_orgs_with_pending_invites":["generated_github_com_orgs_with_pending_invites"],"github_com_two_factor_auth":false,"enterprise_server_emails":["generated_enterprise_server_emails"],"visual_studio_license_status":"generated_visual_studio_license_status","visual_studio_subscription_email":"generated_visual_studio_subscription_email","total_user_accounts":13}]}';
-    public ?int $total_seats_consumed;
-    public ?int $total_seats_purchased;
     /**
-     * @var array<Schema\GetConsumedLicenses\Users>
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users> $users
      */
-    public ?array $users;
-    public function __construct(int $total_seats_consumed, int $total_seats_purchased, array $users)
+    public function __construct(public ?int $total_seats_consumed, public ?int $total_seats_purchased, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\GetConsumedLicenses\Users::class)] public ?array $users)
     {
-        $this->total_seats_consumed = $total_seats_consumed;
-        $this->total_seats_purchased = $total_seats_purchased;
-        $this->users = $users;
     }
 }

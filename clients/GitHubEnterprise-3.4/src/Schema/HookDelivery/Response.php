@@ -14,16 +14,10 @@ final readonly class Response
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"headers":[],"payload":"generated_payload"}';
     /**
-     * The response headers received when the delivery was made.
+     * headers: The response headers received when the delivery was made.
+     * payload: The response payload received.
      */
-    public ?Schema\HookDelivery\Response\Headers $headers;
-    /**
-     * The response payload received.
-     */
-    public ?string $payload;
-    public function __construct(Schema\HookDelivery\Response\Headers $headers, string $payload)
+    public function __construct(public ?Schema\HookDelivery\Response\Headers $headers, public ?string $payload)
     {
-        $this->headers = $headers;
-        $this->payload = $payload;
     }
 }

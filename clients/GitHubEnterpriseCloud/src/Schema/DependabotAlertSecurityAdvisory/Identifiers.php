@@ -14,16 +14,10 @@ final readonly class Identifiers
     public const SCHEMA_DESCRIPTION = 'An advisory identifier.';
     public const SCHEMA_EXAMPLE_DATA = '{"type":"generated_type","value":"generated_value"}';
     /**
-     * The type of advisory identifier.
+     * type: The type of advisory identifier.
+     * value: The value of the advisory identifer.
      */
-    public ?string $type;
-    /**
-     * The value of the advisory identifer.
-     */
-    public ?string $value;
-    public function __construct(string $type, string $value)
+    public function __construct(public ?string $type, public ?string $value)
     {
-        $this->type = $type;
-        $this->value = $value;
     }
 }

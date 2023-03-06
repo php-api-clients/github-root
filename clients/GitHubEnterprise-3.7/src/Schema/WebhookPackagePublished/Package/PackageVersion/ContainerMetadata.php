@@ -13,13 +13,7 @@ final readonly class ContainerMetadata
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"labels":[],"manifest":[],"tag":{"digest":"generated_digest","name":"generated_name"}}';
-    public ?Schema\WebhookCheckSuiteCompleted\ActionsMeta $labels;
-    public ?Schema\WebhookCheckSuiteCompleted\ActionsMeta $manifest;
-    public ?Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Tag $tag;
-    public function __construct(Schema\WebhookCheckSuiteCompleted\ActionsMeta $labels, Schema\WebhookCheckSuiteCompleted\ActionsMeta $manifest, Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Tag $tag)
+    public function __construct(public ?Schema\WebhookCheckSuiteCompleted\ActionsMeta $labels, public ?Schema\WebhookCheckSuiteCompleted\ActionsMeta $manifest, public ?Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Tag $tag)
     {
-        $this->labels = $labels;
-        $this->manifest = $manifest;
-        $this->tag = $tag;
     }
 }

@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"position":"last"}';
     /**
-     * The position of the column in a project. Can be one of: `first`, `last`, or `after:<column_id>` to place after the specified column.
+     * position: The position of the column in a project. Can be one of: `first`, `last`, or `after:<column_id>` to place after the specified column.
      */
-    public ?string $position;
-    public function __construct(string $position)
+    public function __construct(public ?string $position)
     {
-        $this->position = $position;
     }
 }

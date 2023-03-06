@@ -14,12 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"auto_trigger_checks":[{"app_id":13,"setting":false}]}';
     /**
-     * Enables or disables automatic creation of CheckSuite events upon pushes to the repository. Enabled by default. See the [`auto_trigger_checks` object](https://docs.github.com/enterprise-server@3.0/rest/reference/checks#auto_trigger_checks-object) description for details.
-     * @var array<Schema\Checks\SetSuitesPreferences\Request\Applicationjson\AutoTriggerChecks>
+     * auto_trigger_checks: Enables or disables automatic creation of CheckSuite events upon pushes to the repository. Enabled by default. See the [`auto_trigger_checks` object](https://docs.github.com/enterprise-server@3.0/rest/reference/checks#auto_trigger_checks-object) description for details.
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\Checks\SetSuitesPreferences\Request\Applicationjson\AutoTriggerChecks> $auto_trigger_checks
      */
-    public ?array $auto_trigger_checks;
-    public function __construct(array $auto_trigger_checks)
+    public function __construct(#[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Checks\SetSuitesPreferences\Request\Applicationjson\AutoTriggerChecks::class)] public ?array $auto_trigger_checks)
     {
-        $this->auto_trigger_checks = $auto_trigger_checks;
     }
 }

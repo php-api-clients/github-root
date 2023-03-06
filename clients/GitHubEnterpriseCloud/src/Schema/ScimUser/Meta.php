@@ -13,15 +13,7 @@ final readonly class Meta
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"resourceType":"User","created":"2019-01-24T22:45:36.000Z","lastModified":"2019-01-24T22:45:36.000Z","location":"https:\\/\\/api.github.com\\/scim\\/v2\\/organizations\\/myorg-123abc55141bfd8f\\/Users\\/c42772b5-2029-11e9-8543-9264a97dec8d"}';
-    public ?string $resourceType;
-    public ?string $created;
-    public ?string $lastModified;
-    public ?string $location;
-    public function __construct(string $resourceType, string $created, string $lastModified, string $location)
+    public function __construct(public ?string $resourceType, public ?string $created, public ?string $lastModified, public ?string $location)
     {
-        $this->resourceType = $resourceType;
-        $this->created = $created;
-        $this->lastModified = $lastModified;
-        $this->location = $location;
     }
 }

@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"async":false}';
     /**
-     * When set to `true`, the request will be performed asynchronously. Returns a 202 status code when the job is successfully queued.
+     * async: When set to `true`, the request will be performed asynchronously. Returns a 202 status code when the job is successfully queued.
      */
-    public ?bool $async;
-    public function __construct(bool $async)
+    public function __construct(public ?bool $async)
     {
-        $this->async = $async;
     }
 }

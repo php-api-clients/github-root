@@ -13,11 +13,7 @@ final readonly class Contexts
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message","octicon":"generated_octicon"}';
-    public ?string $message;
-    public ?string $octicon;
-    public function __construct(string $message, string $octicon)
+    public function __construct(public ?string $message, public ?string $octicon)
     {
-        $this->message = $message;
-        $this->octicon = $octicon;
     }
 }

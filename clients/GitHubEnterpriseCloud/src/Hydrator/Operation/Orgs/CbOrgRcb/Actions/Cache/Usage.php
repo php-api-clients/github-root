@@ -38,7 +38,7 @@ class Usage implements ObjectMapper
                 $value = $payload['total_active_caches_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_active_caches_count';
+                    $properties['total_active_caches_count'] = null;
                     goto after_total_active_caches_count;
                 }
 
@@ -49,7 +49,7 @@ class Usage implements ObjectMapper
                 $value = $payload['total_active_caches_size_in_bytes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_active_caches_size_in_bytes';
+                    $properties['total_active_caches_size_in_bytes'] = null;
                     goto after_total_active_caches_size_in_bytes;
                 }
 

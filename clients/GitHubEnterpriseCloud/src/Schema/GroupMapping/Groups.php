@@ -14,31 +14,13 @@ final readonly class Groups
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"group_id":"111a1a11-aaa1-1aaa-11a1-a1a1a1a1a1aa","group_name":"saml-azuread-test","group_description":"A group of Developers working on AzureAD SAML SSO","status":"unsynced","synced_at":"2019-06-03 22:27:15:000 -700"}';
     /**
-     * The ID of the group
+     * group_id: The ID of the group
+     * group_name: The name of the group
+     * group_description: a description of the group
+     * status: synchronization status for this group mapping
+     * synced_at: the time of the last sync for this group-mapping
      */
-    public ?string $group_id;
-    /**
-     * The name of the group
-     */
-    public ?string $group_name;
-    /**
-     * a description of the group
-     */
-    public ?string $group_description;
-    /**
-     * synchronization status for this group mapping
-     */
-    public string $status;
-    /**
-     * the time of the last sync for this group-mapping
-     */
-    public ?string $synced_at;
-    public function __construct(string $group_id, string $group_name, string $group_description, string $status, string $synced_at)
+    public function __construct(public ?string $group_id, public ?string $group_name, public ?string $group_description, public string $status, public ?string $synced_at)
     {
-        $this->group_id = $group_id;
-        $this->group_name = $group_name;
-        $this->group_description = $group_description;
-        $this->status = $status;
-        $this->synced_at = $synced_at;
     }
 }

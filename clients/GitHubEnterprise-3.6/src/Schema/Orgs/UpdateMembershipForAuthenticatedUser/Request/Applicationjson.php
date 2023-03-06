@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"state":"generated_state"}';
     /**
-     * The state that the membership should be in. Only `"active"` will be accepted.
+     * state: The state that the membership should be in. Only `"active"` will be accepted.
      */
-    public ?string $state;
-    public function __construct(string $state)
+    public function __construct(public ?string $state)
     {
-        $this->state = $state;
     }
 }

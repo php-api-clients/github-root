@@ -13,39 +13,11 @@ final readonly class GpgKey
     public const SCHEMA_TITLE = 'GPG Key';
     public const SCHEMA_DESCRIPTION = 'A unique encryption key';
     public const SCHEMA_EXAMPLE_DATA = '{"id":3,"primary_key_id":13,"key_id":"3262EFF25BA0D270","public_key":"xsBNBFayYZ...","emails":[{"email":"mastahyeti@users.noreply.github.com","verified":true}],"subkeys":[{"id":4,"primary_key_id":3,"key_id":"4A595D4C72EE49C7","public_key":"zsBNBFayYZ...","emails":[null],"subkeys":[null],"can_sign":false,"can_encrypt_comms":true,"can_encrypt_storage":true,"can_certify":false,"created_at":"2016-03-24T11:31:04-06:00","expires_at":null,"raw_key":"generated_raw_key"}],"can_sign":true,"can_encrypt_comms":false,"can_encrypt_storage":false,"can_certify":true,"created_at":"2016-03-24T11:31:04-06:00","expires_at":"generated_expires_at","raw_key":"generated_raw_key"}';
-    public ?int $id;
-    public ?int $primary_key_id;
-    public ?string $key_id;
-    public ?string $public_key;
     /**
-     * @var array<Schema\GpgKey\Emails>
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Emails> $emails
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Subkeys> $subkeys
      */
-    public ?array $emails;
-    /**
-     * @var array<Schema\GpgKey\Subkeys>
-     */
-    public ?array $subkeys;
-    public ?bool $can_sign;
-    public ?bool $can_encrypt_comms;
-    public ?bool $can_encrypt_storage;
-    public ?bool $can_certify;
-    public ?string $created_at;
-    public ?string $expires_at;
-    public ?string $raw_key;
-    public function __construct(int $id, int $primary_key_id, string $key_id, string $public_key, array $emails, array $subkeys, bool $can_sign, bool $can_encrypt_comms, bool $can_encrypt_storage, bool $can_certify, string $created_at, string $expires_at, string $raw_key)
+    public function __construct(public ?int $id, public ?int $primary_key_id, public ?string $key_id, public ?string $public_key, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\GpgKey\Emails::class)] public ?array $emails, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\GpgKey\Subkeys::class)] public ?array $subkeys, public ?bool $can_sign, public ?bool $can_encrypt_comms, public ?bool $can_encrypt_storage, public ?bool $can_certify, public ?string $created_at, public ?string $expires_at, public ?string $raw_key)
     {
-        $this->id = $id;
-        $this->primary_key_id = $primary_key_id;
-        $this->key_id = $key_id;
-        $this->public_key = $public_key;
-        $this->emails = $emails;
-        $this->subkeys = $subkeys;
-        $this->can_sign = $can_sign;
-        $this->can_encrypt_comms = $can_encrypt_comms;
-        $this->can_encrypt_storage = $can_encrypt_storage;
-        $this->can_certify = $can_certify;
-        $this->created_at = $created_at;
-        $this->expires_at = $expires_at;
-        $this->raw_key = $raw_key;
     }
 }

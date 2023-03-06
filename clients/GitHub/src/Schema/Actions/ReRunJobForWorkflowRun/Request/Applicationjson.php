@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enable_debug_logging":false}';
     /**
-     * Whether to enable debug logging for the re-run.
+     * enable_debug_logging: Whether to enable debug logging for the re-run.
      */
-    public ?bool $enable_debug_logging;
-    public function __construct(bool $enable_debug_logging)
+    public function __construct(public ?bool $enable_debug_logging)
     {
-        $this->enable_debug_logging = $enable_debug_logging;
     }
 }

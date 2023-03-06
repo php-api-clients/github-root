@@ -13,23 +13,7 @@ final readonly class ServerStatistics
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"server_id":"generated_server_id","collection_date":"generated_collection_date","schema_version":"generated_schema_version","ghes_version":"generated_ghes_version","host_name":"generated_host_name","github_connect":{"features_enabled":["generated_features_enabled"]},"ghe_stats":{"comments":{"total_commit_comments":13,"total_gist_comments":13,"total_issue_comments":13,"total_pull_request_comments":13},"gists":{"total_gists":13,"private_gists":13,"public_gists":13},"hooks":{"total_hooks":13,"active_hooks":13,"inactive_hooks":13},"issues":{"total_issues":13,"open_issues":13,"closed_issues":13},"milestones":{"total_milestones":13,"open_milestones":13,"closed_milestones":13},"orgs":{"total_orgs":13,"disabled_orgs":13,"total_teams":13,"total_team_members":13},"pages":{"total_pages":13},"pulls":{"total_pulls":13,"merged_pulls":13,"mergeable_pulls":13,"unmergeable_pulls":13},"repos":{"total_repos":13,"root_repos":13,"fork_repos":13,"org_repos":13,"total_pushes":13,"total_wikis":13},"users":{"total_users":13,"admin_users":13,"suspended_users":13}},"dormant_users":{"total_dormant_users":13,"dormancy_threshold":"generated_dormancy_threshold"}}';
-    public ?string $server_id;
-    public ?string $collection_date;
-    public ?string $schema_version;
-    public ?string $ghes_version;
-    public ?string $host_name;
-    public ?Schema\ServerStatistics\GithubConnect $github_connect;
-    public ?Schema\ServerStatistics\GheStats $ghe_stats;
-    public ?Schema\ServerStatistics\DormantUsers $dormant_users;
-    public function __construct(string $server_id, string $collection_date, string $schema_version, string $ghes_version, string $host_name, Schema\ServerStatistics\GithubConnect $github_connect, Schema\ServerStatistics\GheStats $ghe_stats, Schema\ServerStatistics\DormantUsers $dormant_users)
+    public function __construct(public ?string $server_id, public ?string $collection_date, public ?string $schema_version, public ?string $ghes_version, public ?string $host_name, public ?Schema\ServerStatistics\GithubConnect $github_connect, public ?Schema\ServerStatistics\GheStats $ghe_stats, public ?Schema\ServerStatistics\DormantUsers $dormant_users)
     {
-        $this->server_id = $server_id;
-        $this->collection_date = $collection_date;
-        $this->schema_version = $schema_version;
-        $this->ghes_version = $ghes_version;
-        $this->host_name = $host_name;
-        $this->github_connect = $github_connect;
-        $this->ghe_stats = $ghe_stats;
-        $this->dormant_users = $dormant_users;
     }
 }

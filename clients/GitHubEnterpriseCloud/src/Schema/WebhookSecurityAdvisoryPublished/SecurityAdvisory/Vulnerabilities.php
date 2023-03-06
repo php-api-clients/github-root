@@ -13,15 +13,7 @@ final readonly class Vulnerabilities
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"first_patched_version":{"identifier":"generated_identifier"},"package":{"ecosystem":"generated_ecosystem","name":"generated_name"},"severity":"generated_severity","vulnerable_version_range":"generated_vulnerable_version_range"}';
-    public ?Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\FirstPatchedVersion $first_patched_version;
-    public ?Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\Package $package;
-    public ?string $severity;
-    public ?string $vulnerable_version_range;
-    public function __construct(Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\FirstPatchedVersion $first_patched_version, Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\Package $package, string $severity, string $vulnerable_version_range)
+    public function __construct(public ?Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\FirstPatchedVersion $first_patched_version, public ?Schema\WebhookSecurityAdvisoryPublished\SecurityAdvisory\Vulnerabilities\Package $package, public ?string $severity, public ?string $vulnerable_version_range)
     {
-        $this->first_patched_version = $first_patched_version;
-        $this->package = $package;
-        $this->severity = $severity;
-        $this->vulnerable_version_range = $vulnerable_version_range;
     }
 }

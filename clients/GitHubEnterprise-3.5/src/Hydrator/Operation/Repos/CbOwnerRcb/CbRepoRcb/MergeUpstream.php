@@ -38,7 +38,7 @@ class MergeUpstream implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -49,7 +49,7 @@ class MergeUpstream implements ObjectMapper
                 $value = $payload['merge_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merge_type';
+                    $properties['merge_type'] = null;
                     goto after_merge_type;
                 }
 
@@ -60,7 +60,7 @@ class MergeUpstream implements ObjectMapper
                 $value = $payload['base_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'base_branch';
+                    $properties['base_branch'] = null;
                     goto after_base_branch;
                 }
 

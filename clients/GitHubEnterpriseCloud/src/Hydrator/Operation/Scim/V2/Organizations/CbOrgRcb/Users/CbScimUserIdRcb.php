@@ -42,7 +42,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['schemas'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'schemas';
+                    $properties['schemas'] = null;
                     goto after_schemas;
                 }
 
@@ -53,7 +53,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -64,7 +64,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['external_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'external_id';
+                    $properties['externalId'] = null;
                     goto after_externalId;
                 }
 
@@ -75,7 +75,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['user_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user_name';
+                    $properties['userName'] = null;
                     goto after_userName;
                 }
 
@@ -86,7 +86,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['display_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'display_name';
+                    $properties['displayName'] = null;
                     goto after_displayName;
                 }
 
@@ -117,9 +117,19 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['emails'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'emails';
+                    $properties['emails'] = null;
                     goto after_emails;
                 }
+
+                static $emailsCaster1;
+    
+                if ($emailsCaster1 === null) {
+                    $emailsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser\\Emails',
+));
+                }
+    
+                $value = $emailsCaster1->cast($value, $this);
 
                 $properties['emails'] = $value;
     
@@ -128,7 +138,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['active'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'active';
+                    $properties['active'] = null;
                     goto after_active;
                 }
 
@@ -139,7 +149,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['meta'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'meta';
+                    $properties['meta'] = null;
                     goto after_meta;
                 }
 
@@ -174,6 +184,16 @@ class CbScimUserIdRcb implements ObjectMapper
                     goto after_operations;
                 }
 
+                static $operationsCaster1;
+    
+                if ($operationsCaster1 === null) {
+                    $operationsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser\\Operations',
+));
+                }
+    
+                $value = $operationsCaster1->cast($value, $this);
+
                 $properties['operations'] = $value;
     
                 after_operations:
@@ -185,6 +205,16 @@ class CbScimUserIdRcb implements ObjectMapper
                     goto after_groups;
                 }
 
+                static $groupsCaster1;
+    
+                if ($groupsCaster1 === null) {
+                    $groupsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser\\Groups',
+));
+                }
+    
+                $value = $groupsCaster1->cast($value, $this);
+
                 $properties['groups'] = $value;
     
                 after_groups:
@@ -195,6 +225,16 @@ class CbScimUserIdRcb implements ObjectMapper
                     $missingFields[] = 'roles';
                     goto after_roles;
                 }
+
+                static $rolesCaster1;
+    
+                if ($rolesCaster1 === null) {
+                    $rolesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser\\Roles',
+));
+                }
+    
+                $value = $rolesCaster1->cast($value, $this);
 
                 $properties['roles'] = $value;
     
@@ -225,7 +265,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -236,7 +276,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -247,7 +287,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['detail'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'detail';
+                    $properties['detail'] = null;
                     goto after_detail;
                 }
 
@@ -258,7 +298,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -269,7 +309,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['scim_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'scim_type';
+                    $properties['scimType'] = null;
                     goto after_scimType;
                 }
 
@@ -280,7 +320,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['schemas'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'schemas';
+                    $properties['schemas'] = null;
                     goto after_schemas;
                 }
 
@@ -313,7 +353,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -324,7 +364,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -335,7 +375,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -346,7 +386,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -379,7 +419,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['given_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'given_name';
+                    $properties['givenName'] = null;
                     goto after_givenName;
                 }
 
@@ -390,7 +430,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['family_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'family_name';
+                    $properties['familyName'] = null;
                     goto after_familyName;
                 }
 
@@ -401,7 +441,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['formatted'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'formatted';
+                    $properties['formatted'] = null;
                     goto after_formatted;
                 }
 
@@ -434,7 +474,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['resource_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'resource_type';
+                    $properties['resourceType'] = null;
                     goto after_resourceType;
                 }
 
@@ -445,7 +485,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['created'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created';
+                    $properties['created'] = null;
                     goto after_created;
                 }
 
@@ -456,7 +496,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['last_modified'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'last_modified';
+                    $properties['lastModified'] = null;
                     goto after_lastModified;
                 }
 
@@ -467,7 +507,7 @@ class CbScimUserIdRcb implements ObjectMapper
                 $value = $payload['location'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'location';
+                    $properties['location'] = null;
                     goto after_location;
                 }
 
@@ -643,7 +683,8 @@ class CbScimUserIdRcb implements ObjectMapper
         static $emailsSerializer0;
 
         if ($emailsSerializer0 === null) {
-            $emailsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $emailsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser\\Emails',
 ));
         }
         
@@ -676,7 +717,8 @@ class CbScimUserIdRcb implements ObjectMapper
         static $operationsSerializer0;
 
         if ($operationsSerializer0 === null) {
-            $operationsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $operationsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser\\Operations',
 ));
         }
         
@@ -688,7 +730,8 @@ class CbScimUserIdRcb implements ObjectMapper
         static $groupsSerializer0;
 
         if ($groupsSerializer0 === null) {
-            $groupsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $groupsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser\\Groups',
 ));
         }
         
@@ -700,7 +743,8 @@ class CbScimUserIdRcb implements ObjectMapper
         static $rolesSerializer0;
 
         if ($rolesSerializer0 === null) {
-            $rolesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $rolesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser\\Roles',
 ));
         }
         

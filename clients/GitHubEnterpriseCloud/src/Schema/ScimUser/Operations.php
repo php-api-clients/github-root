@@ -13,16 +13,10 @@ final readonly class Operations
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"op":"generated_op","path":"generated_path","value":[null]}';
-    public ?string $op;
-    public string $path;
     /**
-     * @var array<mixed>
+     * @param array<mixed> $value
      */
-    public array $value;
-    public function __construct(string $op, string $path, array $value)
+    public function __construct(public ?string $op, public string $path, public array $value)
     {
-        $this->op = $op;
-        $this->path = $path;
-        $this->value = $value;
     }
 }

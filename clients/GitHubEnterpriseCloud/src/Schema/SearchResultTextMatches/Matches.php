@@ -13,14 +13,10 @@ final readonly class Matches
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"text":"generated_text","indices":[13]}';
-    public ?string $text;
     /**
-     * @var array<int>
+     * @param ?array<int> $indices
      */
-    public ?array $indices;
-    public function __construct(string $text, array $indices)
+    public function __construct(public ?string $text, public ?array $indices)
     {
-        $this->text = $text;
-        $this->indices = $indices;
     }
 }

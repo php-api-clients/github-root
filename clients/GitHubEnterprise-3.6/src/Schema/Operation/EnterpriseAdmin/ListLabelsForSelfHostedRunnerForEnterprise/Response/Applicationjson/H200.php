@@ -13,14 +13,10 @@ final readonly class H200
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_count":13,"labels":[{"id":13,"name":"generated_name","type":"generated_type"}]}';
-    public ?int $total_count;
     /**
-     * @var array<Schema\RunnerLabel>
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\RunnerLabel> $labels
      */
-    public ?array $labels;
-    public function __construct(int $total_count, array $labels)
+    public function __construct(public ?int $total_count, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\RunnerLabel::class)] public ?array $labels)
     {
-        $this->total_count = $total_count;
-        $this->labels = $labels;
     }
 }

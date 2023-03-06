@@ -13,26 +13,10 @@ final readonly class MarketplacePurchase
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"billing_cycle":"generated_billing_cycle","next_billing_date":"generated_next_billing_date","is_installed":false,"unit_count":13,"on_free_trial":false,"free_trial_ends_on":"generated_free_trial_ends_on","updated_at":"generated_updated_at","plan":{"url":"https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313","accounts_url":"https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313\\/accounts","id":1313,"number":3,"name":"Pro","description":"A professional-grade CI solution","monthly_price_in_cents":1099,"yearly_price_in_cents":11870,"price_model":"FLAT_RATE","has_free_trial":true,"unit_name":"generated_unit_name","state":"published","bullets":["Up to 25 private repositories"]}}';
-    public ?string $billing_cycle;
-    public ?string $next_billing_date;
-    public ?bool $is_installed;
-    public ?int $unit_count;
-    public ?bool $on_free_trial;
-    public ?string $free_trial_ends_on;
-    public ?string $updated_at;
     /**
-     * Marketplace Listing Plan
+     * plan: Marketplace Listing Plan
      */
-    public ?Schema\MarketplaceListingPlan $plan;
-    public function __construct(string $billing_cycle, string $next_billing_date, bool $is_installed, int $unit_count, bool $on_free_trial, string $free_trial_ends_on, string $updated_at, Schema\MarketplaceListingPlan $plan)
+    public function __construct(public ?string $billing_cycle, public ?string $next_billing_date, public ?bool $is_installed, public ?int $unit_count, public ?bool $on_free_trial, public ?string $free_trial_ends_on, public ?string $updated_at, public ?Schema\MarketplaceListingPlan $plan)
     {
-        $this->billing_cycle = $billing_cycle;
-        $this->next_billing_date = $next_billing_date;
-        $this->is_installed = $is_installed;
-        $this->unit_count = $unit_count;
-        $this->on_free_trial = $on_free_trial;
-        $this->free_trial_ends_on = $free_trial_ends_on;
-        $this->updated_at = $updated_at;
-        $this->plan = $plan;
     }
 }

@@ -13,17 +13,7 @@ final readonly class Customer
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","email":"generated_email","uuid":"generated_uuid","secret_key_data":"generated_secret_key_data","public_key_data":"generated_public_key_data"}';
-    public ?string $name;
-    public ?string $email;
-    public ?string $uuid;
-    public ?string $secret_key_data;
-    public ?string $public_key_data;
-    public function __construct(string $name, string $email, string $uuid, string $secret_key_data, string $public_key_data)
+    public function __construct(public ?string $name, public ?string $email, public ?string $uuid, public ?string $secret_key_data, public ?string $public_key_data)
     {
-        $this->name = $name;
-        $this->email = $email;
-        $this->uuid = $uuid;
-        $this->secret_key_data = $secret_key_data;
-        $this->public_key_data = $public_key_data;
     }
 }

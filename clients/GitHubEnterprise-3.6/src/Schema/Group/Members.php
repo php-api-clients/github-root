@@ -14,16 +14,10 @@ final readonly class Members
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"value":"23a35c27-23d3-4c03-b4c5-6443c09e7173","displayName":"Monalisa Octocat"}';
     /**
-     * The local unique identifier for the member
+     * value: The local unique identifier for the member
+     * displayName: The display name associated with the member
      */
-    public ?string $value;
-    /**
-     * The display name associated with the member
-     */
-    public ?string $displayName;
-    public function __construct(string $value, string $displayName)
+    public function __construct(public ?string $value, public ?string $displayName)
     {
-        $this->value = $value;
-        $this->displayName = $displayName;
     }
 }

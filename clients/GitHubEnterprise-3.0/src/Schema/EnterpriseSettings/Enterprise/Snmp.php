@@ -13,11 +13,7 @@ final readonly class Snmp
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enabled":false,"community":"generated_community"}';
-    public ?bool $enabled;
-    public ?string $community;
-    public function __construct(bool $enabled, string $community)
+    public function __construct(public ?bool $enabled, public ?string $community)
     {
-        $this->enabled = $enabled;
-        $this->community = $community;
     }
 }

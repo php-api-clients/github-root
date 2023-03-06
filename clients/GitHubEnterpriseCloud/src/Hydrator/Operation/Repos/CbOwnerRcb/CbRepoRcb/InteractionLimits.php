@@ -38,7 +38,7 @@ class InteractionLimits implements ObjectMapper
                 $value = $payload['limit'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'limit';
+                    $properties['limit'] = null;
                     goto after_limit;
                 }
 
@@ -49,7 +49,7 @@ class InteractionLimits implements ObjectMapper
                 $value = $payload['origin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'origin';
+                    $properties['origin'] = null;
                     goto after_origin;
                 }
 
@@ -60,7 +60,7 @@ class InteractionLimits implements ObjectMapper
                 $value = $payload['expires_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'expires_at';
+                    $properties['expires_at'] = null;
                     goto after_expires_at;
                 }
 

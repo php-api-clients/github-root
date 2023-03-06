@@ -38,7 +38,7 @@ class Keys implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -49,7 +49,7 @@ class Keys implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 

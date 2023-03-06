@@ -14,46 +14,18 @@ final readonly class User
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"schemas":["urn:ietf:params:scim:schemas:core:2.0:User"],"externalId":"E012345","active":true,"userName":"E012345","name":{"formatted":"Ms. Mona Lisa Octocat","familyName":"Octocat","givenName":"Mona","middleName":"Lisa"},"displayName":"Mona Lisa","emails":[{"value":"mlisa@example.com","type":"work","primary":true}],"roles":[{"display":"generated_display","type":"generated_type","value":"user","primary":false}]}';
     /**
-     * The URIs that are used to indicate the namespaces of the SCIM schemas.
-     * @var array<string>
+     * schemas: The URIs that are used to indicate the namespaces of the SCIM schemas.
+     * @param ?array<string> $schemas
+     * externalId: A unique identifier for the resource as defined by the provisioning client.
+     * active: Whether the user active in the IdP.
+     * userName: The username for the user.
+     * displayName: A human-readable name for the user.
+     * emails: The emails for the user.
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\UserEmails> $emails
+     * roles: The roles assigned to the user.
+     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\UserRole> $roles
      */
-    public ?array $schemas;
-    /**
-     * A unique identifier for the resource as defined by the provisioning client.
-     */
-    public ?string $externalId;
-    /**
-     * Whether the user active in the IdP.
-     */
-    public ?bool $active;
-    /**
-     * The username for the user.
-     */
-    public ?string $userName;
-    public Schema\UserName $name;
-    /**
-     * A human-readable name for the user.
-     */
-    public ?string $displayName;
-    /**
-     * The emails for the user.
-     * @var array<Schema\UserEmails>
-     */
-    public ?array $emails;
-    /**
-     * The roles assigned to the user.
-     * @var array<Schema\UserRole>
-     */
-    public array $roles;
-    public function __construct(array $schemas, string $externalId, bool $active, string $userName, Schema\UserName $name, string $displayName, array $emails, array $roles)
+    public function __construct(public ?array $schemas, public ?string $externalId, public ?bool $active, public ?string $userName, public Schema\UserName $name, public ?string $displayName, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\UserEmails::class)] public ?array $emails, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\UserRole::class)] public array $roles)
     {
-        $this->schemas = $schemas;
-        $this->externalId = $externalId;
-        $this->active = $active;
-        $this->userName = $userName;
-        $this->name = $name;
-        $this->displayName = $displayName;
-        $this->emails = $emails;
-        $this->roles = $roles;
     }
 }

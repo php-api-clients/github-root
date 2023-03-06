@@ -13,14 +13,10 @@ final readonly class ConfigurationStatus
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"status":"generated_status","progress":[{"status":"generated_status","key":"generated_key"}]}';
-    public ?string $status;
     /**
-     * @var array<Schema\ConfigurationStatus\Progress>
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress> $progress
      */
-    public ?array $progress;
-    public function __construct(string $status, array $progress)
+    public function __construct(public ?string $status, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ConfigurationStatus\Progress::class)] public ?array $progress)
     {
-        $this->status = $status;
-        $this->progress = $progress;
     }
 }

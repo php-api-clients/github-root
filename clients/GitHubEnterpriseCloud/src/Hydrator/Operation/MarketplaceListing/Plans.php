@@ -39,7 +39,7 @@ class Plans implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -50,7 +50,7 @@ class Plans implements ObjectMapper
                 $value = $payload['accounts_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'accounts_url';
+                    $properties['accounts_url'] = null;
                     goto after_accounts_url;
                 }
 
@@ -61,7 +61,7 @@ class Plans implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -72,7 +72,7 @@ class Plans implements ObjectMapper
                 $value = $payload['number'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'number';
+                    $properties['number'] = null;
                     goto after_number;
                 }
 
@@ -83,7 +83,7 @@ class Plans implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -94,7 +94,7 @@ class Plans implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -105,7 +105,7 @@ class Plans implements ObjectMapper
                 $value = $payload['monthly_price_in_cents'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'monthly_price_in_cents';
+                    $properties['monthly_price_in_cents'] = null;
                     goto after_monthly_price_in_cents;
                 }
 
@@ -116,7 +116,7 @@ class Plans implements ObjectMapper
                 $value = $payload['yearly_price_in_cents'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'yearly_price_in_cents';
+                    $properties['yearly_price_in_cents'] = null;
                     goto after_yearly_price_in_cents;
                 }
 
@@ -127,7 +127,7 @@ class Plans implements ObjectMapper
                 $value = $payload['price_model'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'price_model';
+                    $properties['price_model'] = null;
                     goto after_price_model;
                 }
 
@@ -138,7 +138,7 @@ class Plans implements ObjectMapper
                 $value = $payload['has_free_trial'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_free_trial';
+                    $properties['has_free_trial'] = null;
                     goto after_has_free_trial;
                 }
 
@@ -149,7 +149,7 @@ class Plans implements ObjectMapper
                 $value = $payload['unit_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'unit_name';
+                    $properties['unit_name'] = null;
                     goto after_unit_name;
                 }
 
@@ -160,7 +160,7 @@ class Plans implements ObjectMapper
                 $value = $payload['state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'state';
+                    $properties['state'] = null;
                     goto after_state;
                 }
 
@@ -171,7 +171,7 @@ class Plans implements ObjectMapper
                 $value = $payload['bullets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'bullets';
+                    $properties['bullets'] = null;
                     goto after_bullets;
                 }
 
@@ -204,7 +204,7 @@ class Plans implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -215,7 +215,7 @@ class Plans implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -226,7 +226,7 @@ class Plans implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -237,7 +237,7 @@ class Plans implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 

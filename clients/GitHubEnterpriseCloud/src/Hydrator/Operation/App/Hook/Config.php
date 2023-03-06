@@ -38,7 +38,7 @@ class Config implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -49,7 +49,7 @@ class Config implements ObjectMapper
                 $value = $payload['content_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'content_type';
+                    $properties['content_type'] = null;
                     goto after_content_type;
                 }
 
@@ -60,7 +60,7 @@ class Config implements ObjectMapper
                 $value = $payload['secret'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secret';
+                    $properties['secret'] = null;
                     goto after_secret;
                 }
 
@@ -71,7 +71,7 @@ class Config implements ObjectMapper
                 $value = $payload['insecure_ssl'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'insecure_ssl';
+                    $properties['insecure_ssl'] = null;
                     goto after_insecure_ssl;
                 }
 

@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = 'Actions OIDC subject customization for a repository';
     public const SCHEMA_EXAMPLE_DATA = '{"use_default":false}';
     /**
-     * Whether to use the default template or not.
+     * use_default: Whether to use the default template or not.
      */
-    public ?bool $use_default;
-    public function __construct(bool $use_default)
+    public function __construct(public ?bool $use_default)
     {
-        $this->use_default = $use_default;
     }
 }

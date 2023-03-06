@@ -14,12 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"labels":["generated_labels"]}';
     /**
-     * The names of the custom labels to set for the runner. You can pass an empty array to remove all custom labels.
-     * @var array<string>
+     * labels: The names of the custom labels to set for the runner. You can pass an empty array to remove all custom labels.
+     * @param ?array<string> $labels
      */
-    public ?array $labels;
-    public function __construct(array $labels)
+    public function __construct(public ?array $labels)
     {
-        $this->labels = $labels;
     }
 }

@@ -13,20 +13,10 @@ final readonly class Reaction
     public const SCHEMA_TITLE = 'Reaction';
     public const SCHEMA_DESCRIPTION = 'Reactions to conversations provide a way to help people express their feelings more simply and effectively.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":1,"node_id":"MDg6UmVhY3Rpb24x","user":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"content":"heart","created_at":"2016-05-20T20:09:31Z"}';
-    public ?int $id;
-    public ?string $node_id;
-    public ?Schema\SimpleUser $user;
     /**
-     * The reaction to use
+     * content: The reaction to use
      */
-    public ?string $content;
-    public ?string $created_at;
-    public function __construct(int $id, string $node_id, Schema\SimpleUser $user, string $content, string $created_at)
+    public function __construct(public ?int $id, public ?string $node_id, public ?Schema\SimpleUser $user, public ?string $content, public ?string $created_at)
     {
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->user = $user;
-        $this->content = $content;
-        $this->created_at = $created_at;
     }
 }

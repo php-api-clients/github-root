@@ -14,13 +14,9 @@ final readonly class SecretScanningLocation
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"type":"commit","details":{"issue_comment_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/comments\\/1081119451"}}';
     /**
-     * The location type. Because secrets may be found in different types of resources (ie. code, comments, issues), this field identifies the type of resource where the secret was found.
+     * type: The location type. Because secrets may be found in different types of resources (ie. code, comments, issues), this field identifies the type of resource where the secret was found.
      */
-    public ?string $type;
-    public ?Schema\SecretScanningLocationIssueComment $details;
-    public function __construct(string $type, Schema\SecretScanningLocationIssueComment $details)
+    public function __construct(public ?string $type, public ?Schema\SecretScanningLocationIssueComment $details)
     {
-        $this->type = $type;
-        $this->details = $details;
     }
 }

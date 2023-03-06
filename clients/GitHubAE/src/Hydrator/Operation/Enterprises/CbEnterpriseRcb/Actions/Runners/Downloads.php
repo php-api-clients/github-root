@@ -38,7 +38,7 @@ class Downloads implements ObjectMapper
                 $value = $payload['os'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'os';
+                    $properties['os'] = null;
                     goto after_os;
                 }
 
@@ -49,7 +49,7 @@ class Downloads implements ObjectMapper
                 $value = $payload['architecture'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'architecture';
+                    $properties['architecture'] = null;
                     goto after_architecture;
                 }
 
@@ -60,7 +60,7 @@ class Downloads implements ObjectMapper
                 $value = $payload['download_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'download_url';
+                    $properties['download_url'] = null;
                     goto after_download_url;
                 }
 
@@ -71,7 +71,7 @@ class Downloads implements ObjectMapper
                 $value = $payload['filename'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'filename';
+                    $properties['filename'] = null;
                     goto after_filename;
                 }
 

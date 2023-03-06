@@ -13,47 +13,15 @@ final readonly class PerformedViaGithubApp
     public const SCHEMA_TITLE = 'App';
     public const SCHEMA_DESCRIPTION = 'GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.';
     public const SCHEMA_EXAMPLE_DATA = '{"created_at":"generated_created_at","description":"generated_description","events":["generated_events"],"external_url":"generated_external_url","html_url":"generated_html_url","id":13,"name":"generated_name","node_id":"generated_node_id","owner":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"permissions":{"actions":"generated_actions","administration":"generated_administration","checks":"generated_checks","content_references":"generated_content_references","contents":"generated_contents","deployments":"generated_deployments","discussions":"generated_discussions","emails":"generated_emails","environments":"generated_environments","issues":"generated_issues","keys":"generated_keys","members":"generated_members","metadata":"generated_metadata","organization_administration":"generated_organization_administration","organization_hooks":"generated_organization_hooks","organization_packages":"generated_organization_packages","organization_plan":"generated_organization_plan","organization_projects":"generated_organization_projects","organization_secrets":"generated_organization_secrets","organization_self_hosted_runners":"generated_organization_self_hosted_runners","organization_user_blocking":"generated_organization_user_blocking","packages":"generated_packages","pages":"generated_pages","pull_requests":"generated_pull_requests","repository_hooks":"generated_repository_hooks","repository_projects":"generated_repository_projects","secret_scanning_alerts":"generated_secret_scanning_alerts","secrets":"generated_secrets","security_events":"generated_security_events","security_scanning_alert":"generated_security_scanning_alert","single_file":"generated_single_file","statuses":"generated_statuses","team_discussions":"generated_team_discussions","vulnerability_alerts":"generated_vulnerability_alerts","workflows":"generated_workflows"},"slug":"generated_slug","updated_at":"generated_updated_at"}';
-    public ?string $created_at;
-    public ?string $description;
     /**
-     * The list of events for the GitHub app
-     * @var array<string>
+     * events: The list of events for the GitHub app
+     * @param array<string> $events
+     * id: Unique identifier of the GitHub app
+     * name: The name of the GitHub app
+     * permissions: The set of permissions for the GitHub app
+     * slug: The slug name of the GitHub app
      */
-    public array $events;
-    public ?string $external_url;
-    public ?string $html_url;
-    /**
-     * Unique identifier of the GitHub app
-     */
-    public ?int $id;
-    /**
-     * The name of the GitHub app
-     */
-    public ?string $name;
-    public ?string $node_id;
-    public ?Schema\Discussion\AnswerChosenBy $owner;
-    /**
-     * The set of permissions for the GitHub app
-     */
-    public Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp\Permissions $permissions;
-    /**
-     * The slug name of the GitHub app
-     */
-    public string $slug;
-    public ?string $updated_at;
-    public function __construct(string $created_at, string $description, array $events, string $external_url, string $html_url, int $id, string $name, string $node_id, Schema\Discussion\AnswerChosenBy $owner, Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp\Permissions $permissions, string $slug, string $updated_at)
+    public function __construct(public ?string $created_at, public ?string $description, public array $events, public ?string $external_url, public ?string $html_url, public ?int $id, public ?string $name, public ?string $node_id, public ?Schema\Discussion\AnswerChosenBy $owner, public Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp\Permissions $permissions, public string $slug, public ?string $updated_at)
     {
-        $this->created_at = $created_at;
-        $this->description = $description;
-        $this->events = $events;
-        $this->external_url = $external_url;
-        $this->html_url = $html_url;
-        $this->id = $id;
-        $this->name = $name;
-        $this->node_id = $node_id;
-        $this->owner = $owner;
-        $this->permissions = $permissions;
-        $this->slug = $slug;
-        $this->updated_at = $updated_at;
     }
 }

@@ -13,30 +13,12 @@ final readonly class Label
     public const SCHEMA_TITLE = 'Label';
     public const SCHEMA_DESCRIPTION = 'Color-coded labels help you categorize and filter your issues (just like labels in Gmail).';
     public const SCHEMA_EXAMPLE_DATA = '{"id":208045946,"node_id":"MDU6TGFiZWwyMDgwNDU5NDY=","url":"https:\\/\\/api.github.com\\/repositories\\/42\\/labels\\/bug","name":"bug","description":"Something isn\'t working","color":"FFFFFF","default":true}';
-    public ?int $id;
-    public ?string $node_id;
     /**
-     * URL for the label
+     * url: URL for the label
+     * name: The name of the label.
+     * color: 6-character hex code, without the leading #, identifying the color
      */
-    public ?string $url;
-    /**
-     * The name of the label.
-     */
-    public ?string $name;
-    public ?string $description;
-    /**
-     * 6-character hex code, without the leading #, identifying the color
-     */
-    public ?string $color;
-    public ?bool $default;
-    public function __construct(int $id, string $node_id, string $url, string $name, string $description, string $color, bool $default)
+    public function __construct(public ?int $id, public ?string $node_id, public ?string $url, public ?string $name, public ?string $description, public ?string $color, public ?bool $default)
     {
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->url = $url;
-        $this->name = $name;
-        $this->description = $description;
-        $this->color = $color;
-        $this->default = $default;
     }
 }

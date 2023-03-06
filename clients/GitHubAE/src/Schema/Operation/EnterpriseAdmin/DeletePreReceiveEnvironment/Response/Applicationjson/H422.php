@@ -13,14 +13,10 @@ final readonly class H422
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message","errors":[{"resource":"generated_resource","code":"generated_code","message":"generated_message"}]}';
-    public ?string $message;
     /**
-     * @var array<Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors>
+     * @param ?array<\ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors> $errors
      */
-    public ?array $errors;
-    public function __construct(string $message, array $errors)
+    public function __construct(public ?string $message, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors::class)] public ?array $errors)
     {
-        $this->message = $message;
-        $this->errors = $errors;
     }
 }

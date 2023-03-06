@@ -13,43 +13,7 @@ final readonly class Creator
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"avatar_url":"generated_avatar_url","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"}';
-    public ?string $avatar_url;
-    public ?string $events_url;
-    public ?string $followers_url;
-    public ?string $following_url;
-    public ?string $gists_url;
-    public ?string $gravatar_id;
-    public ?string $html_url;
-    public ?int $id;
-    public ?string $login;
-    public ?string $node_id;
-    public ?string $organizations_url;
-    public ?string $received_events_url;
-    public ?string $repos_url;
-    public ?bool $site_admin;
-    public ?string $starred_url;
-    public ?string $subscriptions_url;
-    public ?string $type;
-    public ?string $url;
-    public function __construct(string $avatar_url, string $events_url, string $followers_url, string $following_url, string $gists_url, string $gravatar_id, string $html_url, int $id, string $login, string $node_id, string $organizations_url, string $received_events_url, string $repos_url, bool $site_admin, string $starred_url, string $subscriptions_url, string $type, string $url)
+    public function __construct(public ?string $avatar_url, public ?string $events_url, public ?string $followers_url, public ?string $following_url, public ?string $gists_url, public ?string $gravatar_id, public ?string $html_url, public ?int $id, public ?string $login, public ?string $node_id, public ?string $organizations_url, public ?string $received_events_url, public ?string $repos_url, public ?bool $site_admin, public ?string $starred_url, public ?string $subscriptions_url, public ?string $type, public ?string $url)
     {
-        $this->avatar_url = $avatar_url;
-        $this->events_url = $events_url;
-        $this->followers_url = $followers_url;
-        $this->following_url = $following_url;
-        $this->gists_url = $gists_url;
-        $this->gravatar_id = $gravatar_id;
-        $this->html_url = $html_url;
-        $this->id = $id;
-        $this->login = $login;
-        $this->node_id = $node_id;
-        $this->organizations_url = $organizations_url;
-        $this->received_events_url = $received_events_url;
-        $this->repos_url = $repos_url;
-        $this->site_admin = $site_admin;
-        $this->starred_url = $starred_url;
-        $this->subscriptions_url = $subscriptions_url;
-        $this->type = $type;
-        $this->url = $url;
     }
 }

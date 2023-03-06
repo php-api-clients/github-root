@@ -38,7 +38,7 @@ class Gists implements ObjectMapper
                 $value = $payload['total_gists'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_gists';
+                    $properties['total_gists'] = null;
                     goto after_total_gists;
                 }
 
@@ -49,7 +49,7 @@ class Gists implements ObjectMapper
                 $value = $payload['private_gists'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'private_gists';
+                    $properties['private_gists'] = null;
                     goto after_private_gists;
                 }
 
@@ -60,7 +60,7 @@ class Gists implements ObjectMapper
                 $value = $payload['public_gists'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'public_gists';
+                    $properties['public_gists'] = null;
                     goto after_public_gists;
                 }
 

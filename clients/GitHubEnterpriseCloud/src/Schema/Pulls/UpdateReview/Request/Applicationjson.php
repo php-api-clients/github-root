@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"body":"generated_body"}';
     /**
-     * The body text of the pull request review.
+     * body: The body text of the pull request review.
      */
-    public ?string $body;
-    public function __construct(string $body)
+    public function __construct(public ?string $body)
     {
-        $this->body = $body;
     }
 }

@@ -49,7 +49,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -60,7 +60,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['size'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'size';
+                    $properties['size'] = null;
                     goto after_size;
                 }
 
@@ -71,7 +71,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -82,7 +82,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['path'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'path';
+                    $properties['path'] = null;
                     goto after_path;
                 }
 
@@ -93,7 +93,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -104,7 +104,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -115,7 +115,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['git_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_url';
+                    $properties['git_url'] = null;
                     goto after_git_url;
                 }
 
@@ -126,7 +126,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -137,7 +137,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['download_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'download_url';
+                    $properties['download_url'] = null;
                     goto after_download_url;
                 }
 
@@ -152,6 +152,16 @@ class CbPathRcb implements ObjectMapper
                     goto after_entries;
                 }
 
+                static $entriesCaster1;
+    
+                if ($entriesCaster1 === null) {
+                    $entriesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContentTree\\Entries',
+));
+                }
+    
+                $value = $entriesCaster1->cast($value, $this);
+
                 $properties['entries'] = $value;
     
                 after_entries:
@@ -159,7 +169,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['_links'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = '_links';
+                    $properties['_links'] = null;
                     goto after__links;
                 }
 
@@ -201,7 +211,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -212,7 +222,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -223,7 +233,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -234,7 +244,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -267,7 +277,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['content'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'content';
+                    $properties['content'] = null;
                     goto after_content;
                 }
 
@@ -287,7 +297,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['commit'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commit';
+                    $properties['commit'] = null;
                     goto after_commit;
                 }
 
@@ -329,7 +339,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -340,7 +350,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -354,6 +364,16 @@ class CbPathRcb implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -384,7 +404,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['code'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'code';
+                    $properties['code'] = null;
                     goto after_code;
                 }
 
@@ -395,7 +415,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -406,7 +426,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -439,7 +459,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['git'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git';
+                    $properties['git'] = null;
                     goto after_git;
                 }
 
@@ -450,7 +470,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['html'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html';
+                    $properties['html'] = null;
                     goto after_html;
                 }
 
@@ -461,7 +481,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['self'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'self';
+                    $properties['self'] = null;
                     goto after_self;
                 }
 
@@ -494,7 +514,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -505,7 +525,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['path'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'path';
+                    $properties['path'] = null;
                     goto after_path;
                 }
 
@@ -516,7 +536,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -527,7 +547,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['size'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'size';
+                    $properties['size'] = null;
                     goto after_size;
                 }
 
@@ -538,7 +558,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -549,7 +569,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -560,7 +580,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['git_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_url';
+                    $properties['git_url'] = null;
                     goto after_git_url;
                 }
 
@@ -571,7 +591,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['download_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'download_url';
+                    $properties['download_url'] = null;
                     goto after_download_url;
                 }
 
@@ -582,7 +602,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -593,7 +613,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['_links'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = '_links';
+                    $properties['_links'] = null;
                     goto after__links;
                 }
 
@@ -635,7 +655,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -646,7 +666,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -657,7 +677,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -668,7 +688,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -679,7 +699,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['author'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'author';
+                    $properties['author'] = null;
                     goto after_author;
                 }
 
@@ -699,7 +719,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['committer'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'committer';
+                    $properties['committer'] = null;
                     goto after_committer;
                 }
 
@@ -719,7 +739,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -730,7 +750,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['tree'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tree';
+                    $properties['tree'] = null;
                     goto after_tree;
                 }
 
@@ -750,9 +770,19 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['parents'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'parents';
+                    $properties['parents'] = null;
                     goto after_parents;
                 }
+
+                static $parentsCaster1;
+    
+                if ($parentsCaster1 === null) {
+                    $parentsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\FileCommit\\Commit\\Parents',
+));
+                }
+    
+                $value = $parentsCaster1->cast($value, $this);
 
                 $properties['parents'] = $value;
     
@@ -761,7 +791,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['verification'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'verification';
+                    $properties['verification'] = null;
                     goto after_verification;
                 }
 
@@ -803,7 +833,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['self'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'self';
+                    $properties['self'] = null;
                     goto after_self;
                 }
 
@@ -814,7 +844,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['git'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git';
+                    $properties['git'] = null;
                     goto after_git;
                 }
 
@@ -825,7 +855,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['html'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html';
+                    $properties['html'] = null;
                     goto after_html;
                 }
 
@@ -858,7 +888,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['date'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'date';
+                    $properties['date'] = null;
                     goto after_date;
                 }
 
@@ -869,7 +899,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -880,7 +910,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -913,7 +943,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -924,7 +954,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -957,7 +987,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['verified'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'verified';
+                    $properties['verified'] = null;
                     goto after_verified;
                 }
 
@@ -968,7 +998,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['reason'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'reason';
+                    $properties['reason'] = null;
                     goto after_reason;
                 }
 
@@ -979,7 +1009,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['signature'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'signature';
+                    $properties['signature'] = null;
                     goto after_signature;
                 }
 
@@ -990,7 +1020,7 @@ class CbPathRcb implements ObjectMapper
                 $value = $payload['payload'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'payload';
+                    $properties['payload'] = null;
                     goto after_payload;
                 }
 
@@ -1183,7 +1213,8 @@ class CbPathRcb implements ObjectMapper
         static $entriesSerializer0;
 
         if ($entriesSerializer0 === null) {
-            $entriesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $entriesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ContentTree\\Entries',
 ));
         }
         
@@ -1297,7 +1328,8 @@ class CbPathRcb implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
 ));
         }
         

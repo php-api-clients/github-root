@@ -14,22 +14,12 @@ final readonly class Resources
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":"7fce0092-d52e-4f76-b727-3955bd72c939","groups":[{"value":"generated_value","ref":"generated_ref","display":"generated_display"}],"meta":{"resourceType":"User","created":"2022-03-27T19:59:26.000Z","lastModified":"2022-03-27T19:59:26.000Z","location":"generated_location"}}';
     /**
-     * The internally generated id for the user object.
+     * id: The internally generated id for the user object.
+     * groups: Provisioned SCIM groups that the user is a member of.
+     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList\Resources\Members> $groups
+     * meta: The metadata associated with the creation/updates to the user.
      */
-    public ?string $id;
-    /**
-     * Provisioned SCIM groups that the user is a member of.
-     * @var array<Schema\ScimEnterpriseGroupList\Resources\Members>
-     */
-    public array $groups;
-    /**
-     * The metadata associated with the creation/updates to the user.
-     */
-    public ?Schema\Meta $meta;
-    public function __construct(string $id, array $groups, Schema\Meta $meta)
+    public function __construct(public ?string $id, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ScimEnterpriseGroupList\Resources\Members::class)] public array $groups, public ?Schema\Meta $meta)
     {
-        $this->id = $id;
-        $this->groups = $groups;
-        $this->meta = $meta;
     }
 }

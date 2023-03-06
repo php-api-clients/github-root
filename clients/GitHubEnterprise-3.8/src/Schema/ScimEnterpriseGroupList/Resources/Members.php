@@ -13,13 +13,7 @@ final readonly class Members
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"value":"generated_value","ref":"generated_ref","display":"generated_display"}';
-    public ?string $value;
-    public ?string $ref;
-    public ?string $display;
-    public function __construct(string $value, string $ref, string $display)
+    public function __construct(public ?string $value, public ?string $ref, public ?string $display)
     {
-        $this->value = $value;
-        $this->ref = $ref;
-        $this->display = $display;
     }
 }

@@ -14,11 +14,9 @@ final readonly class PrivacyLevel
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"from":"generated_from"}';
     /**
-     * The `edited` event types include the details about the change when someone edits a sponsorship to change the privacy.
+     * from: The `edited` event types include the details about the change when someone edits a sponsorship to change the privacy.
      */
-    public ?string $from;
-    public function __construct(string $from)
+    public function __construct(public ?string $from)
     {
-        $this->from = $from;
     }
 }

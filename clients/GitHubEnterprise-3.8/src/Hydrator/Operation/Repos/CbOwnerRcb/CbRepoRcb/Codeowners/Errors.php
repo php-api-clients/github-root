@@ -38,9 +38,19 @@ class Errors implements ObjectMapper
                 $value = $payload['errors'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'errors';
+                    $properties['errors'] = null;
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeownersErrors\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -159,7 +169,8 @@ class Errors implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeownersErrors\\Errors',
 ));
         }
         

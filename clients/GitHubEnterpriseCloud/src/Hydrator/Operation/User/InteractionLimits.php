@@ -39,7 +39,7 @@ class InteractionLimits implements ObjectMapper
                 $value = $payload['limit'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'limit';
+                    $properties['limit'] = null;
                     goto after_limit;
                 }
 
@@ -50,7 +50,7 @@ class InteractionLimits implements ObjectMapper
                 $value = $payload['origin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'origin';
+                    $properties['origin'] = null;
                     goto after_origin;
                 }
 
@@ -61,7 +61,7 @@ class InteractionLimits implements ObjectMapper
                 $value = $payload['expires_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'expires_at';
+                    $properties['expires_at'] = null;
                     goto after_expires_at;
                 }
 
@@ -94,7 +94,7 @@ class InteractionLimits implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -105,7 +105,7 @@ class InteractionLimits implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -119,6 +119,16 @@ class InteractionLimits implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -283,7 +293,8 @@ class InteractionLimits implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ValidationError\\Errors',
 ));
         }
         

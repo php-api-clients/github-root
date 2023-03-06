@@ -39,7 +39,7 @@ class Views implements ObjectMapper
                 $value = $payload['count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'count';
+                    $properties['count'] = null;
                     goto after_count;
                 }
 
@@ -50,7 +50,7 @@ class Views implements ObjectMapper
                 $value = $payload['uniques'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'uniques';
+                    $properties['uniques'] = null;
                     goto after_uniques;
                 }
 
@@ -61,9 +61,19 @@ class Views implements ObjectMapper
                 $value = $payload['views'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'views';
+                    $properties['views'] = null;
                     goto after_views;
                 }
+
+                static $viewsCaster1;
+    
+                if ($viewsCaster1 === null) {
+                    $viewsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Traffic',
+));
+                }
+    
+                $value = $viewsCaster1->cast($value, $this);
 
                 $properties['views'] = $value;
     
@@ -94,7 +104,7 @@ class Views implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -105,7 +115,7 @@ class Views implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -116,7 +126,7 @@ class Views implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -127,7 +137,7 @@ class Views implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -265,7 +275,8 @@ class Views implements ObjectMapper
         static $viewsSerializer0;
 
         if ($viewsSerializer0 === null) {
-            $viewsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $viewsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Traffic',
 ));
         }
         

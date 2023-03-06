@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"note":"Update all gems","archived":false}';
     /**
-     * The project card's note
+     * note: The project card's note
+     * archived: Whether or not the card is archived
      */
-    public ?string $note;
-    /**
-     * Whether or not the card is archived
-     */
-    public ?bool $archived;
-    public function __construct(string $note, bool $archived)
+    public function __construct(public ?string $note, public ?bool $archived)
     {
-        $this->note = $note;
-        $this->archived = $archived;
     }
 }

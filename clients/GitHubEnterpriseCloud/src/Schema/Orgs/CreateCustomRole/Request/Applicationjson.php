@@ -14,27 +14,13 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","description":"generated_description","base_role":"generated_base_role","permissions":["generated_permissions"]}';
     /**
-     * The name of the custom role.
+     * name: The name of the custom role.
+     * description: A short description about the intended usage of this role or what permissions it grants.
+     * base_role: The system role from which this role inherits permissions.
+     * permissions: A list of additional permissions included in this role.
+     * @param ?array<string> $permissions
      */
-    public ?string $name;
-    /**
-     * A short description about the intended usage of this role or what permissions it grants.
-     */
-    public string $description;
-    /**
-     * The system role from which this role inherits permissions.
-     */
-    public ?string $base_role;
-    /**
-     * A list of additional permissions included in this role.
-     * @var array<string>
-     */
-    public ?array $permissions;
-    public function __construct(string $name, string $description, string $base_role, array $permissions)
+    public function __construct(public ?string $name, public string $description, public ?string $base_role, public ?array $permissions)
     {
-        $this->name = $name;
-        $this->description = $description;
-        $this->base_role = $base_role;
-        $this->permissions = $permissions;
     }
 }

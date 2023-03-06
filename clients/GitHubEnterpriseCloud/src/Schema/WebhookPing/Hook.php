@@ -14,50 +14,14 @@ final readonly class Hook
     public const SCHEMA_DESCRIPTION = 'The webhook that is being pinged';
     public const SCHEMA_EXAMPLE_DATA = '{"active":false,"app_id":13,"config":{"content_type":"\\"json\\"","insecure_ssl":13,"secret":"\\"********\\"","url":"https:\\/\\/example.com\\/webhook"},"created_at":"generated_created_at","deliveries_url":"generated_deliveries_url","events":["generated_events"],"id":13,"last_response":{"code":13,"status":"generated_status","message":"generated_message"},"name":"generated_name","ping_url":"generated_ping_url","test_url":"generated_test_url","type":"generated_type","updated_at":"generated_updated_at","url":"generated_url"}';
     /**
-     * Determines whether the hook is actually triggered for the events it subscribes to.
+     * active: Determines whether the hook is actually triggered for the events it subscribes to.
+     * app_id: Only included for GitHub Apps. When you register a new GitHub App, GitHub sends a ping event to the webhook URL you specified during registration. The GitHub App ID sent in this field is required for authenticating an app.
+     * events: Determines what events the hook is triggered for. Default: ['push'].
+     * @param ?array<string> $events
+     * id: Unique identifier of the webhook.
+     * name: The type of webhook. The only valid value is 'web'.
      */
-    public ?bool $active;
-    /**
-     * Only included for GitHub Apps. When you register a new GitHub App, GitHub sends a ping event to the webhook URL you specified during registration. The GitHub App ID sent in this field is required for authenticating an app.
-     */
-    public int $app_id;
-    public ?Schema\WebhookPing\Hook\Config $config;
-    public ?string $created_at;
-    public string $deliveries_url;
-    /**
-     * Determines what events the hook is triggered for. Default: ['push'].
-     * @var array<string>
-     */
-    public ?array $events;
-    /**
-     * Unique identifier of the webhook.
-     */
-    public ?int $id;
-    public Schema\HookResponse $last_response;
-    /**
-     * The type of webhook. The only valid value is 'web'.
-     */
-    public ?string $name;
-    public string $ping_url;
-    public string $test_url;
-    public ?string $type;
-    public ?string $updated_at;
-    public string $url;
-    public function __construct(bool $active, int $app_id, Schema\WebhookPing\Hook\Config $config, string $created_at, string $deliveries_url, array $events, int $id, Schema\HookResponse $last_response, string $name, string $ping_url, string $test_url, string $type, string $updated_at, string $url)
+    public function __construct(public ?bool $active, public int $app_id, public ?Schema\WebhookPing\Hook\Config $config, public ?string $created_at, public string $deliveries_url, public ?array $events, public ?int $id, public Schema\HookResponse $last_response, public ?string $name, public string $ping_url, public string $test_url, public ?string $type, public ?string $updated_at, public string $url)
     {
-        $this->active = $active;
-        $this->app_id = $app_id;
-        $this->config = $config;
-        $this->created_at = $created_at;
-        $this->deliveries_url = $deliveries_url;
-        $this->events = $events;
-        $this->id = $id;
-        $this->last_response = $last_response;
-        $this->name = $name;
-        $this->ping_url = $ping_url;
-        $this->test_url = $test_url;
-        $this->type = $type;
-        $this->updated_at = $updated_at;
-        $this->url = $url;
     }
 }

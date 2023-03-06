@@ -13,14 +13,10 @@ final readonly class H200
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_count":13,"workflows":[{"id":5,"node_id":"MDg6V29ya2Zsb3cxMg==","name":"CI","path":"ruby.yaml","state":"active","created_at":"2019-12-06T14:20:20.000Z","updated_at":"2019-12-06T14:20:20.000Z","url":"https:\\/\\/api.github.com\\/repos\\/actions\\/setup-ruby\\/workflows\\/5","html_url":"https:\\/\\/github.com\\/actions\\/setup-ruby\\/blob\\/master\\/.github\\/workflows\\/ruby.yaml","badge_url":"https:\\/\\/github.com\\/actions\\/setup-ruby\\/workflows\\/CI\\/badge.svg","deleted_at":"2019-12-06T14:20:20.000Z"}]}';
-    public ?int $total_count;
     /**
-     * @var array<Schema\Workflow>
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\Workflow> $workflows
      */
-    public ?array $workflows;
-    public function __construct(int $total_count, array $workflows)
+    public function __construct(public ?int $total_count, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Workflow::class)] public ?array $workflows)
     {
-        $this->total_count = $total_count;
-        $this->workflows = $workflows;
     }
 }

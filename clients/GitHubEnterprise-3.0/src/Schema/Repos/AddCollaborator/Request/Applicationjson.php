@@ -14,18 +14,14 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"permission":"generated_permission","permissions":"\\"push\\""}';
     /**
-    * The permission to grant the collaborator. **Only valid on organization-owned repositories.** Can be one of:  
+    * permission: The permission to grant the collaborator. **Only valid on organization-owned repositories.** Can be one of:  
     \* `pull` - can pull, but not push to or administer this repository.  
     \* `push` - can pull and push, but not administer this repository.  
     \* `admin` - can pull, push and administer this repository.  
     \* `maintain` - Recommended for project managers who need to manage the repository without access to sensitive or destructive actions.  
     \* `triage` - Recommended for contributors who need to proactively manage issues and pull requests without write access.
     */
-    public ?string $permission;
-    public ?string $permissions;
-    public function __construct(string $permission, string $permissions)
+    public function __construct(public ?string $permission, public ?string $permissions)
     {
-        $this->permission = $permission;
-        $this->permissions = $permissions;
     }
 }

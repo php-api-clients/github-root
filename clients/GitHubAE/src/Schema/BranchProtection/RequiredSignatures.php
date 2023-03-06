@@ -13,11 +13,7 @@ final readonly class RequiredSignatures
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches\\/master\\/protection\\/required_signatures","enabled":true}';
-    public ?string $url;
-    public ?bool $enabled;
-    public function __construct(string $url, bool $enabled)
+    public function __construct(public ?string $url, public ?bool $enabled)
     {
-        $this->url = $url;
-        $this->enabled = $enabled;
     }
 }

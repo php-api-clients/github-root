@@ -39,7 +39,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 
@@ -50,7 +50,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -61,7 +61,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['spdx_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'spdx_id';
+                    $properties['spdx_id'] = null;
                     goto after_spdx_id;
                 }
 
@@ -72,7 +72,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -83,7 +83,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -94,7 +94,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -105,7 +105,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -116,7 +116,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['implementation'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'implementation';
+                    $properties['implementation'] = null;
                     goto after_implementation;
                 }
 
@@ -127,7 +127,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['permissions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'permissions';
+                    $properties['permissions'] = null;
                     goto after_permissions;
                 }
 
@@ -138,7 +138,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['conditions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'conditions';
+                    $properties['conditions'] = null;
                     goto after_conditions;
                 }
 
@@ -149,7 +149,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['limitations'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'limitations';
+                    $properties['limitations'] = null;
                     goto after_limitations;
                 }
 
@@ -160,7 +160,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['body'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'body';
+                    $properties['body'] = null;
                     goto after_body;
                 }
 
@@ -171,7 +171,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['featured'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'featured';
+                    $properties['featured'] = null;
                     goto after_featured;
                 }
 
@@ -204,7 +204,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -215,7 +215,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -226,7 +226,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -237,7 +237,7 @@ class CbLicenseRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 

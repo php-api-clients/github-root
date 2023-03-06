@@ -14,64 +14,20 @@ final readonly class CredentialAuthorization
     public const SCHEMA_DESCRIPTION = 'Credential Authorization';
     public const SCHEMA_EXAMPLE_DATA = '{"login":"monalisa","credential_id":1,"credential_type":"SSH Key","token_last_eight":"12345678","credential_authorized_at":"2011-01-26T19:06:43Z","scopes":["user"],"fingerprint":"jklmnop12345678","credential_accessed_at":"2011-01-26T19:06:43Z","authorized_credential_id":12345678,"authorized_credential_title":"my ssh key","authorized_credential_note":"my token","authorized_credential_expires_at":"generated_authorized_credential_expires_at"}';
     /**
-     * User login that owns the underlying credential.
+     * login: User login that owns the underlying credential.
+     * credential_id: Unique identifier for the credential.
+     * credential_type: Human-readable description of the credential type.
+     * token_last_eight: Last eight characters of the credential. Only included in responses with credential_type of personal access token.
+     * credential_authorized_at: Date when the credential was authorized for use.
+     * scopes: List of oauth scopes the token has been granted.
+     * @param array<string> $scopes
+     * fingerprint: Unique string to distinguish the credential. Only included in responses with credential_type of SSH Key.
+     * credential_accessed_at: Date when the credential was last accessed. May be null if it was never accessed
+     * authorized_credential_title: The title given to the ssh key. This will only be present when the credential is an ssh key.
+     * authorized_credential_note: The note given to the token. This will only be present when the credential is a token.
+     * authorized_credential_expires_at: The expiry for the token. This will only be present when the credential is a token.
      */
-    public ?string $login;
-    /**
-     * Unique identifier for the credential.
-     */
-    public ?int $credential_id;
-    /**
-     * Human-readable description of the credential type.
-     */
-    public ?string $credential_type;
-    /**
-     * Last eight characters of the credential. Only included in responses with credential_type of personal access token.
-     */
-    public string $token_last_eight;
-    /**
-     * Date when the credential was authorized for use.
-     */
-    public ?string $credential_authorized_at;
-    /**
-     * List of oauth scopes the token has been granted.
-     * @var array<string>
-     */
-    public array $scopes;
-    /**
-     * Unique string to distinguish the credential. Only included in responses with credential_type of SSH Key.
-     */
-    public string $fingerprint;
-    /**
-     * Date when the credential was last accessed. May be null if it was never accessed
-     */
-    public ?string $credential_accessed_at;
-    public ?int $authorized_credential_id;
-    /**
-     * The title given to the ssh key. This will only be present when the credential is an ssh key.
-     */
-    public ?string $authorized_credential_title;
-    /**
-     * The note given to the token. This will only be present when the credential is a token.
-     */
-    public ?string $authorized_credential_note;
-    /**
-     * The expiry for the token. This will only be present when the credential is a token.
-     */
-    public ?string $authorized_credential_expires_at;
-    public function __construct(string $login, int $credential_id, string $credential_type, string $token_last_eight, string $credential_authorized_at, array $scopes, string $fingerprint, string $credential_accessed_at, int $authorized_credential_id, string $authorized_credential_title, string $authorized_credential_note, string $authorized_credential_expires_at)
+    public function __construct(public ?string $login, public ?int $credential_id, public ?string $credential_type, public string $token_last_eight, public ?string $credential_authorized_at, public array $scopes, public string $fingerprint, public ?string $credential_accessed_at, public ?int $authorized_credential_id, public ?string $authorized_credential_title, public ?string $authorized_credential_note, public ?string $authorized_credential_expires_at)
     {
-        $this->login = $login;
-        $this->credential_id = $credential_id;
-        $this->credential_type = $credential_type;
-        $this->token_last_eight = $token_last_eight;
-        $this->credential_authorized_at = $credential_authorized_at;
-        $this->scopes = $scopes;
-        $this->fingerprint = $fingerprint;
-        $this->credential_accessed_at = $credential_accessed_at;
-        $this->authorized_credential_id = $authorized_credential_id;
-        $this->authorized_credential_title = $authorized_credential_title;
-        $this->authorized_credential_note = $authorized_credential_note;
-        $this->authorized_credential_expires_at = $authorized_credential_expires_at;
     }
 }

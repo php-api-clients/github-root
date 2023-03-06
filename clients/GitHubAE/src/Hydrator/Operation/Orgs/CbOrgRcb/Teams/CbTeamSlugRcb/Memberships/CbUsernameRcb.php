@@ -38,7 +38,7 @@ class CbUsernameRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -49,7 +49,7 @@ class CbUsernameRcb implements ObjectMapper
                 $value = $payload['role'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'role';
+                    $properties['role'] = null;
                     goto after_role;
                 }
 
@@ -60,7 +60,7 @@ class CbUsernameRcb implements ObjectMapper
                 $value = $payload['state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'state';
+                    $properties['state'] = null;
                     goto after_state;
                 }
 

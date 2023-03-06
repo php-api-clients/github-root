@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"ref":"generated_ref","inputs":[]}';
     /**
-     * The git reference for the workflow. The reference can be a branch or tag name.
+     * ref: The git reference for the workflow. The reference can be a branch or tag name.
+     * inputs: Input keys and values configured in the workflow file. The maximum number of properties is 10. Any default properties configured in the workflow file will be used when `inputs` are omitted.
      */
-    public ?string $ref;
-    /**
-     * Input keys and values configured in the workflow file. The maximum number of properties is 10. Any default properties configured in the workflow file will be used when `inputs` are omitted.
-     */
-    public Schema\Actions\CreateWorkflowDispatch\Request\Applicationjson\Inputs $inputs;
-    public function __construct(string $ref, Schema\Actions\CreateWorkflowDispatch\Request\Applicationjson\Inputs $inputs)
+    public function __construct(public ?string $ref, public Schema\Actions\CreateWorkflowDispatch\Request\Applicationjson\Inputs $inputs)
     {
-        $this->ref = $ref;
-        $this->inputs = $inputs;
     }
 }

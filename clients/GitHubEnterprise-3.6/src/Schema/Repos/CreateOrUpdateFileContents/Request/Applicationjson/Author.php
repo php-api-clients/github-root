@@ -14,18 +14,10 @@ final readonly class Author
     public const SCHEMA_DESCRIPTION = 'The author of the file. Default: The `committer` or the authenticated user if you omit `committer`.';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","email":"generated_email","date":"\\"2013-01-15T17:13:22+05:00\\""}';
     /**
-     * The name of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.
+     * name: The name of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.
+     * email: The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.
      */
-    public ?string $name;
-    /**
-     * The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.
-     */
-    public ?string $email;
-    public string $date;
-    public function __construct(string $name, string $email, string $date)
+    public function __construct(public ?string $name, public ?string $email, public string $date)
     {
-        $this->name = $name;
-        $this->email = $email;
-        $this->date = $date;
     }
 }

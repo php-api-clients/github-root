@@ -40,7 +40,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['__a_t_timestamp'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = '__a_t_timestamp';
+                    $properties['_AT_timestamp'] = null;
                     goto after__AT_timestamp;
                 }
 
@@ -51,7 +51,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -62,7 +62,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['active'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'active';
+                    $properties['active'] = null;
                     goto after_active;
                 }
 
@@ -73,7 +73,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['active_was'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'active_was';
+                    $properties['active_was'] = null;
                     goto after_active_was;
                 }
 
@@ -84,7 +84,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['actor'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'actor';
+                    $properties['actor'] = null;
                     goto after_actor;
                 }
 
@@ -95,7 +95,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['actor_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'actor_id';
+                    $properties['actor_id'] = null;
                     goto after_actor_id;
                 }
 
@@ -106,7 +106,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['actor_location'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'actor_location';
+                    $properties['actor_location'] = null;
                     goto after_actor_location;
                 }
 
@@ -126,7 +126,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['data'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'data';
+                    $properties['data'] = null;
                     goto after_data;
                 }
 
@@ -146,7 +146,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['org_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'org_id';
+                    $properties['org_id'] = null;
                     goto after_org_id;
                 }
 
@@ -157,7 +157,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['user_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user_id';
+                    $properties['user_id'] = null;
                     goto after_user_id;
                 }
 
@@ -168,7 +168,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['business_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'business_id';
+                    $properties['business_id'] = null;
                     goto after_business_id;
                 }
 
@@ -179,7 +179,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['blocked_user'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'blocked_user';
+                    $properties['blocked_user'] = null;
                     goto after_blocked_user;
                 }
 
@@ -190,7 +190,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['business'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'business';
+                    $properties['business'] = null;
                     goto after_business;
                 }
 
@@ -201,9 +201,19 @@ class AuditLog implements ObjectMapper
                 $value = $payload['config'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'config';
+                    $properties['config'] = null;
                     goto after_config;
                 }
+
+                static $configCaster1;
+    
+                if ($configCaster1 === null) {
+                    $configCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AuditLogEvent\\Config',
+));
+                }
+    
+                $value = $configCaster1->cast($value, $this);
 
                 $properties['config'] = $value;
     
@@ -212,9 +222,19 @@ class AuditLog implements ObjectMapper
                 $value = $payload['config_was'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'config_was';
+                    $properties['config_was'] = null;
                     goto after_config_was;
                 }
+
+                static $config_wasCaster1;
+    
+                if ($config_wasCaster1 === null) {
+                    $config_wasCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AuditLogEvent\\Config',
+));
+                }
+    
+                $value = $config_wasCaster1->cast($value, $this);
 
                 $properties['config_was'] = $value;
     
@@ -223,7 +243,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['content_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'content_type';
+                    $properties['content_type'] = null;
                     goto after_content_type;
                 }
 
@@ -234,7 +254,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['operation_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'operation_type';
+                    $properties['operation_type'] = null;
                     goto after_operation_type;
                 }
 
@@ -245,7 +265,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -256,7 +276,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['deploy_key_fingerprint'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deploy_key_fingerprint';
+                    $properties['deploy_key_fingerprint'] = null;
                     goto after_deploy_key_fingerprint;
                 }
 
@@ -267,7 +287,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['_document_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = '_document_id';
+                    $properties['_document_id'] = null;
                     goto after__document_id;
                 }
 
@@ -278,7 +298,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['emoji'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'emoji';
+                    $properties['emoji'] = null;
                     goto after_emoji;
                 }
 
@@ -289,9 +309,19 @@ class AuditLog implements ObjectMapper
                 $value = $payload['events'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events';
+                    $properties['events'] = null;
                     goto after_events;
                 }
+
+                static $eventsCaster1;
+    
+                if ($eventsCaster1 === null) {
+                    $eventsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AuditLogEvent\\Config',
+));
+                }
+    
+                $value = $eventsCaster1->cast($value, $this);
 
                 $properties['events'] = $value;
     
@@ -300,9 +330,19 @@ class AuditLog implements ObjectMapper
                 $value = $payload['events_were'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_were';
+                    $properties['events_were'] = null;
                     goto after_events_were;
                 }
+
+                static $events_wereCaster1;
+    
+                if ($events_wereCaster1 === null) {
+                    $events_wereCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AuditLogEvent\\Config',
+));
+                }
+    
+                $value = $events_wereCaster1->cast($value, $this);
 
                 $properties['events_were'] = $value;
     
@@ -311,7 +351,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['explanation'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'explanation';
+                    $properties['explanation'] = null;
                     goto after_explanation;
                 }
 
@@ -322,7 +362,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['fingerprint'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'fingerprint';
+                    $properties['fingerprint'] = null;
                     goto after_fingerprint;
                 }
 
@@ -333,7 +373,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['hook_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hook_id';
+                    $properties['hook_id'] = null;
                     goto after_hook_id;
                 }
 
@@ -344,7 +384,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['limited_availability'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'limited_availability';
+                    $properties['limited_availability'] = null;
                     goto after_limited_availability;
                 }
 
@@ -355,7 +395,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -366,7 +406,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -377,7 +417,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['old_user'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'old_user';
+                    $properties['old_user'] = null;
                     goto after_old_user;
                 }
 
@@ -388,7 +428,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['openssh_public_key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'openssh_public_key';
+                    $properties['openssh_public_key'] = null;
                     goto after_openssh_public_key;
                 }
 
@@ -399,7 +439,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['org'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'org';
+                    $properties['org'] = null;
                     goto after_org;
                 }
 
@@ -410,7 +450,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['previous_visibility'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'previous_visibility';
+                    $properties['previous_visibility'] = null;
                     goto after_previous_visibility;
                 }
 
@@ -421,7 +461,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['read_only'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'read_only';
+                    $properties['read_only'] = null;
                     goto after_read_only;
                 }
 
@@ -432,7 +472,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['repo'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repo';
+                    $properties['repo'] = null;
                     goto after_repo;
                 }
 
@@ -443,7 +483,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -454,7 +494,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['repository_public'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_public';
+                    $properties['repository_public'] = null;
                     goto after_repository_public;
                 }
 
@@ -465,7 +505,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['target_login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'target_login';
+                    $properties['target_login'] = null;
                     goto after_target_login;
                 }
 
@@ -476,7 +516,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['team'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'team';
+                    $properties['team'] = null;
                     goto after_team;
                 }
 
@@ -487,7 +527,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['transport_protocol'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'transport_protocol';
+                    $properties['transport_protocol'] = null;
                     goto after_transport_protocol;
                 }
 
@@ -498,7 +538,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['transport_protocol_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'transport_protocol_name';
+                    $properties['transport_protocol_name'] = null;
                     goto after_transport_protocol_name;
                 }
 
@@ -509,7 +549,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['user'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user';
+                    $properties['user'] = null;
                     goto after_user;
                 }
 
@@ -520,7 +560,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['visibility'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'visibility';
+                    $properties['visibility'] = null;
                     goto after_visibility;
                 }
 
@@ -553,7 +593,7 @@ class AuditLog implements ObjectMapper
                 $value = $payload['country_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'country_name';
+                    $properties['country_name'] = null;
                     goto after_country_name;
                 }
 
@@ -802,7 +842,8 @@ class AuditLog implements ObjectMapper
         static $configSerializer0;
 
         if ($configSerializer0 === null) {
-            $configSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $configSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AuditLogEvent\\Config',
 ));
         }
         
@@ -818,7 +859,8 @@ class AuditLog implements ObjectMapper
         static $config_wasSerializer0;
 
         if ($config_wasSerializer0 === null) {
-            $config_wasSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $config_wasSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AuditLogEvent\\Config',
 ));
         }
         
@@ -882,7 +924,8 @@ class AuditLog implements ObjectMapper
         static $eventsSerializer0;
 
         if ($eventsSerializer0 === null) {
-            $eventsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $eventsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AuditLogEvent\\Config',
 ));
         }
         
@@ -898,7 +941,8 @@ class AuditLog implements ObjectMapper
         static $events_wereSerializer0;
 
         if ($events_wereSerializer0 === null) {
-            $events_wereSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $events_wereSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AuditLogEvent\\Config',
 ));
         }
         

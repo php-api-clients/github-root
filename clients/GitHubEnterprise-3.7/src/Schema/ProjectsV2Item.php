@@ -13,31 +13,11 @@ final readonly class ProjectsV2Item
     public const SCHEMA_TITLE = 'Projects v2 Item';
     public const SCHEMA_DESCRIPTION = 'An item belonging to a project';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"node_id":"generated_node_id","project_node_id":"generated_project_node_id","content_node_id":"generated_content_node_id","content_type":"generated_content_type","creator":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"created_at":"2022-04-28T12:00:00Z","updated_at":"2022-04-28T12:00:00Z","archived_at":"2022-04-28T12:00:00Z"}';
-    public ?int $id;
-    public string $node_id;
-    public string $project_node_id;
-    public ?string $content_node_id;
     /**
-     * The type of content tracked in a project item
+     * content_type: The type of content tracked in a project item
+     * creator: A GitHub user.
      */
-    public ?string $content_type;
-    /**
-     * A GitHub user.
-     */
-    public Schema\SimpleUser $creator;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public ?string $archived_at;
-    public function __construct(int $id, string $node_id, string $project_node_id, string $content_node_id, string $content_type, Schema\SimpleUser $creator, string $created_at, string $updated_at, string $archived_at)
+    public function __construct(public ?int $id, public string $node_id, public string $project_node_id, public ?string $content_node_id, public ?string $content_type, public Schema\SimpleUser $creator, public ?string $created_at, public ?string $updated_at, public ?string $archived_at)
     {
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->project_node_id = $project_node_id;
-        $this->content_node_id = $content_node_id;
-        $this->content_type = $content_type;
-        $this->creator = $creator;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->archived_at = $archived_at;
     }
 }

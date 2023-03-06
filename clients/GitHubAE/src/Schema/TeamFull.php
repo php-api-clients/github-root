@@ -14,63 +14,15 @@ final readonly class TeamFull
     public const SCHEMA_DESCRIPTION = 'Groups of organization members that gives permissions on specified repositories.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":42,"node_id":"MDQ6VGVhbTE=","url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1","html_url":"https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core","name":"Developers","slug":"justice-league","description":"A great team.","privacy":"closed","permission":"push","members_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}","repositories_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos","parent":{"id":1,"node_id":"MDQ6VGVhbTE=","url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1","members_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}","name":"Justice League","description":"A great team.","permission":"admin","privacy":"closed","html_url":"https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core","repositories_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos","slug":"justice-league","ldap_dn":"uid=example,ou=users,dc=github,dc=com"},"members_count":3,"repos_count":10,"created_at":"2017-07-14T16:53:42Z","updated_at":"2017-08-17T12:37:15Z","organization":{"login":"github","id":1,"node_id":"MDEyOk9yZ2FuaXphdGlvbjE=","url":"https:\\/\\/api.github.com\\/orgs\\/github","repos_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/repos","events_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/events","hooks_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/hooks","issues_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/issues","members_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/members{\\/member}","public_members_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/public_members{\\/member}","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","description":"A great organization","name":"github","company":"GitHub","blog":"https:\\/\\/github.com\\/blog","location":"San Francisco","email":"octocat@github.com","twitter_username":"github","is_verified":true,"has_organization_projects":true,"has_repository_projects":true,"public_repos":2,"public_gists":1,"followers":20,"following":0,"html_url":"https:\\/\\/github.com\\/octocat","created_at":"2008-01-14T04:33:35Z","type":"Organization","total_private_repos":100,"owned_private_repos":100,"private_gists":81,"disk_usage":10000,"collaborators":8,"billing_email":"org@example.com","plan":{"name":"generated_name","space":13,"private_repos":13,"filled_seats":13,"seats":13},"default_repository_permission":"generated_default_repository_permission","members_can_create_repositories":true,"two_factor_requirement_enabled":true,"members_allowed_repository_creation_type":"all","members_can_create_public_repositories":true,"members_can_create_private_repositories":true,"members_can_create_internal_repositories":true,"members_can_create_pages":true,"members_can_create_public_pages":true,"members_can_create_private_pages":true,"members_can_fork_private_repositories":false,"web_commit_signoff_required":false,"updated_at":"generated_updated_at"},"ldap_dn":"uid=example,ou=users,dc=github,dc=com"}';
     /**
-     * Unique identifier of the team
+     * id: Unique identifier of the team
+     * url: URL for the team
+     * name: Name of the team
+     * privacy: The level of privacy this team should have
+     * permission: Permission that the team will have for its repositories
+     * organization: Team Organization
+     * ldap_dn: Distinguished Name (DN) that team maps to within LDAP environment
      */
-    public ?int $id;
-    public ?string $node_id;
-    /**
-     * URL for the team
-     */
-    public ?string $url;
-    public ?string $html_url;
-    /**
-     * Name of the team
-     */
-    public ?string $name;
-    public ?string $slug;
-    public ?string $description;
-    /**
-     * The level of privacy this team should have
-     */
-    public string $privacy;
-    /**
-     * Permission that the team will have for its repositories
-     */
-    public ?string $permission;
-    public ?string $members_url;
-    public ?string $repositories_url;
-    public Schema\TeamSimple $parent;
-    public ?int $members_count;
-    public ?int $repos_count;
-    public ?string $created_at;
-    public ?string $updated_at;
-    /**
-     * Team Organization
-     */
-    public ?Schema\TeamOrganization $organization;
-    /**
-     * Distinguished Name (DN) that team maps to within LDAP environment
-     */
-    public string $ldap_dn;
-    public function __construct(int $id, string $node_id, string $url, string $html_url, string $name, string $slug, string $description, string $privacy, string $permission, string $members_url, string $repositories_url, Schema\TeamSimple $parent, int $members_count, int $repos_count, string $created_at, string $updated_at, Schema\TeamOrganization $organization, string $ldap_dn)
+    public function __construct(public ?int $id, public ?string $node_id, public ?string $url, public ?string $html_url, public ?string $name, public ?string $slug, public ?string $description, public string $privacy, public ?string $permission, public ?string $members_url, public ?string $repositories_url, public Schema\TeamSimple $parent, public ?int $members_count, public ?int $repos_count, public ?string $created_at, public ?string $updated_at, public ?Schema\TeamOrganization $organization, public string $ldap_dn)
     {
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->name = $name;
-        $this->slug = $slug;
-        $this->description = $description;
-        $this->privacy = $privacy;
-        $this->permission = $permission;
-        $this->members_url = $members_url;
-        $this->repositories_url = $repositories_url;
-        $this->parent = $parent;
-        $this->members_count = $members_count;
-        $this->repos_count = $repos_count;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->organization = $organization;
-        $this->ldap_dn = $ldap_dn;
     }
 }

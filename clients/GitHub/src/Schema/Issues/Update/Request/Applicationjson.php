@@ -14,45 +14,17 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"title":13,"body":"generated_body","assignee":"generated_assignee","state":"generated_state","state_reason":"not_planned","milestone":13,"labels":[{"id":13,"name":"generated_name","description":"generated_description","color":"generated_color"}],"assignees":["generated_assignees"]}';
     /**
-     * The title of the issue.
+     * title: The title of the issue.
+     * body: The contents of the issue.
+     * assignee: Username to assign to this issue. **This field is deprecated.**
+     * state: The open or closed state of the issue.
+     * state_reason: The reason for the state change. Ignored unless `state` is changed.
+     * labels: Labels to associate with this issue. Pass one or more labels to _replace_ the set of labels on this issue. Send an empty array (`[]`) to clear all labels from the issue. Only users with push access can set labels for issues. Without push access to the repository, label changes are silently dropped.
+     * @param ?array<\ApiClients\Client\GitHub\Schema\Issues\Create\Request\Applicationjson\Labels> $labels
+     * assignees: Usernames to assign to this issue. Pass one or more user logins to _replace_ the set of assignees on this issue. Send an empty array (`[]`) to clear all assignees from the issue. Only users with push access can set assignees for new issues. Without push access to the repository, assignee changes are silently dropped.
+     * @param ?array<string> $assignees
      */
-    public ?int $title;
-    /**
-     * The contents of the issue.
-     */
-    public ?string $body;
-    /**
-     * Username to assign to this issue. **This field is deprecated.**
-     */
-    public ?string $assignee;
-    /**
-     * The open or closed state of the issue.
-     */
-    public ?string $state;
-    /**
-     * The reason for the state change. Ignored unless `state` is changed.
-     */
-    public ?string $state_reason;
-    public ?int $milestone;
-    /**
-     * Labels to associate with this issue. Pass one or more labels to _replace_ the set of labels on this issue. Send an empty array (`[]`) to clear all labels from the issue. Only users with push access can set labels for issues. Without push access to the repository, label changes are silently dropped.
-     * @var array<Schema\Issues\Create\Request\Applicationjson\Labels>
-     */
-    public ?array $labels;
-    /**
-     * Usernames to assign to this issue. Pass one or more user logins to _replace_ the set of assignees on this issue. Send an empty array (`[]`) to clear all assignees from the issue. Only users with push access can set assignees for new issues. Without push access to the repository, assignee changes are silently dropped.
-     * @var array<string>
-     */
-    public ?array $assignees;
-    public function __construct(int $title, string $body, string $assignee, string $state, string $state_reason, int $milestone, array $labels, array $assignees)
+    public function __construct(public ?int $title, public ?string $body, public ?string $assignee, public ?string $state, public ?string $state_reason, public ?int $milestone, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Issues\Create\Request\Applicationjson\Labels::class)] public ?array $labels, public ?array $assignees)
     {
-        $this->title = $title;
-        $this->body = $body;
-        $this->assignee = $assignee;
-        $this->state = $state;
-        $this->state_reason = $state_reason;
-        $this->milestone = $milestone;
-        $this->labels = $labels;
-        $this->assignees = $assignees;
     }
 }

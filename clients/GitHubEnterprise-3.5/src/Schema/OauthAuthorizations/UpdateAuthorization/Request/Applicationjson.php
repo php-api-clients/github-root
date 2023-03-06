@@ -14,39 +14,17 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"scopes":["user"],"add_scopes":["generated_add_scopes"],"remove_scopes":["generated_remove_scopes"],"note":"Update all gems","note_url":"generated_note_url","fingerprint":"generated_fingerprint"}';
     /**
-     * A list of scopes that this authorization is in.
-     * @var array<string>
+     * scopes: A list of scopes that this authorization is in.
+     * @param ?array<string> $scopes
+     * add_scopes: A list of scopes to add to this authorization.
+     * @param ?array<string> $add_scopes
+     * remove_scopes: A list of scopes to remove from this authorization.
+     * @param ?array<string> $remove_scopes
+     * note: A note to remind you what the OAuth token is for.
+     * note_url: A URL to remind you what app the OAuth token is for.
+     * fingerprint: A unique string to distinguish an authorization from others created for the same client ID and user.
      */
-    public ?array $scopes;
-    /**
-     * A list of scopes to add to this authorization.
-     * @var array<string>
-     */
-    public ?array $add_scopes;
-    /**
-     * A list of scopes to remove from this authorization.
-     * @var array<string>
-     */
-    public ?array $remove_scopes;
-    /**
-     * A note to remind you what the OAuth token is for.
-     */
-    public ?string $note;
-    /**
-     * A URL to remind you what app the OAuth token is for.
-     */
-    public ?string $note_url;
-    /**
-     * A unique string to distinguish an authorization from others created for the same client ID and user.
-     */
-    public ?string $fingerprint;
-    public function __construct(array $scopes, array $add_scopes, array $remove_scopes, string $note, string $note_url, string $fingerprint)
+    public function __construct(public ?array $scopes, public ?array $add_scopes, public ?array $remove_scopes, public ?string $note, public ?string $note_url, public ?string $fingerprint)
     {
-        $this->scopes = $scopes;
-        $this->add_scopes = $add_scopes;
-        $this->remove_scopes = $remove_scopes;
-        $this->note = $note;
-        $this->note_url = $note_url;
-        $this->fingerprint = $fingerprint;
     }
 }

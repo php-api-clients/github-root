@@ -39,7 +39,7 @@ class RequiredWorkflows implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -50,9 +50,19 @@ class RequiredWorkflows implements ObjectMapper
                 $value = $payload['required_workflows'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'required_workflows';
+                    $properties['required_workflows'] = null;
                     goto after_required_workflows;
                 }
+
+                static $required_workflowsCaster1;
+    
+                if ($required_workflowsCaster1 === null) {
+                    $required_workflowsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\RepoRequiredWorkflow',
+));
+                }
+    
+                $value = $required_workflowsCaster1->cast($value, $this);
 
                 $properties['required_workflows'] = $value;
     
@@ -83,7 +93,7 @@ class RequiredWorkflows implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -94,7 +104,7 @@ class RequiredWorkflows implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -105,7 +115,7 @@ class RequiredWorkflows implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -116,7 +126,7 @@ class RequiredWorkflows implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -246,7 +256,8 @@ class RequiredWorkflows implements ObjectMapper
         static $required_workflowsSerializer0;
 
         if ($required_workflowsSerializer0 === null) {
-            $required_workflowsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $required_workflowsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\RepoRequiredWorkflow',
 ));
         }
         

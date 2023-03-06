@@ -13,27 +13,7 @@ final readonly class CheckAnnotation
     public const SCHEMA_TITLE = 'Check Annotation';
     public const SCHEMA_DESCRIPTION = 'Check Annotation';
     public const SCHEMA_EXAMPLE_DATA = '{"path":"README.md","start_line":2,"end_line":2,"start_column":5,"end_column":10,"annotation_level":"warning","title":"Spell Checker","message":"Check your spelling for \'banaas\'.","raw_details":"Do you mean \'bananas\' or \'banana\'?","blob_href":"generated_blob_href"}';
-    public ?string $path;
-    public ?int $start_line;
-    public ?int $end_line;
-    public ?int $start_column;
-    public ?int $end_column;
-    public ?string $annotation_level;
-    public ?string $title;
-    public ?string $message;
-    public ?string $raw_details;
-    public ?string $blob_href;
-    public function __construct(string $path, int $start_line, int $end_line, int $start_column, int $end_column, string $annotation_level, string $title, string $message, string $raw_details, string $blob_href)
+    public function __construct(public ?string $path, public ?int $start_line, public ?int $end_line, public ?int $start_column, public ?int $end_column, public ?string $annotation_level, public ?string $title, public ?string $message, public ?string $raw_details, public ?string $blob_href)
     {
-        $this->path = $path;
-        $this->start_line = $start_line;
-        $this->end_line = $end_line;
-        $this->start_column = $start_column;
-        $this->end_column = $end_column;
-        $this->annotation_level = $annotation_level;
-        $this->title = $title;
-        $this->message = $message;
-        $this->raw_details = $raw_details;
-        $this->blob_href = $blob_href;
     }
 }

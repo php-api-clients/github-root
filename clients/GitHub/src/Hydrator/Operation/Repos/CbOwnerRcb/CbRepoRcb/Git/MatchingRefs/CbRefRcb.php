@@ -39,7 +39,7 @@ class CbRefRcb implements ObjectMapper
                 $value = $payload['ref'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ref';
+                    $properties['ref'] = null;
                     goto after_ref;
                 }
 
@@ -50,7 +50,7 @@ class CbRefRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -61,7 +61,7 @@ class CbRefRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -72,7 +72,7 @@ class CbRefRcb implements ObjectMapper
                 $value = $payload['object'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'object';
+                    $properties['object'] = null;
                     goto after_object;
                 }
 
@@ -114,7 +114,7 @@ class CbRefRcb implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -125,7 +125,7 @@ class CbRefRcb implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -136,7 +136,7 @@ class CbRefRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 

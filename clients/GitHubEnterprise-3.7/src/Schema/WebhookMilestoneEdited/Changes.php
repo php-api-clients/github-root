@@ -13,13 +13,7 @@ final readonly class Changes
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = 'The changes to the milestone if the action was `edited`.';
     public const SCHEMA_EXAMPLE_DATA = '{"description":{"from":"generated_from"},"due_on":{"from":"generated_from"},"title":{"from":"generated_from"}}';
-    public ?Schema\WebhookLabelEdited\Changes\Description $description;
-    public ?Schema\WebhookMilestoneEdited\Changes\DueOn $due_on;
-    public ?Schema\WebhookMilestoneEdited\Changes\Title $title;
-    public function __construct(Schema\WebhookLabelEdited\Changes\Description $description, Schema\WebhookMilestoneEdited\Changes\DueOn $due_on, Schema\WebhookMilestoneEdited\Changes\Title $title)
+    public function __construct(public ?Schema\WebhookLabelEdited\Changes\Description $description, public ?Schema\WebhookMilestoneEdited\Changes\DueOn $due_on, public ?Schema\WebhookMilestoneEdited\Changes\Title $title)
     {
-        $this->description = $description;
-        $this->due_on = $due_on;
-        $this->title = $title;
     }
 }

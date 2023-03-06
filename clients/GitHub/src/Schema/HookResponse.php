@@ -13,13 +13,7 @@ final readonly class HookResponse
     public const SCHEMA_TITLE = 'Hook Response';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"code":13,"status":"generated_status","message":"generated_message"}';
-    public ?int $code;
-    public ?string $status;
-    public ?string $message;
-    public function __construct(int $code, string $status, string $message)
+    public function __construct(public ?int $code, public ?string $status, public ?string $message)
     {
-        $this->code = $code;
-        $this->status = $status;
-        $this->message = $message;
     }
 }

@@ -14,131 +14,45 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","description":"generated_description","homepage":"generated_homepage","private":false,"visibility":"generated_visibility","has_issues":false,"has_projects":false,"has_wiki":false,"is_template":false,"default_branch":"generated_default_branch","allow_squash_merge":false,"allow_merge_commit":false,"allow_rebase_merge":false,"delete_branch_on_merge":false,"allow_update_branch":false,"use_squash_pr_title_as_default":false,"squash_merge_commit_title":"generated_squash_merge_commit_title","squash_merge_commit_message":"generated_squash_merge_commit_message","merge_commit_title":"generated_merge_commit_title","merge_commit_message":"generated_merge_commit_message","archived":false,"allow_forking":false}';
     /**
-     * The name of the repository.
-     */
-    public ?string $name;
-    /**
-     * A short description of the repository.
-     */
-    public ?string $description;
-    /**
-     * A URL with more information about the repository.
-     */
-    public ?string $homepage;
-    /**
-    * Either `true` to make the repository private or `false` to make it public. Default: `false`.  
+    * name: The name of the repository.
+    * description: A short description of the repository.
+    * homepage: A URL with more information about the repository.
+    * private: Either `true` to make the repository private or `false` to make it public. Default: `false`.  
     **Note**: You will get a `422` error if the organization restricts [changing repository visibility](https://docs.github.com/enterprise-server@3.3/articles/repository-permission-levels-for-an-organization#changing-the-visibility-of-repositories) to organization owners and a non-owner tries to change the value of private.
-    */
-    public ?bool $private;
-    /**
-     * The visibility of the repository.
-     */
-    public ?string $visibility;
-    /**
-     * Either `true` to enable issues for this repository or `false` to disable them.
-     */
-    public ?bool $has_issues;
-    /**
-     * Either `true` to enable projects for this repository or `false` to disable them. **Note:** If you're creating a repository in an organization that has disabled repository projects, the default is `false`, and if you pass `true`, the API returns an error.
-     */
-    public ?bool $has_projects;
-    /**
-     * Either `true` to enable the wiki for this repository or `false` to disable it.
-     */
-    public ?bool $has_wiki;
-    /**
-     * Either `true` to make this repo available as a template repository or `false` to prevent it.
-     */
-    public ?bool $is_template;
-    /**
-     * Updates the default branch for this repository.
-     */
-    public ?string $default_branch;
-    /**
-     * Either `true` to allow squash-merging pull requests, or `false` to prevent squash-merging.
-     */
-    public ?bool $allow_squash_merge;
-    /**
-     * Either `true` to allow merging pull requests with a merge commit, or `false` to prevent merging pull requests with merge commits.
-     */
-    public ?bool $allow_merge_commit;
-    /**
-     * Either `true` to allow rebase-merging pull requests, or `false` to prevent rebase-merging.
-     */
-    public ?bool $allow_rebase_merge;
-    /**
-     * Either `true` to allow automatically deleting head branches when pull requests are merged, or `false` to prevent automatic deletion.
-     */
-    public ?bool $delete_branch_on_merge;
-    /**
-     * Either `true` to always allow a pull request head branch that is behind its base branch to be updated even if it is not required to be up to date before merging, or false otherwise.
-     */
-    public ?bool $allow_update_branch;
-    /**
-     * Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. **This property has been deprecated. Please use `squash_merge_commit_title` instead.
-     */
-    public ?bool $use_squash_pr_title_as_default;
-    /**
-    * The default value for a squash merge commit title:
+    * visibility: The visibility of the repository.
+    * has_issues: Either `true` to enable issues for this repository or `false` to disable them.
+    * has_projects: Either `true` to enable projects for this repository or `false` to disable them. **Note:** If you're creating a repository in an organization that has disabled repository projects, the default is `false`, and if you pass `true`, the API returns an error.
+    * has_wiki: Either `true` to enable the wiki for this repository or `false` to disable it.
+    * is_template: Either `true` to make this repo available as a template repository or `false` to prevent it.
+    * default_branch: Updates the default branch for this repository.
+    * allow_squash_merge: Either `true` to allow squash-merging pull requests, or `false` to prevent squash-merging.
+    * allow_merge_commit: Either `true` to allow merging pull requests with a merge commit, or `false` to prevent merging pull requests with merge commits.
+    * allow_rebase_merge: Either `true` to allow rebase-merging pull requests, or `false` to prevent rebase-merging.
+    * delete_branch_on_merge: Either `true` to allow automatically deleting head branches when pull requests are merged, or `false` to prevent automatic deletion.
+    * allow_update_branch: Either `true` to always allow a pull request head branch that is behind its base branch to be updated even if it is not required to be up to date before merging, or false otherwise.
+    * use_squash_pr_title_as_default: Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. **This property has been deprecated. Please use `squash_merge_commit_title` instead.
+    * squash_merge_commit_title: The default value for a squash merge commit title:
     
     - `PR_TITLE` - default to the pull request's title.
     - `COMMIT_OR_PR_TITLE` - default to the commit's title (if only one commit) or the pull request's title (when more than one commit).
-    */
-    public ?string $squash_merge_commit_title;
-    /**
-    * The default value for a squash merge commit message:
+    * squash_merge_commit_message: The default value for a squash merge commit message:
     
     - `PR_BODY` - default to the pull request's body.
     - `COMMIT_MESSAGES` - default to the branch's commit messages.
     - `BLANK` - default to a blank commit message.
-    */
-    public ?string $squash_merge_commit_message;
-    /**
-    * The default value for a merge commit title.
+    * merge_commit_title: The default value for a merge commit title.
     
     - `PR_TITLE` - default to the pull request's title.
     - `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).
-    */
-    public ?string $merge_commit_title;
-    /**
-    * The default value for a merge commit message.
+    * merge_commit_message: The default value for a merge commit message.
     
     - `PR_TITLE` - default to the pull request's title.
     - `PR_BODY` - default to the pull request's body.
     - `BLANK` - default to a blank commit message.
+    * archived: Whether to archive this repository. **Note**: You cannot unarchive repositories through the API.
+    * allow_forking: Either `true` to allow private forks, or `false` to prevent private forks.
     */
-    public ?string $merge_commit_message;
-    /**
-     * Whether to archive this repository. **Note**: You cannot unarchive repositories through the API.
-     */
-    public ?bool $archived;
-    /**
-     * Either `true` to allow private forks, or `false` to prevent private forks.
-     */
-    public ?bool $allow_forking;
-    public function __construct(string $name, string $description, string $homepage, bool $private, string $visibility, bool $has_issues, bool $has_projects, bool $has_wiki, bool $is_template, string $default_branch, bool $allow_squash_merge, bool $allow_merge_commit, bool $allow_rebase_merge, bool $delete_branch_on_merge, bool $allow_update_branch, bool $use_squash_pr_title_as_default, string $squash_merge_commit_title, string $squash_merge_commit_message, string $merge_commit_title, string $merge_commit_message, bool $archived, bool $allow_forking)
+    public function __construct(public ?string $name, public ?string $description, public ?string $homepage, public ?bool $private, public ?string $visibility, public ?bool $has_issues, public ?bool $has_projects, public ?bool $has_wiki, public ?bool $is_template, public ?string $default_branch, public ?bool $allow_squash_merge, public ?bool $allow_merge_commit, public ?bool $allow_rebase_merge, public ?bool $delete_branch_on_merge, public ?bool $allow_update_branch, public ?bool $use_squash_pr_title_as_default, public ?string $squash_merge_commit_title, public ?string $squash_merge_commit_message, public ?string $merge_commit_title, public ?string $merge_commit_message, public ?bool $archived, public ?bool $allow_forking)
     {
-        $this->name = $name;
-        $this->description = $description;
-        $this->homepage = $homepage;
-        $this->private = $private;
-        $this->visibility = $visibility;
-        $this->has_issues = $has_issues;
-        $this->has_projects = $has_projects;
-        $this->has_wiki = $has_wiki;
-        $this->is_template = $is_template;
-        $this->default_branch = $default_branch;
-        $this->allow_squash_merge = $allow_squash_merge;
-        $this->allow_merge_commit = $allow_merge_commit;
-        $this->allow_rebase_merge = $allow_rebase_merge;
-        $this->delete_branch_on_merge = $delete_branch_on_merge;
-        $this->allow_update_branch = $allow_update_branch;
-        $this->use_squash_pr_title_as_default = $use_squash_pr_title_as_default;
-        $this->squash_merge_commit_title = $squash_merge_commit_title;
-        $this->squash_merge_commit_message = $squash_merge_commit_message;
-        $this->merge_commit_title = $merge_commit_title;
-        $this->merge_commit_message = $merge_commit_message;
-        $this->archived = $archived;
-        $this->allow_forking = $allow_forking;
     }
 }

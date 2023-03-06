@@ -14,16 +14,10 @@ final readonly class Reviewers
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"type":"User","id":4532992}';
     /**
-     * The type of reviewer.
+     * type: The type of reviewer.
+     * id: The id of the user or team who can review the deployment
      */
-    public ?string $type;
-    /**
-     * The id of the user or team who can review the deployment
-     */
-    public ?int $id;
-    public function __construct(string $type, int $id)
+    public function __construct(public ?string $type, public ?int $id)
     {
-        $this->type = $type;
-        $this->id = $id;
     }
 }

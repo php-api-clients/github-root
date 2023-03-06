@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"permission":"generated_permission"}';
     /**
-     * The permission to grant the collaborator. **Only valid on organization-owned repositories.**
+     * permission: The permission to grant the collaborator. **Only valid on organization-owned repositories.**
      */
-    public ?string $permission;
-    public function __construct(string $permission)
+    public function __construct(public ?string $permission)
     {
-        $this->permission = $permission;
     }
 }

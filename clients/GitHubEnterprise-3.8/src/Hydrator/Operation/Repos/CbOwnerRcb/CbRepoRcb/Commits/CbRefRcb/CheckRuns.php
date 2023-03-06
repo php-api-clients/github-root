@@ -38,7 +38,7 @@ class CheckRuns implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class CheckRuns implements ObjectMapper
                 $value = $payload['check_runs'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'check_runs';
+                    $properties['check_runs'] = null;
                     goto after_check_runs;
                 }
+
+                static $check_runsCaster1;
+    
+                if ($check_runsCaster1 === null) {
+                    $check_runsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckRun',
+));
+                }
+    
+                $value = $check_runsCaster1->cast($value, $this);
 
                 $properties['check_runs'] = $value;
     
@@ -178,7 +188,8 @@ class CheckRuns implements ObjectMapper
         static $check_runsSerializer0;
 
         if ($check_runsSerializer0 === null) {
-            $check_runsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $check_runsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CheckRun',
 ));
         }
         

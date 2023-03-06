@@ -14,17 +14,11 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"new_owner":"generated_new_owner","team_ids":[13]}';
     /**
-     * The username or organization name the repository will be transferred to.
+     * new_owner: The username or organization name the repository will be transferred to.
+     * team_ids: ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.
+     * @param array<int> $team_ids
      */
-    public ?string $new_owner;
-    /**
-     * ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.
-     * @var array<int>
-     */
-    public array $team_ids;
-    public function __construct(string $new_owner, array $team_ids)
+    public function __construct(public ?string $new_owner, public array $team_ids)
     {
-        $this->new_owner = $new_owner;
-        $this->team_ids = $team_ids;
     }
 }

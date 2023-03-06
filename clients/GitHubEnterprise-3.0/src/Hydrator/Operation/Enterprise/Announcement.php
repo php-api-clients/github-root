@@ -38,7 +38,7 @@ class Announcement implements ObjectMapper
                 $value = $payload['announcement'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'announcement';
+                    $properties['announcement'] = null;
                     goto after_announcement;
                 }
 
@@ -49,7 +49,7 @@ class Announcement implements ObjectMapper
                 $value = $payload['expires_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'expires_at';
+                    $properties['expires_at'] = null;
                     goto after_expires_at;
                 }
 

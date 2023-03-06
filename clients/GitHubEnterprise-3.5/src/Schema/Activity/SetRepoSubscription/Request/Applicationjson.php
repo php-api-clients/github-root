@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"subscribed":false,"ignored":false}';
     /**
-     * Determines if notifications should be received from this repository.
+     * subscribed: Determines if notifications should be received from this repository.
+     * ignored: Determines if all notifications should be blocked from this repository.
      */
-    public ?bool $subscribed;
-    /**
-     * Determines if all notifications should be blocked from this repository.
-     */
-    public ?bool $ignored;
-    public function __construct(bool $subscribed, bool $ignored)
+    public function __construct(public ?bool $subscribed, public ?bool $ignored)
     {
-        $this->subscribed = $subscribed;
-        $this->ignored = $ignored;
     }
 }

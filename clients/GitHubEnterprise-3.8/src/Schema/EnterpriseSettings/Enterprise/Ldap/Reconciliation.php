@@ -13,11 +13,7 @@ final readonly class Reconciliation
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"user":"generated_user","org":"generated_org"}';
-    public ?string $user;
-    public ?string $org;
-    public function __construct(string $user, string $org)
+    public function __construct(public ?string $user, public ?string $org)
     {
-        $this->user = $user;
-        $this->org = $org;
     }
 }

@@ -13,9 +13,7 @@ final readonly class Ubuntu
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_ms":13}';
-    public ?int $total_ms;
-    public function __construct(int $total_ms)
+    public function __construct(public ?int $total_ms)
     {
-        $this->total_ms = $total_ms;
     }
 }

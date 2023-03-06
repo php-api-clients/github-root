@@ -38,7 +38,7 @@ class License implements ObjectMapper
                 $value = $payload['seats'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'seats';
+                    $properties['seats'] = null;
                     goto after_seats;
                 }
 
@@ -49,7 +49,7 @@ class License implements ObjectMapper
                 $value = $payload['seats_used'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'seats_used';
+                    $properties['seats_used'] = null;
                     goto after_seats_used;
                 }
 
@@ -60,7 +60,7 @@ class License implements ObjectMapper
                 $value = $payload['seats_available'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'seats_available';
+                    $properties['seats_available'] = null;
                     goto after_seats_available;
                 }
 
@@ -71,7 +71,7 @@ class License implements ObjectMapper
                 $value = $payload['kind'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'kind';
+                    $properties['kind'] = null;
                     goto after_kind;
                 }
 
@@ -82,7 +82,7 @@ class License implements ObjectMapper
                 $value = $payload['days_until_expiration'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'days_until_expiration';
+                    $properties['days_until_expiration'] = null;
                     goto after_days_until_expiration;
                 }
 
@@ -93,7 +93,7 @@ class License implements ObjectMapper
                 $value = $payload['expire_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'expire_at';
+                    $properties['expire_at'] = null;
                     goto after_expire_at;
                 }
 

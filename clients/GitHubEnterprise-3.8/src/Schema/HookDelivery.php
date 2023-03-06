@@ -14,70 +14,20 @@ final readonly class HookDelivery
     public const SCHEMA_DESCRIPTION = 'Delivery made by a webhook.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":42,"guid":"58474f00-b361-11eb-836d-0e4f3503ccbe","delivered_at":"2021-05-12T20:33:44Z","redelivery":false,"duration":0.03,"status":"failed to connect","status_code":502,"event":"issues","action":"opened","installation_id":123,"repository_id":123,"url":"https:\\/\\/www.example.com","request":{"headers":[],"payload":[]},"response":{"headers":[],"payload":"generated_payload"}}';
     /**
-     * Unique identifier of the delivery.
+     * id: Unique identifier of the delivery.
+     * guid: Unique identifier for the event (shared with all deliveries for all webhooks that subscribe to this event).
+     * delivered_at: Time when the delivery was delivered.
+     * redelivery: Whether the delivery is a redelivery.
+     * duration: Time spent delivering.
+     * status: Description of the status of the attempted delivery
+     * status_code: Status code received when delivery was made.
+     * event: The event that triggered the delivery.
+     * action: The type of activity for the event that triggered the delivery.
+     * installation_id: The id of the GitHub App installation associated with this event.
+     * repository_id: The id of the repository associated with this event.
+     * url: The URL target of the delivery.
      */
-    public ?int $id;
-    /**
-     * Unique identifier for the event (shared with all deliveries for all webhooks that subscribe to this event).
-     */
-    public ?string $guid;
-    /**
-     * Time when the delivery was delivered.
-     */
-    public ?string $delivered_at;
-    /**
-     * Whether the delivery is a redelivery.
-     */
-    public ?bool $redelivery;
-    /**
-     * Time spent delivering.
-     */
-    public ?int $duration;
-    /**
-     * Description of the status of the attempted delivery
-     */
-    public ?string $status;
-    /**
-     * Status code received when delivery was made.
-     */
-    public ?int $status_code;
-    /**
-     * The event that triggered the delivery.
-     */
-    public ?string $event;
-    /**
-     * The type of activity for the event that triggered the delivery.
-     */
-    public ?string $action;
-    /**
-     * The id of the GitHub App installation associated with this event.
-     */
-    public ?int $installation_id;
-    /**
-     * The id of the repository associated with this event.
-     */
-    public ?int $repository_id;
-    /**
-     * The URL target of the delivery.
-     */
-    public string $url;
-    public ?Schema\HookDelivery\Request $request;
-    public ?Schema\HookDelivery\Response $response;
-    public function __construct(int $id, string $guid, string $delivered_at, bool $redelivery, int $duration, string $status, int $status_code, string $event, string $action, int $installation_id, int $repository_id, string $url, Schema\HookDelivery\Request $request, Schema\HookDelivery\Response $response)
+    public function __construct(public ?int $id, public ?string $guid, public ?string $delivered_at, public ?bool $redelivery, public ?int $duration, public ?string $status, public ?int $status_code, public ?string $event, public ?string $action, public ?int $installation_id, public ?int $repository_id, public string $url, public ?Schema\HookDelivery\Request $request, public ?Schema\HookDelivery\Response $response)
     {
-        $this->id = $id;
-        $this->guid = $guid;
-        $this->delivered_at = $delivered_at;
-        $this->redelivery = $redelivery;
-        $this->duration = $duration;
-        $this->status = $status;
-        $this->status_code = $status_code;
-        $this->event = $event;
-        $this->action = $action;
-        $this->installation_id = $installation_id;
-        $this->repository_id = $repository_id;
-        $this->url = $url;
-        $this->request = $request;
-        $this->response = $response;
     }
 }

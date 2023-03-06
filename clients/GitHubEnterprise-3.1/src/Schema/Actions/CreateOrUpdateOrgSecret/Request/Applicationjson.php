@@ -14,27 +14,13 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"encrypted_value":"generated_encrypted_value","key_id":"generated_key_id","visibility":"generated_visibility","selected_repository_ids":[13]}';
     /**
-     * Value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get an organization public key](https://docs.github.com/enterprise-server@3.1/rest/reference/actions#get-an-organization-public-key) endpoint.
+     * encrypted_value: Value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get an organization public key](https://docs.github.com/enterprise-server@3.1/rest/reference/actions#get-an-organization-public-key) endpoint.
+     * key_id: ID of the key you used to encrypt the secret.
+     * visibility: Which type of organization repositories have access to the organization secret. `selected` means only the repositories specified by `selected_repository_ids` can access the secret.
+     * selected_repository_ids: An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the `visibility` is set to `selected`. You can manage the list of selected repositories using the [List selected repositories for an organization secret](https://docs.github.com/enterprise-server@3.1/rest/reference/actions#list-selected-repositories-for-an-organization-secret), [Set selected repositories for an organization secret](https://docs.github.com/enterprise-server@3.1/rest/reference/actions#set-selected-repositories-for-an-organization-secret), and [Remove selected repository from an organization secret](https://docs.github.com/enterprise-server@3.1/rest/reference/actions#remove-selected-repository-from-an-organization-secret) endpoints.
+     * @param array<int> $selected_repository_ids
      */
-    public string $encrypted_value;
-    /**
-     * ID of the key you used to encrypt the secret.
-     */
-    public string $key_id;
-    /**
-     * Which type of organization repositories have access to the organization secret. `selected` means only the repositories specified by `selected_repository_ids` can access the secret.
-     */
-    public ?string $visibility;
-    /**
-     * An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the `visibility` is set to `selected`. You can manage the list of selected repositories using the [List selected repositories for an organization secret](https://docs.github.com/enterprise-server@3.1/rest/reference/actions#list-selected-repositories-for-an-organization-secret), [Set selected repositories for an organization secret](https://docs.github.com/enterprise-server@3.1/rest/reference/actions#set-selected-repositories-for-an-organization-secret), and [Remove selected repository from an organization secret](https://docs.github.com/enterprise-server@3.1/rest/reference/actions#remove-selected-repository-from-an-organization-secret) endpoints.
-     * @var array<int>
-     */
-    public array $selected_repository_ids;
-    public function __construct(string $encrypted_value, string $key_id, string $visibility, array $selected_repository_ids)
+    public function __construct(public string $encrypted_value, public string $key_id, public ?string $visibility, public array $selected_repository_ids)
     {
-        $this->encrypted_value = $encrypted_value;
-        $this->key_id = $key_id;
-        $this->visibility = $visibility;
-        $this->selected_repository_ids = $selected_repository_ids;
     }
 }

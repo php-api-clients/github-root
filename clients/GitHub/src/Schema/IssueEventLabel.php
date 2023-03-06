@@ -13,11 +13,7 @@ final readonly class IssueEventLabel
     public const SCHEMA_TITLE = 'Issue Event Label';
     public const SCHEMA_DESCRIPTION = 'Issue Event Label';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","color":"generated_color"}';
-    public ?string $name;
-    public ?string $color;
-    public function __construct(string $name, string $color)
+    public function __construct(public ?string $name, public ?string $color)
     {
-        $this->name = $name;
-        $this->color = $color;
     }
 }

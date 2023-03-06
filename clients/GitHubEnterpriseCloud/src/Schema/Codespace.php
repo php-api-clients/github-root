@@ -13,152 +13,36 @@ final readonly class Codespace
     public const SCHEMA_TITLE = 'Codespace';
     public const SCHEMA_DESCRIPTION = 'A codespace.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":1,"name":"monalisa-octocat-hello-world-g4wpq6h95q","display_name":"bookish space pancake","environment_id":"26a7c758-7299-4a73-b978-5a92a7ae98a0","owner":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"billable_owner":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"repository":{"id":1296269,"node_id":"MDEwOlJlcG9zaXRvcnkxMjk2MjY5","name":"Hello-World","full_name":"octocat\\/Hello-World","owner":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"private":false,"html_url":"https:\\/\\/github.com\\/octocat\\/Hello-World","description":"This your first repo!","fork":false,"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World","archive_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/{archive_format}{\\/ref}","assignees_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/assignees{\\/user}","blobs_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/blobs{\\/sha}","branches_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches{\\/branch}","collaborators_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/collaborators{\\/collaborator}","comments_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/comments{\\/number}","commits_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits{\\/sha}","compare_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/compare\\/{base}...{head}","contents_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/{+path}","contributors_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contributors","deployments_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/deployments","downloads_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/downloads","events_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/events","forks_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/forks","git_commits_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/commits{\\/sha}","git_refs_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/refs{\\/sha}","git_tags_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/tags{\\/sha}","git_url":"generated_git_url","issue_comment_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/comments{\\/number}","issue_events_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/events{\\/number}","issues_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues{\\/number}","keys_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/keys{\\/key_id}","labels_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/labels{\\/name}","languages_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/languages","merges_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/merges","milestones_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/milestones{\\/number}","notifications_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/notifications{?since,all,participating}","pulls_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls{\\/number}","releases_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/releases{\\/id}","ssh_url":"generated_ssh_url","stargazers_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/stargazers","statuses_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/statuses\\/{sha}","subscribers_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscribers","subscription_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscription","tags_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tags","teams_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/teams","trees_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/trees{\\/sha}","clone_url":"generated_clone_url","mirror_url":"generated_mirror_url","hooks_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks","svn_url":"generated_svn_url","homepage":"generated_homepage","language":"generated_language","forks_count":13,"stargazers_count":13,"watchers_count":13,"size":13,"default_branch":"generated_default_branch","open_issues_count":13,"is_template":false,"topics":["generated_topics"],"has_issues":false,"has_projects":false,"has_wiki":false,"has_pages":false,"has_downloads":false,"has_discussions":false,"archived":false,"disabled":false,"visibility":"generated_visibility","pushed_at":"2011-01-26T19:06:43Z","created_at":"2011-01-26T19:01:12Z","updated_at":"2011-01-26T19:14:43Z","permissions":{"admin":false,"maintain":false,"push":false,"triage":false,"pull":false},"role_name":"admin","temp_clone_token":"generated_temp_clone_token","delete_branch_on_merge":false,"subscribers_count":13,"network_count":13,"code_of_conduct":{"key":"contributor_covenant","name":"Contributor Covenant","url":"https:\\/\\/api.github.com\\/codes_of_conduct\\/contributor_covenant","body":"# Contributor Covenant Code of Conduct\\n\\n## Our Pledge\\n\\nIn the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.\\n\\n## Our Standards\\n\\nExamples of behavior that contributes to creating a positive environment include:\\n\\n* Using welcoming and inclusive language\\n* Being respectful of differing viewpoints and experiences\\n* Gracefully accepting constructive criticism\\n* Focusing on what is best for the community\\n* Showing empathy towards other community members\\n\\nExamples of unacceptable behavior by participants include:\\n\\n* The use of sexualized language or imagery and unwelcome sexual attention or advances\\n* Trolling, insulting\\/derogatory comments, and personal or political attacks\\n* Public or private harassment\\n* Publishing others\' private information, such as a physical or electronic address, without explicit permission\\n* Other conduct which could reasonably be considered inappropriate in a professional setting\\n\\n## Our Responsibilities\\n\\nProject maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response\\n                  to any instances of unacceptable behavior.\\n\\nProject maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.\\n\\n## Scope\\n\\nThis Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address,\\n                  posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.\\n\\n## Enforcement\\n\\nInstances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at [EMAIL]. The project team will review and investigate all complaints, and will respond in a way that it deems appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.\\n\\nProject maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project\'s leadership.\\n\\n## Attribution\\n\\nThis Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4, available at [http:\\/\\/contributor-covenant.org\\/version\\/1\\/4][version]\\n\\n[homepage]: http:\\/\\/contributor-covenant.org\\n[version]: http:\\/\\/contributor-covenant.org\\/version\\/1\\/4\\/\\n","html_url":"generated_html_url"},"license":{"key":"generated_key","name":"generated_name","spdx_id":"generated_spdx_id","url":"generated_url","node_id":"generated_node_id"},"forks":0,"open_issues":0,"watchers":0,"allow_forking":false,"web_commit_signoff_required":false,"security_and_analysis":{"advanced_security":{"status":"generated_status"},"secret_scanning":{"status":"generated_status"},"secret_scanning_push_protection":{"status":"generated_status"}}},"machine":{"name":"standardLinux","display_name":"4 cores, 8 GB RAM, 64 GB storage","operating_system":"linux","storage_in_bytes":68719476736,"memory_in_bytes":8589934592,"cpus":4,"prebuild_availability":"ready"},"devcontainer_path":".devcontainer\\/example\\/devcontainer.json","prebuild":false,"created_at":"2011-01-26T19:01:12Z","updated_at":"2011-01-26T19:01:12Z","last_used_at":"2011-01-26T19:01:12Z","state":"Available","url":"generated_url","git_status":{"ahead":0,"behind":0,"has_unpushed_changes":false,"has_uncommitted_changes":false,"ref":"main"},"location":"WestUs2","idle_timeout_minutes":60,"web_url":"generated_web_url","machines_url":"generated_machines_url","start_url":"generated_start_url","stop_url":"generated_stop_url","publish_url":"generated_publish_url","pulls_url":"generated_pulls_url","recent_folders":["generated_recent_folders"],"runtime_constraints":{"allowed_port_privacy_settings":["generated_allowed_port_privacy_settings"]},"pending_operation":false,"pending_operation_disabled_reason":"generated_pending_operation_disabled_reason","idle_timeout_notice":"generated_idle_timeout_notice","retention_period_minutes":60,"retention_expires_at":"2011-01-26T20:01:12Z","last_known_stop_notice":"you\'ve used 100% of your spending limit for Codespaces"}';
-    public ?int $id;
     /**
-     * Automatically generated name of this codespace.
+     * name: Automatically generated name of this codespace.
+     * display_name: Display name for this codespace.
+     * environment_id: UUID identifying this codespace's environment.
+     * owner: A GitHub user.
+     * billable_owner: A GitHub user.
+     * repository: Minimal Repository
+     * devcontainer_path: Path to devcontainer.json from repo root used to create Codespace.
+     * prebuild: Whether the codespace was created from a prebuild.
+     * last_used_at: Last known time this codespace was started.
+     * state: State of this codespace.
+     * url: API URL for this codespace.
+     * git_status: Details about the codespace's git repository.
+     * location: The Azure region where this codespace is located.
+     * idle_timeout_minutes: The number of minutes of inactivity after which this codespace will be automatically stopped.
+     * web_url: URL to access this codespace on the web.
+     * machines_url: API URL to access available alternate machine types for this codespace.
+     * start_url: API URL to start this codespace.
+     * stop_url: API URL to stop this codespace.
+     * publish_url: API URL to publish this codespace to a new repository.
+     * pulls_url: API URL for the Pull Request associated with this codespace, if any.
+     * @param ?array<string> $recent_folders
+     * pending_operation: Whether or not a codespace has a pending async operation. This would mean that the codespace is temporarily unavailable. The only thing that you can do with a codespace in this state is delete it.
+     * pending_operation_disabled_reason: Text to show user when codespace is disabled by a pending operation
+     * idle_timeout_notice: Text to show user when codespace idle timeout minutes has been overriden by an organization policy
+     * retention_period_minutes: Duration in minutes after codespace has gone idle in which it will be deleted. Must be integer minutes between 0 and 43200 (30 days).
+     * retention_expires_at: When a codespace will be auto-deleted based on the "retention_period_minutes" and "last_used_at"
+     * last_known_stop_notice: The text to display to a user when a codespace has been stopped for a potentially actionable reason.
      */
-    public ?string $name;
-    /**
-     * Display name for this codespace.
-     */
-    public ?string $display_name;
-    /**
-     * UUID identifying this codespace's environment.
-     */
-    public ?string $environment_id;
-    /**
-     * A GitHub user.
-     */
-    public ?Schema\SimpleUser $owner;
-    /**
-     * A GitHub user.
-     */
-    public ?Schema\SimpleUser $billable_owner;
-    /**
-     * Minimal Repository
-     */
-    public ?Schema\MinimalRepository $repository;
-    public ?Schema\CodespaceMachine $machine;
-    /**
-     * Path to devcontainer.json from repo root used to create Codespace.
-     */
-    public ?string $devcontainer_path;
-    /**
-     * Whether the codespace was created from a prebuild.
-     */
-    public ?bool $prebuild;
-    public ?string $created_at;
-    public ?string $updated_at;
-    /**
-     * Last known time this codespace was started.
-     */
-    public ?string $last_used_at;
-    /**
-     * State of this codespace.
-     */
-    public ?string $state;
-    /**
-     * API URL for this codespace.
-     */
-    public ?string $url;
-    /**
-     * Details about the codespace's git repository.
-     */
-    public ?Schema\Codespace\GitStatus $git_status;
-    /**
-     * The Azure region where this codespace is located.
-     */
-    public ?string $location;
-    /**
-     * The number of minutes of inactivity after which this codespace will be automatically stopped.
-     */
-    public ?int $idle_timeout_minutes;
-    /**
-     * URL to access this codespace on the web.
-     */
-    public ?string $web_url;
-    /**
-     * API URL to access available alternate machine types for this codespace.
-     */
-    public ?string $machines_url;
-    /**
-     * API URL to start this codespace.
-     */
-    public ?string $start_url;
-    /**
-     * API URL to stop this codespace.
-     */
-    public ?string $stop_url;
-    /**
-     * API URL to publish this codespace to a new repository.
-     */
-    public ?string $publish_url;
-    /**
-     * API URL for the Pull Request associated with this codespace, if any.
-     */
-    public ?string $pulls_url;
-    /**
-     * @var array<string>
-     */
-    public ?array $recent_folders;
-    public Schema\Codespace\RuntimeConstraints $runtime_constraints;
-    /**
-     * Whether or not a codespace has a pending async operation. This would mean that the codespace is temporarily unavailable. The only thing that you can do with a codespace in this state is delete it.
-     */
-    public ?bool $pending_operation;
-    /**
-     * Text to show user when codespace is disabled by a pending operation
-     */
-    public ?string $pending_operation_disabled_reason;
-    /**
-     * Text to show user when codespace idle timeout minutes has been overriden by an organization policy
-     */
-    public ?string $idle_timeout_notice;
-    /**
-     * Duration in minutes after codespace has gone idle in which it will be deleted. Must be integer minutes between 0 and 43200 (30 days).
-     */
-    public ?int $retention_period_minutes;
-    /**
-     * When a codespace will be auto-deleted based on the "retention_period_minutes" and "last_used_at"
-     */
-    public ?string $retention_expires_at;
-    /**
-     * The text to display to a user when a codespace has been stopped for a potentially actionable reason.
-     */
-    public ?string $last_known_stop_notice;
-    public function __construct(int $id, string $name, string $display_name, string $environment_id, Schema\SimpleUser $owner, Schema\SimpleUser $billable_owner, Schema\MinimalRepository $repository, Schema\CodespaceMachine $machine, string $devcontainer_path, bool $prebuild, string $created_at, string $updated_at, string $last_used_at, string $state, string $url, Schema\Codespace\GitStatus $git_status, string $location, int $idle_timeout_minutes, string $web_url, string $machines_url, string $start_url, string $stop_url, string $publish_url, string $pulls_url, array $recent_folders, Schema\Codespace\RuntimeConstraints $runtime_constraints, bool $pending_operation, string $pending_operation_disabled_reason, string $idle_timeout_notice, int $retention_period_minutes, string $retention_expires_at, string $last_known_stop_notice)
+    public function __construct(public ?int $id, public ?string $name, public ?string $display_name, public ?string $environment_id, public ?Schema\SimpleUser $owner, public ?Schema\SimpleUser $billable_owner, public ?Schema\MinimalRepository $repository, public ?Schema\CodespaceMachine $machine, public ?string $devcontainer_path, public ?bool $prebuild, public ?string $created_at, public ?string $updated_at, public ?string $last_used_at, public ?string $state, public ?string $url, public ?Schema\Codespace\GitStatus $git_status, public ?string $location, public ?int $idle_timeout_minutes, public ?string $web_url, public ?string $machines_url, public ?string $start_url, public ?string $stop_url, public ?string $publish_url, public ?string $pulls_url, public ?array $recent_folders, public Schema\Codespace\RuntimeConstraints $runtime_constraints, public ?bool $pending_operation, public ?string $pending_operation_disabled_reason, public ?string $idle_timeout_notice, public ?int $retention_period_minutes, public ?string $retention_expires_at, public ?string $last_known_stop_notice)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->display_name = $display_name;
-        $this->environment_id = $environment_id;
-        $this->owner = $owner;
-        $this->billable_owner = $billable_owner;
-        $this->repository = $repository;
-        $this->machine = $machine;
-        $this->devcontainer_path = $devcontainer_path;
-        $this->prebuild = $prebuild;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->last_used_at = $last_used_at;
-        $this->state = $state;
-        $this->url = $url;
-        $this->git_status = $git_status;
-        $this->location = $location;
-        $this->idle_timeout_minutes = $idle_timeout_minutes;
-        $this->web_url = $web_url;
-        $this->machines_url = $machines_url;
-        $this->start_url = $start_url;
-        $this->stop_url = $stop_url;
-        $this->publish_url = $publish_url;
-        $this->pulls_url = $pulls_url;
-        $this->recent_folders = $recent_folders;
-        $this->runtime_constraints = $runtime_constraints;
-        $this->pending_operation = $pending_operation;
-        $this->pending_operation_disabled_reason = $pending_operation_disabled_reason;
-        $this->idle_timeout_notice = $idle_timeout_notice;
-        $this->retention_period_minutes = $retention_period_minutes;
-        $this->retention_expires_at = $retention_expires_at;
-        $this->last_known_stop_notice = $last_known_stop_notice;
     }
 }

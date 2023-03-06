@@ -13,13 +13,7 @@ final readonly class H200
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = 'Status for a cache replica';
     public const SCHEMA_EXAMPLE_DATA = '{"host":"generated_host","location":"generated_location","git":{"sync_status":"generated_sync_status","last_sync":"generated_last_sync"}}';
-    public ?string $host;
-    public ?string $location;
-    public ?Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git $git;
-    public function __construct(string $host, string $location, Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git $git)
+    public function __construct(public ?string $host, public ?string $location, public ?Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git $git)
     {
-        $this->host = $host;
-        $this->location = $location;
-        $this->git = $git;
     }
 }

@@ -14,21 +14,11 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"state":"generated_state","dismissed_reason":"generated_dismissed_reason","dismissed_comment":"generated_dismissed_comment"}';
     /**
-     * Sets the state of the code scanning alert. You must provide `dismissed_reason` when you set the state to `dismissed`.
+     * state: Sets the state of the code scanning alert. You must provide `dismissed_reason` when you set the state to `dismissed`.
+     * dismissed_reason: **Required when the state is dismissed.** The reason for dismissing or closing the alert.
+     * dismissed_comment: The dismissal comment associated with the dismissal of the alert.
      */
-    public ?string $state;
-    /**
-     * **Required when the state is dismissed.** The reason for dismissing or closing the alert.
-     */
-    public ?string $dismissed_reason;
-    /**
-     * The dismissal comment associated with the dismissal of the alert.
-     */
-    public ?string $dismissed_comment;
-    public function __construct(string $state, string $dismissed_reason, string $dismissed_comment)
+    public function __construct(public ?string $state, public ?string $dismissed_reason, public ?string $dismissed_comment)
     {
-        $this->state = $state;
-        $this->dismissed_reason = $dismissed_reason;
-        $this->dismissed_comment = $dismissed_comment;
     }
 }

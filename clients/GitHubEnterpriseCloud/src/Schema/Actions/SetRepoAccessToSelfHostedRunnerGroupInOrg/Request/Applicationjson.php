@@ -14,12 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"selected_repository_ids":[13]}';
     /**
-     * List of repository IDs that can access the runner group.
-     * @var array<int>
+     * selected_repository_ids: List of repository IDs that can access the runner group.
+     * @param ?array<int> $selected_repository_ids
      */
-    public ?array $selected_repository_ids;
-    public function __construct(array $selected_repository_ids)
+    public function __construct(public ?array $selected_repository_ids)
     {
-        $this->selected_repository_ids = $selected_repository_ids;
     }
 }

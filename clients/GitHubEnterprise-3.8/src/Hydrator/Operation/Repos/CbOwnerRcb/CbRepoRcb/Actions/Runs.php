@@ -38,7 +38,7 @@ class Runs implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class Runs implements ObjectMapper
                 $value = $payload['workflow_runs'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'workflow_runs';
+                    $properties['workflow_runs'] = null;
                     goto after_workflow_runs;
                 }
+
+                static $workflow_runsCaster1;
+    
+                if ($workflow_runsCaster1 === null) {
+                    $workflow_runsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\WorkflowRun',
+));
+                }
+    
+                $value = $workflow_runsCaster1->cast($value, $this);
 
                 $properties['workflow_runs'] = $value;
     
@@ -178,7 +188,8 @@ class Runs implements ObjectMapper
         static $workflow_runsSerializer0;
 
         if ($workflow_runsSerializer0 === null) {
-            $workflow_runsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $workflow_runsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\WorkflowRun',
 ));
         }
         

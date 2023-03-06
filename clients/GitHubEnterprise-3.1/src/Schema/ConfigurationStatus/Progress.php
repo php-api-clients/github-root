@@ -13,11 +13,7 @@ final readonly class Progress
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"status":"generated_status","key":"generated_key"}';
-    public ?string $status;
-    public ?string $key;
-    public function __construct(string $status, string $key)
+    public function __construct(public ?string $status, public ?string $key)
     {
-        $this->status = $status;
-        $this->key = $key;
     }
 }

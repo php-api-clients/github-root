@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","private":false}';
     /**
-     * A name for the new repository.
+     * name: A name for the new repository.
+     * private: Whether the new repository should be private.
      */
-    public ?string $name;
-    /**
-     * Whether the new repository should be private.
-     */
-    public ?bool $private;
-    public function __construct(string $name, bool $private)
+    public function __construct(public ?string $name, public ?bool $private)
     {
-        $this->name = $name;
-        $this->private = $private;
     }
 }

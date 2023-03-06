@@ -13,78 +13,10 @@ final readonly class UserSearchResultItem
     public const SCHEMA_TITLE = 'User Search Result Item';
     public const SCHEMA_DESCRIPTION = 'User Search Result Item';
     public const SCHEMA_EXAMPLE_DATA = '{"login":"generated_login","id":13,"node_id":"generated_node_id","avatar_url":"generated_avatar_url","gravatar_id":"generated_gravatar_id","url":"generated_url","html_url":"generated_html_url","followers_url":"generated_followers_url","subscriptions_url":"generated_subscriptions_url","organizations_url":"generated_organizations_url","repos_url":"generated_repos_url","received_events_url":"generated_received_events_url","type":"generated_type","score":13,"following_url":"generated_following_url","gists_url":"generated_gists_url","starred_url":"generated_starred_url","events_url":"generated_events_url","public_repos":13,"public_gists":13,"followers":13,"following":13,"created_at":"generated_created_at","updated_at":"generated_updated_at","name":"generated_name","bio":"generated_bio","email":"generated_email","location":"generated_location","site_admin":false,"hireable":false,"text_matches":[{"object_url":"generated_object_url","object_type":"generated_object_type","property":"generated_property","fragment":"generated_fragment","matches":[{"text":"generated_text","indices":[13]}]}],"blog":"generated_blog","company":"generated_company","suspended_at":"generated_suspended_at"}';
-    public ?string $login;
-    public ?int $id;
-    public ?string $node_id;
-    public ?string $avatar_url;
-    public ?string $gravatar_id;
-    public ?string $url;
-    public ?string $html_url;
-    public ?string $followers_url;
-    public ?string $subscriptions_url;
-    public ?string $organizations_url;
-    public ?string $repos_url;
-    public ?string $received_events_url;
-    public ?string $type;
-    public ?int $score;
-    public ?string $following_url;
-    public ?string $gists_url;
-    public ?string $starred_url;
-    public ?string $events_url;
-    public int $public_repos;
-    public int $public_gists;
-    public int $followers;
-    public int $following;
-    public string $created_at;
-    public string $updated_at;
-    public ?string $name;
-    public ?string $bio;
-    public ?string $email;
-    public ?string $location;
-    public ?bool $site_admin;
-    public ?bool $hireable;
     /**
-     * @var array<Schema\SearchResultTextMatches>
+     * @param array<\ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches> $text_matches
      */
-    public array $text_matches;
-    public ?string $blog;
-    public ?string $company;
-    public ?string $suspended_at;
-    public function __construct(string $login, int $id, string $node_id, string $avatar_url, string $gravatar_id, string $url, string $html_url, string $followers_url, string $subscriptions_url, string $organizations_url, string $repos_url, string $received_events_url, string $type, int $score, string $following_url, string $gists_url, string $starred_url, string $events_url, int $public_repos, int $public_gists, int $followers, int $following, string $created_at, string $updated_at, string $name, string $bio, string $email, string $location, bool $site_admin, bool $hireable, array $text_matches, string $blog, string $company, string $suspended_at)
+    public function __construct(public ?string $login, public ?int $id, public ?string $node_id, public ?string $avatar_url, public ?string $gravatar_id, public ?string $url, public ?string $html_url, public ?string $followers_url, public ?string $subscriptions_url, public ?string $organizations_url, public ?string $repos_url, public ?string $received_events_url, public ?string $type, public ?int $score, public ?string $following_url, public ?string $gists_url, public ?string $starred_url, public ?string $events_url, public int $public_repos, public int $public_gists, public int $followers, public int $following, public string $created_at, public string $updated_at, public ?string $name, public ?string $bio, public ?string $email, public ?string $location, public ?bool $site_admin, public ?bool $hireable, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\SearchResultTextMatches::class)] public array $text_matches, public ?string $blog, public ?string $company, public ?string $suspended_at)
     {
-        $this->login = $login;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->avatar_url = $avatar_url;
-        $this->gravatar_id = $gravatar_id;
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->followers_url = $followers_url;
-        $this->subscriptions_url = $subscriptions_url;
-        $this->organizations_url = $organizations_url;
-        $this->repos_url = $repos_url;
-        $this->received_events_url = $received_events_url;
-        $this->type = $type;
-        $this->score = $score;
-        $this->following_url = $following_url;
-        $this->gists_url = $gists_url;
-        $this->starred_url = $starred_url;
-        $this->events_url = $events_url;
-        $this->public_repos = $public_repos;
-        $this->public_gists = $public_gists;
-        $this->followers = $followers;
-        $this->following = $following;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->name = $name;
-        $this->bio = $bio;
-        $this->email = $email;
-        $this->location = $location;
-        $this->site_admin = $site_admin;
-        $this->hireable = $hireable;
-        $this->text_matches = $text_matches;
-        $this->blog = $blog;
-        $this->company = $company;
-        $this->suspended_at = $suspended_at;
     }
 }

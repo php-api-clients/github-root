@@ -14,31 +14,13 @@ final readonly class CodespacesOrgSecret
     public const SCHEMA_DESCRIPTION = 'Secrets for a GitHub Codespace.';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"SECRET_NAME","created_at":"generated_created_at","updated_at":"generated_updated_at","visibility":"generated_visibility","selected_repositories_url":"https:\\/\\/api.github.com\\/orgs\\/ORGANIZATION\\/codespaces\\/secrets\\/SECRET_NAME\\/repositories"}';
     /**
-     * The name of the secret
+     * name: The name of the secret
+     * created_at: The date and time at which the secret was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.
+     * updated_at: The date and time at which the secret was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.
+     * visibility: The type of repositories in the organization that the secret is visible to
+     * selected_repositories_url: The API URL at which the list of repositories this secret is visible to can be retrieved
      */
-    public ?string $name;
-    /**
-     * The date and time at which the secret was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.
-     */
-    public ?string $created_at;
-    /**
-     * The date and time at which the secret was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.
-     */
-    public ?string $updated_at;
-    /**
-     * The type of repositories in the organization that the secret is visible to
-     */
-    public ?string $visibility;
-    /**
-     * The API URL at which the list of repositories this secret is visible to can be retrieved
-     */
-    public string $selected_repositories_url;
-    public function __construct(string $name, string $created_at, string $updated_at, string $visibility, string $selected_repositories_url)
+    public function __construct(public ?string $name, public ?string $created_at, public ?string $updated_at, public ?string $visibility, public string $selected_repositories_url)
     {
-        $this->name = $name;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->visibility = $visibility;
-        $this->selected_repositories_url = $selected_repositories_url;
     }
 }

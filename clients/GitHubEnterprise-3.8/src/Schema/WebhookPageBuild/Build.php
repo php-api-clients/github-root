@@ -13,23 +13,7 @@ final readonly class Build
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = 'The [List GitHub Pages builds](https://docs.github.com/enterprise-server@3.8/rest/reference/repos#list-github-pages-builds) itself.';
     public const SCHEMA_EXAMPLE_DATA = '{"commit":"generated_commit","created_at":"generated_created_at","duration":13,"error":{"message":"generated_message"},"pusher":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"status":"generated_status","updated_at":"generated_updated_at","url":"generated_url"}';
-    public ?string $commit;
-    public ?string $created_at;
-    public ?int $duration;
-    public ?Schema\PageBuild\Error $error;
-    public ?Schema\Discussion\AnswerChosenBy $pusher;
-    public ?string $status;
-    public ?string $updated_at;
-    public ?string $url;
-    public function __construct(string $commit, string $created_at, int $duration, Schema\PageBuild\Error $error, Schema\Discussion\AnswerChosenBy $pusher, string $status, string $updated_at, string $url)
+    public function __construct(public ?string $commit, public ?string $created_at, public ?int $duration, public ?Schema\PageBuild\Error $error, public ?Schema\Discussion\AnswerChosenBy $pusher, public ?string $status, public ?string $updated_at, public ?string $url)
     {
-        $this->commit = $commit;
-        $this->created_at = $created_at;
-        $this->duration = $duration;
-        $this->error = $error;
-        $this->pusher = $pusher;
-        $this->status = $status;
-        $this->updated_at = $updated_at;
-        $this->url = $url;
     }
 }

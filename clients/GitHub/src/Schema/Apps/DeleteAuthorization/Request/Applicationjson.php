@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"access_token":"generated_access_token"}';
     /**
-     * The OAuth access token used to authenticate to the GitHub API.
+     * access_token: The OAuth access token used to authenticate to the GitHub API.
      */
-    public ?string $access_token;
-    public function __construct(string $access_token)
+    public function __construct(public ?string $access_token)
     {
-        $this->access_token = $access_token;
     }
 }

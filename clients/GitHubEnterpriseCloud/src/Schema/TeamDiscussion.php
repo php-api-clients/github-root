@@ -13,61 +13,15 @@ final readonly class TeamDiscussion
     public const SCHEMA_TITLE = 'Team Discussion';
     public const SCHEMA_DESCRIPTION = 'A team discussion is a persistent record of a free-form conversation within a team.';
     public const SCHEMA_EXAMPLE_DATA = '{"author":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"body":"Please suggest improvements to our workflow in comments.","body_html":"<p>Hi! This is an area for us to collaborate as a team<\\/p>","body_version":"0307116bbf7ced493b8d8a346c650b71","comments_count":0,"comments_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/2343027\\/discussions\\/1\\/comments","created_at":"2018-01-25T18:56:31Z","last_edited_at":"generated_last_edited_at","html_url":"https:\\/\\/github.com\\/orgs\\/github\\/teams\\/justice-league\\/discussions\\/1","node_id":"MDE0OlRlYW1EaXNjdXNzaW9uMQ==","number":42,"pinned":true,"private":true,"team_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/2343027","title":"How can we improve our workflow?","updated_at":"2018-01-25T18:56:31Z","url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/2343027\\/discussions\\/1","reactions":{"url":"generated_url","total_count":13,"_PLUSES_1":13,"_MINUS_1":13,"laugh":13,"confused":13,"heart":13,"hooray":13,"eyes":13,"rocket":13}}';
-    public ?Schema\SimpleUser $author;
     /**
-     * The main text of the discussion.
+     * body: The main text of the discussion.
+     * body_version: The current version of the body content. If provided, this update operation will be rejected if the given version does not match the latest version on the server.
+     * number: The unique sequence number of a team discussion.
+     * pinned: Whether or not this discussion should be pinned for easy retrieval.
+     * private: Whether or not this discussion should be restricted to team members and organization administrators.
+     * title: The title of the discussion.
      */
-    public ?string $body;
-    public ?string $body_html;
-    /**
-     * The current version of the body content. If provided, this update operation will be rejected if the given version does not match the latest version on the server.
-     */
-    public ?string $body_version;
-    public ?int $comments_count;
-    public ?string $comments_url;
-    public ?string $created_at;
-    public ?string $last_edited_at;
-    public ?string $html_url;
-    public ?string $node_id;
-    /**
-     * The unique sequence number of a team discussion.
-     */
-    public ?int $number;
-    /**
-     * Whether or not this discussion should be pinned for easy retrieval.
-     */
-    public ?bool $pinned;
-    /**
-     * Whether or not this discussion should be restricted to team members and organization administrators.
-     */
-    public ?bool $private;
-    public ?string $team_url;
-    /**
-     * The title of the discussion.
-     */
-    public ?string $title;
-    public ?string $updated_at;
-    public ?string $url;
-    public Schema\ReactionRollup $reactions;
-    public function __construct(Schema\SimpleUser $author, string $body, string $body_html, string $body_version, int $comments_count, string $comments_url, string $created_at, string $last_edited_at, string $html_url, string $node_id, int $number, bool $pinned, bool $private, string $team_url, string $title, string $updated_at, string $url, Schema\ReactionRollup $reactions)
+    public function __construct(public ?Schema\SimpleUser $author, public ?string $body, public ?string $body_html, public ?string $body_version, public ?int $comments_count, public ?string $comments_url, public ?string $created_at, public ?string $last_edited_at, public ?string $html_url, public ?string $node_id, public ?int $number, public ?bool $pinned, public ?bool $private, public ?string $team_url, public ?string $title, public ?string $updated_at, public ?string $url, public Schema\ReactionRollup $reactions)
     {
-        $this->author = $author;
-        $this->body = $body;
-        $this->body_html = $body_html;
-        $this->body_version = $body_version;
-        $this->comments_count = $comments_count;
-        $this->comments_url = $comments_url;
-        $this->created_at = $created_at;
-        $this->last_edited_at = $last_edited_at;
-        $this->html_url = $html_url;
-        $this->node_id = $node_id;
-        $this->number = $number;
-        $this->pinned = $pinned;
-        $this->private = $private;
-        $this->team_url = $team_url;
-        $this->title = $title;
-        $this->updated_at = $updated_at;
-        $this->url = $url;
-        $this->reactions = $reactions;
     }
 }

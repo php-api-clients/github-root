@@ -14,11 +14,9 @@ final readonly class References
     public const SCHEMA_DESCRIPTION = 'A link to additional advisory information.';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url"}';
     /**
-     * The URL of the reference.
+     * url: The URL of the reference.
      */
-    public ?string $url;
-    public function __construct(string $url)
+    public function __construct(public ?string $url)
     {
-        $this->url = $url;
     }
 }

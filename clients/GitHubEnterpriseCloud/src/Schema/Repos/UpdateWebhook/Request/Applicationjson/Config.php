@@ -14,27 +14,11 @@ final readonly class Config
     public const SCHEMA_DESCRIPTION = 'Key/value pairs to provide settings for this webhook. [These are defined below](https://docs.github.com/enterprise-cloud@latest//rest/reference/repos#create-hook-config-params).';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"https:\\/\\/example.com\\/webhook","content_type":"\\"json\\"","secret":"\\"********\\"","insecure_ssl":13,"address":"\\"bar@example.com\\"","room":"\\"The Serious Room\\""}';
     /**
-     * The URL to which the payloads will be delivered.
+     * url: The URL to which the payloads will be delivered.
+     * content_type: The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
+     * secret: If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers).
      */
-    public ?string $url;
-    /**
-     * The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
-     */
-    public string $content_type;
-    /**
-     * If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers).
-     */
-    public string $secret;
-    public int $insecure_ssl;
-    public string $address;
-    public string $room;
-    public function __construct(string $url, string $content_type, string $secret, int $insecure_ssl, string $address, string $room)
+    public function __construct(public ?string $url, public string $content_type, public string $secret, public int $insecure_ssl, public string $address, public string $room)
     {
-        $this->url = $url;
-        $this->content_type = $content_type;
-        $this->secret = $secret;
-        $this->insecure_ssl = $insecure_ssl;
-        $this->address = $address;
-        $this->room = $room;
     }
 }

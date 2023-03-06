@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"content":"generated_content","encoding":"generated_encoding"}';
     /**
-     * The new blob's content.
+     * content: The new blob's content.
+     * encoding: The encoding used for `content`. Currently, `"utf-8"` and `"base64"` are supported.
      */
-    public ?string $content;
-    /**
-     * The encoding used for `content`. Currently, `"utf-8"` and `"base64"` are supported.
-     */
-    public string $encoding;
-    public function __construct(string $content, string $encoding)
+    public function __construct(public ?string $content, public string $encoding)
     {
-        $this->content = $content;
-        $this->encoding = $encoding;
     }
 }

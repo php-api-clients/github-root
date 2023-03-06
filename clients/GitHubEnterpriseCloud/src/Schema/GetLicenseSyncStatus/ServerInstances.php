@@ -13,13 +13,7 @@ final readonly class ServerInstances
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"server_id":"generated_server_id","hostname":"generated_hostname","last_sync":{"date":"generated_date","status":"generated_status","error":"generated_error"}}';
-    public ?string $server_id;
-    public ?string $hostname;
-    public ?Schema\GetLicenseSyncStatus\ServerInstances\LastSync $last_sync;
-    public function __construct(string $server_id, string $hostname, Schema\GetLicenseSyncStatus\ServerInstances\LastSync $last_sync)
+    public function __construct(public ?string $server_id, public ?string $hostname, public ?Schema\GetLicenseSyncStatus\ServerInstances\LastSync $last_sync)
     {
-        $this->server_id = $server_id;
-        $this->hostname = $hostname;
-        $this->last_sync = $last_sync;
     }
 }

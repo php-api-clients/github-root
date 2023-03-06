@@ -14,22 +14,12 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"environment_ids":[161171795],"state":"approved","comment":"Ship it!"}';
     /**
-     * The list of environment ids to approve or reject
-     * @var array<int>
+     * environment_ids: The list of environment ids to approve or reject
+     * @param ?array<int> $environment_ids
+     * state: Whether to approve or reject deployment to the specified environments.
+     * comment: A comment to accompany the deployment review
      */
-    public ?array $environment_ids;
-    /**
-     * Whether to approve or reject deployment to the specified environments.
-     */
-    public ?string $state;
-    /**
-     * A comment to accompany the deployment review
-     */
-    public ?string $comment;
-    public function __construct(array $environment_ids, string $state, string $comment)
+    public function __construct(public ?array $environment_ids, public ?string $state, public ?string $comment)
     {
-        $this->environment_ids = $environment_ids;
-        $this->state = $state;
-        $this->comment = $comment;
     }
 }

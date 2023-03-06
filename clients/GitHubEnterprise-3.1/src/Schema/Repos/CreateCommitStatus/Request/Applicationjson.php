@@ -14,28 +14,14 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"state":"generated_state","target_url":"generated_target_url","description":"generated_description","context":"generated_context"}';
     /**
-     * The state of the status.
-     */
-    public ?string $state;
-    /**
-    * The target URL to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the source of the status.  
+    * state: The state of the status.
+    * target_url: The target URL to associate with this status. This URL will be linked from the GitHub UI to allow users to easily see the source of the status.  
     For example, if your continuous integration system is posting build status, you would want to provide the deep link for the build output for this specific SHA:  
     `http://ci.example.com/user/repo/build/sha`
+    * description: A short description of the status.
+    * context: A string label to differentiate this status from the status of other systems. This field is case-insensitive.
     */
-    public string $target_url;
-    /**
-     * A short description of the status.
-     */
-    public string $description;
-    /**
-     * A string label to differentiate this status from the status of other systems. This field is case-insensitive.
-     */
-    public string $context;
-    public function __construct(string $state, string $target_url, string $description, string $context)
+    public function __construct(public ?string $state, public string $target_url, public string $description, public string $context)
     {
-        $this->state = $state;
-        $this->target_url = $target_url;
-        $this->description = $description;
-        $this->context = $context;
     }
 }

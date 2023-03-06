@@ -14,16 +14,10 @@ final readonly class CodespacesUserPublicKey
     public const SCHEMA_DESCRIPTION = 'The public key used for setting user Codespaces\' Secrets.';
     public const SCHEMA_EXAMPLE_DATA = '{"key_id":"1234567","key":"hBT5WZEj8ZoOv6TYJsfWq7MxTEQopZO5\\/IT3ZCVQPzs="}';
     /**
-     * The identifier for the key.
+     * key_id: The identifier for the key.
+     * key: The Base64 encoded public key.
      */
-    public ?string $key_id;
-    /**
-     * The Base64 encoded public key.
-     */
-    public ?string $key;
-    public function __construct(string $key_id, string $key)
+    public function __construct(public ?string $key_id, public ?string $key)
     {
-        $this->key_id = $key_id;
-        $this->key = $key;
     }
 }

@@ -39,7 +39,7 @@ class RunnerGroups implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -50,9 +50,19 @@ class RunnerGroups implements ObjectMapper
                 $value = $payload['runner_groups'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'runner_groups';
+                    $properties['runner_groups'] = null;
                     goto after_runner_groups;
                 }
+
+                static $runner_groupsCaster1;
+    
+                if ($runner_groupsCaster1 === null) {
+                    $runner_groupsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\RunnerGroupsOrg',
+));
+                }
+    
+                $value = $runner_groupsCaster1->cast($value, $this);
 
                 $properties['runner_groups'] = $value;
     
@@ -83,7 +93,7 @@ class RunnerGroups implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -94,7 +104,7 @@ class RunnerGroups implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -105,7 +115,7 @@ class RunnerGroups implements ObjectMapper
                 $value = $payload['visibility'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'visibility';
+                    $properties['visibility'] = null;
                     goto after_visibility;
                 }
 
@@ -116,7 +126,7 @@ class RunnerGroups implements ObjectMapper
                 $value = $payload['default'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default';
+                    $properties['default'] = null;
                     goto after_default;
                 }
 
@@ -138,7 +148,7 @@ class RunnerGroups implements ObjectMapper
                 $value = $payload['runners_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'runners_url';
+                    $properties['runners_url'] = null;
                     goto after_runners_url;
                 }
 
@@ -149,7 +159,7 @@ class RunnerGroups implements ObjectMapper
                 $value = $payload['inherited'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'inherited';
+                    $properties['inherited'] = null;
                     goto after_inherited;
                 }
 
@@ -171,7 +181,7 @@ class RunnerGroups implements ObjectMapper
                 $value = $payload['allows_public_repositories'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allows_public_repositories';
+                    $properties['allows_public_repositories'] = null;
                     goto after_allows_public_repositories;
                 }
 
@@ -301,7 +311,8 @@ class RunnerGroups implements ObjectMapper
         static $runner_groupsSerializer0;
 
         if ($runner_groupsSerializer0 === null) {
-            $runner_groupsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $runner_groupsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\RunnerGroupsOrg',
 ));
         }
         

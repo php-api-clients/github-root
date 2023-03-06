@@ -14,54 +14,16 @@ final readonly class CodeScanningAlert
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"number":13,"created_at":"generated_created_at","url":"generated_url","html_url":"generated_html_url","instances_url":"generated_instances_url","state":"generated_state","dismissed_by":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"dismissed_at":"generated_dismissed_at","dismissed_reason":"generated_dismissed_reason","rule":{"id":"generated_id","name":"generated_name","severity":"generated_severity","security_severity_level":"generated_security_severity_level","description":"generated_description","full_description":"generated_full_description","tags":["generated_tags"],"help":"generated_help","help_uri":"generated_help_uri"},"tool":{"name":"generated_name","version":"generated_version","guid":"generated_guid"},"most_recent_instance":{"ref":"generated_ref","analysis_key":"generated_analysis_key","environment":"generated_environment","category":"generated_category","state":"generated_state","commit_sha":"generated_commit_sha","message":{"text":"generated_text"},"location":{"path":"generated_path","start_line":13,"end_line":13,"start_column":13,"end_column":13},"html_url":"generated_html_url","classifications":["generated_classifications"]}}';
     /**
-     * The security alert number.
+     * number: The security alert number.
+     * created_at: The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     * url: The REST API URL of the alert resource.
+     * html_url: The GitHub URL of the alert resource.
+     * instances_url: The REST API URL for fetching the list of instances for an alert.
+     * state: State of a code scanning alert.
+     * dismissed_at: The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     * dismissed_reason: **Required when the state is dismissed.** The reason for dismissing or closing the alert.
      */
-    public ?int $number;
-    /**
-     * The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $created_at;
-    /**
-     * The REST API URL of the alert resource.
-     */
-    public ?string $url;
-    /**
-     * The GitHub URL of the alert resource.
-     */
-    public ?string $html_url;
-    /**
-     * The REST API URL for fetching the list of instances for an alert.
-     */
-    public ?string $instances_url;
-    /**
-     * State of a code scanning alert.
-     */
-    public ?string $state;
-    public ?Schema\SimpleUser $dismissed_by;
-    /**
-     * The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $dismissed_at;
-    /**
-     * **Required when the state is dismissed.** The reason for dismissing or closing the alert.
-     */
-    public ?string $dismissed_reason;
-    public ?Schema\CodeScanningAlertRule $rule;
-    public ?Schema\CodeScanningAnalysisTool $tool;
-    public ?Schema\CodeScanningAlertInstance $most_recent_instance;
-    public function __construct(int $number, string $created_at, string $url, string $html_url, string $instances_url, string $state, Schema\SimpleUser $dismissed_by, string $dismissed_at, string $dismissed_reason, Schema\CodeScanningAlertRule $rule, Schema\CodeScanningAnalysisTool $tool, Schema\CodeScanningAlertInstance $most_recent_instance)
+    public function __construct(public ?int $number, public ?string $created_at, public ?string $url, public ?string $html_url, public ?string $instances_url, public ?string $state, public ?Schema\SimpleUser $dismissed_by, public ?string $dismissed_at, public ?string $dismissed_reason, public ?Schema\CodeScanningAlertRule $rule, public ?Schema\CodeScanningAnalysisTool $tool, public ?Schema\CodeScanningAlertInstance $most_recent_instance)
     {
-        $this->number = $number;
-        $this->created_at = $created_at;
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->instances_url = $instances_url;
-        $this->state = $state;
-        $this->dismissed_by = $dismissed_by;
-        $this->dismissed_at = $dismissed_at;
-        $this->dismissed_reason = $dismissed_reason;
-        $this->rule = $rule;
-        $this->tool = $tool;
-        $this->most_recent_instance = $most_recent_instance;
     }
 }

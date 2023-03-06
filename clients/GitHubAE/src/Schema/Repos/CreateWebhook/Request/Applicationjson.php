@@ -14,27 +14,13 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","config":{"url":"https:\\/\\/example.com\\/webhook","content_type":"\\"json\\"","secret":"\\"********\\"","insecure_ssl":13,"token":"\\"abc\\"","digest":"\\"sha256\\""},"events":["generated_events"],"active":false}';
     /**
-     * Use `web` to create a webhook. Default: `web`. This parameter only accepts the value `web`.
+     * name: Use `web` to create a webhook. Default: `web`. This parameter only accepts the value `web`.
+     * config: Key/value pairs to provide settings for this webhook. [These are defined below](https://docs.github.com/github-ae@latest/rest/reference/repos#create-hook-config-params).
+     * events: Determines what [events](https://docs.github.com/github-ae@latest/webhooks/event-payloads) the hook is triggered for.
+     * @param ?array<string> $events
+     * active: Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
      */
-    public ?string $name;
-    /**
-     * Key/value pairs to provide settings for this webhook. [These are defined below](https://docs.github.com/github-ae@latest/rest/reference/repos#create-hook-config-params).
-     */
-    public ?Schema\Repos\CreateWebhook\Request\Applicationjson\Config $config;
-    /**
-     * Determines what [events](https://docs.github.com/github-ae@latest/webhooks/event-payloads) the hook is triggered for.
-     * @var array<string>
-     */
-    public ?array $events;
-    /**
-     * Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
-     */
-    public ?bool $active;
-    public function __construct(string $name, Schema\Repos\CreateWebhook\Request\Applicationjson\Config $config, array $events, bool $active)
+    public function __construct(public ?string $name, public ?Schema\Repos\CreateWebhook\Request\Applicationjson\Config $config, public ?array $events, public ?bool $active)
     {
-        $this->name = $name;
-        $this->config = $config;
-        $this->events = $events;
-        $this->active = $active;
     }
 }

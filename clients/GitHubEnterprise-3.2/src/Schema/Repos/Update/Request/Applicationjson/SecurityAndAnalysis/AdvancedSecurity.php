@@ -14,11 +14,9 @@ final readonly class AdvancedSecurity
     public const SCHEMA_DESCRIPTION = 'Use the `status` property to enable or disable GitHub Advanced Security for this repository. For more information, see "[About GitHub Advanced Security](/github/getting-started-with-github/learning-about-github/about-github-advanced-security)."';
     public const SCHEMA_EXAMPLE_DATA = '{"status":"generated_status"}';
     /**
-     * Can be `enabled` or `disabled`.
+     * status: Can be `enabled` or `disabled`.
      */
-    public ?string $status;
-    public function __construct(string $status)
+    public function __construct(public ?string $status)
     {
-        $this->status = $status;
     }
 }

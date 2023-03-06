@@ -13,28 +13,10 @@ final readonly class Commit
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"author":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"comments_url":"generated_comments_url","commit":{"author":{"date":"generated_date","email":"generated_email","name":"generated_name"},"comment_count":13,"committer":{"date":"generated_date","email":"generated_email","name":"generated_name"},"message":"generated_message","tree":{"sha":"generated_sha","url":"generated_url"},"url":"generated_url","verification":{"payload":"generated_payload","reason":"generated_reason","signature":"generated_signature","verified":false}},"committer":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"html_url":"generated_html_url","node_id":"generated_node_id","parents":[{"html_url":"generated_html_url","sha":"generated_sha","url":"generated_url"}],"sha":"generated_sha","url":"generated_url"}';
-    public ?Schema\WebhookStatus\Commit\Author $author;
-    public ?string $comments_url;
-    public ?Schema\WebhookStatus\Commit\Commit $commit;
-    public ?Schema\WebhookStatus\Commit\Author $committer;
-    public ?string $html_url;
-    public ?string $node_id;
     /**
-     * @var array<Schema\WebhookStatus\Commit\Parents>
+     * @param ?array<\ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Parents> $parents
      */
-    public ?array $parents;
-    public ?string $sha;
-    public ?string $url;
-    public function __construct(Schema\WebhookStatus\Commit\Author $author, string $comments_url, Schema\WebhookStatus\Commit\Commit $commit, Schema\WebhookStatus\Commit\Author $committer, string $html_url, string $node_id, array $parents, string $sha, string $url)
+    public function __construct(public ?Schema\WebhookStatus\Commit\Author $author, public ?string $comments_url, public ?Schema\WebhookStatus\Commit\Commit $commit, public ?Schema\WebhookStatus\Commit\Author $committer, public ?string $html_url, public ?string $node_id, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\WebhookStatus\Commit\Parents::class)] public ?array $parents, public ?string $sha, public ?string $url)
     {
-        $this->author = $author;
-        $this->comments_url = $comments_url;
-        $this->commit = $commit;
-        $this->committer = $committer;
-        $this->html_url = $html_url;
-        $this->node_id = $node_id;
-        $this->parents = $parents;
-        $this->sha = $sha;
-        $this->url = $url;
     }
 }

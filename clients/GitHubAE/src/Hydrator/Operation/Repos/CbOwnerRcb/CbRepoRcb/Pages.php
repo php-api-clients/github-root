@@ -43,7 +43,7 @@ class Pages implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -54,7 +54,7 @@ class Pages implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -65,7 +65,7 @@ class Pages implements ObjectMapper
                 $value = $payload['cname'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'cname';
+                    $properties['cname'] = null;
                     goto after_cname;
                 }
 
@@ -76,7 +76,7 @@ class Pages implements ObjectMapper
                 $value = $payload['protected_domain_state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'protected_domain_state';
+                    $properties['protected_domain_state'] = null;
                     goto after_protected_domain_state;
                 }
 
@@ -87,7 +87,7 @@ class Pages implements ObjectMapper
                 $value = $payload['pending_domain_unverified_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pending_domain_unverified_at';
+                    $properties['pending_domain_unverified_at'] = null;
                     goto after_pending_domain_unverified_at;
                 }
 
@@ -98,7 +98,7 @@ class Pages implements ObjectMapper
                 $value = $payload['custom_404'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'custom_404';
+                    $properties['custom_404'] = null;
                     goto after_custom_404;
                 }
 
@@ -120,7 +120,7 @@ class Pages implements ObjectMapper
                 $value = $payload['build_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'build_type';
+                    $properties['build_type'] = null;
                     goto after_build_type;
                 }
 
@@ -151,7 +151,7 @@ class Pages implements ObjectMapper
                 $value = $payload['public'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'public';
+                    $properties['public'] = null;
                     goto after_public;
                 }
 
@@ -215,7 +215,7 @@ class Pages implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -226,7 +226,7 @@ class Pages implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -237,7 +237,7 @@ class Pages implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -248,7 +248,7 @@ class Pages implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -281,7 +281,7 @@ class Pages implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -292,7 +292,7 @@ class Pages implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -306,6 +306,16 @@ class Pages implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -336,7 +346,7 @@ class Pages implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -347,7 +357,7 @@ class Pages implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -358,7 +368,7 @@ class Pages implements ObjectMapper
                 $value = $payload['detail'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'detail';
+                    $properties['detail'] = null;
                     goto after_detail;
                 }
 
@@ -369,7 +379,7 @@ class Pages implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -380,7 +390,7 @@ class Pages implements ObjectMapper
                 $value = $payload['scim_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'scim_type';
+                    $properties['scimType'] = null;
                     goto after_scimType;
                 }
 
@@ -391,7 +401,7 @@ class Pages implements ObjectMapper
                 $value = $payload['schemas'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'schemas';
+                    $properties['schemas'] = null;
                     goto after_schemas;
                 }
 
@@ -424,7 +434,7 @@ class Pages implements ObjectMapper
                 $value = $payload['branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'branch';
+                    $properties['branch'] = null;
                     goto after_branch;
                 }
 
@@ -435,7 +445,7 @@ class Pages implements ObjectMapper
                 $value = $payload['path'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'path';
+                    $properties['path'] = null;
                     goto after_path;
                 }
 
@@ -468,7 +478,7 @@ class Pages implements ObjectMapper
                 $value = $payload['state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'state';
+                    $properties['state'] = null;
                     goto after_state;
                 }
 
@@ -479,7 +489,7 @@ class Pages implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -490,7 +500,7 @@ class Pages implements ObjectMapper
                 $value = $payload['domains'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'domains';
+                    $properties['domains'] = null;
                     goto after_domains;
                 }
 
@@ -769,7 +779,8 @@ class Pages implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ValidationError\\Errors',
 ));
         }
         

@@ -14,11 +14,9 @@ final readonly class File
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"source_location":"\\/src\\/build\\/package-lock.json"}';
     /**
-     * The path of the manifest file relative to the root of the Git repository.
+     * source_location: The path of the manifest file relative to the root of the Git repository.
      */
-    public ?string $source_location;
-    public function __construct(string $source_location)
+    public function __construct(public ?string $source_location)
     {
-        $this->source_location = $source_location;
     }
 }

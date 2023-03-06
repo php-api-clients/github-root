@@ -13,9 +13,7 @@ final readonly class WorkflowUsage
     public const SCHEMA_TITLE = 'Workflow Usage';
     public const SCHEMA_DESCRIPTION = 'Workflow Usage';
     public const SCHEMA_EXAMPLE_DATA = '{"billable":{"UBUNTU":{"total_ms":13},"MACOS":{"total_ms":13},"WINDOWS":{"total_ms":13}}}';
-    public ?Schema\WorkflowUsage\Billable $billable;
-    public function __construct(Schema\WorkflowUsage\Billable $billable)
+    public function __construct(public ?Schema\WorkflowUsage\Billable $billable)
     {
-        $this->billable = $billable;
     }
 }

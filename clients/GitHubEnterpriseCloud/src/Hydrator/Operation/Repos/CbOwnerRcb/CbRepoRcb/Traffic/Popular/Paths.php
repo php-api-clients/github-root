@@ -39,7 +39,7 @@ class Paths implements ObjectMapper
                 $value = $payload['path'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'path';
+                    $properties['path'] = null;
                     goto after_path;
                 }
 
@@ -50,7 +50,7 @@ class Paths implements ObjectMapper
                 $value = $payload['title'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'title';
+                    $properties['title'] = null;
                     goto after_title;
                 }
 
@@ -61,7 +61,7 @@ class Paths implements ObjectMapper
                 $value = $payload['count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'count';
+                    $properties['count'] = null;
                     goto after_count;
                 }
 
@@ -72,7 +72,7 @@ class Paths implements ObjectMapper
                 $value = $payload['uniques'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'uniques';
+                    $properties['uniques'] = null;
                     goto after_uniques;
                 }
 
@@ -105,7 +105,7 @@ class Paths implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -116,7 +116,7 @@ class Paths implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -127,7 +127,7 @@ class Paths implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -138,7 +138,7 @@ class Paths implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 

@@ -14,21 +14,11 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"text":"generated_text","mode":"markdown","context":"generated_context"}';
     /**
-     * The Markdown text to render in HTML.
+     * text: The Markdown text to render in HTML.
+     * mode: The rendering mode. Can be either `markdown` or `gfm`.
+     * context: The repository context to use when creating references in `gfm` mode.  For example, setting `context` to `octo-org/octo-repo` will change the text `#42` into an HTML link to issue 42 in the `octo-org/octo-repo` repository.
      */
-    public ?string $text;
-    /**
-     * The rendering mode. Can be either `markdown` or `gfm`.
-     */
-    public string $mode;
-    /**
-     * The repository context to use when creating references in `gfm` mode.  For example, setting `context` to `octo-org/octo-repo` will change the text `#42` into an HTML link to issue 42 in the `octo-org/octo-repo` repository.
-     */
-    public string $context;
-    public function __construct(string $text, string $mode, string $context)
+    public function __construct(public ?string $text, public string $mode, public string $context)
     {
-        $this->text = $text;
-        $this->mode = $mode;
-        $this->context = $context;
     }
 }

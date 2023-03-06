@@ -13,26 +13,10 @@ final readonly class Feed
     public const SCHEMA_TITLE = 'Feed';
     public const SCHEMA_DESCRIPTION = 'Feed';
     public const SCHEMA_EXAMPLE_DATA = '{"timeline_url":"https:\\/\\/github.com\\/timeline","user_url":"https:\\/\\/github.com\\/{user}","current_user_public_url":"https:\\/\\/github.com\\/octocat","current_user_url":"https:\\/\\/github.com\\/octocat.private?token=abc123","current_user_actor_url":"https:\\/\\/github.com\\/octocat.private.actor?token=abc123","current_user_organization_url":"https:\\/\\/github.com\\/octocat-org","current_user_organization_urls":["https:\\/\\/github.com\\/organizations\\/github\\/octocat.private.atom?token=abc123"],"_links":{"timeline":{"href":"generated_href","type":"generated_type"},"user":{"href":"generated_href","type":"generated_type"},"security_advisories":{"href":"generated_href","type":"generated_type"},"current_user":{"href":"generated_href","type":"generated_type"},"current_user_public":{"href":"generated_href","type":"generated_type"},"current_user_actor":{"href":"generated_href","type":"generated_type"},"current_user_organization":{"href":"generated_href","type":"generated_type"},"current_user_organizations":[{"href":"generated_href","type":"generated_type"}]}}';
-    public ?string $timeline_url;
-    public ?string $user_url;
-    public string $current_user_public_url;
-    public string $current_user_url;
-    public string $current_user_actor_url;
-    public string $current_user_organization_url;
     /**
-     * @var array<string>
+     * @param array<string> $current_user_organization_urls
      */
-    public array $current_user_organization_urls;
-    public ?Schema\Feed\Links $_links;
-    public function __construct(string $timeline_url, string $user_url, string $current_user_public_url, string $current_user_url, string $current_user_actor_url, string $current_user_organization_url, array $current_user_organization_urls, Schema\Feed\Links $_links)
+    public function __construct(public ?string $timeline_url, public ?string $user_url, public string $current_user_public_url, public string $current_user_url, public string $current_user_actor_url, public string $current_user_organization_url, public array $current_user_organization_urls, public ?Schema\Feed\Links $_links)
     {
-        $this->timeline_url = $timeline_url;
-        $this->user_url = $user_url;
-        $this->current_user_public_url = $current_user_public_url;
-        $this->current_user_url = $current_user_url;
-        $this->current_user_actor_url = $current_user_actor_url;
-        $this->current_user_organization_url = $current_user_organization_url;
-        $this->current_user_organization_urls = $current_user_organization_urls;
-        $this->_links = $_links;
     }
 }

@@ -14,56 +14,18 @@ final readonly class Links
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"timeline":{"href":"generated_href","type":"generated_type"},"user":{"href":"generated_href","type":"generated_type"},"security_advisories":{"href":"generated_href","type":"generated_type"},"current_user":{"href":"generated_href","type":"generated_type"},"current_user_public":{"href":"generated_href","type":"generated_type"},"current_user_actor":{"href":"generated_href","type":"generated_type"},"current_user_organization":{"href":"generated_href","type":"generated_type"},"current_user_organizations":[{"href":"generated_href","type":"generated_type"}],"repository_discussions":{"href":"generated_href","type":"generated_type"},"repository_discussions_category":{"href":"generated_href","type":"generated_type"}}';
     /**
-     * Hypermedia Link with Type
+     * timeline: Hypermedia Link with Type
+     * user: Hypermedia Link with Type
+     * security_advisories: Hypermedia Link with Type
+     * current_user: Hypermedia Link with Type
+     * current_user_public: Hypermedia Link with Type
+     * current_user_actor: Hypermedia Link with Type
+     * current_user_organization: Hypermedia Link with Type
+     * @param array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\LinkWithType> $current_user_organizations
+     * repository_discussions: Hypermedia Link with Type
+     * repository_discussions_category: Hypermedia Link with Type
      */
-    public ?Schema\LinkWithType $timeline;
-    /**
-     * Hypermedia Link with Type
-     */
-    public ?Schema\LinkWithType $user;
-    /**
-     * Hypermedia Link with Type
-     */
-    public Schema\LinkWithType $security_advisories;
-    /**
-     * Hypermedia Link with Type
-     */
-    public Schema\LinkWithType $current_user;
-    /**
-     * Hypermedia Link with Type
-     */
-    public Schema\LinkWithType $current_user_public;
-    /**
-     * Hypermedia Link with Type
-     */
-    public Schema\LinkWithType $current_user_actor;
-    /**
-     * Hypermedia Link with Type
-     */
-    public Schema\LinkWithType $current_user_organization;
-    /**
-     * @var array<Schema\LinkWithType>
-     */
-    public array $current_user_organizations;
-    /**
-     * Hypermedia Link with Type
-     */
-    public Schema\LinkWithType $repository_discussions;
-    /**
-     * Hypermedia Link with Type
-     */
-    public Schema\LinkWithType $repository_discussions_category;
-    public function __construct(Schema\LinkWithType $timeline, Schema\LinkWithType $user, Schema\LinkWithType $security_advisories, Schema\LinkWithType $current_user, Schema\LinkWithType $current_user_public, Schema\LinkWithType $current_user_actor, Schema\LinkWithType $current_user_organization, array $current_user_organizations, Schema\LinkWithType $repository_discussions, Schema\LinkWithType $repository_discussions_category)
+    public function __construct(public ?Schema\LinkWithType $timeline, public ?Schema\LinkWithType $user, public Schema\LinkWithType $security_advisories, public Schema\LinkWithType $current_user, public Schema\LinkWithType $current_user_public, public Schema\LinkWithType $current_user_actor, public Schema\LinkWithType $current_user_organization, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\LinkWithType::class)] public array $current_user_organizations, public Schema\LinkWithType $repository_discussions, public Schema\LinkWithType $repository_discussions_category)
     {
-        $this->timeline = $timeline;
-        $this->user = $user;
-        $this->security_advisories = $security_advisories;
-        $this->current_user = $current_user;
-        $this->current_user_public = $current_user_public;
-        $this->current_user_actor = $current_user_actor;
-        $this->current_user_organization = $current_user_organization;
-        $this->current_user_organizations = $current_user_organizations;
-        $this->repository_discussions = $repository_discussions;
-        $this->repository_discussions_category = $repository_discussions_category;
     }
 }

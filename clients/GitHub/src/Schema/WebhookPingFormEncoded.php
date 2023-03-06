@@ -14,11 +14,9 @@ final readonly class WebhookPingFormEncoded
     public const SCHEMA_DESCRIPTION = 'The webhooks ping payload encoded with URL encoding.';
     public const SCHEMA_EXAMPLE_DATA = '{"payload":"generated_payload"}';
     /**
-     * A URL-encoded string of the ping JSON payload. The decoded payload is a JSON object.
+     * payload: A URL-encoded string of the ping JSON payload. The decoded payload is a JSON object.
      */
-    public ?string $payload;
-    public function __construct(string $payload)
+    public function __construct(public ?string $payload)
     {
-        $this->payload = $payload;
     }
 }

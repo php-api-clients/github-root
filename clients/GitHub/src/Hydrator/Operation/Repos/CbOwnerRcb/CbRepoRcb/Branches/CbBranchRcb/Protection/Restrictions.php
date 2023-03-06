@@ -39,7 +39,7 @@ class Restrictions implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -50,7 +50,7 @@ class Restrictions implements ObjectMapper
                 $value = $payload['users_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'users_url';
+                    $properties['users_url'] = null;
                     goto after_users_url;
                 }
 
@@ -61,7 +61,7 @@ class Restrictions implements ObjectMapper
                 $value = $payload['teams_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams_url';
+                    $properties['teams_url'] = null;
                     goto after_teams_url;
                 }
 
@@ -72,7 +72,7 @@ class Restrictions implements ObjectMapper
                 $value = $payload['apps_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'apps_url';
+                    $properties['apps_url'] = null;
                     goto after_apps_url;
                 }
 
@@ -83,9 +83,19 @@ class Restrictions implements ObjectMapper
                 $value = $payload['users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'users';
+                    $properties['users'] = null;
                     goto after_users;
                 }
+
+                static $usersCaster1;
+    
+                if ($usersCaster1 === null) {
+                    $usersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\Repository\\TemplateRepository\\Owner',
+));
+                }
+    
+                $value = $usersCaster1->cast($value, $this);
 
                 $properties['users'] = $value;
     
@@ -94,9 +104,19 @@ class Restrictions implements ObjectMapper
                 $value = $payload['teams'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams';
+                    $properties['teams'] = null;
                     goto after_teams;
                 }
+
+                static $teamsCaster1;
+    
+                if ($teamsCaster1 === null) {
+                    $teamsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\BranchRestrictionPolicy\\Teams',
+));
+                }
+    
+                $value = $teamsCaster1->cast($value, $this);
 
                 $properties['teams'] = $value;
     
@@ -105,9 +125,19 @@ class Restrictions implements ObjectMapper
                 $value = $payload['apps'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'apps';
+                    $properties['apps'] = null;
                     goto after_apps;
                 }
+
+                static $appsCaster1;
+    
+                if ($appsCaster1 === null) {
+                    $appsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\BranchRestrictionPolicy\\Apps',
+));
+                }
+    
+                $value = $appsCaster1->cast($value, $this);
 
                 $properties['apps'] = $value;
     
@@ -138,7 +168,7 @@ class Restrictions implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -149,7 +179,7 @@ class Restrictions implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -160,7 +190,7 @@ class Restrictions implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -171,7 +201,7 @@ class Restrictions implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -325,7 +355,8 @@ class Restrictions implements ObjectMapper
         static $usersSerializer0;
 
         if ($usersSerializer0 === null) {
-            $usersSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $usersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\Repository\\TemplateRepository\\Owner',
 ));
         }
         
@@ -341,7 +372,8 @@ class Restrictions implements ObjectMapper
         static $teamsSerializer0;
 
         if ($teamsSerializer0 === null) {
-            $teamsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $teamsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\BranchRestrictionPolicy\\Teams',
 ));
         }
         
@@ -357,7 +389,8 @@ class Restrictions implements ObjectMapper
         static $appsSerializer0;
 
         if ($appsSerializer0 === null) {
-            $appsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $appsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\BranchRestrictionPolicy\\Apps',
 ));
         }
         

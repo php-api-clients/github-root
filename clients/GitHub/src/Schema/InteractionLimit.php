@@ -14,16 +14,10 @@ final readonly class InteractionLimit
     public const SCHEMA_DESCRIPTION = 'Limit interactions to a specific type of user for a specified duration';
     public const SCHEMA_EXAMPLE_DATA = '{"limit":"collaborators_only","expiry":"one_month"}';
     /**
-     * The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.
+     * limit: The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.
+     * expiry: The duration of the interaction restriction. Default: `one_day`.
      */
-    public ?string $limit;
-    /**
-     * The duration of the interaction restriction. Default: `one_day`.
-     */
-    public string $expiry;
-    public function __construct(string $limit, string $expiry)
+    public function __construct(public ?string $limit, public string $expiry)
     {
-        $this->limit = $limit;
-        $this->expiry = $expiry;
     }
 }

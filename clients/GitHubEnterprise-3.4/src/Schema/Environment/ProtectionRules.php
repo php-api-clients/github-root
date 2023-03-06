@@ -13,13 +13,7 @@ final readonly class ProtectionRules
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":3515,"node_id":"MDQ6R2F0ZTM1MTU=","type":"branch_policy"}';
-    public ?int $id;
-    public ?string $node_id;
-    public ?string $type;
-    public function __construct(int $id, string $node_id, string $type)
+    public function __construct(public ?int $id, public ?string $node_id, public ?string $type)
     {
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->type = $type;
     }
 }

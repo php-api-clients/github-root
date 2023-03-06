@@ -14,18 +14,12 @@ final readonly class DismissalRestrictions
     public const SCHEMA_DESCRIPTION = 'Specify which users and teams can dismiss pull request reviews. Pass an empty `dismissal_restrictions` object to disable. User and team `dismissal_restrictions` are only available for organization-owned repositories. Omit this parameter for personal repositories.';
     public const SCHEMA_EXAMPLE_DATA = '{"users":["generated_users"],"teams":["generated_teams"]}';
     /**
-     * The list of user `login`s with dismissal access
-     * @var array<string>
+     * users: The list of user `login`s with dismissal access
+     * @param ?array<string> $users
+     * teams: The list of team `slug`s with dismissal access
+     * @param ?array<string> $teams
      */
-    public ?array $users;
-    /**
-     * The list of team `slug`s with dismissal access
-     * @var array<string>
-     */
-    public ?array $teams;
-    public function __construct(array $users, array $teams)
+    public function __construct(public ?array $users, public ?array $teams)
     {
-        $this->users = $users;
-        $this->teams = $teams;
     }
 }

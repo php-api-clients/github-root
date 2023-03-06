@@ -14,86 +14,24 @@ final readonly class Alert
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"created_at":"generated_created_at","html_url":"generated_html_url","locations_url":"generated_locations_url","number":13,"push_protection_bypassed":false,"push_protection_bypassed_at":"generated_push_protection_bypassed_at","push_protection_bypassed_by":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"resolution":"generated_resolution","resolved_at":"generated_resolved_at","resolved_by":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"resolution_comment":"generated_resolution_comment","secret":"generated_secret","secret_type":"generated_secret_type","secret_type_display_name":"generated_secret_type_display_name","state":"generated_state","updated_at":"generated_updated_at","url":"generated_url"}';
     /**
-     * The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $created_at;
-    /**
-     * The GitHub URL of the alert resource.
-     */
-    public ?string $html_url;
-    /**
-     * The REST API URL of the code locations for this alert.
-     */
-    public ?string $locations_url;
-    /**
-     * The security alert number.
-     */
-    public ?int $number;
-    /**
-     * Whether push protection was bypassed for the detected secret.
-     */
-    public ?bool $push_protection_bypassed;
-    /**
-     * The time that push protection was bypassed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $push_protection_bypassed_at;
-    public ?Schema\SimpleUser $push_protection_bypassed_by;
-    /**
-     * **Required when the `state` is `resolved`.** The reason for resolving the alert.
-     */
-    public ?string $resolution;
-    /**
-     * The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $resolved_at;
-    public ?Schema\SimpleUser $resolved_by;
-    /**
-     * An optional comment to resolve an alert.
-     */
-    public ?string $resolution_comment;
-    /**
-     * The secret that was detected.
-     */
-    public ?string $secret;
-    /**
-     * The type of secret that secret scanning detected.
-     */
-    public ?string $secret_type;
-    /**
-    * User-friendly name for the detected secret, matching the `secret_type`.
+    * created_at: The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+    * html_url: The GitHub URL of the alert resource.
+    * locations_url: The REST API URL of the code locations for this alert.
+    * number: The security alert number.
+    * push_protection_bypassed: Whether push protection was bypassed for the detected secret.
+    * push_protection_bypassed_at: The time that push protection was bypassed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+    * resolution: **Required when the `state` is `resolved`.** The reason for resolving the alert.
+    * resolved_at: The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+    * resolution_comment: An optional comment to resolve an alert.
+    * secret: The secret that was detected.
+    * secret_type: The type of secret that secret scanning detected.
+    * secret_type_display_name: User-friendly name for the detected secret, matching the `secret_type`.
     For a list of built-in patterns, see "[Secret scanning patterns](https://docs.github.com/enterprise-server@3.8/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security)."
+    * state: Sets the state of the secret scanning alert. You must provide `resolution` when you set the state to `resolved`.
+    * updated_at: The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+    * url: The REST API URL of the alert resource.
     */
-    public ?string $secret_type_display_name;
-    /**
-     * Sets the state of the secret scanning alert. You must provide `resolution` when you set the state to `resolved`.
-     */
-    public ?string $state;
-    /**
-     * The time that the alert was last updated in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $updated_at;
-    /**
-     * The REST API URL of the alert resource.
-     */
-    public ?string $url;
-    public function __construct(string $created_at, string $html_url, string $locations_url, int $number, bool $push_protection_bypassed, string $push_protection_bypassed_at, Schema\SimpleUser $push_protection_bypassed_by, string $resolution, string $resolved_at, Schema\SimpleUser $resolved_by, string $resolution_comment, string $secret, string $secret_type, string $secret_type_display_name, string $state, string $updated_at, string $url)
+    public function __construct(public ?string $created_at, public ?string $html_url, public ?string $locations_url, public ?int $number, public ?bool $push_protection_bypassed, public ?string $push_protection_bypassed_at, public ?Schema\SimpleUser $push_protection_bypassed_by, public ?string $resolution, public ?string $resolved_at, public ?Schema\SimpleUser $resolved_by, public ?string $resolution_comment, public ?string $secret, public ?string $secret_type, public ?string $secret_type_display_name, public ?string $state, public ?string $updated_at, public ?string $url)
     {
-        $this->created_at = $created_at;
-        $this->html_url = $html_url;
-        $this->locations_url = $locations_url;
-        $this->number = $number;
-        $this->push_protection_bypassed = $push_protection_bypassed;
-        $this->push_protection_bypassed_at = $push_protection_bypassed_at;
-        $this->push_protection_bypassed_by = $push_protection_bypassed_by;
-        $this->resolution = $resolution;
-        $this->resolved_at = $resolved_at;
-        $this->resolved_by = $resolved_by;
-        $this->resolution_comment = $resolution_comment;
-        $this->secret = $secret;
-        $this->secret_type = $secret_type;
-        $this->secret_type_display_name = $secret_type_display_name;
-        $this->state = $state;
-        $this->updated_at = $updated_at;
-        $this->url = $url;
     }
 }

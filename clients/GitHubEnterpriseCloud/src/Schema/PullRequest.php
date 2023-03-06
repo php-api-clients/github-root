@@ -13,136 +13,20 @@ final readonly class PullRequest
     public const SCHEMA_TITLE = 'Pull Request';
     public const SCHEMA_DESCRIPTION = 'Pull requests let you tell others about changes you\'ve pushed to a repository on GitHub. Once a pull request is sent, interested parties can review the set of changes, discuss potential modifications, and even push follow-up commits if necessary.';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/1347","id":1,"node_id":"MDExOlB1bGxSZXF1ZXN0MQ==","html_url":"https:\\/\\/github.com\\/octocat\\/Hello-World\\/pull\\/1347","diff_url":"https:\\/\\/github.com\\/octocat\\/Hello-World\\/pull\\/1347.diff","patch_url":"https:\\/\\/github.com\\/octocat\\/Hello-World\\/pull\\/1347.patch","issue_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/1347","commits_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/1347\\/commits","review_comments_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/1347\\/comments","review_comment_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/comments{\\/number}","comments_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/1347\\/comments","statuses_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/statuses\\/6dcb09b5b57875f334f61aebed695e2e4193db5e","number":42,"state":"open","locked":true,"title":"Amazing new feature","user":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"body":"Please pull these awesome changes","labels":[{"id":13,"node_id":"generated_node_id","url":"generated_url","name":"generated_name","description":"generated_description","color":"generated_color","default":false}],"milestone":{"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/milestones\\/1","html_url":"https:\\/\\/github.com\\/octocat\\/Hello-World\\/milestones\\/v1.0","labels_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/milestones\\/1\\/labels","id":1002604,"node_id":"MDk6TWlsZXN0b25lMTAwMjYwNA==","number":42,"state":"open","title":"v1.0","description":"Tracking milestone for version 1.0","creator":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"open_issues":4,"closed_issues":8,"created_at":"2011-04-10T20:09:31Z","updated_at":"2014-03-03T18:58:10Z","closed_at":"2013-02-12T13:22:01Z","due_on":"2012-10-09T23:39:01Z"},"active_lock_reason":"too heated","created_at":"2011-01-26T19:01:12Z","updated_at":"2011-01-26T19:01:12Z","closed_at":"2011-01-26T19:01:12Z","merged_at":"2011-01-26T19:01:12Z","merge_commit_sha":"e5bd3914e2e596debea16f433f57875b5b90bcd6","assignee":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"assignees":[{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""}],"requested_reviewers":[{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""}],"requested_teams":[{"id":1,"node_id":"MDQ6VGVhbTE=","url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1","members_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}","name":"Justice League","description":"A great team.","permission":"admin","privacy":"closed","html_url":"https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core","repositories_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos","slug":"justice-league","ldap_dn":"uid=example,ou=users,dc=github,dc=com"}],"head":{"label":"generated_label","ref":"generated_ref","repo":{"archive_url":"generated_archive_url","assignees_url":"generated_assignees_url","blobs_url":"generated_blobs_url","branches_url":"generated_branches_url","collaborators_url":"generated_collaborators_url","comments_url":"generated_comments_url","commits_url":"generated_commits_url","compare_url":"generated_compare_url","contents_url":"generated_contents_url","contributors_url":"generated_contributors_url","deployments_url":"generated_deployments_url","description":"generated_description","downloads_url":"generated_downloads_url","events_url":"generated_events_url","fork":false,"forks_url":"generated_forks_url","full_name":"generated_full_name","git_commits_url":"generated_git_commits_url","git_refs_url":"generated_git_refs_url","git_tags_url":"generated_git_tags_url","hooks_url":"generated_hooks_url","html_url":"generated_html_url","id":13,"node_id":"generated_node_id","issue_comment_url":"generated_issue_comment_url","issue_events_url":"generated_issue_events_url","issues_url":"generated_issues_url","keys_url":"generated_keys_url","labels_url":"generated_labels_url","languages_url":"generated_languages_url","merges_url":"generated_merges_url","milestones_url":"generated_milestones_url","name":"generated_name","notifications_url":"generated_notifications_url","owner":{"avatar_url":"generated_avatar_url","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"node_id":"generated_node_id","login":"generated_login","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"private":false,"pulls_url":"generated_pulls_url","releases_url":"generated_releases_url","stargazers_url":"generated_stargazers_url","statuses_url":"generated_statuses_url","subscribers_url":"generated_subscribers_url","subscription_url":"generated_subscription_url","tags_url":"generated_tags_url","teams_url":"generated_teams_url","trees_url":"generated_trees_url","url":"generated_url","clone_url":"generated_clone_url","default_branch":"generated_default_branch","forks":13,"forks_count":13,"git_url":"generated_git_url","has_downloads":false,"has_issues":false,"has_projects":false,"has_wiki":false,"has_pages":false,"has_discussions":false,"homepage":"generated_homepage","language":"generated_language","master_branch":"generated_master_branch","archived":false,"disabled":false,"visibility":"generated_visibility","mirror_url":"generated_mirror_url","open_issues":13,"open_issues_count":13,"permissions":{"admin":false,"maintain":false,"push":false,"triage":false,"pull":false},"temp_clone_token":"generated_temp_clone_token","allow_merge_commit":false,"allow_squash_merge":false,"allow_rebase_merge":false,"license":{"key":"generated_key","name":"generated_name","url":"generated_url","spdx_id":"generated_spdx_id","node_id":"generated_node_id"},"pushed_at":"generated_pushed_at","size":13,"ssh_url":"generated_ssh_url","stargazers_count":13,"svn_url":"generated_svn_url","topics":["generated_topics"],"watchers":13,"watchers_count":13,"created_at":"generated_created_at","updated_at":"generated_updated_at","allow_forking":false,"is_template":false,"web_commit_signoff_required":false},"sha":"generated_sha","user":{"avatar_url":"generated_avatar_url","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"node_id":"generated_node_id","login":"generated_login","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"}},"base":{"label":"generated_label","ref":"generated_ref","repo":{"archive_url":"generated_archive_url","assignees_url":"generated_assignees_url","blobs_url":"generated_blobs_url","branches_url":"generated_branches_url","collaborators_url":"generated_collaborators_url","comments_url":"generated_comments_url","commits_url":"generated_commits_url","compare_url":"generated_compare_url","contents_url":"generated_contents_url","contributors_url":"generated_contributors_url","deployments_url":"generated_deployments_url","description":"generated_description","downloads_url":"generated_downloads_url","events_url":"generated_events_url","fork":false,"forks_url":"generated_forks_url","full_name":"generated_full_name","git_commits_url":"generated_git_commits_url","git_refs_url":"generated_git_refs_url","git_tags_url":"generated_git_tags_url","hooks_url":"generated_hooks_url","html_url":"generated_html_url","id":13,"is_template":false,"node_id":"generated_node_id","issue_comment_url":"generated_issue_comment_url","issue_events_url":"generated_issue_events_url","issues_url":"generated_issues_url","keys_url":"generated_keys_url","labels_url":"generated_labels_url","languages_url":"generated_languages_url","merges_url":"generated_merges_url","milestones_url":"generated_milestones_url","name":"generated_name","notifications_url":"generated_notifications_url","owner":{"avatar_url":"generated_avatar_url","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"node_id":"generated_node_id","login":"generated_login","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"private":false,"pulls_url":"generated_pulls_url","releases_url":"generated_releases_url","stargazers_url":"generated_stargazers_url","statuses_url":"generated_statuses_url","subscribers_url":"generated_subscribers_url","subscription_url":"generated_subscription_url","tags_url":"generated_tags_url","teams_url":"generated_teams_url","trees_url":"generated_trees_url","url":"generated_url","clone_url":"generated_clone_url","default_branch":"generated_default_branch","forks":13,"forks_count":13,"git_url":"generated_git_url","has_downloads":false,"has_issues":false,"has_projects":false,"has_wiki":false,"has_pages":false,"has_discussions":false,"homepage":"generated_homepage","language":"generated_language","master_branch":"generated_master_branch","archived":false,"disabled":false,"visibility":"generated_visibility","mirror_url":"generated_mirror_url","open_issues":13,"open_issues_count":13,"permissions":{"admin":false,"maintain":false,"push":false,"triage":false,"pull":false},"temp_clone_token":"generated_temp_clone_token","allow_merge_commit":false,"allow_squash_merge":false,"allow_rebase_merge":false,"license":{"key":"mit","name":"MIT License","url":"https:\\/\\/api.github.com\\/licenses\\/mit","spdx_id":"MIT","node_id":"MDc6TGljZW5zZW1pdA==","html_url":"generated_html_url"},"pushed_at":"generated_pushed_at","size":13,"ssh_url":"generated_ssh_url","stargazers_count":13,"svn_url":"generated_svn_url","topics":["generated_topics"],"watchers":13,"watchers_count":13,"created_at":"generated_created_at","updated_at":"generated_updated_at","allow_forking":false,"web_commit_signoff_required":false},"sha":"generated_sha","user":{"avatar_url":"generated_avatar_url","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"node_id":"generated_node_id","login":"generated_login","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"}},"_links":{"comments":{"href":"generated_href"},"commits":{"href":"generated_href"},"statuses":{"href":"generated_href"},"html":{"href":"generated_href"},"issue":{"href":"generated_href"},"review_comments":{"href":"generated_href"},"review_comment":{"href":"generated_href"},"self":{"href":"generated_href"}},"author_association":"OWNER","auto_merge":{"enabled_by":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"merge_method":"generated_merge_method","commit_title":"generated_commit_title","commit_message":"generated_commit_message"},"draft":false,"merged":false,"mergeable":true,"rebaseable":true,"mergeable_state":"clean","merged_by":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"comments":10,"review_comments":0,"maintainer_can_modify":true,"commits":3,"additions":100,"deletions":3,"changed_files":5}';
-    public ?string $url;
-    public ?int $id;
-    public ?string $node_id;
-    public ?string $html_url;
-    public ?string $diff_url;
-    public ?string $patch_url;
-    public ?string $issue_url;
-    public ?string $commits_url;
-    public ?string $review_comments_url;
-    public ?string $review_comment_url;
-    public ?string $comments_url;
-    public ?string $statuses_url;
     /**
-     * Number uniquely identifying the pull request within its repository.
+     * number: Number uniquely identifying the pull request within its repository.
+     * state: State of this Pull Request. Either `open` or `closed`.
+     * title: The title of the pull request.
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\PullRequest\Labels> $labels
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser> $assignees
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser> $requested_reviewers
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamSimple> $requested_teams
+     * author_association: How the author is associated with the repository.
+     * auto_merge: The status of auto merging a pull request.
+     * draft: Indicates whether or not the pull request is a draft.
+     * maintainer_can_modify: Indicates whether maintainers can modify the pull request.
      */
-    public ?int $number;
-    /**
-     * State of this Pull Request. Either `open` or `closed`.
-     */
-    public ?string $state;
-    public ?bool $locked;
-    /**
-     * The title of the pull request.
-     */
-    public ?string $title;
-    public ?Schema\SimpleUser $user;
-    public ?string $body;
-    /**
-     * @var array<Schema\PullRequest\Labels>
-     */
-    public ?array $labels;
-    public ?Schema\Milestone $milestone;
-    public ?string $active_lock_reason;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public ?string $closed_at;
-    public ?string $merged_at;
-    public ?string $merge_commit_sha;
-    public ?Schema\SimpleUser $assignee;
-    /**
-     * @var array<Schema\SimpleUser>
-     */
-    public ?array $assignees;
-    /**
-     * @var array<Schema\SimpleUser>
-     */
-    public ?array $requested_reviewers;
-    /**
-     * @var array<Schema\TeamSimple>
-     */
-    public ?array $requested_teams;
-    public ?Schema\PullRequest\Head $head;
-    public ?Schema\PullRequest\Base $base;
-    public ?Schema\PullRequestSimple\Links $_links;
-    /**
-     * How the author is associated with the repository.
-     */
-    public ?string $author_association;
-    /**
-     * The status of auto merging a pull request.
-     */
-    public ?Schema\AutoMerge $auto_merge;
-    /**
-     * Indicates whether or not the pull request is a draft.
-     */
-    public bool $draft;
-    public ?bool $merged;
-    public ?bool $mergeable;
-    public ?bool $rebaseable;
-    public ?string $mergeable_state;
-    public ?Schema\SimpleUser $merged_by;
-    public ?int $comments;
-    public ?int $review_comments;
-    /**
-     * Indicates whether maintainers can modify the pull request.
-     */
-    public ?bool $maintainer_can_modify;
-    public ?int $commits;
-    public ?int $additions;
-    public ?int $deletions;
-    public ?int $changed_files;
-    public function __construct(string $url, int $id, string $node_id, string $html_url, string $diff_url, string $patch_url, string $issue_url, string $commits_url, string $review_comments_url, string $review_comment_url, string $comments_url, string $statuses_url, int $number, string $state, bool $locked, string $title, Schema\SimpleUser $user, string $body, array $labels, Schema\Milestone $milestone, string $active_lock_reason, string $created_at, string $updated_at, string $closed_at, string $merged_at, string $merge_commit_sha, Schema\SimpleUser $assignee, array $assignees, array $requested_reviewers, array $requested_teams, Schema\PullRequest\Head $head, Schema\PullRequest\Base $base, Schema\PullRequestSimple\Links $_links, string $author_association, Schema\AutoMerge $auto_merge, bool $draft, bool $merged, bool $mergeable, bool $rebaseable, string $mergeable_state, Schema\SimpleUser $merged_by, int $comments, int $review_comments, bool $maintainer_can_modify, int $commits, int $additions, int $deletions, int $changed_files)
+    public function __construct(public ?string $url, public ?int $id, public ?string $node_id, public ?string $html_url, public ?string $diff_url, public ?string $patch_url, public ?string $issue_url, public ?string $commits_url, public ?string $review_comments_url, public ?string $review_comment_url, public ?string $comments_url, public ?string $statuses_url, public ?int $number, public ?string $state, public ?bool $locked, public ?string $title, public ?Schema\SimpleUser $user, public ?string $body, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\PullRequest\Labels::class)] public ?array $labels, public ?Schema\Milestone $milestone, public ?string $active_lock_reason, public ?string $created_at, public ?string $updated_at, public ?string $closed_at, public ?string $merged_at, public ?string $merge_commit_sha, public ?Schema\SimpleUser $assignee, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\SimpleUser::class)] public ?array $assignees, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\SimpleUser::class)] public ?array $requested_reviewers, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\TeamSimple::class)] public ?array $requested_teams, public ?Schema\PullRequest\Head $head, public ?Schema\PullRequest\Base $base, public ?Schema\PullRequestSimple\Links $_links, public ?string $author_association, public ?Schema\AutoMerge $auto_merge, public bool $draft, public ?bool $merged, public ?bool $mergeable, public ?bool $rebaseable, public ?string $mergeable_state, public ?Schema\SimpleUser $merged_by, public ?int $comments, public ?int $review_comments, public ?bool $maintainer_can_modify, public ?int $commits, public ?int $additions, public ?int $deletions, public ?int $changed_files)
     {
-        $this->url = $url;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->html_url = $html_url;
-        $this->diff_url = $diff_url;
-        $this->patch_url = $patch_url;
-        $this->issue_url = $issue_url;
-        $this->commits_url = $commits_url;
-        $this->review_comments_url = $review_comments_url;
-        $this->review_comment_url = $review_comment_url;
-        $this->comments_url = $comments_url;
-        $this->statuses_url = $statuses_url;
-        $this->number = $number;
-        $this->state = $state;
-        $this->locked = $locked;
-        $this->title = $title;
-        $this->user = $user;
-        $this->body = $body;
-        $this->labels = $labels;
-        $this->milestone = $milestone;
-        $this->active_lock_reason = $active_lock_reason;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->closed_at = $closed_at;
-        $this->merged_at = $merged_at;
-        $this->merge_commit_sha = $merge_commit_sha;
-        $this->assignee = $assignee;
-        $this->assignees = $assignees;
-        $this->requested_reviewers = $requested_reviewers;
-        $this->requested_teams = $requested_teams;
-        $this->head = $head;
-        $this->base = $base;
-        $this->_links = $_links;
-        $this->author_association = $author_association;
-        $this->auto_merge = $auto_merge;
-        $this->draft = $draft;
-        $this->merged = $merged;
-        $this->mergeable = $mergeable;
-        $this->rebaseable = $rebaseable;
-        $this->mergeable_state = $mergeable_state;
-        $this->merged_by = $merged_by;
-        $this->comments = $comments;
-        $this->review_comments = $review_comments;
-        $this->maintainer_can_modify = $maintainer_can_modify;
-        $this->commits = $commits;
-        $this->additions = $additions;
-        $this->deletions = $deletions;
-        $this->changed_files = $changed_files;
     }
 }

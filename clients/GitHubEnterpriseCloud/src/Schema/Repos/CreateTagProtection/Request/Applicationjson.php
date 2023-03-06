@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"pattern":"generated_pattern"}';
     /**
-     * An optional glob pattern to match against when enforcing tag protection.
+     * pattern: An optional glob pattern to match against when enforcing tag protection.
      */
-    public ?string $pattern;
-    public function __construct(string $pattern)
+    public function __construct(public ?string $pattern)
     {
-        $this->pattern = $pattern;
     }
 }

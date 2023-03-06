@@ -14,12 +14,10 @@ final readonly class OidcCustomSub
     public const SCHEMA_DESCRIPTION = 'Actions OIDC Subject customization';
     public const SCHEMA_EXAMPLE_DATA = '{"include_claim_keys":["generated_include_claim_keys"]}';
     /**
-     * Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.
-     * @var array<string>
+     * include_claim_keys: Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.
+     * @param ?array<string> $include_claim_keys
      */
-    public ?array $include_claim_keys;
-    public function __construct(array $include_claim_keys)
+    public function __construct(public ?array $include_claim_keys)
     {
-        $this->include_claim_keys = $include_claim_keys;
     }
 }

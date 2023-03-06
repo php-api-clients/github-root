@@ -13,14 +13,10 @@ final readonly class H200
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_count":13,"artifacts":[{"id":5,"node_id":"MDEwOkNoZWNrU3VpdGU1","name":"AdventureWorks.Framework","size_in_bytes":12345,"url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/artifacts\\/5","archive_download_url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/artifacts\\/5\\/zip","expired":false,"created_at":"generated_created_at","expires_at":"generated_expires_at","updated_at":"generated_updated_at","workflow_run":{"id":10,"repository_id":42,"head_repository_id":42,"head_branch":"main","head_sha":"009b8a3a9ccbb128af87f9b1c0f4c62e8a304f6d"}}]}';
-    public ?int $total_count;
     /**
-     * @var array<Schema\Artifact>
+     * @param ?array<\ApiClients\Client\GitHubAE\Schema\Artifact> $artifacts
      */
-    public ?array $artifacts;
-    public function __construct(int $total_count, array $artifacts)
+    public function __construct(public ?int $total_count, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Artifact::class)] public ?array $artifacts)
     {
-        $this->total_count = $total_count;
-        $this->artifacts = $artifacts;
     }
 }

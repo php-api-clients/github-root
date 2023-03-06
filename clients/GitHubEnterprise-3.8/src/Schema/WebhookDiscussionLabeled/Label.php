@@ -14,29 +14,11 @@ final readonly class Label
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"color":"generated_color","default":false,"description":"generated_description","id":13,"name":"generated_name","node_id":"generated_node_id","url":"generated_url"}';
     /**
-     * 6-character hex code, without the leading #, identifying the color
+     * color: 6-character hex code, without the leading #, identifying the color
+     * name: The name of the label.
+     * url: URL for the label
      */
-    public ?string $color;
-    public ?bool $default;
-    public ?string $description;
-    public ?int $id;
-    /**
-     * The name of the label.
-     */
-    public ?string $name;
-    public ?string $node_id;
-    /**
-     * URL for the label
-     */
-    public ?string $url;
-    public function __construct(string $color, bool $default, string $description, int $id, string $name, string $node_id, string $url)
+    public function __construct(public ?string $color, public ?bool $default, public ?string $description, public ?int $id, public ?string $name, public ?string $node_id, public ?string $url)
     {
-        $this->color = $color;
-        $this->default = $default;
-        $this->description = $description;
-        $this->id = $id;
-        $this->name = $name;
-        $this->node_id = $node_id;
-        $this->url = $url;
     }
 }

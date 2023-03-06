@@ -39,7 +39,7 @@ class CbBaseheadRcb implements ObjectMapper
                 $value = $payload['change_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'change_type';
+                    $properties['change_type'] = null;
                     goto after_change_type;
                 }
 
@@ -50,7 +50,7 @@ class CbBaseheadRcb implements ObjectMapper
                 $value = $payload['manifest'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'manifest';
+                    $properties['manifest'] = null;
                     goto after_manifest;
                 }
 
@@ -61,7 +61,7 @@ class CbBaseheadRcb implements ObjectMapper
                 $value = $payload['ecosystem'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ecosystem';
+                    $properties['ecosystem'] = null;
                     goto after_ecosystem;
                 }
 
@@ -72,7 +72,7 @@ class CbBaseheadRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -83,7 +83,7 @@ class CbBaseheadRcb implements ObjectMapper
                 $value = $payload['version'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'version';
+                    $properties['version'] = null;
                     goto after_version;
                 }
 
@@ -94,7 +94,7 @@ class CbBaseheadRcb implements ObjectMapper
                 $value = $payload['package_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'package_url';
+                    $properties['package_url'] = null;
                     goto after_package_url;
                 }
 
@@ -105,7 +105,7 @@ class CbBaseheadRcb implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'license';
+                    $properties['license'] = null;
                     goto after_license;
                 }
 
@@ -116,7 +116,7 @@ class CbBaseheadRcb implements ObjectMapper
                 $value = $payload['source_repository_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'source_repository_url';
+                    $properties['source_repository_url'] = null;
                     goto after_source_repository_url;
                 }
 
@@ -127,9 +127,19 @@ class CbBaseheadRcb implements ObjectMapper
                 $value = $payload['vulnerabilities'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'vulnerabilities';
+                    $properties['vulnerabilities'] = null;
                     goto after_vulnerabilities;
                 }
+
+                static $vulnerabilitiesCaster1;
+    
+                if ($vulnerabilitiesCaster1 === null) {
+                    $vulnerabilitiesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\DependencyGraphDiff\\Vulnerabilities',
+));
+                }
+    
+                $value = $vulnerabilitiesCaster1->cast($value, $this);
 
                 $properties['vulnerabilities'] = $value;
     
@@ -138,7 +148,7 @@ class CbBaseheadRcb implements ObjectMapper
                 $value = $payload['scope'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'scope';
+                    $properties['scope'] = null;
                     goto after_scope;
                 }
 
@@ -171,7 +181,7 @@ class CbBaseheadRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -182,7 +192,7 @@ class CbBaseheadRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -193,7 +203,7 @@ class CbBaseheadRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -204,7 +214,7 @@ class CbBaseheadRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -390,7 +400,8 @@ class CbBaseheadRcb implements ObjectMapper
         static $vulnerabilitiesSerializer0;
 
         if ($vulnerabilitiesSerializer0 === null) {
-            $vulnerabilitiesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $vulnerabilitiesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\DependencyGraphDiff\\Vulnerabilities',
 ));
         }
         

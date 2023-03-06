@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = 'The source branch and directory used to publish your Pages site.';
     public const SCHEMA_EXAMPLE_DATA = '{"build_type":"generated_build_type","source":{"branch":"generated_branch","path":"generated_path"}}';
     /**
-     * The process in which the Page will be built. Possible values are `"legacy"` and `"workflow"`.
+     * build_type: The process in which the Page will be built. Possible values are `"legacy"` and `"workflow"`.
+     * source: The source branch and directory used to publish your Pages site.
      */
-    public ?string $build_type;
-    /**
-     * The source branch and directory used to publish your Pages site.
-     */
-    public ?Schema\Repos\CreatePagesSite\Request\Applicationjson\Source $source;
-    public function __construct(string $build_type, Schema\Repos\CreatePagesSite\Request\Applicationjson\Source $source)
+    public function __construct(public ?string $build_type, public ?Schema\Repos\CreatePagesSite\Request\Applicationjson\Source $source)
     {
-        $this->build_type = $build_type;
-        $this->source = $source;
     }
 }

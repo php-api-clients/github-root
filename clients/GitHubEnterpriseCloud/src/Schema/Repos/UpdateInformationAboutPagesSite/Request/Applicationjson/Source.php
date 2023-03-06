@@ -14,16 +14,10 @@ final readonly class Source
     public const SCHEMA_DESCRIPTION = 'Update the source for the repository. Must include the branch name and path.';
     public const SCHEMA_EXAMPLE_DATA = '{"branch":"generated_branch","path":"generated_path"}';
     /**
-     * The repository branch used to publish your site's source files.
+     * branch: The repository branch used to publish your site's source files.
+     * path: The repository directory that includes the source files for the Pages site. Allowed paths are `/` or `/docs`.
      */
-    public ?string $branch;
-    /**
-     * The repository directory that includes the source files for the Pages site. Allowed paths are `/` or `/docs`.
-     */
-    public ?string $path;
-    public function __construct(string $branch, string $path)
+    public function __construct(public ?string $branch, public ?string $path)
     {
-        $this->branch = $branch;
-        $this->path = $path;
     }
 }

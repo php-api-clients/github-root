@@ -38,7 +38,7 @@ class Users implements ObjectMapper
                 $value = $payload['total_users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_users';
+                    $properties['total_users'] = null;
                     goto after_total_users;
                 }
 
@@ -49,7 +49,7 @@ class Users implements ObjectMapper
                 $value = $payload['admin_users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin_users';
+                    $properties['admin_users'] = null;
                     goto after_admin_users;
                 }
 
@@ -60,7 +60,7 @@ class Users implements ObjectMapper
                 $value = $payload['suspended_users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'suspended_users';
+                    $properties['suspended_users'] = null;
                     goto after_suspended_users;
                 }
 

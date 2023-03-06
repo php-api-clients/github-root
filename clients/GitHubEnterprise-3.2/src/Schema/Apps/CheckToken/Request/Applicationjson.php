@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"access_token":"generated_access_token"}';
     /**
-     * The access_token of the OAuth application.
+     * access_token: The access_token of the OAuth application.
      */
-    public ?string $access_token;
-    public function __construct(string $access_token)
+    public function __construct(public ?string $access_token)
     {
-        $this->access_token = $access_token;
     }
 }

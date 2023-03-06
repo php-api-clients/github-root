@@ -14,21 +14,11 @@ final readonly class CombinedBillingUsage
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"days_left_in_billing_cycle":13,"estimated_paid_storage_for_month":13,"estimated_storage_for_month":13}';
     /**
-     * Numbers of days left in billing cycle.
+     * days_left_in_billing_cycle: Numbers of days left in billing cycle.
+     * estimated_paid_storage_for_month: Estimated storage space (GB) used in billing cycle.
+     * estimated_storage_for_month: Estimated sum of free and paid storage space (GB) used in billing cycle.
      */
-    public ?int $days_left_in_billing_cycle;
-    /**
-     * Estimated storage space (GB) used in billing cycle.
-     */
-    public ?int $estimated_paid_storage_for_month;
-    /**
-     * Estimated sum of free and paid storage space (GB) used in billing cycle.
-     */
-    public ?int $estimated_storage_for_month;
-    public function __construct(int $days_left_in_billing_cycle, int $estimated_paid_storage_for_month, int $estimated_storage_for_month)
+    public function __construct(public ?int $days_left_in_billing_cycle, public ?int $estimated_paid_storage_for_month, public ?int $estimated_storage_for_month)
     {
-        $this->days_left_in_billing_cycle = $days_left_in_billing_cycle;
-        $this->estimated_paid_storage_for_month = $estimated_paid_storage_for_month;
-        $this->estimated_storage_for_month = $estimated_storage_for_month;
     }
 }

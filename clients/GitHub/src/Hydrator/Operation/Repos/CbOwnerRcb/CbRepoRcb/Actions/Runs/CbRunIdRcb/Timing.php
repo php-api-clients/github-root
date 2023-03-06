@@ -40,7 +40,7 @@ class Timing implements ObjectMapper
                 $value = $payload['billable'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'billable';
+                    $properties['billable'] = null;
                     goto after_billable;
                 }
 
@@ -93,7 +93,7 @@ class Timing implements ObjectMapper
                 $value = $payload['u_b_u_n_t_u'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'u_b_u_n_t_u';
+                    $properties['UBUNTU'] = null;
                     goto after_UBUNTU;
                 }
 
@@ -113,7 +113,7 @@ class Timing implements ObjectMapper
                 $value = $payload['m_a_c_o_s'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'm_a_c_o_s';
+                    $properties['MACOS'] = null;
                     goto after_MACOS;
                 }
 
@@ -133,7 +133,7 @@ class Timing implements ObjectMapper
                 $value = $payload['w_i_n_d_o_w_s'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'w_i_n_d_o_w_s';
+                    $properties['WINDOWS'] = null;
                     goto after_WINDOWS;
                 }
 
@@ -175,7 +175,7 @@ class Timing implements ObjectMapper
                 $value = $payload['total_ms'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_ms';
+                    $properties['total_ms'] = null;
                     goto after_total_ms;
                 }
 
@@ -186,7 +186,7 @@ class Timing implements ObjectMapper
                 $value = $payload['jobs'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'jobs';
+                    $properties['jobs'] = null;
                     goto after_jobs;
                 }
 
@@ -200,6 +200,16 @@ class Timing implements ObjectMapper
                     $missingFields[] = 'job_runs';
                     goto after_job_runs;
                 }
+
+                static $job_runsCaster1;
+    
+                if ($job_runsCaster1 === null) {
+                    $job_runsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\WorkflowRunUsage\\Billable\\Ubuntu\\JobRuns',
+));
+                }
+    
+                $value = $job_runsCaster1->cast($value, $this);
 
                 $properties['job_runs'] = $value;
     

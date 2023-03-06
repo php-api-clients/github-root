@@ -13,19 +13,11 @@ final readonly class TeamMembership
     public const SCHEMA_TITLE = 'Team Membership';
     public const SCHEMA_DESCRIPTION = 'Team Membership';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url","role":"member","state":"generated_state"}';
-    public ?string $url;
     /**
-     * The role of the user in the team.
+     * role: The role of the user in the team.
+     * state: The state of the user's membership in the team.
      */
-    public ?string $role;
-    /**
-     * The state of the user's membership in the team.
-     */
-    public ?string $state;
-    public function __construct(string $url, string $role, string $state)
+    public function __construct(public ?string $url, public ?string $role, public ?string $state)
     {
-        $this->url = $url;
-        $this->role = $role;
-        $this->state = $state;
     }
 }

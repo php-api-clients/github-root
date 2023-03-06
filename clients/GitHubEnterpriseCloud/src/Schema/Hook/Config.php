@@ -13,36 +13,12 @@ final readonly class Config
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"email":"\\"foo@bar.com\\"","password":"\\"foo\\"","room":"\\"roomer\\"","subdomain":"\\"foo\\"","url":"https:\\/\\/example.com\\/webhook","insecure_ssl":13,"content_type":"\\"json\\"","digest":"\\"sha256\\"","secret":"\\"********\\"","token":"\\"abc\\""}';
-    public ?string $email;
-    public ?string $password;
-    public ?string $room;
-    public ?string $subdomain;
     /**
-     * The URL to which the payloads will be delivered.
+     * url: The URL to which the payloads will be delivered.
+     * content_type: The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
+     * secret: If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers).
      */
-    public ?string $url;
-    public ?int $insecure_ssl;
-    /**
-     * The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
-     */
-    public ?string $content_type;
-    public ?string $digest;
-    /**
-     * If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#delivery-headers).
-     */
-    public ?string $secret;
-    public ?string $token;
-    public function __construct(string $email, string $password, string $room, string $subdomain, string $url, int $insecure_ssl, string $content_type, string $digest, string $secret, string $token)
+    public function __construct(public ?string $email, public ?string $password, public ?string $room, public ?string $subdomain, public ?string $url, public ?int $insecure_ssl, public ?string $content_type, public ?string $digest, public ?string $secret, public ?string $token)
     {
-        $this->email = $email;
-        $this->password = $password;
-        $this->room = $room;
-        $this->subdomain = $subdomain;
-        $this->url = $url;
-        $this->insecure_ssl = $insecure_ssl;
-        $this->content_type = $content_type;
-        $this->digest = $digest;
-        $this->secret = $secret;
-        $this->token = $token;
     }
 }

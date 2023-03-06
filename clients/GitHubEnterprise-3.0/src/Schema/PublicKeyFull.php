@@ -13,27 +13,7 @@ final readonly class PublicKeyFull
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"key":"generated_key","user_id":13,"repository_id":13,"url":"generated_url","title":"generated_title","read_only":false,"verified":false,"created_at":"generated_created_at","last_used":"generated_last_used"}';
-    public ?int $id;
-    public ?string $key;
-    public ?int $user_id;
-    public ?int $repository_id;
-    public ?string $url;
-    public ?string $title;
-    public ?bool $read_only;
-    public ?bool $verified;
-    public ?string $created_at;
-    public ?string $last_used;
-    public function __construct(int $id, string $key, int $user_id, int $repository_id, string $url, string $title, bool $read_only, bool $verified, string $created_at, string $last_used)
+    public function __construct(public ?int $id, public ?string $key, public ?int $user_id, public ?int $repository_id, public ?string $url, public ?string $title, public ?bool $read_only, public ?bool $verified, public ?string $created_at, public ?string $last_used)
     {
-        $this->id = $id;
-        $this->key = $key;
-        $this->user_id = $user_id;
-        $this->repository_id = $repository_id;
-        $this->url = $url;
-        $this->title = $title;
-        $this->read_only = $read_only;
-        $this->verified = $verified;
-        $this->created_at = $created_at;
-        $this->last_used = $last_used;
     }
 }

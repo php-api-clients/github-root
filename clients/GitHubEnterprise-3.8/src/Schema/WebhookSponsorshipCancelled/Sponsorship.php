@@ -13,24 +13,10 @@ final readonly class Sponsorship
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"created_at":"generated_created_at","maintainer":{"avatar_url":"generated_avatar_url","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"node_id":"generated_node_id","privacy_level":"generated_privacy_level","sponsor":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"sponsorable":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"tier":{"created_at":"generated_created_at","description":"generated_description","is_custom_ammount":false,"is_custom_amount":false,"is_one_time":false,"monthly_price_in_cents":13,"monthly_price_in_dollars":13,"name":"generated_name","node_id":"generated_node_id"}}';
-    public ?string $created_at;
-    public Schema\WebhookDeploymentCreated\WorkflowRun\HeadRepository\Owner $maintainer;
-    public ?string $node_id;
-    public ?string $privacy_level;
-    public ?Schema\Discussion\AnswerChosenBy $sponsor;
-    public ?Schema\Discussion\AnswerChosenBy $sponsorable;
     /**
-     * The `tier_changed` and `pending_tier_change` will include the original tier before the change or pending change. For more information, see the pending tier change payload.
+     * tier: The `tier_changed` and `pending_tier_change` will include the original tier before the change or pending change. For more information, see the pending tier change payload.
      */
-    public ?Schema\WebhookSponsorshipCancelled\Sponsorship\Tier $tier;
-    public function __construct(string $created_at, Schema\WebhookDeploymentCreated\WorkflowRun\HeadRepository\Owner $maintainer, string $node_id, string $privacy_level, Schema\Discussion\AnswerChosenBy $sponsor, Schema\Discussion\AnswerChosenBy $sponsorable, Schema\WebhookSponsorshipCancelled\Sponsorship\Tier $tier)
+    public function __construct(public ?string $created_at, public Schema\WebhookDeploymentCreated\WorkflowRun\HeadRepository\Owner $maintainer, public ?string $node_id, public ?string $privacy_level, public ?Schema\Discussion\AnswerChosenBy $sponsor, public ?Schema\Discussion\AnswerChosenBy $sponsorable, public ?Schema\WebhookSponsorshipCancelled\Sponsorship\Tier $tier)
     {
-        $this->created_at = $created_at;
-        $this->maintainer = $maintainer;
-        $this->node_id = $node_id;
-        $this->privacy_level = $privacy_level;
-        $this->sponsor = $sponsor;
-        $this->sponsorable = $sponsorable;
-        $this->tier = $tier;
     }
 }

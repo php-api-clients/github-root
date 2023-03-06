@@ -41,7 +41,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -52,7 +52,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -63,7 +63,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['enforcement'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enforcement';
+                    $properties['enforcement'] = null;
                     goto after_enforcement;
                 }
 
@@ -74,7 +74,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['script'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'script';
+                    $properties['script'] = null;
                     goto after_script;
                 }
 
@@ -85,7 +85,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['script_repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'script_repository';
+                    $properties['script_repository'] = null;
                     goto after_script_repository;
                 }
 
@@ -105,7 +105,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['environment'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'environment';
+                    $properties['environment'] = null;
                     goto after_environment;
                 }
 
@@ -125,7 +125,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['allow_downstream_configuration'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_downstream_configuration';
+                    $properties['allow_downstream_configuration'] = null;
                     goto after_allow_downstream_configuration;
                 }
 
@@ -158,7 +158,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -169,7 +169,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['full_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'full_name';
+                    $properties['full_name'] = null;
                     goto after_full_name;
                 }
 
@@ -180,7 +180,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -191,7 +191,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -224,7 +224,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -235,7 +235,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -246,7 +246,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['image_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'image_url';
+                    $properties['image_url'] = null;
                     goto after_image_url;
                 }
 
@@ -257,7 +257,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -268,7 +268,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -279,7 +279,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['default_environment'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default_environment';
+                    $properties['default_environment'] = null;
                     goto after_default_environment;
                 }
 
@@ -290,7 +290,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -301,7 +301,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['hooks_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_count';
+                    $properties['hooks_count'] = null;
                     goto after_hooks_count;
                 }
 
@@ -312,7 +312,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['download'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'download';
+                    $properties['download'] = null;
                     goto after_download;
                 }
 
@@ -354,7 +354,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -365,7 +365,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'state';
+                    $properties['state'] = null;
                     goto after_state;
                 }
 
@@ -376,7 +376,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['downloaded_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'downloaded_at';
+                    $properties['downloaded_at'] = null;
                     goto after_downloaded_at;
                 }
 
@@ -387,7 +387,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 

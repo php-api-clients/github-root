@@ -13,13 +13,7 @@ final readonly class NugetMetadata
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"name":"generated_name","value":{"url":"generated_url","branch":"generated_branch","commit":"generated_commit","type":"generated_type"}}';
-    public ?int $id;
-    public ?string $name;
-    public ?Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value $value;
-    public function __construct(int $id, string $name, Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value $value)
+    public function __construct(public ?int $id, public ?string $name, public ?Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value $value)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->value = $value;
     }
 }

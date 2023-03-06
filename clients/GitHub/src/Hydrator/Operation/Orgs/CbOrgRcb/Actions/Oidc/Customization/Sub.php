@@ -39,7 +39,7 @@ class Sub implements ObjectMapper
                 $value = $payload['include_claim_keys'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'include_claim_keys';
+                    $properties['include_claim_keys'] = null;
                     goto after_include_claim_keys;
                 }
 
@@ -72,7 +72,7 @@ class Sub implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -83,7 +83,7 @@ class Sub implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -94,7 +94,7 @@ class Sub implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -105,7 +105,7 @@ class Sub implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 

@@ -14,37 +14,13 @@ final readonly class MostRecentInstance
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"analysis_key":"generated_analysis_key","classifications":["generated_classifications"],"commit_sha":"generated_commit_sha","environment":"generated_environment","location":{"end_column":13,"end_line":13,"path":"generated_path","start_column":13,"start_line":13},"message":{"text":"generated_text"},"ref":"generated_ref","state":"generated_state"}';
     /**
-     * Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name.
+     * analysis_key: Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name.
+     * @param array<string> $classifications
+     * environment: Identifies the variable values associated with the environment in which the analysis that generated this alert instance was performed, such as the language that was analyzed.
+     * ref: The full Git reference, formatted as `refs/heads/<branch name>`.
+     * state: State of a code scanning alert.
      */
-    public ?string $analysis_key;
-    /**
-     * @var array<string>
-     */
-    public array $classifications;
-    public string $commit_sha;
-    /**
-     * Identifies the variable values associated with the environment in which the analysis that generated this alert instance was performed, such as the language that was analyzed.
-     */
-    public ?string $environment;
-    public Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\MostRecentInstance\Location $location;
-    public Schema\CodeScanningAlertInstance\Message $message;
-    /**
-     * The full Git reference, formatted as `refs/heads/<branch name>`.
-     */
-    public ?string $ref;
-    /**
-     * State of a code scanning alert.
-     */
-    public ?string $state;
-    public function __construct(string $analysis_key, array $classifications, string $commit_sha, string $environment, Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\MostRecentInstance\Location $location, Schema\CodeScanningAlertInstance\Message $message, string $ref, string $state)
+    public function __construct(public ?string $analysis_key, public array $classifications, public string $commit_sha, public ?string $environment, public Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\MostRecentInstance\Location $location, public Schema\CodeScanningAlertInstance\Message $message, public ?string $ref, public ?string $state)
     {
-        $this->analysis_key = $analysis_key;
-        $this->classifications = $classifications;
-        $this->commit_sha = $commit_sha;
-        $this->environment = $environment;
-        $this->location = $location;
-        $this->message = $message;
-        $this->ref = $ref;
-        $this->state = $state;
     }
 }

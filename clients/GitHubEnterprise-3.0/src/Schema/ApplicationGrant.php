@@ -13,24 +13,10 @@ final readonly class ApplicationGrant
     public const SCHEMA_TITLE = 'Application Grant';
     public const SCHEMA_DESCRIPTION = 'The authorization associated with an OAuth Access.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":1,"url":"https:\\/\\/api.github.com\\/applications\\/grants\\/1","app":{"client_id":"generated_client_id","name":"generated_name","url":"generated_url"},"created_at":"2011-09-06T17:26:27Z","updated_at":"2011-09-06T20:39:23Z","scopes":["public_repo"],"user":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""}}';
-    public ?int $id;
-    public ?string $url;
-    public ?Schema\Authorization\App $app;
-    public ?string $created_at;
-    public ?string $updated_at;
     /**
-     * @var array<string>
+     * @param ?array<string> $scopes
      */
-    public ?array $scopes;
-    public Schema\SimpleUser $user;
-    public function __construct(int $id, string $url, Schema\Authorization\App $app, string $created_at, string $updated_at, array $scopes, Schema\SimpleUser $user)
+    public function __construct(public ?int $id, public ?string $url, public ?Schema\Authorization\App $app, public ?string $created_at, public ?string $updated_at, public ?array $scopes, public Schema\SimpleUser $user)
     {
-        $this->id = $id;
-        $this->url = $url;
-        $this->app = $app;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->scopes = $scopes;
-        $this->user = $user;
     }
 }

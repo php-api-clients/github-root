@@ -14,11 +14,9 @@ final readonly class ActionsOidcCustomIssuerPolicyForEnterprise
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"include_enterprise_slug":true}';
     /**
-     * Whether the enterprise customer requested a custom issuer URL.
+     * include_enterprise_slug: Whether the enterprise customer requested a custom issuer URL.
      */
-    public ?bool $include_enterprise_slug;
-    public function __construct(bool $include_enterprise_slug)
+    public function __construct(public ?bool $include_enterprise_slug)
     {
-        $this->include_enterprise_slug = $include_enterprise_slug;
     }
 }

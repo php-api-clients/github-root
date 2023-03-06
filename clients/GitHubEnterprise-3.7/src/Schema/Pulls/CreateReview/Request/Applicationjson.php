@@ -14,27 +14,13 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"commit_id":"generated_commit_id","body":"generated_body","event":"generated_event","comments":[{"path":"generated_path","position":13,"body":"generated_body","line":28,"side":"RIGHT","start_line":26,"start_side":"LEFT"}]}';
     /**
-     * The SHA of the commit that needs a review. Not using the latest commit SHA may render your review comment outdated if a subsequent commit modifies the line you specify as the `position`. Defaults to the most recent commit in the pull request when you do not specify a value.
+     * commit_id: The SHA of the commit that needs a review. Not using the latest commit SHA may render your review comment outdated if a subsequent commit modifies the line you specify as the `position`. Defaults to the most recent commit in the pull request when you do not specify a value.
+     * body: **Required** when using `REQUEST_CHANGES` or `COMMENT` for the `event` parameter. The body text of the pull request review.
+     * event: The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. By leaving this blank, you set the review action state to `PENDING`, which means you will need to [submit the pull request review](https://docs.github.com/enterprise-server@3.7/rest/pulls#submit-a-review-for-a-pull-request) when you are ready.
+     * comments: Use the following table to specify the location, destination, and contents of the draft review comment.
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\Pulls\CreateReview\Request\Applicationjson\Comments> $comments
      */
-    public ?string $commit_id;
-    /**
-     * **Required** when using `REQUEST_CHANGES` or `COMMENT` for the `event` parameter. The body text of the pull request review.
-     */
-    public ?string $body;
-    /**
-     * The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. By leaving this blank, you set the review action state to `PENDING`, which means you will need to [submit the pull request review](https://docs.github.com/enterprise-server@3.7/rest/pulls#submit-a-review-for-a-pull-request) when you are ready.
-     */
-    public ?string $event;
-    /**
-     * Use the following table to specify the location, destination, and contents of the draft review comment.
-     * @var array<Schema\Pulls\CreateReview\Request\Applicationjson\Comments>
-     */
-    public ?array $comments;
-    public function __construct(string $commit_id, string $body, string $event, array $comments)
+    public function __construct(public ?string $commit_id, public ?string $body, public ?string $event, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Pulls\CreateReview\Request\Applicationjson\Comments::class)] public ?array $comments)
     {
-        $this->commit_id = $commit_id;
-        $this->body = $body;
-        $this->event = $event;
-        $this->comments = $comments;
     }
 }

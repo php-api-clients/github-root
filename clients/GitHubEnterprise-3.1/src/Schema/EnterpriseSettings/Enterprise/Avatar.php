@@ -13,11 +13,7 @@ final readonly class Avatar
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enabled":false,"uri":"generated_uri"}';
-    public ?bool $enabled;
-    public ?string $uri;
-    public function __construct(bool $enabled, string $uri)
+    public function __construct(public ?bool $enabled, public ?string $uri)
     {
-        $this->enabled = $enabled;
-        $this->uri = $uri;
     }
 }

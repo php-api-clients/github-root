@@ -13,11 +13,7 @@ final readonly class Emails
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"email":"generated_email","verified":false}';
-    public ?string $email;
-    public ?bool $verified;
-    public function __construct(string $email, bool $verified)
+    public function __construct(public ?string $email, public ?bool $verified)
     {
-        $this->email = $email;
-        $this->verified = $verified;
     }
 }

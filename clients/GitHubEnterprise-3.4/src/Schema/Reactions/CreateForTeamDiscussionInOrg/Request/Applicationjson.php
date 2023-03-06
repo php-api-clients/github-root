@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"content":"generated_content"}';
     /**
-     * The [reaction type](https://docs.github.com/enterprise-server@3.4/rest/reference/reactions#reaction-types) to add to the team discussion.
+     * content: The [reaction type](https://docs.github.com/enterprise-server@3.4/rest/reference/reactions#reaction-types) to add to the team discussion.
      */
-    public ?string $content;
-    public function __construct(string $content)
+    public function __construct(public ?string $content)
     {
-        $this->content = $content;
     }
 }

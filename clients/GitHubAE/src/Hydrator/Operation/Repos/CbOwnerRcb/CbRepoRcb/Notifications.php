@@ -45,7 +45,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -56,7 +56,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -76,7 +76,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['subject'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subject';
+                    $properties['subject'] = null;
                     goto after_subject;
                 }
 
@@ -96,7 +96,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['reason'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'reason';
+                    $properties['reason'] = null;
                     goto after_reason;
                 }
 
@@ -107,7 +107,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['unread'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'unread';
+                    $properties['unread'] = null;
                     goto after_unread;
                 }
 
@@ -118,7 +118,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -129,7 +129,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['last_read_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'last_read_at';
+                    $properties['last_read_at'] = null;
                     goto after_last_read_at;
                 }
 
@@ -140,7 +140,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -151,7 +151,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['subscription_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscription_url';
+                    $properties['subscription_url'] = null;
                     goto after_subscription_url;
                 }
 
@@ -184,7 +184,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -195,7 +195,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -228,7 +228,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -239,7 +239,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -250,7 +250,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -261,7 +261,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['full_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'full_name';
+                    $properties['full_name'] = null;
                     goto after_full_name;
                 }
 
@@ -272,7 +272,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -292,7 +292,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['private'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'private';
+                    $properties['private'] = null;
                     goto after_private;
                 }
 
@@ -303,7 +303,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -314,7 +314,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -325,7 +325,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['fork'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'fork';
+                    $properties['fork'] = null;
                     goto after_fork;
                 }
 
@@ -336,7 +336,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -347,7 +347,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['archive_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archive_url';
+                    $properties['archive_url'] = null;
                     goto after_archive_url;
                 }
 
@@ -358,7 +358,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['assignees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees_url';
+                    $properties['assignees_url'] = null;
                     goto after_assignees_url;
                 }
 
@@ -369,7 +369,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['blobs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'blobs_url';
+                    $properties['blobs_url'] = null;
                     goto after_blobs_url;
                 }
 
@@ -380,7 +380,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['branches_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'branches_url';
+                    $properties['branches_url'] = null;
                     goto after_branches_url;
                 }
 
@@ -391,7 +391,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['collaborators_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'collaborators_url';
+                    $properties['collaborators_url'] = null;
                     goto after_collaborators_url;
                 }
 
@@ -402,7 +402,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['comments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'comments_url';
+                    $properties['comments_url'] = null;
                     goto after_comments_url;
                 }
 
@@ -413,7 +413,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commits_url';
+                    $properties['commits_url'] = null;
                     goto after_commits_url;
                 }
 
@@ -424,7 +424,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['compare_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'compare_url';
+                    $properties['compare_url'] = null;
                     goto after_compare_url;
                 }
 
@@ -435,7 +435,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['contents_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents_url';
+                    $properties['contents_url'] = null;
                     goto after_contents_url;
                 }
 
@@ -446,7 +446,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['contributors_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contributors_url';
+                    $properties['contributors_url'] = null;
                     goto after_contributors_url;
                 }
 
@@ -457,7 +457,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['deployments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments_url';
+                    $properties['deployments_url'] = null;
                     goto after_deployments_url;
                 }
 
@@ -468,7 +468,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['downloads_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'downloads_url';
+                    $properties['downloads_url'] = null;
                     goto after_downloads_url;
                 }
 
@@ -479,7 +479,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -490,7 +490,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['forks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_url';
+                    $properties['forks_url'] = null;
                     goto after_forks_url;
                 }
 
@@ -501,7 +501,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['git_commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_commits_url';
+                    $properties['git_commits_url'] = null;
                     goto after_git_commits_url;
                 }
 
@@ -512,7 +512,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['git_refs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_refs_url';
+                    $properties['git_refs_url'] = null;
                     goto after_git_refs_url;
                 }
 
@@ -523,7 +523,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['git_tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_tags_url';
+                    $properties['git_tags_url'] = null;
                     goto after_git_tags_url;
                 }
 
@@ -545,7 +545,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['issue_comment_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_comment_url';
+                    $properties['issue_comment_url'] = null;
                     goto after_issue_comment_url;
                 }
 
@@ -556,7 +556,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['issue_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_events_url';
+                    $properties['issue_events_url'] = null;
                     goto after_issue_events_url;
                 }
 
@@ -567,7 +567,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -578,7 +578,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['keys_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'keys_url';
+                    $properties['keys_url'] = null;
                     goto after_keys_url;
                 }
 
@@ -589,7 +589,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['labels_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels_url';
+                    $properties['labels_url'] = null;
                     goto after_labels_url;
                 }
 
@@ -600,7 +600,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['languages_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'languages_url';
+                    $properties['languages_url'] = null;
                     goto after_languages_url;
                 }
 
@@ -611,7 +611,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['merges_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merges_url';
+                    $properties['merges_url'] = null;
                     goto after_merges_url;
                 }
 
@@ -622,7 +622,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['milestones_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'milestones_url';
+                    $properties['milestones_url'] = null;
                     goto after_milestones_url;
                 }
 
@@ -633,7 +633,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['notifications_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'notifications_url';
+                    $properties['notifications_url'] = null;
                     goto after_notifications_url;
                 }
 
@@ -644,7 +644,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['pulls_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pulls_url';
+                    $properties['pulls_url'] = null;
                     goto after_pulls_url;
                 }
 
@@ -655,7 +655,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['releases_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'releases_url';
+                    $properties['releases_url'] = null;
                     goto after_releases_url;
                 }
 
@@ -677,7 +677,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['stargazers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_url';
+                    $properties['stargazers_url'] = null;
                     goto after_stargazers_url;
                 }
 
@@ -688,7 +688,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['statuses_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses_url';
+                    $properties['statuses_url'] = null;
                     goto after_statuses_url;
                 }
 
@@ -699,7 +699,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['subscribers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscribers_url';
+                    $properties['subscribers_url'] = null;
                     goto after_subscribers_url;
                 }
 
@@ -710,7 +710,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['subscription_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscription_url';
+                    $properties['subscription_url'] = null;
                     goto after_subscription_url;
                 }
 
@@ -721,7 +721,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tags_url';
+                    $properties['tags_url'] = null;
                     goto after_tags_url;
                 }
 
@@ -732,7 +732,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['teams_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams_url';
+                    $properties['teams_url'] = null;
                     goto after_teams_url;
                 }
 
@@ -743,7 +743,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['trees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'trees_url';
+                    $properties['trees_url'] = null;
                     goto after_trees_url;
                 }
 
@@ -765,7 +765,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['mirror_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'mirror_url';
+                    $properties['mirror_url'] = null;
                     goto after_mirror_url;
                 }
 
@@ -776,7 +776,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -798,7 +798,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['homepage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'homepage';
+                    $properties['homepage'] = null;
                     goto after_homepage;
                 }
 
@@ -809,7 +809,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['language'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'language';
+                    $properties['language'] = null;
                     goto after_language;
                 }
 
@@ -1007,7 +1007,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['pushed_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pushed_at';
+                    $properties['pushed_at'] = null;
                     goto after_pushed_at;
                 }
 
@@ -1018,7 +1018,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -1029,7 +1029,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -1135,7 +1135,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'license';
+                    $properties['license'] = null;
                     goto after_license;
                 }
 
@@ -1232,7 +1232,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['title'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'title';
+                    $properties['title'] = null;
                     goto after_title;
                 }
 
@@ -1243,7 +1243,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -1254,7 +1254,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['latest_comment_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'latest_comment_url';
+                    $properties['latest_comment_url'] = null;
                     goto after_latest_comment_url;
                 }
 
@@ -1265,7 +1265,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -1298,7 +1298,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1309,7 +1309,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -1320,7 +1320,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -1331,7 +1331,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1342,7 +1342,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -1353,7 +1353,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -1364,7 +1364,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -1375,7 +1375,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -1386,7 +1386,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -1397,7 +1397,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -1408,7 +1408,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -1419,7 +1419,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -1430,7 +1430,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -1441,7 +1441,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -1452,7 +1452,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -1463,7 +1463,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -1474,7 +1474,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -1485,7 +1485,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -1496,7 +1496,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -1507,7 +1507,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -1551,7 +1551,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin';
+                    $properties['admin'] = null;
                     goto after_admin;
                 }
 
@@ -1562,7 +1562,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['maintain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'maintain';
+                    $properties['maintain'] = null;
                     goto after_maintain;
                 }
 
@@ -1573,7 +1573,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['push'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'push';
+                    $properties['push'] = null;
                     goto after_push;
                 }
 
@@ -1584,7 +1584,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['triage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'triage';
+                    $properties['triage'] = null;
                     goto after_triage;
                 }
 
@@ -1595,7 +1595,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['pull'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull';
+                    $properties['pull'] = null;
                     goto after_pull;
                 }
 
@@ -1628,7 +1628,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 
@@ -1639,7 +1639,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1650,7 +1650,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -1672,7 +1672,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -1705,7 +1705,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 
@@ -1716,7 +1716,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1727,7 +1727,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['spdx_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'spdx_id';
+                    $properties['spdx_id'] = null;
                     goto after_spdx_id;
                 }
 
@@ -1738,7 +1738,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -1749,7 +1749,7 @@ class Notifications implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 

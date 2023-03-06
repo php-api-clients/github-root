@@ -13,9 +13,7 @@ final readonly class EnterprisePageOverview
     public const SCHEMA_TITLE = 'Enterprise Pages Stats';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_pages":13}';
-    public ?int $total_pages;
-    public function __construct(int $total_pages)
+    public function __construct(public ?int $total_pages)
     {
-        $this->total_pages = $total_pages;
     }
 }

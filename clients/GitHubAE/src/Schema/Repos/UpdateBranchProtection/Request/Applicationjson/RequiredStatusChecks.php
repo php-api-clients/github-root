@@ -14,23 +14,13 @@ final readonly class RequiredStatusChecks
     public const SCHEMA_DESCRIPTION = 'Require status checks to pass before merging. Set to `null` to disable.';
     public const SCHEMA_EXAMPLE_DATA = '{"strict":false,"contexts":["generated_contexts"],"checks":[{"context":"generated_context","app_id":13}]}';
     /**
-     * Require branches to be up to date before merging.
+     * strict: Require branches to be up to date before merging.
+     * contexts: **Deprecated**: The list of status checks to require in order to merge into this branch. If any of these checks have recently been set by a particular GitHub App, they will be required to come from that app in future for the branch to merge. Use `checks` instead of `contexts` for more fine-grained control.
+     * @param ?array<string> $contexts
+     * checks: The list of status checks to require in order to merge into this branch.
+     * @param array<\ApiClients\Client\GitHubAE\Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredStatusChecks\Checks> $checks
      */
-    public ?bool $strict;
-    /**
-     * **Deprecated**: The list of status checks to require in order to merge into this branch. If any of these checks have recently been set by a particular GitHub App, they will be required to come from that app in future for the branch to merge. Use `checks` instead of `contexts` for more fine-grained control.
-     * @var array<string>
-     */
-    public ?array $contexts;
-    /**
-     * The list of status checks to require in order to merge into this branch.
-     * @var array<Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredStatusChecks\Checks>
-     */
-    public array $checks;
-    public function __construct(bool $strict, array $contexts, array $checks)
+    public function __construct(public ?bool $strict, public ?array $contexts, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredStatusChecks\Checks::class)] public array $checks)
     {
-        $this->strict = $strict;
-        $this->contexts = $contexts;
-        $this->checks = $checks;
     }
 }

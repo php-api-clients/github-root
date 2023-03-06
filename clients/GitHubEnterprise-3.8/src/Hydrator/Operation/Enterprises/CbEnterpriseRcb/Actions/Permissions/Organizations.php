@@ -38,7 +38,7 @@ class Organizations implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class Organizations implements ObjectMapper
                 $value = $payload['organizations'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations';
+                    $properties['organizations'] = null;
                     goto after_organizations;
                 }
+
+                static $organizationsCaster1;
+    
+                if ($organizationsCaster1 === null) {
+                    $organizationsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationSimple',
+));
+                }
+    
+                $value = $organizationsCaster1->cast($value, $this);
 
                 $properties['organizations'] = $value;
     
@@ -178,7 +188,8 @@ class Organizations implements ObjectMapper
         static $organizationsSerializer0;
 
         if ($organizationsSerializer0 === null) {
-            $organizationsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $organizationsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationSimple',
 ));
         }
         

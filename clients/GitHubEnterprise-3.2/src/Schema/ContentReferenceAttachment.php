@@ -14,26 +14,12 @@ final readonly class ContentReferenceAttachment
     public const SCHEMA_DESCRIPTION = 'Content Reference attachments allow you to provide context around URLs posted in comments';
     public const SCHEMA_EXAMPLE_DATA = '{"id":21,"title":"Title of the attachment","body":"Body of the attachment","node_id":"MDE3OkNvbnRlbnRBdHRhY2htZW50MjE="}';
     /**
-     * The ID of the attachment
+     * id: The ID of the attachment
+     * title: The title of the attachment
+     * body: The body of the attachment
+     * node_id: The node_id of the content attachment
      */
-    public ?int $id;
-    /**
-     * The title of the attachment
-     */
-    public ?string $title;
-    /**
-     * The body of the attachment
-     */
-    public ?string $body;
-    /**
-     * The node_id of the content attachment
-     */
-    public string $node_id;
-    public function __construct(int $id, string $title, string $body, string $node_id)
+    public function __construct(public ?int $id, public ?string $title, public ?string $body, public string $node_id)
     {
-        $this->id = $id;
-        $this->title = $title;
-        $this->body = $body;
-        $this->node_id = $node_id;
     }
 }

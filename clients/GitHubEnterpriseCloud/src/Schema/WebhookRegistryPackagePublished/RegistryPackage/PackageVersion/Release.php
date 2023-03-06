@@ -13,29 +13,7 @@ final readonly class Release
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"author":{"avatar_url":"generated_avatar_url","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"created_at":"generated_created_at","draft":false,"html_url":"generated_html_url","id":13,"name":"generated_name","prerelease":false,"published_at":"generated_published_at","tag_name":"generated_tag_name","target_commitish":"generated_target_commitish","url":"generated_url"}';
-    public ?Schema\WebhookDeploymentCreated\WorkflowRun\HeadRepository\Owner $author;
-    public ?string $created_at;
-    public ?bool $draft;
-    public ?string $html_url;
-    public ?int $id;
-    public ?string $name;
-    public ?bool $prerelease;
-    public ?string $published_at;
-    public ?string $tag_name;
-    public ?string $target_commitish;
-    public ?string $url;
-    public function __construct(Schema\WebhookDeploymentCreated\WorkflowRun\HeadRepository\Owner $author, string $created_at, bool $draft, string $html_url, int $id, string $name, bool $prerelease, string $published_at, string $tag_name, string $target_commitish, string $url)
+    public function __construct(public ?Schema\WebhookDeploymentCreated\WorkflowRun\HeadRepository\Owner $author, public ?string $created_at, public ?bool $draft, public ?string $html_url, public ?int $id, public ?string $name, public ?bool $prerelease, public ?string $published_at, public ?string $tag_name, public ?string $target_commitish, public ?string $url)
     {
-        $this->author = $author;
-        $this->created_at = $created_at;
-        $this->draft = $draft;
-        $this->html_url = $html_url;
-        $this->id = $id;
-        $this->name = $name;
-        $this->prerelease = $prerelease;
-        $this->published_at = $published_at;
-        $this->tag_name = $tag_name;
-        $this->target_commitish = $target_commitish;
-        $this->url = $url;
     }
 }

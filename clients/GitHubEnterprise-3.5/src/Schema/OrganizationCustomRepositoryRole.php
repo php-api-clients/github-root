@@ -14,16 +14,10 @@ final readonly class OrganizationCustomRepositoryRole
     public const SCHEMA_DESCRIPTION = 'Custom repository roles created by organization administrators';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"name":"generated_name"}';
     /**
-     * The unique identifier of the custom role.
+     * id: The unique identifier of the custom role.
+     * name: The name of the custom role.
      */
-    public ?int $id;
-    /**
-     * The name of the custom role.
-     */
-    public ?string $name;
-    public function __construct(int $id, string $name)
+    public function __construct(public ?int $id, public ?string $name)
     {
-        $this->id = $id;
-        $this->name = $name;
     }
 }

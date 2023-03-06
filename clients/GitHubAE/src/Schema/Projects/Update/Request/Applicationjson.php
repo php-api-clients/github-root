@@ -14,31 +14,13 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"Week One Sprint","body":"This project represents the sprint of the first week in January","state":"open","organization_permission":"generated_organization_permission","private":false}';
     /**
-     * Name of the project
+     * name: Name of the project
+     * body: Body of the project
+     * state: State of the project; either 'open' or 'closed'
+     * organization_permission: The baseline permission that all organization members have on this project
+     * private: Whether or not this project can be seen by everyone.
      */
-    public ?string $name;
-    /**
-     * Body of the project
-     */
-    public ?string $body;
-    /**
-     * State of the project; either 'open' or 'closed'
-     */
-    public ?string $state;
-    /**
-     * The baseline permission that all organization members have on this project
-     */
-    public ?string $organization_permission;
-    /**
-     * Whether or not this project can be seen by everyone.
-     */
-    public ?bool $private;
-    public function __construct(string $name, string $body, string $state, string $organization_permission, bool $private)
+    public function __construct(public ?string $name, public ?string $body, public ?string $state, public ?string $organization_permission, public ?bool $private)
     {
-        $this->name = $name;
-        $this->body = $body;
-        $this->state = $state;
-        $this->organization_permission = $organization_permission;
-        $this->private = $private;
     }
 }

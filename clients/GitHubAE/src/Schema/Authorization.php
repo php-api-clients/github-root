@@ -13,41 +13,11 @@ final readonly class Authorization
     public const SCHEMA_TITLE = 'Authorization';
     public const SCHEMA_DESCRIPTION = 'The authorization for an OAuth app, GitHub App, or a Personal Access Token.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"url":"generated_url","scopes":["generated_scopes"],"token":"generated_token","token_last_eight":"generated_token_last_eight","hashed_token":"generated_hashed_token","app":{"client_id":"generated_client_id","name":"generated_name","url":"generated_url"},"note":"generated_note","note_url":"generated_note_url","updated_at":"generated_updated_at","created_at":"generated_created_at","fingerprint":"generated_fingerprint","user":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"installation":{"permissions":{"contents":"read","issues":"read","deployments":"write","single_file":"read","actions":"generated_actions","administration":"generated_administration","checks":"generated_checks","environments":"generated_environments","metadata":"generated_metadata","packages":"generated_packages","pages":"generated_pages","pull_requests":"generated_pull_requests","repository_hooks":"generated_repository_hooks","repository_projects":"generated_repository_projects","secret_scanning_alerts":"generated_secret_scanning_alerts","secrets":"generated_secrets","security_events":"generated_security_events","statuses":"generated_statuses","vulnerability_alerts":"generated_vulnerability_alerts","workflows":"generated_workflows","members":"generated_members","organization_administration":"generated_organization_administration","organization_hooks":"generated_organization_hooks","organization_plan":"generated_organization_plan","organization_projects":"generated_organization_projects","organization_packages":"generated_organization_packages","organization_secrets":"generated_organization_secrets","organization_self_hosted_runners":"generated_organization_self_hosted_runners","organization_user_blocking":"generated_organization_user_blocking","team_discussions":"generated_team_discussions"},"repository_selection":"generated_repository_selection","single_file_name":"config.yaml","has_multiple_single_files":true,"single_file_paths":["config.yml"],"repositories_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","account":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""}},"expires_at":"generated_expires_at"}';
-    public ?int $id;
-    public ?string $url;
     /**
-     * A list of scopes that this authorization is in.
-     * @var array<string>
+     * scopes: A list of scopes that this authorization is in.
+     * @param ?array<string> $scopes
      */
-    public ?array $scopes;
-    public ?string $token;
-    public ?string $token_last_eight;
-    public ?string $hashed_token;
-    public ?Schema\Authorization\App $app;
-    public ?string $note;
-    public ?string $note_url;
-    public ?string $updated_at;
-    public ?string $created_at;
-    public ?string $fingerprint;
-    public Schema\SimpleUser $user;
-    public Schema\ScopedInstallation $installation;
-    public ?string $expires_at;
-    public function __construct(int $id, string $url, array $scopes, string $token, string $token_last_eight, string $hashed_token, Schema\Authorization\App $app, string $note, string $note_url, string $updated_at, string $created_at, string $fingerprint, Schema\SimpleUser $user, Schema\ScopedInstallation $installation, string $expires_at)
+    public function __construct(public ?int $id, public ?string $url, public ?array $scopes, public ?string $token, public ?string $token_last_eight, public ?string $hashed_token, public ?Schema\Authorization\App $app, public ?string $note, public ?string $note_url, public ?string $updated_at, public ?string $created_at, public ?string $fingerprint, public Schema\SimpleUser $user, public Schema\ScopedInstallation $installation, public ?string $expires_at)
     {
-        $this->id = $id;
-        $this->url = $url;
-        $this->scopes = $scopes;
-        $this->token = $token;
-        $this->token_last_eight = $token_last_eight;
-        $this->hashed_token = $hashed_token;
-        $this->app = $app;
-        $this->note = $note;
-        $this->note_url = $note_url;
-        $this->updated_at = $updated_at;
-        $this->created_at = $created_at;
-        $this->fingerprint = $fingerprint;
-        $this->user = $user;
-        $this->installation = $installation;
-        $this->expires_at = $expires_at;
     }
 }

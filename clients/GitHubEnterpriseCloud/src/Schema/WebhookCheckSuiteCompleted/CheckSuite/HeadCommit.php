@@ -14,24 +14,10 @@ final readonly class HeadCommit
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"author":{"date":"generated_date","email":"generated_email","name":"generated_name","username":"generated_username"},"committer":{"date":"generated_date","email":"generated_email","name":"generated_name","username":"generated_username"},"id":"generated_id","message":"generated_message","timestamp":"generated_timestamp","tree_id":"generated_tree_id"}';
     /**
-     * Metaproperties for Git author/committer information.
+     * author: Metaproperties for Git author/committer information.
+     * committer: Metaproperties for Git author/committer information.
      */
-    public ?Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author $author;
-    /**
-     * Metaproperties for Git author/committer information.
-     */
-    public ?Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author $committer;
-    public ?string $id;
-    public ?string $message;
-    public ?string $timestamp;
-    public ?string $tree_id;
-    public function __construct(Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author $author, Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author $committer, string $id, string $message, string $timestamp, string $tree_id)
+    public function __construct(public ?Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author $author, public ?Schema\WebhookCheckSuiteCompleted\CheckSuite\HeadCommit\Author $committer, public ?string $id, public ?string $message, public ?string $timestamp, public ?string $tree_id)
     {
-        $this->author = $author;
-        $this->committer = $committer;
-        $this->id = $id;
-        $this->message = $message;
-        $this->timestamp = $timestamp;
-        $this->tree_id = $tree_id;
     }
 }

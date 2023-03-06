@@ -14,26 +14,12 @@ final readonly class AutoMerge
     public const SCHEMA_DESCRIPTION = 'The status of auto merging a pull request.';
     public const SCHEMA_EXAMPLE_DATA = '{"enabled_by":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"merge_method":"generated_merge_method","commit_title":"generated_commit_title","commit_message":"generated_commit_message"}';
     /**
-     * Simple User
+     * enabled_by: Simple User
+     * merge_method: The merge method to use.
+     * commit_title: Title for the merge commit message.
+     * commit_message: Commit message for the merge commit.
      */
-    public ?Schema\SimpleUser $enabled_by;
-    /**
-     * The merge method to use.
-     */
-    public ?string $merge_method;
-    /**
-     * Title for the merge commit message.
-     */
-    public ?string $commit_title;
-    /**
-     * Commit message for the merge commit.
-     */
-    public ?string $commit_message;
-    public function __construct(Schema\SimpleUser $enabled_by, string $merge_method, string $commit_title, string $commit_message)
+    public function __construct(public ?Schema\SimpleUser $enabled_by, public ?string $merge_method, public ?string $commit_title, public ?string $commit_message)
     {
-        $this->enabled_by = $enabled_by;
-        $this->merge_method = $merge_method;
-        $this->commit_title = $commit_title;
-        $this->commit_message = $commit_message;
     }
 }

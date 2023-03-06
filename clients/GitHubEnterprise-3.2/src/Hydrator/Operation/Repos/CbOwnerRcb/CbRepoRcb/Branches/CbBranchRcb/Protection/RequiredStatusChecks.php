@@ -40,7 +40,7 @@ class RequiredStatusChecks implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -51,7 +51,7 @@ class RequiredStatusChecks implements ObjectMapper
                 $value = $payload['strict'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'strict';
+                    $properties['strict'] = null;
                     goto after_strict;
                 }
 
@@ -62,7 +62,7 @@ class RequiredStatusChecks implements ObjectMapper
                 $value = $payload['contexts'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contexts';
+                    $properties['contexts'] = null;
                     goto after_contexts;
                 }
 
@@ -73,7 +73,7 @@ class RequiredStatusChecks implements ObjectMapper
                 $value = $payload['contexts_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contexts_url';
+                    $properties['contexts_url'] = null;
                     goto after_contexts_url;
                 }
 
@@ -106,7 +106,7 @@ class RequiredStatusChecks implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -117,7 +117,7 @@ class RequiredStatusChecks implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -128,7 +128,7 @@ class RequiredStatusChecks implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -139,7 +139,7 @@ class RequiredStatusChecks implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -172,7 +172,7 @@ class RequiredStatusChecks implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -183,7 +183,7 @@ class RequiredStatusChecks implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -197,6 +197,16 @@ class RequiredStatusChecks implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -419,7 +429,8 @@ class RequiredStatusChecks implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
 ));
         }
         

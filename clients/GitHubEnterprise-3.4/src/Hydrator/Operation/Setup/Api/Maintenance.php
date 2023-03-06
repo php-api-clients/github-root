@@ -38,7 +38,7 @@ class Maintenance implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -49,7 +49,7 @@ class Maintenance implements ObjectMapper
                 $value = $payload['scheduled_time'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'scheduled_time';
+                    $properties['scheduled_time'] = null;
                     goto after_scheduled_time;
                 }
 
@@ -60,9 +60,19 @@ class Maintenance implements ObjectMapper
                 $value = $payload['connection_services'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'connection_services';
+                    $properties['connection_services'] = null;
                     goto after_connection_services;
                 }
+
+                static $connection_servicesCaster1;
+    
+                if ($connection_servicesCaster1 === null) {
+                    $connection_servicesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\MaintenanceStatus\\ConnectionServices',
+));
+                }
+    
+                $value = $connection_servicesCaster1->cast($value, $this);
 
                 $properties['connection_services'] = $value;
     
@@ -197,7 +207,8 @@ class Maintenance implements ObjectMapper
         static $connection_servicesSerializer0;
 
         if ($connection_servicesSerializer0 === null) {
-            $connection_servicesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $connection_servicesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\MaintenanceStatus\\ConnectionServices',
 ));
         }
         

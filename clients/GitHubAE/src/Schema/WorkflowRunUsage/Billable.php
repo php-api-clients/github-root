@@ -13,13 +13,7 @@ final readonly class Billable
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"UBUNTU":{"total_ms":13,"jobs":13,"job_runs":[{"job_id":13,"duration_ms":13}]},"MACOS":{"total_ms":13,"jobs":13,"job_runs":[{"job_id":13,"duration_ms":13}]},"WINDOWS":{"total_ms":13,"jobs":13,"job_runs":[{"job_id":13,"duration_ms":13}]}}';
-    public ?Schema\WorkflowRunUsage\Billable\Ubuntu $UBUNTU;
-    public ?Schema\WorkflowRunUsage\Billable\Ubuntu $MACOS;
-    public ?Schema\WorkflowRunUsage\Billable\Ubuntu $WINDOWS;
-    public function __construct(Schema\WorkflowRunUsage\Billable\Ubuntu $UBUNTU, Schema\WorkflowRunUsage\Billable\Ubuntu $MACOS, Schema\WorkflowRunUsage\Billable\Ubuntu $WINDOWS)
+    public function __construct(public ?Schema\WorkflowRunUsage\Billable\Ubuntu $UBUNTU, public ?Schema\WorkflowRunUsage\Billable\Ubuntu $MACOS, public ?Schema\WorkflowRunUsage\Billable\Ubuntu $WINDOWS)
     {
-        $this->UBUNTU = $UBUNTU;
-        $this->MACOS = $MACOS;
-        $this->WINDOWS = $WINDOWS;
     }
 }

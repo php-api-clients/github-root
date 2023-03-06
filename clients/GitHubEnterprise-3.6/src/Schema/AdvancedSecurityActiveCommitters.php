@@ -13,16 +13,10 @@ final readonly class AdvancedSecurityActiveCommitters
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_advanced_security_committers":25,"total_count":2,"repositories":[{"name":"octocat\\/Hello-World","advanced_security_committers":25,"advanced_security_committers_breakdown":[{"user_login":"generated_user_login","last_pushed_date":"2021-11-03"}]}]}';
-    public int $total_advanced_security_committers;
-    public int $total_count;
     /**
-     * @var array<Schema\AdvancedSecurityActiveCommittersRepository>
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersRepository> $repositories
      */
-    public ?array $repositories;
-    public function __construct(int $total_advanced_security_committers, int $total_count, array $repositories)
+    public function __construct(public int $total_advanced_security_committers, public int $total_count, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\AdvancedSecurityActiveCommittersRepository::class)] public ?array $repositories)
     {
-        $this->total_advanced_security_committers = $total_advanced_security_committers;
-        $this->total_count = $total_count;
-        $this->repositories = $repositories;
     }
 }

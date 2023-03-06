@@ -38,9 +38,19 @@ class ExternalGroups implements ObjectMapper
                 $value = $payload['groups'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'groups';
+                    $properties['groups'] = null;
                     goto after_groups;
                 }
+
+                static $groupsCaster1;
+    
+                if ($groupsCaster1 === null) {
+                    $groupsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ExternalGroups\\Groups',
+));
+                }
+    
+                $value = $groupsCaster1->cast($value, $this);
 
                 $properties['groups'] = $value;
     
@@ -159,7 +169,8 @@ class ExternalGroups implements ObjectMapper
         static $groupsSerializer0;
 
         if ($groupsSerializer0 === null) {
-            $groupsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $groupsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ExternalGroups\\Groups',
 ));
         }
         

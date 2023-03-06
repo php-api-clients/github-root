@@ -14,22 +14,10 @@ final readonly class IntegrationInstallationRequest
     public const SCHEMA_DESCRIPTION = 'Request to install an integration on a target';
     public const SCHEMA_EXAMPLE_DATA = '{"id":42,"node_id":"MDExOkludGVncmF0aW9uMQ==","account":{"description":"generated_description","html_url":"https:\\/\\/github.com\\/enterprises\\/octo-business","website_url":"generated_website_url","id":42,"node_id":"MDEwOlJlcG9zaXRvcnkxMjk2MjY5","name":"Octo Business","slug":"octo-business","created_at":"2019-01-26T19:01:12Z","updated_at":"2019-01-26T19:14:43Z","avatar_url":"generated_avatar_url"},"requester":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"created_at":"2022-07-08T16:18:44-04:00"}';
     /**
-     * Unique identifier of the request installation.
+     * id: Unique identifier of the request installation.
+     * requester: A GitHub user.
      */
-    public ?int $id;
-    public string $node_id;
-    public ?Schema\Enterprise $account;
-    /**
-     * A GitHub user.
-     */
-    public ?Schema\SimpleUser $requester;
-    public ?string $created_at;
-    public function __construct(int $id, string $node_id, Schema\Enterprise $account, Schema\SimpleUser $requester, string $created_at)
+    public function __construct(public ?int $id, public string $node_id, public ?Schema\Enterprise $account, public ?Schema\SimpleUser $requester, public ?string $created_at)
     {
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->account = $account;
-        $this->requester = $requester;
-        $this->created_at = $created_at;
     }
 }

@@ -13,11 +13,7 @@ final readonly class Tag
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"digest":"generated_digest","name":"generated_name"}';
-    public ?string $digest;
-    public ?string $name;
-    public function __construct(string $digest, string $name)
+    public function __construct(public ?string $digest, public ?string $name)
     {
-        $this->digest = $digest;
-        $this->name = $name;
     }
 }

@@ -14,46 +14,16 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"Omar Jahandar","email":"omar@example.com","blog":"blog.example.com","twitter_username":"therealomarj","company":"Acme corporation","location":"Berlin, Germany","hireable":false,"bio":"generated_bio"}';
     /**
-     * The new name of the user.
+     * name: The new name of the user.
+     * email: The publicly visible email address of the user.
+     * blog: The new blog URL of the user.
+     * twitter_username: The new Twitter username of the user.
+     * company: The new company of the user.
+     * location: The new location of the user.
+     * hireable: The new hiring availability of the user.
+     * bio: The new short biography of the user.
      */
-    public ?string $name;
-    /**
-     * The publicly visible email address of the user.
-     */
-    public ?string $email;
-    /**
-     * The new blog URL of the user.
-     */
-    public ?string $blog;
-    /**
-     * The new Twitter username of the user.
-     */
-    public ?string $twitter_username;
-    /**
-     * The new company of the user.
-     */
-    public ?string $company;
-    /**
-     * The new location of the user.
-     */
-    public ?string $location;
-    /**
-     * The new hiring availability of the user.
-     */
-    public ?bool $hireable;
-    /**
-     * The new short biography of the user.
-     */
-    public ?string $bio;
-    public function __construct(string $name, string $email, string $blog, string $twitter_username, string $company, string $location, bool $hireable, string $bio)
+    public function __construct(public ?string $name, public ?string $email, public ?string $blog, public ?string $twitter_username, public ?string $company, public ?string $location, public ?bool $hireable, public ?string $bio)
     {
-        $this->name = $name;
-        $this->email = $email;
-        $this->blog = $blog;
-        $this->twitter_username = $twitter_username;
-        $this->company = $company;
-        $this->location = $location;
-        $this->hireable = $hireable;
-        $this->bio = $bio;
     }
 }

@@ -13,13 +13,7 @@ final readonly class App
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"client_id":"generated_client_id","name":"generated_name","url":"generated_url"}';
-    public ?string $client_id;
-    public ?string $name;
-    public ?string $url;
-    public function __construct(string $client_id, string $name, string $url)
+    public function __construct(public ?string $client_id, public ?string $name, public ?string $url)
     {
-        $this->client_id = $client_id;
-        $this->name = $name;
-        $this->url = $url;
     }
 }

@@ -38,7 +38,7 @@ class SharedStorage implements ObjectMapper
                 $value = $payload['days_left_in_billing_cycle'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'days_left_in_billing_cycle';
+                    $properties['days_left_in_billing_cycle'] = null;
                     goto after_days_left_in_billing_cycle;
                 }
 
@@ -49,7 +49,7 @@ class SharedStorage implements ObjectMapper
                 $value = $payload['estimated_paid_storage_for_month'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'estimated_paid_storage_for_month';
+                    $properties['estimated_paid_storage_for_month'] = null;
                     goto after_estimated_paid_storage_for_month;
                 }
 
@@ -60,7 +60,7 @@ class SharedStorage implements ObjectMapper
                 $value = $payload['estimated_storage_for_month'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'estimated_storage_for_month';
+                    $properties['estimated_storage_for_month'] = null;
                     goto after_estimated_storage_for_month;
                 }
 

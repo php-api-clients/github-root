@@ -14,32 +14,12 @@ final readonly class ScopedInstallation
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"permissions":{"contents":"read","issues":"read","deployments":"write","single_file":"read","actions":"generated_actions","administration":"generated_administration","checks":"generated_checks","environments":"generated_environments","metadata":"generated_metadata","packages":"generated_packages","pages":"generated_pages","pull_requests":"generated_pull_requests","repository_hooks":"generated_repository_hooks","repository_projects":"generated_repository_projects","secret_scanning_alerts":"generated_secret_scanning_alerts","secrets":"generated_secrets","security_events":"generated_security_events","statuses":"generated_statuses","vulnerability_alerts":"generated_vulnerability_alerts","workflows":"generated_workflows","members":"generated_members","organization_administration":"generated_organization_administration","organization_hooks":"generated_organization_hooks","organization_plan":"generated_organization_plan","organization_projects":"generated_organization_projects","organization_packages":"generated_organization_packages","organization_secrets":"generated_organization_secrets","organization_self_hosted_runners":"generated_organization_self_hosted_runners","organization_user_blocking":"generated_organization_user_blocking","team_discussions":"generated_team_discussions","content_references":"generated_content_references"},"repository_selection":"generated_repository_selection","single_file_name":"config.yaml","has_multiple_single_files":true,"single_file_paths":[".github\\/issue_TEMPLATE.md"],"repositories_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","account":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""}}';
     /**
-     * The permissions granted to the user-to-server access token.
+     * permissions: The permissions granted to the user-to-server access token.
+     * repository_selection: Describe whether all repositories have been selected or there's a selection involved
+     * @param array<string> $single_file_paths
+     * account: Simple User
      */
-    public ?Schema\AppPermissions $permissions;
-    /**
-     * Describe whether all repositories have been selected or there's a selection involved
-     */
-    public ?string $repository_selection;
-    public ?string $single_file_name;
-    public bool $has_multiple_single_files;
-    /**
-     * @var array<string>
-     */
-    public array $single_file_paths;
-    public ?string $repositories_url;
-    /**
-     * Simple User
-     */
-    public ?Schema\SimpleUser $account;
-    public function __construct(Schema\AppPermissions $permissions, string $repository_selection, string $single_file_name, bool $has_multiple_single_files, array $single_file_paths, string $repositories_url, Schema\SimpleUser $account)
+    public function __construct(public ?Schema\AppPermissions $permissions, public ?string $repository_selection, public ?string $single_file_name, public bool $has_multiple_single_files, public array $single_file_paths, public ?string $repositories_url, public ?Schema\SimpleUser $account)
     {
-        $this->permissions = $permissions;
-        $this->repository_selection = $repository_selection;
-        $this->single_file_name = $single_file_name;
-        $this->has_multiple_single_files = $has_multiple_single_files;
-        $this->single_file_paths = $single_file_paths;
-        $this->repositories_url = $repositories_url;
-        $this->account = $account;
     }
 }

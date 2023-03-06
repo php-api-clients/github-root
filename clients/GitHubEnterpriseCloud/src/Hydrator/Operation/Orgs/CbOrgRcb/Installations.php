@@ -38,7 +38,7 @@ class Installations implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class Installations implements ObjectMapper
                 $value = $payload['installations'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'installations';
+                    $properties['installations'] = null;
                     goto after_installations;
                 }
+
+                static $installationsCaster1;
+    
+                if ($installationsCaster1 === null) {
+                    $installationsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Installation',
+));
+                }
+    
+                $value = $installationsCaster1->cast($value, $this);
 
                 $properties['installations'] = $value;
     
@@ -178,7 +188,8 @@ class Installations implements ObjectMapper
         static $installationsSerializer0;
 
         if ($installationsSerializer0 === null) {
-            $installationsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $installationsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Installation',
 ));
         }
         

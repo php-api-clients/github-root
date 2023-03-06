@@ -13,18 +13,10 @@ final readonly class Pusher
     public const SCHEMA_TITLE = 'Committer';
     public const SCHEMA_DESCRIPTION = 'Metaproperties for Git author/committer information.';
     public const SCHEMA_EXAMPLE_DATA = '{"date":"generated_date","email":"generated_email","name":"generated_name","username":"generated_username"}';
-    public string $date;
-    public ?string $email;
     /**
-     * The git author's name.
+     * name: The git author's name.
      */
-    public ?string $name;
-    public string $username;
-    public function __construct(string $date, string $email, string $name, string $username)
+    public function __construct(public string $date, public ?string $email, public ?string $name, public string $username)
     {
-        $this->date = $date;
-        $this->email = $email;
-        $this->name = $name;
-        $this->username = $username;
     }
 }

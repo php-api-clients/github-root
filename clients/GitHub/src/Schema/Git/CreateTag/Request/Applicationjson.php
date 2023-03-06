@@ -14,31 +14,13 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"tag":"generated_tag","message":"generated_message","object":"generated_object","type":"generated_type","tagger":{"name":"generated_name","email":"generated_email","date":"generated_date"}}';
     /**
-     * The tag's name. This is typically a version (e.g., "v0.0.1").
+     * tag: The tag's name. This is typically a version (e.g., "v0.0.1").
+     * message: The tag message.
+     * object: The SHA of the git object this is tagging.
+     * type: The type of the object we're tagging. Normally this is a `commit` but it can also be a `tree` or a `blob`.
+     * tagger: An object with information about the individual creating the tag.
      */
-    public ?string $tag;
-    /**
-     * The tag message.
-     */
-    public ?string $message;
-    /**
-     * The SHA of the git object this is tagging.
-     */
-    public ?string $object;
-    /**
-     * The type of the object we're tagging. Normally this is a `commit` but it can also be a `tree` or a `blob`.
-     */
-    public ?string $type;
-    /**
-     * An object with information about the individual creating the tag.
-     */
-    public Schema\Git\CreateTag\Request\Applicationjson\Tagger $tagger;
-    public function __construct(string $tag, string $message, string $object, string $type, Schema\Git\CreateTag\Request\Applicationjson\Tagger $tagger)
+    public function __construct(public ?string $tag, public ?string $message, public ?string $object, public ?string $type, public Schema\Git\CreateTag\Request\Applicationjson\Tagger $tagger)
     {
-        $this->tag = $tag;
-        $this->message = $message;
-        $this->object = $object;
-        $this->type = $type;
-        $this->tagger = $tagger;
     }
 }

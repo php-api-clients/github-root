@@ -14,11 +14,9 @@ final readonly class SecretScanningPushProtection
     public const SCHEMA_DESCRIPTION = 'Use the `status` property to enable or disable secret scanning push protection for this repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."';
     public const SCHEMA_EXAMPLE_DATA = '{"status":"generated_status"}';
     /**
-     * Can be `enabled` or `disabled`.
+     * status: Can be `enabled` or `disabled`.
      */
-    public ?string $status;
-    public function __construct(string $status)
+    public function __construct(public ?string $status)
     {
-        $this->status = $status;
     }
 }

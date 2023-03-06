@@ -38,7 +38,7 @@ class PublicDashKey implements ObjectMapper
                 $value = $payload['key_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key_id';
+                    $properties['key_id'] = null;
                     goto after_key_id;
                 }
 
@@ -49,7 +49,7 @@ class PublicDashKey implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 

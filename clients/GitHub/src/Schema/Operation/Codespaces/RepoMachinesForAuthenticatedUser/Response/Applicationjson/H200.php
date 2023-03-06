@@ -13,14 +13,10 @@ final readonly class H200
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_count":13,"machines":[{"name":"standardLinux","display_name":"4 cores, 8 GB RAM, 64 GB storage","operating_system":"linux","storage_in_bytes":68719476736,"memory_in_bytes":8589934592,"cpus":4,"prebuild_availability":"ready"}]}';
-    public ?int $total_count;
     /**
-     * @var array<Schema\CodespaceMachine>
+     * @param ?array<\ApiClients\Client\GitHub\Schema\CodespaceMachine> $machines
      */
-    public ?array $machines;
-    public function __construct(int $total_count, array $machines)
+    public function __construct(public ?int $total_count, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\CodespaceMachine::class)] public ?array $machines)
     {
-        $this->total_count = $total_count;
-        $this->machines = $machines;
     }
 }

@@ -14,38 +14,14 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"userName":"someone@example.com","displayName":"Jon Doe","name":{"givenName":"Jane","familyName":"User","formatted":"generated_formatted"},"emails":[{"value":"another@example.com","primary":false,"type":"generated_type"}],"schemas":["generated_schemas"],"externalId":"generated_externalId","groups":["generated_groups"],"active":false}';
     /**
-     * Configured by the admin. Could be an email, login, or username
+     * userName: Configured by the admin. Could be an email, login, or username
+     * displayName: The name of the user, suitable for display to end-users
+     * emails: user emails
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser\Emails> $emails
+     * @param array<string> $schemas
+     * @param array<string> $groups
      */
-    public ?string $userName;
-    /**
-     * The name of the user, suitable for display to end-users
-     */
-    public string $displayName;
-    public ?Schema\Scim\ProvisionAndInviteUser\Request\Applicationjson\Name $name;
-    /**
-     * user emails
-     * @var array<Schema\ScimUser\Emails>
-     */
-    public ?array $emails;
-    /**
-     * @var array<string>
-     */
-    public array $schemas;
-    public string $externalId;
-    /**
-     * @var array<string>
-     */
-    public array $groups;
-    public bool $active;
-    public function __construct(string $userName, string $displayName, Schema\Scim\ProvisionAndInviteUser\Request\Applicationjson\Name $name, array $emails, array $schemas, string $externalId, array $groups, bool $active)
+    public function __construct(public ?string $userName, public string $displayName, public ?Schema\Scim\ProvisionAndInviteUser\Request\Applicationjson\Name $name, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ScimUser\Emails::class)] public ?array $emails, public array $schemas, public string $externalId, public array $groups, public bool $active)
     {
-        $this->userName = $userName;
-        $this->displayName = $displayName;
-        $this->name = $name;
-        $this->emails = $emails;
-        $this->schemas = $schemas;
-        $this->externalId = $externalId;
-        $this->groups = $groups;
-        $this->active = $active;
     }
 }

@@ -14,26 +14,12 @@ final readonly class CodeScanningAlertRuleSummary
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":"generated_id","name":"generated_name","severity":"generated_severity","description":"generated_description"}';
     /**
-     * A unique identifier for the rule used to detect the alert.
+     * id: A unique identifier for the rule used to detect the alert.
+     * name: The name of the rule used to detect the alert.
+     * severity: The severity of the alert.
+     * description: A short description of the rule used to detect the alert.
      */
-    public ?string $id;
-    /**
-     * The name of the rule used to detect the alert.
-     */
-    public ?string $name;
-    /**
-     * The severity of the alert.
-     */
-    public ?string $severity;
-    /**
-     * A short description of the rule used to detect the alert.
-     */
-    public ?string $description;
-    public function __construct(string $id, string $name, string $severity, string $description)
+    public function __construct(public ?string $id, public ?string $name, public ?string $severity, public ?string $description)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->severity = $severity;
-        $this->description = $description;
     }
 }

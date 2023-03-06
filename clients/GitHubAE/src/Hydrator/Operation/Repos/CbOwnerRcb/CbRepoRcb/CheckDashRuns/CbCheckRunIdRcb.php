@@ -44,7 +44,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -55,7 +55,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['head_sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_sha';
+                    $properties['head_sha'] = null;
                     goto after_head_sha;
                 }
 
@@ -66,7 +66,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -77,7 +77,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['external_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'external_id';
+                    $properties['external_id'] = null;
                     goto after_external_id;
                 }
 
@@ -88,7 +88,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -99,7 +99,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -110,7 +110,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['details_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'details_url';
+                    $properties['details_url'] = null;
                     goto after_details_url;
                 }
 
@@ -121,7 +121,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -132,7 +132,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['conclusion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'conclusion';
+                    $properties['conclusion'] = null;
                     goto after_conclusion;
                 }
 
@@ -143,7 +143,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['started_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'started_at';
+                    $properties['started_at'] = null;
                     goto after_started_at;
                 }
 
@@ -154,7 +154,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['completed_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'completed_at';
+                    $properties['completed_at'] = null;
                     goto after_completed_at;
                 }
 
@@ -165,7 +165,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['output'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'output';
+                    $properties['output'] = null;
                     goto after_output;
                 }
 
@@ -185,7 +185,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -196,7 +196,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['check_suite'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'check_suite';
+                    $properties['check_suite'] = null;
                     goto after_check_suite;
                 }
 
@@ -216,7 +216,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['app'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'app';
+                    $properties['app'] = null;
                     goto after_app;
                 }
 
@@ -236,9 +236,19 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['pull_requests'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull_requests';
+                    $properties['pull_requests'] = null;
                     goto after_pull_requests;
                 }
+
+                static $pull_requestsCaster1;
+    
+                if ($pull_requestsCaster1 === null) {
+                    $pull_requestsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\PullRequestMinimal',
+));
+                }
+    
+                $value = $pull_requestsCaster1->cast($value, $this);
 
                 $properties['pull_requests'] = $value;
     
@@ -289,7 +299,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['title'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'title';
+                    $properties['title'] = null;
                     goto after_title;
                 }
 
@@ -300,7 +310,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['summary'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'summary';
+                    $properties['summary'] = null;
                     goto after_summary;
                 }
 
@@ -311,7 +321,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['text'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'text';
+                    $properties['text'] = null;
                     goto after_text;
                 }
 
@@ -322,7 +332,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['annotations_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'annotations_count';
+                    $properties['annotations_count'] = null;
                     goto after_annotations_count;
                 }
 
@@ -333,7 +343,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['annotations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'annotations_url';
+                    $properties['annotations_url'] = null;
                     goto after_annotations_url;
                 }
 
@@ -366,7 +376,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -399,7 +409,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -421,7 +431,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -432,7 +442,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -452,7 +462,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -463,7 +473,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -474,7 +484,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['external_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'external_url';
+                    $properties['external_url'] = null;
                     goto after_external_url;
                 }
 
@@ -485,7 +495,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -496,7 +506,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -507,7 +517,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -518,7 +528,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['permissions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'permissions';
+                    $properties['permissions'] = null;
                     goto after_permissions;
                 }
 
@@ -538,7 +548,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['events'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events';
+                    $properties['events'] = null;
                     goto after_events;
                 }
 
@@ -582,7 +592,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['webhook_secret'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'webhook_secret';
+                    $properties['webhook_secret'] = null;
                     goto after_webhook_secret;
                 }
 
@@ -626,7 +636,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -637,7 +647,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -648,7 +658,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -659,7 +669,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['task'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'task';
+                    $properties['task'] = null;
                     goto after_task;
                 }
 
@@ -681,7 +691,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['environment'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'environment';
+                    $properties['environment'] = null;
                     goto after_environment;
                 }
 
@@ -692,7 +702,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -703,7 +713,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -714,7 +724,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -725,7 +735,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['statuses_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses_url';
+                    $properties['statuses_url'] = null;
                     goto after_statuses_url;
                 }
 
@@ -736,7 +746,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['repository_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_url';
+                    $properties['repository_url'] = null;
                     goto after_repository_url;
                 }
 
@@ -811,7 +821,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -822,7 +832,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -833,7 +843,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -844,7 +854,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -855,7 +865,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -866,7 +876,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -877,7 +887,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -888,7 +898,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -899,7 +909,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -910,7 +920,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -921,7 +931,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -932,7 +942,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -943,7 +953,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -954,7 +964,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -965,7 +975,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -976,7 +986,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -987,7 +997,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -998,7 +1008,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -1009,7 +1019,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -1020,7 +1030,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -1064,7 +1074,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues';
+                    $properties['issues'] = null;
                     goto after_issues;
                 }
 
@@ -1075,7 +1085,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['checks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'checks';
+                    $properties['checks'] = null;
                     goto after_checks;
                 }
 
@@ -1086,7 +1096,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['metadata'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'metadata';
+                    $properties['metadata'] = null;
                     goto after_metadata;
                 }
 
@@ -1097,7 +1107,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['contents'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents';
+                    $properties['contents'] = null;
                     goto after_contents;
                 }
 
@@ -1108,7 +1118,7 @@ class CbCheckRunIdRcb implements ObjectMapper
                 $value = $payload['deployments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments';
+                    $properties['deployments'] = null;
                     goto after_deployments;
                 }
 
@@ -1352,7 +1362,8 @@ class CbCheckRunIdRcb implements ObjectMapper
         static $pull_requestsSerializer0;
 
         if ($pull_requestsSerializer0 === null) {
-            $pull_requestsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $pull_requestsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\PullRequestMinimal',
 ));
         }
         

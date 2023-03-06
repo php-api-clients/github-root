@@ -13,18 +13,10 @@ final readonly class StatusCheckPolicy
     public const SCHEMA_TITLE = 'Status Check Policy';
     public const SCHEMA_DESCRIPTION = 'Status Check Policy';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches\\/master\\/protection\\/required_status_checks","strict":true,"contexts":["continuous-integration\\/travis-ci"],"contexts_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches\\/master\\/protection\\/required_status_checks\\/contexts"}';
-    public ?string $url;
-    public ?bool $strict;
     /**
-     * @var array<string>
+     * @param ?array<string> $contexts
      */
-    public ?array $contexts;
-    public ?string $contexts_url;
-    public function __construct(string $url, bool $strict, array $contexts, string $contexts_url)
+    public function __construct(public ?string $url, public ?bool $strict, public ?array $contexts, public ?string $contexts_url)
     {
-        $this->url = $url;
-        $this->strict = $strict;
-        $this->contexts = $contexts;
-        $this->contexts_url = $contexts_url;
     }
 }

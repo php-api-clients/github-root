@@ -13,15 +13,7 @@ final readonly class Changes
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = 'The changes to the team if the action was `edited`.';
     public const SCHEMA_EXAMPLE_DATA = '{"description":{"from":"generated_from"},"name":{"from":"generated_from"},"privacy":{"from":"generated_from"},"repository":{"permissions":{"from":{"admin":false,"pull":false,"push":false}}}}';
-    public ?Schema\WebhookLabelEdited\Changes\Description $description;
-    public ?Schema\WebhookLabelEdited\Changes\Name $name;
-    public ?Schema\WebhookTeamEdited\Changes\Privacy $privacy;
-    public ?Schema\WebhookTeamEdited\Changes\Repository $repository;
-    public function __construct(Schema\WebhookLabelEdited\Changes\Description $description, Schema\WebhookLabelEdited\Changes\Name $name, Schema\WebhookTeamEdited\Changes\Privacy $privacy, Schema\WebhookTeamEdited\Changes\Repository $repository)
+    public function __construct(public ?Schema\WebhookLabelEdited\Changes\Description $description, public ?Schema\WebhookLabelEdited\Changes\Name $name, public ?Schema\WebhookTeamEdited\Changes\Privacy $privacy, public ?Schema\WebhookTeamEdited\Changes\Repository $repository)
     {
-        $this->description = $description;
-        $this->name = $name;
-        $this->privacy = $privacy;
-        $this->repository = $repository;
     }
 }

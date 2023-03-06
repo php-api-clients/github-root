@@ -40,7 +40,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -51,7 +51,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -62,7 +62,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['image_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'image_url';
+                    $properties['image_url'] = null;
                     goto after_image_url;
                 }
 
@@ -73,7 +73,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -84,7 +84,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -95,7 +95,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['default_environment'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default_environment';
+                    $properties['default_environment'] = null;
                     goto after_default_environment;
                 }
 
@@ -106,7 +106,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -117,7 +117,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['hooks_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_count';
+                    $properties['hooks_count'] = null;
                     goto after_hooks_count;
                 }
 
@@ -128,7 +128,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['download'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'download';
+                    $properties['download'] = null;
                     goto after_download;
                 }
 
@@ -170,7 +170,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -181,9 +181,19 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['errors'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'errors';
+                    $properties['errors'] = null;
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -214,7 +224,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -225,7 +235,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'state';
+                    $properties['state'] = null;
                     goto after_state;
                 }
 
@@ -236,7 +246,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['downloaded_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'downloaded_at';
+                    $properties['downloaded_at'] = null;
                     goto after_downloaded_at;
                 }
 
@@ -247,7 +257,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -459,7 +469,8 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422\\Errors',
 ));
         }
         

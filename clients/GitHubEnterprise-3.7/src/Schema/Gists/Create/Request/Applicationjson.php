@@ -14,18 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"description":"Example Ruby script","files":{"hello.rb":{"content":"puts \\"Hello, World!\\""}},"public":"generated_public"}';
     /**
-     * Description of the gist
+     * description: Description of the gist
+     * files: Names and content for the files that make up the gist
      */
-    public string $description;
-    /**
-     * Names and content for the files that make up the gist
-     */
-    public ?Schema\Gists\Create\Request\Applicationjson\Files $files;
-    public string $public;
-    public function __construct(string $description, Schema\Gists\Create\Request\Applicationjson\Files $files, string $public)
+    public function __construct(public string $description, public ?Schema\Gists\Create\Request\Applicationjson\Files $files, public string $public)
     {
-        $this->description = $description;
-        $this->files = $files;
-        $this->public = $public;
     }
 }

@@ -14,21 +14,11 @@ final readonly class AnnouncementBanner
     public const SCHEMA_DESCRIPTION = 'Announcement at either the repository, organization, or enterprise level';
     public const SCHEMA_EXAMPLE_DATA = '{"announcement":"Very **important** announcement about _something_.","expires_at":"\\"2021-01-01T00:00:00.000-07:00\\"","user_dismissible":false}';
     /**
-     * The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see "[Basic writing and formatting syntax](https://docs.github.com/enterprise-server@3.8/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
+     * announcement: The announcement text in GitHub Flavored Markdown. For more information about GitHub Flavored Markdown, see "[Basic writing and formatting syntax](https://docs.github.com/enterprise-server@3.8/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
+     * expires_at: The time at which the announcement expires. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. To set an announcement that never expires, omit this parameter, set it to `null`, or set it to an empty string.
+     * user_dismissible: Whether an announcement can be dismissed by the user.
      */
-    public ?string $announcement;
-    /**
-     * The time at which the announcement expires. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. To set an announcement that never expires, omit this parameter, set it to `null`, or set it to an empty string.
-     */
-    public ?string $expires_at;
-    /**
-     * Whether an announcement can be dismissed by the user.
-     */
-    public ?bool $user_dismissible;
-    public function __construct(string $announcement, string $expires_at, bool $user_dismissible)
+    public function __construct(public ?string $announcement, public ?string $expires_at, public ?bool $user_dismissible)
     {
-        $this->announcement = $announcement;
-        $this->expires_at = $expires_at;
-        $this->user_dismissible = $user_dismissible;
     }
 }

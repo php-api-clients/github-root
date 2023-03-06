@@ -38,7 +38,7 @@ class UsageByRepository implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class UsageByRepository implements ObjectMapper
                 $value = $payload['repository_cache_usages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_cache_usages';
+                    $properties['repository_cache_usages'] = null;
                     goto after_repository_cache_usages;
                 }
+
+                static $repository_cache_usagesCaster1;
+    
+                if ($repository_cache_usagesCaster1 === null) {
+                    $repository_cache_usagesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsCacheUsageByRepository',
+));
+                }
+    
+                $value = $repository_cache_usagesCaster1->cast($value, $this);
 
                 $properties['repository_cache_usages'] = $value;
     
@@ -178,7 +188,8 @@ class UsageByRepository implements ObjectMapper
         static $repository_cache_usagesSerializer0;
 
         if ($repository_cache_usagesSerializer0 === null) {
-            $repository_cache_usagesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $repository_cache_usagesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsCacheUsageByRepository',
 ));
         }
         

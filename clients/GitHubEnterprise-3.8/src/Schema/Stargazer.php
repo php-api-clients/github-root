@@ -13,11 +13,7 @@ final readonly class Stargazer
     public const SCHEMA_TITLE = 'Stargazer';
     public const SCHEMA_DESCRIPTION = 'Stargazer';
     public const SCHEMA_EXAMPLE_DATA = '{"starred_at":"generated_starred_at","user":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""}}';
-    public ?string $starred_at;
-    public ?Schema\SimpleUser $user;
-    public function __construct(string $starred_at, Schema\SimpleUser $user)
+    public function __construct(public ?string $starred_at, public ?Schema\SimpleUser $user)
     {
-        $this->starred_at = $starred_at;
-        $this->user = $user;
     }
 }

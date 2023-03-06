@@ -43,7 +43,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['environment'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'environment';
+                    $properties['environment'] = null;
                     goto after_environment;
                 }
 
@@ -63,7 +63,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['wait_timer'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'wait_timer';
+                    $properties['wait_timer'] = null;
                     goto after_wait_timer;
                 }
 
@@ -74,7 +74,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['wait_timer_started_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'wait_timer_started_at';
+                    $properties['wait_timer_started_at'] = null;
                     goto after_wait_timer_started_at;
                 }
 
@@ -85,7 +85,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['current_user_can_approve'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'current_user_can_approve';
+                    $properties['current_user_can_approve'] = null;
                     goto after_current_user_can_approve;
                 }
 
@@ -96,9 +96,19 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['reviewers'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'reviewers';
+                    $properties['reviewers'] = null;
                     goto after_reviewers;
                 }
+
+                static $reviewersCaster1;
+    
+                if ($reviewersCaster1 === null) {
+                    $reviewersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\PendingDeployment\\Reviewers',
+));
+                }
+    
+                $value = $reviewersCaster1->cast($value, $this);
 
                 $properties['reviewers'] = $value;
     
@@ -129,7 +139,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -140,7 +150,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -151,7 +161,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -162,7 +172,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -173,7 +183,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['ref'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ref';
+                    $properties['ref'] = null;
                     goto after_ref;
                 }
 
@@ -184,7 +194,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['task'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'task';
+                    $properties['task'] = null;
                     goto after_task;
                 }
 
@@ -195,7 +205,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['payload'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'payload';
+                    $properties['payload'] = null;
                     goto after_payload;
                 }
 
@@ -217,7 +227,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['environment'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'environment';
+                    $properties['environment'] = null;
                     goto after_environment;
                 }
 
@@ -228,7 +238,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -239,7 +249,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['creator'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'creator';
+                    $properties['creator'] = null;
                     goto after_creator;
                 }
 
@@ -259,7 +269,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -270,7 +280,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -281,7 +291,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['statuses_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses_url';
+                    $properties['statuses_url'] = null;
                     goto after_statuses_url;
                 }
 
@@ -292,7 +302,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['repository_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_url';
+                    $properties['repository_url'] = null;
                     goto after_repository_url;
                 }
 
@@ -367,7 +377,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -378,7 +388,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -389,7 +399,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -400,7 +410,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -411,7 +421,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -444,7 +454,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -455,7 +465,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -466,7 +476,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -477,7 +487,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -488,7 +498,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -499,7 +509,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -510,7 +520,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -521,7 +531,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -532,7 +542,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -543,7 +553,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -554,7 +564,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -565,7 +575,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -576,7 +586,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -587,7 +597,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -598,7 +608,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -609,7 +619,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -620,7 +630,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -631,7 +641,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -642,7 +652,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -653,7 +663,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -697,7 +707,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -719,7 +729,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -730,7 +740,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -750,7 +760,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -761,7 +771,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -772,7 +782,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['external_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'external_url';
+                    $properties['external_url'] = null;
                     goto after_external_url;
                 }
 
@@ -783,7 +793,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -794,7 +804,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -805,7 +815,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -816,7 +826,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['permissions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'permissions';
+                    $properties['permissions'] = null;
                     goto after_permissions;
                 }
 
@@ -836,7 +846,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['events'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events';
+                    $properties['events'] = null;
                     goto after_events;
                 }
 
@@ -880,7 +890,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['webhook_secret'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'webhook_secret';
+                    $properties['webhook_secret'] = null;
                     goto after_webhook_secret;
                 }
 
@@ -924,7 +934,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues';
+                    $properties['issues'] = null;
                     goto after_issues;
                 }
 
@@ -935,7 +945,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['checks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'checks';
+                    $properties['checks'] = null;
                     goto after_checks;
                 }
 
@@ -946,7 +956,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['metadata'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'metadata';
+                    $properties['metadata'] = null;
                     goto after_metadata;
                 }
 
@@ -957,7 +967,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['contents'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents';
+                    $properties['contents'] = null;
                     goto after_contents;
                 }
 
@@ -968,7 +978,7 @@ class PendingDeployments implements ObjectMapper
                 $value = $payload['deployments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments';
+                    $properties['deployments'] = null;
                     goto after_deployments;
                 }
 
@@ -1123,7 +1133,8 @@ class PendingDeployments implements ObjectMapper
         static $reviewersSerializer0;
 
         if ($reviewersSerializer0 === null) {
-            $reviewersSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $reviewersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\PendingDeployment\\Reviewers',
 ));
         }
         

@@ -39,7 +39,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -50,7 +50,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -61,7 +61,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -72,7 +72,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['active'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'active';
+                    $properties['active'] = null;
                     goto after_active;
                 }
 
@@ -83,7 +83,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['events'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events';
+                    $properties['events'] = null;
                     goto after_events;
                 }
 
@@ -94,7 +94,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['config'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'config';
+                    $properties['config'] = null;
                     goto after_config;
                 }
 
@@ -114,7 +114,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -125,7 +125,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -136,7 +136,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -147,7 +147,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['ping_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ping_url';
+                    $properties['ping_url'] = null;
                     goto after_ping_url;
                 }
 
@@ -180,7 +180,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -191,7 +191,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['content_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'content_type';
+                    $properties['content_type'] = null;
                     goto after_content_type;
                 }
 
@@ -202,7 +202,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['insecure_ssl'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'insecure_ssl';
+                    $properties['insecure_ssl'] = null;
                     goto after_insecure_ssl;
                 }
 
@@ -213,7 +213,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['secret'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secret';
+                    $properties['secret'] = null;
                     goto after_secret;
                 }
 

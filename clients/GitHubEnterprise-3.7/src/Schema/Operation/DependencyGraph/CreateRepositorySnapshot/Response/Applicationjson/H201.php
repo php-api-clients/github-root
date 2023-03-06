@@ -14,26 +14,12 @@ final readonly class H201
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"created_at":"generated_created_at","result":"generated_result","message":"generated_message"}';
     /**
-     * ID of the created snapshot.
+     * id: ID of the created snapshot.
+     * created_at: The time at which the snapshot was created.
+     * result: Either "SUCCESS", "ACCEPTED", or "INVALID". "SUCCESS" indicates that the snapshot was successfully created and the repository's dependencies were updated. "ACCEPTED" indicates that the snapshot was successfully created, but the repository's dependencies were not updated. "INVALID" indicates that the snapshot was malformed.
+     * message: A message providing further details about the result, such as why the dependencies were not updated.
      */
-    public ?int $id;
-    /**
-     * The time at which the snapshot was created.
-     */
-    public ?string $created_at;
-    /**
-     * Either "SUCCESS", "ACCEPTED", or "INVALID". "SUCCESS" indicates that the snapshot was successfully created and the repository's dependencies were updated. "ACCEPTED" indicates that the snapshot was successfully created, but the repository's dependencies were not updated. "INVALID" indicates that the snapshot was malformed.
-     */
-    public ?string $result;
-    /**
-     * A message providing further details about the result, such as why the dependencies were not updated.
-     */
-    public ?string $message;
-    public function __construct(int $id, string $created_at, string $result, string $message)
+    public function __construct(public ?int $id, public ?string $created_at, public ?string $result, public ?string $message)
     {
-        $this->id = $id;
-        $this->created_at = $created_at;
-        $this->result = $result;
-        $this->message = $message;
     }
 }

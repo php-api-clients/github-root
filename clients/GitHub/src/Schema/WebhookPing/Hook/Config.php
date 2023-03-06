@@ -14,23 +14,11 @@ final readonly class Config
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"content_type":"\\"json\\"","insecure_ssl":13,"secret":"\\"********\\"","url":"https:\\/\\/example.com\\/webhook"}';
     /**
-     * The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
+     * content_type: The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
+     * secret: If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/webhooks/event-payloads/#delivery-headers).
+     * url: The URL to which the payloads will be delivered.
      */
-    public ?string $content_type;
-    public ?int $insecure_ssl;
-    /**
-     * If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/webhooks/event-payloads/#delivery-headers).
-     */
-    public ?string $secret;
-    /**
-     * The URL to which the payloads will be delivered.
-     */
-    public ?string $url;
-    public function __construct(string $content_type, int $insecure_ssl, string $secret, string $url)
+    public function __construct(public ?string $content_type, public ?int $insecure_ssl, public ?string $secret, public ?string $url)
     {
-        $this->content_type = $content_type;
-        $this->insecure_ssl = $insecure_ssl;
-        $this->secret = $secret;
-        $this->url = $url;
     }
 }

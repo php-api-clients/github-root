@@ -13,21 +13,11 @@ final readonly class UserRole
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"display":"generated_display","type":"generated_type","value":"user","primary":false}';
-    public string $display;
-    public string $type;
     /**
-     * The role value representing a user role in GitHub.
+     * value: The role value representing a user role in GitHub.
+     * primary: Is the role a primary role for the user.
      */
-    public ?string $value;
-    /**
-     * Is the role a primary role for the user.
-     */
-    public bool $primary;
-    public function __construct(string $display, string $type, string $value, bool $primary)
+    public function __construct(public string $display, public string $type, public ?string $value, public bool $primary)
     {
-        $this->display = $display;
-        $this->type = $type;
-        $this->value = $value;
-        $this->primary = $primary;
     }
 }

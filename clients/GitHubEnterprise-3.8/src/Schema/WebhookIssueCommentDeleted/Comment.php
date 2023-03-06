@@ -14,42 +14,12 @@ final readonly class Comment
     public const SCHEMA_DESCRIPTION = 'The [comment](https://docs.github.com/enterprise-server@3.8/rest/reference/issues#comments) itself.';
     public const SCHEMA_EXAMPLE_DATA = '{"author_association":"generated_author_association","body":"generated_body","created_at":"generated_created_at","html_url":"generated_html_url","id":13,"issue_url":"generated_issue_url","node_id":"generated_node_id","performed_via_github_app":{"id":37,"slug":"probot-owners","node_id":"MDExOkludGVncmF0aW9uMQ==","owner":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"name":"Probot Owners","description":"The description of the app.","external_url":"https:\\/\\/example.com","html_url":"https:\\/\\/github.com\\/apps\\/super-ci","created_at":"2017-07-08T16:18:44-04:00","updated_at":"2017-07-08T16:18:44-04:00","permissions":{"issues":"read","deployments":"write","checks":"generated_checks","metadata":"generated_metadata","contents":"generated_contents"},"events":["deployment"],"installations_count":5,"client_id":"\\"Iv1.25b5d1e65ffc4022\\"","client_secret":"\\"1d4b2097ac622ba702d19de498f005747a8b21d3\\"","webhook_secret":"\\"6fba8f2fc8a7e8f2cca5577eddd82ca7586b3b6b\\"","pem":"\\"-----BEGIN RSA PRIVATE KEY-----\\\\nMIIEogIBAAKCAQEArYxrNYD\\/iT5CZVpRJu4rBKmmze3PVmT\\/gCo2ATUvDvZTPTey\\\\nxcGJ3vvrJXazKk06pN05TN29o98jrYz4cengG3YGsXPNEpKsIrEl8NhbnxapEnM9\\\\nJCMRe0P5JcPsfZlX6hmiT7136GRWiGOUba2X9+HKh8QJVLG5rM007TBER9\\/z9mWm\\\\nrJuNh+m5l320oBQY\\/Qq3A7wzdEfZw8qm\\/mIN0FCeoXH1L6B8xXWaAYBwhTEh6SSn\\\\nZHlO1Xu1JWDmAvBCi0RO5aRSKM8q9QEkvvHP4yweAtK3N8+aAbZ7ovaDhyGz8r6r\\\\nzhU1b8Uo0Z2ysf503WqzQgIajr7Fry7\\/kUwpgQIDAQABAoIBADwJp80Ko1xHPZDy\\\\nfcCKBDfIuPvkmSW6KumbsLMaQv1aGdHDwwTGv3t0ixSay8CGlxMRtRDyZPib6SvQ\\\\n6OH\\/lpfpbMdW2ErkksgtoIKBVrDilfrcAvrNZu7NxRNbhCSvN8q0s4ICecjbbVQh\\\\nnueSdlA6vGXbW58BHMq68uRbHkP+k+mM9U0mDJ1HMch67wlg5GbayVRt63H7R2+r\\\\nVxcna7B80J\\/lCEjIYZznawgiTvp3MSanTglqAYi+m1EcSsP14bJIB9vgaxS79kTu\\\\noiSo93leJbBvuGo8QEiUqTwMw4tDksmkLsoqNKQ1q9P7LZ9DGcujtPy4EZsamSJT\\\\ny8OJt0ECgYEA2lxOxJsQk2kI325JgKFjo92mQeUObIvPfSNWUIZQDTjniOI6Gv63\\\\nGLWVFrZcvQBWjMEQraJA9xjPbblV8PtfO87MiJGLWCHFxmPz2dzoedN+2Coxom8m\\\\nV95CLz8QUShuao6u\\/RYcvUaZEoYs5bHcTmy5sBK80JyEmafJPtCQVxMCgYEAy3ar\\\\nZr3yv4xRPEPMat4rseswmuMooSaK3SKub19WFI5IAtB\\/e7qR1Rj9JhOGcZz+OQrl\\\\nT78O2OFYlgOIkJPvRMrPpK5V9lslc7tz1FSh3BZMRGq5jSyD7ETSOQ0c8T2O\\/s7v\\\\nbeEPbVbDe4mwvM24XByH0GnWveVxaDl51ABD65sCgYB3ZAspUkOA5egVCh8kNpnd\\\\nSd6SnuQBE3ySRlT2WEnCwP9Ph6oPgn+oAfiPX4xbRqkL8q\\/k0BdHQ4h+zNwhk7+h\\\\nWtPYRAP1Xxnc\\/F+jGjb+DVaIaKGU18MWPg7f+FI6nampl3Q0KvfxwX0GdNhtio8T\\\\nTj1E+SnFwh56SRQuxSh2gwKBgHKjlIO5NtNSflsUYFM+hyQiPiqnHzddfhSG+\\/3o\\\\nm5nNaSmczJesUYreH5San7\\/YEy2UxAugvP7aSY2MxB+iGsiJ9WD2kZzTUlDZJ7RV\\\\nUzWsoqBR+eZfVJ2FUWWvy8TpSG6trh4dFxImNtKejCR1TREpSiTV3Zb1dmahK9GV\\\\nrK9NAoGAbBxRLoC01xfxCTgt5BDiBcFVh4fp5yYKwavJPLzHSpuDOrrI9jDn1oKN\\\\nonq5sDU1i391zfQvdrbX4Ova48BN+B7p63FocP\\/MK5tyyBoT8zQEk2+vWDOw7H\\/Z\\\\nu5dTCPxTIsoIwUw1I+7yIxqJzLPFgR2gVBwY1ra\\/8iAqCj+zeBw=\\\\n-----END RSA PRIVATE KEY-----\\\\n\\""},"reactions":{"_PLUSES_1":13,"_MINUS_1":13,"confused":13,"eyes":13,"heart":13,"hooray":13,"laugh":13,"rocket":13,"total_count":13,"url":"generated_url"},"updated_at":"generated_updated_at","url":"generated_url","user":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"}}';
     /**
-     * How the author is associated with the repository.
+     * author_association: How the author is associated with the repository.
+     * body: Contents of the issue comment
+     * id: Unique identifier of the issue comment
+     * url: URL for the issue comment
      */
-    public ?string $author_association;
-    /**
-     * Contents of the issue comment
-     */
-    public ?string $body;
-    public ?string $created_at;
-    public ?string $html_url;
-    /**
-     * Unique identifier of the issue comment
-     */
-    public ?int $id;
-    public ?string $issue_url;
-    public ?string $node_id;
-    public ?Schema\Integration $performed_via_github_app;
-    public ?Schema\Discussion\Reactions $reactions;
-    public ?string $updated_at;
-    /**
-     * URL for the issue comment
-     */
-    public ?string $url;
-    public ?Schema\WebhookIssueCommentCreated\Issue\Assignee $user;
-    public function __construct(string $author_association, string $body, string $created_at, string $html_url, int $id, string $issue_url, string $node_id, Schema\Integration $performed_via_github_app, Schema\Discussion\Reactions $reactions, string $updated_at, string $url, Schema\WebhookIssueCommentCreated\Issue\Assignee $user)
+    public function __construct(public ?string $author_association, public ?string $body, public ?string $created_at, public ?string $html_url, public ?int $id, public ?string $issue_url, public ?string $node_id, public ?Schema\Integration $performed_via_github_app, public ?Schema\Discussion\Reactions $reactions, public ?string $updated_at, public ?string $url, public ?Schema\WebhookIssueCommentCreated\Issue\Assignee $user)
     {
-        $this->author_association = $author_association;
-        $this->body = $body;
-        $this->created_at = $created_at;
-        $this->html_url = $html_url;
-        $this->id = $id;
-        $this->issue_url = $issue_url;
-        $this->node_id = $node_id;
-        $this->performed_via_github_app = $performed_via_github_app;
-        $this->reactions = $reactions;
-        $this->updated_at = $updated_at;
-        $this->url = $url;
-        $this->user = $user;
     }
 }

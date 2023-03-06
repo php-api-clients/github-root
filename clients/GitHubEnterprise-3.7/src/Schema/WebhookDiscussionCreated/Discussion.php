@@ -13,49 +13,7 @@ final readonly class Discussion
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"active_lock_reason":null,"answer_chosen_at":null,"answer_chosen_by":null,"answer_html_url":"generated_answer_html_url","author_association":"generated_author_association","body":"generated_body","category":{"created_at":"generated_created_at","description":"generated_description","emoji":"generated_emoji","id":13,"is_answerable":false,"name":"generated_name","node_id":"generated_node_id","repository_id":13,"slug":"generated_slug","updated_at":"generated_updated_at"},"comments":13,"created_at":"generated_created_at","html_url":"generated_html_url","id":13,"locked":false,"node_id":"generated_node_id","number":13,"reactions":{"_PLUSES_1":13,"_MINUS_1":13,"confused":13,"eyes":13,"heart":13,"hooray":13,"laugh":13,"rocket":13,"total_count":13,"url":"generated_url"},"repository_url":"generated_repository_url","state":"generated_state","timeline_url":"generated_timeline_url","title":"generated_title","updated_at":"generated_updated_at","user":{"avatar_url":"generated_avatar_url","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"}}';
-    public mixed $active_lock_reason;
-    public mixed $answer_chosen_at;
-    public mixed $answer_chosen_by;
-    public ?string $answer_html_url;
-    public string $author_association;
-    public ?string $body;
-    public Schema\WebhookDiscussionCreated\Discussion\Category $category;
-    public int $comments;
-    public string $created_at;
-    public string $html_url;
-    public int $id;
-    public ?bool $locked;
-    public string $node_id;
-    public int $number;
-    public Schema\WebhookDiscussionCreated\Discussion\Reactions $reactions;
-    public string $repository_url;
-    public ?string $state;
-    public string $timeline_url;
-    public string $title;
-    public string $updated_at;
-    public Schema\WebhookDeploymentCreated\WorkflowRun\HeadRepository\Owner $user;
-    public function __construct(mixed $active_lock_reason, mixed $answer_chosen_at, mixed $answer_chosen_by, string $answer_html_url, string $author_association, string $body, Schema\WebhookDiscussionCreated\Discussion\Category $category, int $comments, string $created_at, string $html_url, int $id, bool $locked, string $node_id, int $number, Schema\WebhookDiscussionCreated\Discussion\Reactions $reactions, string $repository_url, string $state, string $timeline_url, string $title, string $updated_at, Schema\WebhookDeploymentCreated\WorkflowRun\HeadRepository\Owner $user)
+    public function __construct(public mixed $active_lock_reason, public mixed $answer_chosen_at, public mixed $answer_chosen_by, public ?string $answer_html_url, public string $author_association, public ?string $body, public Schema\WebhookDiscussionCreated\Discussion\Category $category, public int $comments, public string $created_at, public string $html_url, public int $id, public ?bool $locked, public string $node_id, public int $number, public Schema\WebhookDiscussionCreated\Discussion\Reactions $reactions, public string $repository_url, public ?string $state, public string $timeline_url, public string $title, public string $updated_at, public Schema\WebhookDeploymentCreated\WorkflowRun\HeadRepository\Owner $user)
     {
-        $this->active_lock_reason = $active_lock_reason;
-        $this->answer_chosen_at = $answer_chosen_at;
-        $this->answer_chosen_by = $answer_chosen_by;
-        $this->answer_html_url = $answer_html_url;
-        $this->author_association = $author_association;
-        $this->body = $body;
-        $this->category = $category;
-        $this->comments = $comments;
-        $this->created_at = $created_at;
-        $this->html_url = $html_url;
-        $this->id = $id;
-        $this->locked = $locked;
-        $this->node_id = $node_id;
-        $this->number = $number;
-        $this->reactions = $reactions;
-        $this->repository_url = $repository_url;
-        $this->state = $state;
-        $this->timeline_url = $timeline_url;
-        $this->title = $title;
-        $this->updated_at = $updated_at;
-        $this->user = $user;
     }
 }

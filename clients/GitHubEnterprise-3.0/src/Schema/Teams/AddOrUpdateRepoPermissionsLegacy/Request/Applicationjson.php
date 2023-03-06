@@ -14,16 +14,14 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"permission":"generated_permission"}';
     /**
-    * The permission to grant the team on this repository. Can be one of:  
+    * permission: The permission to grant the team on this repository. Can be one of:  
     \* `pull` - team members can pull, but not push to or administer this repository.  
     \* `push` - team members can pull and push, but not administer this repository.  
     \* `admin` - team members can pull, push and administer this repository.  
      
     If no permission is specified, the team's `permission` attribute will be used to determine what permission to grant the team on this repository.
     */
-    public ?string $permission;
-    public function __construct(string $permission)
+    public function __construct(public ?string $permission)
     {
-        $this->permission = $permission;
     }
 }

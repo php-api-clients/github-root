@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"email":"generated_email","name":"generated_name"}';
     /**
-     * The new Git author email.
+     * email: The new Git author email.
+     * name: The new Git author name.
      */
-    public ?string $email;
-    /**
-     * The new Git author name.
-     */
-    public ?string $name;
-    public function __construct(string $email, string $name)
+    public function __construct(public ?string $email, public ?string $name)
     {
-        $this->email = $email;
-        $this->name = $name;
     }
 }

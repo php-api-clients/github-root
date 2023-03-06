@@ -14,11 +14,9 @@ final readonly class ActionsCacheUsagePolicyForRepository
     public const SCHEMA_DESCRIPTION = 'GitHub Actions cache usage policy for repository.';
     public const SCHEMA_EXAMPLE_DATA = '{"repo_cache_size_limit_in_gb":14}';
     /**
-     * The size limit for the sum of all caches, in gigabytes.
+     * repo_cache_size_limit_in_gb: The size limit for the sum of all caches, in gigabytes.
      */
-    public ?int $repo_cache_size_limit_in_gb;
-    public function __construct(int $repo_cache_size_limit_in_gb)
+    public function __construct(public ?int $repo_cache_size_limit_in_gb)
     {
-        $this->repo_cache_size_limit_in_gb = $repo_cache_size_limit_in_gb;
     }
 }

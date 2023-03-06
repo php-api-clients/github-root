@@ -39,7 +39,7 @@ class CbKeyIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -50,7 +50,7 @@ class CbKeyIdRcb implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 
@@ -61,7 +61,7 @@ class CbKeyIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -72,7 +72,7 @@ class CbKeyIdRcb implements ObjectMapper
                 $value = $payload['title'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'title';
+                    $properties['title'] = null;
                     goto after_title;
                 }
 
@@ -83,7 +83,7 @@ class CbKeyIdRcb implements ObjectMapper
                 $value = $payload['verified'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'verified';
+                    $properties['verified'] = null;
                     goto after_verified;
                 }
 
@@ -94,7 +94,7 @@ class CbKeyIdRcb implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -105,7 +105,7 @@ class CbKeyIdRcb implements ObjectMapper
                 $value = $payload['read_only'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'read_only';
+                    $properties['read_only'] = null;
                     goto after_read_only;
                 }
 
@@ -116,7 +116,7 @@ class CbKeyIdRcb implements ObjectMapper
                 $value = $payload['added_by'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'added_by';
+                    $properties['added_by'] = null;
                     goto after_added_by;
                 }
 
@@ -127,7 +127,7 @@ class CbKeyIdRcb implements ObjectMapper
                 $value = $payload['last_used'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'last_used';
+                    $properties['last_used'] = null;
                     goto after_last_used;
                 }
 
@@ -160,7 +160,7 @@ class CbKeyIdRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -171,7 +171,7 @@ class CbKeyIdRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -182,7 +182,7 @@ class CbKeyIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -193,7 +193,7 @@ class CbKeyIdRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 

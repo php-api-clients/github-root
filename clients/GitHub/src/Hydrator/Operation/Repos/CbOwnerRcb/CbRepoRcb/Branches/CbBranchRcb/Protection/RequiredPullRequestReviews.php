@@ -93,7 +93,7 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['dismiss_stale_reviews'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'dismiss_stale_reviews';
+                    $properties['dismiss_stale_reviews'] = null;
                     goto after_dismiss_stale_reviews;
                 }
 
@@ -104,7 +104,7 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['require_code_owner_reviews'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'require_code_owner_reviews';
+                    $properties['require_code_owner_reviews'] = null;
                     goto after_require_code_owner_reviews;
                 }
 
@@ -159,7 +159,7 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -170,7 +170,7 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -181,7 +181,7 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -192,7 +192,7 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -225,7 +225,7 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -236,7 +236,7 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -250,6 +250,16 @@ class RequiredPullRequestReviews implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -280,9 +290,19 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'users';
+                    $properties['users'] = null;
                     goto after_users;
                 }
+
+                static $usersCaster1;
+    
+                if ($usersCaster1 === null) {
+                    $usersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\SimpleUser',
+));
+                }
+    
+                $value = $usersCaster1->cast($value, $this);
 
                 $properties['users'] = $value;
     
@@ -291,9 +311,19 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['teams'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams';
+                    $properties['teams'] = null;
                     goto after_teams;
                 }
+
+                static $teamsCaster1;
+    
+                if ($teamsCaster1 === null) {
+                    $teamsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\Team',
+));
+                }
+    
+                $value = $teamsCaster1->cast($value, $this);
 
                 $properties['teams'] = $value;
     
@@ -302,9 +332,19 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['apps'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'apps';
+                    $properties['apps'] = null;
                     goto after_apps;
                 }
+
+                static $appsCaster1;
+    
+                if ($appsCaster1 === null) {
+                    $appsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\Integration',
+));
+                }
+    
+                $value = $appsCaster1->cast($value, $this);
 
                 $properties['apps'] = $value;
     
@@ -313,7 +353,7 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -324,7 +364,7 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['users_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'users_url';
+                    $properties['users_url'] = null;
                     goto after_users_url;
                 }
 
@@ -335,7 +375,7 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['teams_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams_url';
+                    $properties['teams_url'] = null;
                     goto after_teams_url;
                 }
 
@@ -368,9 +408,19 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'users';
+                    $properties['users'] = null;
                     goto after_users;
                 }
+
+                static $usersCaster1;
+    
+                if ($usersCaster1 === null) {
+                    $usersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\SimpleUser',
+));
+                }
+    
+                $value = $usersCaster1->cast($value, $this);
 
                 $properties['users'] = $value;
     
@@ -379,9 +429,19 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['teams'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams';
+                    $properties['teams'] = null;
                     goto after_teams;
                 }
+
+                static $teamsCaster1;
+    
+                if ($teamsCaster1 === null) {
+                    $teamsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\Team',
+));
+                }
+    
+                $value = $teamsCaster1->cast($value, $this);
 
                 $properties['teams'] = $value;
     
@@ -390,9 +450,19 @@ class RequiredPullRequestReviews implements ObjectMapper
                 $value = $payload['apps'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'apps';
+                    $properties['apps'] = null;
                     goto after_apps;
                 }
+
+                static $appsCaster1;
+    
+                if ($appsCaster1 === null) {
+                    $appsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\Integration',
+));
+                }
+    
+                $value = $appsCaster1->cast($value, $this);
 
                 $properties['apps'] = $value;
     
@@ -613,7 +683,8 @@ class RequiredPullRequestReviews implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\ValidationError\\Errors',
 ));
         }
         

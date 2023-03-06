@@ -14,11 +14,9 @@ final readonly class ApplicationxWwwFormUrlencoded
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"license":"generated_license"}';
     /**
-     * The content of your new _.ghl_ license file.
+     * license: The content of your new _.ghl_ license file.
      */
-    public ?string $license;
-    public function __construct(string $license)
+    public function __construct(public ?string $license)
     {
-        $this->license = $license;
     }
 }

@@ -13,9 +13,7 @@ final readonly class Message
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"text":"generated_text"}';
-    public ?string $text;
-    public function __construct(string $text)
+    public function __construct(public ?string $text)
     {
-        $this->text = $text;
     }
 }

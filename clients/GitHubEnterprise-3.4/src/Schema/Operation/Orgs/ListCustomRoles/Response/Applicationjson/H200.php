@@ -14,16 +14,10 @@ final readonly class H200
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_count":3,"custom_roles":[{"id":13,"name":"generated_name"}]}';
     /**
-     * The number of custom roles in this organization
+     * total_count: The number of custom roles in this organization
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\OrganizationCustomRepositoryRole> $custom_roles
      */
-    public ?int $total_count;
-    /**
-     * @var array<Schema\OrganizationCustomRepositoryRole>
-     */
-    public ?array $custom_roles;
-    public function __construct(int $total_count, array $custom_roles)
+    public function __construct(public ?int $total_count, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\OrganizationCustomRepositoryRole::class)] public ?array $custom_roles)
     {
-        $this->total_count = $total_count;
-        $this->custom_roles = $custom_roles;
     }
 }

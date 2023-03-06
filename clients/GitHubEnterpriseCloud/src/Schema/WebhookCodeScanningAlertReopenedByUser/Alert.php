@@ -14,46 +14,14 @@ final readonly class Alert
     public const SCHEMA_DESCRIPTION = 'The code scanning alert involved in the event.';
     public const SCHEMA_EXAMPLE_DATA = '{"created_at":"generated_created_at","dismissed_at":null,"dismissed_by":null,"dismissed_reason":null,"html_url":"generated_html_url","most_recent_instance":{"analysis_key":"generated_analysis_key","classifications":["generated_classifications"],"commit_sha":"generated_commit_sha","environment":"generated_environment","location":{"end_column":13,"end_line":13,"path":"generated_path","start_column":13,"start_line":13},"message":{"text":"generated_text"},"ref":"generated_ref","state":"generated_state"},"number":13,"rule":{"description":"generated_description","id":"generated_id","severity":"generated_severity"},"state":"generated_state","tool":{"name":"generated_name","version":"generated_version"},"url":"generated_url"}';
     /**
-     * The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`
+     * created_at: The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`
+     * dismissed_at: The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     * dismissed_reason: The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`.
+     * html_url: The GitHub URL of the alert resource.
+     * number: The code scanning alert number.
+     * state: State of a code scanning alert.
      */
-    public ?string $created_at;
-    /**
-     * The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public mixed $dismissed_at;
-    public mixed $dismissed_by;
-    /**
-     * The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`.
-     */
-    public mixed $dismissed_reason;
-    /**
-     * The GitHub URL of the alert resource.
-     */
-    public ?string $html_url;
-    public ?Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\MostRecentInstance $most_recent_instance;
-    /**
-     * The code scanning alert number.
-     */
-    public ?int $number;
-    public ?Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\Rule $rule;
-    /**
-     * State of a code scanning alert.
-     */
-    public ?string $state;
-    public ?Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\Tool $tool;
-    public ?string $url;
-    public function __construct(string $created_at, mixed $dismissed_at, mixed $dismissed_by, mixed $dismissed_reason, string $html_url, Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\MostRecentInstance $most_recent_instance, int $number, Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\Rule $rule, string $state, Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\Tool $tool, string $url)
+    public function __construct(public ?string $created_at, public mixed $dismissed_at, public mixed $dismissed_by, public mixed $dismissed_reason, public ?string $html_url, public ?Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\MostRecentInstance $most_recent_instance, public ?int $number, public ?Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\Rule $rule, public ?string $state, public ?Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\Tool $tool, public ?string $url)
     {
-        $this->created_at = $created_at;
-        $this->dismissed_at = $dismissed_at;
-        $this->dismissed_by = $dismissed_by;
-        $this->dismissed_reason = $dismissed_reason;
-        $this->html_url = $html_url;
-        $this->most_recent_instance = $most_recent_instance;
-        $this->number = $number;
-        $this->rule = $rule;
-        $this->state = $state;
-        $this->tool = $tool;
-        $this->url = $url;
     }
 }

@@ -14,51 +14,17 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"location":"generated_location","client_ip":"generated_client_ip","machine":"generated_machine","devcontainer_path":"generated_devcontainer_path","multi_repo_permissions_opt_out":false,"working_directory":"generated_working_directory","idle_timeout_minutes":13,"display_name":"generated_display_name","retention_period_minutes":13}';
     /**
-     * Location for this codespace. Assigned by IP if not provided
+     * location: Location for this codespace. Assigned by IP if not provided
+     * client_ip: IP for location auto-detection when proxying a request
+     * machine: Machine type to use for this codespace
+     * devcontainer_path: Path to devcontainer.json config to use for this codespace
+     * multi_repo_permissions_opt_out: Whether to authorize requested permissions from devcontainer.json
+     * working_directory: Working directory for this codespace
+     * idle_timeout_minutes: Time in minutes before codespace stops from inactivity
+     * display_name: Display name for this codespace
+     * retention_period_minutes: Duration in minutes after codespace has gone idle in which it will be deleted. Must be integer minutes between 0 and 43200 (30 days).
      */
-    public ?string $location;
-    /**
-     * IP for location auto-detection when proxying a request
-     */
-    public ?string $client_ip;
-    /**
-     * Machine type to use for this codespace
-     */
-    public ?string $machine;
-    /**
-     * Path to devcontainer.json config to use for this codespace
-     */
-    public ?string $devcontainer_path;
-    /**
-     * Whether to authorize requested permissions from devcontainer.json
-     */
-    public ?bool $multi_repo_permissions_opt_out;
-    /**
-     * Working directory for this codespace
-     */
-    public ?string $working_directory;
-    /**
-     * Time in minutes before codespace stops from inactivity
-     */
-    public ?int $idle_timeout_minutes;
-    /**
-     * Display name for this codespace
-     */
-    public ?string $display_name;
-    /**
-     * Duration in minutes after codespace has gone idle in which it will be deleted. Must be integer minutes between 0 and 43200 (30 days).
-     */
-    public ?int $retention_period_minutes;
-    public function __construct(string $location, string $client_ip, string $machine, string $devcontainer_path, bool $multi_repo_permissions_opt_out, string $working_directory, int $idle_timeout_minutes, string $display_name, int $retention_period_minutes)
+    public function __construct(public ?string $location, public ?string $client_ip, public ?string $machine, public ?string $devcontainer_path, public ?bool $multi_repo_permissions_opt_out, public ?string $working_directory, public ?int $idle_timeout_minutes, public ?string $display_name, public ?int $retention_period_minutes)
     {
-        $this->location = $location;
-        $this->client_ip = $client_ip;
-        $this->machine = $machine;
-        $this->devcontainer_path = $devcontainer_path;
-        $this->multi_repo_permissions_opt_out = $multi_repo_permissions_opt_out;
-        $this->working_directory = $working_directory;
-        $this->idle_timeout_minutes = $idle_timeout_minutes;
-        $this->display_name = $display_name;
-        $this->retention_period_minutes = $retention_period_minutes;
     }
 }

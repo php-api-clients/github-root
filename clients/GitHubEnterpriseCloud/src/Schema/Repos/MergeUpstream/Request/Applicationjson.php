@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"branch":"generated_branch"}';
     /**
-     * The name of the branch which should be updated to match upstream.
+     * branch: The name of the branch which should be updated to match upstream.
      */
-    public ?string $branch;
-    public function __construct(string $branch)
+    public function __construct(public ?string $branch)
     {
-        $this->branch = $branch;
     }
 }

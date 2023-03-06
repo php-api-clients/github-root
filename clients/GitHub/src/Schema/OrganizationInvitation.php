@@ -13,34 +13,10 @@ final readonly class OrganizationInvitation
     public const SCHEMA_TITLE = 'Organization Invitation';
     public const SCHEMA_DESCRIPTION = 'Organization Invitation';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"login":"generated_login","email":"generated_email","role":"generated_role","created_at":"generated_created_at","failed_at":"generated_failed_at","failed_reason":"generated_failed_reason","inviter":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"team_count":13,"node_id":"\\"MDIyOk9yZ2FuaXphdGlvbkludml0YXRpb24x\\"","invitation_teams_url":"\\"https:\\/\\/api.github.com\\/organizations\\/16\\/invitations\\/1\\/teams\\"","invitation_source":"\\"member\\""}';
-    public ?int $id;
-    public ?string $login;
-    public ?string $email;
-    public ?string $role;
-    public ?string $created_at;
-    public ?string $failed_at;
-    public ?string $failed_reason;
     /**
-     * A GitHub user.
+     * inviter: A GitHub user.
      */
-    public ?Schema\SimpleUser $inviter;
-    public ?int $team_count;
-    public ?string $node_id;
-    public ?string $invitation_teams_url;
-    public string $invitation_source;
-    public function __construct(int $id, string $login, string $email, string $role, string $created_at, string $failed_at, string $failed_reason, Schema\SimpleUser $inviter, int $team_count, string $node_id, string $invitation_teams_url, string $invitation_source)
+    public function __construct(public ?int $id, public ?string $login, public ?string $email, public ?string $role, public ?string $created_at, public ?string $failed_at, public ?string $failed_reason, public ?Schema\SimpleUser $inviter, public ?int $team_count, public ?string $node_id, public ?string $invitation_teams_url, public string $invitation_source)
     {
-        $this->id = $id;
-        $this->login = $login;
-        $this->email = $email;
-        $this->role = $role;
-        $this->created_at = $created_at;
-        $this->failed_at = $failed_at;
-        $this->failed_reason = $failed_reason;
-        $this->inviter = $inviter;
-        $this->team_count = $team_count;
-        $this->node_id = $node_id;
-        $this->invitation_teams_url = $invitation_teams_url;
-        $this->invitation_source = $invitation_source;
     }
 }

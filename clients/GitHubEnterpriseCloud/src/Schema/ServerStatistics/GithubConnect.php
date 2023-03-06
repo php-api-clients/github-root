@@ -14,11 +14,9 @@ final readonly class GithubConnect
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"features_enabled":["generated_features_enabled"]}';
     /**
-     * @var array<string>
+     * @param ?array<string> $features_enabled
      */
-    public ?array $features_enabled;
-    public function __construct(array $features_enabled)
+    public function __construct(public ?array $features_enabled)
     {
-        $this->features_enabled = $features_enabled;
     }
 }

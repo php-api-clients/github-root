@@ -38,9 +38,19 @@ class LicenseSyncStatus implements ObjectMapper
                 $value = $payload['server_instances'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'server_instances';
+                    $properties['server_instances'] = null;
                     goto after_server_instances;
                 }
+
+                static $server_instancesCaster1;
+    
+                if ($server_instancesCaster1 === null) {
+                    $server_instancesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GetLicenseSyncStatus\\ServerInstances',
+));
+                }
+    
+                $value = $server_instancesCaster1->cast($value, $this);
 
                 $properties['server_instances'] = $value;
     
@@ -159,7 +169,8 @@ class LicenseSyncStatus implements ObjectMapper
         static $server_instancesSerializer0;
 
         if ($server_instancesSerializer0 === null) {
-            $server_instancesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $server_instancesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GetLicenseSyncStatus\\ServerInstances',
 ));
         }
         

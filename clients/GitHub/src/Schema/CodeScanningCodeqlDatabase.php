@@ -14,51 +14,17 @@ final readonly class CodeScanningCodeqlDatabase
     public const SCHEMA_DESCRIPTION = 'A CodeQL database.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"name":"generated_name","language":"generated_language","uploader":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"content_type":"generated_content_type","size":13,"created_at":"generated_created_at","updated_at":"generated_updated_at","url":"generated_url"}';
     /**
-     * The ID of the CodeQL database.
+     * id: The ID of the CodeQL database.
+     * name: The name of the CodeQL database.
+     * language: The language of the CodeQL database.
+     * uploader: A GitHub user.
+     * content_type: The MIME type of the CodeQL database file.
+     * size: The size of the CodeQL database file in bytes.
+     * created_at: The date and time at which the CodeQL database was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.
+     * updated_at: The date and time at which the CodeQL database was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.
+     * url: The URL at which to download the CodeQL database. The `Accept` header must be set to the value of the `content_type` property.
      */
-    public ?int $id;
-    /**
-     * The name of the CodeQL database.
-     */
-    public ?string $name;
-    /**
-     * The language of the CodeQL database.
-     */
-    public ?string $language;
-    /**
-     * A GitHub user.
-     */
-    public ?Schema\SimpleUser $uploader;
-    /**
-     * The MIME type of the CodeQL database file.
-     */
-    public ?string $content_type;
-    /**
-     * The size of the CodeQL database file in bytes.
-     */
-    public ?int $size;
-    /**
-     * The date and time at which the CodeQL database was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.
-     */
-    public ?string $created_at;
-    /**
-     * The date and time at which the CodeQL database was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.
-     */
-    public ?string $updated_at;
-    /**
-     * The URL at which to download the CodeQL database. The `Accept` header must be set to the value of the `content_type` property.
-     */
-    public ?string $url;
-    public function __construct(int $id, string $name, string $language, Schema\SimpleUser $uploader, string $content_type, int $size, string $created_at, string $updated_at, string $url)
+    public function __construct(public ?int $id, public ?string $name, public ?string $language, public ?Schema\SimpleUser $uploader, public ?string $content_type, public ?int $size, public ?string $created_at, public ?string $updated_at, public ?string $url)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->language = $language;
-        $this->uploader = $uploader;
-        $this->content_type = $content_type;
-        $this->size = $size;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->url = $url;
     }
 }

@@ -38,7 +38,7 @@ class CbGroupIdRcb implements ObjectMapper
                 $value = $payload['group_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'group_id';
+                    $properties['group_id'] = null;
                     goto after_group_id;
                 }
 
@@ -49,7 +49,7 @@ class CbGroupIdRcb implements ObjectMapper
                 $value = $payload['group_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'group_name';
+                    $properties['group_name'] = null;
                     goto after_group_name;
                 }
 
@@ -71,9 +71,19 @@ class CbGroupIdRcb implements ObjectMapper
                 $value = $payload['teams'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams';
+                    $properties['teams'] = null;
                     goto after_teams;
                 }
+
+                static $teamsCaster1;
+    
+                if ($teamsCaster1 === null) {
+                    $teamsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ExternalGroup\\Teams',
+));
+                }
+    
+                $value = $teamsCaster1->cast($value, $this);
 
                 $properties['teams'] = $value;
     
@@ -82,9 +92,19 @@ class CbGroupIdRcb implements ObjectMapper
                 $value = $payload['members'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'members';
+                    $properties['members'] = null;
                     goto after_members;
                 }
+
+                static $membersCaster1;
+    
+                if ($membersCaster1 === null) {
+                    $membersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ExternalGroup\\Members',
+));
+                }
+    
+                $value = $membersCaster1->cast($value, $this);
 
                 $properties['members'] = $value;
     
@@ -223,7 +243,8 @@ class CbGroupIdRcb implements ObjectMapper
         static $teamsSerializer0;
 
         if ($teamsSerializer0 === null) {
-            $teamsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $teamsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ExternalGroup\\Teams',
 ));
         }
         
@@ -239,7 +260,8 @@ class CbGroupIdRcb implements ObjectMapper
         static $membersSerializer0;
 
         if ($membersSerializer0 === null) {
-            $membersSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $membersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ExternalGroup\\Members',
 ));
         }
         

@@ -38,7 +38,7 @@ class Root implements ObjectMapper
                 $value = $payload['current_user_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'current_user_url';
+                    $properties['current_user_url'] = null;
                     goto after_current_user_url;
                 }
 
@@ -49,7 +49,7 @@ class Root implements ObjectMapper
                 $value = $payload['current_user_authorizations_html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'current_user_authorizations_html_url';
+                    $properties['current_user_authorizations_html_url'] = null;
                     goto after_current_user_authorizations_html_url;
                 }
 
@@ -60,7 +60,7 @@ class Root implements ObjectMapper
                 $value = $payload['authorizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'authorizations_url';
+                    $properties['authorizations_url'] = null;
                     goto after_authorizations_url;
                 }
 
@@ -71,7 +71,7 @@ class Root implements ObjectMapper
                 $value = $payload['code_search_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'code_search_url';
+                    $properties['code_search_url'] = null;
                     goto after_code_search_url;
                 }
 
@@ -82,7 +82,7 @@ class Root implements ObjectMapper
                 $value = $payload['commit_search_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commit_search_url';
+                    $properties['commit_search_url'] = null;
                     goto after_commit_search_url;
                 }
 
@@ -93,7 +93,7 @@ class Root implements ObjectMapper
                 $value = $payload['emails_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'emails_url';
+                    $properties['emails_url'] = null;
                     goto after_emails_url;
                 }
 
@@ -104,7 +104,7 @@ class Root implements ObjectMapper
                 $value = $payload['emojis_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'emojis_url';
+                    $properties['emojis_url'] = null;
                     goto after_emojis_url;
                 }
 
@@ -115,7 +115,7 @@ class Root implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -126,7 +126,7 @@ class Root implements ObjectMapper
                 $value = $payload['feeds_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'feeds_url';
+                    $properties['feeds_url'] = null;
                     goto after_feeds_url;
                 }
 
@@ -137,7 +137,7 @@ class Root implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -148,7 +148,7 @@ class Root implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -159,7 +159,7 @@ class Root implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -170,7 +170,7 @@ class Root implements ObjectMapper
                 $value = $payload['hub_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hub_url';
+                    $properties['hub_url'] = null;
                     goto after_hub_url;
                 }
 
@@ -181,7 +181,7 @@ class Root implements ObjectMapper
                 $value = $payload['issue_search_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_search_url';
+                    $properties['issue_search_url'] = null;
                     goto after_issue_search_url;
                 }
 
@@ -192,7 +192,7 @@ class Root implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -203,7 +203,7 @@ class Root implements ObjectMapper
                 $value = $payload['keys_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'keys_url';
+                    $properties['keys_url'] = null;
                     goto after_keys_url;
                 }
 
@@ -214,7 +214,7 @@ class Root implements ObjectMapper
                 $value = $payload['label_search_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'label_search_url';
+                    $properties['label_search_url'] = null;
                     goto after_label_search_url;
                 }
 
@@ -225,7 +225,7 @@ class Root implements ObjectMapper
                 $value = $payload['notifications_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'notifications_url';
+                    $properties['notifications_url'] = null;
                     goto after_notifications_url;
                 }
 
@@ -236,7 +236,7 @@ class Root implements ObjectMapper
                 $value = $payload['organization_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_url';
+                    $properties['organization_url'] = null;
                     goto after_organization_url;
                 }
 
@@ -247,7 +247,7 @@ class Root implements ObjectMapper
                 $value = $payload['organization_repositories_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_repositories_url';
+                    $properties['organization_repositories_url'] = null;
                     goto after_organization_repositories_url;
                 }
 
@@ -258,7 +258,7 @@ class Root implements ObjectMapper
                 $value = $payload['organization_teams_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_teams_url';
+                    $properties['organization_teams_url'] = null;
                     goto after_organization_teams_url;
                 }
 
@@ -269,7 +269,7 @@ class Root implements ObjectMapper
                 $value = $payload['public_gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'public_gists_url';
+                    $properties['public_gists_url'] = null;
                     goto after_public_gists_url;
                 }
 
@@ -280,7 +280,7 @@ class Root implements ObjectMapper
                 $value = $payload['rate_limit_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'rate_limit_url';
+                    $properties['rate_limit_url'] = null;
                     goto after_rate_limit_url;
                 }
 
@@ -291,7 +291,7 @@ class Root implements ObjectMapper
                 $value = $payload['repository_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_url';
+                    $properties['repository_url'] = null;
                     goto after_repository_url;
                 }
 
@@ -302,7 +302,7 @@ class Root implements ObjectMapper
                 $value = $payload['repository_search_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_search_url';
+                    $properties['repository_search_url'] = null;
                     goto after_repository_search_url;
                 }
 
@@ -313,7 +313,7 @@ class Root implements ObjectMapper
                 $value = $payload['current_user_repositories_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'current_user_repositories_url';
+                    $properties['current_user_repositories_url'] = null;
                     goto after_current_user_repositories_url;
                 }
 
@@ -324,7 +324,7 @@ class Root implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -335,7 +335,7 @@ class Root implements ObjectMapper
                 $value = $payload['starred_gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_gists_url';
+                    $properties['starred_gists_url'] = null;
                     goto after_starred_gists_url;
                 }
 
@@ -357,7 +357,7 @@ class Root implements ObjectMapper
                 $value = $payload['user_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user_url';
+                    $properties['user_url'] = null;
                     goto after_user_url;
                 }
 
@@ -368,7 +368,7 @@ class Root implements ObjectMapper
                 $value = $payload['user_organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user_organizations_url';
+                    $properties['user_organizations_url'] = null;
                     goto after_user_organizations_url;
                 }
 
@@ -379,7 +379,7 @@ class Root implements ObjectMapper
                 $value = $payload['user_repositories_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user_repositories_url';
+                    $properties['user_repositories_url'] = null;
                     goto after_user_repositories_url;
                 }
 
@@ -390,7 +390,7 @@ class Root implements ObjectMapper
                 $value = $payload['user_search_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user_search_url';
+                    $properties['user_search_url'] = null;
                     goto after_user_search_url;
                 }
 

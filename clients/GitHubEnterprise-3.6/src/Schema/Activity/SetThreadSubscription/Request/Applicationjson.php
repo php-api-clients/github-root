@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"ignored":false}';
     /**
-     * Whether to block all notifications from a thread.
+     * ignored: Whether to block all notifications from a thread.
      */
-    public ?bool $ignored;
-    public function __construct(bool $ignored)
+    public function __construct(public ?bool $ignored)
     {
-        $this->ignored = $ignored;
     }
 }

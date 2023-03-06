@@ -14,17 +14,11 @@ final readonly class SelectedActions
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"github_owned_allowed":false,"patterns_allowed":["generated_patterns_allowed"]}';
     /**
-     * Whether GitHub-owned actions are allowed. For example, this includes the actions in the `actions` organization.
+     * github_owned_allowed: Whether GitHub-owned actions are allowed. For example, this includes the actions in the `actions` organization.
+     * patterns_allowed: Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, `monalisa/octocat@*`, `monalisa/octocat@v2`, `monalisa/*`.
+     * @param ?array<string> $patterns_allowed
      */
-    public ?bool $github_owned_allowed;
-    /**
-     * Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, `monalisa/octocat@*`, `monalisa/octocat@v2`, `monalisa/*`.
-     * @var array<string>
-     */
-    public ?array $patterns_allowed;
-    public function __construct(bool $github_owned_allowed, array $patterns_allowed)
+    public function __construct(public ?bool $github_owned_allowed, public ?array $patterns_allowed)
     {
-        $this->github_owned_allowed = $github_owned_allowed;
-        $this->patterns_allowed = $patterns_allowed;
     }
 }

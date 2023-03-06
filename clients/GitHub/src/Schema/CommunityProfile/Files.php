@@ -13,21 +13,7 @@ final readonly class Files
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"code_of_conduct":{"url":"https:\\/\\/api.github.com\\/repos\\/github\\/docs\\/community\\/code_of_conduct","key":"citizen_code_of_conduct","name":"Citizen Code of Conduct","html_url":"https:\\/\\/github.com\\/github\\/docs\\/blob\\/main\\/CODE_OF_CONDUCT.md"},"code_of_conduct_file":{"url":"generated_url","html_url":"generated_html_url"},"license":{"key":"mit","name":"MIT License","url":"https:\\/\\/api.github.com\\/licenses\\/mit","spdx_id":"MIT","node_id":"MDc6TGljZW5zZW1pdA==","html_url":"generated_html_url"},"contributing":{"url":"generated_url","html_url":"generated_html_url"},"readme":{"url":"generated_url","html_url":"generated_html_url"},"issue_template":{"url":"generated_url","html_url":"generated_html_url"},"pull_request_template":{"url":"generated_url","html_url":"generated_html_url"}}';
-    public ?Schema\CodeOfConductSimple $code_of_conduct;
-    public ?Schema\CommunityHealthFile $code_of_conduct_file;
-    public ?Schema\LicenseSimple $license;
-    public ?Schema\CommunityHealthFile $contributing;
-    public ?Schema\CommunityHealthFile $readme;
-    public ?Schema\CommunityHealthFile $issue_template;
-    public ?Schema\CommunityHealthFile $pull_request_template;
-    public function __construct(Schema\CodeOfConductSimple $code_of_conduct, Schema\CommunityHealthFile $code_of_conduct_file, Schema\LicenseSimple $license, Schema\CommunityHealthFile $contributing, Schema\CommunityHealthFile $readme, Schema\CommunityHealthFile $issue_template, Schema\CommunityHealthFile $pull_request_template)
+    public function __construct(public ?Schema\CodeOfConductSimple $code_of_conduct, public ?Schema\CommunityHealthFile $code_of_conduct_file, public ?Schema\LicenseSimple $license, public ?Schema\CommunityHealthFile $contributing, public ?Schema\CommunityHealthFile $readme, public ?Schema\CommunityHealthFile $issue_template, public ?Schema\CommunityHealthFile $pull_request_template)
     {
-        $this->code_of_conduct = $code_of_conduct;
-        $this->code_of_conduct_file = $code_of_conduct_file;
-        $this->license = $license;
-        $this->contributing = $contributing;
-        $this->readme = $readme;
-        $this->issue_template = $issue_template;
-        $this->pull_request_template = $pull_request_template;
     }
 }

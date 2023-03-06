@@ -14,21 +14,11 @@ final readonly class Actions
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"label":"generated_label","description":"generated_description","identifier":"generated_identifier"}';
     /**
-     * The text to be displayed on a button in the web UI. The maximum size is 20 characters.
+     * label: The text to be displayed on a button in the web UI. The maximum size is 20 characters.
+     * description: A short explanation of what this action would do. The maximum size is 40 characters.
+     * identifier: A reference for the action on the integrator's system. The maximum size is 20 characters.
      */
-    public ?string $label;
-    /**
-     * A short explanation of what this action would do. The maximum size is 40 characters.
-     */
-    public ?string $description;
-    /**
-     * A reference for the action on the integrator's system. The maximum size is 20 characters.
-     */
-    public ?string $identifier;
-    public function __construct(string $label, string $description, string $identifier)
+    public function __construct(public ?string $label, public ?string $description, public ?string $identifier)
     {
-        $this->label = $label;
-        $this->description = $description;
-        $this->identifier = $identifier;
     }
 }

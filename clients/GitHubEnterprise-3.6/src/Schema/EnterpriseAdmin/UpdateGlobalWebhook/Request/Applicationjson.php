@@ -14,22 +14,12 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"config":{"url":"generated_url","content_type":"generated_content_type","secret":"generated_secret","insecure_ssl":"generated_insecure_ssl"},"events":["generated_events"],"active":false}';
     /**
-     * Key/value pairs to provide settings for this webhook.
+     * config: Key/value pairs to provide settings for this webhook.
+     * events: The [events](https://docs.github.com/enterprise-server@3.6/webhooks/event-payloads) that trigger this webhook. A global webhook can be triggered by `user` and `organization` events. Default: `user` and `organization`.
+     * @param ?array<string> $events
+     * active: Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
      */
-    public ?Schema\EnterpriseAdmin\CreateGlobalWebhook\Request\Applicationjson\Config $config;
-    /**
-     * The [events](https://docs.github.com/enterprise-server@3.6/webhooks/event-payloads) that trigger this webhook. A global webhook can be triggered by `user` and `organization` events. Default: `user` and `organization`.
-     * @var array<string>
-     */
-    public ?array $events;
-    /**
-     * Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
-     */
-    public ?bool $active;
-    public function __construct(Schema\EnterpriseAdmin\CreateGlobalWebhook\Request\Applicationjson\Config $config, array $events, bool $active)
+    public function __construct(public ?Schema\EnterpriseAdmin\CreateGlobalWebhook\Request\Applicationjson\Config $config, public ?array $events, public ?bool $active)
     {
-        $this->config = $config;
-        $this->events = $events;
-        $this->active = $active;
     }
 }

@@ -14,52 +14,18 @@ final readonly class CodeScanningAlertRule
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":"generated_id","name":"generated_name","severity":"generated_severity","security_severity_level":"generated_security_severity_level","description":"generated_description","full_description":"generated_full_description","tags":["generated_tags"],"help":"generated_help","help_uri":"generated_help_uri"}';
     /**
-     * A unique identifier for the rule used to detect the alert.
+     * id: A unique identifier for the rule used to detect the alert.
+     * name: The name of the rule used to detect the alert.
+     * severity: The severity of the alert.
+     * security_severity_level: The security severity of the alert.
+     * description: A short description of the rule used to detect the alert.
+     * full_description: description of the rule used to detect the alert.
+     * tags: A set of tags applicable for the rule.
+     * @param ?array<string> $tags
+     * help: Detailed documentation for the rule as GitHub Flavored Markdown.
+     * help_uri: A link to the documentation for the rule used to detect the alert.
      */
-    public ?string $id;
-    /**
-     * The name of the rule used to detect the alert.
-     */
-    public ?string $name;
-    /**
-     * The severity of the alert.
-     */
-    public ?string $severity;
-    /**
-     * The security severity of the alert.
-     */
-    public ?string $security_severity_level;
-    /**
-     * A short description of the rule used to detect the alert.
-     */
-    public ?string $description;
-    /**
-     * description of the rule used to detect the alert.
-     */
-    public ?string $full_description;
-    /**
-     * A set of tags applicable for the rule.
-     * @var array<string>
-     */
-    public ?array $tags;
-    /**
-     * Detailed documentation for the rule as GitHub Flavored Markdown.
-     */
-    public ?string $help;
-    /**
-     * A link to the documentation for the rule used to detect the alert.
-     */
-    public ?string $help_uri;
-    public function __construct(string $id, string $name, string $severity, string $security_severity_level, string $description, string $full_description, array $tags, string $help, string $help_uri)
+    public function __construct(public ?string $id, public ?string $name, public ?string $severity, public ?string $security_severity_level, public ?string $description, public ?string $full_description, public ?array $tags, public ?string $help, public ?string $help_uri)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->severity = $severity;
-        $this->security_severity_level = $security_severity_level;
-        $this->description = $description;
-        $this->full_description = $full_description;
-        $this->tags = $tags;
-        $this->help = $help;
-        $this->help_uri = $help_uri;
     }
 }

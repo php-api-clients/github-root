@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"title":"Personal MacBook Air","key":"generated_key"}';
     /**
-     * A descriptive name for the new key.
+     * title: A descriptive name for the new key.
+     * key: The public SSH key to add to your GitHub account. For more information, see "[Checking for existing SSH keys](https://docs.github.com/enterprise-cloud@latest//authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)."
      */
-    public string $title;
-    /**
-     * The public SSH key to add to your GitHub account. For more information, see "[Checking for existing SSH keys](https://docs.github.com/enterprise-cloud@latest//authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)."
-     */
-    public ?string $key;
-    public function __construct(string $title, string $key)
+    public function __construct(public string $title, public ?string $key)
     {
-        $this->title = $title;
-        $this->key = $key;
     }
 }

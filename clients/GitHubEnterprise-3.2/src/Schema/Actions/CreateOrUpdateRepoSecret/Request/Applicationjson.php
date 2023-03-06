@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"encrypted_value":"generated_encrypted_value","key_id":"generated_key_id"}';
     /**
-     * Value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get a repository public key](https://docs.github.com/enterprise-server@3.2/rest/reference/actions#get-a-repository-public-key) endpoint.
+     * encrypted_value: Value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get a repository public key](https://docs.github.com/enterprise-server@3.2/rest/reference/actions#get-a-repository-public-key) endpoint.
+     * key_id: ID of the key you used to encrypt the secret.
      */
-    public ?string $encrypted_value;
-    /**
-     * ID of the key you used to encrypt the secret.
-     */
-    public ?string $key_id;
-    public function __construct(string $encrypted_value, string $key_id)
+    public function __construct(public ?string $encrypted_value, public ?string $key_id)
     {
-        $this->encrypted_value = $encrypted_value;
-        $this->key_id = $key_id;
     }
 }

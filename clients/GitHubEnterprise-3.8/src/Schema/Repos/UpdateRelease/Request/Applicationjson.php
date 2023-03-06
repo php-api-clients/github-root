@@ -14,41 +14,15 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"tag_name":"generated_tag_name","target_commitish":"generated_target_commitish","name":"generated_name","body":"generated_body","draft":false,"prerelease":false,"make_latest":"generated_make_latest"}';
     /**
-     * The name of the tag.
+     * tag_name: The name of the tag.
+     * target_commitish: Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually `master`).
+     * name: The name of the release.
+     * body: Text describing the contents of the tag.
+     * draft: `true` makes the release a draft, and `false` publishes the release.
+     * prerelease: `true` to identify the release as a prerelease, `false` to identify the release as a full release.
+     * make_latest: Specifies whether this release should be set as the latest release for the repository. Drafts and prereleases cannot be set as latest. Defaults to `true` for newly published releases. `legacy` specifies that the latest release should be determined based on the release creation date and higher semantic version.
      */
-    public ?string $tag_name;
-    /**
-     * Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch (usually `master`).
-     */
-    public ?string $target_commitish;
-    /**
-     * The name of the release.
-     */
-    public ?string $name;
-    /**
-     * Text describing the contents of the tag.
-     */
-    public ?string $body;
-    /**
-     * `true` makes the release a draft, and `false` publishes the release.
-     */
-    public ?bool $draft;
-    /**
-     * `true` to identify the release as a prerelease, `false` to identify the release as a full release.
-     */
-    public ?bool $prerelease;
-    /**
-     * Specifies whether this release should be set as the latest release for the repository. Drafts and prereleases cannot be set as latest. Defaults to `true` for newly published releases. `legacy` specifies that the latest release should be determined based on the release creation date and higher semantic version.
-     */
-    public ?string $make_latest;
-    public function __construct(string $tag_name, string $target_commitish, string $name, string $body, bool $draft, bool $prerelease, string $make_latest)
+    public function __construct(public ?string $tag_name, public ?string $target_commitish, public ?string $name, public ?string $body, public ?bool $draft, public ?bool $prerelease, public ?string $make_latest)
     {
-        $this->tag_name = $tag_name;
-        $this->target_commitish = $target_commitish;
-        $this->name = $name;
-        $this->body = $body;
-        $this->draft = $draft;
-        $this->prerelease = $prerelease;
-        $this->make_latest = $make_latest;
     }
 }

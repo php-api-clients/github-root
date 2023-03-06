@@ -13,16 +13,10 @@ final readonly class H403
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message","documentation_url":"generated_documentation_url","errors":[{"code":"generated_code","message":"generated_message","resource":"generated_resource","field":"generated_field"}]}';
-    public ?string $message;
-    public ?string $documentation_url;
     /**
-     * @var array<Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403\Errors>
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403\Errors> $errors
      */
-    public ?array $errors;
-    public function __construct(string $message, string $documentation_url, array $errors)
+    public function __construct(public ?string $message, public ?string $documentation_url, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Operation\Projects\MoveCard\Response\Applicationjson\H403\Errors::class)] public ?array $errors)
     {
-        $this->message = $message;
-        $this->documentation_url = $documentation_url;
-        $this->errors = $errors;
     }
 }

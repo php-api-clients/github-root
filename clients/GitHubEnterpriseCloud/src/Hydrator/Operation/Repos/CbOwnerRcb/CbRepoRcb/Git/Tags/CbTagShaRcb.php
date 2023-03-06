@@ -42,7 +42,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -53,7 +53,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['tag'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tag';
+                    $properties['tag'] = null;
                     goto after_tag;
                 }
 
@@ -64,7 +64,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -75,7 +75,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -86,7 +86,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -97,7 +97,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['tagger'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tagger';
+                    $properties['tagger'] = null;
                     goto after_tagger;
                 }
 
@@ -117,7 +117,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['object'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'object';
+                    $properties['object'] = null;
                     goto after_object;
                 }
 
@@ -179,7 +179,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -190,7 +190,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -201,7 +201,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -212,7 +212,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -245,7 +245,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['date'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'date';
+                    $properties['date'] = null;
                     goto after_date;
                 }
 
@@ -256,7 +256,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -267,7 +267,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -300,7 +300,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -311,7 +311,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -322,7 +322,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -355,7 +355,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['verified'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'verified';
+                    $properties['verified'] = null;
                     goto after_verified;
                 }
 
@@ -366,7 +366,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['reason'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'reason';
+                    $properties['reason'] = null;
                     goto after_reason;
                 }
 
@@ -377,7 +377,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['payload'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'payload';
+                    $properties['payload'] = null;
                     goto after_payload;
                 }
 
@@ -388,7 +388,7 @@ class CbTagShaRcb implements ObjectMapper
                 $value = $payload['signature'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'signature';
+                    $properties['signature'] = null;
                     goto after_signature;
                 }
 

@@ -56,7 +56,7 @@ class Settings implements ObjectMapper
                 $value = $payload['enterprise'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enterprise';
+                    $properties['enterprise'] = null;
                     goto after_enterprise;
                 }
 
@@ -76,7 +76,7 @@ class Settings implements ObjectMapper
                 $value = $payload['run_list'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'run_list';
+                    $properties['run_list'] = null;
                     goto after_run_list;
                 }
 
@@ -109,7 +109,7 @@ class Settings implements ObjectMapper
                 $value = $payload['private_mode'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'private_mode';
+                    $properties['private_mode'] = null;
                     goto after_private_mode;
                 }
 
@@ -120,7 +120,7 @@ class Settings implements ObjectMapper
                 $value = $payload['public_pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'public_pages';
+                    $properties['public_pages'] = null;
                     goto after_public_pages;
                 }
 
@@ -131,7 +131,7 @@ class Settings implements ObjectMapper
                 $value = $payload['subdomain_isolation'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subdomain_isolation';
+                    $properties['subdomain_isolation'] = null;
                     goto after_subdomain_isolation;
                 }
 
@@ -142,7 +142,7 @@ class Settings implements ObjectMapper
                 $value = $payload['signup_enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'signup_enabled';
+                    $properties['signup_enabled'] = null;
                     goto after_signup_enabled;
                 }
 
@@ -153,7 +153,7 @@ class Settings implements ObjectMapper
                 $value = $payload['github_hostname'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'github_hostname';
+                    $properties['github_hostname'] = null;
                     goto after_github_hostname;
                 }
 
@@ -164,7 +164,7 @@ class Settings implements ObjectMapper
                 $value = $payload['identicons_host'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'identicons_host';
+                    $properties['identicons_host'] = null;
                     goto after_identicons_host;
                 }
 
@@ -175,7 +175,7 @@ class Settings implements ObjectMapper
                 $value = $payload['http_proxy'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'http_proxy';
+                    $properties['http_proxy'] = null;
                     goto after_http_proxy;
                 }
 
@@ -186,7 +186,7 @@ class Settings implements ObjectMapper
                 $value = $payload['auth_mode'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'auth_mode';
+                    $properties['auth_mode'] = null;
                     goto after_auth_mode;
                 }
 
@@ -197,7 +197,7 @@ class Settings implements ObjectMapper
                 $value = $payload['expire_sessions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'expire_sessions';
+                    $properties['expire_sessions'] = null;
                     goto after_expire_sessions;
                 }
 
@@ -208,7 +208,7 @@ class Settings implements ObjectMapper
                 $value = $payload['admin_password'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin_password';
+                    $properties['admin_password'] = null;
                     goto after_admin_password;
                 }
 
@@ -219,7 +219,7 @@ class Settings implements ObjectMapper
                 $value = $payload['configuration_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'configuration_id';
+                    $properties['configuration_id'] = null;
                     goto after_configuration_id;
                 }
 
@@ -230,7 +230,7 @@ class Settings implements ObjectMapper
                 $value = $payload['configuration_run_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'configuration_run_count';
+                    $properties['configuration_run_count'] = null;
                     goto after_configuration_run_count;
                 }
 
@@ -241,7 +241,7 @@ class Settings implements ObjectMapper
                 $value = $payload['avatar'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar';
+                    $properties['avatar'] = null;
                     goto after_avatar;
                 }
 
@@ -261,7 +261,7 @@ class Settings implements ObjectMapper
                 $value = $payload['customer'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'customer';
+                    $properties['customer'] = null;
                     goto after_customer;
                 }
 
@@ -281,7 +281,7 @@ class Settings implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'license';
+                    $properties['license'] = null;
                     goto after_license;
                 }
 
@@ -301,7 +301,7 @@ class Settings implements ObjectMapper
                 $value = $payload['github_ssl'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'github_ssl';
+                    $properties['github_ssl'] = null;
                     goto after_github_ssl;
                 }
 
@@ -321,7 +321,7 @@ class Settings implements ObjectMapper
                 $value = $payload['ldap'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ldap';
+                    $properties['ldap'] = null;
                     goto after_ldap;
                 }
 
@@ -341,7 +341,7 @@ class Settings implements ObjectMapper
                 $value = $payload['cas'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'cas';
+                    $properties['cas'] = null;
                     goto after_cas;
                 }
 
@@ -361,7 +361,7 @@ class Settings implements ObjectMapper
                 $value = $payload['saml'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'saml';
+                    $properties['saml'] = null;
                     goto after_saml;
                 }
 
@@ -381,7 +381,7 @@ class Settings implements ObjectMapper
                 $value = $payload['github_oauth'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'github_oauth';
+                    $properties['github_oauth'] = null;
                     goto after_github_oauth;
                 }
 
@@ -401,7 +401,7 @@ class Settings implements ObjectMapper
                 $value = $payload['smtp'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'smtp';
+                    $properties['smtp'] = null;
                     goto after_smtp;
                 }
 
@@ -421,7 +421,7 @@ class Settings implements ObjectMapper
                 $value = $payload['ntp'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ntp';
+                    $properties['ntp'] = null;
                     goto after_ntp;
                 }
 
@@ -441,7 +441,7 @@ class Settings implements ObjectMapper
                 $value = $payload['timezone'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'timezone';
+                    $properties['timezone'] = null;
                     goto after_timezone;
                 }
 
@@ -452,7 +452,7 @@ class Settings implements ObjectMapper
                 $value = $payload['snmp'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'snmp';
+                    $properties['snmp'] = null;
                     goto after_snmp;
                 }
 
@@ -472,7 +472,7 @@ class Settings implements ObjectMapper
                 $value = $payload['syslog'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'syslog';
+                    $properties['syslog'] = null;
                     goto after_syslog;
                 }
 
@@ -492,7 +492,7 @@ class Settings implements ObjectMapper
                 $value = $payload['assets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assets';
+                    $properties['assets'] = null;
                     goto after_assets;
                 }
 
@@ -503,7 +503,7 @@ class Settings implements ObjectMapper
                 $value = $payload['pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pages';
+                    $properties['pages'] = null;
                     goto after_pages;
                 }
 
@@ -523,7 +523,7 @@ class Settings implements ObjectMapper
                 $value = $payload['collectd'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'collectd';
+                    $properties['collectd'] = null;
                     goto after_collectd;
                 }
 
@@ -543,7 +543,7 @@ class Settings implements ObjectMapper
                 $value = $payload['mapping'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'mapping';
+                    $properties['mapping'] = null;
                     goto after_mapping;
                 }
 
@@ -563,7 +563,7 @@ class Settings implements ObjectMapper
                 $value = $payload['load_balancer'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'load_balancer';
+                    $properties['load_balancer'] = null;
                     goto after_load_balancer;
                 }
 
@@ -596,7 +596,7 @@ class Settings implements ObjectMapper
                 $value = $payload['enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enabled';
+                    $properties['enabled'] = null;
                     goto after_enabled;
                 }
 
@@ -607,7 +607,7 @@ class Settings implements ObjectMapper
                 $value = $payload['uri'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'uri';
+                    $properties['uri'] = null;
                     goto after_uri;
                 }
 
@@ -640,7 +640,7 @@ class Settings implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -651,7 +651,7 @@ class Settings implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -662,7 +662,7 @@ class Settings implements ObjectMapper
                 $value = $payload['uuid'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'uuid';
+                    $properties['uuid'] = null;
                     goto after_uuid;
                 }
 
@@ -673,7 +673,7 @@ class Settings implements ObjectMapper
                 $value = $payload['secret_key_data'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secret_key_data';
+                    $properties['secret_key_data'] = null;
                     goto after_secret_key_data;
                 }
 
@@ -684,7 +684,7 @@ class Settings implements ObjectMapper
                 $value = $payload['public_key_data'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'public_key_data';
+                    $properties['public_key_data'] = null;
                     goto after_public_key_data;
                 }
 
@@ -717,7 +717,7 @@ class Settings implements ObjectMapper
                 $value = $payload['seats'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'seats';
+                    $properties['seats'] = null;
                     goto after_seats;
                 }
 
@@ -728,7 +728,7 @@ class Settings implements ObjectMapper
                 $value = $payload['evaluation'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'evaluation';
+                    $properties['evaluation'] = null;
                     goto after_evaluation;
                 }
 
@@ -739,7 +739,7 @@ class Settings implements ObjectMapper
                 $value = $payload['perpetual'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'perpetual';
+                    $properties['perpetual'] = null;
                     goto after_perpetual;
                 }
 
@@ -750,7 +750,7 @@ class Settings implements ObjectMapper
                 $value = $payload['unlimited_seating'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'unlimited_seating';
+                    $properties['unlimited_seating'] = null;
                     goto after_unlimited_seating;
                 }
 
@@ -761,7 +761,7 @@ class Settings implements ObjectMapper
                 $value = $payload['support_key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'support_key';
+                    $properties['support_key'] = null;
                     goto after_support_key;
                 }
 
@@ -772,7 +772,7 @@ class Settings implements ObjectMapper
                 $value = $payload['ssh_allowed'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ssh_allowed';
+                    $properties['ssh_allowed'] = null;
                     goto after_ssh_allowed;
                 }
 
@@ -783,7 +783,7 @@ class Settings implements ObjectMapper
                 $value = $payload['cluster_support'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'cluster_support';
+                    $properties['cluster_support'] = null;
                     goto after_cluster_support;
                 }
 
@@ -794,7 +794,7 @@ class Settings implements ObjectMapper
                 $value = $payload['expire_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'expire_at';
+                    $properties['expire_at'] = null;
                     goto after_expire_at;
                 }
 
@@ -827,7 +827,7 @@ class Settings implements ObjectMapper
                 $value = $payload['enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enabled';
+                    $properties['enabled'] = null;
                     goto after_enabled;
                 }
 
@@ -838,7 +838,7 @@ class Settings implements ObjectMapper
                 $value = $payload['cert'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'cert';
+                    $properties['cert'] = null;
                     goto after_cert;
                 }
 
@@ -849,7 +849,7 @@ class Settings implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 
@@ -882,7 +882,7 @@ class Settings implements ObjectMapper
                 $value = $payload['host'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'host';
+                    $properties['host'] = null;
                     goto after_host;
                 }
 
@@ -893,7 +893,7 @@ class Settings implements ObjectMapper
                 $value = $payload['port'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'port';
+                    $properties['port'] = null;
                     goto after_port;
                 }
 
@@ -904,7 +904,7 @@ class Settings implements ObjectMapper
                 $value = $payload['base'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'base';
+                    $properties['base'] = null;
                     goto after_base;
                 }
 
@@ -915,7 +915,7 @@ class Settings implements ObjectMapper
                 $value = $payload['uid'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'uid';
+                    $properties['uid'] = null;
                     goto after_uid;
                 }
 
@@ -926,7 +926,7 @@ class Settings implements ObjectMapper
                 $value = $payload['bind_dn'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'bind_dn';
+                    $properties['bind_dn'] = null;
                     goto after_bind_dn;
                 }
 
@@ -937,7 +937,7 @@ class Settings implements ObjectMapper
                 $value = $payload['password'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'password';
+                    $properties['password'] = null;
                     goto after_password;
                 }
 
@@ -948,7 +948,7 @@ class Settings implements ObjectMapper
                 $value = $payload['method'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'method';
+                    $properties['method'] = null;
                     goto after_method;
                 }
 
@@ -959,7 +959,7 @@ class Settings implements ObjectMapper
                 $value = $payload['search_strategy'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'search_strategy';
+                    $properties['search_strategy'] = null;
                     goto after_search_strategy;
                 }
 
@@ -970,7 +970,7 @@ class Settings implements ObjectMapper
                 $value = $payload['user_groups'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user_groups';
+                    $properties['user_groups'] = null;
                     goto after_user_groups;
                 }
 
@@ -981,7 +981,7 @@ class Settings implements ObjectMapper
                 $value = $payload['admin_group'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin_group';
+                    $properties['admin_group'] = null;
                     goto after_admin_group;
                 }
 
@@ -992,7 +992,7 @@ class Settings implements ObjectMapper
                 $value = $payload['virtual_attribute_enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'virtual_attribute_enabled';
+                    $properties['virtual_attribute_enabled'] = null;
                     goto after_virtual_attribute_enabled;
                 }
 
@@ -1003,7 +1003,7 @@ class Settings implements ObjectMapper
                 $value = $payload['recursive_group_search'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'recursive_group_search';
+                    $properties['recursive_group_search'] = null;
                     goto after_recursive_group_search;
                 }
 
@@ -1014,7 +1014,7 @@ class Settings implements ObjectMapper
                 $value = $payload['posix_support'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'posix_support';
+                    $properties['posix_support'] = null;
                     goto after_posix_support;
                 }
 
@@ -1025,7 +1025,7 @@ class Settings implements ObjectMapper
                 $value = $payload['user_sync_emails'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user_sync_emails';
+                    $properties['user_sync_emails'] = null;
                     goto after_user_sync_emails;
                 }
 
@@ -1036,7 +1036,7 @@ class Settings implements ObjectMapper
                 $value = $payload['user_sync_keys'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user_sync_keys';
+                    $properties['user_sync_keys'] = null;
                     goto after_user_sync_keys;
                 }
 
@@ -1047,7 +1047,7 @@ class Settings implements ObjectMapper
                 $value = $payload['user_sync_interval'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user_sync_interval';
+                    $properties['user_sync_interval'] = null;
                     goto after_user_sync_interval;
                 }
 
@@ -1058,7 +1058,7 @@ class Settings implements ObjectMapper
                 $value = $payload['team_sync_interval'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'team_sync_interval';
+                    $properties['team_sync_interval'] = null;
                     goto after_team_sync_interval;
                 }
 
@@ -1069,7 +1069,7 @@ class Settings implements ObjectMapper
                 $value = $payload['sync_enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sync_enabled';
+                    $properties['sync_enabled'] = null;
                     goto after_sync_enabled;
                 }
 
@@ -1080,7 +1080,7 @@ class Settings implements ObjectMapper
                 $value = $payload['reconciliation'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'reconciliation';
+                    $properties['reconciliation'] = null;
                     goto after_reconciliation;
                 }
 
@@ -1100,7 +1100,7 @@ class Settings implements ObjectMapper
                 $value = $payload['profile'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'profile';
+                    $properties['profile'] = null;
                     goto after_profile;
                 }
 
@@ -1142,7 +1142,7 @@ class Settings implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -1175,7 +1175,7 @@ class Settings implements ObjectMapper
                 $value = $payload['sso_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sso_url';
+                    $properties['sso_url'] = null;
                     goto after_sso_url;
                 }
 
@@ -1186,7 +1186,7 @@ class Settings implements ObjectMapper
                 $value = $payload['certificate'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'certificate';
+                    $properties['certificate'] = null;
                     goto after_certificate;
                 }
 
@@ -1197,7 +1197,7 @@ class Settings implements ObjectMapper
                 $value = $payload['certificate_path'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'certificate_path';
+                    $properties['certificate_path'] = null;
                     goto after_certificate_path;
                 }
 
@@ -1208,7 +1208,7 @@ class Settings implements ObjectMapper
                 $value = $payload['issuer'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issuer';
+                    $properties['issuer'] = null;
                     goto after_issuer;
                 }
 
@@ -1219,7 +1219,7 @@ class Settings implements ObjectMapper
                 $value = $payload['idp_initiated_sso'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'idp_initiated_sso';
+                    $properties['idp_initiated_sso'] = null;
                     goto after_idp_initiated_sso;
                 }
 
@@ -1230,7 +1230,7 @@ class Settings implements ObjectMapper
                 $value = $payload['disable_admin_demote'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'disable_admin_demote';
+                    $properties['disable_admin_demote'] = null;
                     goto after_disable_admin_demote;
                 }
 
@@ -1263,7 +1263,7 @@ class Settings implements ObjectMapper
                 $value = $payload['client_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'client_id';
+                    $properties['client_id'] = null;
                     goto after_client_id;
                 }
 
@@ -1274,7 +1274,7 @@ class Settings implements ObjectMapper
                 $value = $payload['client_secret'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'client_secret';
+                    $properties['client_secret'] = null;
                     goto after_client_secret;
                 }
 
@@ -1285,7 +1285,7 @@ class Settings implements ObjectMapper
                 $value = $payload['organization_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_name';
+                    $properties['organization_name'] = null;
                     goto after_organization_name;
                 }
 
@@ -1296,7 +1296,7 @@ class Settings implements ObjectMapper
                 $value = $payload['organization_team'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_team';
+                    $properties['organization_team'] = null;
                     goto after_organization_team;
                 }
 
@@ -1329,7 +1329,7 @@ class Settings implements ObjectMapper
                 $value = $payload['enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enabled';
+                    $properties['enabled'] = null;
                     goto after_enabled;
                 }
 
@@ -1340,7 +1340,7 @@ class Settings implements ObjectMapper
                 $value = $payload['address'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'address';
+                    $properties['address'] = null;
                     goto after_address;
                 }
 
@@ -1351,7 +1351,7 @@ class Settings implements ObjectMapper
                 $value = $payload['authentication'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'authentication';
+                    $properties['authentication'] = null;
                     goto after_authentication;
                 }
 
@@ -1362,7 +1362,7 @@ class Settings implements ObjectMapper
                 $value = $payload['port'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'port';
+                    $properties['port'] = null;
                     goto after_port;
                 }
 
@@ -1373,7 +1373,7 @@ class Settings implements ObjectMapper
                 $value = $payload['domain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'domain';
+                    $properties['domain'] = null;
                     goto after_domain;
                 }
 
@@ -1384,7 +1384,7 @@ class Settings implements ObjectMapper
                 $value = $payload['username'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'username';
+                    $properties['username'] = null;
                     goto after_username;
                 }
 
@@ -1395,7 +1395,7 @@ class Settings implements ObjectMapper
                 $value = $payload['user_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user_name';
+                    $properties['user_name'] = null;
                     goto after_user_name;
                 }
 
@@ -1406,7 +1406,7 @@ class Settings implements ObjectMapper
                 $value = $payload['enable_starttls_auto'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enable_starttls_auto';
+                    $properties['enable_starttls_auto'] = null;
                     goto after_enable_starttls_auto;
                 }
 
@@ -1417,7 +1417,7 @@ class Settings implements ObjectMapper
                 $value = $payload['password'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'password';
+                    $properties['password'] = null;
                     goto after_password;
                 }
 
@@ -1428,7 +1428,7 @@ class Settings implements ObjectMapper
                 $value = $payload['discard__m_i_n_u_s_to__m_i_n_u_s_noreply__m_i_n_u_s_address'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'discard__m_i_n_u_s_to__m_i_n_u_s_noreply__m_i_n_u_s_address';
+                    $properties['discard_MINUS_to_MINUS_noreply_MINUS_address'] = null;
                     goto after_discard_MINUS_to_MINUS_noreply_MINUS_address;
                 }
 
@@ -1439,7 +1439,7 @@ class Settings implements ObjectMapper
                 $value = $payload['support_address'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'support_address';
+                    $properties['support_address'] = null;
                     goto after_support_address;
                 }
 
@@ -1450,7 +1450,7 @@ class Settings implements ObjectMapper
                 $value = $payload['support_address_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'support_address_type';
+                    $properties['support_address_type'] = null;
                     goto after_support_address_type;
                 }
 
@@ -1461,7 +1461,7 @@ class Settings implements ObjectMapper
                 $value = $payload['noreply_address'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'noreply_address';
+                    $properties['noreply_address'] = null;
                     goto after_noreply_address;
                 }
 
@@ -1494,7 +1494,7 @@ class Settings implements ObjectMapper
                 $value = $payload['primary_server'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'primary_server';
+                    $properties['primary_server'] = null;
                     goto after_primary_server;
                 }
 
@@ -1505,7 +1505,7 @@ class Settings implements ObjectMapper
                 $value = $payload['secondary_server'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secondary_server';
+                    $properties['secondary_server'] = null;
                     goto after_secondary_server;
                 }
 
@@ -1538,7 +1538,7 @@ class Settings implements ObjectMapper
                 $value = $payload['enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enabled';
+                    $properties['enabled'] = null;
                     goto after_enabled;
                 }
 
@@ -1549,7 +1549,7 @@ class Settings implements ObjectMapper
                 $value = $payload['community'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'community';
+                    $properties['community'] = null;
                     goto after_community;
                 }
 
@@ -1582,7 +1582,7 @@ class Settings implements ObjectMapper
                 $value = $payload['enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enabled';
+                    $properties['enabled'] = null;
                     goto after_enabled;
                 }
 
@@ -1593,7 +1593,7 @@ class Settings implements ObjectMapper
                 $value = $payload['server'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'server';
+                    $properties['server'] = null;
                     goto after_server;
                 }
 
@@ -1604,7 +1604,7 @@ class Settings implements ObjectMapper
                 $value = $payload['protocol_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'protocol_name';
+                    $properties['protocol_name'] = null;
                     goto after_protocol_name;
                 }
 
@@ -1637,7 +1637,7 @@ class Settings implements ObjectMapper
                 $value = $payload['enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enabled';
+                    $properties['enabled'] = null;
                     goto after_enabled;
                 }
 
@@ -1670,7 +1670,7 @@ class Settings implements ObjectMapper
                 $value = $payload['enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enabled';
+                    $properties['enabled'] = null;
                     goto after_enabled;
                 }
 
@@ -1681,7 +1681,7 @@ class Settings implements ObjectMapper
                 $value = $payload['server'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'server';
+                    $properties['server'] = null;
                     goto after_server;
                 }
 
@@ -1692,7 +1692,7 @@ class Settings implements ObjectMapper
                 $value = $payload['port'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'port';
+                    $properties['port'] = null;
                     goto after_port;
                 }
 
@@ -1703,7 +1703,7 @@ class Settings implements ObjectMapper
                 $value = $payload['encryption'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'encryption';
+                    $properties['encryption'] = null;
                     goto after_encryption;
                 }
 
@@ -1714,7 +1714,7 @@ class Settings implements ObjectMapper
                 $value = $payload['username'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'username';
+                    $properties['username'] = null;
                     goto after_username;
                 }
 
@@ -1725,7 +1725,7 @@ class Settings implements ObjectMapper
                 $value = $payload['password'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'password';
+                    $properties['password'] = null;
                     goto after_password;
                 }
 
@@ -1758,7 +1758,7 @@ class Settings implements ObjectMapper
                 $value = $payload['enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enabled';
+                    $properties['enabled'] = null;
                     goto after_enabled;
                 }
 
@@ -1769,7 +1769,7 @@ class Settings implements ObjectMapper
                 $value = $payload['tileserver'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tileserver';
+                    $properties['tileserver'] = null;
                     goto after_tileserver;
                 }
 
@@ -1780,7 +1780,7 @@ class Settings implements ObjectMapper
                 $value = $payload['basemap'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'basemap';
+                    $properties['basemap'] = null;
                     goto after_basemap;
                 }
 
@@ -1791,7 +1791,7 @@ class Settings implements ObjectMapper
                 $value = $payload['token'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'token';
+                    $properties['token'] = null;
                     goto after_token;
                 }
 
@@ -1824,7 +1824,7 @@ class Settings implements ObjectMapper
                 $value = $payload['user'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user';
+                    $properties['user'] = null;
                     goto after_user;
                 }
 
@@ -1835,7 +1835,7 @@ class Settings implements ObjectMapper
                 $value = $payload['org'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'org';
+                    $properties['org'] = null;
                     goto after_org;
                 }
 
@@ -1868,7 +1868,7 @@ class Settings implements ObjectMapper
                 $value = $payload['uid'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'uid';
+                    $properties['uid'] = null;
                     goto after_uid;
                 }
 
@@ -1879,7 +1879,7 @@ class Settings implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1890,7 +1890,7 @@ class Settings implements ObjectMapper
                 $value = $payload['mail'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'mail';
+                    $properties['mail'] = null;
                     goto after_mail;
                 }
 
@@ -1901,7 +1901,7 @@ class Settings implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 

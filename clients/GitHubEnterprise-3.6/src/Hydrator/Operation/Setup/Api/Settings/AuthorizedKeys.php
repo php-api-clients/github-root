@@ -38,7 +38,7 @@ class AuthorizedKeys implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 
@@ -49,7 +49,7 @@ class AuthorizedKeys implements ObjectMapper
                 $value = $payload['pretty__m_i_n_u_s_print'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pretty__m_i_n_u_s_print';
+                    $properties['pretty_MINUS_print'] = null;
                     goto after_pretty_MINUS_print;
                 }
 

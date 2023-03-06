@@ -14,11 +14,9 @@ final readonly class GetLicenseSyncStatus
     public const SCHEMA_DESCRIPTION = 'Information about the status of a license sync job for an enterprise.';
     public const SCHEMA_EXAMPLE_DATA = '{"server_instances":[{"server_id":"generated_server_id","hostname":"generated_hostname","last_sync":{"date":"generated_date","status":"generated_status","error":"generated_error"}}]}';
     /**
-     * @var array<Schema\GetLicenseSyncStatus\ServerInstances>
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances> $server_instances
      */
-    public ?array $server_instances;
-    public function __construct(array $server_instances)
+    public function __construct(#[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\GetLicenseSyncStatus\ServerInstances::class)] public ?array $server_instances)
     {
-        $this->server_instances = $server_instances;
     }
 }

@@ -40,7 +40,7 @@ class Import implements ObjectMapper
                 $value = $payload['vcs'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'vcs';
+                    $properties['vcs'] = null;
                     goto after_vcs;
                 }
 
@@ -62,7 +62,7 @@ class Import implements ObjectMapper
                 $value = $payload['vcs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'vcs_url';
+                    $properties['vcs_url'] = null;
                     goto after_vcs_url;
                 }
 
@@ -95,7 +95,7 @@ class Import implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -106,7 +106,7 @@ class Import implements ObjectMapper
                 $value = $payload['status_text'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status_text';
+                    $properties['status_text'] = null;
                     goto after_status_text;
                 }
 
@@ -117,7 +117,7 @@ class Import implements ObjectMapper
                 $value = $payload['failed_step'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'failed_step';
+                    $properties['failed_step'] = null;
                     goto after_failed_step;
                 }
 
@@ -128,7 +128,7 @@ class Import implements ObjectMapper
                 $value = $payload['error_message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'error_message';
+                    $properties['error_message'] = null;
                     goto after_error_message;
                 }
 
@@ -139,7 +139,7 @@ class Import implements ObjectMapper
                 $value = $payload['import_percent'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'import_percent';
+                    $properties['import_percent'] = null;
                     goto after_import_percent;
                 }
 
@@ -150,7 +150,7 @@ class Import implements ObjectMapper
                 $value = $payload['commit_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commit_count';
+                    $properties['commit_count'] = null;
                     goto after_commit_count;
                 }
 
@@ -161,7 +161,7 @@ class Import implements ObjectMapper
                 $value = $payload['push_percent'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'push_percent';
+                    $properties['push_percent'] = null;
                     goto after_push_percent;
                 }
 
@@ -209,6 +209,16 @@ class Import implements ObjectMapper
                     goto after_project_choices;
                 }
 
+                static $project_choicesCaster1;
+    
+                if ($project_choicesCaster1 === null) {
+                    $project_choicesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\Import\\ProjectChoices',
+));
+                }
+    
+                $value = $project_choicesCaster1->cast($value, $this);
+
                 $properties['project_choices'] = $value;
     
                 after_project_choices:
@@ -227,7 +237,7 @@ class Import implements ObjectMapper
                 $value = $payload['authors_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'authors_count';
+                    $properties['authors_count'] = null;
                     goto after_authors_count;
                 }
 
@@ -238,7 +248,7 @@ class Import implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -249,7 +259,7 @@ class Import implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -260,7 +270,7 @@ class Import implements ObjectMapper
                 $value = $payload['authors_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'authors_url';
+                    $properties['authors_url'] = null;
                     goto after_authors_url;
                 }
 
@@ -271,7 +281,7 @@ class Import implements ObjectMapper
                 $value = $payload['repository_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_url';
+                    $properties['repository_url'] = null;
                     goto after_repository_url;
                 }
 
@@ -315,7 +325,7 @@ class Import implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -326,7 +336,7 @@ class Import implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -337,7 +347,7 @@ class Import implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -348,7 +358,7 @@ class Import implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -381,7 +391,7 @@ class Import implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -392,7 +402,7 @@ class Import implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -406,6 +416,16 @@ class Import implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -618,7 +638,8 @@ class Import implements ObjectMapper
         static $project_choicesSerializer0;
 
         if ($project_choicesSerializer0 === null) {
-            $project_choicesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $project_choicesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\Import\\ProjectChoices',
 ));
         }
         
@@ -744,7 +765,8 @@ class Import implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\ValidationError\\Errors',
 ));
         }
         

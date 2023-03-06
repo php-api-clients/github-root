@@ -13,74 +13,16 @@ final readonly class Release
     public const SCHEMA_TITLE = 'Release';
     public const SCHEMA_DESCRIPTION = 'A release.';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url","html_url":"generated_html_url","assets_url":"generated_assets_url","upload_url":"generated_upload_url","tarball_url":"generated_tarball_url","zipball_url":"generated_zipball_url","id":13,"node_id":"generated_node_id","tag_name":"v1.0.0","target_commitish":"master","name":"generated_name","body":"generated_body","draft":false,"prerelease":false,"created_at":"generated_created_at","published_at":"generated_published_at","author":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"assets":[{"url":"generated_url","browser_download_url":"generated_browser_download_url","id":13,"node_id":"generated_node_id","name":"Team Environment","label":"generated_label","state":"generated_state","content_type":"generated_content_type","size":13,"download_count":13,"created_at":"generated_created_at","updated_at":"generated_updated_at","uploader":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""}}],"body_html":"generated_body_html","body_text":"generated_body_text","mentions_count":13,"discussion_url":"generated_discussion_url","reactions":{"url":"generated_url","total_count":13,"_PLUSES_1":13,"_MINUS_1":13,"laugh":13,"confused":13,"heart":13,"hooray":13,"eyes":13,"rocket":13}}';
-    public ?string $url;
-    public ?string $html_url;
-    public ?string $assets_url;
-    public ?string $upload_url;
-    public ?string $tarball_url;
-    public ?string $zipball_url;
-    public ?int $id;
-    public ?string $node_id;
     /**
-     * The name of the tag.
+     * tag_name: The name of the tag.
+     * target_commitish: Specifies the commitish value that determines where the Git tag is created from.
+     * draft: true to create a draft (unpublished) release, false to create a published one.
+     * prerelease: Whether to identify the release as a prerelease or a full release.
+     * author: A GitHub user.
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\ReleaseAsset> $assets
+     * discussion_url: The URL of the release discussion.
      */
-    public ?string $tag_name;
-    /**
-     * Specifies the commitish value that determines where the Git tag is created from.
-     */
-    public ?string $target_commitish;
-    public ?string $name;
-    public ?string $body;
-    /**
-     * true to create a draft (unpublished) release, false to create a published one.
-     */
-    public ?bool $draft;
-    /**
-     * Whether to identify the release as a prerelease or a full release.
-     */
-    public ?bool $prerelease;
-    public ?string $created_at;
-    public ?string $published_at;
-    /**
-     * A GitHub user.
-     */
-    public ?Schema\SimpleUser $author;
-    /**
-     * @var array<Schema\ReleaseAsset>
-     */
-    public ?array $assets;
-    public string $body_html;
-    public string $body_text;
-    public int $mentions_count;
-    /**
-     * The URL of the release discussion.
-     */
-    public string $discussion_url;
-    public Schema\ReactionRollup $reactions;
-    public function __construct(string $url, string $html_url, string $assets_url, string $upload_url, string $tarball_url, string $zipball_url, int $id, string $node_id, string $tag_name, string $target_commitish, string $name, string $body, bool $draft, bool $prerelease, string $created_at, string $published_at, Schema\SimpleUser $author, array $assets, string $body_html, string $body_text, int $mentions_count, string $discussion_url, Schema\ReactionRollup $reactions)
+    public function __construct(public ?string $url, public ?string $html_url, public ?string $assets_url, public ?string $upload_url, public ?string $tarball_url, public ?string $zipball_url, public ?int $id, public ?string $node_id, public ?string $tag_name, public ?string $target_commitish, public ?string $name, public ?string $body, public ?bool $draft, public ?bool $prerelease, public ?string $created_at, public ?string $published_at, public ?Schema\SimpleUser $author, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ReleaseAsset::class)] public ?array $assets, public string $body_html, public string $body_text, public int $mentions_count, public string $discussion_url, public Schema\ReactionRollup $reactions)
     {
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->assets_url = $assets_url;
-        $this->upload_url = $upload_url;
-        $this->tarball_url = $tarball_url;
-        $this->zipball_url = $zipball_url;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->tag_name = $tag_name;
-        $this->target_commitish = $target_commitish;
-        $this->name = $name;
-        $this->body = $body;
-        $this->draft = $draft;
-        $this->prerelease = $prerelease;
-        $this->created_at = $created_at;
-        $this->published_at = $published_at;
-        $this->author = $author;
-        $this->assets = $assets;
-        $this->body_html = $body_html;
-        $this->body_text = $body_text;
-        $this->mentions_count = $mentions_count;
-        $this->discussion_url = $discussion_url;
-        $this->reactions = $reactions;
     }
 }

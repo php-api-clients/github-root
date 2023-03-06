@@ -13,30 +13,14 @@ final readonly class PendingDeployment
     public const SCHEMA_TITLE = 'Pending Deployment';
     public const SCHEMA_DESCRIPTION = 'Details of a deployment that is waiting for protection rules to pass';
     public const SCHEMA_EXAMPLE_DATA = '{"environment":{"id":56780428,"node_id":"MDExOkVudmlyb25tZW50NTY3ODA0Mjg=","name":"staging","url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/environments\\/staging","html_url":"https:\\/\\/github.com\\/github\\/hello-world\\/deployments\\/activity_log?environments_filter=staging"},"wait_timer":30,"wait_timer_started_at":"2020-11-23T22:00:40Z","current_user_can_approve":true,"reviewers":[{"type":"User","reviewer":{"id":13,"node_id":"generated_node_id","name":"generated_name","slug":"generated_slug","description":"generated_description","privacy":"generated_privacy","permission":"generated_permission","permissions":{"pull":false,"triage":false,"push":false,"maintain":false,"admin":false},"url":"generated_url","html_url":"https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core","members_url":"generated_members_url","repositories_url":"generated_repositories_url","parent":{"id":1,"node_id":"MDQ6VGVhbTE=","url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1","members_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}","name":"Justice League","description":"A great team.","permission":"admin","privacy":"closed","html_url":"https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core","repositories_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos","slug":"justice-league","ldap_dn":"uid=example,ou=users,dc=github,dc=com"}}}]}';
-    public ?Schema\PendingDeployment\Environment $environment;
     /**
-     * The set duration of the wait timer
+     * wait_timer: The set duration of the wait timer
+     * wait_timer_started_at: The time that the wait timer began.
+     * current_user_can_approve: Whether the currently authenticated user can approve the deployment
+     * reviewers: The people or teams that may approve jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\PendingDeployment\Reviewers> $reviewers
      */
-    public ?int $wait_timer;
-    /**
-     * The time that the wait timer began.
-     */
-    public ?string $wait_timer_started_at;
-    /**
-     * Whether the currently authenticated user can approve the deployment
-     */
-    public ?bool $current_user_can_approve;
-    /**
-     * The people or teams that may approve jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-     * @var array<Schema\PendingDeployment\Reviewers>
-     */
-    public ?array $reviewers;
-    public function __construct(Schema\PendingDeployment\Environment $environment, int $wait_timer, string $wait_timer_started_at, bool $current_user_can_approve, array $reviewers)
+    public function __construct(public ?Schema\PendingDeployment\Environment $environment, public ?int $wait_timer, public ?string $wait_timer_started_at, public ?bool $current_user_can_approve, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\PendingDeployment\Reviewers::class)] public ?array $reviewers)
     {
-        $this->environment = $environment;
-        $this->wait_timer = $wait_timer;
-        $this->wait_timer_started_at = $wait_timer_started_at;
-        $this->current_user_can_approve = $current_user_can_approve;
-        $this->reviewers = $reviewers;
     }
 }

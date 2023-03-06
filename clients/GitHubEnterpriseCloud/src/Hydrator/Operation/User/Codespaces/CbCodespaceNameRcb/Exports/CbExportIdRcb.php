@@ -39,7 +39,7 @@ class CbExportIdRcb implements ObjectMapper
                 $value = $payload['state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'state';
+                    $properties['state'] = null;
                     goto after_state;
                 }
 
@@ -50,7 +50,7 @@ class CbExportIdRcb implements ObjectMapper
                 $value = $payload['completed_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'completed_at';
+                    $properties['completed_at'] = null;
                     goto after_completed_at;
                 }
 
@@ -61,7 +61,7 @@ class CbExportIdRcb implements ObjectMapper
                 $value = $payload['branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'branch';
+                    $properties['branch'] = null;
                     goto after_branch;
                 }
 
@@ -72,7 +72,7 @@ class CbExportIdRcb implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -83,7 +83,7 @@ class CbExportIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -94,7 +94,7 @@ class CbExportIdRcb implements ObjectMapper
                 $value = $payload['export_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'export_url';
+                    $properties['export_url'] = null;
                     goto after_export_url;
                 }
 
@@ -105,7 +105,7 @@ class CbExportIdRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -138,7 +138,7 @@ class CbExportIdRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -149,7 +149,7 @@ class CbExportIdRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -160,7 +160,7 @@ class CbExportIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -171,7 +171,7 @@ class CbExportIdRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 

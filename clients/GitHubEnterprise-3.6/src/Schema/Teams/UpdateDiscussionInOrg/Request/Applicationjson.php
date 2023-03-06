@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"title":"generated_title","body":"generated_body"}';
     /**
-     * The discussion post's title.
+     * title: The discussion post's title.
+     * body: The discussion post's body text.
      */
-    public ?string $title;
-    /**
-     * The discussion post's body text.
-     */
-    public ?string $body;
-    public function __construct(string $title, string $body)
+    public function __construct(public ?string $title, public ?string $body)
     {
-        $this->title = $title;
-        $this->body = $body;
     }
 }

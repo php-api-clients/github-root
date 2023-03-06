@@ -38,7 +38,7 @@ class Repos implements ObjectMapper
                 $value = $payload['total_repos'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_repos';
+                    $properties['total_repos'] = null;
                     goto after_total_repos;
                 }
 
@@ -49,7 +49,7 @@ class Repos implements ObjectMapper
                 $value = $payload['root_repos'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'root_repos';
+                    $properties['root_repos'] = null;
                     goto after_root_repos;
                 }
 
@@ -60,7 +60,7 @@ class Repos implements ObjectMapper
                 $value = $payload['fork_repos'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'fork_repos';
+                    $properties['fork_repos'] = null;
                     goto after_fork_repos;
                 }
 
@@ -71,7 +71,7 @@ class Repos implements ObjectMapper
                 $value = $payload['org_repos'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'org_repos';
+                    $properties['org_repos'] = null;
                     goto after_org_repos;
                 }
 
@@ -82,7 +82,7 @@ class Repos implements ObjectMapper
                 $value = $payload['total_pushes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_pushes';
+                    $properties['total_pushes'] = null;
                     goto after_total_pushes;
                 }
 
@@ -93,7 +93,7 @@ class Repos implements ObjectMapper
                 $value = $payload['total_wikis'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_wikis';
+                    $properties['total_wikis'] = null;
                     goto after_total_wikis;
                 }
 

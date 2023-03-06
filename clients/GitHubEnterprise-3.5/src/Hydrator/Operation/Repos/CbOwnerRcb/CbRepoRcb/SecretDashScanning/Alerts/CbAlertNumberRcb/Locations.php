@@ -40,7 +40,7 @@ class Locations implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -51,7 +51,7 @@ class Locations implements ObjectMapper
                 $value = $payload['details'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'details';
+                    $properties['details'] = null;
                     goto after_details;
                 }
 
@@ -93,7 +93,7 @@ class Locations implements ObjectMapper
                 $value = $payload['code'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'code';
+                    $properties['code'] = null;
                     goto after_code;
                 }
 
@@ -104,7 +104,7 @@ class Locations implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -115,7 +115,7 @@ class Locations implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -148,7 +148,7 @@ class Locations implements ObjectMapper
                 $value = $payload['path'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'path';
+                    $properties['path'] = null;
                     goto after_path;
                 }
 
@@ -159,7 +159,7 @@ class Locations implements ObjectMapper
                 $value = $payload['start_line'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'start_line';
+                    $properties['start_line'] = null;
                     goto after_start_line;
                 }
 
@@ -170,7 +170,7 @@ class Locations implements ObjectMapper
                 $value = $payload['end_line'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'end_line';
+                    $properties['end_line'] = null;
                     goto after_end_line;
                 }
 
@@ -181,7 +181,7 @@ class Locations implements ObjectMapper
                 $value = $payload['start_column'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'start_column';
+                    $properties['start_column'] = null;
                     goto after_start_column;
                 }
 
@@ -192,7 +192,7 @@ class Locations implements ObjectMapper
                 $value = $payload['end_column'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'end_column';
+                    $properties['end_column'] = null;
                     goto after_end_column;
                 }
 
@@ -203,7 +203,7 @@ class Locations implements ObjectMapper
                 $value = $payload['blob_sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'blob_sha';
+                    $properties['blob_sha'] = null;
                     goto after_blob_sha;
                 }
 
@@ -214,7 +214,7 @@ class Locations implements ObjectMapper
                 $value = $payload['blob_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'blob_url';
+                    $properties['blob_url'] = null;
                     goto after_blob_url;
                 }
 
@@ -225,7 +225,7 @@ class Locations implements ObjectMapper
                 $value = $payload['commit_sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commit_sha';
+                    $properties['commit_sha'] = null;
                     goto after_commit_sha;
                 }
 
@@ -236,7 +236,7 @@ class Locations implements ObjectMapper
                 $value = $payload['commit_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commit_url';
+                    $properties['commit_url'] = null;
                     goto after_commit_url;
                 }
 

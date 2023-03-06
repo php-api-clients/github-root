@@ -14,13 +14,11 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"role":"generated_role"}';
     /**
-     * The role to give the user in the organization. Can be one of:  
+     * role: The role to give the user in the organization. Can be one of:  
      * `admin` - The user will become an owner of the organization.  
      * `member` - The user will become a non-owner member of the organization.
      */
-    public ?string $role;
-    public function __construct(string $role)
+    public function __construct(public ?string $role)
     {
-        $this->role = $role;
     }
 }

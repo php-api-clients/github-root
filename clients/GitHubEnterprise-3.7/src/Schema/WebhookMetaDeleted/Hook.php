@@ -13,26 +13,10 @@ final readonly class Hook
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = 'The modified webhook. This will contain different keys based on the type of webhook it is: repository, organization, business, app, or GitHub Marketplace.';
     public const SCHEMA_EXAMPLE_DATA = '{"active":false,"config":{"content_type":"generated_content_type","insecure_ssl":"generated_insecure_ssl","secret":"generated_secret","url":"generated_url"},"created_at":"generated_created_at","events":["generated_events"],"id":13,"name":"generated_name","type":"generated_type","updated_at":"generated_updated_at"}';
-    public ?bool $active;
-    public ?Schema\WebhookMetaDeleted\Hook\Config $config;
-    public ?string $created_at;
     /**
-     * @var array<string>
+     * @param ?array<string> $events
      */
-    public ?array $events;
-    public ?int $id;
-    public ?string $name;
-    public ?string $type;
-    public ?string $updated_at;
-    public function __construct(bool $active, Schema\WebhookMetaDeleted\Hook\Config $config, string $created_at, array $events, int $id, string $name, string $type, string $updated_at)
+    public function __construct(public ?bool $active, public ?Schema\WebhookMetaDeleted\Hook\Config $config, public ?string $created_at, public ?array $events, public ?int $id, public ?string $name, public ?string $type, public ?string $updated_at)
     {
-        $this->active = $active;
-        $this->config = $config;
-        $this->created_at = $created_at;
-        $this->events = $events;
-        $this->id = $id;
-        $this->name = $name;
-        $this->type = $type;
-        $this->updated_at = $updated_at;
     }
 }

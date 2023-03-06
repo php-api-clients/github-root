@@ -14,15 +14,9 @@ final readonly class DependabotSecret
     public const SCHEMA_DESCRIPTION = 'Set secrets for Dependabot.';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"MY_ARTIFACTORY_PASSWORD","created_at":"generated_created_at","updated_at":"generated_updated_at"}';
     /**
-     * The name of the secret.
+     * name: The name of the secret.
      */
-    public ?string $name;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public function __construct(string $name, string $created_at, string $updated_at)
+    public function __construct(public ?string $name, public ?string $created_at, public ?string $updated_at)
     {
-        $this->name = $name;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
     }
 }

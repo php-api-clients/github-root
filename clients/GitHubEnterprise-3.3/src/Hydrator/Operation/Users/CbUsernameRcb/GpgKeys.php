@@ -38,7 +38,7 @@ class GpgKeys implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -49,7 +49,7 @@ class GpgKeys implements ObjectMapper
                 $value = $payload['primary_key_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'primary_key_id';
+                    $properties['primary_key_id'] = null;
                     goto after_primary_key_id;
                 }
 
@@ -60,7 +60,7 @@ class GpgKeys implements ObjectMapper
                 $value = $payload['key_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key_id';
+                    $properties['key_id'] = null;
                     goto after_key_id;
                 }
 
@@ -71,7 +71,7 @@ class GpgKeys implements ObjectMapper
                 $value = $payload['public_key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'public_key';
+                    $properties['public_key'] = null;
                     goto after_public_key;
                 }
 
@@ -82,9 +82,19 @@ class GpgKeys implements ObjectMapper
                 $value = $payload['emails'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'emails';
+                    $properties['emails'] = null;
                     goto after_emails;
                 }
+
+                static $emailsCaster1;
+    
+                if ($emailsCaster1 === null) {
+                    $emailsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GpgKey\\Emails',
+));
+                }
+    
+                $value = $emailsCaster1->cast($value, $this);
 
                 $properties['emails'] = $value;
     
@@ -93,9 +103,19 @@ class GpgKeys implements ObjectMapper
                 $value = $payload['subkeys'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subkeys';
+                    $properties['subkeys'] = null;
                     goto after_subkeys;
                 }
+
+                static $subkeysCaster1;
+    
+                if ($subkeysCaster1 === null) {
+                    $subkeysCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GpgKey\\Subkeys',
+));
+                }
+    
+                $value = $subkeysCaster1->cast($value, $this);
 
                 $properties['subkeys'] = $value;
     
@@ -104,7 +124,7 @@ class GpgKeys implements ObjectMapper
                 $value = $payload['can_sign'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'can_sign';
+                    $properties['can_sign'] = null;
                     goto after_can_sign;
                 }
 
@@ -115,7 +135,7 @@ class GpgKeys implements ObjectMapper
                 $value = $payload['can_encrypt_comms'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'can_encrypt_comms';
+                    $properties['can_encrypt_comms'] = null;
                     goto after_can_encrypt_comms;
                 }
 
@@ -126,7 +146,7 @@ class GpgKeys implements ObjectMapper
                 $value = $payload['can_encrypt_storage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'can_encrypt_storage';
+                    $properties['can_encrypt_storage'] = null;
                     goto after_can_encrypt_storage;
                 }
 
@@ -137,7 +157,7 @@ class GpgKeys implements ObjectMapper
                 $value = $payload['can_certify'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'can_certify';
+                    $properties['can_certify'] = null;
                     goto after_can_certify;
                 }
 
@@ -148,7 +168,7 @@ class GpgKeys implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -159,7 +179,7 @@ class GpgKeys implements ObjectMapper
                 $value = $payload['expires_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'expires_at';
+                    $properties['expires_at'] = null;
                     goto after_expires_at;
                 }
 
@@ -170,7 +190,7 @@ class GpgKeys implements ObjectMapper
                 $value = $payload['raw_key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'raw_key';
+                    $properties['raw_key'] = null;
                     goto after_raw_key;
                 }
 
@@ -323,7 +343,8 @@ class GpgKeys implements ObjectMapper
         static $emailsSerializer0;
 
         if ($emailsSerializer0 === null) {
-            $emailsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $emailsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GpgKey\\Emails',
 ));
         }
         
@@ -339,7 +360,8 @@ class GpgKeys implements ObjectMapper
         static $subkeysSerializer0;
 
         if ($subkeysSerializer0 === null) {
-            $subkeysSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $subkeysSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GpgKey\\Subkeys',
 ));
         }
         

@@ -38,7 +38,7 @@ class Annotations implements ObjectMapper
                 $value = $payload['path'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'path';
+                    $properties['path'] = null;
                     goto after_path;
                 }
 
@@ -49,7 +49,7 @@ class Annotations implements ObjectMapper
                 $value = $payload['start_line'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'start_line';
+                    $properties['start_line'] = null;
                     goto after_start_line;
                 }
 
@@ -60,7 +60,7 @@ class Annotations implements ObjectMapper
                 $value = $payload['end_line'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'end_line';
+                    $properties['end_line'] = null;
                     goto after_end_line;
                 }
 
@@ -71,7 +71,7 @@ class Annotations implements ObjectMapper
                 $value = $payload['start_column'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'start_column';
+                    $properties['start_column'] = null;
                     goto after_start_column;
                 }
 
@@ -82,7 +82,7 @@ class Annotations implements ObjectMapper
                 $value = $payload['end_column'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'end_column';
+                    $properties['end_column'] = null;
                     goto after_end_column;
                 }
 
@@ -93,7 +93,7 @@ class Annotations implements ObjectMapper
                 $value = $payload['annotation_level'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'annotation_level';
+                    $properties['annotation_level'] = null;
                     goto after_annotation_level;
                 }
 
@@ -104,7 +104,7 @@ class Annotations implements ObjectMapper
                 $value = $payload['title'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'title';
+                    $properties['title'] = null;
                     goto after_title;
                 }
 
@@ -115,7 +115,7 @@ class Annotations implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -126,7 +126,7 @@ class Annotations implements ObjectMapper
                 $value = $payload['raw_details'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'raw_details';
+                    $properties['raw_details'] = null;
                     goto after_raw_details;
                 }
 
@@ -137,7 +137,7 @@ class Annotations implements ObjectMapper
                 $value = $payload['blob_href'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'blob_href';
+                    $properties['blob_href'] = null;
                     goto after_blob_href;
                 }
 

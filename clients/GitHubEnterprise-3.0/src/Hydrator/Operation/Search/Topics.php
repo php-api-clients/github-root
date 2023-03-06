@@ -39,7 +39,7 @@ class Topics implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -50,7 +50,7 @@ class Topics implements ObjectMapper
                 $value = $payload['incomplete_results'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'incomplete_results';
+                    $properties['incomplete_results'] = null;
                     goto after_incomplete_results;
                 }
 
@@ -61,9 +61,19 @@ class Topics implements ObjectMapper
                 $value = $payload['items'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'items';
+                    $properties['items'] = null;
                     goto after_items;
                 }
+
+                static $itemsCaster1;
+    
+                if ($itemsCaster1 === null) {
+                    $itemsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem',
+));
+                }
+    
+                $value = $itemsCaster1->cast($value, $this);
 
                 $properties['items'] = $value;
     
@@ -94,7 +104,7 @@ class Topics implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -105,7 +115,7 @@ class Topics implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -243,7 +253,8 @@ class Topics implements ObjectMapper
         static $itemsSerializer0;
 
         if ($itemsSerializer0 === null) {
-            $itemsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $itemsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem',
 ));
         }
         

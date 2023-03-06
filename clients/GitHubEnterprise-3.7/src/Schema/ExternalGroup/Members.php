@@ -14,26 +14,12 @@ final readonly class Members
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"member_id":1,"member_login":"mona-lisa_eocsaxrs","member_name":"Mona Lisa","member_email":"mona_lisa@github.com"}';
     /**
-     * The internal user ID of the identity
+     * member_id: The internal user ID of the identity
+     * member_login: The handle/login for the user
+     * member_name: The user display name/profile name
+     * member_email: An email attached to a user
      */
-    public ?int $member_id;
-    /**
-     * The handle/login for the user
-     */
-    public ?string $member_login;
-    /**
-     * The user display name/profile name
-     */
-    public ?string $member_name;
-    /**
-     * An email attached to a user
-     */
-    public ?string $member_email;
-    public function __construct(int $member_id, string $member_login, string $member_name, string $member_email)
+    public function __construct(public ?int $member_id, public ?string $member_login, public ?string $member_name, public ?string $member_email)
     {
-        $this->member_id = $member_id;
-        $this->member_login = $member_login;
-        $this->member_name = $member_name;
-        $this->member_email = $member_email;
     }
 }

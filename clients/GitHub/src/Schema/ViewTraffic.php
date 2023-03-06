@@ -13,16 +13,10 @@ final readonly class ViewTraffic
     public const SCHEMA_TITLE = 'View Traffic';
     public const SCHEMA_DESCRIPTION = 'View Traffic';
     public const SCHEMA_EXAMPLE_DATA = '{"count":14850,"uniques":3782,"views":[{"timestamp":"generated_timestamp","uniques":13,"count":13}]}';
-    public ?int $count;
-    public ?int $uniques;
     /**
-     * @var array<Schema\Traffic>
+     * @param ?array<\ApiClients\Client\GitHub\Schema\Traffic> $views
      */
-    public ?array $views;
-    public function __construct(int $count, int $uniques, array $views)
+    public function __construct(public ?int $count, public ?int $uniques, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Traffic::class)] public ?array $views)
     {
-        $this->count = $count;
-        $this->uniques = $uniques;
-        $this->views = $views;
     }
 }

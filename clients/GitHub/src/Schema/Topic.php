@@ -14,11 +14,9 @@ final readonly class Topic
     public const SCHEMA_DESCRIPTION = 'A topic aggregates entities that are related to a subject.';
     public const SCHEMA_EXAMPLE_DATA = '{"names":["generated_names"]}';
     /**
-     * @var array<string>
+     * @param ?array<string> $names
      */
-    public ?array $names;
-    public function __construct(array $names)
+    public function __construct(public ?array $names)
     {
-        $this->names = $names;
     }
 }

@@ -14,21 +14,11 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"organization":"generated_organization","name":"generated_name","default_branch_only":false}';
     /**
-     * Optional parameter to specify the organization name if forking into an organization.
+     * organization: Optional parameter to specify the organization name if forking into an organization.
+     * name: When forking from an existing repository, a new name for the fork.
+     * default_branch_only: When forking from an existing repository, fork with only the default branch.
      */
-    public ?string $organization;
-    /**
-     * When forking from an existing repository, a new name for the fork.
-     */
-    public ?string $name;
-    /**
-     * When forking from an existing repository, fork with only the default branch.
-     */
-    public ?bool $default_branch_only;
-    public function __construct(string $organization, string $name, bool $default_branch_only)
+    public function __construct(public ?string $organization, public ?string $name, public ?bool $default_branch_only)
     {
-        $this->organization = $organization;
-        $this->name = $name;
-        $this->default_branch_only = $default_branch_only;
     }
 }

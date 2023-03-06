@@ -14,17 +14,11 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"visibility":"generated_visibility","selected_usernames":["generated_selected_usernames"]}';
     /**
-     * Which users can access codespaces in the organization. `disabled` means that no users can access codespaces in the organization.
+     * visibility: Which users can access codespaces in the organization. `disabled` means that no users can access codespaces in the organization.
+     * selected_usernames: The usernames of the organization members who should have access to codespaces in the organization. Required when `visibility` is `selected_members`. The provided list of usernames will replace any existing value.
+     * @param array<string> $selected_usernames
      */
-    public ?string $visibility;
-    /**
-     * The usernames of the organization members who should have access to codespaces in the organization. Required when `visibility` is `selected_members`. The provided list of usernames will replace any existing value.
-     * @var array<string>
-     */
-    public array $selected_usernames;
-    public function __construct(string $visibility, array $selected_usernames)
+    public function __construct(public ?string $visibility, public array $selected_usernames)
     {
-        $this->visibility = $visibility;
-        $this->selected_usernames = $selected_usernames;
     }
 }

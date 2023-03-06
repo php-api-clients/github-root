@@ -13,20 +13,10 @@ final readonly class MarketplacePendingChange
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"is_installed":false,"effective_date":"generated_effective_date","unit_count":13,"id":13,"plan":{"url":"https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313","accounts_url":"https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313\\/accounts","id":1313,"number":3,"name":"Pro","description":"A professional-grade CI solution","monthly_price_in_cents":1099,"yearly_price_in_cents":11870,"price_model":"FLAT_RATE","has_free_trial":true,"unit_name":"generated_unit_name","state":"published","bullets":["11 concurrent builds"]}}';
-    public ?bool $is_installed;
-    public ?string $effective_date;
-    public ?int $unit_count;
-    public ?int $id;
     /**
-     * Marketplace Listing Plan
+     * plan: Marketplace Listing Plan
      */
-    public ?Schema\MarketplaceListingPlan $plan;
-    public function __construct(bool $is_installed, string $effective_date, int $unit_count, int $id, Schema\MarketplaceListingPlan $plan)
+    public function __construct(public ?bool $is_installed, public ?string $effective_date, public ?int $unit_count, public ?int $id, public ?Schema\MarketplaceListingPlan $plan)
     {
-        $this->is_installed = $is_installed;
-        $this->effective_date = $effective_date;
-        $this->unit_count = $unit_count;
-        $this->id = $id;
-        $this->plan = $plan;
     }
 }

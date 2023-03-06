@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"login":"generated_login","email":"generated_email"}';
     /**
-     * The user's username.
+     * login: The user's username.
+     * email: **Required for built-in authentication.** The user's email address. This parameter can be omitted when using CAS, LDAP, or SAML. For details on built-in and centrally-managed authentication, see the the [GitHub authentication guide](https://docs.github.com/enterprise/2.18/admin/guides/user-management/authenticating-users-for-your-github-enterprise-server-instance/).
      */
-    public ?string $login;
-    /**
-     * **Required for built-in authentication.** The user's email address. This parameter can be omitted when using CAS, LDAP, or SAML. For details on built-in and centrally-managed authentication, see the the [GitHub authentication guide](https://docs.github.com/enterprise/2.18/admin/guides/user-management/authenticating-users-for-your-github-enterprise-server-instance/).
-     */
-    public string $email;
-    public function __construct(string $login, string $email)
+    public function __construct(public ?string $login, public string $email)
     {
-        $this->login = $login;
-        $this->email = $email;
     }
 }

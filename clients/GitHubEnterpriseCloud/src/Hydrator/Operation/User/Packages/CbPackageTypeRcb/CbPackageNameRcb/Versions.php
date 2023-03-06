@@ -42,7 +42,7 @@ class Versions implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -53,7 +53,7 @@ class Versions implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -64,7 +64,7 @@ class Versions implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -75,7 +75,7 @@ class Versions implements ObjectMapper
                 $value = $payload['package_html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'package_html_url';
+                    $properties['package_html_url'] = null;
                     goto after_package_html_url;
                 }
 
@@ -119,7 +119,7 @@ class Versions implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -130,7 +130,7 @@ class Versions implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -194,7 +194,7 @@ class Versions implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -205,7 +205,7 @@ class Versions implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -216,7 +216,7 @@ class Versions implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -227,7 +227,7 @@ class Versions implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -260,7 +260,7 @@ class Versions implements ObjectMapper
                 $value = $payload['package_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'package_type';
+                    $properties['package_type'] = null;
                     goto after_package_type;
                 }
 
@@ -333,7 +333,7 @@ class Versions implements ObjectMapper
                 $value = $payload['tags'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tags';
+                    $properties['tags'] = null;
                     goto after_tags;
                 }
 

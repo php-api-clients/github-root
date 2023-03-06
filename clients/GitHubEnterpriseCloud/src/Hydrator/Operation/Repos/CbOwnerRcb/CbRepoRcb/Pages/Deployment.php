@@ -41,7 +41,7 @@ class Deployment implements ObjectMapper
                 $value = $payload['status_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status_url';
+                    $properties['status_url'] = null;
                     goto after_status_url;
                 }
 
@@ -52,7 +52,7 @@ class Deployment implements ObjectMapper
                 $value = $payload['page_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'page_url';
+                    $properties['page_url'] = null;
                     goto after_page_url;
                 }
 
@@ -96,7 +96,7 @@ class Deployment implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -107,7 +107,7 @@ class Deployment implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -118,7 +118,7 @@ class Deployment implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -129,7 +129,7 @@ class Deployment implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -162,7 +162,7 @@ class Deployment implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -173,7 +173,7 @@ class Deployment implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -184,7 +184,7 @@ class Deployment implements ObjectMapper
                 $value = $payload['detail'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'detail';
+                    $properties['detail'] = null;
                     goto after_detail;
                 }
 
@@ -195,7 +195,7 @@ class Deployment implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -206,7 +206,7 @@ class Deployment implements ObjectMapper
                 $value = $payload['scim_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'scim_type';
+                    $properties['scimType'] = null;
                     goto after_scimType;
                 }
 
@@ -217,7 +217,7 @@ class Deployment implements ObjectMapper
                 $value = $payload['schemas'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'schemas';
+                    $properties['schemas'] = null;
                     goto after_schemas;
                 }
 
@@ -250,7 +250,7 @@ class Deployment implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -261,7 +261,7 @@ class Deployment implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -275,6 +275,16 @@ class Deployment implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -543,7 +553,8 @@ class Deployment implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ValidationError\\Errors',
 ));
         }
         

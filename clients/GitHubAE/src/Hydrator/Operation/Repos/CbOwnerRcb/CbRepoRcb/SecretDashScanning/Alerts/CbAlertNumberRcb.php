@@ -40,7 +40,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['number'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'number';
+                    $properties['number'] = null;
                     goto after_number;
                 }
 
@@ -51,7 +51,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -62,7 +62,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -73,7 +73,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -84,7 +84,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -95,7 +95,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['locations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'locations_url';
+                    $properties['locations_url'] = null;
                     goto after_locations_url;
                 }
 
@@ -106,7 +106,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'state';
+                    $properties['state'] = null;
                     goto after_state;
                 }
 
@@ -117,7 +117,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['resolution'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'resolution';
+                    $properties['resolution'] = null;
                     goto after_resolution;
                 }
 
@@ -128,7 +128,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['resolved_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'resolved_at';
+                    $properties['resolved_at'] = null;
                     goto after_resolved_at;
                 }
 
@@ -139,7 +139,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['resolved_by'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'resolved_by';
+                    $properties['resolved_by'] = null;
                     goto after_resolved_by;
                 }
 
@@ -159,7 +159,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['resolution_comment'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'resolution_comment';
+                    $properties['resolution_comment'] = null;
                     goto after_resolution_comment;
                 }
 
@@ -170,7 +170,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['secret_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secret_type';
+                    $properties['secret_type'] = null;
                     goto after_secret_type;
                 }
 
@@ -181,7 +181,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['secret'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secret';
+                    $properties['secret'] = null;
                     goto after_secret;
                 }
 
@@ -214,7 +214,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['code'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'code';
+                    $properties['code'] = null;
                     goto after_code;
                 }
 
@@ -225,7 +225,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -236,7 +236,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -269,7 +269,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -280,7 +280,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -291,7 +291,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -302,7 +302,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -313,7 +313,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -324,7 +324,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -335,7 +335,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -346,7 +346,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -357,7 +357,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -368,7 +368,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -379,7 +379,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -390,7 +390,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -401,7 +401,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -412,7 +412,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -423,7 +423,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -434,7 +434,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -445,7 +445,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -456,7 +456,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -467,7 +467,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -478,7 +478,7 @@ class CbAlertNumberRcb implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 

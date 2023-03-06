@@ -14,22 +14,12 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"encrypted_value":"generated_encrypted_value","key_id":"generated_key_id","selected_repository_ids":["generated_selected_repository_ids"]}';
     /**
-     * Value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get the public key for the authenticated user](https://docs.github.com/enterprise-cloud@latest//rest/reference/codespaces#get-the-public-key-for-the-authenticated-user) endpoint.
+     * encrypted_value: Value for your secret, encrypted with [LibSodium](https://libsodium.gitbook.io/doc/bindings_for_other_languages) using the public key retrieved from the [Get the public key for the authenticated user](https://docs.github.com/enterprise-cloud@latest//rest/reference/codespaces#get-the-public-key-for-the-authenticated-user) endpoint.
+     * key_id: ID of the key you used to encrypt the secret.
+     * selected_repository_ids: An array of repository ids that can access the user secret. You can manage the list of selected repositories using the [List selected repositories for a user secret](https://docs.github.com/enterprise-cloud@latest//rest/reference/codespaces#list-selected-repositories-for-a-user-secret), [Set selected repositories for a user secret](https://docs.github.com/enterprise-cloud@latest//rest/reference/codespaces#set-selected-repositories-for-a-user-secret), and [Remove a selected repository from a user secret](https://docs.github.com/enterprise-cloud@latest//rest/reference/codespaces#remove-a-selected-repository-from-a-user-secret) endpoints.
+     * @param array<string> $selected_repository_ids
      */
-    public string $encrypted_value;
-    /**
-     * ID of the key you used to encrypt the secret.
-     */
-    public ?string $key_id;
-    /**
-     * An array of repository ids that can access the user secret. You can manage the list of selected repositories using the [List selected repositories for a user secret](https://docs.github.com/enterprise-cloud@latest//rest/reference/codespaces#list-selected-repositories-for-a-user-secret), [Set selected repositories for a user secret](https://docs.github.com/enterprise-cloud@latest//rest/reference/codespaces#set-selected-repositories-for-a-user-secret), and [Remove a selected repository from a user secret](https://docs.github.com/enterprise-cloud@latest//rest/reference/codespaces#remove-a-selected-repository-from-a-user-secret) endpoints.
-     * @var array<string>
-     */
-    public array $selected_repository_ids;
-    public function __construct(string $encrypted_value, string $key_id, array $selected_repository_ids)
+    public function __construct(public string $encrypted_value, public ?string $key_id, public array $selected_repository_ids)
     {
-        $this->encrypted_value = $encrypted_value;
-        $this->key_id = $key_id;
-        $this->selected_repository_ids = $selected_repository_ids;
     }
 }

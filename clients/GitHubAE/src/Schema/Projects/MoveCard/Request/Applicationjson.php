@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"position":"bottom","column_id":42}';
     /**
-     * The position of the card in a column. Can be one of: `top`, `bottom`, or `after:<card_id>` to place after the specified card.
+     * position: The position of the card in a column. Can be one of: `top`, `bottom`, or `after:<card_id>` to place after the specified card.
+     * column_id: The unique identifier of the column the card should be moved to
      */
-    public ?string $position;
-    /**
-     * The unique identifier of the column the card should be moved to
-     */
-    public int $column_id;
-    public function __construct(string $position, int $column_id)
+    public function __construct(public ?string $position, public int $column_id)
     {
-        $this->position = $position;
-        $this->column_id = $column_id;
     }
 }

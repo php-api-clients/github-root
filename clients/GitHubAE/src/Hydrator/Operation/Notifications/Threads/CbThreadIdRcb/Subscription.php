@@ -39,7 +39,7 @@ class Subscription implements ObjectMapper
                 $value = $payload['subscribed'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscribed';
+                    $properties['subscribed'] = null;
                     goto after_subscribed;
                 }
 
@@ -50,7 +50,7 @@ class Subscription implements ObjectMapper
                 $value = $payload['ignored'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ignored';
+                    $properties['ignored'] = null;
                     goto after_ignored;
                 }
 
@@ -61,7 +61,7 @@ class Subscription implements ObjectMapper
                 $value = $payload['reason'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'reason';
+                    $properties['reason'] = null;
                     goto after_reason;
                 }
 
@@ -72,7 +72,7 @@ class Subscription implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -83,7 +83,7 @@ class Subscription implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -138,7 +138,7 @@ class Subscription implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -149,7 +149,7 @@ class Subscription implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -160,7 +160,7 @@ class Subscription implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -171,7 +171,7 @@ class Subscription implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 

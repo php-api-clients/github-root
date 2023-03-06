@@ -14,17 +14,11 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"strict":false,"contexts":["generated_contexts"]}';
     /**
-     * Require branches to be up to date before merging.
+     * strict: Require branches to be up to date before merging.
+     * contexts: The list of status checks to require in order to merge into this branch
+     * @param ?array<string> $contexts
      */
-    public ?bool $strict;
-    /**
-     * The list of status checks to require in order to merge into this branch
-     * @var array<string>
-     */
-    public ?array $contexts;
-    public function __construct(bool $strict, array $contexts)
+    public function __construct(public ?bool $strict, public ?array $contexts)
     {
-        $this->strict = $strict;
-        $this->contexts = $contexts;
     }
 }

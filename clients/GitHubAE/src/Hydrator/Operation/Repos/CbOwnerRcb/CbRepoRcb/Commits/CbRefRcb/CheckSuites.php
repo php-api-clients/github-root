@@ -38,7 +38,7 @@ class CheckSuites implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class CheckSuites implements ObjectMapper
                 $value = $payload['check_suites'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'check_suites';
+                    $properties['check_suites'] = null;
                     goto after_check_suites;
                 }
+
+                static $check_suitesCaster1;
+    
+                if ($check_suitesCaster1 === null) {
+                    $check_suitesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\CheckSuite',
+));
+                }
+    
+                $value = $check_suitesCaster1->cast($value, $this);
 
                 $properties['check_suites'] = $value;
     
@@ -178,7 +188,8 @@ class CheckSuites implements ObjectMapper
         static $check_suitesSerializer0;
 
         if ($check_suitesSerializer0 === null) {
-            $check_suitesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $check_suitesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\CheckSuite',
 ));
         }
         

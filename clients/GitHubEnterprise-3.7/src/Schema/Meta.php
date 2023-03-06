@@ -14,26 +14,12 @@ final readonly class Meta
     public const SCHEMA_DESCRIPTION = 'The metadata associated with the creation/updates to the user.';
     public const SCHEMA_EXAMPLE_DATA = '{"resourceType":"User","created":"2022-03-27T19:59:26.000Z","lastModified":"2022-03-27T19:59:26.000Z","location":"generated_location"}';
     /**
-     * A type of a resource
+     * resourceType: A type of a resource
+     * created: A date and time when the user was created.
+     * lastModified: A data and time when the user was last modified.
+     * location: A URL location of an object
      */
-    public ?string $resourceType;
-    /**
-     * A date and time when the user was created.
-     */
-    public string $created;
-    /**
-     * A data and time when the user was last modified.
-     */
-    public string $lastModified;
-    /**
-     * A URL location of an object
-     */
-    public string $location;
-    public function __construct(string $resourceType, string $created, string $lastModified, string $location)
+    public function __construct(public ?string $resourceType, public string $created, public string $lastModified, public string $location)
     {
-        $this->resourceType = $resourceType;
-        $this->created = $created;
-        $this->lastModified = $lastModified;
-        $this->location = $location;
     }
 }

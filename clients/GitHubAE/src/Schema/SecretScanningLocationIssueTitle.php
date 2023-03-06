@@ -14,11 +14,9 @@ final readonly class SecretScanningLocationIssueTitle
     public const SCHEMA_DESCRIPTION = 'Represents an \'issue_title\' secret scanning location type. This location type shows that a secret was detected in the title of an issue.';
     public const SCHEMA_EXAMPLE_DATA = '{"issue_title_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/1347"}';
     /**
-     * The API URL to get the issue where the secret was detected.
+     * issue_title_url: The API URL to get the issue where the secret was detected.
      */
-    public ?string $issue_title_url;
-    public function __construct(string $issue_title_url)
+    public function __construct(public ?string $issue_title_url)
     {
-        $this->issue_title_url = $issue_title_url;
     }
 }

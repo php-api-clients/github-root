@@ -14,16 +14,10 @@ final readonly class Author
     public const SCHEMA_DESCRIPTION = 'object containing information about the author.';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","email":"generated_email"}';
     /**
-     * The name of the author (or committer) of the commit
+     * name: The name of the author (or committer) of the commit
+     * email: The email of the author (or committer) of the commit
      */
-    public ?string $name;
-    /**
-     * The email of the author (or committer) of the commit
-     */
-    public ?string $email;
-    public function __construct(string $name, string $email)
+    public function __construct(public ?string $name, public ?string $email)
     {
-        $this->name = $name;
-        $this->email = $email;
     }
 }

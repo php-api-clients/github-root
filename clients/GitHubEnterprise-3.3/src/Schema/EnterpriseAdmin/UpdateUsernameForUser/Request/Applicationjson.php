@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"login":"generated_login"}';
     /**
-     * The user's new username.
+     * login: The user's new username.
      */
-    public ?string $login;
-    public function __construct(string $login)
+    public function __construct(public ?string $login)
     {
-        $this->login = $login;
     }
 }

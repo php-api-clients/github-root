@@ -38,7 +38,7 @@ class Meta implements ObjectMapper
                 $value = $payload['verifiable_password_authentication'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'verifiable_password_authentication';
+                    $properties['verifiable_password_authentication'] = null;
                     goto after_verifiable_password_authentication;
                 }
 

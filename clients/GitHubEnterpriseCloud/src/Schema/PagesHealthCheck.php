@@ -13,11 +13,7 @@ final readonly class PagesHealthCheck
     public const SCHEMA_TITLE = 'Pages Health Check Status';
     public const SCHEMA_DESCRIPTION = 'Pages Health Check Status';
     public const SCHEMA_EXAMPLE_DATA = '{"domain":{"host":"generated_host","uri":"generated_uri","nameservers":"generated_nameservers","dns_resolves":false,"is_proxied":false,"is_cloudflare_ip":false,"is_fastly_ip":false,"is_old_ip_address":false,"is_a_record":false,"has_cname_record":false,"has_mx_records_present":false,"is_valid_domain":false,"is_apex_domain":false,"should_be_a_record":false,"is_cname_to_github_user_domain":false,"is_cname_to_pages_dot_github_dot_com":false,"is_cname_to_fastly":false,"is_pointed_to_github_pages_ip":false,"is_non_github_pages_ip_present":false,"is_pages_domain":false,"is_served_by_pages":false,"is_valid":false,"reason":"generated_reason","responds_to_https":false,"enforces_https":false,"https_error":"generated_https_error","is_https_eligible":false,"caa_error":"generated_caa_error"},"alt_domain":{"host":"generated_host","uri":"generated_uri","nameservers":"generated_nameservers","dns_resolves":false,"is_proxied":false,"is_cloudflare_ip":false,"is_fastly_ip":false,"is_old_ip_address":false,"is_a_record":false,"has_cname_record":false,"has_mx_records_present":false,"is_valid_domain":false,"is_apex_domain":false,"should_be_a_record":false,"is_cname_to_github_user_domain":false,"is_cname_to_pages_dot_github_dot_com":false,"is_cname_to_fastly":false,"is_pointed_to_github_pages_ip":false,"is_non_github_pages_ip_present":false,"is_pages_domain":false,"is_served_by_pages":false,"is_valid":false,"reason":"generated_reason","responds_to_https":false,"enforces_https":false,"https_error":"generated_https_error","is_https_eligible":false,"caa_error":"generated_caa_error"}}';
-    public ?Schema\PagesHealthCheck\Domain $domain;
-    public ?Schema\PagesHealthCheck\AltDomain $alt_domain;
-    public function __construct(Schema\PagesHealthCheck\Domain $domain, Schema\PagesHealthCheck\AltDomain $alt_domain)
+    public function __construct(public ?Schema\PagesHealthCheck\Domain $domain, public ?Schema\PagesHealthCheck\AltDomain $alt_domain)
     {
-        $this->domain = $domain;
-        $this->alt_domain = $alt_domain;
     }
 }

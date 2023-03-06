@@ -13,11 +13,7 @@ final readonly class Links
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"html":{"href":"generated_href"},"pull_request":{"href":"generated_href"}}';
-    public ?Schema\WebhookPullRequestAssigned\PullRequest\Links\Comments $html;
-    public ?Schema\WebhookPullRequestAssigned\PullRequest\Links\Comments $pull_request;
-    public function __construct(Schema\WebhookPullRequestAssigned\PullRequest\Links\Comments $html, Schema\WebhookPullRequestAssigned\PullRequest\Links\Comments $pull_request)
+    public function __construct(public ?Schema\WebhookPullRequestAssigned\PullRequest\Links\Comments $html, public ?Schema\WebhookPullRequestAssigned\PullRequest\Links\Comments $pull_request)
     {
-        $this->html = $html;
-        $this->pull_request = $pull_request;
     }
 }

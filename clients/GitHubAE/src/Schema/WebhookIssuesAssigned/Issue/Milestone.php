@@ -13,48 +13,12 @@ final readonly class Milestone
     public const SCHEMA_TITLE = 'Milestone';
     public const SCHEMA_DESCRIPTION = 'A collection of related issues and pull requests.';
     public const SCHEMA_EXAMPLE_DATA = '{"closed_at":"generated_closed_at","closed_issues":13,"created_at":"generated_created_at","creator":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"description":"generated_description","due_on":"generated_due_on","html_url":"generated_html_url","id":13,"labels_url":"generated_labels_url","node_id":"generated_node_id","number":13,"open_issues":13,"state":"generated_state","title":"generated_title","updated_at":"generated_updated_at","url":"generated_url"}';
-    public ?string $closed_at;
-    public ?int $closed_issues;
-    public ?string $created_at;
-    public ?Schema\WebhookIssueCommentCreated\Issue\Assignee $creator;
-    public ?string $description;
-    public ?string $due_on;
-    public ?string $html_url;
-    public ?int $id;
-    public ?string $labels_url;
-    public ?string $node_id;
     /**
-     * The number of the milestone.
+     * number: The number of the milestone.
+     * state: The state of the milestone.
+     * title: The title of the milestone.
      */
-    public ?int $number;
-    public ?int $open_issues;
-    /**
-     * The state of the milestone.
-     */
-    public ?string $state;
-    /**
-     * The title of the milestone.
-     */
-    public ?string $title;
-    public ?string $updated_at;
-    public ?string $url;
-    public function __construct(string $closed_at, int $closed_issues, string $created_at, Schema\WebhookIssueCommentCreated\Issue\Assignee $creator, string $description, string $due_on, string $html_url, int $id, string $labels_url, string $node_id, int $number, int $open_issues, string $state, string $title, string $updated_at, string $url)
+    public function __construct(public ?string $closed_at, public ?int $closed_issues, public ?string $created_at, public ?Schema\WebhookIssueCommentCreated\Issue\Assignee $creator, public ?string $description, public ?string $due_on, public ?string $html_url, public ?int $id, public ?string $labels_url, public ?string $node_id, public ?int $number, public ?int $open_issues, public ?string $state, public ?string $title, public ?string $updated_at, public ?string $url)
     {
-        $this->closed_at = $closed_at;
-        $this->closed_issues = $closed_issues;
-        $this->created_at = $created_at;
-        $this->creator = $creator;
-        $this->description = $description;
-        $this->due_on = $due_on;
-        $this->html_url = $html_url;
-        $this->id = $id;
-        $this->labels_url = $labels_url;
-        $this->node_id = $node_id;
-        $this->number = $number;
-        $this->open_issues = $open_issues;
-        $this->state = $state;
-        $this->title = $title;
-        $this->updated_at = $updated_at;
-        $this->url = $url;
     }
 }

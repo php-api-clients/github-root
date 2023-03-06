@@ -14,284 +14,46 @@ final readonly class Repo
     public const SCHEMA_DESCRIPTION = 'A git repository';
     public const SCHEMA_EXAMPLE_DATA = '{"allow_auto_merge":false,"allow_forking":false,"allow_merge_commit":false,"allow_rebase_merge":false,"allow_squash_merge":false,"allow_update_branch":false,"archive_url":"generated_archive_url","archived":false,"assignees_url":"generated_assignees_url","blobs_url":"generated_blobs_url","branches_url":"generated_branches_url","clone_url":"generated_clone_url","collaborators_url":"generated_collaborators_url","comments_url":"generated_comments_url","commits_url":"generated_commits_url","compare_url":"generated_compare_url","contents_url":"generated_contents_url","contributors_url":"generated_contributors_url","created_at":"generated_created_at","default_branch":"generated_default_branch","delete_branch_on_merge":false,"deployments_url":"generated_deployments_url","description":"generated_description","disabled":false,"downloads_url":"generated_downloads_url","events_url":"generated_events_url","fork":false,"forks":13,"forks_count":13,"forks_url":"generated_forks_url","full_name":"generated_full_name","git_commits_url":"generated_git_commits_url","git_refs_url":"generated_git_refs_url","git_tags_url":"generated_git_tags_url","git_url":"generated_git_url","has_downloads":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"has_discussions":false,"homepage":"generated_homepage","hooks_url":"generated_hooks_url","html_url":"generated_html_url","id":13,"is_template":false,"issue_comment_url":"generated_issue_comment_url","issue_events_url":"generated_issue_events_url","issues_url":"generated_issues_url","keys_url":"generated_keys_url","labels_url":"generated_labels_url","language":"generated_language","languages_url":"generated_languages_url","license":{"key":"generated_key","name":"generated_name","node_id":"generated_node_id","spdx_id":"generated_spdx_id","url":"generated_url"},"master_branch":"generated_master_branch","merge_commit_message":"generated_merge_commit_message","merge_commit_title":"generated_merge_commit_title","merges_url":"generated_merges_url","milestones_url":"generated_milestones_url","mirror_url":"generated_mirror_url","name":"generated_name","node_id":"generated_node_id","notifications_url":"generated_notifications_url","open_issues":13,"open_issues_count":13,"organization":"generated_organization","owner":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"permissions":{"admin":false,"maintain":false,"pull":false,"push":false,"triage":false},"private":false,"public":false,"pulls_url":"generated_pulls_url","pushed_at":"generated_pushed_at","releases_url":"generated_releases_url","role_name":"generated_role_name","size":13,"squash_merge_commit_message":"generated_squash_merge_commit_message","squash_merge_commit_title":"generated_squash_merge_commit_title","ssh_url":"generated_ssh_url","stargazers":13,"stargazers_count":13,"stargazers_url":"generated_stargazers_url","statuses_url":"generated_statuses_url","subscribers_url":"generated_subscribers_url","subscription_url":"generated_subscription_url","svn_url":"generated_svn_url","tags_url":"generated_tags_url","teams_url":"generated_teams_url","topics":["generated_topics"],"trees_url":"generated_trees_url","updated_at":"generated_updated_at","url":"generated_url","use_squash_pr_title_as_default":false,"visibility":"generated_visibility","watchers":13,"watchers_count":13,"web_commit_signoff_required":false}';
     /**
-     * Whether to allow auto-merge for pull requests.
-     */
-    public bool $allow_auto_merge;
-    /**
-     * Whether to allow private forks
-     */
-    public bool $allow_forking;
-    /**
-     * Whether to allow merge commits for pull requests.
-     */
-    public bool $allow_merge_commit;
-    /**
-     * Whether to allow rebase merges for pull requests.
-     */
-    public bool $allow_rebase_merge;
-    /**
-     * Whether to allow squash merges for pull requests.
-     */
-    public bool $allow_squash_merge;
-    public bool $allow_update_branch;
-    public ?string $archive_url;
-    /**
-     * Whether the repository is archived.
-     */
-    public ?bool $archived;
-    public ?string $assignees_url;
-    public ?string $blobs_url;
-    public ?string $branches_url;
-    public ?string $clone_url;
-    public ?string $collaborators_url;
-    public ?string $comments_url;
-    public ?string $commits_url;
-    public ?string $compare_url;
-    public ?string $contents_url;
-    public ?string $contributors_url;
-    public ?string $created_at;
-    /**
-     * The default branch of the repository.
-     */
-    public ?string $default_branch;
-    /**
-     * Whether to delete head branches when pull requests are merged
-     */
-    public bool $delete_branch_on_merge;
-    public ?string $deployments_url;
-    public ?string $description;
-    /**
-     * Returns whether or not this repository is disabled.
-     */
-    public bool $disabled;
-    public ?string $downloads_url;
-    public ?string $events_url;
-    public ?bool $fork;
-    public ?int $forks;
-    public ?int $forks_count;
-    public ?string $forks_url;
-    public ?string $full_name;
-    public ?string $git_commits_url;
-    public ?string $git_refs_url;
-    public ?string $git_tags_url;
-    public ?string $git_url;
-    /**
-     * Whether downloads are enabled.
-     */
-    public ?bool $has_downloads;
-    /**
-     * Whether issues are enabled.
-     */
-    public ?bool $has_issues;
-    public ?bool $has_pages;
-    /**
-     * Whether projects are enabled.
-     */
-    public ?bool $has_projects;
-    /**
-     * Whether the wiki is enabled.
-     */
-    public ?bool $has_wiki;
-    /**
-     * Whether discussions are enabled.
-     */
-    public ?bool $has_discussions;
-    public ?string $homepage;
-    public ?string $hooks_url;
-    public ?string $html_url;
-    /**
-     * Unique identifier of the repository
-     */
-    public ?int $id;
-    public bool $is_template;
-    public ?string $issue_comment_url;
-    public ?string $issue_events_url;
-    public ?string $issues_url;
-    public ?string $keys_url;
-    public ?string $labels_url;
-    public ?string $language;
-    public ?string $languages_url;
-    public ?Schema\WebhookDiscussionTransferred\Changes\NewRepository\License $license;
-    public string $master_branch;
-    /**
-    * The default value for a merge commit message.
+    * allow_auto_merge: Whether to allow auto-merge for pull requests.
+    * allow_forking: Whether to allow private forks
+    * allow_merge_commit: Whether to allow merge commits for pull requests.
+    * allow_rebase_merge: Whether to allow rebase merges for pull requests.
+    * allow_squash_merge: Whether to allow squash merges for pull requests.
+    * archived: Whether the repository is archived.
+    * default_branch: The default branch of the repository.
+    * delete_branch_on_merge: Whether to delete head branches when pull requests are merged
+    * disabled: Returns whether or not this repository is disabled.
+    * has_downloads: Whether downloads are enabled.
+    * has_issues: Whether issues are enabled.
+    * has_projects: Whether projects are enabled.
+    * has_wiki: Whether the wiki is enabled.
+    * has_discussions: Whether discussions are enabled.
+    * id: Unique identifier of the repository
+    * merge_commit_message: The default value for a merge commit message.
     
     - `PR_TITLE` - default to the pull request's title.
     - `PR_BODY` - default to the pull request's body.
     - `BLANK` - default to a blank commit message.
-    */
-    public string $merge_commit_message;
-    /**
-    * The default value for a merge commit title.
+    * merge_commit_title: The default value for a merge commit title.
     
     - `PR_TITLE` - default to the pull request's title.
     - `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).
-    */
-    public string $merge_commit_title;
-    public ?string $merges_url;
-    public ?string $milestones_url;
-    public ?string $mirror_url;
-    /**
-     * The name of the repository.
-     */
-    public ?string $name;
-    public ?string $node_id;
-    public ?string $notifications_url;
-    public ?int $open_issues;
-    public ?int $open_issues_count;
-    public string $organization;
-    public ?Schema\Discussion\AnswerChosenBy $owner;
-    public Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions $permissions;
-    /**
-     * Whether the repository is private or public.
-     */
-    public ?bool $private;
-    public bool $public;
-    public ?string $pulls_url;
-    public ?string $pushed_at;
-    public ?string $releases_url;
-    public ?string $role_name;
-    public ?int $size;
-    /**
-    * The default value for a squash merge commit message:
+    * name: The name of the repository.
+    * private: Whether the repository is private or public.
+    * squash_merge_commit_message: The default value for a squash merge commit message:
     
     - `PR_BODY` - default to the pull request's body.
     - `COMMIT_MESSAGES` - default to the branch's commit messages.
     - `BLANK` - default to a blank commit message.
-    */
-    public string $squash_merge_commit_message;
-    /**
-    * The default value for a squash merge commit title:
+    * squash_merge_commit_title: The default value for a squash merge commit title:
     
     - `PR_TITLE` - default to the pull request's title.
     - `COMMIT_OR_PR_TITLE` - default to the commit's title (if only one commit) or the pull request's title (when more than one commit).
+    * @param ?array<string> $topics
+    * use_squash_pr_title_as_default: Whether a squash merge commit can use the pull request title as default.
+    * web_commit_signoff_required: Whether to require contributors to sign off on web-based commits
     */
-    public string $squash_merge_commit_title;
-    public ?string $ssh_url;
-    public int $stargazers;
-    public ?int $stargazers_count;
-    public ?string $stargazers_url;
-    public ?string $statuses_url;
-    public ?string $subscribers_url;
-    public ?string $subscription_url;
-    public ?string $svn_url;
-    public ?string $tags_url;
-    public ?string $teams_url;
-    /**
-     * @var array<string>
-     */
-    public ?array $topics;
-    public ?string $trees_url;
-    public ?string $updated_at;
-    public ?string $url;
-    /**
-     * Whether a squash merge commit can use the pull request title as default.
-     */
-    public bool $use_squash_pr_title_as_default;
-    public ?string $visibility;
-    public ?int $watchers;
-    public ?int $watchers_count;
-    /**
-     * Whether to require contributors to sign off on web-based commits
-     */
-    public bool $web_commit_signoff_required;
-    public function __construct(bool $allow_auto_merge, bool $allow_forking, bool $allow_merge_commit, bool $allow_rebase_merge, bool $allow_squash_merge, bool $allow_update_branch, string $archive_url, bool $archived, string $assignees_url, string $blobs_url, string $branches_url, string $clone_url, string $collaborators_url, string $comments_url, string $commits_url, string $compare_url, string $contents_url, string $contributors_url, string $created_at, string $default_branch, bool $delete_branch_on_merge, string $deployments_url, string $description, bool $disabled, string $downloads_url, string $events_url, bool $fork, int $forks, int $forks_count, string $forks_url, string $full_name, string $git_commits_url, string $git_refs_url, string $git_tags_url, string $git_url, bool $has_downloads, bool $has_issues, bool $has_pages, bool $has_projects, bool $has_wiki, bool $has_discussions, string $homepage, string $hooks_url, string $html_url, int $id, bool $is_template, string $issue_comment_url, string $issue_events_url, string $issues_url, string $keys_url, string $labels_url, string $language, string $languages_url, Schema\WebhookDiscussionTransferred\Changes\NewRepository\License $license, string $master_branch, string $merge_commit_message, string $merge_commit_title, string $merges_url, string $milestones_url, string $mirror_url, string $name, string $node_id, string $notifications_url, int $open_issues, int $open_issues_count, string $organization, Schema\Discussion\AnswerChosenBy $owner, Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions $permissions, bool $private, bool $public, string $pulls_url, string $pushed_at, string $releases_url, string $role_name, int $size, string $squash_merge_commit_message, string $squash_merge_commit_title, string $ssh_url, int $stargazers, int $stargazers_count, string $stargazers_url, string $statuses_url, string $subscribers_url, string $subscription_url, string $svn_url, string $tags_url, string $teams_url, array $topics, string $trees_url, string $updated_at, string $url, bool $use_squash_pr_title_as_default, string $visibility, int $watchers, int $watchers_count, bool $web_commit_signoff_required)
+    public function __construct(public bool $allow_auto_merge, public bool $allow_forking, public bool $allow_merge_commit, public bool $allow_rebase_merge, public bool $allow_squash_merge, public bool $allow_update_branch, public ?string $archive_url, public ?bool $archived, public ?string $assignees_url, public ?string $blobs_url, public ?string $branches_url, public ?string $clone_url, public ?string $collaborators_url, public ?string $comments_url, public ?string $commits_url, public ?string $compare_url, public ?string $contents_url, public ?string $contributors_url, public ?string $created_at, public ?string $default_branch, public bool $delete_branch_on_merge, public ?string $deployments_url, public ?string $description, public bool $disabled, public ?string $downloads_url, public ?string $events_url, public ?bool $fork, public ?int $forks, public ?int $forks_count, public ?string $forks_url, public ?string $full_name, public ?string $git_commits_url, public ?string $git_refs_url, public ?string $git_tags_url, public ?string $git_url, public ?bool $has_downloads, public ?bool $has_issues, public ?bool $has_pages, public ?bool $has_projects, public ?bool $has_wiki, public ?bool $has_discussions, public ?string $homepage, public ?string $hooks_url, public ?string $html_url, public ?int $id, public bool $is_template, public ?string $issue_comment_url, public ?string $issue_events_url, public ?string $issues_url, public ?string $keys_url, public ?string $labels_url, public ?string $language, public ?string $languages_url, public ?Schema\WebhookIssuesOpened\Changes\OldRepository\License $license, public string $master_branch, public string $merge_commit_message, public string $merge_commit_title, public ?string $merges_url, public ?string $milestones_url, public ?string $mirror_url, public ?string $name, public ?string $node_id, public ?string $notifications_url, public ?int $open_issues, public ?int $open_issues_count, public string $organization, public ?Schema\Discussion\AnswerChosenBy $owner, public Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions $permissions, public ?bool $private, public bool $public, public ?string $pulls_url, public ?string $pushed_at, public ?string $releases_url, public ?string $role_name, public ?int $size, public string $squash_merge_commit_message, public string $squash_merge_commit_title, public ?string $ssh_url, public int $stargazers, public ?int $stargazers_count, public ?string $stargazers_url, public ?string $statuses_url, public ?string $subscribers_url, public ?string $subscription_url, public ?string $svn_url, public ?string $tags_url, public ?string $teams_url, public ?array $topics, public ?string $trees_url, public ?string $updated_at, public ?string $url, public bool $use_squash_pr_title_as_default, public ?string $visibility, public ?int $watchers, public ?int $watchers_count, public bool $web_commit_signoff_required)
     {
-        $this->allow_auto_merge = $allow_auto_merge;
-        $this->allow_forking = $allow_forking;
-        $this->allow_merge_commit = $allow_merge_commit;
-        $this->allow_rebase_merge = $allow_rebase_merge;
-        $this->allow_squash_merge = $allow_squash_merge;
-        $this->allow_update_branch = $allow_update_branch;
-        $this->archive_url = $archive_url;
-        $this->archived = $archived;
-        $this->assignees_url = $assignees_url;
-        $this->blobs_url = $blobs_url;
-        $this->branches_url = $branches_url;
-        $this->clone_url = $clone_url;
-        $this->collaborators_url = $collaborators_url;
-        $this->comments_url = $comments_url;
-        $this->commits_url = $commits_url;
-        $this->compare_url = $compare_url;
-        $this->contents_url = $contents_url;
-        $this->contributors_url = $contributors_url;
-        $this->created_at = $created_at;
-        $this->default_branch = $default_branch;
-        $this->delete_branch_on_merge = $delete_branch_on_merge;
-        $this->deployments_url = $deployments_url;
-        $this->description = $description;
-        $this->disabled = $disabled;
-        $this->downloads_url = $downloads_url;
-        $this->events_url = $events_url;
-        $this->fork = $fork;
-        $this->forks = $forks;
-        $this->forks_count = $forks_count;
-        $this->forks_url = $forks_url;
-        $this->full_name = $full_name;
-        $this->git_commits_url = $git_commits_url;
-        $this->git_refs_url = $git_refs_url;
-        $this->git_tags_url = $git_tags_url;
-        $this->git_url = $git_url;
-        $this->has_downloads = $has_downloads;
-        $this->has_issues = $has_issues;
-        $this->has_pages = $has_pages;
-        $this->has_projects = $has_projects;
-        $this->has_wiki = $has_wiki;
-        $this->has_discussions = $has_discussions;
-        $this->homepage = $homepage;
-        $this->hooks_url = $hooks_url;
-        $this->html_url = $html_url;
-        $this->id = $id;
-        $this->is_template = $is_template;
-        $this->issue_comment_url = $issue_comment_url;
-        $this->issue_events_url = $issue_events_url;
-        $this->issues_url = $issues_url;
-        $this->keys_url = $keys_url;
-        $this->labels_url = $labels_url;
-        $this->language = $language;
-        $this->languages_url = $languages_url;
-        $this->license = $license;
-        $this->master_branch = $master_branch;
-        $this->merge_commit_message = $merge_commit_message;
-        $this->merge_commit_title = $merge_commit_title;
-        $this->merges_url = $merges_url;
-        $this->milestones_url = $milestones_url;
-        $this->mirror_url = $mirror_url;
-        $this->name = $name;
-        $this->node_id = $node_id;
-        $this->notifications_url = $notifications_url;
-        $this->open_issues = $open_issues;
-        $this->open_issues_count = $open_issues_count;
-        $this->organization = $organization;
-        $this->owner = $owner;
-        $this->permissions = $permissions;
-        $this->private = $private;
-        $this->public = $public;
-        $this->pulls_url = $pulls_url;
-        $this->pushed_at = $pushed_at;
-        $this->releases_url = $releases_url;
-        $this->role_name = $role_name;
-        $this->size = $size;
-        $this->squash_merge_commit_message = $squash_merge_commit_message;
-        $this->squash_merge_commit_title = $squash_merge_commit_title;
-        $this->ssh_url = $ssh_url;
-        $this->stargazers = $stargazers;
-        $this->stargazers_count = $stargazers_count;
-        $this->stargazers_url = $stargazers_url;
-        $this->statuses_url = $statuses_url;
-        $this->subscribers_url = $subscribers_url;
-        $this->subscription_url = $subscription_url;
-        $this->svn_url = $svn_url;
-        $this->tags_url = $tags_url;
-        $this->teams_url = $teams_url;
-        $this->topics = $topics;
-        $this->trees_url = $trees_url;
-        $this->updated_at = $updated_at;
-        $this->url = $url;
-        $this->use_squash_pr_title_as_default = $use_squash_pr_title_as_default;
-        $this->visibility = $visibility;
-        $this->watchers = $watchers;
-        $this->watchers_count = $watchers_count;
-        $this->web_commit_signoff_required = $web_commit_signoff_required;
     }
 }

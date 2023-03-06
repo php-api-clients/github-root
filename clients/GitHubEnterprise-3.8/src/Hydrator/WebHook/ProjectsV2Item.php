@@ -55,7 +55,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -66,7 +66,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['changes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'changes';
+                    $properties['changes'] = null;
                     goto after_changes;
                 }
 
@@ -106,7 +106,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization';
+                    $properties['organization'] = null;
                     goto after_organization;
                 }
 
@@ -126,7 +126,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['projects_v2_item'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'projects_v2_item';
+                    $properties['projects_v2_item'] = null;
                     goto after_projects_v2_item;
                 }
 
@@ -146,7 +146,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -188,7 +188,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['archived_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archived_at';
+                    $properties['archived_at'] = null;
                     goto after_archived_at;
                 }
 
@@ -230,7 +230,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['from'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'from';
+                    $properties['from'] = null;
                     goto after_from;
                 }
 
@@ -241,7 +241,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['to'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'to';
+                    $properties['to'] = null;
                     goto after_to;
                 }
 
@@ -274,7 +274,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -285,7 +285,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -318,7 +318,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -329,7 +329,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -340,7 +340,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -351,7 +351,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -362,7 +362,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -373,7 +373,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -384,7 +384,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -395,7 +395,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -406,7 +406,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['members_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'members_url';
+                    $properties['members_url'] = null;
                     goto after_members_url;
                 }
 
@@ -417,7 +417,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['public_members_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'public_members_url';
+                    $properties['public_members_url'] = null;
                     goto after_public_members_url;
                 }
 
@@ -428,7 +428,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -439,7 +439,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -472,7 +472,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -505,7 +505,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['content_node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'content_node_id';
+                    $properties['content_node_id'] = null;
                     goto after_content_node_id;
                 }
 
@@ -516,7 +516,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['content_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'content_type';
+                    $properties['content_type'] = null;
                     goto after_content_type;
                 }
 
@@ -547,7 +547,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -558,7 +558,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -569,7 +569,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['archived_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archived_at';
+                    $properties['archived_at'] = null;
                     goto after_archived_at;
                 }
 
@@ -602,7 +602,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -613,7 +613,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -624,7 +624,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -635,7 +635,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -646,7 +646,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -657,7 +657,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -668,7 +668,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -679,7 +679,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -690,7 +690,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -701,7 +701,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -712,7 +712,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -723,7 +723,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -734,7 +734,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -745,7 +745,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -756,7 +756,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -767,7 +767,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -778,7 +778,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -789,7 +789,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -800,7 +800,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -811,7 +811,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -855,7 +855,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -866,7 +866,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['changes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'changes';
+                    $properties['changes'] = null;
                     goto after_changes;
                 }
 
@@ -906,7 +906,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization';
+                    $properties['organization'] = null;
                     goto after_organization;
                 }
 
@@ -926,7 +926,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['projects_v2_item'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'projects_v2_item';
+                    $properties['projects_v2_item'] = null;
                     goto after_projects_v2_item;
                 }
 
@@ -946,7 +946,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -988,7 +988,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['content_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'content_type';
+                    $properties['content_type'] = null;
                     goto after_content_type;
                 }
 
@@ -1030,7 +1030,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['from'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'from';
+                    $properties['from'] = null;
                     goto after_from;
                 }
 
@@ -1041,7 +1041,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['to'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'to';
+                    $properties['to'] = null;
                     goto after_to;
                 }
 
@@ -1074,7 +1074,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -1105,7 +1105,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization';
+                    $properties['organization'] = null;
                     goto after_organization;
                 }
 
@@ -1125,7 +1125,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['projects_v2_item'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'projects_v2_item';
+                    $properties['projects_v2_item'] = null;
                     goto after_projects_v2_item;
                 }
 
@@ -1145,7 +1145,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -1187,7 +1187,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -1218,7 +1218,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization';
+                    $properties['organization'] = null;
                     goto after_organization;
                 }
 
@@ -1238,7 +1238,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['projects_v2_item'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'projects_v2_item';
+                    $properties['projects_v2_item'] = null;
                     goto after_projects_v2_item;
                 }
 
@@ -1258,7 +1258,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -1300,7 +1300,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -1351,7 +1351,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization';
+                    $properties['organization'] = null;
                     goto after_organization;
                 }
 
@@ -1371,7 +1371,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['projects_v2_item'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'projects_v2_item';
+                    $properties['projects_v2_item'] = null;
                     goto after_projects_v2_item;
                 }
 
@@ -1391,7 +1391,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -1433,7 +1433,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['body'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'body';
+                    $properties['body'] = null;
                     goto after_body;
                 }
 
@@ -1475,7 +1475,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['from'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'from';
+                    $properties['from'] = null;
                     goto after_from;
                 }
 
@@ -1486,7 +1486,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['to'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'to';
+                    $properties['to'] = null;
                     goto after_to;
                 }
 
@@ -1519,7 +1519,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -1530,7 +1530,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['changes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'changes';
+                    $properties['changes'] = null;
                     goto after_changes;
                 }
 
@@ -1570,7 +1570,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization';
+                    $properties['organization'] = null;
                     goto after_organization;
                 }
 
@@ -1590,7 +1590,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['projects_v2_item'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'projects_v2_item';
+                    $properties['projects_v2_item'] = null;
                     goto after_projects_v2_item;
                 }
 
@@ -1610,7 +1610,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -1652,7 +1652,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['previous_projects_v2_item_node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'previous_projects_v2_item_node_id';
+                    $properties['previous_projects_v2_item_node_id'] = null;
                     goto after_previous_projects_v2_item_node_id;
                 }
 
@@ -1694,7 +1694,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -1705,7 +1705,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['changes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'changes';
+                    $properties['changes'] = null;
                     goto after_changes;
                 }
 
@@ -1745,7 +1745,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization';
+                    $properties['organization'] = null;
                     goto after_organization;
                 }
 
@@ -1765,7 +1765,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['projects_v2_item'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'projects_v2_item';
+                    $properties['projects_v2_item'] = null;
                     goto after_projects_v2_item;
                 }
 
@@ -1785,7 +1785,7 @@ class ProjectsV2Item implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 

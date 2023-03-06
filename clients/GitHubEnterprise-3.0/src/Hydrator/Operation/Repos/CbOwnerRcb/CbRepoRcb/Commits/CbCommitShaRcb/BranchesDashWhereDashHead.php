@@ -40,7 +40,7 @@ class BranchesDashWhereDashHead implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -51,7 +51,7 @@ class BranchesDashWhereDashHead implements ObjectMapper
                 $value = $payload['commit'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commit';
+                    $properties['commit'] = null;
                     goto after_commit;
                 }
 
@@ -71,7 +71,7 @@ class BranchesDashWhereDashHead implements ObjectMapper
                 $value = $payload['protected'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'protected';
+                    $properties['protected'] = null;
                     goto after_protected;
                 }
 
@@ -104,7 +104,7 @@ class BranchesDashWhereDashHead implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -115,7 +115,7 @@ class BranchesDashWhereDashHead implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -129,6 +129,16 @@ class BranchesDashWhereDashHead implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -159,7 +169,7 @@ class BranchesDashWhereDashHead implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -170,7 +180,7 @@ class BranchesDashWhereDashHead implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -338,7 +348,8 @@ class BranchesDashWhereDashHead implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
 ));
         }
         

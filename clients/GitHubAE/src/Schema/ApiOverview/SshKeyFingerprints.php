@@ -13,15 +13,7 @@ final readonly class SshKeyFingerprints
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"SHA256_RSA":"generated_SHA256_RSA","SHA256_DSA":"generated_SHA256_DSA","SHA256_ECDSA":"generated_SHA256_ECDSA","SHA256_ED25519":"generated_SHA256_ED25519"}';
-    public ?string $SHA256_RSA;
-    public ?string $SHA256_DSA;
-    public ?string $SHA256_ECDSA;
-    public ?string $SHA256_ED25519;
-    public function __construct(string $SHA256_RSA, string $SHA256_DSA, string $SHA256_ECDSA, string $SHA256_ED25519)
+    public function __construct(public ?string $SHA256_RSA, public ?string $SHA256_DSA, public ?string $SHA256_ECDSA, public ?string $SHA256_ED25519)
     {
-        $this->SHA256_RSA = $SHA256_RSA;
-        $this->SHA256_DSA = $SHA256_DSA;
-        $this->SHA256_ECDSA = $SHA256_ECDSA;
-        $this->SHA256_ED25519 = $SHA256_ED25519;
     }
 }

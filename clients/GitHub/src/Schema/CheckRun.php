@@ -14,58 +14,14 @@ final readonly class CheckRun
     public const SCHEMA_DESCRIPTION = 'A check performed on the code of a given code change';
     public const SCHEMA_EXAMPLE_DATA = '{"id":21,"head_sha":"009b8a3a9ccbb128af87f9b1c0f4c62e8a304f6d","node_id":"MDg6Q2hlY2tSdW40","external_id":"42","url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/check-runs\\/4","html_url":"https:\\/\\/github.com\\/github\\/hello-world\\/runs\\/4","details_url":"https:\\/\\/example.com","status":"queued","conclusion":"neutral","started_at":"2018-05-04T01:14:52Z","completed_at":"2018-05-04T01:14:52Z","output":{"title":"generated_title","summary":"generated_summary","text":"generated_text","annotations_count":13,"annotations_url":"generated_annotations_url"},"name":"test-coverage","check_suite":{"id":13},"app":{"id":37,"slug":"probot-owners","node_id":"MDExOkludGVncmF0aW9uMQ==","owner":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"name":"Probot Owners","description":"The description of the app.","external_url":"https:\\/\\/example.com","html_url":"https:\\/\\/github.com\\/apps\\/super-ci","created_at":"2017-07-08T16:18:44-04:00","updated_at":"2017-07-08T16:18:44-04:00","permissions":{"issues":"read","deployments":"write","checks":"generated_checks","metadata":"generated_metadata","contents":"generated_contents"},"events":["deployment"],"installations_count":5,"client_id":"\\"Iv1.25b5d1e65ffc4022\\"","client_secret":"\\"1d4b2097ac622ba702d19de498f005747a8b21d3\\"","webhook_secret":"\\"6fba8f2fc8a7e8f2cca5577eddd82ca7586b3b6b\\"","pem":"\\"-----BEGIN RSA PRIVATE KEY-----\\\\nMIIEogIBAAKCAQEArYxrNYD\\/iT5CZVpRJu4rBKmmze3PVmT\\/gCo2ATUvDvZTPTey\\\\nxcGJ3vvrJXazKk06pN05TN29o98jrYz4cengG3YGsXPNEpKsIrEl8NhbnxapEnM9\\\\nJCMRe0P5JcPsfZlX6hmiT7136GRWiGOUba2X9+HKh8QJVLG5rM007TBER9\\/z9mWm\\\\nrJuNh+m5l320oBQY\\/Qq3A7wzdEfZw8qm\\/mIN0FCeoXH1L6B8xXWaAYBwhTEh6SSn\\\\nZHlO1Xu1JWDmAvBCi0RO5aRSKM8q9QEkvvHP4yweAtK3N8+aAbZ7ovaDhyGz8r6r\\\\nzhU1b8Uo0Z2ysf503WqzQgIajr7Fry7\\/kUwpgQIDAQABAoIBADwJp80Ko1xHPZDy\\\\nfcCKBDfIuPvkmSW6KumbsLMaQv1aGdHDwwTGv3t0ixSay8CGlxMRtRDyZPib6SvQ\\\\n6OH\\/lpfpbMdW2ErkksgtoIKBVrDilfrcAvrNZu7NxRNbhCSvN8q0s4ICecjbbVQh\\\\nnueSdlA6vGXbW58BHMq68uRbHkP+k+mM9U0mDJ1HMch67wlg5GbayVRt63H7R2+r\\\\nVxcna7B80J\\/lCEjIYZznawgiTvp3MSanTglqAYi+m1EcSsP14bJIB9vgaxS79kTu\\\\noiSo93leJbBvuGo8QEiUqTwMw4tDksmkLsoqNKQ1q9P7LZ9DGcujtPy4EZsamSJT\\\\ny8OJt0ECgYEA2lxOxJsQk2kI325JgKFjo92mQeUObIvPfSNWUIZQDTjniOI6Gv63\\\\nGLWVFrZcvQBWjMEQraJA9xjPbblV8PtfO87MiJGLWCHFxmPz2dzoedN+2Coxom8m\\\\nV95CLz8QUShuao6u\\/RYcvUaZEoYs5bHcTmy5sBK80JyEmafJPtCQVxMCgYEAy3ar\\\\nZr3yv4xRPEPMat4rseswmuMooSaK3SKub19WFI5IAtB\\/e7qR1Rj9JhOGcZz+OQrl\\\\nT78O2OFYlgOIkJPvRMrPpK5V9lslc7tz1FSh3BZMRGq5jSyD7ETSOQ0c8T2O\\/s7v\\\\nbeEPbVbDe4mwvM24XByH0GnWveVxaDl51ABD65sCgYB3ZAspUkOA5egVCh8kNpnd\\\\nSd6SnuQBE3ySRlT2WEnCwP9Ph6oPgn+oAfiPX4xbRqkL8q\\/k0BdHQ4h+zNwhk7+h\\\\nWtPYRAP1Xxnc\\/F+jGjb+DVaIaKGU18MWPg7f+FI6nampl3Q0KvfxwX0GdNhtio8T\\\\nTj1E+SnFwh56SRQuxSh2gwKBgHKjlIO5NtNSflsUYFM+hyQiPiqnHzddfhSG+\\/3o\\\\nm5nNaSmczJesUYreH5San7\\/YEy2UxAugvP7aSY2MxB+iGsiJ9WD2kZzTUlDZJ7RV\\\\nUzWsoqBR+eZfVJ2FUWWvy8TpSG6trh4dFxImNtKejCR1TREpSiTV3Zb1dmahK9GV\\\\nrK9NAoGAbBxRLoC01xfxCTgt5BDiBcFVh4fp5yYKwavJPLzHSpuDOrrI9jDn1oKN\\\\nonq5sDU1i391zfQvdrbX4Ova48BN+B7p63FocP\\/MK5tyyBoT8zQEk2+vWDOw7H\\/Z\\\\nu5dTCPxTIsoIwUw1I+7yIxqJzLPFgR2gVBwY1ra\\/8iAqCj+zeBw=\\\\n-----END RSA PRIVATE KEY-----\\\\n\\""},"pull_requests":[{"id":13,"number":13,"url":"generated_url","head":{"ref":"generated_ref","sha":"generated_sha","repo":{"id":13,"url":"generated_url","name":"generated_name"}},"base":{"ref":"generated_ref","sha":"generated_sha","repo":{"id":13,"url":"generated_url","name":"generated_name"}}}],"deployment":{"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/example\\/deployments\\/1","id":42,"node_id":"MDEwOkRlcGxveW1lbnQx","task":"deploy","original_environment":"staging","environment":"production","description":"Deploy request from hubot","created_at":"2012-07-20T01:19:13Z","updated_at":"2012-07-20T01:19:13Z","statuses_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/example\\/deployments\\/1\\/statuses","repository_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/example","transient_environment":true,"production_environment":true,"performed_via_github_app":{"id":37,"slug":"probot-owners","node_id":"MDExOkludGVncmF0aW9uMQ==","owner":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"name":"Probot Owners","description":"The description of the app.","external_url":"https:\\/\\/example.com","html_url":"https:\\/\\/github.com\\/apps\\/super-ci","created_at":"2017-07-08T16:18:44-04:00","updated_at":"2017-07-08T16:18:44-04:00","permissions":{"issues":"read","deployments":"write","checks":"generated_checks","metadata":"generated_metadata","contents":"generated_contents"},"events":["deployment"],"installations_count":5,"client_id":"\\"Iv1.25b5d1e65ffc4022\\"","client_secret":"\\"1d4b2097ac622ba702d19de498f005747a8b21d3\\"","webhook_secret":"\\"6fba8f2fc8a7e8f2cca5577eddd82ca7586b3b6b\\"","pem":"\\"-----BEGIN RSA PRIVATE KEY-----\\\\nMIIEogIBAAKCAQEArYxrNYD\\/iT5CZVpRJu4rBKmmze3PVmT\\/gCo2ATUvDvZTPTey\\\\nxcGJ3vvrJXazKk06pN05TN29o98jrYz4cengG3YGsXPNEpKsIrEl8NhbnxapEnM9\\\\nJCMRe0P5JcPsfZlX6hmiT7136GRWiGOUba2X9+HKh8QJVLG5rM007TBER9\\/z9mWm\\\\nrJuNh+m5l320oBQY\\/Qq3A7wzdEfZw8qm\\/mIN0FCeoXH1L6B8xXWaAYBwhTEh6SSn\\\\nZHlO1Xu1JWDmAvBCi0RO5aRSKM8q9QEkvvHP4yweAtK3N8+aAbZ7ovaDhyGz8r6r\\\\nzhU1b8Uo0Z2ysf503WqzQgIajr7Fry7\\/kUwpgQIDAQABAoIBADwJp80Ko1xHPZDy\\\\nfcCKBDfIuPvkmSW6KumbsLMaQv1aGdHDwwTGv3t0ixSay8CGlxMRtRDyZPib6SvQ\\\\n6OH\\/lpfpbMdW2ErkksgtoIKBVrDilfrcAvrNZu7NxRNbhCSvN8q0s4ICecjbbVQh\\\\nnueSdlA6vGXbW58BHMq68uRbHkP+k+mM9U0mDJ1HMch67wlg5GbayVRt63H7R2+r\\\\nVxcna7B80J\\/lCEjIYZznawgiTvp3MSanTglqAYi+m1EcSsP14bJIB9vgaxS79kTu\\\\noiSo93leJbBvuGo8QEiUqTwMw4tDksmkLsoqNKQ1q9P7LZ9DGcujtPy4EZsamSJT\\\\ny8OJt0ECgYEA2lxOxJsQk2kI325JgKFjo92mQeUObIvPfSNWUIZQDTjniOI6Gv63\\\\nGLWVFrZcvQBWjMEQraJA9xjPbblV8PtfO87MiJGLWCHFxmPz2dzoedN+2Coxom8m\\\\nV95CLz8QUShuao6u\\/RYcvUaZEoYs5bHcTmy5sBK80JyEmafJPtCQVxMCgYEAy3ar\\\\nZr3yv4xRPEPMat4rseswmuMooSaK3SKub19WFI5IAtB\\/e7qR1Rj9JhOGcZz+OQrl\\\\nT78O2OFYlgOIkJPvRMrPpK5V9lslc7tz1FSh3BZMRGq5jSyD7ETSOQ0c8T2O\\/s7v\\\\nbeEPbVbDe4mwvM24XByH0GnWveVxaDl51ABD65sCgYB3ZAspUkOA5egVCh8kNpnd\\\\nSd6SnuQBE3ySRlT2WEnCwP9Ph6oPgn+oAfiPX4xbRqkL8q\\/k0BdHQ4h+zNwhk7+h\\\\nWtPYRAP1Xxnc\\/F+jGjb+DVaIaKGU18MWPg7f+FI6nampl3Q0KvfxwX0GdNhtio8T\\\\nTj1E+SnFwh56SRQuxSh2gwKBgHKjlIO5NtNSflsUYFM+hyQiPiqnHzddfhSG+\\/3o\\\\nm5nNaSmczJesUYreH5San7\\/YEy2UxAugvP7aSY2MxB+iGsiJ9WD2kZzTUlDZJ7RV\\\\nUzWsoqBR+eZfVJ2FUWWvy8TpSG6trh4dFxImNtKejCR1TREpSiTV3Zb1dmahK9GV\\\\nrK9NAoGAbBxRLoC01xfxCTgt5BDiBcFVh4fp5yYKwavJPLzHSpuDOrrI9jDn1oKN\\\\nonq5sDU1i391zfQvdrbX4Ova48BN+B7p63FocP\\/MK5tyyBoT8zQEk2+vWDOw7H\\/Z\\\\nu5dTCPxTIsoIwUw1I+7yIxqJzLPFgR2gVBwY1ra\\/8iAqCj+zeBw=\\\\n-----END RSA PRIVATE KEY-----\\\\n\\""}}}';
     /**
-     * The id of the check.
+     * id: The id of the check.
+     * head_sha: The SHA of the commit that is being checked.
+     * status: The phase of the lifecycle that the check is currently in.
+     * name: The name of the check.
+     * @param ?array<\ApiClients\Client\GitHub\Schema\PullRequestMinimal> $pull_requests
+     * deployment: A deployment created as the result of an Actions check run from a workflow that references an environment
      */
-    public ?int $id;
-    /**
-     * The SHA of the commit that is being checked.
-     */
-    public ?string $head_sha;
-    public ?string $node_id;
-    public ?string $external_id;
-    public ?string $url;
-    public ?string $html_url;
-    public ?string $details_url;
-    /**
-     * The phase of the lifecycle that the check is currently in.
-     */
-    public ?string $status;
-    public ?string $conclusion;
-    public ?string $started_at;
-    public ?string $completed_at;
-    public ?Schema\CheckRun\Output $output;
-    /**
-     * The name of the check.
-     */
-    public ?string $name;
-    public ?Schema\CheckRun\CheckSuite $check_suite;
-    public ?Schema\Integration $app;
-    /**
-     * @var array<Schema\PullRequestMinimal>
-     */
-    public ?array $pull_requests;
-    /**
-     * A deployment created as the result of an Actions check run from a workflow that references an environment
-     */
-    public Schema\DeploymentSimple $deployment;
-    public function __construct(int $id, string $head_sha, string $node_id, string $external_id, string $url, string $html_url, string $details_url, string $status, string $conclusion, string $started_at, string $completed_at, Schema\CheckRun\Output $output, string $name, Schema\CheckRun\CheckSuite $check_suite, Schema\Integration $app, array $pull_requests, Schema\DeploymentSimple $deployment)
+    public function __construct(public ?int $id, public ?string $head_sha, public ?string $node_id, public ?string $external_id, public ?string $url, public ?string $html_url, public ?string $details_url, public ?string $status, public ?string $conclusion, public ?string $started_at, public ?string $completed_at, public ?Schema\CheckRun\Output $output, public ?string $name, public ?Schema\CheckRun\CheckSuite $check_suite, public ?Schema\Integration $app, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\PullRequestMinimal::class)] public ?array $pull_requests, public Schema\DeploymentSimple $deployment)
     {
-        $this->id = $id;
-        $this->head_sha = $head_sha;
-        $this->node_id = $node_id;
-        $this->external_id = $external_id;
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->details_url = $details_url;
-        $this->status = $status;
-        $this->conclusion = $conclusion;
-        $this->started_at = $started_at;
-        $this->completed_at = $completed_at;
-        $this->output = $output;
-        $this->name = $name;
-        $this->check_suite = $check_suite;
-        $this->app = $app;
-        $this->pull_requests = $pull_requests;
-        $this->deployment = $deployment;
     }
 }

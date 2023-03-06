@@ -13,11 +13,7 @@ final readonly class WorkflowRunUsage
     public const SCHEMA_TITLE = 'Workflow Run Usage';
     public const SCHEMA_DESCRIPTION = 'Workflow Run Usage';
     public const SCHEMA_EXAMPLE_DATA = '{"billable":{"UBUNTU":{"total_ms":13,"jobs":13,"job_runs":[{"job_id":13,"duration_ms":13}]},"MACOS":{"total_ms":13,"jobs":13,"job_runs":[{"job_id":13,"duration_ms":13}]},"WINDOWS":{"total_ms":13,"jobs":13,"job_runs":[{"job_id":13,"duration_ms":13}]}},"run_duration_ms":13}';
-    public ?Schema\WorkflowRunUsage\Billable $billable;
-    public int $run_duration_ms;
-    public function __construct(Schema\WorkflowRunUsage\Billable $billable, int $run_duration_ms)
+    public function __construct(public ?Schema\WorkflowRunUsage\Billable $billable, public int $run_duration_ms)
     {
-        $this->billable = $billable;
-        $this->run_duration_ms = $run_duration_ms;
     }
 }

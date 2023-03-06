@@ -14,36 +14,14 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","script":"generated_script","script_repository":[],"environment":[],"enforcement":"generated_enforcement","allow_downstream_configuration":false}';
     /**
-     * The name of the hook.
+     * name: The name of the hook.
+     * script: The script that the hook runs.
+     * script_repository: The GitHub repository where the script is kept.
+     * environment: The pre-receive environment where the script is executed.
+     * enforcement: The state of enforcement for this hook. default: `disabled`
+     * allow_downstream_configuration: Whether enforcement can be overridden at the org or repo level. default: `false`
      */
-    public ?string $name;
-    /**
-     * The script that the hook runs.
-     */
-    public ?string $script;
-    /**
-     * The GitHub repository where the script is kept.
-     */
-    public ?Schema\EnterpriseAdmin\CreatePreReceiveHook\Request\Applicationjson\ScriptRepository $script_repository;
-    /**
-     * The pre-receive environment where the script is executed.
-     */
-    public ?Schema\EnterpriseAdmin\CreatePreReceiveHook\Request\Applicationjson\Environment $environment;
-    /**
-     * The state of enforcement for this hook. default: `disabled`
-     */
-    public string $enforcement;
-    /**
-     * Whether enforcement can be overridden at the org or repo level. default: `false`
-     */
-    public bool $allow_downstream_configuration;
-    public function __construct(string $name, string $script, Schema\EnterpriseAdmin\CreatePreReceiveHook\Request\Applicationjson\ScriptRepository $script_repository, Schema\EnterpriseAdmin\CreatePreReceiveHook\Request\Applicationjson\Environment $environment, string $enforcement, bool $allow_downstream_configuration)
+    public function __construct(public ?string $name, public ?string $script, public ?Schema\EnterpriseAdmin\CreatePreReceiveHook\Request\Applicationjson\ScriptRepository $script_repository, public ?Schema\EnterpriseAdmin\CreatePreReceiveHook\Request\Applicationjson\Environment $environment, public string $enforcement, public bool $allow_downstream_configuration)
     {
-        $this->name = $name;
-        $this->script = $script;
-        $this->script_repository = $script_repository;
-        $this->environment = $environment;
-        $this->enforcement = $enforcement;
-        $this->allow_downstream_configuration = $allow_downstream_configuration;
     }
 }

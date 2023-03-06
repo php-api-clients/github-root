@@ -14,21 +14,11 @@ final readonly class CodeScanningAnalysisTool
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","version":"generated_version","guid":"generated_guid"}';
     /**
-     * The name of the tool used to generate the code scanning analysis.
+     * name: The name of the tool used to generate the code scanning analysis.
+     * version: The version of the tool used to generate the code scanning analysis.
+     * guid: The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data.
      */
-    public ?string $name;
-    /**
-     * The version of the tool used to generate the code scanning analysis.
-     */
-    public ?string $version;
-    /**
-     * The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data.
-     */
-    public ?string $guid;
-    public function __construct(string $name, string $version, string $guid)
+    public function __construct(public ?string $name, public ?string $version, public ?string $guid)
     {
-        $this->name = $name;
-        $this->version = $version;
-        $this->guid = $guid;
     }
 }

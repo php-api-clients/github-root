@@ -13,25 +13,7 @@ final readonly class Resources
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"core":{"limit":13,"remaining":13,"reset":13,"used":13},"graphql":{"limit":13,"remaining":13,"reset":13,"used":13},"search":{"limit":13,"remaining":13,"reset":13,"used":13},"source_import":{"limit":13,"remaining":13,"reset":13,"used":13},"integration_manifest":{"limit":13,"remaining":13,"reset":13,"used":13},"code_scanning_upload":{"limit":13,"remaining":13,"reset":13,"used":13},"actions_runner_registration":{"limit":13,"remaining":13,"reset":13,"used":13},"scim":{"limit":13,"remaining":13,"reset":13,"used":13},"dependency_snapshots":{"limit":13,"remaining":13,"reset":13,"used":13}}';
-    public ?Schema\RateLimit $core;
-    public Schema\RateLimit $graphql;
-    public ?Schema\RateLimit $search;
-    public Schema\RateLimit $source_import;
-    public Schema\RateLimit $integration_manifest;
-    public Schema\RateLimit $code_scanning_upload;
-    public Schema\RateLimit $actions_runner_registration;
-    public Schema\RateLimit $scim;
-    public Schema\RateLimit $dependency_snapshots;
-    public function __construct(Schema\RateLimit $core, Schema\RateLimit $graphql, Schema\RateLimit $search, Schema\RateLimit $source_import, Schema\RateLimit $integration_manifest, Schema\RateLimit $code_scanning_upload, Schema\RateLimit $actions_runner_registration, Schema\RateLimit $scim, Schema\RateLimit $dependency_snapshots)
+    public function __construct(public ?Schema\RateLimit $core, public Schema\RateLimit $graphql, public ?Schema\RateLimit $search, public Schema\RateLimit $source_import, public Schema\RateLimit $integration_manifest, public Schema\RateLimit $code_scanning_upload, public Schema\RateLimit $actions_runner_registration, public Schema\RateLimit $scim, public Schema\RateLimit $dependency_snapshots)
     {
-        $this->core = $core;
-        $this->graphql = $graphql;
-        $this->search = $search;
-        $this->source_import = $source_import;
-        $this->integration_manifest = $integration_manifest;
-        $this->code_scanning_upload = $code_scanning_upload;
-        $this->actions_runner_registration = $actions_runner_registration;
-        $this->scim = $scim;
-        $this->dependency_snapshots = $dependency_snapshots;
     }
 }

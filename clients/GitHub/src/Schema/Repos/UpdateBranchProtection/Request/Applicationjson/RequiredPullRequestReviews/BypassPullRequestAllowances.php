@@ -14,24 +14,14 @@ final readonly class BypassPullRequestAllowances
     public const SCHEMA_DESCRIPTION = 'Allow specific users, teams, or apps to bypass pull request requirements.';
     public const SCHEMA_EXAMPLE_DATA = '{"users":["generated_users"],"teams":["generated_teams"],"apps":["generated_apps"]}';
     /**
-     * The list of user `login`s allowed to bypass pull request requirements.
-     * @var array<string>
+     * users: The list of user `login`s allowed to bypass pull request requirements.
+     * @param ?array<string> $users
+     * teams: The list of team `slug`s allowed to bypass pull request requirements.
+     * @param ?array<string> $teams
+     * apps: The list of app `slug`s allowed to bypass pull request requirements.
+     * @param ?array<string> $apps
      */
-    public ?array $users;
-    /**
-     * The list of team `slug`s allowed to bypass pull request requirements.
-     * @var array<string>
-     */
-    public ?array $teams;
-    /**
-     * The list of app `slug`s allowed to bypass pull request requirements.
-     * @var array<string>
-     */
-    public ?array $apps;
-    public function __construct(array $users, array $teams, array $apps)
+    public function __construct(public ?array $users, public ?array $teams, public ?array $apps)
     {
-        $this->users = $users;
-        $this->teams = $teams;
-        $this->apps = $apps;
     }
 }

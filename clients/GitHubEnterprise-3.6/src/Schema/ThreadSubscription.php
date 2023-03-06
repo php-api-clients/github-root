@@ -13,21 +13,7 @@ final readonly class ThreadSubscription
     public const SCHEMA_TITLE = 'Thread Subscription';
     public const SCHEMA_DESCRIPTION = 'Thread Subscription';
     public const SCHEMA_EXAMPLE_DATA = '{"subscribed":true,"ignored":false,"reason":"generated_reason","created_at":"2012-10-06T21:34:12Z","url":"https:\\/\\/api.github.com\\/notifications\\/threads\\/1\\/subscription","thread_url":"https:\\/\\/api.github.com\\/notifications\\/threads\\/1","repository_url":"https:\\/\\/api.github.com\\/repos\\/1"}';
-    public ?bool $subscribed;
-    public ?bool $ignored;
-    public ?string $reason;
-    public ?string $created_at;
-    public ?string $url;
-    public string $thread_url;
-    public string $repository_url;
-    public function __construct(bool $subscribed, bool $ignored, string $reason, string $created_at, string $url, string $thread_url, string $repository_url)
+    public function __construct(public ?bool $subscribed, public ?bool $ignored, public ?string $reason, public ?string $created_at, public ?string $url, public string $thread_url, public string $repository_url)
     {
-        $this->subscribed = $subscribed;
-        $this->ignored = $ignored;
-        $this->reason = $reason;
-        $this->created_at = $created_at;
-        $this->url = $url;
-        $this->thread_url = $thread_url;
-        $this->repository_url = $repository_url;
     }
 }

@@ -38,7 +38,7 @@ class Mapping implements ObjectMapper
                 $value = $payload['ldap_dn'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ldap_dn';
+                    $properties['ldap_dn'] = null;
                     goto after_ldap_dn;
                 }
 
@@ -49,7 +49,7 @@ class Mapping implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -60,7 +60,7 @@ class Mapping implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -71,7 +71,7 @@ class Mapping implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -82,7 +82,7 @@ class Mapping implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -93,7 +93,7 @@ class Mapping implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -104,7 +104,7 @@ class Mapping implements ObjectMapper
                 $value = $payload['slug'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'slug';
+                    $properties['slug'] = null;
                     goto after_slug;
                 }
 
@@ -115,7 +115,7 @@ class Mapping implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -126,7 +126,7 @@ class Mapping implements ObjectMapper
                 $value = $payload['privacy'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'privacy';
+                    $properties['privacy'] = null;
                     goto after_privacy;
                 }
 
@@ -137,7 +137,7 @@ class Mapping implements ObjectMapper
                 $value = $payload['permission'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'permission';
+                    $properties['permission'] = null;
                     goto after_permission;
                 }
 
@@ -148,7 +148,7 @@ class Mapping implements ObjectMapper
                 $value = $payload['members_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'members_url';
+                    $properties['members_url'] = null;
                     goto after_members_url;
                 }
 
@@ -159,7 +159,7 @@ class Mapping implements ObjectMapper
                 $value = $payload['repositories_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repositories_url';
+                    $properties['repositories_url'] = null;
                     goto after_repositories_url;
                 }
 

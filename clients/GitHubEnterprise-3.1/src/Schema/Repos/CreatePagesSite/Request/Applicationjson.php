@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = 'The source branch and directory used to publish your Pages site.';
     public const SCHEMA_EXAMPLE_DATA = '{"source":{"branch":"generated_branch","path":"generated_path"}}';
     /**
-     * The source branch and directory used to publish your Pages site.
+     * source: The source branch and directory used to publish your Pages site.
      */
-    public ?Schema\Repos\CreatePagesSite\Request\Applicationjson\Source $source;
-    public function __construct(Schema\Repos\CreatePagesSite\Request\Applicationjson\Source $source)
+    public function __construct(public ?Schema\Repos\CreatePagesSite\Request\Applicationjson\Source $source)
     {
-        $this->source = $source;
     }
 }

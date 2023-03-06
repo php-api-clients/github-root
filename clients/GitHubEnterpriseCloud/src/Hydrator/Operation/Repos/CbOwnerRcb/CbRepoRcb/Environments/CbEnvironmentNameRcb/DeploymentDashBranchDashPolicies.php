@@ -39,7 +39,7 @@ class DeploymentDashBranchDashPolicies implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -50,9 +50,19 @@ class DeploymentDashBranchDashPolicies implements ObjectMapper
                 $value = $payload['branch_policies'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'branch_policies';
+                    $properties['branch_policies'] = null;
                     goto after_branch_policies;
                 }
+
+                static $branch_policiesCaster1;
+    
+                if ($branch_policiesCaster1 === null) {
+                    $branch_policiesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\DeploymentBranchPolicy',
+));
+                }
+    
+                $value = $branch_policiesCaster1->cast($value, $this);
 
                 $properties['branch_policies'] = $value;
     
@@ -83,7 +93,7 @@ class DeploymentDashBranchDashPolicies implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -94,7 +104,7 @@ class DeploymentDashBranchDashPolicies implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -105,7 +115,7 @@ class DeploymentDashBranchDashPolicies implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -235,7 +245,8 @@ class DeploymentDashBranchDashPolicies implements ObjectMapper
         static $branch_policiesSerializer0;
 
         if ($branch_policiesSerializer0 === null) {
-            $branch_policiesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $branch_policiesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\DeploymentBranchPolicy',
 ));
         }
         

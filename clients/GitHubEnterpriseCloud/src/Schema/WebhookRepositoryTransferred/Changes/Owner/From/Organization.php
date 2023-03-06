@@ -13,33 +13,7 @@ final readonly class Organization
     public const SCHEMA_TITLE = 'Organization';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"avatar_url":"generated_avatar_url","description":"generated_description","events_url":"generated_events_url","hooks_url":"generated_hooks_url","html_url":"generated_html_url","id":13,"issues_url":"generated_issues_url","login":"generated_login","members_url":"generated_members_url","node_id":"generated_node_id","public_members_url":"generated_public_members_url","repos_url":"generated_repos_url","url":"generated_url"}';
-    public ?string $avatar_url;
-    public ?string $description;
-    public ?string $events_url;
-    public ?string $hooks_url;
-    public string $html_url;
-    public ?int $id;
-    public ?string $issues_url;
-    public ?string $login;
-    public ?string $members_url;
-    public ?string $node_id;
-    public ?string $public_members_url;
-    public ?string $repos_url;
-    public ?string $url;
-    public function __construct(string $avatar_url, string $description, string $events_url, string $hooks_url, string $html_url, int $id, string $issues_url, string $login, string $members_url, string $node_id, string $public_members_url, string $repos_url, string $url)
+    public function __construct(public ?string $avatar_url, public ?string $description, public ?string $events_url, public ?string $hooks_url, public string $html_url, public ?int $id, public ?string $issues_url, public ?string $login, public ?string $members_url, public ?string $node_id, public ?string $public_members_url, public ?string $repos_url, public ?string $url)
     {
-        $this->avatar_url = $avatar_url;
-        $this->description = $description;
-        $this->events_url = $events_url;
-        $this->hooks_url = $hooks_url;
-        $this->html_url = $html_url;
-        $this->id = $id;
-        $this->issues_url = $issues_url;
-        $this->login = $login;
-        $this->members_url = $members_url;
-        $this->node_id = $node_id;
-        $this->public_members_url = $public_members_url;
-        $this->repos_url = $repos_url;
-        $this->url = $url;
     }
 }

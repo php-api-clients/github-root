@@ -13,17 +13,7 @@ final readonly class GistCommit
     public const SCHEMA_TITLE = 'Gist Commit';
     public const SCHEMA_DESCRIPTION = 'Gist Commit';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"https:\\/\\/api.github.com\\/gists\\/aa5a315d61ae9438b18d\\/57a7f021a713b1c5a6a199b54cc514735d2d462f","version":"57a7f021a713b1c5a6a199b54cc514735d2d462f","user":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"change_status":{"total":13,"additions":13,"deletions":13},"committed_at":"2010-04-14T02:15:15Z"}';
-    public ?string $url;
-    public ?string $version;
-    public ?Schema\SimpleUser $user;
-    public ?Schema\GistHistory\ChangeStatus $change_status;
-    public ?string $committed_at;
-    public function __construct(string $url, string $version, Schema\SimpleUser $user, Schema\GistHistory\ChangeStatus $change_status, string $committed_at)
+    public function __construct(public ?string $url, public ?string $version, public ?Schema\SimpleUser $user, public ?Schema\GistHistory\ChangeStatus $change_status, public ?string $committed_at)
     {
-        $this->url = $url;
-        $this->version = $version;
-        $this->user = $user;
-        $this->change_status = $change_status;
-        $this->committed_at = $committed_at;
     }
 }

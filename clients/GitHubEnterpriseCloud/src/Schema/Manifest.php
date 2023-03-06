@@ -14,23 +14,11 @@ final readonly class Manifest
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"package-lock.json","file":{"source_location":"\\/src\\/build\\/package-lock.json"},"metadata":[],"resolved":[]}';
     /**
-     * The name of the manifest.
+     * name: The name of the manifest.
+     * metadata: User-defined metadata to store domain-specific information limited to 8 keys with scalar values.
+     * resolved: A collection of resolved package dependencies.
      */
-    public ?string $name;
-    public Schema\Manifest\File $file;
-    /**
-     * User-defined metadata to store domain-specific information limited to 8 keys with scalar values.
-     */
-    public Schema\Metadata $metadata;
-    /**
-     * A collection of resolved package dependencies.
-     */
-    public Schema\Manifest\Resolved $resolved;
-    public function __construct(string $name, Schema\Manifest\File $file, Schema\Metadata $metadata, Schema\Manifest\Resolved $resolved)
+    public function __construct(public ?string $name, public Schema\Manifest\File $file, public Schema\Metadata $metadata, public Schema\Manifest\Resolved $resolved)
     {
-        $this->name = $name;
-        $this->file = $file;
-        $this->metadata = $metadata;
-        $this->resolved = $resolved;
     }
 }

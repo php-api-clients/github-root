@@ -14,16 +14,10 @@ final readonly class Tool
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","version":"generated_version"}';
     /**
-     * The name of the tool used to generate the code scanning analysis alert.
+     * name: The name of the tool used to generate the code scanning analysis alert.
+     * version: The version of the tool used to detect the alert.
      */
-    public ?string $name;
-    /**
-     * The version of the tool used to detect the alert.
-     */
-    public ?string $version;
-    public function __construct(string $name, string $version)
+    public function __construct(public ?string $name, public ?string $version)
     {
-        $this->name = $name;
-        $this->version = $version;
     }
 }

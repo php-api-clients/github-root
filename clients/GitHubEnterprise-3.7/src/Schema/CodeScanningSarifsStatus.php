@@ -14,22 +14,12 @@ final readonly class CodeScanningSarifsStatus
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"processing_status":"generated_processing_status","analyses_url":"generated_analyses_url","errors":["generated_errors"]}';
     /**
-     * `pending` files have not yet been processed, while `complete` means results from the SARIF have been stored. `failed` files have either not been processed at all, or could only be partially processed.
+     * processing_status: `pending` files have not yet been processed, while `complete` means results from the SARIF have been stored. `failed` files have either not been processed at all, or could only be partially processed.
+     * analyses_url: The REST API URL for getting the analyses associated with the upload.
+     * errors: Any errors that ocurred during processing of the delivery.
+     * @param ?array<string> $errors
      */
-    public ?string $processing_status;
-    /**
-     * The REST API URL for getting the analyses associated with the upload.
-     */
-    public ?string $analyses_url;
-    /**
-     * Any errors that ocurred during processing of the delivery.
-     * @var array<string>
-     */
-    public ?array $errors;
-    public function __construct(string $processing_status, string $analyses_url, array $errors)
+    public function __construct(public ?string $processing_status, public ?string $analyses_url, public ?array $errors)
     {
-        $this->processing_status = $processing_status;
-        $this->analyses_url = $analyses_url;
-        $this->errors = $errors;
     }
 }

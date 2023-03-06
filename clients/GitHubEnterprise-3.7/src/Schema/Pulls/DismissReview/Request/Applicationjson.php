@@ -14,13 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message","event":"\\"DISMISS\\""}';
     /**
-     * The message for the pull request review dismissal
+     * message: The message for the pull request review dismissal
      */
-    public ?string $message;
-    public string $event;
-    public function __construct(string $message, string $event)
+    public function __construct(public ?string $message, public string $event)
     {
-        $this->message = $message;
-        $this->event = $event;
     }
 }

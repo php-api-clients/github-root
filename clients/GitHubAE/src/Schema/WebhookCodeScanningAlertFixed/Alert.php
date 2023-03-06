@@ -14,48 +14,14 @@ final readonly class Alert
     public const SCHEMA_DESCRIPTION = 'The code scanning alert involved in the event.';
     public const SCHEMA_EXAMPLE_DATA = '{"created_at":"generated_created_at","dismissed_at":"generated_dismissed_at","dismissed_by":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"dismissed_reason":"generated_dismissed_reason","html_url":"generated_html_url","instances_url":"generated_instances_url","most_recent_instance":{"analysis_key":"generated_analysis_key","classifications":["generated_classifications"],"commit_sha":"generated_commit_sha","environment":"generated_environment","location":{"end_column":13,"end_line":13,"path":"generated_path","start_column":13,"start_line":13},"message":{"text":"generated_text"},"ref":"generated_ref","state":"generated_state"},"number":13,"rule":{"description":"generated_description","full_description":"generated_full_description","help":"generated_help","help_uri":"generated_help_uri","id":"generated_id","name":"generated_name","severity":"generated_severity","tags":["generated_tags"]},"state":"generated_state","tool":{"guid":"generated_guid","name":"generated_name","version":"generated_version"},"url":"generated_url"}';
     /**
-     * The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`
+     * created_at: The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`
+     * dismissed_at: The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     * dismissed_reason: The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`.
+     * html_url: The GitHub URL of the alert resource.
+     * number: The code scanning alert number.
+     * state: State of a code scanning alert.
      */
-    public ?string $created_at;
-    /**
-     * The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $dismissed_at;
-    public ?Schema\Discussion\AnswerChosenBy $dismissed_by;
-    /**
-     * The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`.
-     */
-    public ?string $dismissed_reason;
-    /**
-     * The GitHub URL of the alert resource.
-     */
-    public ?string $html_url;
-    public string $instances_url;
-    public ?Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\MostRecentInstance $most_recent_instance;
-    /**
-     * The code scanning alert number.
-     */
-    public ?int $number;
-    public ?Schema\WebhookCodeScanningAlertClosedByUser\Alert\Rule $rule;
-    /**
-     * State of a code scanning alert.
-     */
-    public ?string $state;
-    public ?Schema\WebhookCodeScanningAlertClosedByUser\Alert\Tool $tool;
-    public ?string $url;
-    public function __construct(string $created_at, string $dismissed_at, Schema\Discussion\AnswerChosenBy $dismissed_by, string $dismissed_reason, string $html_url, string $instances_url, Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\MostRecentInstance $most_recent_instance, int $number, Schema\WebhookCodeScanningAlertClosedByUser\Alert\Rule $rule, string $state, Schema\WebhookCodeScanningAlertClosedByUser\Alert\Tool $tool, string $url)
+    public function __construct(public ?string $created_at, public ?string $dismissed_at, public ?Schema\Discussion\AnswerChosenBy $dismissed_by, public ?string $dismissed_reason, public ?string $html_url, public string $instances_url, public ?Schema\WebhookCodeScanningAlertAppearedInBranch\Alert\MostRecentInstance $most_recent_instance, public ?int $number, public ?Schema\WebhookCodeScanningAlertClosedByUser\Alert\Rule $rule, public ?string $state, public ?Schema\WebhookCodeScanningAlertClosedByUser\Alert\Tool $tool, public ?string $url)
     {
-        $this->created_at = $created_at;
-        $this->dismissed_at = $dismissed_at;
-        $this->dismissed_by = $dismissed_by;
-        $this->dismissed_reason = $dismissed_reason;
-        $this->html_url = $html_url;
-        $this->instances_url = $instances_url;
-        $this->most_recent_instance = $most_recent_instance;
-        $this->number = $number;
-        $this->rule = $rule;
-        $this->state = $state;
-        $this->tool = $tool;
-        $this->url = $url;
     }
 }

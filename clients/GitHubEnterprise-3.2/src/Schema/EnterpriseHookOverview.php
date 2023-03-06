@@ -13,13 +13,7 @@ final readonly class EnterpriseHookOverview
     public const SCHEMA_TITLE = 'Hooks Enterprise Stats';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_hooks":13,"active_hooks":13,"inactive_hooks":13}';
-    public ?int $total_hooks;
-    public ?int $active_hooks;
-    public ?int $inactive_hooks;
-    public function __construct(int $total_hooks, int $active_hooks, int $inactive_hooks)
+    public function __construct(public ?int $total_hooks, public ?int $active_hooks, public ?int $inactive_hooks)
     {
-        $this->total_hooks = $total_hooks;
-        $this->active_hooks = $active_hooks;
-        $this->inactive_hooks = $inactive_hooks;
     }
 }

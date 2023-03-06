@@ -38,7 +38,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['total_hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_hooks';
+                    $properties['total_hooks'] = null;
                     goto after_total_hooks;
                 }
 
@@ -49,7 +49,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['active_hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'active_hooks';
+                    $properties['active_hooks'] = null;
                     goto after_active_hooks;
                 }
 
@@ -60,7 +60,7 @@ class Hooks implements ObjectMapper
                 $value = $payload['inactive_hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'inactive_hooks';
+                    $properties['inactive_hooks'] = null;
                     goto after_inactive_hooks;
                 }
 

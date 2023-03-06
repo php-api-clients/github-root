@@ -13,15 +13,7 @@ final readonly class Value
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url","branch":"generated_branch","commit":"generated_commit","type":"generated_type"}';
-    public ?string $url;
-    public ?string $branch;
-    public ?string $commit;
-    public ?string $type;
-    public function __construct(string $url, string $branch, string $commit, string $type)
+    public function __construct(public ?string $url, public ?string $branch, public ?string $commit, public ?string $type)
     {
-        $this->url = $url;
-        $this->branch = $branch;
-        $this->commit = $commit;
-        $this->type = $type;
     }
 }

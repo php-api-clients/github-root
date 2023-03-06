@@ -39,7 +39,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -50,7 +50,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -61,7 +61,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -72,7 +72,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -83,7 +83,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -94,7 +94,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['color'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'color';
+                    $properties['color'] = null;
                     goto after_color;
                 }
 
@@ -105,7 +105,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['default'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default';
+                    $properties['default'] = null;
                     goto after_default;
                 }
 
@@ -138,7 +138,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -149,7 +149,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -160,7 +160,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -171,7 +171,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 

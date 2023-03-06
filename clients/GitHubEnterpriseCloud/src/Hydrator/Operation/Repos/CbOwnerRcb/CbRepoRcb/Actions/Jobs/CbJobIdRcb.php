@@ -38,7 +38,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -49,7 +49,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['run_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'run_id';
+                    $properties['run_id'] = null;
                     goto after_run_id;
                 }
 
@@ -60,7 +60,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['run_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'run_url';
+                    $properties['run_url'] = null;
                     goto after_run_url;
                 }
 
@@ -82,7 +82,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -93,7 +93,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['head_sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_sha';
+                    $properties['head_sha'] = null;
                     goto after_head_sha;
                 }
 
@@ -104,7 +104,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -115,7 +115,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -126,7 +126,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -137,7 +137,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['conclusion'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'conclusion';
+                    $properties['conclusion'] = null;
                     goto after_conclusion;
                 }
 
@@ -148,7 +148,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -159,7 +159,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['started_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'started_at';
+                    $properties['started_at'] = null;
                     goto after_started_at;
                 }
 
@@ -170,7 +170,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['completed_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'completed_at';
+                    $properties['completed_at'] = null;
                     goto after_completed_at;
                 }
 
@@ -181,7 +181,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -196,6 +196,16 @@ class CbJobIdRcb implements ObjectMapper
                     goto after_steps;
                 }
 
+                static $stepsCaster1;
+    
+                if ($stepsCaster1 === null) {
+                    $stepsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Job\\Steps',
+));
+                }
+    
+                $value = $stepsCaster1->cast($value, $this);
+
                 $properties['steps'] = $value;
     
                 after_steps:
@@ -203,7 +213,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['check_run_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'check_run_url';
+                    $properties['check_run_url'] = null;
                     goto after_check_run_url;
                 }
 
@@ -214,7 +224,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['labels'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels';
+                    $properties['labels'] = null;
                     goto after_labels;
                 }
 
@@ -225,7 +235,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['runner_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'runner_id';
+                    $properties['runner_id'] = null;
                     goto after_runner_id;
                 }
 
@@ -236,7 +246,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['runner_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'runner_name';
+                    $properties['runner_name'] = null;
                     goto after_runner_name;
                 }
 
@@ -247,7 +257,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['runner_group_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'runner_group_id';
+                    $properties['runner_group_id'] = null;
                     goto after_runner_group_id;
                 }
 
@@ -258,7 +268,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['runner_group_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'runner_group_name';
+                    $properties['runner_group_name'] = null;
                     goto after_runner_group_name;
                 }
 
@@ -269,7 +279,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['workflow_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'workflow_name';
+                    $properties['workflow_name'] = null;
                     goto after_workflow_name;
                 }
 
@@ -280,7 +290,7 @@ class CbJobIdRcb implements ObjectMapper
                 $value = $payload['head_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_branch';
+                    $properties['head_branch'] = null;
                     goto after_head_branch;
                 }
 
@@ -505,7 +515,8 @@ class CbJobIdRcb implements ObjectMapper
         static $stepsSerializer0;
 
         if ($stepsSerializer0 === null) {
-            $stepsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $stepsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Job\\Steps',
 ));
         }
         

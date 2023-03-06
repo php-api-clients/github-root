@@ -14,12 +14,10 @@ final readonly class RuntimeConstraints
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"allowed_port_privacy_settings":["generated_allowed_port_privacy_settings"]}';
     /**
-     * The privacy settings a user can select from when forwarding a port.
-     * @var array<string>
+     * allowed_port_privacy_settings: The privacy settings a user can select from when forwarding a port.
+     * @param ?array<string> $allowed_port_privacy_settings
      */
-    public ?array $allowed_port_privacy_settings;
-    public function __construct(array $allowed_port_privacy_settings)
+    public function __construct(public ?array $allowed_port_privacy_settings)
     {
-        $this->allowed_port_privacy_settings = $allowed_port_privacy_settings;
     }
 }

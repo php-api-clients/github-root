@@ -14,14 +14,12 @@ final readonly class ActionsWorkflowAccessToRepository
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"access_level":"generated_access_level"}';
     /**
-    * Defines the level of access that workflows outside of the repository have to actions and reusable workflows within the
+    * access_level: Defines the level of access that workflows outside of the repository have to actions and reusable workflows within the
     repository.
     
     `none` means the access is only possible from workflows in this repository. `user` level access allows sharing across user owned private repos only. `organization` level access allows sharing across the organization. `enterprise` level access allows sharing across the enterprise.
     */
-    public ?string $access_level;
-    public function __construct(string $access_level)
+    public function __construct(public ?string $access_level)
     {
-        $this->access_level = $access_level;
     }
 }

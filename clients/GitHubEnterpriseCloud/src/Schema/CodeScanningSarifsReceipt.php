@@ -14,16 +14,10 @@ final readonly class CodeScanningSarifsReceipt
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":"6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53","url":"generated_url"}';
     /**
-     * An identifier for the upload.
+     * id: An identifier for the upload.
+     * url: The REST API URL for checking the status of the upload.
      */
-    public ?string $id;
-    /**
-     * The REST API URL for checking the status of the upload.
-     */
-    public ?string $url;
-    public function __construct(string $id, string $url)
+    public function __construct(public ?string $id, public ?string $url)
     {
-        $this->id = $id;
-        $this->url = $url;
     }
 }

@@ -14,31 +14,13 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"vcs_url":"generated_vcs_url","vcs":"generated_vcs","vcs_username":"generated_vcs_username","vcs_password":"generated_vcs_password","tfvc_project":"generated_tfvc_project"}';
     /**
-     * The URL of the originating repository.
+     * vcs_url: The URL of the originating repository.
+     * vcs: The originating VCS type. Without this parameter, the import job will take additional time to detect the VCS type before beginning the import. This detection step will be reflected in the response.
+     * vcs_username: If authentication is required, the username to provide to `vcs_url`.
+     * vcs_password: If authentication is required, the password to provide to `vcs_url`.
+     * tfvc_project: For a tfvc import, the name of the project that is being imported.
      */
-    public ?string $vcs_url;
-    /**
-     * The originating VCS type. Without this parameter, the import job will take additional time to detect the VCS type before beginning the import. This detection step will be reflected in the response.
-     */
-    public string $vcs;
-    /**
-     * If authentication is required, the username to provide to `vcs_url`.
-     */
-    public string $vcs_username;
-    /**
-     * If authentication is required, the password to provide to `vcs_url`.
-     */
-    public string $vcs_password;
-    /**
-     * For a tfvc import, the name of the project that is being imported.
-     */
-    public string $tfvc_project;
-    public function __construct(string $vcs_url, string $vcs, string $vcs_username, string $vcs_password, string $tfvc_project)
+    public function __construct(public ?string $vcs_url, public string $vcs, public string $vcs_username, public string $vcs_password, public string $tfvc_project)
     {
-        $this->vcs_url = $vcs_url;
-        $this->vcs = $vcs;
-        $this->vcs_username = $vcs_username;
-        $this->vcs_password = $vcs_password;
-        $this->tfvc_project = $tfvc_project;
     }
 }

@@ -39,7 +39,7 @@ class LargeFiles implements ObjectMapper
                 $value = $payload['ref_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ref_name';
+                    $properties['ref_name'] = null;
                     goto after_ref_name;
                 }
 
@@ -50,7 +50,7 @@ class LargeFiles implements ObjectMapper
                 $value = $payload['path'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'path';
+                    $properties['path'] = null;
                     goto after_path;
                 }
 
@@ -61,7 +61,7 @@ class LargeFiles implements ObjectMapper
                 $value = $payload['oid'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'oid';
+                    $properties['oid'] = null;
                     goto after_oid;
                 }
 
@@ -72,7 +72,7 @@ class LargeFiles implements ObjectMapper
                 $value = $payload['size'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'size';
+                    $properties['size'] = null;
                     goto after_size;
                 }
 
@@ -105,7 +105,7 @@ class LargeFiles implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -116,7 +116,7 @@ class LargeFiles implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -127,7 +127,7 @@ class LargeFiles implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -138,7 +138,7 @@ class LargeFiles implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 

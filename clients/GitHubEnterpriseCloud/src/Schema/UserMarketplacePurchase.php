@@ -13,26 +13,10 @@ final readonly class UserMarketplacePurchase
     public const SCHEMA_TITLE = 'User Marketplace Purchase';
     public const SCHEMA_DESCRIPTION = 'User Marketplace Purchase';
     public const SCHEMA_EXAMPLE_DATA = '{"billing_cycle":"monthly","next_billing_date":"2017-11-11T00:00:00Z","unit_count":13,"on_free_trial":true,"free_trial_ends_on":"2017-11-11T00:00:00Z","updated_at":"2017-11-02T01:12:12Z","account":{"url":"generated_url","id":13,"type":"generated_type","node_id":"generated_node_id","login":"generated_login","email":"generated_email","organization_billing_email":"generated_organization_billing_email"},"plan":{"url":"https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313","accounts_url":"https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313\\/accounts","id":1313,"number":3,"name":"Pro","description":"A professional-grade CI solution","monthly_price_in_cents":1099,"yearly_price_in_cents":11870,"price_model":"FLAT_RATE","has_free_trial":true,"unit_name":"generated_unit_name","state":"published","bullets":["11 concurrent builds"]}}';
-    public ?string $billing_cycle;
-    public ?string $next_billing_date;
-    public ?int $unit_count;
-    public ?bool $on_free_trial;
-    public ?string $free_trial_ends_on;
-    public ?string $updated_at;
-    public ?Schema\MarketplaceAccount $account;
     /**
-     * Marketplace Listing Plan
+     * plan: Marketplace Listing Plan
      */
-    public ?Schema\MarketplaceListingPlan $plan;
-    public function __construct(string $billing_cycle, string $next_billing_date, int $unit_count, bool $on_free_trial, string $free_trial_ends_on, string $updated_at, Schema\MarketplaceAccount $account, Schema\MarketplaceListingPlan $plan)
+    public function __construct(public ?string $billing_cycle, public ?string $next_billing_date, public ?int $unit_count, public ?bool $on_free_trial, public ?string $free_trial_ends_on, public ?string $updated_at, public ?Schema\MarketplaceAccount $account, public ?Schema\MarketplaceListingPlan $plan)
     {
-        $this->billing_cycle = $billing_cycle;
-        $this->next_billing_date = $next_billing_date;
-        $this->unit_count = $unit_count;
-        $this->on_free_trial = $on_free_trial;
-        $this->free_trial_ends_on = $free_trial_ends_on;
-        $this->updated_at = $updated_at;
-        $this->account = $account;
-        $this->plan = $plan;
     }
 }

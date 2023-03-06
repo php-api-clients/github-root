@@ -13,33 +13,7 @@ final readonly class LicenseContent
     public const SCHEMA_TITLE = 'License Content';
     public const SCHEMA_DESCRIPTION = 'License Content';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","path":"generated_path","sha":"generated_sha","size":13,"url":"generated_url","html_url":"generated_html_url","git_url":"generated_git_url","download_url":"generated_download_url","type":"generated_type","content":"generated_content","encoding":"generated_encoding","_links":{"git":"generated_git","html":"generated_html","self":"generated_self"},"license":{"key":"mit","name":"MIT License","url":"https:\\/\\/api.github.com\\/licenses\\/mit","spdx_id":"MIT","node_id":"MDc6TGljZW5zZW1pdA==","html_url":"generated_html_url"}}';
-    public ?string $name;
-    public ?string $path;
-    public ?string $sha;
-    public ?int $size;
-    public ?string $url;
-    public ?string $html_url;
-    public ?string $git_url;
-    public ?string $download_url;
-    public ?string $type;
-    public ?string $content;
-    public ?string $encoding;
-    public ?Schema\ContentTree\Entries\Links $_links;
-    public ?Schema\LicenseSimple $license;
-    public function __construct(string $name, string $path, string $sha, int $size, string $url, string $html_url, string $git_url, string $download_url, string $type, string $content, string $encoding, Schema\ContentTree\Entries\Links $_links, Schema\LicenseSimple $license)
+    public function __construct(public ?string $name, public ?string $path, public ?string $sha, public ?int $size, public ?string $url, public ?string $html_url, public ?string $git_url, public ?string $download_url, public ?string $type, public ?string $content, public ?string $encoding, public ?Schema\ContentTree\Entries\Links $_links, public ?Schema\LicenseSimple $license)
     {
-        $this->name = $name;
-        $this->path = $path;
-        $this->sha = $sha;
-        $this->size = $size;
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->git_url = $git_url;
-        $this->download_url = $download_url;
-        $this->type = $type;
-        $this->content = $content;
-        $this->encoding = $encoding;
-        $this->_links = $_links;
-        $this->license = $license;
     }
 }

@@ -14,21 +14,11 @@ final readonly class Detector
     public const SCHEMA_DESCRIPTION = 'A description of the detector used.';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"docker buildtime detector","version":"1.0.0","url":"http:\\/\\/example.com\\/docker-buildtimer-detector"}';
     /**
-     * The name of the detector used.
+     * name: The name of the detector used.
+     * version: The version of the detector used.
+     * url: The url of the detector used.
      */
-    public ?string $name;
-    /**
-     * The version of the detector used.
-     */
-    public ?string $version;
-    /**
-     * The url of the detector used.
-     */
-    public ?string $url;
-    public function __construct(string $name, string $version, string $url)
+    public function __construct(public ?string $name, public ?string $version, public ?string $url)
     {
-        $this->name = $name;
-        $this->version = $version;
-        $this->url = $url;
     }
 }

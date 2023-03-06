@@ -13,19 +13,7 @@ final readonly class EnterpriseRepositoryOverview
     public const SCHEMA_TITLE = 'Repository Enterprise Stats';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_repos":13,"root_repos":13,"fork_repos":13,"org_repos":13,"total_pushes":13,"total_wikis":13}';
-    public ?int $total_repos;
-    public ?int $root_repos;
-    public ?int $fork_repos;
-    public ?int $org_repos;
-    public ?int $total_pushes;
-    public ?int $total_wikis;
-    public function __construct(int $total_repos, int $root_repos, int $fork_repos, int $org_repos, int $total_pushes, int $total_wikis)
+    public function __construct(public ?int $total_repos, public ?int $root_repos, public ?int $fork_repos, public ?int $org_repos, public ?int $total_pushes, public ?int $total_wikis)
     {
-        $this->total_repos = $total_repos;
-        $this->root_repos = $root_repos;
-        $this->fork_repos = $fork_repos;
-        $this->org_repos = $org_repos;
-        $this->total_pushes = $total_pushes;
-        $this->total_wikis = $total_wikis;
     }
 }

@@ -40,7 +40,7 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -51,7 +51,7 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -62,7 +62,7 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -73,7 +73,7 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -84,7 +84,7 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -95,7 +95,7 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -106,7 +106,7 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -121,6 +121,16 @@ class CbEnvironmentNameRcb implements ObjectMapper
                     goto after_protection_rules;
                 }
 
+                static $protection_rulesCaster1;
+    
+                if ($protection_rulesCaster1 === null) {
+                    $protection_rulesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Environment\\ProtectionRules',
+));
+                }
+    
+                $value = $protection_rulesCaster1->cast($value, $this);
+
                 $properties['protection_rules'] = $value;
     
                 after_protection_rules:
@@ -128,7 +138,7 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 $value = $payload['deployment_branch_policy'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployment_branch_policy';
+                    $properties['deployment_branch_policy'] = null;
                     goto after_deployment_branch_policy;
                 }
 
@@ -170,7 +180,7 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -181,7 +191,7 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -192,7 +202,7 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -203,7 +213,7 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -236,7 +246,7 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 $value = $payload['protected_branches'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'protected_branches';
+                    $properties['protected_branches'] = null;
                     goto after_protected_branches;
                 }
 
@@ -247,7 +257,7 @@ class CbEnvironmentNameRcb implements ObjectMapper
                 $value = $payload['custom_branch_policies'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'custom_branch_policies';
+                    $properties['custom_branch_policies'] = null;
                     goto after_custom_branch_policies;
                 }
 
@@ -421,7 +431,8 @@ class CbEnvironmentNameRcb implements ObjectMapper
         static $protection_rulesSerializer0;
 
         if ($protection_rulesSerializer0 === null) {
-            $protection_rulesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $protection_rulesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Environment\\ProtectionRules',
 ));
         }
         

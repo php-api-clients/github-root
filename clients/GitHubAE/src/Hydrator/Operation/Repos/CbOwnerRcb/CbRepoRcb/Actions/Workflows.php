@@ -38,7 +38,7 @@ class Workflows implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class Workflows implements ObjectMapper
                 $value = $payload['workflows'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'workflows';
+                    $properties['workflows'] = null;
                     goto after_workflows;
                 }
+
+                static $workflowsCaster1;
+    
+                if ($workflowsCaster1 === null) {
+                    $workflowsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Workflow',
+));
+                }
+    
+                $value = $workflowsCaster1->cast($value, $this);
 
                 $properties['workflows'] = $value;
     
@@ -178,7 +188,8 @@ class Workflows implements ObjectMapper
         static $workflowsSerializer0;
 
         if ($workflowsSerializer0 === null) {
-            $workflowsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $workflowsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Workflow',
 ));
         }
         

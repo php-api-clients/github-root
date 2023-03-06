@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"organization":"generated_organization"}';
     /**
-     * Optional parameter to specify the organization name if forking into an organization.
+     * organization: Optional parameter to specify the organization name if forking into an organization.
      */
-    public ?string $organization;
-    public function __construct(string $organization)
+    public function __construct(public ?string $organization)
     {
-        $this->organization = $organization;
     }
 }

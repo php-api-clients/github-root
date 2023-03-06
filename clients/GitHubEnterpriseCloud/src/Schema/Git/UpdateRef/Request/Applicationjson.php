@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"sha":"generated_sha","force":false}';
     /**
-     * The SHA1 value to set this reference to
+     * sha: The SHA1 value to set this reference to
+     * force: Indicates whether to force the update or to make sure the update is a fast-forward update. Leaving this out or setting it to `false` will make sure you're not overwriting work.
      */
-    public ?string $sha;
-    /**
-     * Indicates whether to force the update or to make sure the update is a fast-forward update. Leaving this out or setting it to `false` will make sure you're not overwriting work.
-     */
-    public bool $force;
-    public function __construct(string $sha, bool $force)
+    public function __construct(public ?string $sha, public bool $force)
     {
-        $this->sha = $sha;
-        $this->force = $force;
     }
 }

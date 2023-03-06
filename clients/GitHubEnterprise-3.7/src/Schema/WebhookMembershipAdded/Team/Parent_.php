@@ -14,43 +14,13 @@ final readonly class Parent_
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"description":"generated_description","html_url":"generated_html_url","id":13,"members_url":"generated_members_url","name":"generated_name","node_id":"generated_node_id","permission":"generated_permission","privacy":"generated_privacy","repositories_url":"generated_repositories_url","slug":"generated_slug","url":"generated_url"}';
     /**
-     * Description of the team
+     * description: Description of the team
+     * id: Unique identifier of the team
+     * name: Name of the team
+     * permission: Permission that the team will have for its repositories
+     * url: URL for the team
      */
-    public ?string $description;
-    public ?string $html_url;
-    /**
-     * Unique identifier of the team
-     */
-    public ?int $id;
-    public ?string $members_url;
-    /**
-     * Name of the team
-     */
-    public ?string $name;
-    public ?string $node_id;
-    /**
-     * Permission that the team will have for its repositories
-     */
-    public ?string $permission;
-    public ?string $privacy;
-    public ?string $repositories_url;
-    public ?string $slug;
-    /**
-     * URL for the team
-     */
-    public ?string $url;
-    public function __construct(string $description, string $html_url, int $id, string $members_url, string $name, string $node_id, string $permission, string $privacy, string $repositories_url, string $slug, string $url)
+    public function __construct(public ?string $description, public ?string $html_url, public ?int $id, public ?string $members_url, public ?string $name, public ?string $node_id, public ?string $permission, public ?string $privacy, public ?string $repositories_url, public ?string $slug, public ?string $url)
     {
-        $this->description = $description;
-        $this->html_url = $html_url;
-        $this->id = $id;
-        $this->members_url = $members_url;
-        $this->name = $name;
-        $this->node_id = $node_id;
-        $this->permission = $permission;
-        $this->privacy = $privacy;
-        $this->repositories_url = $repositories_url;
-        $this->slug = $slug;
-        $this->url = $url;
     }
 }

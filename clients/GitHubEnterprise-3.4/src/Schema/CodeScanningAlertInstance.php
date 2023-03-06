@@ -14,50 +14,18 @@ final readonly class CodeScanningAlertInstance
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"ref":"generated_ref","analysis_key":"generated_analysis_key","environment":"generated_environment","category":"generated_category","state":"generated_state","commit_sha":"generated_commit_sha","message":{"text":"generated_text"},"location":{"path":"generated_path","start_line":13,"end_line":13,"start_column":13,"end_column":13},"html_url":"generated_html_url","classifications":["generated_classifications"]}';
     /**
-    * The full Git reference, formatted as `refs/heads/<branch name>`,
+    * ref: The full Git reference, formatted as `refs/heads/<branch name>`,
     `refs/pull/<number>/merge`, or `refs/pull/<number>/head`.
-    */
-    public ?string $ref;
-    /**
-     * Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name.
-     */
-    public ?string $analysis_key;
-    /**
-     * Identifies the variable values associated with the environment in which the analysis that generated this alert instance was performed, such as the language that was analyzed.
-     */
-    public ?string $environment;
-    /**
-     * Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.
-     */
-    public ?string $category;
-    /**
-     * State of a code scanning alert.
-     */
-    public ?string $state;
-    public ?string $commit_sha;
-    public ?Schema\CodeScanningAlertInstance\Message $message;
-    /**
-     * Describe a region within a file for the alert.
-     */
-    public ?Schema\CodeScanningAlertLocation $location;
-    public ?string $html_url;
-    /**
-    * Classifications that have been applied to the file that triggered the alert.
+    * analysis_key: Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name.
+    * environment: Identifies the variable values associated with the environment in which the analysis that generated this alert instance was performed, such as the language that was analyzed.
+    * category: Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.
+    * state: State of a code scanning alert.
+    * location: Describe a region within a file for the alert.
+    * classifications: Classifications that have been applied to the file that triggered the alert.
     For example identifying it as documentation, or a generated file.
-    * @var array<string>
+    * @param ?array<string> $classifications
     */
-    public ?array $classifications;
-    public function __construct(string $ref, string $analysis_key, string $environment, string $category, string $state, string $commit_sha, Schema\CodeScanningAlertInstance\Message $message, Schema\CodeScanningAlertLocation $location, string $html_url, array $classifications)
+    public function __construct(public ?string $ref, public ?string $analysis_key, public ?string $environment, public ?string $category, public ?string $state, public ?string $commit_sha, public ?Schema\CodeScanningAlertInstance\Message $message, public ?Schema\CodeScanningAlertLocation $location, public ?string $html_url, public ?array $classifications)
     {
-        $this->ref = $ref;
-        $this->analysis_key = $analysis_key;
-        $this->environment = $environment;
-        $this->category = $category;
-        $this->state = $state;
-        $this->commit_sha = $commit_sha;
-        $this->message = $message;
-        $this->location = $location;
-        $this->html_url = $html_url;
-        $this->classifications = $classifications;
     }
 }

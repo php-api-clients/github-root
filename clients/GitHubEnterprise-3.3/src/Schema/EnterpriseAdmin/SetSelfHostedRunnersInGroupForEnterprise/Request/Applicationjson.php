@@ -14,12 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"runners":[13]}';
     /**
-     * List of runner IDs to add to the runner group.
-     * @var array<int>
+     * runners: List of runner IDs to add to the runner group.
+     * @param ?array<int> $runners
      */
-    public ?array $runners;
-    public function __construct(array $runners)
+    public function __construct(public ?array $runners)
     {
-        $this->runners = $runners;
     }
 }

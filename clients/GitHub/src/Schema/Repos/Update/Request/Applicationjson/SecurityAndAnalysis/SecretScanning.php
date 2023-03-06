@@ -14,11 +14,9 @@ final readonly class SecretScanning
     public const SCHEMA_DESCRIPTION = 'Use the `status` property to enable or disable secret scanning for this repository. For more information, see "[About secret scanning](/code-security/secret-security/about-secret-scanning)."';
     public const SCHEMA_EXAMPLE_DATA = '{"status":"generated_status"}';
     /**
-     * Can be `enabled` or `disabled`.
+     * status: Can be `enabled` or `disabled`.
      */
-    public ?string $status;
-    public function __construct(string $status)
+    public function __construct(public ?string $status)
     {
-        $this->status = $status;
     }
 }

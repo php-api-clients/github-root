@@ -13,27 +13,7 @@ final readonly class Workflow
     public const SCHEMA_TITLE = 'Workflow';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"badge_url":"generated_badge_url","created_at":"generated_created_at","html_url":"generated_html_url","id":13,"name":"generated_name","node_id":"generated_node_id","path":"generated_path","state":"generated_state","updated_at":"generated_updated_at","url":"generated_url"}';
-    public ?string $badge_url;
-    public ?string $created_at;
-    public ?string $html_url;
-    public ?int $id;
-    public ?string $name;
-    public ?string $node_id;
-    public ?string $path;
-    public ?string $state;
-    public ?string $updated_at;
-    public ?string $url;
-    public function __construct(string $badge_url, string $created_at, string $html_url, int $id, string $name, string $node_id, string $path, string $state, string $updated_at, string $url)
+    public function __construct(public ?string $badge_url, public ?string $created_at, public ?string $html_url, public ?int $id, public ?string $name, public ?string $node_id, public ?string $path, public ?string $state, public ?string $updated_at, public ?string $url)
     {
-        $this->badge_url = $badge_url;
-        $this->created_at = $created_at;
-        $this->html_url = $html_url;
-        $this->id = $id;
-        $this->name = $name;
-        $this->node_id = $node_id;
-        $this->path = $path;
-        $this->state = $state;
-        $this->updated_at = $updated_at;
-        $this->url = $url;
     }
 }

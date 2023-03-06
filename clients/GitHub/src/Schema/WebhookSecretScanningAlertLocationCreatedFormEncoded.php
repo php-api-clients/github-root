@@ -14,11 +14,9 @@ final readonly class WebhookSecretScanningAlertLocationCreatedFormEncoded
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"payload":"generated_payload"}';
     /**
-     * A URL-encoded string of the secret_scanning_alert_location.created JSON payload. The decoded payload is a JSON object.
+     * payload: A URL-encoded string of the secret_scanning_alert_location.created JSON payload. The decoded payload is a JSON object.
      */
-    public ?string $payload;
-    public function __construct(string $payload)
+    public function __construct(public ?string $payload)
     {
-        $this->payload = $payload;
     }
 }

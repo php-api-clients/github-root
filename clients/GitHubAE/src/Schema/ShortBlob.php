@@ -13,11 +13,7 @@ final readonly class ShortBlob
     public const SCHEMA_TITLE = 'Short Blob';
     public const SCHEMA_DESCRIPTION = 'Short Blob';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url","sha":"generated_sha"}';
-    public ?string $url;
-    public ?string $sha;
-    public function __construct(string $url, string $sha)
+    public function __construct(public ?string $url, public ?string $sha)
     {
-        $this->url = $url;
-        $this->sha = $sha;
     }
 }

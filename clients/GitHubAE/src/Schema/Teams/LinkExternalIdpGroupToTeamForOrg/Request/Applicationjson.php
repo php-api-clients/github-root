@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"group_id":1}';
     /**
-     * External Group Id
+     * group_id: External Group Id
      */
-    public ?int $group_id;
-    public function __construct(int $group_id)
+    public function __construct(public ?int $group_id)
     {
-        $this->group_id = $group_id;
     }
 }

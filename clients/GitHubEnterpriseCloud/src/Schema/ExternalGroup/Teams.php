@@ -14,16 +14,10 @@ final readonly class Teams
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"team_id":1,"team_name":"team-test"}';
     /**
-     * The id for a team
+     * team_id: The id for a team
+     * team_name: The name of the team
      */
-    public ?int $team_id;
-    /**
-     * The name of the team
-     */
-    public ?string $team_name;
-    public function __construct(int $team_id, string $team_name)
+    public function __construct(public ?int $team_id, public ?string $team_name)
     {
-        $this->team_id = $team_id;
-        $this->team_name = $team_name;
     }
 }

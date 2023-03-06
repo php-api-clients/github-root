@@ -13,11 +13,7 @@ final readonly class Git
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"sync_status":"generated_sync_status","last_sync":"generated_last_sync"}';
-    public ?string $sync_status;
-    public ?string $last_sync;
-    public function __construct(string $sync_status, string $last_sync)
+    public function __construct(public ?string $sync_status, public ?string $last_sync)
     {
-        $this->sync_status = $sync_status;
-        $this->last_sync = $last_sync;
     }
 }

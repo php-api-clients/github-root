@@ -14,41 +14,15 @@ final readonly class Errors
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"line":7,"column":3,"source":"* user","kind":"Invalid owner","suggestion":"The pattern `\\/` will never match anything, did you mean `*` instead?","message":"Invalid owner on line 7:\\n\\n  * user\\n    ^","path":".github\\/CODEOWNERS"}';
     /**
-     * The line number where this errors occurs.
+     * line: The line number where this errors occurs.
+     * column: The column number where this errors occurs.
+     * source: The contents of the line where the error occurs.
+     * kind: The type of error.
+     * suggestion: Suggested action to fix the error. This will usually be `null`, but is provided for some common errors.
+     * message: A human-readable description of the error, combining information from multiple fields, laid out for display in a monospaced typeface (for example, a command-line setting).
+     * path: The path of the file where the error occured.
      */
-    public ?int $line;
-    /**
-     * The column number where this errors occurs.
-     */
-    public ?int $column;
-    /**
-     * The contents of the line where the error occurs.
-     */
-    public string $source;
-    /**
-     * The type of error.
-     */
-    public ?string $kind;
-    /**
-     * Suggested action to fix the error. This will usually be `null`, but is provided for some common errors.
-     */
-    public ?string $suggestion;
-    /**
-     * A human-readable description of the error, combining information from multiple fields, laid out for display in a monospaced typeface (for example, a command-line setting).
-     */
-    public ?string $message;
-    /**
-     * The path of the file where the error occured.
-     */
-    public ?string $path;
-    public function __construct(int $line, int $column, string $source, string $kind, string $suggestion, string $message, string $path)
+    public function __construct(public ?int $line, public ?int $column, public string $source, public ?string $kind, public ?string $suggestion, public ?string $message, public ?string $path)
     {
-        $this->line = $line;
-        $this->column = $column;
-        $this->source = $source;
-        $this->kind = $kind;
-        $this->suggestion = $suggestion;
-        $this->message = $message;
-        $this->path = $path;
     }
 }

@@ -42,7 +42,7 @@ class Profile implements ObjectMapper
                 $value = $payload['health_percentage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'health_percentage';
+                    $properties['health_percentage'] = null;
                     goto after_health_percentage;
                 }
 
@@ -53,7 +53,7 @@ class Profile implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -64,7 +64,7 @@ class Profile implements ObjectMapper
                 $value = $payload['documentation'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation';
+                    $properties['documentation'] = null;
                     goto after_documentation;
                 }
 
@@ -75,7 +75,7 @@ class Profile implements ObjectMapper
                 $value = $payload['files'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'files';
+                    $properties['files'] = null;
                     goto after_files;
                 }
 
@@ -95,7 +95,7 @@ class Profile implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -139,7 +139,7 @@ class Profile implements ObjectMapper
                 $value = $payload['code_of_conduct'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'code_of_conduct';
+                    $properties['code_of_conduct'] = null;
                     goto after_code_of_conduct;
                 }
 
@@ -159,7 +159,7 @@ class Profile implements ObjectMapper
                 $value = $payload['code_of_conduct_file'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'code_of_conduct_file';
+                    $properties['code_of_conduct_file'] = null;
                     goto after_code_of_conduct_file;
                 }
 
@@ -179,7 +179,7 @@ class Profile implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'license';
+                    $properties['license'] = null;
                     goto after_license;
                 }
 
@@ -199,7 +199,7 @@ class Profile implements ObjectMapper
                 $value = $payload['contributing'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contributing';
+                    $properties['contributing'] = null;
                     goto after_contributing;
                 }
 
@@ -219,7 +219,7 @@ class Profile implements ObjectMapper
                 $value = $payload['readme'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'readme';
+                    $properties['readme'] = null;
                     goto after_readme;
                 }
 
@@ -239,7 +239,7 @@ class Profile implements ObjectMapper
                 $value = $payload['issue_template'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_template';
+                    $properties['issue_template'] = null;
                     goto after_issue_template;
                 }
 
@@ -259,7 +259,7 @@ class Profile implements ObjectMapper
                 $value = $payload['pull_request_template'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull_request_template';
+                    $properties['pull_request_template'] = null;
                     goto after_pull_request_template;
                 }
 
@@ -301,7 +301,7 @@ class Profile implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -312,7 +312,7 @@ class Profile implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 
@@ -323,7 +323,7 @@ class Profile implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -334,7 +334,7 @@ class Profile implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -367,7 +367,7 @@ class Profile implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -378,7 +378,7 @@ class Profile implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -411,7 +411,7 @@ class Profile implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 
@@ -422,7 +422,7 @@ class Profile implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -433,7 +433,7 @@ class Profile implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -444,7 +444,7 @@ class Profile implements ObjectMapper
                 $value = $payload['spdx_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'spdx_id';
+                    $properties['spdx_id'] = null;
                     goto after_spdx_id;
                 }
 
@@ -455,7 +455,7 @@ class Profile implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 

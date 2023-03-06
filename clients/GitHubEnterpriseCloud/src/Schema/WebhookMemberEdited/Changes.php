@@ -13,11 +13,7 @@ final readonly class Changes
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = 'The changes to the collaborator permissions';
     public const SCHEMA_EXAMPLE_DATA = '{"old_permission":{"from":"generated_from"},"permission":{"from":"generated_from","to":"generated_to"}}';
-    public ?Schema\WebhookMemberEdited\Changes\OldPermission $old_permission;
-    public ?Schema\WebhookMemberEdited\Changes\Permission $permission;
-    public function __construct(Schema\WebhookMemberEdited\Changes\OldPermission $old_permission, Schema\WebhookMemberEdited\Changes\Permission $permission)
+    public function __construct(public ?Schema\WebhookMemberEdited\Changes\OldPermission $old_permission, public ?Schema\WebhookMemberEdited\Changes\Permission $permission)
     {
-        $this->old_permission = $old_permission;
-        $this->permission = $permission;
     }
 }

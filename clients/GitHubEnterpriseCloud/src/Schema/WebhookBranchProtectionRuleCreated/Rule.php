@@ -13,63 +13,11 @@ final readonly class Rule
     public const SCHEMA_TITLE = 'branch protection rule';
     public const SCHEMA_DESCRIPTION = 'The branch protection rule. Includes a `name` and all the [branch protection settings](https://docs.github.com/enterprise-cloud@latest//github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-settings) applied to branches that match the name. Binary settings are boolean. Multi-level configurations are one of `off`, `non_admins`, or `everyone`. Actor and build lists are arrays of strings.';
     public const SCHEMA_EXAMPLE_DATA = '{"admin_enforced":false,"allow_deletions_enforcement_level":"generated_allow_deletions_enforcement_level","allow_force_pushes_enforcement_level":"generated_allow_force_pushes_enforcement_level","authorized_actor_names":["generated_authorized_actor_names"],"authorized_actors_only":false,"authorized_dismissal_actors_only":false,"create_protected":false,"created_at":"generated_created_at","dismiss_stale_reviews_on_push":false,"id":13,"ignore_approvals_from_contributors":false,"linear_history_requirement_enforcement_level":"generated_linear_history_requirement_enforcement_level","merge_queue_enforcement_level":"generated_merge_queue_enforcement_level","name":"generated_name","pull_request_reviews_enforcement_level":"generated_pull_request_reviews_enforcement_level","repository_id":13,"require_code_owner_review":false,"required_approving_review_count":13,"required_conversation_resolution_level":"generated_required_conversation_resolution_level","required_deployments_enforcement_level":"generated_required_deployments_enforcement_level","required_status_checks":["generated_required_status_checks"],"required_status_checks_enforcement_level":"generated_required_status_checks_enforcement_level","signature_requirement_enforcement_level":"generated_signature_requirement_enforcement_level","strict_required_status_checks_policy":false,"updated_at":"generated_updated_at"}';
-    public ?bool $admin_enforced;
-    public ?string $allow_deletions_enforcement_level;
-    public ?string $allow_force_pushes_enforcement_level;
     /**
-     * @var array<string>
+     * @param ?array<string> $authorized_actor_names
+     * @param ?array<string> $required_status_checks
      */
-    public ?array $authorized_actor_names;
-    public ?bool $authorized_actors_only;
-    public ?bool $authorized_dismissal_actors_only;
-    public bool $create_protected;
-    public ?string $created_at;
-    public ?bool $dismiss_stale_reviews_on_push;
-    public ?int $id;
-    public ?bool $ignore_approvals_from_contributors;
-    public ?string $linear_history_requirement_enforcement_level;
-    public ?string $merge_queue_enforcement_level;
-    public ?string $name;
-    public ?string $pull_request_reviews_enforcement_level;
-    public ?int $repository_id;
-    public ?bool $require_code_owner_review;
-    public ?int $required_approving_review_count;
-    public ?string $required_conversation_resolution_level;
-    public ?string $required_deployments_enforcement_level;
-    /**
-     * @var array<string>
-     */
-    public ?array $required_status_checks;
-    public ?string $required_status_checks_enforcement_level;
-    public ?string $signature_requirement_enforcement_level;
-    public ?bool $strict_required_status_checks_policy;
-    public ?string $updated_at;
-    public function __construct(bool $admin_enforced, string $allow_deletions_enforcement_level, string $allow_force_pushes_enforcement_level, array $authorized_actor_names, bool $authorized_actors_only, bool $authorized_dismissal_actors_only, bool $create_protected, string $created_at, bool $dismiss_stale_reviews_on_push, int $id, bool $ignore_approvals_from_contributors, string $linear_history_requirement_enforcement_level, string $merge_queue_enforcement_level, string $name, string $pull_request_reviews_enforcement_level, int $repository_id, bool $require_code_owner_review, int $required_approving_review_count, string $required_conversation_resolution_level, string $required_deployments_enforcement_level, array $required_status_checks, string $required_status_checks_enforcement_level, string $signature_requirement_enforcement_level, bool $strict_required_status_checks_policy, string $updated_at)
+    public function __construct(public ?bool $admin_enforced, public ?string $allow_deletions_enforcement_level, public ?string $allow_force_pushes_enforcement_level, public ?array $authorized_actor_names, public ?bool $authorized_actors_only, public ?bool $authorized_dismissal_actors_only, public bool $create_protected, public ?string $created_at, public ?bool $dismiss_stale_reviews_on_push, public ?int $id, public ?bool $ignore_approvals_from_contributors, public ?string $linear_history_requirement_enforcement_level, public ?string $merge_queue_enforcement_level, public ?string $name, public ?string $pull_request_reviews_enforcement_level, public ?int $repository_id, public ?bool $require_code_owner_review, public ?int $required_approving_review_count, public ?string $required_conversation_resolution_level, public ?string $required_deployments_enforcement_level, public ?array $required_status_checks, public ?string $required_status_checks_enforcement_level, public ?string $signature_requirement_enforcement_level, public ?bool $strict_required_status_checks_policy, public ?string $updated_at)
     {
-        $this->admin_enforced = $admin_enforced;
-        $this->allow_deletions_enforcement_level = $allow_deletions_enforcement_level;
-        $this->allow_force_pushes_enforcement_level = $allow_force_pushes_enforcement_level;
-        $this->authorized_actor_names = $authorized_actor_names;
-        $this->authorized_actors_only = $authorized_actors_only;
-        $this->authorized_dismissal_actors_only = $authorized_dismissal_actors_only;
-        $this->create_protected = $create_protected;
-        $this->created_at = $created_at;
-        $this->dismiss_stale_reviews_on_push = $dismiss_stale_reviews_on_push;
-        $this->id = $id;
-        $this->ignore_approvals_from_contributors = $ignore_approvals_from_contributors;
-        $this->linear_history_requirement_enforcement_level = $linear_history_requirement_enforcement_level;
-        $this->merge_queue_enforcement_level = $merge_queue_enforcement_level;
-        $this->name = $name;
-        $this->pull_request_reviews_enforcement_level = $pull_request_reviews_enforcement_level;
-        $this->repository_id = $repository_id;
-        $this->require_code_owner_review = $require_code_owner_review;
-        $this->required_approving_review_count = $required_approving_review_count;
-        $this->required_conversation_resolution_level = $required_conversation_resolution_level;
-        $this->required_deployments_enforcement_level = $required_deployments_enforcement_level;
-        $this->required_status_checks = $required_status_checks;
-        $this->required_status_checks_enforcement_level = $required_status_checks_enforcement_level;
-        $this->signature_requirement_enforcement_level = $signature_requirement_enforcement_level;
-        $this->strict_required_status_checks_policy = $strict_required_status_checks_policy;
-        $this->updated_at = $updated_at;
     }
 }

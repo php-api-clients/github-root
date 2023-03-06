@@ -13,20 +13,10 @@ final readonly class Forks
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":"generated_id","url":"generated_url","user":{"login":"generated_login","id":13,"node_id":"generated_node_id","avatar_url":"generated_avatar_url","gravatar_id":"generated_gravatar_id","url":"generated_url","html_url":"generated_html_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","organizations_url":"generated_organizations_url","repos_url":"generated_repos_url","events_url":"generated_events_url","received_events_url":"generated_received_events_url","type":"generated_type","site_admin":false,"name":"generated_name","company":"generated_company","blog":"generated_blog","location":"generated_location","email":"generated_email","hireable":false,"bio":"generated_bio","twitter_username":"generated_twitter_username","public_repos":13,"public_gists":13,"followers":13,"following":13,"created_at":"generated_created_at","updated_at":"generated_updated_at","plan":{"collaborators":13,"name":"generated_name","space":13,"private_repos":13},"suspended_at":"generated_suspended_at","private_gists":1,"total_private_repos":2,"owned_private_repos":2,"disk_usage":1,"collaborators":3},"created_at":"generated_created_at","updated_at":"generated_updated_at"}';
-    public ?string $id;
-    public ?string $url;
     /**
-     * Public User
+     * user: Public User
      */
-    public ?Schema\PublicUser $user;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public function __construct(string $id, string $url, Schema\PublicUser $user, string $created_at, string $updated_at)
+    public function __construct(public ?string $id, public ?string $url, public ?Schema\PublicUser $user, public ?string $created_at, public ?string $updated_at)
     {
-        $this->id = $id;
-        $this->url = $url;
-        $this->user = $user;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
     }
 }

@@ -14,241 +14,27 @@ final readonly class TeamRepository
     public const SCHEMA_DESCRIPTION = 'A team\'s access to a repository.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":42,"node_id":"MDEwOlJlcG9zaXRvcnkxMjk2MjY5","name":"Team Environment","full_name":"octocat\\/Hello-World","license":{"key":"mit","name":"MIT License","url":"https:\\/\\/api.github.com\\/licenses\\/mit","spdx_id":"MIT","node_id":"MDc6TGljZW5zZW1pdA==","html_url":"generated_html_url"},"forks":13,"permissions":{"admin":false,"pull":false,"triage":false,"push":false,"maintain":false},"role_name":"admin","owner":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"private":false,"html_url":"https:\\/\\/github.com\\/octocat\\/Hello-World","description":"This your first repo!","fork":false,"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World","archive_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/{archive_format}{\\/ref}","assignees_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/assignees{\\/user}","blobs_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/blobs{\\/sha}","branches_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches{\\/branch}","collaborators_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/collaborators{\\/collaborator}","comments_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/comments{\\/number}","commits_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits{\\/sha}","compare_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/compare\\/{base}...{head}","contents_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/{+path}","contributors_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contributors","deployments_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/deployments","downloads_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/downloads","events_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/events","forks_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/forks","git_commits_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/commits{\\/sha}","git_refs_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/refs{\\/sha}","git_tags_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/tags{\\/sha}","git_url":"git:github.com\\/octocat\\/Hello-World.git","issue_comment_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/comments{\\/number}","issue_events_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/events{\\/number}","issues_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues{\\/number}","keys_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/keys{\\/key_id}","labels_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/labels{\\/name}","languages_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/languages","merges_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/merges","milestones_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/milestones{\\/number}","notifications_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/notifications{?since,all,participating}","pulls_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls{\\/number}","releases_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/releases{\\/id}","ssh_url":"git@github.com:octocat\\/Hello-World.git","stargazers_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/stargazers","statuses_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/statuses\\/{sha}","subscribers_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscribers","subscription_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscription","tags_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tags","teams_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/teams","trees_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/trees{\\/sha}","clone_url":"https:\\/\\/github.com\\/octocat\\/Hello-World.git","mirror_url":"git:git.example.com\\/octocat\\/Hello-World","hooks_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks","svn_url":"https:\\/\\/svn.github.com\\/octocat\\/Hello-World","homepage":"https:\\/\\/github.com","language":"generated_language","forks_count":9,"stargazers_count":80,"watchers_count":80,"size":108,"default_branch":"master","open_issues_count":0,"is_template":true,"topics":["generated_topics"],"has_issues":true,"has_projects":true,"has_wiki":true,"has_pages":false,"has_downloads":true,"archived":false,"disabled":false,"visibility":"generated_visibility","pushed_at":"2011-01-26T19:06:43Z","created_at":"2011-01-26T19:01:12Z","updated_at":"2011-01-26T19:14:43Z","allow_rebase_merge":true,"template_repository":{"id":42,"node_id":"MDEwOlJlcG9zaXRvcnkxMjk2MjY5","name":"Team Environment","full_name":"octocat\\/Hello-World","license":{"key":"mit","name":"MIT License","url":"https:\\/\\/api.github.com\\/licenses\\/mit","spdx_id":"MIT","node_id":"MDc6TGljZW5zZW1pdA==","html_url":"generated_html_url"},"organization":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"forks":13,"permissions":{"admin":false,"pull":false,"triage":false,"push":false,"maintain":false},"owner":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"private":false,"html_url":"https:\\/\\/github.com\\/octocat\\/Hello-World","description":"This your first repo!","fork":false,"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World","archive_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/{archive_format}{\\/ref}","assignees_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/assignees{\\/user}","blobs_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/blobs{\\/sha}","branches_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches{\\/branch}","collaborators_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/collaborators{\\/collaborator}","comments_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/comments{\\/number}","commits_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits{\\/sha}","compare_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/compare\\/{base}...{head}","contents_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/{+path}","contributors_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contributors","deployments_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/deployments","downloads_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/downloads","events_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/events","forks_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/forks","git_commits_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/commits{\\/sha}","git_refs_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/refs{\\/sha}","git_tags_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/tags{\\/sha}","git_url":"git:github.com\\/octocat\\/Hello-World.git","issue_comment_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/comments{\\/number}","issue_events_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/events{\\/number}","issues_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues{\\/number}","keys_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/keys{\\/key_id}","labels_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/labels{\\/name}","languages_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/languages","merges_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/merges","milestones_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/milestones{\\/number}","notifications_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/notifications{?since,all,participating}","pulls_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls{\\/number}","releases_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/releases{\\/id}","ssh_url":"git@github.com:octocat\\/Hello-World.git","stargazers_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/stargazers","statuses_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/statuses\\/{sha}","subscribers_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscribers","subscription_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscription","tags_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tags","teams_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/teams","trees_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/trees{\\/sha}","clone_url":"https:\\/\\/github.com\\/octocat\\/Hello-World.git","mirror_url":"git:git.example.com\\/octocat\\/Hello-World","hooks_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks","svn_url":"https:\\/\\/svn.github.com\\/octocat\\/Hello-World","homepage":"https:\\/\\/github.com","language":"generated_language","forks_count":9,"stargazers_count":80,"watchers_count":80,"size":108,"default_branch":"master","open_issues_count":0,"is_template":true,"topics":["generated_topics"],"has_issues":true,"has_projects":true,"has_wiki":true,"has_pages":false,"has_downloads":true,"archived":false,"disabled":false,"visibility":"generated_visibility","pushed_at":"2011-01-26T19:06:43Z","created_at":"2011-01-26T19:01:12Z","updated_at":"2011-01-26T19:14:43Z","allow_rebase_merge":true,"template_repository":{"id":13,"node_id":"generated_node_id","name":"generated_name","full_name":"generated_full_name","owner":{"login":"generated_login","id":13,"node_id":"generated_node_id","avatar_url":"generated_avatar_url","gravatar_id":"generated_gravatar_id","url":"generated_url","html_url":"generated_html_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","organizations_url":"generated_organizations_url","repos_url":"generated_repos_url","events_url":"generated_events_url","received_events_url":"generated_received_events_url","type":"generated_type","site_admin":false},"private":false,"html_url":"generated_html_url","description":"generated_description","fork":false,"url":"generated_url","archive_url":"generated_archive_url","assignees_url":"generated_assignees_url","blobs_url":"generated_blobs_url","branches_url":"generated_branches_url","collaborators_url":"generated_collaborators_url","comments_url":"generated_comments_url","commits_url":"generated_commits_url","compare_url":"generated_compare_url","contents_url":"generated_contents_url","contributors_url":"generated_contributors_url","deployments_url":"generated_deployments_url","downloads_url":"generated_downloads_url","events_url":"generated_events_url","forks_url":"generated_forks_url","git_commits_url":"generated_git_commits_url","git_refs_url":"generated_git_refs_url","git_tags_url":"generated_git_tags_url","git_url":"generated_git_url","issue_comment_url":"generated_issue_comment_url","issue_events_url":"generated_issue_events_url","issues_url":"generated_issues_url","keys_url":"generated_keys_url","labels_url":"generated_labels_url","languages_url":"generated_languages_url","merges_url":"generated_merges_url","milestones_url":"generated_milestones_url","notifications_url":"generated_notifications_url","pulls_url":"generated_pulls_url","releases_url":"generated_releases_url","ssh_url":"generated_ssh_url","stargazers_url":"generated_stargazers_url","statuses_url":"generated_statuses_url","subscribers_url":"generated_subscribers_url","subscription_url":"generated_subscription_url","tags_url":"generated_tags_url","teams_url":"generated_teams_url","trees_url":"generated_trees_url","clone_url":"generated_clone_url","mirror_url":"generated_mirror_url","hooks_url":"generated_hooks_url","svn_url":"generated_svn_url","homepage":"generated_homepage","language":"generated_language","forks_count":13,"stargazers_count":13,"watchers_count":13,"size":13,"default_branch":"generated_default_branch","open_issues_count":13,"is_template":false,"topics":["generated_topics"],"has_issues":false,"has_projects":false,"has_wiki":false,"has_pages":false,"has_downloads":false,"archived":false,"disabled":false,"visibility":"generated_visibility","pushed_at":"generated_pushed_at","created_at":"generated_created_at","updated_at":"generated_updated_at","permissions":{"admin":false,"maintain":false,"push":false,"triage":false,"pull":false},"allow_rebase_merge":false,"temp_clone_token":"generated_temp_clone_token","allow_squash_merge":false,"allow_auto_merge":false,"delete_branch_on_merge":false,"allow_update_branch":false,"allow_merge_commit":false,"subscribers_count":13,"network_count":13},"temp_clone_token":"generated_temp_clone_token","allow_squash_merge":true,"allow_auto_merge":false,"delete_branch_on_merge":false,"allow_update_branch":false,"allow_merge_commit":true,"allow_forking":false,"subscribers_count":13,"network_count":13,"open_issues":13,"watchers":13,"master_branch":"generated_master_branch","starred_at":"\\"2020-07-09T00:17:42Z\\"","anonymous_access_enabled":false},"temp_clone_token":"generated_temp_clone_token","allow_squash_merge":true,"allow_auto_merge":false,"delete_branch_on_merge":false,"allow_merge_commit":true,"allow_forking":false,"subscribers_count":13,"network_count":13,"open_issues":13,"watchers":13,"master_branch":"generated_master_branch"}';
     /**
-     * Unique identifier of the repository
+     * id: Unique identifier of the repository
+     * name: The name of the repository.
+     * private: Whether the repository is private or public.
+     * default_branch: The default branch of the repository.
+     * is_template: Whether this repository acts as a template that can be used to generate new repositories.
+     * @param array<string> $topics
+     * has_issues: Whether issues are enabled.
+     * has_projects: Whether projects are enabled.
+     * has_wiki: Whether the wiki is enabled.
+     * has_downloads: Whether downloads are enabled.
+     * archived: Whether the repository is archived.
+     * disabled: Returns whether or not this repository disabled.
+     * visibility: The repository visibility: public, private, or internal.
+     * allow_rebase_merge: Whether to allow rebase merges for pull requests.
+     * allow_squash_merge: Whether to allow squash merges for pull requests.
+     * allow_auto_merge: Whether to allow Auto-merge to be used on pull requests.
+     * delete_branch_on_merge: Whether to delete head branches when pull requests are merged
+     * allow_merge_commit: Whether to allow merge commits for pull requests.
+     * allow_forking: Whether to allow forking this repo
      */
-    public ?int $id;
-    public ?string $node_id;
-    /**
-     * The name of the repository.
-     */
-    public ?string $name;
-    public ?string $full_name;
-    public ?Schema\LicenseSimple $license;
-    public ?int $forks;
-    public Schema\Repository\Permissions $permissions;
-    public string $role_name;
-    public ?Schema\SimpleUser $owner;
-    /**
-     * Whether the repository is private or public.
-     */
-    public ?bool $private;
-    public ?string $html_url;
-    public ?string $description;
-    public ?bool $fork;
-    public ?string $url;
-    public ?string $archive_url;
-    public ?string $assignees_url;
-    public ?string $blobs_url;
-    public ?string $branches_url;
-    public ?string $collaborators_url;
-    public ?string $comments_url;
-    public ?string $commits_url;
-    public ?string $compare_url;
-    public ?string $contents_url;
-    public ?string $contributors_url;
-    public ?string $deployments_url;
-    public ?string $downloads_url;
-    public ?string $events_url;
-    public ?string $forks_url;
-    public ?string $git_commits_url;
-    public ?string $git_refs_url;
-    public ?string $git_tags_url;
-    public ?string $git_url;
-    public ?string $issue_comment_url;
-    public ?string $issue_events_url;
-    public ?string $issues_url;
-    public ?string $keys_url;
-    public ?string $labels_url;
-    public ?string $languages_url;
-    public ?string $merges_url;
-    public ?string $milestones_url;
-    public ?string $notifications_url;
-    public ?string $pulls_url;
-    public ?string $releases_url;
-    public ?string $ssh_url;
-    public ?string $stargazers_url;
-    public ?string $statuses_url;
-    public ?string $subscribers_url;
-    public ?string $subscription_url;
-    public ?string $tags_url;
-    public ?string $teams_url;
-    public ?string $trees_url;
-    public ?string $clone_url;
-    public ?string $mirror_url;
-    public ?string $hooks_url;
-    public ?string $svn_url;
-    public ?string $homepage;
-    public ?string $language;
-    public ?int $forks_count;
-    public ?int $stargazers_count;
-    public ?int $watchers_count;
-    public ?int $size;
-    /**
-     * The default branch of the repository.
-     */
-    public ?string $default_branch;
-    public ?int $open_issues_count;
-    /**
-     * Whether this repository acts as a template that can be used to generate new repositories.
-     */
-    public bool $is_template;
-    /**
-     * @var array<string>
-     */
-    public array $topics;
-    /**
-     * Whether issues are enabled.
-     */
-    public ?bool $has_issues;
-    /**
-     * Whether projects are enabled.
-     */
-    public ?bool $has_projects;
-    /**
-     * Whether the wiki is enabled.
-     */
-    public ?bool $has_wiki;
-    public ?bool $has_pages;
-    /**
-     * Whether downloads are enabled.
-     */
-    public ?bool $has_downloads;
-    /**
-     * Whether the repository is archived.
-     */
-    public ?bool $archived;
-    /**
-     * Returns whether or not this repository disabled.
-     */
-    public ?bool $disabled;
-    /**
-     * The repository visibility: public, private, or internal.
-     */
-    public string $visibility;
-    public ?string $pushed_at;
-    public ?string $created_at;
-    public ?string $updated_at;
-    /**
-     * Whether to allow rebase merges for pull requests.
-     */
-    public bool $allow_rebase_merge;
-    public Schema\Repository $template_repository;
-    public string $temp_clone_token;
-    /**
-     * Whether to allow squash merges for pull requests.
-     */
-    public bool $allow_squash_merge;
-    /**
-     * Whether to allow Auto-merge to be used on pull requests.
-     */
-    public bool $allow_auto_merge;
-    /**
-     * Whether to delete head branches when pull requests are merged
-     */
-    public bool $delete_branch_on_merge;
-    /**
-     * Whether to allow merge commits for pull requests.
-     */
-    public bool $allow_merge_commit;
-    /**
-     * Whether to allow forking this repo
-     */
-    public bool $allow_forking;
-    public int $subscribers_count;
-    public int $network_count;
-    public ?int $open_issues;
-    public ?int $watchers;
-    public string $master_branch;
-    public function __construct(int $id, string $node_id, string $name, string $full_name, Schema\LicenseSimple $license, int $forks, Schema\Repository\Permissions $permissions, string $role_name, Schema\SimpleUser $owner, bool $private, string $html_url, string $description, bool $fork, string $url, string $archive_url, string $assignees_url, string $blobs_url, string $branches_url, string $collaborators_url, string $comments_url, string $commits_url, string $compare_url, string $contents_url, string $contributors_url, string $deployments_url, string $downloads_url, string $events_url, string $forks_url, string $git_commits_url, string $git_refs_url, string $git_tags_url, string $git_url, string $issue_comment_url, string $issue_events_url, string $issues_url, string $keys_url, string $labels_url, string $languages_url, string $merges_url, string $milestones_url, string $notifications_url, string $pulls_url, string $releases_url, string $ssh_url, string $stargazers_url, string $statuses_url, string $subscribers_url, string $subscription_url, string $tags_url, string $teams_url, string $trees_url, string $clone_url, string $mirror_url, string $hooks_url, string $svn_url, string $homepage, string $language, int $forks_count, int $stargazers_count, int $watchers_count, int $size, string $default_branch, int $open_issues_count, bool $is_template, array $topics, bool $has_issues, bool $has_projects, bool $has_wiki, bool $has_pages, bool $has_downloads, bool $archived, bool $disabled, string $visibility, string $pushed_at, string $created_at, string $updated_at, bool $allow_rebase_merge, Schema\Repository $template_repository, string $temp_clone_token, bool $allow_squash_merge, bool $allow_auto_merge, bool $delete_branch_on_merge, bool $allow_merge_commit, bool $allow_forking, int $subscribers_count, int $network_count, int $open_issues, int $watchers, string $master_branch)
+    public function __construct(public ?int $id, public ?string $node_id, public ?string $name, public ?string $full_name, public ?Schema\LicenseSimple $license, public ?int $forks, public Schema\Repository\Permissions $permissions, public string $role_name, public ?Schema\SimpleUser $owner, public ?bool $private, public ?string $html_url, public ?string $description, public ?bool $fork, public ?string $url, public ?string $archive_url, public ?string $assignees_url, public ?string $blobs_url, public ?string $branches_url, public ?string $collaborators_url, public ?string $comments_url, public ?string $commits_url, public ?string $compare_url, public ?string $contents_url, public ?string $contributors_url, public ?string $deployments_url, public ?string $downloads_url, public ?string $events_url, public ?string $forks_url, public ?string $git_commits_url, public ?string $git_refs_url, public ?string $git_tags_url, public ?string $git_url, public ?string $issue_comment_url, public ?string $issue_events_url, public ?string $issues_url, public ?string $keys_url, public ?string $labels_url, public ?string $languages_url, public ?string $merges_url, public ?string $milestones_url, public ?string $notifications_url, public ?string $pulls_url, public ?string $releases_url, public ?string $ssh_url, public ?string $stargazers_url, public ?string $statuses_url, public ?string $subscribers_url, public ?string $subscription_url, public ?string $tags_url, public ?string $teams_url, public ?string $trees_url, public ?string $clone_url, public ?string $mirror_url, public ?string $hooks_url, public ?string $svn_url, public ?string $homepage, public ?string $language, public ?int $forks_count, public ?int $stargazers_count, public ?int $watchers_count, public ?int $size, public ?string $default_branch, public ?int $open_issues_count, public bool $is_template, public array $topics, public ?bool $has_issues, public ?bool $has_projects, public ?bool $has_wiki, public ?bool $has_pages, public ?bool $has_downloads, public ?bool $archived, public ?bool $disabled, public string $visibility, public ?string $pushed_at, public ?string $created_at, public ?string $updated_at, public bool $allow_rebase_merge, public Schema\Repository $template_repository, public string $temp_clone_token, public bool $allow_squash_merge, public bool $allow_auto_merge, public bool $delete_branch_on_merge, public bool $allow_merge_commit, public bool $allow_forking, public int $subscribers_count, public int $network_count, public ?int $open_issues, public ?int $watchers, public string $master_branch)
     {
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->name = $name;
-        $this->full_name = $full_name;
-        $this->license = $license;
-        $this->forks = $forks;
-        $this->permissions = $permissions;
-        $this->role_name = $role_name;
-        $this->owner = $owner;
-        $this->private = $private;
-        $this->html_url = $html_url;
-        $this->description = $description;
-        $this->fork = $fork;
-        $this->url = $url;
-        $this->archive_url = $archive_url;
-        $this->assignees_url = $assignees_url;
-        $this->blobs_url = $blobs_url;
-        $this->branches_url = $branches_url;
-        $this->collaborators_url = $collaborators_url;
-        $this->comments_url = $comments_url;
-        $this->commits_url = $commits_url;
-        $this->compare_url = $compare_url;
-        $this->contents_url = $contents_url;
-        $this->contributors_url = $contributors_url;
-        $this->deployments_url = $deployments_url;
-        $this->downloads_url = $downloads_url;
-        $this->events_url = $events_url;
-        $this->forks_url = $forks_url;
-        $this->git_commits_url = $git_commits_url;
-        $this->git_refs_url = $git_refs_url;
-        $this->git_tags_url = $git_tags_url;
-        $this->git_url = $git_url;
-        $this->issue_comment_url = $issue_comment_url;
-        $this->issue_events_url = $issue_events_url;
-        $this->issues_url = $issues_url;
-        $this->keys_url = $keys_url;
-        $this->labels_url = $labels_url;
-        $this->languages_url = $languages_url;
-        $this->merges_url = $merges_url;
-        $this->milestones_url = $milestones_url;
-        $this->notifications_url = $notifications_url;
-        $this->pulls_url = $pulls_url;
-        $this->releases_url = $releases_url;
-        $this->ssh_url = $ssh_url;
-        $this->stargazers_url = $stargazers_url;
-        $this->statuses_url = $statuses_url;
-        $this->subscribers_url = $subscribers_url;
-        $this->subscription_url = $subscription_url;
-        $this->tags_url = $tags_url;
-        $this->teams_url = $teams_url;
-        $this->trees_url = $trees_url;
-        $this->clone_url = $clone_url;
-        $this->mirror_url = $mirror_url;
-        $this->hooks_url = $hooks_url;
-        $this->svn_url = $svn_url;
-        $this->homepage = $homepage;
-        $this->language = $language;
-        $this->forks_count = $forks_count;
-        $this->stargazers_count = $stargazers_count;
-        $this->watchers_count = $watchers_count;
-        $this->size = $size;
-        $this->default_branch = $default_branch;
-        $this->open_issues_count = $open_issues_count;
-        $this->is_template = $is_template;
-        $this->topics = $topics;
-        $this->has_issues = $has_issues;
-        $this->has_projects = $has_projects;
-        $this->has_wiki = $has_wiki;
-        $this->has_pages = $has_pages;
-        $this->has_downloads = $has_downloads;
-        $this->archived = $archived;
-        $this->disabled = $disabled;
-        $this->visibility = $visibility;
-        $this->pushed_at = $pushed_at;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->allow_rebase_merge = $allow_rebase_merge;
-        $this->template_repository = $template_repository;
-        $this->temp_clone_token = $temp_clone_token;
-        $this->allow_squash_merge = $allow_squash_merge;
-        $this->allow_auto_merge = $allow_auto_merge;
-        $this->delete_branch_on_merge = $delete_branch_on_merge;
-        $this->allow_merge_commit = $allow_merge_commit;
-        $this->allow_forking = $allow_forking;
-        $this->subscribers_count = $subscribers_count;
-        $this->network_count = $network_count;
-        $this->open_issues = $open_issues;
-        $this->watchers = $watchers;
-        $this->master_branch = $master_branch;
     }
 }

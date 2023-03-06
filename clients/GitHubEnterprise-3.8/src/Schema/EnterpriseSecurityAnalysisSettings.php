@@ -14,12 +14,10 @@ final readonly class EnterpriseSecurityAnalysisSettings
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"dependabot_alerts_enabled_for_new_repositories":false}';
     /**
-    * Whether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this
+    * dependabot_alerts_enabled_for_new_repositories: Whether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this
     enterprise.
     */
-    public bool $dependabot_alerts_enabled_for_new_repositories;
-    public function __construct(bool $dependabot_alerts_enabled_for_new_repositories)
+    public function __construct(public bool $dependabot_alerts_enabled_for_new_repositories)
     {
-        $this->dependabot_alerts_enabled_for_new_repositories = $dependabot_alerts_enabled_for_new_repositories;
     }
 }

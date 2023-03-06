@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"body":"generated_body"}';
     /**
-     * The discussion comment's body text.
+     * body: The discussion comment's body text.
      */
-    public ?string $body;
-    public function __construct(string $body)
+    public function __construct(public ?string $body)
     {
-        $this->body = $body;
     }
 }

@@ -13,11 +13,7 @@ final readonly class Groups
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"value":"generated_value","display":"generated_display"}';
-    public ?string $value;
-    public ?string $display;
-    public function __construct(string $value, string $display)
+    public function __construct(public ?string $value, public ?string $display)
     {
-        $this->value = $value;
-        $this->display = $display;
     }
 }

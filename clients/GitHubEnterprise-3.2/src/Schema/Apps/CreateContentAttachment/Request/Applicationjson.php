@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"title":"Title of the attachment","body":"Body of the attachment"}';
     /**
-     * The title of the attachment
+     * title: The title of the attachment
+     * body: The body of the attachment
      */
-    public ?string $title;
-    /**
-     * The body of the attachment
-     */
-    public ?string $body;
-    public function __construct(string $title, string $body)
+    public function __construct(public ?string $title, public ?string $body)
     {
-        $this->title = $title;
-        $this->body = $body;
     }
 }

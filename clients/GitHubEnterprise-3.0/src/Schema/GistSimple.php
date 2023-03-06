@@ -14,60 +14,12 @@ final readonly class GistSimple
     public const SCHEMA_DESCRIPTION = 'Gist Simple';
     public const SCHEMA_EXAMPLE_DATA = '{"forks":[{"id":"generated_id","url":"generated_url","user":{"login":"generated_login","id":13,"node_id":"generated_node_id","avatar_url":"generated_avatar_url","gravatar_id":"generated_gravatar_id","url":"generated_url","html_url":"generated_html_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","organizations_url":"generated_organizations_url","repos_url":"generated_repos_url","events_url":"generated_events_url","received_events_url":"generated_received_events_url","type":"generated_type","site_admin":false,"name":"generated_name","company":"generated_company","blog":"generated_blog","location":"generated_location","email":"generated_email","hireable":false,"bio":"generated_bio","public_repos":13,"public_gists":13,"followers":13,"following":13,"created_at":"generated_created_at","updated_at":"generated_updated_at","plan":{"collaborators":13,"name":"generated_name","space":13,"private_repos":13},"suspended_at":"generated_suspended_at","private_gists":1,"total_private_repos":2,"owned_private_repos":2,"disk_usage":1,"collaborators":3},"created_at":"generated_created_at","updated_at":"generated_updated_at"}],"history":[{"user":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"version":"generated_version","committed_at":"generated_committed_at","change_status":{"total":13,"additions":13,"deletions":13},"url":"generated_url"}],"fork_of":{"url":"generated_url","forks_url":"generated_forks_url","commits_url":"generated_commits_url","id":"generated_id","node_id":"generated_node_id","git_pull_url":"generated_git_pull_url","git_push_url":"generated_git_push_url","html_url":"generated_html_url","files":[],"public":false,"created_at":"generated_created_at","updated_at":"generated_updated_at","description":"generated_description","comments":13,"user":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"comments_url":"generated_comments_url","owner":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"truncated":false,"forks":[null],"history":[null]},"url":"generated_url","forks_url":"generated_forks_url","commits_url":"generated_commits_url","id":"generated_id","node_id":"generated_node_id","git_pull_url":"generated_git_pull_url","git_push_url":"generated_git_push_url","html_url":"generated_html_url","files":[],"public":false,"created_at":"generated_created_at","updated_at":"generated_updated_at","description":"generated_description","comments":13,"user":"generated_user","comments_url":"generated_comments_url","owner":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"truncated":false}';
     /**
-     * @var array<Schema\GistSimple\Forks>
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\GistSimple\Forks> $forks
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\GistHistory> $history
+     * fork_of: Gist
+     * owner: Simple User
      */
-    public ?array $forks;
-    /**
-     * @var array<Schema\GistHistory>
-     */
-    public ?array $history;
-    /**
-     * Gist
-     */
-    public ?Schema\GistSimple\ForkOf $fork_of;
-    public ?string $url;
-    public ?string $forks_url;
-    public ?string $commits_url;
-    public ?string $id;
-    public ?string $node_id;
-    public ?string $git_pull_url;
-    public ?string $git_push_url;
-    public ?string $html_url;
-    public ?Schema\GistSimple\Files $files;
-    public ?bool $public;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public ?string $description;
-    public ?int $comments;
-    public ?string $user;
-    public ?string $comments_url;
-    /**
-     * Simple User
-     */
-    public ?Schema\SimpleUser $owner;
-    public ?bool $truncated;
-    public function __construct(array $forks, array $history, Schema\GistSimple\ForkOf $fork_of, string $url, string $forks_url, string $commits_url, string $id, string $node_id, string $git_pull_url, string $git_push_url, string $html_url, Schema\GistSimple\Files $files, bool $public, string $created_at, string $updated_at, string $description, int $comments, string $user, string $comments_url, Schema\SimpleUser $owner, bool $truncated)
+    public function __construct(#[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\GistSimple\Forks::class)] public ?array $forks, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\GistHistory::class)] public ?array $history, public ?Schema\GistSimple\ForkOf $fork_of, public ?string $url, public ?string $forks_url, public ?string $commits_url, public ?string $id, public ?string $node_id, public ?string $git_pull_url, public ?string $git_push_url, public ?string $html_url, public ?Schema\GistSimple\Files $files, public ?bool $public, public ?string $created_at, public ?string $updated_at, public ?string $description, public ?int $comments, public ?string $user, public ?string $comments_url, public ?Schema\SimpleUser $owner, public ?bool $truncated)
     {
-        $this->forks = $forks;
-        $this->history = $history;
-        $this->fork_of = $fork_of;
-        $this->url = $url;
-        $this->forks_url = $forks_url;
-        $this->commits_url = $commits_url;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->git_pull_url = $git_pull_url;
-        $this->git_push_url = $git_push_url;
-        $this->html_url = $html_url;
-        $this->files = $files;
-        $this->public = $public;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->description = $description;
-        $this->comments = $comments;
-        $this->user = $user;
-        $this->comments_url = $comments_url;
-        $this->owner = $owner;
-        $this->truncated = $truncated;
     }
 }

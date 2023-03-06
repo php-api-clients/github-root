@@ -13,35 +13,7 @@ final readonly class ContentFile
     public const SCHEMA_TITLE = 'Content File';
     public const SCHEMA_DESCRIPTION = 'Content File';
     public const SCHEMA_EXAMPLE_DATA = '{"type":"generated_type","encoding":"generated_encoding","size":13,"name":"generated_name","path":"generated_path","content":"generated_content","sha":"generated_sha","url":"generated_url","git_url":"generated_git_url","html_url":"generated_html_url","download_url":"generated_download_url","_links":{"git":"generated_git","html":"generated_html","self":"generated_self"},"target":"\\"actual\\/actual.md\\"","submodule_git_url":"\\"git:\\/\\/example.com\\/defunkt\\/dotjs.git\\""}';
-    public ?string $type;
-    public ?string $encoding;
-    public ?int $size;
-    public ?string $name;
-    public ?string $path;
-    public ?string $content;
-    public ?string $sha;
-    public ?string $url;
-    public ?string $git_url;
-    public ?string $html_url;
-    public ?string $download_url;
-    public ?Schema\ContentTree\Entries\Links $_links;
-    public string $target;
-    public string $submodule_git_url;
-    public function __construct(string $type, string $encoding, int $size, string $name, string $path, string $content, string $sha, string $url, string $git_url, string $html_url, string $download_url, Schema\ContentTree\Entries\Links $_links, string $target, string $submodule_git_url)
+    public function __construct(public ?string $type, public ?string $encoding, public ?int $size, public ?string $name, public ?string $path, public ?string $content, public ?string $sha, public ?string $url, public ?string $git_url, public ?string $html_url, public ?string $download_url, public ?Schema\ContentTree\Entries\Links $_links, public string $target, public string $submodule_git_url)
     {
-        $this->type = $type;
-        $this->encoding = $encoding;
-        $this->size = $size;
-        $this->name = $name;
-        $this->path = $path;
-        $this->content = $content;
-        $this->sha = $sha;
-        $this->url = $url;
-        $this->git_url = $git_url;
-        $this->html_url = $html_url;
-        $this->download_url = $download_url;
-        $this->_links = $_links;
-        $this->target = $target;
-        $this->submodule_git_url = $submodule_git_url;
     }
 }

@@ -14,36 +14,14 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message","content":"generated_content","sha":"generated_sha","branch":"generated_branch","committer":{"name":"generated_name","email":"generated_email","date":"\\"2013-01-05T13:13:22+05:00\\""},"author":{"name":"generated_name","email":"generated_email","date":"\\"2013-01-15T17:13:22+05:00\\""}}';
     /**
-     * The commit message.
+     * message: The commit message.
+     * content: The new file content, using Base64 encoding.
+     * sha: **Required if you are updating a file**. The blob SHA of the file being replaced.
+     * branch: The branch name. Default: the repository’s default branch (usually `master`)
+     * committer: The person that committed the file. Default: the authenticated user.
+     * author: The author of the file. Default: The `committer` or the authenticated user if you omit `committer`.
      */
-    public ?string $message;
-    /**
-     * The new file content, using Base64 encoding.
-     */
-    public ?string $content;
-    /**
-     * **Required if you are updating a file**. The blob SHA of the file being replaced.
-     */
-    public string $sha;
-    /**
-     * The branch name. Default: the repository’s default branch (usually `master`)
-     */
-    public string $branch;
-    /**
-     * The person that committed the file. Default: the authenticated user.
-     */
-    public Schema\Repos\CreateOrUpdateFileContents\Request\Applicationjson\Committer $committer;
-    /**
-     * The author of the file. Default: The `committer` or the authenticated user if you omit `committer`.
-     */
-    public Schema\Repos\CreateOrUpdateFileContents\Request\Applicationjson\Author $author;
-    public function __construct(string $message, string $content, string $sha, string $branch, Schema\Repos\CreateOrUpdateFileContents\Request\Applicationjson\Committer $committer, Schema\Repos\CreateOrUpdateFileContents\Request\Applicationjson\Author $author)
+    public function __construct(public ?string $message, public ?string $content, public string $sha, public string $branch, public Schema\Repos\CreateOrUpdateFileContents\Request\Applicationjson\Committer $committer, public Schema\Repos\CreateOrUpdateFileContents\Request\Applicationjson\Author $author)
     {
-        $this->message = $message;
-        $this->content = $content;
-        $this->sha = $sha;
-        $this->branch = $branch;
-        $this->committer = $committer;
-        $this->author = $author;
     }
 }

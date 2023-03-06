@@ -14,52 +14,18 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"lock_repositories":true,"exclude_metadata":true,"exclude_git_data":true,"exclude_attachments":true,"exclude_releases":true,"exclude_owner_projects":true,"org_metadata_only":true,"exclude":["repositories"],"repositories":["generated_repositories"]}';
     /**
-     * Lock the repositories being migrated at the start of the migration
+     * lock_repositories: Lock the repositories being migrated at the start of the migration
+     * exclude_metadata: Indicates whether metadata should be excluded and only git source should be included for the migration.
+     * exclude_git_data: Indicates whether the repository git data should be excluded from the migration.
+     * exclude_attachments: Do not include attachments in the migration
+     * exclude_releases: Do not include releases in the migration
+     * exclude_owner_projects: Indicates whether projects owned by the organization or users should be excluded.
+     * org_metadata_only: Indicates whether this should only include organization metadata (repositories array should be empty and will ignore other flags).
+     * exclude: Exclude attributes from the API response to improve performance
+     * @param array<string> $exclude
+     * @param ?array<string> $repositories
      */
-    public bool $lock_repositories;
-    /**
-     * Indicates whether metadata should be excluded and only git source should be included for the migration.
-     */
-    public bool $exclude_metadata;
-    /**
-     * Indicates whether the repository git data should be excluded from the migration.
-     */
-    public bool $exclude_git_data;
-    /**
-     * Do not include attachments in the migration
-     */
-    public bool $exclude_attachments;
-    /**
-     * Do not include releases in the migration
-     */
-    public bool $exclude_releases;
-    /**
-     * Indicates whether projects owned by the organization or users should be excluded.
-     */
-    public bool $exclude_owner_projects;
-    /**
-     * Indicates whether this should only include organization metadata (repositories array should be empty and will ignore other flags).
-     */
-    public bool $org_metadata_only;
-    /**
-     * Exclude attributes from the API response to improve performance
-     * @var array<string>
-     */
-    public array $exclude;
-    /**
-     * @var array<string>
-     */
-    public ?array $repositories;
-    public function __construct(bool $lock_repositories, bool $exclude_metadata, bool $exclude_git_data, bool $exclude_attachments, bool $exclude_releases, bool $exclude_owner_projects, bool $org_metadata_only, array $exclude, array $repositories)
+    public function __construct(public bool $lock_repositories, public bool $exclude_metadata, public bool $exclude_git_data, public bool $exclude_attachments, public bool $exclude_releases, public bool $exclude_owner_projects, public bool $org_metadata_only, public array $exclude, public ?array $repositories)
     {
-        $this->lock_repositories = $lock_repositories;
-        $this->exclude_metadata = $exclude_metadata;
-        $this->exclude_git_data = $exclude_git_data;
-        $this->exclude_attachments = $exclude_attachments;
-        $this->exclude_releases = $exclude_releases;
-        $this->exclude_owner_projects = $exclude_owner_projects;
-        $this->org_metadata_only = $org_metadata_only;
-        $this->exclude = $exclude;
-        $this->repositories = $repositories;
     }
 }

@@ -13,16 +13,10 @@ final readonly class MaintenanceStatus
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"status":"generated_status","scheduled_time":"generated_scheduled_time","connection_services":[{"name":"generated_name","number":13}]}';
-    public ?string $status;
-    public ?string $scheduled_time;
     /**
-     * @var array<Schema\MaintenanceStatus\ConnectionServices>
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices> $connection_services
      */
-    public ?array $connection_services;
-    public function __construct(string $status, string $scheduled_time, array $connection_services)
+    public function __construct(public ?string $status, public ?string $scheduled_time, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\MaintenanceStatus\ConnectionServices::class)] public ?array $connection_services)
     {
-        $this->status = $status;
-        $this->scheduled_time = $scheduled_time;
-        $this->connection_services = $connection_services;
     }
 }

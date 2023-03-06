@@ -14,38 +14,16 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"access_token":"e72e16c7e42f292c6912e7710c838347ae178b4a","target":"octocat","target_id":1,"repositories":["generated_repositories"],"repository_ids":[1],"permissions":{"contents":"read","issues":"read","deployments":"write","single_file":"read","actions":"generated_actions","administration":"generated_administration","checks":"generated_checks","environments":"generated_environments","metadata":"generated_metadata","packages":"generated_packages","pages":"generated_pages","pull_requests":"generated_pull_requests","repository_announcement_banners":"generated_repository_announcement_banners","repository_hooks":"generated_repository_hooks","repository_projects":"generated_repository_projects","secret_scanning_alerts":"generated_secret_scanning_alerts","secrets":"generated_secrets","security_events":"generated_security_events","statuses":"generated_statuses","vulnerability_alerts":"generated_vulnerability_alerts","workflows":"generated_workflows","members":"generated_members","organization_administration":"generated_organization_administration","organization_custom_roles":"generated_organization_custom_roles","organization_announcement_banners":"generated_organization_announcement_banners","organization_hooks":"generated_organization_hooks","organization_plan":"generated_organization_plan","organization_projects":"generated_organization_projects","organization_packages":"generated_organization_packages","organization_secrets":"generated_organization_secrets","organization_self_hosted_runners":"generated_organization_self_hosted_runners","organization_user_blocking":"generated_organization_user_blocking","team_discussions":"generated_team_discussions"}}';
     /**
-     * The access token used to authenticate to the GitHub API.
+     * access_token: The access token used to authenticate to the GitHub API.
+     * target: The name of the user or organization to scope the user-to-server access token to. **Required** unless `target_id` is specified.
+     * target_id: The ID of the user or organization to scope the user-to-server access token to. **Required** unless `target` is specified.
+     * repositories: The list of repository names to scope the user-to-server access token to. `repositories` may not be specified if `repository_ids` is specified.
+     * @param array<string> $repositories
+     * repository_ids: The list of repository IDs to scope the user-to-server access token to. `repository_ids` may not be specified if `repositories` is specified.
+     * @param array<int> $repository_ids
+     * permissions: The permissions granted to the user-to-server access token.
      */
-    public ?string $access_token;
-    /**
-     * The name of the user or organization to scope the user-to-server access token to. **Required** unless `target_id` is specified.
-     */
-    public string $target;
-    /**
-     * The ID of the user or organization to scope the user-to-server access token to. **Required** unless `target` is specified.
-     */
-    public int $target_id;
-    /**
-     * The list of repository names to scope the user-to-server access token to. `repositories` may not be specified if `repository_ids` is specified.
-     * @var array<string>
-     */
-    public array $repositories;
-    /**
-     * The list of repository IDs to scope the user-to-server access token to. `repository_ids` may not be specified if `repositories` is specified.
-     * @var array<int>
-     */
-    public array $repository_ids;
-    /**
-     * The permissions granted to the user-to-server access token.
-     */
-    public Schema\AppPermissions $permissions;
-    public function __construct(string $access_token, string $target, int $target_id, array $repositories, array $repository_ids, Schema\AppPermissions $permissions)
+    public function __construct(public ?string $access_token, public string $target, public int $target_id, public array $repositories, public array $repository_ids, public Schema\AppPermissions $permissions)
     {
-        $this->access_token = $access_token;
-        $this->target = $target;
-        $this->target_id = $target_id;
-        $this->repositories = $repositories;
-        $this->repository_ids = $repository_ids;
-        $this->permissions = $permissions;
     }
 }

@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enforcement":"generated_enforcement","allow_downstream_configuration":false}';
     /**
-     * The state of enforcement for the hook on this repository.
+     * enforcement: The state of enforcement for the hook on this repository.
+     * allow_downstream_configuration: Whether repositories can override enforcement.
      */
-    public ?string $enforcement;
-    /**
-     * Whether repositories can override enforcement.
-     */
-    public ?bool $allow_downstream_configuration;
-    public function __construct(string $enforcement, bool $allow_downstream_configuration)
+    public function __construct(public ?string $enforcement, public ?bool $allow_downstream_configuration)
     {
-        $this->enforcement = $enforcement;
-        $this->allow_downstream_configuration = $allow_downstream_configuration;
     }
 }

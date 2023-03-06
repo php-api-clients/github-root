@@ -13,49 +13,7 @@ final readonly class SimpleUser
     public const SCHEMA_TITLE = 'Simple User';
     public const SCHEMA_DESCRIPTION = 'Simple User';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""}';
-    public ?string $name;
-    public ?string $email;
-    public ?string $login;
-    public ?int $id;
-    public ?string $node_id;
-    public ?string $avatar_url;
-    public ?string $gravatar_id;
-    public ?string $url;
-    public ?string $html_url;
-    public ?string $followers_url;
-    public ?string $following_url;
-    public ?string $gists_url;
-    public ?string $starred_url;
-    public ?string $subscriptions_url;
-    public ?string $organizations_url;
-    public ?string $repos_url;
-    public ?string $events_url;
-    public ?string $received_events_url;
-    public ?string $type;
-    public ?bool $site_admin;
-    public string $starred_at;
-    public function __construct(string $name, string $email, string $login, int $id, string $node_id, string $avatar_url, string $gravatar_id, string $url, string $html_url, string $followers_url, string $following_url, string $gists_url, string $starred_url, string $subscriptions_url, string $organizations_url, string $repos_url, string $events_url, string $received_events_url, string $type, bool $site_admin, string $starred_at)
+    public function __construct(public ?string $name, public ?string $email, public ?string $login, public ?int $id, public ?string $node_id, public ?string $avatar_url, public ?string $gravatar_id, public ?string $url, public ?string $html_url, public ?string $followers_url, public ?string $following_url, public ?string $gists_url, public ?string $starred_url, public ?string $subscriptions_url, public ?string $organizations_url, public ?string $repos_url, public ?string $events_url, public ?string $received_events_url, public ?string $type, public ?bool $site_admin, public string $starred_at)
     {
-        $this->name = $name;
-        $this->email = $email;
-        $this->login = $login;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->avatar_url = $avatar_url;
-        $this->gravatar_id = $gravatar_id;
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->followers_url = $followers_url;
-        $this->following_url = $following_url;
-        $this->gists_url = $gists_url;
-        $this->starred_url = $starred_url;
-        $this->subscriptions_url = $subscriptions_url;
-        $this->organizations_url = $organizations_url;
-        $this->repos_url = $repos_url;
-        $this->events_url = $events_url;
-        $this->received_events_url = $received_events_url;
-        $this->type = $type;
-        $this->site_admin = $site_admin;
-        $this->starred_at = $starred_at;
     }
 }

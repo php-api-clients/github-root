@@ -14,16 +14,10 @@ final readonly class ActionsCacheUsagePolicyEnterprise
     public const SCHEMA_DESCRIPTION = 'GitHub Actions cache usage policy for an enterprise.';
     public const SCHEMA_EXAMPLE_DATA = '{"repo_cache_size_limit_in_gb":10,"max_repo_cache_size_limit_in_gb":15}';
     /**
-     * For repositories in an enterprise, the default size limit for the sum of all caches in a repository, in gigabytes.
+     * repo_cache_size_limit_in_gb: For repositories in an enterprise, the default size limit for the sum of all caches in a repository, in gigabytes.
+     * max_repo_cache_size_limit_in_gb: For repositories in an enterprise, the maximum value that can be set as the limit for the sum of all caches in a repository, in gigabytes.
      */
-    public ?int $repo_cache_size_limit_in_gb;
-    /**
-     * For repositories in an enterprise, the maximum value that can be set as the limit for the sum of all caches in a repository, in gigabytes.
-     */
-    public ?int $max_repo_cache_size_limit_in_gb;
-    public function __construct(int $repo_cache_size_limit_in_gb, int $max_repo_cache_size_limit_in_gb)
+    public function __construct(public ?int $repo_cache_size_limit_in_gb, public ?int $max_repo_cache_size_limit_in_gb)
     {
-        $this->repo_cache_size_limit_in_gb = $repo_cache_size_limit_in_gb;
-        $this->max_repo_cache_size_limit_in_gb = $max_repo_cache_size_limit_in_gb;
     }
 }

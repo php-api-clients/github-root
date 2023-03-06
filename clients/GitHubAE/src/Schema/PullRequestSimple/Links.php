@@ -14,46 +14,16 @@ final readonly class Links
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"comments":{"href":"generated_href"},"commits":{"href":"generated_href"},"statuses":{"href":"generated_href"},"html":{"href":"generated_href"},"issue":{"href":"generated_href"},"review_comments":{"href":"generated_href"},"review_comment":{"href":"generated_href"},"self":{"href":"generated_href"}}';
     /**
-     * Hypermedia Link
+     * comments: Hypermedia Link
+     * commits: Hypermedia Link
+     * statuses: Hypermedia Link
+     * html: Hypermedia Link
+     * issue: Hypermedia Link
+     * review_comments: Hypermedia Link
+     * review_comment: Hypermedia Link
+     * self: Hypermedia Link
      */
-    public ?Schema\Link $comments;
-    /**
-     * Hypermedia Link
-     */
-    public ?Schema\Link $commits;
-    /**
-     * Hypermedia Link
-     */
-    public ?Schema\Link $statuses;
-    /**
-     * Hypermedia Link
-     */
-    public ?Schema\Link $html;
-    /**
-     * Hypermedia Link
-     */
-    public ?Schema\Link $issue;
-    /**
-     * Hypermedia Link
-     */
-    public ?Schema\Link $review_comments;
-    /**
-     * Hypermedia Link
-     */
-    public ?Schema\Link $review_comment;
-    /**
-     * Hypermedia Link
-     */
-    public ?Schema\Link $self;
-    public function __construct(Schema\Link $comments, Schema\Link $commits, Schema\Link $statuses, Schema\Link $html, Schema\Link $issue, Schema\Link $review_comments, Schema\Link $review_comment, Schema\Link $self)
+    public function __construct(public ?Schema\Link $comments, public ?Schema\Link $commits, public ?Schema\Link $statuses, public ?Schema\Link $html, public ?Schema\Link $issue, public ?Schema\Link $review_comments, public ?Schema\Link $review_comment, public ?Schema\Link $self)
     {
-        $this->comments = $comments;
-        $this->commits = $commits;
-        $this->statuses = $statuses;
-        $this->html = $html;
-        $this->issue = $issue;
-        $this->review_comments = $review_comments;
-        $this->review_comment = $review_comment;
-        $this->self = $self;
     }
 }

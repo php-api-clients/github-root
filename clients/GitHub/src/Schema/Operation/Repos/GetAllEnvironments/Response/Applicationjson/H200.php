@@ -14,16 +14,10 @@ final readonly class H200
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_count":5,"environments":[{"id":56780428,"node_id":"MDExOkVudmlyb25tZW50NTY3ODA0Mjg=","name":"staging","url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/environments\\/staging","html_url":"https:\\/\\/github.com\\/github\\/hello-world\\/deployments\\/activity_log?environments_filter=staging","created_at":"2020-11-23T22:00:40Z","updated_at":"2020-11-23T22:00:40Z","protection_rules":[{"id":3515,"node_id":"MDQ6R2F0ZTM1MTU=","type":"branch_policy"}],"deployment_branch_policy":{"protected_branches":false,"custom_branch_policies":false}}]}';
     /**
-     * The number of environments in this repository
+     * total_count: The number of environments in this repository
+     * @param ?array<\ApiClients\Client\GitHub\Schema\Environment> $environments
      */
-    public ?int $total_count;
-    /**
-     * @var array<Schema\Environment>
-     */
-    public ?array $environments;
-    public function __construct(int $total_count, array $environments)
+    public function __construct(public ?int $total_count, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Environment::class)] public ?array $environments)
     {
-        $this->total_count = $total_count;
-        $this->environments = $environments;
     }
 }

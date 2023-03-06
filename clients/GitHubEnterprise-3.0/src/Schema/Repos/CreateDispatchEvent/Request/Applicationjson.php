@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"event_type":"generated_event_type","client_payload":[]}';
     /**
-     * A custom webhook event name.
+     * event_type: A custom webhook event name.
+     * client_payload: JSON payload with extra information about the webhook event that your action or worklow may use.
      */
-    public ?string $event_type;
-    /**
-     * JSON payload with extra information about the webhook event that your action or worklow may use.
-     */
-    public Schema\Repos\CreateDispatchEvent\Request\Applicationjson\ClientPayload $client_payload;
-    public function __construct(string $event_type, Schema\Repos\CreateDispatchEvent\Request\Applicationjson\ClientPayload $client_payload)
+    public function __construct(public ?string $event_type, public Schema\Repos\CreateDispatchEvent\Request\Applicationjson\ClientPayload $client_payload)
     {
-        $this->event_type = $event_type;
-        $this->client_payload = $client_payload;
     }
 }

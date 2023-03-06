@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"Remaining tasks"}';
     /**
-     * Name of the project column
+     * name: Name of the project column
      */
-    public ?string $name;
-    public function __construct(string $name)
+    public function __construct(public ?string $name)
     {
-        $this->name = $name;
     }
 }

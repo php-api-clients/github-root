@@ -13,59 +13,11 @@ final readonly class Import
     public const SCHEMA_TITLE = 'Import';
     public const SCHEMA_DESCRIPTION = 'A repository import from an external source.';
     public const SCHEMA_EXAMPLE_DATA = '{"vcs":"generated_vcs","use_lfs":false,"vcs_url":"generated_vcs_url","svc_root":"generated_svc_root","tfvc_project":"generated_tfvc_project","status":"generated_status","status_text":"generated_status_text","failed_step":"generated_failed_step","error_message":"generated_error_message","import_percent":13,"commit_count":13,"push_percent":13,"has_large_files":false,"large_files_size":13,"large_files_count":13,"project_choices":[{"vcs":"generated_vcs","tfvc_project":"generated_tfvc_project","human_name":"generated_human_name"}],"message":"generated_message","authors_count":13,"url":"generated_url","html_url":"generated_html_url","authors_url":"generated_authors_url","repository_url":"generated_repository_url","svn_root":"generated_svn_root"}';
-    public ?string $vcs;
-    public bool $use_lfs;
     /**
-     * The URL of the originating repository.
+     * vcs_url: The URL of the originating repository.
+     * @param array<\ApiClients\Client\GitHub\Schema\Import\ProjectChoices> $project_choices
      */
-    public ?string $vcs_url;
-    public string $svc_root;
-    public string $tfvc_project;
-    public ?string $status;
-    public ?string $status_text;
-    public ?string $failed_step;
-    public ?string $error_message;
-    public ?int $import_percent;
-    public ?int $commit_count;
-    public ?int $push_percent;
-    public bool $has_large_files;
-    public int $large_files_size;
-    public int $large_files_count;
-    /**
-     * @var array<Schema\Import\ProjectChoices>
-     */
-    public array $project_choices;
-    public string $message;
-    public ?int $authors_count;
-    public ?string $url;
-    public ?string $html_url;
-    public ?string $authors_url;
-    public ?string $repository_url;
-    public string $svn_root;
-    public function __construct(string $vcs, bool $use_lfs, string $vcs_url, string $svc_root, string $tfvc_project, string $status, string $status_text, string $failed_step, string $error_message, int $import_percent, int $commit_count, int $push_percent, bool $has_large_files, int $large_files_size, int $large_files_count, array $project_choices, string $message, int $authors_count, string $url, string $html_url, string $authors_url, string $repository_url, string $svn_root)
+    public function __construct(public ?string $vcs, public bool $use_lfs, public ?string $vcs_url, public string $svc_root, public string $tfvc_project, public ?string $status, public ?string $status_text, public ?string $failed_step, public ?string $error_message, public ?int $import_percent, public ?int $commit_count, public ?int $push_percent, public bool $has_large_files, public int $large_files_size, public int $large_files_count, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Import\ProjectChoices::class)] public array $project_choices, public string $message, public ?int $authors_count, public ?string $url, public ?string $html_url, public ?string $authors_url, public ?string $repository_url, public string $svn_root)
     {
-        $this->vcs = $vcs;
-        $this->use_lfs = $use_lfs;
-        $this->vcs_url = $vcs_url;
-        $this->svc_root = $svc_root;
-        $this->tfvc_project = $tfvc_project;
-        $this->status = $status;
-        $this->status_text = $status_text;
-        $this->failed_step = $failed_step;
-        $this->error_message = $error_message;
-        $this->import_percent = $import_percent;
-        $this->commit_count = $commit_count;
-        $this->push_percent = $push_percent;
-        $this->has_large_files = $has_large_files;
-        $this->large_files_size = $large_files_size;
-        $this->large_files_count = $large_files_count;
-        $this->project_choices = $project_choices;
-        $this->message = $message;
-        $this->authors_count = $authors_count;
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->authors_url = $authors_url;
-        $this->repository_url = $repository_url;
-        $this->svn_root = $svn_root;
     }
 }

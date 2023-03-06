@@ -14,22 +14,12 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"wait_timer":30,"reviewers":[{"type":"User","id":4532992}],"deployment_branch_policy":{"protected_branches":false,"custom_branch_policies":false}}';
     /**
-     * The amount of time to delay a job after the job is initially triggered. The time (in minutes) must be an integer between 0 and 43,200 (30 days).
+     * wait_timer: The amount of time to delay a job after the job is initially triggered. The time (in minutes) must be an integer between 0 and 43,200 (30 days).
+     * reviewers: The people or teams that may review jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\Repos\CreateOrUpdateEnvironment\Request\Applicationjson\Reviewers> $reviewers
+     * deployment_branch_policy: The type of deployment branch policy for this environment. To allow all branches to deploy, set to `null`.
      */
-    public ?int $wait_timer;
-    /**
-     * The people or teams that may review jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
-     * @var array<Schema\Repos\CreateOrUpdateEnvironment\Request\Applicationjson\Reviewers>
-     */
-    public ?array $reviewers;
-    /**
-     * The type of deployment branch policy for this environment. To allow all branches to deploy, set to `null`.
-     */
-    public ?Schema\DeploymentBranchPolicySettings $deployment_branch_policy;
-    public function __construct(int $wait_timer, array $reviewers, Schema\DeploymentBranchPolicySettings $deployment_branch_policy)
+    public function __construct(public ?int $wait_timer, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Repos\CreateOrUpdateEnvironment\Request\Applicationjson\Reviewers::class)] public ?array $reviewers, public ?Schema\DeploymentBranchPolicySettings $deployment_branch_policy)
     {
-        $this->wait_timer = $wait_timer;
-        $this->reviewers = $reviewers;
-        $this->deployment_branch_policy = $deployment_branch_policy;
     }
 }

@@ -13,29 +13,7 @@ final readonly class Status
     public const SCHEMA_TITLE = 'Status';
     public const SCHEMA_DESCRIPTION = 'The status of a commit.';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url","avatar_url":"generated_avatar_url","id":13,"node_id":"generated_node_id","state":"generated_state","description":"generated_description","target_url":"generated_target_url","context":"generated_context","created_at":"generated_created_at","updated_at":"generated_updated_at","creator":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""}}';
-    public ?string $url;
-    public ?string $avatar_url;
-    public ?int $id;
-    public ?string $node_id;
-    public ?string $state;
-    public ?string $description;
-    public ?string $target_url;
-    public ?string $context;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public ?Schema\SimpleUser $creator;
-    public function __construct(string $url, string $avatar_url, int $id, string $node_id, string $state, string $description, string $target_url, string $context, string $created_at, string $updated_at, Schema\SimpleUser $creator)
+    public function __construct(public ?string $url, public ?string $avatar_url, public ?int $id, public ?string $node_id, public ?string $state, public ?string $description, public ?string $target_url, public ?string $context, public ?string $created_at, public ?string $updated_at, public ?Schema\SimpleUser $creator)
     {
-        $this->url = $url;
-        $this->avatar_url = $avatar_url;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->state = $state;
-        $this->description = $description;
-        $this->target_url = $target_url;
-        $this->context = $context;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->creator = $creator;
     }
 }

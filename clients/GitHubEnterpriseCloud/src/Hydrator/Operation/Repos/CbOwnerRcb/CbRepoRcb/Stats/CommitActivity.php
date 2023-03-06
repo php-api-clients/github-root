@@ -38,7 +38,7 @@ class CommitActivity implements ObjectMapper
                 $value = $payload['days'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'days';
+                    $properties['days'] = null;
                     goto after_days;
                 }
 
@@ -49,7 +49,7 @@ class CommitActivity implements ObjectMapper
                 $value = $payload['total'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total';
+                    $properties['total'] = null;
                     goto after_total;
                 }
 
@@ -60,7 +60,7 @@ class CommitActivity implements ObjectMapper
                 $value = $payload['week'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'week';
+                    $properties['week'] = null;
                     goto after_week;
                 }
 

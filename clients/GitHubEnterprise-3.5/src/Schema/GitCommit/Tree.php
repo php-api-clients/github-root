@@ -14,13 +14,9 @@ final readonly class Tree
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"sha":"7638417db6d59f3c431d3e1f261cc637155684cd","url":"generated_url"}';
     /**
-     * SHA for the commit
+     * sha: SHA for the commit
      */
-    public ?string $sha;
-    public ?string $url;
-    public function __construct(string $sha, string $url)
+    public function __construct(public ?string $sha, public ?string $url)
     {
-        $this->sha = $sha;
-        $this->url = $url;
     }
 }

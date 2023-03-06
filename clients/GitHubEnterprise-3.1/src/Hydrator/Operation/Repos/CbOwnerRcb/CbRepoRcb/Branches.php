@@ -48,7 +48,7 @@ class Branches implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -59,7 +59,7 @@ class Branches implements ObjectMapper
                 $value = $payload['commit'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commit';
+                    $properties['commit'] = null;
                     goto after_commit;
                 }
 
@@ -79,7 +79,7 @@ class Branches implements ObjectMapper
                 $value = $payload['protected'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'protected';
+                    $properties['protected'] = null;
                     goto after_protected;
                 }
 
@@ -143,7 +143,7 @@ class Branches implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -154,7 +154,7 @@ class Branches implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -165,7 +165,7 @@ class Branches implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -176,7 +176,7 @@ class Branches implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -209,7 +209,7 @@ class Branches implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -220,7 +220,7 @@ class Branches implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -253,7 +253,7 @@ class Branches implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -264,7 +264,7 @@ class Branches implements ObjectMapper
                 $value = $payload['enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enabled';
+                    $properties['enabled'] = null;
                     goto after_enabled;
                 }
 
@@ -275,7 +275,7 @@ class Branches implements ObjectMapper
                 $value = $payload['required_status_checks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'required_status_checks';
+                    $properties['required_status_checks'] = null;
                     goto after_required_status_checks;
                 }
 
@@ -295,7 +295,7 @@ class Branches implements ObjectMapper
                 $value = $payload['enforce_admins'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enforce_admins';
+                    $properties['enforce_admins'] = null;
                     goto after_enforce_admins;
                 }
 
@@ -315,7 +315,7 @@ class Branches implements ObjectMapper
                 $value = $payload['required_pull_request_reviews'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'required_pull_request_reviews';
+                    $properties['required_pull_request_reviews'] = null;
                     goto after_required_pull_request_reviews;
                 }
 
@@ -335,7 +335,7 @@ class Branches implements ObjectMapper
                 $value = $payload['restrictions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'restrictions';
+                    $properties['restrictions'] = null;
                     goto after_restrictions;
                 }
 
@@ -355,7 +355,7 @@ class Branches implements ObjectMapper
                 $value = $payload['required_linear_history'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'required_linear_history';
+                    $properties['required_linear_history'] = null;
                     goto after_required_linear_history;
                 }
 
@@ -375,7 +375,7 @@ class Branches implements ObjectMapper
                 $value = $payload['allow_force_pushes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_force_pushes';
+                    $properties['allow_force_pushes'] = null;
                     goto after_allow_force_pushes;
                 }
 
@@ -395,7 +395,7 @@ class Branches implements ObjectMapper
                 $value = $payload['allow_deletions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_deletions';
+                    $properties['allow_deletions'] = null;
                     goto after_allow_deletions;
                 }
 
@@ -415,7 +415,7 @@ class Branches implements ObjectMapper
                 $value = $payload['block_creations'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'block_creations';
+                    $properties['block_creations'] = null;
                     goto after_block_creations;
                 }
 
@@ -435,7 +435,7 @@ class Branches implements ObjectMapper
                 $value = $payload['required_conversation_resolution'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'required_conversation_resolution';
+                    $properties['required_conversation_resolution'] = null;
                     goto after_required_conversation_resolution;
                 }
 
@@ -455,7 +455,7 @@ class Branches implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -466,7 +466,7 @@ class Branches implements ObjectMapper
                 $value = $payload['protection_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'protection_url';
+                    $properties['protection_url'] = null;
                     goto after_protection_url;
                 }
 
@@ -477,7 +477,7 @@ class Branches implements ObjectMapper
                 $value = $payload['required_signatures'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'required_signatures';
+                    $properties['required_signatures'] = null;
                     goto after_required_signatures;
                 }
 
@@ -541,7 +541,7 @@ class Branches implements ObjectMapper
                 $value = $payload['contexts'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contexts';
+                    $properties['contexts'] = null;
                     goto after_contexts;
                 }
 
@@ -596,7 +596,7 @@ class Branches implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -607,7 +607,7 @@ class Branches implements ObjectMapper
                 $value = $payload['enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enabled';
+                    $properties['enabled'] = null;
                     goto after_enabled;
                 }
 
@@ -671,7 +671,7 @@ class Branches implements ObjectMapper
                 $value = $payload['dismiss_stale_reviews'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'dismiss_stale_reviews';
+                    $properties['dismiss_stale_reviews'] = null;
                     goto after_dismiss_stale_reviews;
                 }
 
@@ -682,7 +682,7 @@ class Branches implements ObjectMapper
                 $value = $payload['require_code_owner_reviews'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'require_code_owner_reviews';
+                    $properties['require_code_owner_reviews'] = null;
                     goto after_require_code_owner_reviews;
                 }
 
@@ -726,7 +726,7 @@ class Branches implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -737,7 +737,7 @@ class Branches implements ObjectMapper
                 $value = $payload['users_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'users_url';
+                    $properties['users_url'] = null;
                     goto after_users_url;
                 }
 
@@ -748,7 +748,7 @@ class Branches implements ObjectMapper
                 $value = $payload['teams_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams_url';
+                    $properties['teams_url'] = null;
                     goto after_teams_url;
                 }
 
@@ -759,7 +759,7 @@ class Branches implements ObjectMapper
                 $value = $payload['apps_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'apps_url';
+                    $properties['apps_url'] = null;
                     goto after_apps_url;
                 }
 
@@ -770,9 +770,19 @@ class Branches implements ObjectMapper
                 $value = $payload['users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'users';
+                    $properties['users'] = null;
                     goto after_users;
                 }
+
+                static $usersCaster1;
+    
+                if ($usersCaster1 === null) {
+                    $usersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository\\TemplateRepository\\Owner',
+));
+                }
+    
+                $value = $usersCaster1->cast($value, $this);
 
                 $properties['users'] = $value;
     
@@ -781,9 +791,19 @@ class Branches implements ObjectMapper
                 $value = $payload['teams'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams';
+                    $properties['teams'] = null;
                     goto after_teams;
                 }
+
+                static $teamsCaster1;
+    
+                if ($teamsCaster1 === null) {
+                    $teamsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy\\Teams',
+));
+                }
+    
+                $value = $teamsCaster1->cast($value, $this);
 
                 $properties['teams'] = $value;
     
@@ -792,9 +812,19 @@ class Branches implements ObjectMapper
                 $value = $payload['apps'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'apps';
+                    $properties['apps'] = null;
                     goto after_apps;
                 }
+
+                static $appsCaster1;
+    
+                if ($appsCaster1 === null) {
+                    $appsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy\\Apps',
+));
+                }
+    
+                $value = $appsCaster1->cast($value, $this);
 
                 $properties['apps'] = $value;
     
@@ -825,7 +855,7 @@ class Branches implements ObjectMapper
                 $value = $payload['enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enabled';
+                    $properties['enabled'] = null;
                     goto after_enabled;
                 }
 
@@ -858,7 +888,7 @@ class Branches implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -869,7 +899,7 @@ class Branches implements ObjectMapper
                 $value = $payload['enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enabled';
+                    $properties['enabled'] = null;
                     goto after_enabled;
                 }
 
@@ -902,9 +932,19 @@ class Branches implements ObjectMapper
                 $value = $payload['users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'users';
+                    $properties['users'] = null;
                     goto after_users;
                 }
+
+                static $usersCaster1;
+    
+                if ($usersCaster1 === null) {
+                    $usersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleUser',
+));
+                }
+    
+                $value = $usersCaster1->cast($value, $this);
 
                 $properties['users'] = $value;
     
@@ -913,9 +953,19 @@ class Branches implements ObjectMapper
                 $value = $payload['teams'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams';
+                    $properties['teams'] = null;
                     goto after_teams;
                 }
+
+                static $teamsCaster1;
+    
+                if ($teamsCaster1 === null) {
+                    $teamsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Team',
+));
+                }
+    
+                $value = $teamsCaster1->cast($value, $this);
 
                 $properties['teams'] = $value;
     
@@ -924,9 +974,19 @@ class Branches implements ObjectMapper
                 $value = $payload['apps'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'apps';
+                    $properties['apps'] = null;
                     goto after_apps;
                 }
+
+                static $appsCaster1;
+    
+                if ($appsCaster1 === null) {
+                    $appsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Integration',
+));
+                }
+    
+                $value = $appsCaster1->cast($value, $this);
 
                 $properties['apps'] = $value;
     
@@ -935,7 +995,7 @@ class Branches implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -946,7 +1006,7 @@ class Branches implements ObjectMapper
                 $value = $payload['users_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'users_url';
+                    $properties['users_url'] = null;
                     goto after_users_url;
                 }
 
@@ -957,7 +1017,7 @@ class Branches implements ObjectMapper
                 $value = $payload['teams_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams_url';
+                    $properties['teams_url'] = null;
                     goto after_teams_url;
                 }
 

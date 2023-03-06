@@ -14,16 +14,10 @@ final readonly class ParticipationStats
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"all":[13],"owner":[13]}';
     /**
-     * @var array<int>
+     * @param ?array<int> $all
+     * @param ?array<int> $owner
      */
-    public ?array $all;
-    /**
-     * @var array<int>
-     */
-    public ?array $owner;
-    public function __construct(array $all, array $owner)
+    public function __construct(public ?array $all, public ?array $owner)
     {
-        $this->all = $all;
-        $this->owner = $owner;
     }
 }

@@ -14,17 +14,11 @@ final readonly class PatchSchema
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"Operations":[{"op":"generated_op","path":"generated_path","value":"generated_value"}],"schemas":["generated_schemas"]}';
     /**
-     * patch operations list
-     * @var array<Schema\PatchSchema\Operations>
+     * Operations: patch operations list
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\PatchSchema\Operations> $Operations
+     * @param ?array<string> $schemas
      */
-    public ?array $Operations;
-    /**
-     * @var array<string>
-     */
-    public ?array $schemas;
-    public function __construct(array $Operations, array $schemas)
+    public function __construct(#[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\PatchSchema\Operations::class)] public ?array $Operations, public ?array $schemas)
     {
-        $this->Operations = $Operations;
-        $this->schemas = $schemas;
     }
 }

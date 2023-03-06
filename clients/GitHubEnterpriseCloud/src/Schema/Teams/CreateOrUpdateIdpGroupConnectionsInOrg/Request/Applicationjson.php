@@ -14,12 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"groups":[{"group_id":"generated_group_id","group_name":"generated_group_name","group_description":"generated_group_description"}]}';
     /**
-     * The IdP groups you want to connect to a GitHub team. When updating, the new `groups` object will replace the original one. You must include any existing groups that you don't want to remove.
-     * @var array<Schema\Teams\CreateOrUpdateIdpGroupConnectionsInOrg\Request\Applicationjson\Groups>
+     * groups: The IdP groups you want to connect to a GitHub team. When updating, the new `groups` object will replace the original one. You must include any existing groups that you don't want to remove.
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\Teams\CreateOrUpdateIdpGroupConnectionsInOrg\Request\Applicationjson\Groups> $groups
      */
-    public ?array $groups;
-    public function __construct(array $groups)
+    public function __construct(#[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Teams\CreateOrUpdateIdpGroupConnectionsInOrg\Request\Applicationjson\Groups::class)] public ?array $groups)
     {
-        $this->groups = $groups;
     }
 }

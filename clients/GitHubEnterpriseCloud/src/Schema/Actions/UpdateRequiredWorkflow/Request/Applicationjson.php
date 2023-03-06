@@ -14,27 +14,13 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"workflow_file_path":"generated_workflow_file_path","repository_id":"generated_repository_id","scope":"generated_scope","selected_repository_ids":[13]}';
     /**
-     * Path of the workflow file to be configured as a required workflow.
+     * workflow_file_path: Path of the workflow file to be configured as a required workflow.
+     * repository_id: The ID of the repository that contains the workflow file.
+     * scope: Enable the required workflow for all repositories or selected repositories in the organization.
+     * selected_repository_ids: A list of repository IDs where you want to enable the required workflow. A list of repository IDs where you want to enable the required workflow. You can only provide a list of repository ids when the `scope` is set to `selected`.
+     * @param ?array<int> $selected_repository_ids
      */
-    public ?string $workflow_file_path;
-    /**
-     * The ID of the repository that contains the workflow file.
-     */
-    public ?string $repository_id;
-    /**
-     * Enable the required workflow for all repositories or selected repositories in the organization.
-     */
-    public ?string $scope;
-    /**
-     * A list of repository IDs where you want to enable the required workflow. A list of repository IDs where you want to enable the required workflow. You can only provide a list of repository ids when the `scope` is set to `selected`.
-     * @var array<int>
-     */
-    public ?array $selected_repository_ids;
-    public function __construct(string $workflow_file_path, string $repository_id, string $scope, array $selected_repository_ids)
+    public function __construct(public ?string $workflow_file_path, public ?string $repository_id, public ?string $scope, public ?array $selected_repository_ids)
     {
-        $this->workflow_file_path = $workflow_file_path;
-        $this->repository_id = $repository_id;
-        $this->scope = $scope;
-        $this->selected_repository_ids = $selected_repository_ids;
     }
 }

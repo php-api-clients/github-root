@@ -13,16 +13,10 @@ final readonly class Ubuntu
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_ms":13,"jobs":13,"job_runs":[{"job_id":13,"duration_ms":13}]}';
-    public ?int $total_ms;
-    public ?int $jobs;
     /**
-     * @var array<Schema\WorkflowRunUsage\Billable\Ubuntu\JobRuns>
+     * @param array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\WorkflowRunUsage\Billable\Ubuntu\JobRuns> $job_runs
      */
-    public array $job_runs;
-    public function __construct(int $total_ms, int $jobs, array $job_runs)
+    public function __construct(public ?int $total_ms, public ?int $jobs, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\WorkflowRunUsage\Billable\Ubuntu\JobRuns::class)] public array $job_runs)
     {
-        $this->total_ms = $total_ms;
-        $this->jobs = $jobs;
-        $this->job_runs = $job_runs;
     }
 }

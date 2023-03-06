@@ -38,7 +38,7 @@ class Orgs implements ObjectMapper
                 $value = $payload['total_orgs'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_orgs';
+                    $properties['total_orgs'] = null;
                     goto after_total_orgs;
                 }
 
@@ -49,7 +49,7 @@ class Orgs implements ObjectMapper
                 $value = $payload['disabled_orgs'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'disabled_orgs';
+                    $properties['disabled_orgs'] = null;
                     goto after_disabled_orgs;
                 }
 
@@ -60,7 +60,7 @@ class Orgs implements ObjectMapper
                 $value = $payload['total_teams'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_teams';
+                    $properties['total_teams'] = null;
                     goto after_total_teams;
                 }
 
@@ -71,7 +71,7 @@ class Orgs implements ObjectMapper
                 $value = $payload['total_team_members'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_team_members';
+                    $properties['total_team_members'] = null;
                     goto after_total_team_members;
                 }
 

@@ -14,35 +14,17 @@ final readonly class EnterpriseSecurityAnalysisSettings
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"advanced_security_enabled_for_new_repositories":false,"dependabot_alerts_enabled_for_new_repositories":false,"secret_scanning_enabled_for_new_repositories":false,"secret_scanning_push_protection_enabled_for_new_repositories":false,"secret_scanning_push_protection_custom_link":"https:\\/\\/github.com\\/test-org\\/test-repo\\/blob\\/main\\/README.md"}';
     /**
-    * Whether GitHub advanced security is automatically enabled for new repositories and repositories transferred to
+    * advanced_security_enabled_for_new_repositories: Whether GitHub advanced security is automatically enabled for new repositories and repositories transferred to
     this enterprise.
-    */
-    public ?bool $advanced_security_enabled_for_new_repositories;
-    /**
-    * Whether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this
+    * dependabot_alerts_enabled_for_new_repositories: Whether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this
     enterprise.
-    */
-    public ?bool $dependabot_alerts_enabled_for_new_repositories;
-    /**
-    * Whether secret scanning is automatically enabled for new repositories and repositories transferred to this
+    * secret_scanning_enabled_for_new_repositories: Whether secret scanning is automatically enabled for new repositories and repositories transferred to this
     enterprise.
-    */
-    public ?bool $secret_scanning_enabled_for_new_repositories;
-    /**
-    * Whether secret scanning push protection is automatically enabled for new repositories and repositories
+    * secret_scanning_push_protection_enabled_for_new_repositories: Whether secret scanning push protection is automatically enabled for new repositories and repositories
     transferred to this enterprise.
+    * secret_scanning_push_protection_custom_link: An optional URL string to display to contributors who are blocked from pushing a secret.
     */
-    public ?bool $secret_scanning_push_protection_enabled_for_new_repositories;
-    /**
-     * An optional URL string to display to contributors who are blocked from pushing a secret.
-     */
-    public ?string $secret_scanning_push_protection_custom_link;
-    public function __construct(bool $advanced_security_enabled_for_new_repositories, bool $dependabot_alerts_enabled_for_new_repositories, bool $secret_scanning_enabled_for_new_repositories, bool $secret_scanning_push_protection_enabled_for_new_repositories, string $secret_scanning_push_protection_custom_link)
+    public function __construct(public ?bool $advanced_security_enabled_for_new_repositories, public ?bool $dependabot_alerts_enabled_for_new_repositories, public ?bool $secret_scanning_enabled_for_new_repositories, public ?bool $secret_scanning_push_protection_enabled_for_new_repositories, public ?string $secret_scanning_push_protection_custom_link)
     {
-        $this->advanced_security_enabled_for_new_repositories = $advanced_security_enabled_for_new_repositories;
-        $this->dependabot_alerts_enabled_for_new_repositories = $dependabot_alerts_enabled_for_new_repositories;
-        $this->secret_scanning_enabled_for_new_repositories = $secret_scanning_enabled_for_new_repositories;
-        $this->secret_scanning_push_protection_enabled_for_new_repositories = $secret_scanning_push_protection_enabled_for_new_repositories;
-        $this->secret_scanning_push_protection_custom_link = $secret_scanning_push_protection_custom_link;
     }
 }

@@ -13,11 +13,7 @@ final readonly class DormantUsers
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_dormant_users":13,"dormancy_threshold":"generated_dormancy_threshold"}';
-    public ?int $total_dormant_users;
-    public ?string $dormancy_threshold;
-    public function __construct(int $total_dormant_users, string $dormancy_threshold)
+    public function __construct(public ?int $total_dormant_users, public ?string $dormancy_threshold)
     {
-        $this->total_dormant_users = $total_dormant_users;
-        $this->dormancy_threshold = $dormancy_threshold;
     }
 }

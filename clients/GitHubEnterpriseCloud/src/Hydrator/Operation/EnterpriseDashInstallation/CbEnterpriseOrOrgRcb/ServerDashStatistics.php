@@ -51,7 +51,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['server_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'server_id';
+                    $properties['server_id'] = null;
                     goto after_server_id;
                 }
 
@@ -62,7 +62,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['collection_date'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'collection_date';
+                    $properties['collection_date'] = null;
                     goto after_collection_date;
                 }
 
@@ -73,7 +73,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['schema_version'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'schema_version';
+                    $properties['schema_version'] = null;
                     goto after_schema_version;
                 }
 
@@ -84,7 +84,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['ghes_version'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ghes_version';
+                    $properties['ghes_version'] = null;
                     goto after_ghes_version;
                 }
 
@@ -95,7 +95,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['host_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'host_name';
+                    $properties['host_name'] = null;
                     goto after_host_name;
                 }
 
@@ -106,7 +106,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['github_connect'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'github_connect';
+                    $properties['github_connect'] = null;
                     goto after_github_connect;
                 }
 
@@ -126,7 +126,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['ghe_stats'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ghe_stats';
+                    $properties['ghe_stats'] = null;
                     goto after_ghe_stats;
                 }
 
@@ -146,7 +146,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['dormant_users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'dormant_users';
+                    $properties['dormant_users'] = null;
                     goto after_dormant_users;
                 }
 
@@ -188,7 +188,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['features_enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'features_enabled';
+                    $properties['features_enabled'] = null;
                     goto after_features_enabled;
                 }
 
@@ -221,7 +221,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['comments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'comments';
+                    $properties['comments'] = null;
                     goto after_comments;
                 }
 
@@ -241,7 +241,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['gists'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists';
+                    $properties['gists'] = null;
                     goto after_gists;
                 }
 
@@ -261,7 +261,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks';
+                    $properties['hooks'] = null;
                     goto after_hooks;
                 }
 
@@ -281,7 +281,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues';
+                    $properties['issues'] = null;
                     goto after_issues;
                 }
 
@@ -301,7 +301,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['milestones'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'milestones';
+                    $properties['milestones'] = null;
                     goto after_milestones;
                 }
 
@@ -321,7 +321,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['orgs'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'orgs';
+                    $properties['orgs'] = null;
                     goto after_orgs;
                 }
 
@@ -341,7 +341,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pages';
+                    $properties['pages'] = null;
                     goto after_pages;
                 }
 
@@ -361,7 +361,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['pulls'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pulls';
+                    $properties['pulls'] = null;
                     goto after_pulls;
                 }
 
@@ -381,7 +381,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['repos'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos';
+                    $properties['repos'] = null;
                     goto after_repos;
                 }
 
@@ -401,7 +401,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'users';
+                    $properties['users'] = null;
                     goto after_users;
                 }
 
@@ -443,7 +443,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_dormant_users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_dormant_users';
+                    $properties['total_dormant_users'] = null;
                     goto after_total_dormant_users;
                 }
 
@@ -454,7 +454,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['dormancy_threshold'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'dormancy_threshold';
+                    $properties['dormancy_threshold'] = null;
                     goto after_dormancy_threshold;
                 }
 
@@ -487,7 +487,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_commit_comments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_commit_comments';
+                    $properties['total_commit_comments'] = null;
                     goto after_total_commit_comments;
                 }
 
@@ -498,7 +498,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_gist_comments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_gist_comments';
+                    $properties['total_gist_comments'] = null;
                     goto after_total_gist_comments;
                 }
 
@@ -509,7 +509,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_issue_comments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_issue_comments';
+                    $properties['total_issue_comments'] = null;
                     goto after_total_issue_comments;
                 }
 
@@ -520,7 +520,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_pull_request_comments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_pull_request_comments';
+                    $properties['total_pull_request_comments'] = null;
                     goto after_total_pull_request_comments;
                 }
 
@@ -553,7 +553,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_gists'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_gists';
+                    $properties['total_gists'] = null;
                     goto after_total_gists;
                 }
 
@@ -564,7 +564,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['private_gists'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'private_gists';
+                    $properties['private_gists'] = null;
                     goto after_private_gists;
                 }
 
@@ -575,7 +575,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['public_gists'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'public_gists';
+                    $properties['public_gists'] = null;
                     goto after_public_gists;
                 }
 
@@ -608,7 +608,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_hooks';
+                    $properties['total_hooks'] = null;
                     goto after_total_hooks;
                 }
 
@@ -619,7 +619,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['active_hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'active_hooks';
+                    $properties['active_hooks'] = null;
                     goto after_active_hooks;
                 }
 
@@ -630,7 +630,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['inactive_hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'inactive_hooks';
+                    $properties['inactive_hooks'] = null;
                     goto after_inactive_hooks;
                 }
 
@@ -663,7 +663,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_issues';
+                    $properties['total_issues'] = null;
                     goto after_total_issues;
                 }
 
@@ -674,7 +674,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['open_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues';
+                    $properties['open_issues'] = null;
                     goto after_open_issues;
                 }
 
@@ -685,7 +685,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['closed_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'closed_issues';
+                    $properties['closed_issues'] = null;
                     goto after_closed_issues;
                 }
 
@@ -718,7 +718,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_milestones'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_milestones';
+                    $properties['total_milestones'] = null;
                     goto after_total_milestones;
                 }
 
@@ -729,7 +729,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['open_milestones'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_milestones';
+                    $properties['open_milestones'] = null;
                     goto after_open_milestones;
                 }
 
@@ -740,7 +740,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['closed_milestones'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'closed_milestones';
+                    $properties['closed_milestones'] = null;
                     goto after_closed_milestones;
                 }
 
@@ -773,7 +773,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_orgs'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_orgs';
+                    $properties['total_orgs'] = null;
                     goto after_total_orgs;
                 }
 
@@ -784,7 +784,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['disabled_orgs'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'disabled_orgs';
+                    $properties['disabled_orgs'] = null;
                     goto after_disabled_orgs;
                 }
 
@@ -795,7 +795,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_teams'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_teams';
+                    $properties['total_teams'] = null;
                     goto after_total_teams;
                 }
 
@@ -806,7 +806,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_team_members'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_team_members';
+                    $properties['total_team_members'] = null;
                     goto after_total_team_members;
                 }
 
@@ -839,7 +839,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_pages';
+                    $properties['total_pages'] = null;
                     goto after_total_pages;
                 }
 
@@ -872,7 +872,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_pulls'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_pulls';
+                    $properties['total_pulls'] = null;
                     goto after_total_pulls;
                 }
 
@@ -883,7 +883,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['merged_pulls'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merged_pulls';
+                    $properties['merged_pulls'] = null;
                     goto after_merged_pulls;
                 }
 
@@ -894,7 +894,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['mergeable_pulls'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'mergeable_pulls';
+                    $properties['mergeable_pulls'] = null;
                     goto after_mergeable_pulls;
                 }
 
@@ -905,7 +905,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['unmergeable_pulls'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'unmergeable_pulls';
+                    $properties['unmergeable_pulls'] = null;
                     goto after_unmergeable_pulls;
                 }
 
@@ -938,7 +938,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_repos'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_repos';
+                    $properties['total_repos'] = null;
                     goto after_total_repos;
                 }
 
@@ -949,7 +949,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['root_repos'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'root_repos';
+                    $properties['root_repos'] = null;
                     goto after_root_repos;
                 }
 
@@ -960,7 +960,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['fork_repos'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'fork_repos';
+                    $properties['fork_repos'] = null;
                     goto after_fork_repos;
                 }
 
@@ -971,7 +971,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['org_repos'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'org_repos';
+                    $properties['org_repos'] = null;
                     goto after_org_repos;
                 }
 
@@ -982,7 +982,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_pushes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_pushes';
+                    $properties['total_pushes'] = null;
                     goto after_total_pushes;
                 }
 
@@ -993,7 +993,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_wikis'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_wikis';
+                    $properties['total_wikis'] = null;
                     goto after_total_wikis;
                 }
 
@@ -1026,7 +1026,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['total_users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_users';
+                    $properties['total_users'] = null;
                     goto after_total_users;
                 }
 
@@ -1037,7 +1037,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['admin_users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin_users';
+                    $properties['admin_users'] = null;
                     goto after_admin_users;
                 }
 
@@ -1048,7 +1048,7 @@ class ServerDashStatistics implements ObjectMapper
                 $value = $payload['suspended_users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'suspended_users';
+                    $properties['suspended_users'] = null;
                     goto after_suspended_users;
                 }
 

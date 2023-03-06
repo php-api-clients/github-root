@@ -41,7 +41,7 @@ class Readme implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -52,7 +52,7 @@ class Readme implements ObjectMapper
                 $value = $payload['encoding'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'encoding';
+                    $properties['encoding'] = null;
                     goto after_encoding;
                 }
 
@@ -63,7 +63,7 @@ class Readme implements ObjectMapper
                 $value = $payload['size'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'size';
+                    $properties['size'] = null;
                     goto after_size;
                 }
 
@@ -74,7 +74,7 @@ class Readme implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -85,7 +85,7 @@ class Readme implements ObjectMapper
                 $value = $payload['path'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'path';
+                    $properties['path'] = null;
                     goto after_path;
                 }
 
@@ -96,7 +96,7 @@ class Readme implements ObjectMapper
                 $value = $payload['content'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'content';
+                    $properties['content'] = null;
                     goto after_content;
                 }
 
@@ -107,7 +107,7 @@ class Readme implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -118,7 +118,7 @@ class Readme implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -129,7 +129,7 @@ class Readme implements ObjectMapper
                 $value = $payload['git_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_url';
+                    $properties['git_url'] = null;
                     goto after_git_url;
                 }
 
@@ -140,7 +140,7 @@ class Readme implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -151,7 +151,7 @@ class Readme implements ObjectMapper
                 $value = $payload['download_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'download_url';
+                    $properties['download_url'] = null;
                     goto after_download_url;
                 }
 
@@ -162,7 +162,7 @@ class Readme implements ObjectMapper
                 $value = $payload['_links'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = '_links';
+                    $properties['_links'] = null;
                     goto after__links;
                 }
 
@@ -226,7 +226,7 @@ class Readme implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -237,7 +237,7 @@ class Readme implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -248,7 +248,7 @@ class Readme implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -259,7 +259,7 @@ class Readme implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -292,7 +292,7 @@ class Readme implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -303,7 +303,7 @@ class Readme implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -317,6 +317,16 @@ class Readme implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -347,7 +357,7 @@ class Readme implements ObjectMapper
                 $value = $payload['git'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git';
+                    $properties['git'] = null;
                     goto after_git;
                 }
 
@@ -358,7 +368,7 @@ class Readme implements ObjectMapper
                 $value = $payload['html'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html';
+                    $properties['html'] = null;
                     goto after_html;
                 }
 
@@ -369,7 +379,7 @@ class Readme implements ObjectMapper
                 $value = $payload['self'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'self';
+                    $properties['self'] = null;
                     goto after_self;
                 }
 
@@ -659,7 +669,8 @@ class Readme implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
 ));
         }
         

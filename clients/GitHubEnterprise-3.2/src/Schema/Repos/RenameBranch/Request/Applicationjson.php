@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"new_name":"generated_new_name"}';
     /**
-     * The new name of the branch.
+     * new_name: The new name of the branch.
      */
-    public ?string $new_name;
-    public function __construct(string $new_name)
+    public function __construct(public ?string $new_name)
     {
-        $this->new_name = $new_name;
     }
 }

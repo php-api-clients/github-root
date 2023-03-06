@@ -14,16 +14,10 @@ final readonly class Request
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"headers":[],"payload":[]}';
     /**
-     * The request headers sent with the webhook delivery.
+     * headers: The request headers sent with the webhook delivery.
+     * payload: The webhook payload.
      */
-    public ?Schema\HookDelivery\Request\Headers $headers;
-    /**
-     * The webhook payload.
-     */
-    public ?Schema\HookDelivery\Request\Payload $payload;
-    public function __construct(Schema\HookDelivery\Request\Headers $headers, Schema\HookDelivery\Request\Payload $payload)
+    public function __construct(public ?Schema\HookDelivery\Request\Headers $headers, public ?Schema\HookDelivery\Request\Payload $payload)
     {
-        $this->headers = $headers;
-        $this->payload = $payload;
     }
 }

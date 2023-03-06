@@ -13,35 +13,11 @@ final readonly class Commit
     public const SCHEMA_TITLE = 'Commit';
     public const SCHEMA_DESCRIPTION = 'Commit';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e","sha":"6dcb09b5b57875f334f61aebed695e2e4193db5e","node_id":"MDY6Q29tbWl0NmRjYjA5YjViNTc4NzVmMzM0ZjYxYWViZWQ2OTVlMmU0MTkzZGI1ZQ==","html_url":"https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/6dcb09b5b57875f334f61aebed695e2e4193db5e","comments_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/comments","commit":{"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e","author":{"name":"\\"Chris Wanstrath\\"","email":"\\"chris@ozmm.org\\"","date":"\\"2007-10-29T02:42:39.000-07:00\\""},"committer":{"name":"\\"Chris Wanstrath\\"","email":"\\"chris@ozmm.org\\"","date":"\\"2007-10-29T02:42:39.000-07:00\\""},"message":"Fix all the bugs","comment_count":0,"tree":{"sha":"827efc6d56897b048c772eb4087f854f46256132","url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tree\\/827efc6d56897b048c772eb4087f854f46256132"},"verification":{"verified":false,"reason":"generated_reason","payload":"generated_payload","signature":"generated_signature"}},"author":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"committer":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"parents":[{"sha":"7638417db6d59f3c431d3e1f261cc637155684cd","url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/7638417db6d59f3c431d3e1f261cc637155684cd","html_url":"https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/7638417db6d59f3c431d3e1f261cc637155684cd"}],"stats":{"additions":13,"deletions":13,"total":13},"files":[{"sha":"bbcd538c8e72b8c175046e27cc8f907076331401","filename":"file1.txt","status":"added","additions":103,"deletions":21,"changes":124,"blob_url":"https:\\/\\/github.com\\/octocat\\/Hello-World\\/blob\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt","raw_url":"https:\\/\\/github.com\\/octocat\\/Hello-World\\/raw\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt","contents_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/file1.txt?ref=6dcb09b5b57875f334f61aebed695e2e4193db5e","patch":"@@ -132,7 +132,7 @@ module Test @@ -1000,7 +1000,7 @@ module Test","previous_filename":"file.txt"}]}';
-    public ?string $url;
-    public ?string $sha;
-    public ?string $node_id;
-    public ?string $html_url;
-    public ?string $comments_url;
-    public ?Schema\Commit\Commit $commit;
-    public ?Schema\SimpleUser $author;
-    public ?Schema\SimpleUser $committer;
     /**
-     * @var array<Schema\Commit\Parents>
+     * @param ?array<\ApiClients\Client\GitHub\Schema\Commit\Parents> $parents
+     * @param array<\ApiClients\Client\GitHub\Schema\DiffEntry> $files
      */
-    public ?array $parents;
-    public Schema\Commit\Stats $stats;
-    /**
-     * @var array<Schema\DiffEntry>
-     */
-    public array $files;
-    public function __construct(string $url, string $sha, string $node_id, string $html_url, string $comments_url, Schema\Commit\Commit $commit, Schema\SimpleUser $author, Schema\SimpleUser $committer, array $parents, Schema\Commit\Stats $stats, array $files)
+    public function __construct(public ?string $url, public ?string $sha, public ?string $node_id, public ?string $html_url, public ?string $comments_url, public ?Schema\Commit\Commit $commit, public ?Schema\SimpleUser $author, public ?Schema\SimpleUser $committer, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Commit\Parents::class)] public ?array $parents, public Schema\Commit\Stats $stats, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\DiffEntry::class)] public array $files)
     {
-        $this->url = $url;
-        $this->sha = $sha;
-        $this->node_id = $node_id;
-        $this->html_url = $html_url;
-        $this->comments_url = $comments_url;
-        $this->commit = $commit;
-        $this->author = $author;
-        $this->committer = $committer;
-        $this->parents = $parents;
-        $this->stats = $stats;
-        $this->files = $files;
     }
 }

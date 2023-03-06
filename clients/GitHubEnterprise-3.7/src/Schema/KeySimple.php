@@ -13,11 +13,7 @@ final readonly class KeySimple
     public const SCHEMA_TITLE = 'Key Simple';
     public const SCHEMA_DESCRIPTION = 'Key Simple';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"key":"generated_key"}';
-    public ?int $id;
-    public ?string $key;
-    public function __construct(int $id, string $key)
+    public function __construct(public ?int $id, public ?string $key)
     {
-        $this->id = $id;
-        $this->key = $key;
     }
 }

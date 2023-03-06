@@ -13,29 +13,13 @@ final readonly class WebhookProjectsV2ItemCreated
     public const SCHEMA_TITLE = 'Projects v2 Item Created Event';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"action":"generated_action","installation":{"id":1,"node_id":"MDQ6VXNlcjU4MzIzMQ=="},"organization":{"login":"github","id":1,"node_id":"MDEyOk9yZ2FuaXphdGlvbjE=","url":"https:\\/\\/api.github.com\\/orgs\\/github","repos_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/repos","events_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/events","hooks_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/hooks","issues_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/issues","members_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/members{\\/member}","public_members_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/public_members{\\/member}","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","description":"A great organization"},"projects_v2_item":{"id":13,"node_id":"generated_node_id","project_node_id":"generated_project_node_id","content_node_id":"generated_content_node_id","content_type":"generated_content_type","creator":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"created_at":"2022-04-28T12:00:00Z","updated_at":"2022-04-28T12:00:00Z","archived_at":"2022-04-28T12:00:00Z"},"sender":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""}}';
-    public ?string $action;
     /**
-     * The GitHub App installation. This property is included when the event is configured for and sent to a GitHub App.
+     * installation: The GitHub App installation. This property is included when the event is configured for and sent to a GitHub App.
+     * organization: A GitHub organization.
+     * projects_v2_item: An item belonging to a project
+     * sender: A GitHub user.
      */
-    public Schema\SimpleInstallation $installation;
-    /**
-     * A GitHub organization.
-     */
-    public ?Schema\OrganizationSimple $organization;
-    /**
-     * An item belonging to a project
-     */
-    public ?Schema\ProjectsV2Item $projects_v2_item;
-    /**
-     * A GitHub user.
-     */
-    public ?Schema\SimpleUser $sender;
-    public function __construct(string $action, Schema\SimpleInstallation $installation, Schema\OrganizationSimple $organization, Schema\ProjectsV2Item $projects_v2_item, Schema\SimpleUser $sender)
+    public function __construct(public ?string $action, public Schema\SimpleInstallation $installation, public ?Schema\OrganizationSimple $organization, public ?Schema\ProjectsV2Item $projects_v2_item, public ?Schema\SimpleUser $sender)
     {
-        $this->action = $action;
-        $this->installation = $installation;
-        $this->organization = $organization;
-        $this->projects_v2_item = $projects_v2_item;
-        $this->sender = $sender;
     }
 }

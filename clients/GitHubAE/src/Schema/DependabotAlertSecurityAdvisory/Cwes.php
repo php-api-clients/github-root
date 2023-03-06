@@ -14,16 +14,10 @@ final readonly class Cwes
     public const SCHEMA_DESCRIPTION = 'A CWE weakness assigned to the advisory.';
     public const SCHEMA_EXAMPLE_DATA = '{"cwe_id":"generated_cwe_id","name":"generated_name"}';
     /**
-     * The unique CWE ID.
+     * cwe_id: The unique CWE ID.
+     * name: The short, plain text name of the CWE.
      */
-    public ?string $cwe_id;
-    /**
-     * The short, plain text name of the CWE.
-     */
-    public ?string $name;
-    public function __construct(string $cwe_id, string $name)
+    public function __construct(public ?string $cwe_id, public ?string $name)
     {
-        $this->cwe_id = $cwe_id;
-        $this->name = $name;
     }
 }

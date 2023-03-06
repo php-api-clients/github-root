@@ -14,21 +14,11 @@ final readonly class Images
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"alt":"generated_alt","image_url":"generated_image_url","caption":"generated_caption"}';
     /**
-     * The alternative text for the image.
+     * alt: The alternative text for the image.
+     * image_url: The full URL of the image.
+     * caption: A short image description.
      */
-    public ?string $alt;
-    /**
-     * The full URL of the image.
-     */
-    public ?string $image_url;
-    /**
-     * A short image description.
-     */
-    public string $caption;
-    public function __construct(string $alt, string $image_url, string $caption)
+    public function __construct(public ?string $alt, public ?string $image_url, public string $caption)
     {
-        $this->alt = $alt;
-        $this->image_url = $image_url;
-        $this->caption = $caption;
     }
 }

@@ -13,9 +13,7 @@ final readonly class Changes
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"archived_at":{"from":"generated_from","to":"generated_to"}}';
-    public ?Schema\WebhookProjectsV2ItemArchived\Changes\ArchivedAt $archived_at;
-    public function __construct(Schema\WebhookProjectsV2ItemArchived\Changes\ArchivedAt $archived_at)
+    public function __construct(public ?Schema\WebhookProjectsV2ItemArchived\Changes\ArchivedAt $archived_at)
     {
-        $this->archived_at = $archived_at;
     }
 }

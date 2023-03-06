@@ -13,14 +13,10 @@ final readonly class H200
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_count":13,"runners":[{"id":5,"name":"iMac","os":"macos","status":"online","busy":false,"labels":[{"id":13,"name":"generated_name","type":"generated_type"}]}]}';
-    public ?int $total_count;
     /**
-     * @var array<Schema\Runner>
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\Runner> $runners
      */
-    public ?array $runners;
-    public function __construct(int $total_count, array $runners)
+    public function __construct(public ?int $total_count, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Runner::class)] public ?array $runners)
     {
-        $this->total_count = $total_count;
-        $this->runners = $runners;
     }
 }

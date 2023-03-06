@@ -39,7 +39,7 @@ class EnforceAdmins implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -50,7 +50,7 @@ class EnforceAdmins implements ObjectMapper
                 $value = $payload['enabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enabled';
+                    $properties['enabled'] = null;
                     goto after_enabled;
                 }
 
@@ -83,7 +83,7 @@ class EnforceAdmins implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -94,7 +94,7 @@ class EnforceAdmins implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -105,7 +105,7 @@ class EnforceAdmins implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -116,7 +116,7 @@ class EnforceAdmins implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 

@@ -13,11 +13,7 @@ final readonly class Ntp
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"primary_server":"generated_primary_server","secondary_server":"generated_secondary_server"}';
-    public ?string $primary_server;
-    public ?string $secondary_server;
-    public function __construct(string $primary_server, string $secondary_server)
+    public function __construct(public ?string $primary_server, public ?string $secondary_server)
     {
-        $this->primary_server = $primary_server;
-        $this->secondary_server = $secondary_server;
     }
 }

@@ -14,22 +14,12 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"machine":"generated_machine","display_name":"generated_display_name","recent_folders":["generated_recent_folders"]}';
     /**
-     * A valid machine to transition this codespace to.
+     * machine: A valid machine to transition this codespace to.
+     * display_name: Display name for this codespace
+     * recent_folders: Recently opened folders inside the codespace. It is currently used by the clients to determine the folder path to load the codespace in.
+     * @param ?array<string> $recent_folders
      */
-    public ?string $machine;
-    /**
-     * Display name for this codespace
-     */
-    public ?string $display_name;
-    /**
-     * Recently opened folders inside the codespace. It is currently used by the clients to determine the folder path to load the codespace in.
-     * @var array<string>
-     */
-    public ?array $recent_folders;
-    public function __construct(string $machine, string $display_name, array $recent_folders)
+    public function __construct(public ?string $machine, public ?string $display_name, public ?array $recent_folders)
     {
-        $this->machine = $machine;
-        $this->display_name = $display_name;
-        $this->recent_folders = $recent_folders;
     }
 }

@@ -14,31 +14,13 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message","sha":"generated_sha","branch":"generated_branch","committer":{"name":"generated_name","email":"generated_email"},"author":{"name":"generated_name","email":"generated_email"}}';
     /**
-     * The commit message.
+     * message: The commit message.
+     * sha: The blob SHA of the file being deleted.
+     * branch: The branch name. Default: the repository’s default branch (usually `master`)
+     * committer: object containing information about the committer.
+     * author: object containing information about the author.
      */
-    public ?string $message;
-    /**
-     * The blob SHA of the file being deleted.
-     */
-    public ?string $sha;
-    /**
-     * The branch name. Default: the repository’s default branch (usually `master`)
-     */
-    public string $branch;
-    /**
-     * object containing information about the committer.
-     */
-    public Schema\Repos\DeleteFile\Request\Applicationjson\Committer $committer;
-    /**
-     * object containing information about the author.
-     */
-    public Schema\Repos\DeleteFile\Request\Applicationjson\Author $author;
-    public function __construct(string $message, string $sha, string $branch, Schema\Repos\DeleteFile\Request\Applicationjson\Committer $committer, Schema\Repos\DeleteFile\Request\Applicationjson\Author $author)
+    public function __construct(public ?string $message, public ?string $sha, public string $branch, public Schema\Repos\DeleteFile\Request\Applicationjson\Committer $committer, public Schema\Repos\DeleteFile\Request\Applicationjson\Author $author)
     {
-        $this->message = $message;
-        $this->sha = $sha;
-        $this->branch = $branch;
-        $this->committer = $committer;
-        $this->author = $author;
     }
 }

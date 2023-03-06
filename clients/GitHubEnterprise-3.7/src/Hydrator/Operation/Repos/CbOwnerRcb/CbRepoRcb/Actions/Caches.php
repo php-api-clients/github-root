@@ -38,7 +38,7 @@ class Caches implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class Caches implements ObjectMapper
                 $value = $payload['actions_caches'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'actions_caches';
+                    $properties['actions_caches'] = null;
                     goto after_actions_caches;
                 }
+
+                static $actions_cachesCaster1;
+    
+                if ($actions_cachesCaster1 === null) {
+                    $actions_cachesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsCacheList\\ActionsCaches',
+));
+                }
+    
+                $value = $actions_cachesCaster1->cast($value, $this);
 
                 $properties['actions_caches'] = $value;
     
@@ -178,7 +188,8 @@ class Caches implements ObjectMapper
         static $actions_cachesSerializer0;
 
         if ($actions_cachesSerializer0 === null) {
-            $actions_cachesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $actions_cachesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsCacheList\\ActionsCaches',
 ));
         }
         

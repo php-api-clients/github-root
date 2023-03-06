@@ -14,17 +14,11 @@ final readonly class OidcCustomSubRepo
     public const SCHEMA_DESCRIPTION = 'Actions OIDC subject customization for a repository';
     public const SCHEMA_EXAMPLE_DATA = '{"use_default":false,"include_claim_keys":["generated_include_claim_keys"]}';
     /**
-     * Whether to use the default template or not. If `true`, the `include_claim_keys` field is ignored.
+     * use_default: Whether to use the default template or not. If `true`, the `include_claim_keys` field is ignored.
+     * include_claim_keys: Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.
+     * @param array<string> $include_claim_keys
      */
-    public ?bool $use_default;
-    /**
-     * Array of unique strings. Each claim key can only contain alphanumeric characters and underscores.
-     * @var array<string>
-     */
-    public array $include_claim_keys;
-    public function __construct(bool $use_default, array $include_claim_keys)
+    public function __construct(public ?bool $use_default, public array $include_claim_keys)
     {
-        $this->use_default = $use_default;
-        $this->include_claim_keys = $include_claim_keys;
     }
 }

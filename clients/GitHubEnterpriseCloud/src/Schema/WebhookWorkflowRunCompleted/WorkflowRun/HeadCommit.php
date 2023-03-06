@@ -13,19 +13,7 @@ final readonly class HeadCommit
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"author":{"email":"generated_email","name":"generated_name"},"committer":{"email":"generated_email","name":"generated_name"},"id":"generated_id","message":"generated_message","timestamp":"generated_timestamp","tree_id":"generated_tree_id"}';
-    public ?Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadCommit\Author $author;
-    public ?Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadCommit\Author $committer;
-    public ?string $id;
-    public ?string $message;
-    public ?string $timestamp;
-    public ?string $tree_id;
-    public function __construct(Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadCommit\Author $author, Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadCommit\Author $committer, string $id, string $message, string $timestamp, string $tree_id)
+    public function __construct(public ?Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadCommit\Author $author, public ?Schema\WebhookWorkflowRunCompleted\WorkflowRun\HeadCommit\Author $committer, public ?string $id, public ?string $message, public ?string $timestamp, public ?string $tree_id)
     {
-        $this->author = $author;
-        $this->committer = $committer;
-        $this->id = $id;
-        $this->message = $message;
-        $this->timestamp = $timestamp;
-        $this->tree_id = $tree_id;
     }
 }

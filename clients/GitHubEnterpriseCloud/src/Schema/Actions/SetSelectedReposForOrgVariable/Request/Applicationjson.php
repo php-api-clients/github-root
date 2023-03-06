@@ -14,12 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"selected_repository_ids":[13]}';
     /**
-     * The IDs of the repositories that can access the organization variable.
-     * @var array<int>
+     * selected_repository_ids: The IDs of the repositories that can access the organization variable.
+     * @param ?array<int> $selected_repository_ids
      */
-    public ?array $selected_repository_ids;
-    public function __construct(array $selected_repository_ids)
+    public function __construct(public ?array $selected_repository_ids)
     {
-        $this->selected_repository_ids = $selected_repository_ids;
     }
 }

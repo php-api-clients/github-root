@@ -39,7 +39,7 @@ class Autolinks implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -50,7 +50,7 @@ class Autolinks implements ObjectMapper
                 $value = $payload['key_prefix'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key_prefix';
+                    $properties['key_prefix'] = null;
                     goto after_key_prefix;
                 }
 
@@ -61,7 +61,7 @@ class Autolinks implements ObjectMapper
                 $value = $payload['url_template'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url_template';
+                    $properties['url_template'] = null;
                     goto after_url_template;
                 }
 
@@ -72,7 +72,7 @@ class Autolinks implements ObjectMapper
                 $value = $payload['is_alphanumeric'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_alphanumeric';
+                    $properties['is_alphanumeric'] = null;
                     goto after_is_alphanumeric;
                 }
 
@@ -105,7 +105,7 @@ class Autolinks implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -116,7 +116,7 @@ class Autolinks implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -130,6 +130,16 @@ class Autolinks implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -302,7 +312,8 @@ class Autolinks implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
 ));
         }
         

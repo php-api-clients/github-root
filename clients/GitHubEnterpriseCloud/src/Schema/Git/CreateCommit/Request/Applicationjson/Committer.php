@@ -14,21 +14,11 @@ final readonly class Committer
     public const SCHEMA_DESCRIPTION = 'Information about the person who is making the commit. By default, `committer` will use the information set in `author`. See the `author` and `committer` object below for details.';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","email":"generated_email","date":"generated_date"}';
     /**
-     * The name of the author (or committer) of the commit
+     * name: The name of the author (or committer) of the commit
+     * email: The email of the author (or committer) of the commit
+     * date: Indicates when this commit was authored (or committed). This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
      */
-    public ?string $name;
-    /**
-     * The email of the author (or committer) of the commit
-     */
-    public ?string $email;
-    /**
-     * Indicates when this commit was authored (or committed). This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $date;
-    public function __construct(string $name, string $email, string $date)
+    public function __construct(public ?string $name, public ?string $email, public ?string $date)
     {
-        $this->name = $name;
-        $this->email = $email;
-        $this->date = $date;
     }
 }

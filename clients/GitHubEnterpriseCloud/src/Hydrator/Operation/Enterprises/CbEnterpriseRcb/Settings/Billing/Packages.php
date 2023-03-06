@@ -38,7 +38,7 @@ class Packages implements ObjectMapper
                 $value = $payload['total_gigabytes_bandwidth_used'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_gigabytes_bandwidth_used';
+                    $properties['total_gigabytes_bandwidth_used'] = null;
                     goto after_total_gigabytes_bandwidth_used;
                 }
 
@@ -49,7 +49,7 @@ class Packages implements ObjectMapper
                 $value = $payload['total_paid_gigabytes_bandwidth_used'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_paid_gigabytes_bandwidth_used';
+                    $properties['total_paid_gigabytes_bandwidth_used'] = null;
                     goto after_total_paid_gigabytes_bandwidth_used;
                 }
 
@@ -60,7 +60,7 @@ class Packages implements ObjectMapper
                 $value = $payload['included_gigabytes_bandwidth'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'included_gigabytes_bandwidth';
+                    $properties['included_gigabytes_bandwidth'] = null;
                     goto after_included_gigabytes_bandwidth;
                 }
 

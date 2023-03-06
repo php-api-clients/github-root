@@ -13,17 +13,7 @@ final readonly class WorkflowRun
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":10,"repository_id":42,"head_repository_id":42,"head_branch":"main","head_sha":"009b8a3a9ccbb128af87f9b1c0f4c62e8a304f6d"}';
-    public ?int $id;
-    public ?int $repository_id;
-    public ?int $head_repository_id;
-    public ?string $head_branch;
-    public ?string $head_sha;
-    public function __construct(int $id, int $repository_id, int $head_repository_id, string $head_branch, string $head_sha)
+    public function __construct(public ?int $id, public ?int $repository_id, public ?int $head_repository_id, public ?string $head_branch, public ?string $head_sha)
     {
-        $this->id = $id;
-        $this->repository_id = $repository_id;
-        $this->head_repository_id = $head_repository_id;
-        $this->head_branch = $head_branch;
-        $this->head_sha = $head_sha;
     }
 }

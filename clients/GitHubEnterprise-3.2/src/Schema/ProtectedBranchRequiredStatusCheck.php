@@ -13,20 +13,10 @@ final readonly class ProtectedBranchRequiredStatusCheck
     public const SCHEMA_TITLE = 'Protected Branch Required Status Check';
     public const SCHEMA_DESCRIPTION = 'Protected Branch Required Status Check';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url","enforcement_level":"generated_enforcement_level","contexts":["generated_contexts"],"contexts_url":"generated_contexts_url","strict":false}';
-    public string $url;
-    public string $enforcement_level;
     /**
-     * @var array<string>
+     * @param ?array<string> $contexts
      */
-    public ?array $contexts;
-    public string $contexts_url;
-    public bool $strict;
-    public function __construct(string $url, string $enforcement_level, array $contexts, string $contexts_url, bool $strict)
+    public function __construct(public string $url, public string $enforcement_level, public ?array $contexts, public string $contexts_url, public bool $strict)
     {
-        $this->url = $url;
-        $this->enforcement_level = $enforcement_level;
-        $this->contexts = $contexts;
-        $this->contexts_url = $contexts_url;
-        $this->strict = $strict;
     }
 }

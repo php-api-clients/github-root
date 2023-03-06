@@ -42,7 +42,7 @@ class Installation implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -53,7 +53,7 @@ class Installation implements ObjectMapper
                 $value = $payload['account'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'account';
+                    $properties['account'] = null;
                     goto after_account;
                 }
 
@@ -73,7 +73,7 @@ class Installation implements ObjectMapper
                 $value = $payload['repository_selection'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_selection';
+                    $properties['repository_selection'] = null;
                     goto after_repository_selection;
                 }
 
@@ -84,7 +84,7 @@ class Installation implements ObjectMapper
                 $value = $payload['access_tokens_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'access_tokens_url';
+                    $properties['access_tokens_url'] = null;
                     goto after_access_tokens_url;
                 }
 
@@ -95,7 +95,7 @@ class Installation implements ObjectMapper
                 $value = $payload['repositories_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repositories_url';
+                    $properties['repositories_url'] = null;
                     goto after_repositories_url;
                 }
 
@@ -106,7 +106,7 @@ class Installation implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -117,7 +117,7 @@ class Installation implements ObjectMapper
                 $value = $payload['app_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'app_id';
+                    $properties['app_id'] = null;
                     goto after_app_id;
                 }
 
@@ -128,7 +128,7 @@ class Installation implements ObjectMapper
                 $value = $payload['target_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'target_id';
+                    $properties['target_id'] = null;
                     goto after_target_id;
                 }
 
@@ -139,7 +139,7 @@ class Installation implements ObjectMapper
                 $value = $payload['target_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'target_type';
+                    $properties['target_type'] = null;
                     goto after_target_type;
                 }
 
@@ -150,7 +150,7 @@ class Installation implements ObjectMapper
                 $value = $payload['permissions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'permissions';
+                    $properties['permissions'] = null;
                     goto after_permissions;
                 }
 
@@ -170,7 +170,7 @@ class Installation implements ObjectMapper
                 $value = $payload['events'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events';
+                    $properties['events'] = null;
                     goto after_events;
                 }
 
@@ -181,7 +181,7 @@ class Installation implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -192,7 +192,7 @@ class Installation implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -203,7 +203,7 @@ class Installation implements ObjectMapper
                 $value = $payload['single_file_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'single_file_name';
+                    $properties['single_file_name'] = null;
                     goto after_single_file_name;
                 }
 
@@ -236,7 +236,7 @@ class Installation implements ObjectMapper
                 $value = $payload['app_slug'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'app_slug';
+                    $properties['app_slug'] = null;
                     goto after_app_slug;
                 }
 
@@ -247,7 +247,7 @@ class Installation implements ObjectMapper
                 $value = $payload['suspended_by'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'suspended_by';
+                    $properties['suspended_by'] = null;
                     goto after_suspended_by;
                 }
 
@@ -267,7 +267,7 @@ class Installation implements ObjectMapper
                 $value = $payload['suspended_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'suspended_at';
+                    $properties['suspended_at'] = null;
                     goto after_suspended_at;
                 }
 
@@ -278,7 +278,7 @@ class Installation implements ObjectMapper
                 $value = $payload['contact_email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contact_email';
+                    $properties['contact_email'] = null;
                     goto after_contact_email;
                 }
 
@@ -311,7 +311,7 @@ class Installation implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -322,7 +322,7 @@ class Installation implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -333,7 +333,7 @@ class Installation implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -344,7 +344,7 @@ class Installation implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -377,7 +377,7 @@ class Installation implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -388,7 +388,7 @@ class Installation implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -399,7 +399,7 @@ class Installation implements ObjectMapper
                 $value = $payload['website_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'website_url';
+                    $properties['website_url'] = null;
                     goto after_website_url;
                 }
 
@@ -410,7 +410,7 @@ class Installation implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -421,7 +421,7 @@ class Installation implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -432,7 +432,7 @@ class Installation implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -443,7 +443,7 @@ class Installation implements ObjectMapper
                 $value = $payload['slug'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'slug';
+                    $properties['slug'] = null;
                     goto after_slug;
                 }
 
@@ -454,7 +454,7 @@ class Installation implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -465,7 +465,7 @@ class Installation implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -476,7 +476,7 @@ class Installation implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -509,7 +509,7 @@ class Installation implements ObjectMapper
                 $value = $payload['actions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'actions';
+                    $properties['actions'] = null;
                     goto after_actions;
                 }
 
@@ -520,7 +520,7 @@ class Installation implements ObjectMapper
                 $value = $payload['administration'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'administration';
+                    $properties['administration'] = null;
                     goto after_administration;
                 }
 
@@ -531,7 +531,7 @@ class Installation implements ObjectMapper
                 $value = $payload['checks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'checks';
+                    $properties['checks'] = null;
                     goto after_checks;
                 }
 
@@ -542,7 +542,7 @@ class Installation implements ObjectMapper
                 $value = $payload['contents'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents';
+                    $properties['contents'] = null;
                     goto after_contents;
                 }
 
@@ -553,7 +553,7 @@ class Installation implements ObjectMapper
                 $value = $payload['deployments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments';
+                    $properties['deployments'] = null;
                     goto after_deployments;
                 }
 
@@ -564,7 +564,7 @@ class Installation implements ObjectMapper
                 $value = $payload['environments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'environments';
+                    $properties['environments'] = null;
                     goto after_environments;
                 }
 
@@ -575,7 +575,7 @@ class Installation implements ObjectMapper
                 $value = $payload['issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues';
+                    $properties['issues'] = null;
                     goto after_issues;
                 }
 
@@ -586,7 +586,7 @@ class Installation implements ObjectMapper
                 $value = $payload['metadata'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'metadata';
+                    $properties['metadata'] = null;
                     goto after_metadata;
                 }
 
@@ -597,7 +597,7 @@ class Installation implements ObjectMapper
                 $value = $payload['packages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'packages';
+                    $properties['packages'] = null;
                     goto after_packages;
                 }
 
@@ -608,7 +608,7 @@ class Installation implements ObjectMapper
                 $value = $payload['pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pages';
+                    $properties['pages'] = null;
                     goto after_pages;
                 }
 
@@ -619,7 +619,7 @@ class Installation implements ObjectMapper
                 $value = $payload['pull_requests'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull_requests';
+                    $properties['pull_requests'] = null;
                     goto after_pull_requests;
                 }
 
@@ -630,7 +630,7 @@ class Installation implements ObjectMapper
                 $value = $payload['repository_announcement_banners'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_announcement_banners';
+                    $properties['repository_announcement_banners'] = null;
                     goto after_repository_announcement_banners;
                 }
 
@@ -641,7 +641,7 @@ class Installation implements ObjectMapper
                 $value = $payload['repository_hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_hooks';
+                    $properties['repository_hooks'] = null;
                     goto after_repository_hooks;
                 }
 
@@ -652,7 +652,7 @@ class Installation implements ObjectMapper
                 $value = $payload['repository_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_projects';
+                    $properties['repository_projects'] = null;
                     goto after_repository_projects;
                 }
 
@@ -663,7 +663,7 @@ class Installation implements ObjectMapper
                 $value = $payload['secret_scanning_alerts'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secret_scanning_alerts';
+                    $properties['secret_scanning_alerts'] = null;
                     goto after_secret_scanning_alerts;
                 }
 
@@ -674,7 +674,7 @@ class Installation implements ObjectMapper
                 $value = $payload['secrets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secrets';
+                    $properties['secrets'] = null;
                     goto after_secrets;
                 }
 
@@ -685,7 +685,7 @@ class Installation implements ObjectMapper
                 $value = $payload['security_events'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'security_events';
+                    $properties['security_events'] = null;
                     goto after_security_events;
                 }
 
@@ -696,7 +696,7 @@ class Installation implements ObjectMapper
                 $value = $payload['single_file'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'single_file';
+                    $properties['single_file'] = null;
                     goto after_single_file;
                 }
 
@@ -707,7 +707,7 @@ class Installation implements ObjectMapper
                 $value = $payload['statuses'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses';
+                    $properties['statuses'] = null;
                     goto after_statuses;
                 }
 
@@ -718,7 +718,7 @@ class Installation implements ObjectMapper
                 $value = $payload['vulnerability_alerts'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'vulnerability_alerts';
+                    $properties['vulnerability_alerts'] = null;
                     goto after_vulnerability_alerts;
                 }
 
@@ -729,7 +729,7 @@ class Installation implements ObjectMapper
                 $value = $payload['workflows'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'workflows';
+                    $properties['workflows'] = null;
                     goto after_workflows;
                 }
 
@@ -740,7 +740,7 @@ class Installation implements ObjectMapper
                 $value = $payload['members'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'members';
+                    $properties['members'] = null;
                     goto after_members;
                 }
 
@@ -751,7 +751,7 @@ class Installation implements ObjectMapper
                 $value = $payload['organization_administration'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_administration';
+                    $properties['organization_administration'] = null;
                     goto after_organization_administration;
                 }
 
@@ -762,7 +762,7 @@ class Installation implements ObjectMapper
                 $value = $payload['organization_custom_roles'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_custom_roles';
+                    $properties['organization_custom_roles'] = null;
                     goto after_organization_custom_roles;
                 }
 
@@ -773,7 +773,7 @@ class Installation implements ObjectMapper
                 $value = $payload['organization_announcement_banners'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_announcement_banners';
+                    $properties['organization_announcement_banners'] = null;
                     goto after_organization_announcement_banners;
                 }
 
@@ -784,7 +784,7 @@ class Installation implements ObjectMapper
                 $value = $payload['organization_hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_hooks';
+                    $properties['organization_hooks'] = null;
                     goto after_organization_hooks;
                 }
 
@@ -795,7 +795,7 @@ class Installation implements ObjectMapper
                 $value = $payload['organization_plan'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_plan';
+                    $properties['organization_plan'] = null;
                     goto after_organization_plan;
                 }
 
@@ -806,7 +806,7 @@ class Installation implements ObjectMapper
                 $value = $payload['organization_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_projects';
+                    $properties['organization_projects'] = null;
                     goto after_organization_projects;
                 }
 
@@ -817,7 +817,7 @@ class Installation implements ObjectMapper
                 $value = $payload['organization_packages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_packages';
+                    $properties['organization_packages'] = null;
                     goto after_organization_packages;
                 }
 
@@ -828,7 +828,7 @@ class Installation implements ObjectMapper
                 $value = $payload['organization_secrets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_secrets';
+                    $properties['organization_secrets'] = null;
                     goto after_organization_secrets;
                 }
 
@@ -839,7 +839,7 @@ class Installation implements ObjectMapper
                 $value = $payload['organization_self_hosted_runners'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_self_hosted_runners';
+                    $properties['organization_self_hosted_runners'] = null;
                     goto after_organization_self_hosted_runners;
                 }
 
@@ -850,7 +850,7 @@ class Installation implements ObjectMapper
                 $value = $payload['organization_user_blocking'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_user_blocking';
+                    $properties['organization_user_blocking'] = null;
                     goto after_organization_user_blocking;
                 }
 
@@ -861,7 +861,7 @@ class Installation implements ObjectMapper
                 $value = $payload['team_discussions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'team_discussions';
+                    $properties['team_discussions'] = null;
                     goto after_team_discussions;
                 }
 
@@ -894,7 +894,7 @@ class Installation implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -905,7 +905,7 @@ class Installation implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -916,7 +916,7 @@ class Installation implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -927,7 +927,7 @@ class Installation implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -938,7 +938,7 @@ class Installation implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -949,7 +949,7 @@ class Installation implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -960,7 +960,7 @@ class Installation implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -971,7 +971,7 @@ class Installation implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -982,7 +982,7 @@ class Installation implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -993,7 +993,7 @@ class Installation implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -1004,7 +1004,7 @@ class Installation implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -1015,7 +1015,7 @@ class Installation implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -1026,7 +1026,7 @@ class Installation implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -1037,7 +1037,7 @@ class Installation implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -1048,7 +1048,7 @@ class Installation implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -1059,7 +1059,7 @@ class Installation implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -1070,7 +1070,7 @@ class Installation implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -1081,7 +1081,7 @@ class Installation implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -1092,7 +1092,7 @@ class Installation implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -1103,7 +1103,7 @@ class Installation implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 

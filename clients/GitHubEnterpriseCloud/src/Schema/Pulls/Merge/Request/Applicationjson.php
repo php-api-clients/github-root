@@ -14,26 +14,12 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"commit_title":"generated_commit_title","commit_message":"generated_commit_message","sha":"generated_sha","merge_method":"generated_merge_method"}';
     /**
-     * Title for the automatic commit message.
+     * commit_title: Title for the automatic commit message.
+     * commit_message: Extra detail to append to automatic commit message.
+     * sha: SHA that pull request head must match to allow merge.
+     * merge_method: The merge method to use.
      */
-    public ?string $commit_title;
-    /**
-     * Extra detail to append to automatic commit message.
-     */
-    public ?string $commit_message;
-    /**
-     * SHA that pull request head must match to allow merge.
-     */
-    public ?string $sha;
-    /**
-     * The merge method to use.
-     */
-    public ?string $merge_method;
-    public function __construct(string $commit_title, string $commit_message, string $sha, string $merge_method)
+    public function __construct(public ?string $commit_title, public ?string $commit_message, public ?string $sha, public ?string $merge_method)
     {
-        $this->commit_title = $commit_title;
-        $this->commit_message = $commit_message;
-        $this->sha = $sha;
-        $this->merge_method = $merge_method;
     }
 }

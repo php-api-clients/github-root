@@ -14,41 +14,13 @@ final readonly class Enterprise
     public const SCHEMA_DESCRIPTION = 'An enterprise on GitHub.';
     public const SCHEMA_EXAMPLE_DATA = '{"description":"generated_description","html_url":"https:\\/\\/github.com\\/enterprises\\/octo-business","website_url":"generated_website_url","id":42,"node_id":"MDEwOlJlcG9zaXRvcnkxMjk2MjY5","name":"Octo Business","slug":"octo-business","created_at":"2019-01-26T19:01:12Z","updated_at":"2019-01-26T19:14:43Z","avatar_url":"generated_avatar_url"}';
     /**
-     * A short description of the enterprise.
+     * description: A short description of the enterprise.
+     * website_url: The enterprise's website URL.
+     * id: Unique identifier of the enterprise
+     * name: The name of the enterprise.
+     * slug: The slug url identifier for the enterprise.
      */
-    public ?string $description;
-    public ?string $html_url;
-    /**
-     * The enterprise's website URL.
-     */
-    public ?string $website_url;
-    /**
-     * Unique identifier of the enterprise
-     */
-    public ?int $id;
-    public ?string $node_id;
-    /**
-     * The name of the enterprise.
-     */
-    public ?string $name;
-    /**
-     * The slug url identifier for the enterprise.
-     */
-    public ?string $slug;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public ?string $avatar_url;
-    public function __construct(string $description, string $html_url, string $website_url, int $id, string $node_id, string $name, string $slug, string $created_at, string $updated_at, string $avatar_url)
+    public function __construct(public ?string $description, public ?string $html_url, public ?string $website_url, public ?int $id, public ?string $node_id, public ?string $name, public ?string $slug, public ?string $created_at, public ?string $updated_at, public ?string $avatar_url)
     {
-        $this->description = $description;
-        $this->html_url = $html_url;
-        $this->website_url = $website_url;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->name = $name;
-        $this->slug = $slug;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->avatar_url = $avatar_url;
     }
 }

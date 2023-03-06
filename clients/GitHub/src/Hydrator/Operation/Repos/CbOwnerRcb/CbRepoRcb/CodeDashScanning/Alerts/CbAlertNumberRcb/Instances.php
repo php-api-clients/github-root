@@ -42,7 +42,7 @@ class Instances implements ObjectMapper
                 $value = $payload['ref'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ref';
+                    $properties['ref'] = null;
                     goto after_ref;
                 }
 
@@ -53,7 +53,7 @@ class Instances implements ObjectMapper
                 $value = $payload['analysis_key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'analysis_key';
+                    $properties['analysis_key'] = null;
                     goto after_analysis_key;
                 }
 
@@ -64,7 +64,7 @@ class Instances implements ObjectMapper
                 $value = $payload['environment'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'environment';
+                    $properties['environment'] = null;
                     goto after_environment;
                 }
 
@@ -75,7 +75,7 @@ class Instances implements ObjectMapper
                 $value = $payload['category'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'category';
+                    $properties['category'] = null;
                     goto after_category;
                 }
 
@@ -86,7 +86,7 @@ class Instances implements ObjectMapper
                 $value = $payload['state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'state';
+                    $properties['state'] = null;
                     goto after_state;
                 }
 
@@ -97,7 +97,7 @@ class Instances implements ObjectMapper
                 $value = $payload['commit_sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commit_sha';
+                    $properties['commit_sha'] = null;
                     goto after_commit_sha;
                 }
 
@@ -108,7 +108,7 @@ class Instances implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -128,7 +128,7 @@ class Instances implements ObjectMapper
                 $value = $payload['location'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'location';
+                    $properties['location'] = null;
                     goto after_location;
                 }
 
@@ -148,7 +148,7 @@ class Instances implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -159,7 +159,7 @@ class Instances implements ObjectMapper
                 $value = $payload['classifications'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'classifications';
+                    $properties['classifications'] = null;
                     goto after_classifications;
                 }
 
@@ -192,7 +192,7 @@ class Instances implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -203,7 +203,7 @@ class Instances implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -214,7 +214,7 @@ class Instances implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -225,7 +225,7 @@ class Instances implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -258,7 +258,7 @@ class Instances implements ObjectMapper
                 $value = $payload['code'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'code';
+                    $properties['code'] = null;
                     goto after_code;
                 }
 
@@ -269,7 +269,7 @@ class Instances implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -280,7 +280,7 @@ class Instances implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -313,7 +313,7 @@ class Instances implements ObjectMapper
                 $value = $payload['text'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'text';
+                    $properties['text'] = null;
                     goto after_text;
                 }
 
@@ -346,7 +346,7 @@ class Instances implements ObjectMapper
                 $value = $payload['path'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'path';
+                    $properties['path'] = null;
                     goto after_path;
                 }
 
@@ -357,7 +357,7 @@ class Instances implements ObjectMapper
                 $value = $payload['start_line'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'start_line';
+                    $properties['start_line'] = null;
                     goto after_start_line;
                 }
 
@@ -368,7 +368,7 @@ class Instances implements ObjectMapper
                 $value = $payload['end_line'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'end_line';
+                    $properties['end_line'] = null;
                     goto after_end_line;
                 }
 
@@ -379,7 +379,7 @@ class Instances implements ObjectMapper
                 $value = $payload['start_column'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'start_column';
+                    $properties['start_column'] = null;
                     goto after_start_column;
                 }
 
@@ -390,7 +390,7 @@ class Instances implements ObjectMapper
                 $value = $payload['end_column'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'end_column';
+                    $properties['end_column'] = null;
                     goto after_end_column;
                 }
 

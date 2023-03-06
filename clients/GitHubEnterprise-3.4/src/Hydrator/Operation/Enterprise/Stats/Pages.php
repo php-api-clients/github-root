@@ -38,7 +38,7 @@ class Pages implements ObjectMapper
                 $value = $payload['total_pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_pages';
+                    $properties['total_pages'] = null;
                     goto after_total_pages;
                 }
 

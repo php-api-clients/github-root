@@ -13,23 +13,7 @@ final readonly class License
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"seats":13,"evaluation":false,"perpetual":false,"unlimited_seating":false,"support_key":"generated_support_key","ssh_allowed":false,"cluster_support":false,"expire_at":"generated_expire_at"}';
-    public ?int $seats;
-    public ?bool $evaluation;
-    public ?bool $perpetual;
-    public ?bool $unlimited_seating;
-    public ?string $support_key;
-    public ?bool $ssh_allowed;
-    public ?bool $cluster_support;
-    public ?string $expire_at;
-    public function __construct(int $seats, bool $evaluation, bool $perpetual, bool $unlimited_seating, string $support_key, bool $ssh_allowed, bool $cluster_support, string $expire_at)
+    public function __construct(public ?int $seats, public ?bool $evaluation, public ?bool $perpetual, public ?bool $unlimited_seating, public ?string $support_key, public ?bool $ssh_allowed, public ?bool $cluster_support, public ?string $expire_at)
     {
-        $this->seats = $seats;
-        $this->evaluation = $evaluation;
-        $this->perpetual = $perpetual;
-        $this->unlimited_seating = $unlimited_seating;
-        $this->support_key = $support_key;
-        $this->ssh_allowed = $ssh_allowed;
-        $this->cluster_support = $cluster_support;
-        $this->expire_at = $expire_at;
     }
 }

@@ -14,16 +14,10 @@ final readonly class DependabotAlertPackage
     public const SCHEMA_DESCRIPTION = 'Details for the vulnerable package.';
     public const SCHEMA_EXAMPLE_DATA = '{"ecosystem":"generated_ecosystem","name":"generated_name"}';
     /**
-     * The package's language or package management ecosystem.
+     * ecosystem: The package's language or package management ecosystem.
+     * name: The unique package name within its ecosystem.
      */
-    public ?string $ecosystem;
-    /**
-     * The unique package name within its ecosystem.
-     */
-    public ?string $name;
-    public function __construct(string $ecosystem, string $name)
+    public function __construct(public ?string $ecosystem, public ?string $name)
     {
-        $this->ecosystem = $ecosystem;
-        $this->name = $name;
     }
 }

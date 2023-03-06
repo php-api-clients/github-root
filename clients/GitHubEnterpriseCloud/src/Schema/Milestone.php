@@ -13,48 +13,12 @@ final readonly class Milestone
     public const SCHEMA_TITLE = 'Milestone';
     public const SCHEMA_DESCRIPTION = 'A collection of related issues and pull requests.';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/milestones\\/1","html_url":"https:\\/\\/github.com\\/octocat\\/Hello-World\\/milestones\\/v1.0","labels_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/milestones\\/1\\/labels","id":1002604,"node_id":"MDk6TWlsZXN0b25lMTAwMjYwNA==","number":42,"state":"open","title":"v1.0","description":"Tracking milestone for version 1.0","creator":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"open_issues":4,"closed_issues":8,"created_at":"2011-04-10T20:09:31Z","updated_at":"2014-03-03T18:58:10Z","closed_at":"2013-02-12T13:22:01Z","due_on":"2012-10-09T23:39:01Z"}';
-    public ?string $url;
-    public ?string $html_url;
-    public ?string $labels_url;
-    public ?int $id;
-    public ?string $node_id;
     /**
-     * The number of the milestone.
+     * number: The number of the milestone.
+     * state: The state of the milestone.
+     * title: The title of the milestone.
      */
-    public ?int $number;
-    /**
-     * The state of the milestone.
-     */
-    public ?string $state;
-    /**
-     * The title of the milestone.
-     */
-    public ?string $title;
-    public ?string $description;
-    public ?Schema\SimpleUser $creator;
-    public ?int $open_issues;
-    public ?int $closed_issues;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public ?string $closed_at;
-    public ?string $due_on;
-    public function __construct(string $url, string $html_url, string $labels_url, int $id, string $node_id, int $number, string $state, string $title, string $description, Schema\SimpleUser $creator, int $open_issues, int $closed_issues, string $created_at, string $updated_at, string $closed_at, string $due_on)
+    public function __construct(public ?string $url, public ?string $html_url, public ?string $labels_url, public ?int $id, public ?string $node_id, public ?int $number, public ?string $state, public ?string $title, public ?string $description, public ?Schema\SimpleUser $creator, public ?int $open_issues, public ?int $closed_issues, public ?string $created_at, public ?string $updated_at, public ?string $closed_at, public ?string $due_on)
     {
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->labels_url = $labels_url;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->number = $number;
-        $this->state = $state;
-        $this->title = $title;
-        $this->description = $description;
-        $this->creator = $creator;
-        $this->open_issues = $open_issues;
-        $this->closed_issues = $closed_issues;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->closed_at = $closed_at;
-        $this->due_on = $due_on;
     }
 }

@@ -43,7 +43,7 @@ class Comments implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -54,7 +54,7 @@ class Comments implements ObjectMapper
                 $value = $payload['pull_request_review_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull_request_review_id';
+                    $properties['pull_request_review_id'] = null;
                     goto after_pull_request_review_id;
                 }
 
@@ -65,7 +65,7 @@ class Comments implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -76,7 +76,7 @@ class Comments implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -87,7 +87,7 @@ class Comments implements ObjectMapper
                 $value = $payload['diff_hunk'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'diff_hunk';
+                    $properties['diff_hunk'] = null;
                     goto after_diff_hunk;
                 }
 
@@ -98,7 +98,7 @@ class Comments implements ObjectMapper
                 $value = $payload['path'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'path';
+                    $properties['path'] = null;
                     goto after_path;
                 }
 
@@ -109,7 +109,7 @@ class Comments implements ObjectMapper
                 $value = $payload['position'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'position';
+                    $properties['position'] = null;
                     goto after_position;
                 }
 
@@ -120,7 +120,7 @@ class Comments implements ObjectMapper
                 $value = $payload['original_position'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'original_position';
+                    $properties['original_position'] = null;
                     goto after_original_position;
                 }
 
@@ -131,7 +131,7 @@ class Comments implements ObjectMapper
                 $value = $payload['commit_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commit_id';
+                    $properties['commit_id'] = null;
                     goto after_commit_id;
                 }
 
@@ -142,7 +142,7 @@ class Comments implements ObjectMapper
                 $value = $payload['original_commit_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'original_commit_id';
+                    $properties['original_commit_id'] = null;
                     goto after_original_commit_id;
                 }
 
@@ -164,7 +164,7 @@ class Comments implements ObjectMapper
                 $value = $payload['user'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user';
+                    $properties['user'] = null;
                     goto after_user;
                 }
 
@@ -184,7 +184,7 @@ class Comments implements ObjectMapper
                 $value = $payload['body'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'body';
+                    $properties['body'] = null;
                     goto after_body;
                 }
 
@@ -195,7 +195,7 @@ class Comments implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -206,7 +206,7 @@ class Comments implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -217,7 +217,7 @@ class Comments implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -228,7 +228,7 @@ class Comments implements ObjectMapper
                 $value = $payload['pull_request_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull_request_url';
+                    $properties['pull_request_url'] = null;
                     goto after_pull_request_url;
                 }
 
@@ -239,7 +239,7 @@ class Comments implements ObjectMapper
                 $value = $payload['author_association'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'author_association';
+                    $properties['author_association'] = null;
                     goto after_author_association;
                 }
 
@@ -250,7 +250,7 @@ class Comments implements ObjectMapper
                 $value = $payload['_links'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = '_links';
+                    $properties['_links'] = null;
                     goto after__links;
                 }
 
@@ -323,7 +323,7 @@ class Comments implements ObjectMapper
                 $value = $payload['start_side'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'start_side';
+                    $properties['start_side'] = null;
                     goto after_start_side;
                 }
 
@@ -356,7 +356,7 @@ class Comments implements ObjectMapper
                 $value = $payload['start_line'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'start_line';
+                    $properties['start_line'] = null;
                     goto after_start_line;
                 }
 
@@ -367,7 +367,7 @@ class Comments implements ObjectMapper
                 $value = $payload['original_start_line'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'original_start_line';
+                    $properties['original_start_line'] = null;
                     goto after_original_start_line;
                 }
 
@@ -400,7 +400,7 @@ class Comments implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -411,7 +411,7 @@ class Comments implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -422,7 +422,7 @@ class Comments implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -433,7 +433,7 @@ class Comments implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -466,7 +466,7 @@ class Comments implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -477,7 +477,7 @@ class Comments implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -488,7 +488,7 @@ class Comments implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -499,7 +499,7 @@ class Comments implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -510,7 +510,7 @@ class Comments implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -521,7 +521,7 @@ class Comments implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -532,7 +532,7 @@ class Comments implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -543,7 +543,7 @@ class Comments implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -554,7 +554,7 @@ class Comments implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -565,7 +565,7 @@ class Comments implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -576,7 +576,7 @@ class Comments implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -587,7 +587,7 @@ class Comments implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -598,7 +598,7 @@ class Comments implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -609,7 +609,7 @@ class Comments implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -620,7 +620,7 @@ class Comments implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -631,7 +631,7 @@ class Comments implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -642,7 +642,7 @@ class Comments implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -653,7 +653,7 @@ class Comments implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -664,7 +664,7 @@ class Comments implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -675,7 +675,7 @@ class Comments implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -719,7 +719,7 @@ class Comments implements ObjectMapper
                 $value = $payload['self'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'self';
+                    $properties['self'] = null;
                     goto after_self;
                 }
 
@@ -739,7 +739,7 @@ class Comments implements ObjectMapper
                 $value = $payload['html'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html';
+                    $properties['html'] = null;
                     goto after_html;
                 }
 
@@ -759,7 +759,7 @@ class Comments implements ObjectMapper
                 $value = $payload['pull_request'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull_request';
+                    $properties['pull_request'] = null;
                     goto after_pull_request;
                 }
 
@@ -801,7 +801,7 @@ class Comments implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -812,7 +812,7 @@ class Comments implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -823,7 +823,7 @@ class Comments implements ObjectMapper
                 $value = $payload['__p_l_u_s_e_s_1'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = '__p_l_u_s_e_s_1';
+                    $properties['_PLUSES_1'] = null;
                     goto after__PLUSES_1;
                 }
 
@@ -834,7 +834,7 @@ class Comments implements ObjectMapper
                 $value = $payload['__m_i_n_u_s_1'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = '__m_i_n_u_s_1';
+                    $properties['_MINUS_1'] = null;
                     goto after__MINUS_1;
                 }
 
@@ -845,7 +845,7 @@ class Comments implements ObjectMapper
                 $value = $payload['laugh'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'laugh';
+                    $properties['laugh'] = null;
                     goto after_laugh;
                 }
 
@@ -856,7 +856,7 @@ class Comments implements ObjectMapper
                 $value = $payload['confused'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'confused';
+                    $properties['confused'] = null;
                     goto after_confused;
                 }
 
@@ -867,7 +867,7 @@ class Comments implements ObjectMapper
                 $value = $payload['heart'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'heart';
+                    $properties['heart'] = null;
                     goto after_heart;
                 }
 
@@ -878,7 +878,7 @@ class Comments implements ObjectMapper
                 $value = $payload['hooray'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooray';
+                    $properties['hooray'] = null;
                     goto after_hooray;
                 }
 
@@ -889,7 +889,7 @@ class Comments implements ObjectMapper
                 $value = $payload['eyes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'eyes';
+                    $properties['eyes'] = null;
                     goto after_eyes;
                 }
 
@@ -900,7 +900,7 @@ class Comments implements ObjectMapper
                 $value = $payload['rocket'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'rocket';
+                    $properties['rocket'] = null;
                     goto after_rocket;
                 }
 
@@ -933,7 +933,7 @@ class Comments implements ObjectMapper
                 $value = $payload['href'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'href';
+                    $properties['href'] = null;
                     goto after_href;
                 }
 

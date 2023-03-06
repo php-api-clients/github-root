@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"head_sha":"generated_head_sha"}';
     /**
-     * The sha of the head commit.
+     * head_sha: The sha of the head commit.
      */
-    public ?string $head_sha;
-    public function __construct(string $head_sha)
+    public function __construct(public ?string $head_sha)
     {
-        $this->head_sha = $head_sha;
     }
 }

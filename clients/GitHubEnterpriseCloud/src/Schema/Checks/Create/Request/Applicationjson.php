@@ -14,58 +14,20 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","head_sha":"generated_head_sha","details_url":"generated_details_url","external_id":"generated_external_id","status":"generated_status","started_at":"generated_started_at","conclusion":"generated_conclusion","completed_at":"generated_completed_at","output":{"title":"generated_title","summary":"generated_summary","text":"generated_text","annotations":[{"path":"generated_path","start_line":13,"end_line":13,"start_column":13,"end_column":13,"annotation_level":"generated_annotation_level","message":"generated_message","title":"generated_title","raw_details":"generated_raw_details"}],"images":[{"alt":"generated_alt","image_url":"generated_image_url","caption":"generated_caption"}]},"actions":[{"label":"generated_label","description":"generated_description","identifier":"generated_identifier"}]}';
     /**
-     * The name of the check. For example, "code-coverage".
-     */
-    public ?string $name;
-    /**
-     * The SHA of the commit.
-     */
-    public ?string $head_sha;
-    /**
-     * The URL of the integrator's site that has the full details of the check. If the integrator does not provide this, then the homepage of the GitHub app is used.
-     */
-    public string $details_url;
-    /**
-     * A reference for the run on the integrator's system.
-     */
-    public string $external_id;
-    /**
-     * The current status.
-     */
-    public string $status;
-    /**
-     * The time that the check run began. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public string $started_at;
-    /**
-    * **Required if you provide `completed_at` or a `status` of `completed`**. The final conclusion of the check. 
+    * name: The name of the check. For example, "code-coverage".
+    * head_sha: The SHA of the commit.
+    * details_url: The URL of the integrator's site that has the full details of the check. If the integrator does not provide this, then the homepage of the GitHub app is used.
+    * external_id: A reference for the run on the integrator's system.
+    * status: The current status.
+    * started_at: The time that the check run began. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
+    * conclusion: **Required if you provide `completed_at` or a `status` of `completed`**. The final conclusion of the check. 
     **Note:** Providing `conclusion` will automatically set the `status` parameter to `completed`. You cannot change a check run conclusion to `stale`, only GitHub can set this.
+    * completed_at: The time the check completed. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
+    * output: Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run.
+    * actions: Displays a button on GitHub that can be clicked to alert your app to do additional tasks. For example, a code linting app can display a button that automatically fixes detected errors. The button created in this object is displayed after the check run completes. When a user clicks the button, GitHub sends the [`check_run.requested_action` webhook](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#check_run) to your app. Each action includes a `label`, `identifier` and `description`. A maximum of three actions are accepted. To learn more about check runs and requested actions, see "[Check runs and requested actions](https://docs.github.com/enterprise-cloud@latest//rest/reference/checks#check-runs-and-requested-actions)."
+    * @param array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\Checks\Create\Request\Applicationjson\Actions> $actions
     */
-    public string $conclusion;
-    /**
-     * The time the check completed. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public string $completed_at;
-    /**
-     * Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run.
-     */
-    public Schema\Checks\Create\Request\Applicationjson\Output $output;
-    /**
-     * Displays a button on GitHub that can be clicked to alert your app to do additional tasks. For example, a code linting app can display a button that automatically fixes detected errors. The button created in this object is displayed after the check run completes. When a user clicks the button, GitHub sends the [`check_run.requested_action` webhook](https://docs.github.com/enterprise-cloud@latest//webhooks/event-payloads/#check_run) to your app. Each action includes a `label`, `identifier` and `description`. A maximum of three actions are accepted. To learn more about check runs and requested actions, see "[Check runs and requested actions](https://docs.github.com/enterprise-cloud@latest//rest/reference/checks#check-runs-and-requested-actions)."
-     * @var array<Schema\Checks\Create\Request\Applicationjson\Actions>
-     */
-    public array $actions;
-    public function __construct(string $name, string $head_sha, string $details_url, string $external_id, string $status, string $started_at, string $conclusion, string $completed_at, Schema\Checks\Create\Request\Applicationjson\Output $output, array $actions)
+    public function __construct(public ?string $name, public ?string $head_sha, public string $details_url, public string $external_id, public string $status, public string $started_at, public string $conclusion, public string $completed_at, public Schema\Checks\Create\Request\Applicationjson\Output $output, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Checks\Create\Request\Applicationjson\Actions::class)] public array $actions)
     {
-        $this->name = $name;
-        $this->head_sha = $head_sha;
-        $this->details_url = $details_url;
-        $this->external_id = $external_id;
-        $this->status = $status;
-        $this->started_at = $started_at;
-        $this->conclusion = $conclusion;
-        $this->completed_at = $completed_at;
-        $this->output = $output;
-        $this->actions = $actions;
     }
 }

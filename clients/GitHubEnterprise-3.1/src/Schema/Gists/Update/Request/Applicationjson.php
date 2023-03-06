@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"description":"Example Ruby script","files":{"hello.rb":{"content":"blah","filename":"goodbye.rb"}}}';
     /**
-     * Description of the gist
+     * description: Description of the gist
+     * files: Names of files to be updated
      */
-    public ?string $description;
-    /**
-     * Names of files to be updated
-     */
-    public ?Schema\Gists\Update\Request\Applicationjson\Files $files;
-    public function __construct(string $description, Schema\Gists\Update\Request\Applicationjson\Files $files)
+    public function __construct(public ?string $description, public ?Schema\Gists\Update\Request\Applicationjson\Files $files)
     {
-        $this->description = $description;
-        $this->files = $files;
     }
 }

@@ -14,13 +14,9 @@ final readonly class Reviewers
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"type":"User","reviewer":{"id":13,"node_id":"generated_node_id","name":"generated_name","slug":"generated_slug","description":"generated_description","privacy":"generated_privacy","permission":"generated_permission","permissions":{"pull":false,"triage":false,"push":false,"maintain":false,"admin":false},"url":"generated_url","html_url":"https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core","members_url":"generated_members_url","repositories_url":"generated_repositories_url","parent":{"id":1,"node_id":"MDQ6VGVhbTE=","url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1","members_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}","name":"Justice League","description":"A great team.","permission":"admin","privacy":"closed","html_url":"https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core","repositories_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos","slug":"justice-league","ldap_dn":"uid=example,ou=users,dc=github,dc=com"}}}';
     /**
-     * The type of reviewer.
+     * type: The type of reviewer.
      */
-    public ?string $type;
-    public ?Schema\Team $reviewer;
-    public function __construct(string $type, Schema\Team $reviewer)
+    public function __construct(public ?string $type, public ?Schema\Team $reviewer)
     {
-        $this->type = $type;
-        $this->reviewer = $reviewer;
     }
 }

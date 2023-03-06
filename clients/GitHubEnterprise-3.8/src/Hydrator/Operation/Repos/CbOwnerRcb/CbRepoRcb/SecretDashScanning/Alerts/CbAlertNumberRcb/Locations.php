@@ -40,7 +40,7 @@ class Locations implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -51,7 +51,7 @@ class Locations implements ObjectMapper
                 $value = $payload['details'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'details';
+                    $properties['details'] = null;
                     goto after_details;
                 }
 
@@ -93,7 +93,7 @@ class Locations implements ObjectMapper
                 $value = $payload['code'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'code';
+                    $properties['code'] = null;
                     goto after_code;
                 }
 
@@ -104,7 +104,7 @@ class Locations implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -115,7 +115,7 @@ class Locations implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -148,7 +148,7 @@ class Locations implements ObjectMapper
                 $value = $payload['issue_comment_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_comment_url';
+                    $properties['issue_comment_url'] = null;
                     goto after_issue_comment_url;
                 }
 

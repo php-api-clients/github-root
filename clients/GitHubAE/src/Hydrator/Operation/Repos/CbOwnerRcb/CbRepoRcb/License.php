@@ -40,7 +40,7 @@ class License implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -51,7 +51,7 @@ class License implements ObjectMapper
                 $value = $payload['path'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'path';
+                    $properties['path'] = null;
                     goto after_path;
                 }
 
@@ -62,7 +62,7 @@ class License implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -73,7 +73,7 @@ class License implements ObjectMapper
                 $value = $payload['size'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'size';
+                    $properties['size'] = null;
                     goto after_size;
                 }
 
@@ -84,7 +84,7 @@ class License implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -95,7 +95,7 @@ class License implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -106,7 +106,7 @@ class License implements ObjectMapper
                 $value = $payload['git_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_url';
+                    $properties['git_url'] = null;
                     goto after_git_url;
                 }
 
@@ -117,7 +117,7 @@ class License implements ObjectMapper
                 $value = $payload['download_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'download_url';
+                    $properties['download_url'] = null;
                     goto after_download_url;
                 }
 
@@ -128,7 +128,7 @@ class License implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -139,7 +139,7 @@ class License implements ObjectMapper
                 $value = $payload['content'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'content';
+                    $properties['content'] = null;
                     goto after_content;
                 }
 
@@ -150,7 +150,7 @@ class License implements ObjectMapper
                 $value = $payload['encoding'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'encoding';
+                    $properties['encoding'] = null;
                     goto after_encoding;
                 }
 
@@ -161,7 +161,7 @@ class License implements ObjectMapper
                 $value = $payload['_links'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = '_links';
+                    $properties['_links'] = null;
                     goto after__links;
                 }
 
@@ -181,7 +181,7 @@ class License implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'license';
+                    $properties['license'] = null;
                     goto after_license;
                 }
 
@@ -223,7 +223,7 @@ class License implements ObjectMapper
                 $value = $payload['git'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git';
+                    $properties['git'] = null;
                     goto after_git;
                 }
 
@@ -234,7 +234,7 @@ class License implements ObjectMapper
                 $value = $payload['html'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html';
+                    $properties['html'] = null;
                     goto after_html;
                 }
 
@@ -245,7 +245,7 @@ class License implements ObjectMapper
                 $value = $payload['self'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'self';
+                    $properties['self'] = null;
                     goto after_self;
                 }
 
@@ -278,7 +278,7 @@ class License implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 
@@ -289,7 +289,7 @@ class License implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -300,7 +300,7 @@ class License implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -311,7 +311,7 @@ class License implements ObjectMapper
                 $value = $payload['spdx_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'spdx_id';
+                    $properties['spdx_id'] = null;
                     goto after_spdx_id;
                 }
 
@@ -322,7 +322,7 @@ class License implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 

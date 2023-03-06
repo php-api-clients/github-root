@@ -14,18 +14,12 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"reviewers":["generated_reviewers"],"team_reviewers":["generated_team_reviewers"]}';
     /**
-     * An array of user `login`s that will be requested.
-     * @var array<string>
+     * reviewers: An array of user `login`s that will be requested.
+     * @param ?array<string> $reviewers
+     * team_reviewers: An array of team `slug`s that will be requested.
+     * @param ?array<string> $team_reviewers
      */
-    public ?array $reviewers;
-    /**
-     * An array of team `slug`s that will be requested.
-     * @var array<string>
-     */
-    public ?array $team_reviewers;
-    public function __construct(array $reviewers, array $team_reviewers)
+    public function __construct(public ?array $reviewers, public ?array $team_reviewers)
     {
-        $this->reviewers = $reviewers;
-        $this->team_reviewers = $team_reviewers;
     }
 }

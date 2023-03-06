@@ -14,16 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"Week One Sprint","body":"This project represents the sprint of the first week in January"}';
     /**
-     * Name of the project
+     * name: Name of the project
+     * body: Body of the project
      */
-    public ?string $name;
-    /**
-     * Body of the project
-     */
-    public ?string $body;
-    public function __construct(string $name, string $body)
+    public function __construct(public ?string $name, public ?string $body)
     {
-        $this->name = $name;
-        $this->body = $body;
     }
 }

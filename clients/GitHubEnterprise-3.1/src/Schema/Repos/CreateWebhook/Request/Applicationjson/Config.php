@@ -14,27 +14,11 @@ final readonly class Config
     public const SCHEMA_DESCRIPTION = 'Key/value pairs to provide settings for this webhook. [These are defined below](https://docs.github.com/enterprise-server@3.1/rest/reference/repos#create-hook-config-params).';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"https:\\/\\/example.com\\/webhook","content_type":"\\"json\\"","secret":"\\"********\\"","insecure_ssl":13,"token":"\\"abc\\"","digest":"\\"sha256\\""}';
     /**
-     * The URL to which the payloads will be delivered.
+     * url: The URL to which the payloads will be delivered.
+     * content_type: The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
+     * secret: If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-server@3.1/webhooks/event-payloads/#delivery-headers).
      */
-    public ?string $url;
-    /**
-     * The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
-     */
-    public ?string $content_type;
-    /**
-     * If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/enterprise-server@3.1/webhooks/event-payloads/#delivery-headers).
-     */
-    public ?string $secret;
-    public ?int $insecure_ssl;
-    public ?string $token;
-    public ?string $digest;
-    public function __construct(string $url, string $content_type, string $secret, int $insecure_ssl, string $token, string $digest)
+    public function __construct(public ?string $url, public ?string $content_type, public ?string $secret, public ?int $insecure_ssl, public ?string $token, public ?string $digest)
     {
-        $this->url = $url;
-        $this->content_type = $content_type;
-        $this->secret = $secret;
-        $this->insecure_ssl = $insecure_ssl;
-        $this->token = $token;
-        $this->digest = $digest;
     }
 }

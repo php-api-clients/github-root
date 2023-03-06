@@ -14,21 +14,11 @@ final readonly class Links
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"self":{"href":"generated_href"},"html":{"href":"generated_href"},"pull_request":{"href":"generated_href"}}';
     /**
-     * Hypermedia Link
+     * self: Hypermedia Link
+     * html: Hypermedia Link
+     * pull_request: Hypermedia Link
      */
-    public ?Schema\Link $self;
-    /**
-     * Hypermedia Link
-     */
-    public ?Schema\Link $html;
-    /**
-     * Hypermedia Link
-     */
-    public ?Schema\Link $pull_request;
-    public function __construct(Schema\Link $self, Schema\Link $html, Schema\Link $pull_request)
+    public function __construct(public ?Schema\Link $self, public ?Schema\Link $html, public ?Schema\Link $pull_request)
     {
-        $this->self = $self;
-        $this->html = $html;
-        $this->pull_request = $pull_request;
     }
 }

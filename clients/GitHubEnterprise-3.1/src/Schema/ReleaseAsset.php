@@ -13,39 +13,11 @@ final readonly class ReleaseAsset
     public const SCHEMA_TITLE = 'Release Asset';
     public const SCHEMA_DESCRIPTION = 'Data related to a release.';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url","browser_download_url":"generated_browser_download_url","id":13,"node_id":"generated_node_id","name":"Team Environment","label":"generated_label","state":"generated_state","content_type":"generated_content_type","size":13,"download_count":13,"created_at":"generated_created_at","updated_at":"generated_updated_at","uploader":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""}}';
-    public ?string $url;
-    public ?string $browser_download_url;
-    public ?int $id;
-    public ?string $node_id;
     /**
-     * The file name of the asset.
+     * name: The file name of the asset.
+     * state: State of the release asset.
      */
-    public ?string $name;
-    public ?string $label;
-    /**
-     * State of the release asset.
-     */
-    public ?string $state;
-    public ?string $content_type;
-    public ?int $size;
-    public ?int $download_count;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public ?Schema\SimpleUser $uploader;
-    public function __construct(string $url, string $browser_download_url, int $id, string $node_id, string $name, string $label, string $state, string $content_type, int $size, int $download_count, string $created_at, string $updated_at, Schema\SimpleUser $uploader)
+    public function __construct(public ?string $url, public ?string $browser_download_url, public ?int $id, public ?string $node_id, public ?string $name, public ?string $label, public ?string $state, public ?string $content_type, public ?int $size, public ?int $download_count, public ?string $created_at, public ?string $updated_at, public ?Schema\SimpleUser $uploader)
     {
-        $this->url = $url;
-        $this->browser_download_url = $browser_download_url;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->name = $name;
-        $this->label = $label;
-        $this->state = $state;
-        $this->content_type = $content_type;
-        $this->size = $size;
-        $this->download_count = $download_count;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->uploader = $uploader;
     }
 }

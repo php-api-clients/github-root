@@ -38,7 +38,7 @@ class CustomRoles implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class CustomRoles implements ObjectMapper
                 $value = $payload['custom_roles'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'custom_roles';
+                    $properties['custom_roles'] = null;
                     goto after_custom_roles;
                 }
+
+                static $custom_rolesCaster1;
+    
+                if ($custom_rolesCaster1 === null) {
+                    $custom_rolesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\OrganizationCustomRepositoryRole',
+));
+                }
+    
+                $value = $custom_rolesCaster1->cast($value, $this);
 
                 $properties['custom_roles'] = $value;
     
@@ -178,7 +188,8 @@ class CustomRoles implements ObjectMapper
         static $custom_rolesSerializer0;
 
         if ($custom_rolesSerializer0 === null) {
-            $custom_rolesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $custom_rolesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\OrganizationCustomRepositoryRole',
 ));
         }
         

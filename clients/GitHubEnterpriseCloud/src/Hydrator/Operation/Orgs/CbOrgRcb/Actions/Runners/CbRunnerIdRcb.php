@@ -38,7 +38,7 @@ class CbRunnerIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -49,7 +49,7 @@ class CbRunnerIdRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -60,7 +60,7 @@ class CbRunnerIdRcb implements ObjectMapper
                 $value = $payload['os'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'os';
+                    $properties['os'] = null;
                     goto after_os;
                 }
 
@@ -71,7 +71,7 @@ class CbRunnerIdRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -82,7 +82,7 @@ class CbRunnerIdRcb implements ObjectMapper
                 $value = $payload['busy'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'busy';
+                    $properties['busy'] = null;
                     goto after_busy;
                 }
 
@@ -93,9 +93,19 @@ class CbRunnerIdRcb implements ObjectMapper
                 $value = $payload['labels'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels';
+                    $properties['labels'] = null;
                     goto after_labels;
                 }
+
+                static $labelsCaster1;
+    
+                if ($labelsCaster1 === null) {
+                    $labelsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RunnerLabel',
+));
+                }
+    
+                $value = $labelsCaster1->cast($value, $this);
 
                 $properties['labels'] = $value;
     
@@ -254,7 +264,8 @@ class CbRunnerIdRcb implements ObjectMapper
         static $labelsSerializer0;
 
         if ($labelsSerializer0 === null) {
-            $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RunnerLabel',
 ));
         }
         

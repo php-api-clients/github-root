@@ -38,7 +38,7 @@ class Runners implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class Runners implements ObjectMapper
                 $value = $payload['runners'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'runners';
+                    $properties['runners'] = null;
                     goto after_runners;
                 }
+
+                static $runnersCaster1;
+    
+                if ($runnersCaster1 === null) {
+                    $runnersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Runner',
+));
+                }
+    
+                $value = $runnersCaster1->cast($value, $this);
 
                 $properties['runners'] = $value;
     
@@ -178,7 +188,8 @@ class Runners implements ObjectMapper
         static $runnersSerializer0;
 
         if ($runnersSerializer0 === null) {
-            $runnersSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $runnersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Runner',
 ));
         }
         

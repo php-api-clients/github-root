@@ -14,21 +14,11 @@ final readonly class From
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"admin":false,"pull":false,"push":false}';
     /**
-     * The previous version of the team member's `admin` permission on a repository, if the action was `edited`.
+     * admin: The previous version of the team member's `admin` permission on a repository, if the action was `edited`.
+     * pull: The previous version of the team member's `pull` permission on a repository, if the action was `edited`.
+     * push: The previous version of the team member's `push` permission on a repository, if the action was `edited`.
      */
-    public ?bool $admin;
-    /**
-     * The previous version of the team member's `pull` permission on a repository, if the action was `edited`.
-     */
-    public ?bool $pull;
-    /**
-     * The previous version of the team member's `push` permission on a repository, if the action was `edited`.
-     */
-    public ?bool $push;
-    public function __construct(bool $admin, bool $pull, bool $push)
+    public function __construct(public ?bool $admin, public ?bool $pull, public ?bool $push)
     {
-        $this->admin = $admin;
-        $this->pull = $pull;
-        $this->push = $push;
     }
 }

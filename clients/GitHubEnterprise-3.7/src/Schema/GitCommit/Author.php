@@ -14,21 +14,11 @@ final readonly class Author
     public const SCHEMA_DESCRIPTION = 'Identifying information for the git-user';
     public const SCHEMA_EXAMPLE_DATA = '{"date":"2014-08-09T08:02:04+12:00","email":"monalisa.octocat@example.com","name":"Monalisa Octocat"}';
     /**
-     * Timestamp of the commit
+     * date: Timestamp of the commit
+     * email: Git email address of the user
+     * name: Name of the git user
      */
-    public ?string $date;
-    /**
-     * Git email address of the user
-     */
-    public ?string $email;
-    /**
-     * Name of the git user
-     */
-    public ?string $name;
-    public function __construct(string $date, string $email, string $name)
+    public function __construct(public ?string $date, public ?string $email, public ?string $name)
     {
-        $this->date = $date;
-        $this->email = $email;
-        $this->name = $name;
     }
 }

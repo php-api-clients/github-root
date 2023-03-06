@@ -13,21 +13,7 @@ final readonly class Key
     public const SCHEMA_TITLE = 'Key';
     public const SCHEMA_DESCRIPTION = 'Key';
     public const SCHEMA_EXAMPLE_DATA = '{"key":"generated_key","id":13,"url":"generated_url","title":"generated_title","created_at":"generated_created_at","verified":false,"read_only":false}';
-    public ?string $key;
-    public ?int $id;
-    public ?string $url;
-    public ?string $title;
-    public ?string $created_at;
-    public ?bool $verified;
-    public ?bool $read_only;
-    public function __construct(string $key, int $id, string $url, string $title, string $created_at, bool $verified, bool $read_only)
+    public function __construct(public ?string $key, public ?int $id, public ?string $url, public ?string $title, public ?string $created_at, public ?bool $verified, public ?bool $read_only)
     {
-        $this->key = $key;
-        $this->id = $id;
-        $this->url = $url;
-        $this->title = $title;
-        $this->created_at = $created_at;
-        $this->verified = $verified;
-        $this->read_only = $read_only;
     }
 }

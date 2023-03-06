@@ -13,13 +13,7 @@ final readonly class Traffic
     public const SCHEMA_TITLE = 'Traffic';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"timestamp":"generated_timestamp","uniques":13,"count":13}';
-    public ?string $timestamp;
-    public ?int $uniques;
-    public ?int $count;
-    public function __construct(string $timestamp, int $uniques, int $count)
+    public function __construct(public ?string $timestamp, public ?int $uniques, public ?int $count)
     {
-        $this->timestamp = $timestamp;
-        $this->uniques = $uniques;
-        $this->count = $count;
     }
 }

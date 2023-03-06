@@ -43,7 +43,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -54,7 +54,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -65,7 +65,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -76,7 +76,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -109,7 +109,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -120,7 +120,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -131,7 +131,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['scopes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'scopes';
+                    $properties['scopes'] = null;
                     goto after_scopes;
                 }
 
@@ -142,7 +142,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['token'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'token';
+                    $properties['token'] = null;
                     goto after_token;
                 }
 
@@ -153,7 +153,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['token_last_eight'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'token_last_eight';
+                    $properties['token_last_eight'] = null;
                     goto after_token_last_eight;
                 }
 
@@ -164,7 +164,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['hashed_token'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hashed_token';
+                    $properties['hashed_token'] = null;
                     goto after_hashed_token;
                 }
 
@@ -175,7 +175,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['app'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'app';
+                    $properties['app'] = null;
                     goto after_app;
                 }
 
@@ -195,7 +195,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['note'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'note';
+                    $properties['note'] = null;
                     goto after_note;
                 }
 
@@ -206,7 +206,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['note_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'note_url';
+                    $properties['note_url'] = null;
                     goto after_note_url;
                 }
 
@@ -217,7 +217,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -228,7 +228,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -239,7 +239,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['fingerprint'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'fingerprint';
+                    $properties['fingerprint'] = null;
                     goto after_fingerprint;
                 }
 
@@ -290,7 +290,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['expires_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'expires_at';
+                    $properties['expires_at'] = null;
                     goto after_expires_at;
                 }
 
@@ -323,7 +323,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['client_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'client_id';
+                    $properties['client_id'] = null;
                     goto after_client_id;
                 }
 
@@ -334,7 +334,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -345,7 +345,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -378,7 +378,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -389,7 +389,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -400,7 +400,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -411,7 +411,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -422,7 +422,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -433,7 +433,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -444,7 +444,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -455,7 +455,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -466,7 +466,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -477,7 +477,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -488,7 +488,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -499,7 +499,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -510,7 +510,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -521,7 +521,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -532,7 +532,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -543,7 +543,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -554,7 +554,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -565,7 +565,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -576,7 +576,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -587,7 +587,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -631,7 +631,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['permissions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'permissions';
+                    $properties['permissions'] = null;
                     goto after_permissions;
                 }
 
@@ -651,7 +651,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['repository_selection'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_selection';
+                    $properties['repository_selection'] = null;
                     goto after_repository_selection;
                 }
 
@@ -662,7 +662,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['single_file_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'single_file_name';
+                    $properties['single_file_name'] = null;
                     goto after_single_file_name;
                 }
 
@@ -695,7 +695,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['repositories_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repositories_url';
+                    $properties['repositories_url'] = null;
                     goto after_repositories_url;
                 }
 
@@ -706,7 +706,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['account'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'account';
+                    $properties['account'] = null;
                     goto after_account;
                 }
 
@@ -748,7 +748,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['actions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'actions';
+                    $properties['actions'] = null;
                     goto after_actions;
                 }
 
@@ -759,7 +759,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['administration'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'administration';
+                    $properties['administration'] = null;
                     goto after_administration;
                 }
 
@@ -770,7 +770,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['checks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'checks';
+                    $properties['checks'] = null;
                     goto after_checks;
                 }
 
@@ -781,7 +781,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['contents'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents';
+                    $properties['contents'] = null;
                     goto after_contents;
                 }
 
@@ -792,7 +792,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['deployments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments';
+                    $properties['deployments'] = null;
                     goto after_deployments;
                 }
 
@@ -803,7 +803,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['environments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'environments';
+                    $properties['environments'] = null;
                     goto after_environments;
                 }
 
@@ -814,7 +814,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues';
+                    $properties['issues'] = null;
                     goto after_issues;
                 }
 
@@ -825,7 +825,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['metadata'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'metadata';
+                    $properties['metadata'] = null;
                     goto after_metadata;
                 }
 
@@ -836,7 +836,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['packages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'packages';
+                    $properties['packages'] = null;
                     goto after_packages;
                 }
 
@@ -847,7 +847,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pages';
+                    $properties['pages'] = null;
                     goto after_pages;
                 }
 
@@ -858,7 +858,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['pull_requests'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull_requests';
+                    $properties['pull_requests'] = null;
                     goto after_pull_requests;
                 }
 
@@ -869,7 +869,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['repository_hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_hooks';
+                    $properties['repository_hooks'] = null;
                     goto after_repository_hooks;
                 }
 
@@ -880,7 +880,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['repository_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_projects';
+                    $properties['repository_projects'] = null;
                     goto after_repository_projects;
                 }
 
@@ -891,7 +891,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['secret_scanning_alerts'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secret_scanning_alerts';
+                    $properties['secret_scanning_alerts'] = null;
                     goto after_secret_scanning_alerts;
                 }
 
@@ -902,7 +902,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['secrets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secrets';
+                    $properties['secrets'] = null;
                     goto after_secrets;
                 }
 
@@ -913,7 +913,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['security_events'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'security_events';
+                    $properties['security_events'] = null;
                     goto after_security_events;
                 }
 
@@ -924,7 +924,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['single_file'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'single_file';
+                    $properties['single_file'] = null;
                     goto after_single_file;
                 }
 
@@ -935,7 +935,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['statuses'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses';
+                    $properties['statuses'] = null;
                     goto after_statuses;
                 }
 
@@ -946,7 +946,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['vulnerability_alerts'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'vulnerability_alerts';
+                    $properties['vulnerability_alerts'] = null;
                     goto after_vulnerability_alerts;
                 }
 
@@ -957,7 +957,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['workflows'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'workflows';
+                    $properties['workflows'] = null;
                     goto after_workflows;
                 }
 
@@ -968,7 +968,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['members'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'members';
+                    $properties['members'] = null;
                     goto after_members;
                 }
 
@@ -979,7 +979,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['organization_administration'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_administration';
+                    $properties['organization_administration'] = null;
                     goto after_organization_administration;
                 }
 
@@ -990,7 +990,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['organization_hooks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_hooks';
+                    $properties['organization_hooks'] = null;
                     goto after_organization_hooks;
                 }
 
@@ -1001,7 +1001,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['organization_plan'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_plan';
+                    $properties['organization_plan'] = null;
                     goto after_organization_plan;
                 }
 
@@ -1012,7 +1012,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['organization_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_projects';
+                    $properties['organization_projects'] = null;
                     goto after_organization_projects;
                 }
 
@@ -1023,7 +1023,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['organization_packages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_packages';
+                    $properties['organization_packages'] = null;
                     goto after_organization_packages;
                 }
 
@@ -1034,7 +1034,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['organization_secrets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_secrets';
+                    $properties['organization_secrets'] = null;
                     goto after_organization_secrets;
                 }
 
@@ -1045,7 +1045,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['organization_self_hosted_runners'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_self_hosted_runners';
+                    $properties['organization_self_hosted_runners'] = null;
                     goto after_organization_self_hosted_runners;
                 }
 
@@ -1056,7 +1056,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['organization_user_blocking'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_user_blocking';
+                    $properties['organization_user_blocking'] = null;
                     goto after_organization_user_blocking;
                 }
 
@@ -1067,7 +1067,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['team_discussions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'team_discussions';
+                    $properties['team_discussions'] = null;
                     goto after_team_discussions;
                 }
 
@@ -1078,7 +1078,7 @@ class CbAccessTokenRcb implements ObjectMapper
                 $value = $payload['content_references'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'content_references';
+                    $properties['content_references'] = null;
                     goto after_content_references;
                 }
 

@@ -14,156 +14,34 @@ final readonly class WorkflowRun
     public const SCHEMA_DESCRIPTION = 'An invocation of a workflow';
     public const SCHEMA_EXAMPLE_DATA = '{"id":5,"name":"Build","node_id":"MDEwOkNoZWNrU3VpdGU1","check_suite_id":42,"check_suite_node_id":"MDEwOkNoZWNrU3VpdGU0Mg==","head_branch":"master","head_sha":"009b8a3a9ccbb128af87f9b1c0f4c62e8a304f6d","path":"octocat\\/octo-repo\\/.github\\/workflows\\/ci.yml@main","run_number":106,"run_attempt":1,"referenced_workflows":[{"path":"generated_path","sha":"generated_sha","ref":"generated_ref"}],"event":"push","status":"completed","conclusion":"neutral","workflow_id":5,"url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/runs\\/5","html_url":"https:\\/\\/github.com\\/github\\/hello-world\\/suites\\/4","pull_requests":[{"id":13,"number":13,"url":"generated_url","head":{"ref":"generated_ref","sha":"generated_sha","repo":{"id":13,"url":"generated_url","name":"generated_name"}},"base":{"ref":"generated_ref","sha":"generated_sha","repo":{"id":13,"url":"generated_url","name":"generated_name"}}}],"created_at":"generated_created_at","updated_at":"generated_updated_at","actor":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"triggering_actor":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"run_started_at":"generated_run_started_at","jobs_url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/runs\\/5\\/jobs","logs_url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/runs\\/5\\/logs","check_suite_url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/check-suites\\/12","artifacts_url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/runs\\/5\\/rerun\\/artifacts","cancel_url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/runs\\/5\\/cancel","rerun_url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/runs\\/5\\/rerun","previous_attempt_url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/runs\\/5\\/attempts\\/3","workflow_url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/workflows\\/main.yaml","head_commit":{"id":"generated_id","tree_id":"generated_tree_id","message":"generated_message","timestamp":"generated_timestamp","author":{"name":"generated_name","email":"generated_email"},"committer":{"name":"generated_name","email":"generated_email"}},"repository":{"id":1296269,"node_id":"MDEwOlJlcG9zaXRvcnkxMjk2MjY5","name":"Hello-World","full_name":"octocat\\/Hello-World","owner":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"private":false,"html_url":"https:\\/\\/github.com\\/octocat\\/Hello-World","description":"This your first repo!","fork":false,"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World","archive_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/{archive_format}{\\/ref}","assignees_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/assignees{\\/user}","blobs_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/blobs{\\/sha}","branches_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches{\\/branch}","collaborators_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/collaborators{\\/collaborator}","comments_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/comments{\\/number}","commits_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits{\\/sha}","compare_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/compare\\/{base}...{head}","contents_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/{+path}","contributors_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contributors","deployments_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/deployments","downloads_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/downloads","events_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/events","forks_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/forks","git_commits_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/commits{\\/sha}","git_refs_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/refs{\\/sha}","git_tags_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/tags{\\/sha}","git_url":"generated_git_url","issue_comment_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/comments{\\/number}","issue_events_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/events{\\/number}","issues_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues{\\/number}","keys_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/keys{\\/key_id}","labels_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/labels{\\/name}","languages_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/languages","merges_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/merges","milestones_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/milestones{\\/number}","notifications_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/notifications{?since,all,participating}","pulls_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls{\\/number}","releases_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/releases{\\/id}","ssh_url":"generated_ssh_url","stargazers_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/stargazers","statuses_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/statuses\\/{sha}","subscribers_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscribers","subscription_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscription","tags_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tags","teams_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/teams","trees_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/trees{\\/sha}","clone_url":"generated_clone_url","mirror_url":"generated_mirror_url","hooks_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks","svn_url":"generated_svn_url","homepage":"generated_homepage","language":"generated_language","forks_count":13,"stargazers_count":13,"watchers_count":13,"size":13,"default_branch":"generated_default_branch","open_issues_count":13,"is_template":false,"topics":["generated_topics"],"has_issues":false,"has_projects":false,"has_wiki":false,"has_pages":false,"has_downloads":false,"has_discussions":false,"archived":false,"disabled":false,"visibility":"generated_visibility","pushed_at":"2011-01-26T19:06:43Z","created_at":"2011-01-26T19:01:12Z","updated_at":"2011-01-26T19:14:43Z","permissions":{"admin":false,"maintain":false,"push":false,"triage":false,"pull":false},"role_name":"admin","temp_clone_token":"generated_temp_clone_token","delete_branch_on_merge":false,"subscribers_count":13,"network_count":13,"code_of_conduct":{"key":"contributor_covenant","name":"Contributor Covenant","url":"https:\\/\\/api.github.com\\/codes_of_conduct\\/contributor_covenant","body":"# Contributor Covenant Code of Conduct\\n\\n## Our Pledge\\n\\nIn the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.\\n\\n## Our Standards\\n\\nExamples of behavior that contributes to creating a positive environment include:\\n\\n* Using welcoming and inclusive language\\n* Being respectful of differing viewpoints and experiences\\n* Gracefully accepting constructive criticism\\n* Focusing on what is best for the community\\n* Showing empathy towards other community members\\n\\nExamples of unacceptable behavior by participants include:\\n\\n* The use of sexualized language or imagery and unwelcome sexual attention or advances\\n* Trolling, insulting\\/derogatory comments, and personal or political attacks\\n* Public or private harassment\\n* Publishing others\' private information, such as a physical or electronic address, without explicit permission\\n* Other conduct which could reasonably be considered inappropriate in a professional setting\\n\\n## Our Responsibilities\\n\\nProject maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response\\n                  to any instances of unacceptable behavior.\\n\\nProject maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.\\n\\n## Scope\\n\\nThis Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address,\\n                  posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.\\n\\n## Enforcement\\n\\nInstances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at [EMAIL]. The project team will review and investigate all complaints, and will respond in a way that it deems appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.\\n\\nProject maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project\'s leadership.\\n\\n## Attribution\\n\\nThis Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4, available at [http:\\/\\/contributor-covenant.org\\/version\\/1\\/4][version]\\n\\n[homepage]: http:\\/\\/contributor-covenant.org\\n[version]: http:\\/\\/contributor-covenant.org\\/version\\/1\\/4\\/\\n","html_url":"generated_html_url"},"license":{"key":"generated_key","name":"generated_name","spdx_id":"generated_spdx_id","url":"generated_url","node_id":"generated_node_id"},"forks":0,"open_issues":0,"watchers":0,"allow_forking":false,"web_commit_signoff_required":false,"security_and_analysis":{"advanced_security":{"status":"generated_status"},"secret_scanning":{"status":"generated_status"},"secret_scanning_push_protection":{"status":"generated_status"}}},"head_repository":{"id":1296269,"node_id":"MDEwOlJlcG9zaXRvcnkxMjk2MjY5","name":"Hello-World","full_name":"octocat\\/Hello-World","owner":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"private":false,"html_url":"https:\\/\\/github.com\\/octocat\\/Hello-World","description":"This your first repo!","fork":false,"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World","archive_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/{archive_format}{\\/ref}","assignees_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/assignees{\\/user}","blobs_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/blobs{\\/sha}","branches_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches{\\/branch}","collaborators_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/collaborators{\\/collaborator}","comments_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/comments{\\/number}","commits_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits{\\/sha}","compare_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/compare\\/{base}...{head}","contents_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/{+path}","contributors_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contributors","deployments_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/deployments","downloads_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/downloads","events_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/events","forks_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/forks","git_commits_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/commits{\\/sha}","git_refs_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/refs{\\/sha}","git_tags_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/tags{\\/sha}","git_url":"generated_git_url","issue_comment_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/comments{\\/number}","issue_events_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/events{\\/number}","issues_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues{\\/number}","keys_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/keys{\\/key_id}","labels_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/labels{\\/name}","languages_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/languages","merges_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/merges","milestones_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/milestones{\\/number}","notifications_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/notifications{?since,all,participating}","pulls_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls{\\/number}","releases_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/releases{\\/id}","ssh_url":"generated_ssh_url","stargazers_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/stargazers","statuses_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/statuses\\/{sha}","subscribers_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscribers","subscription_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscription","tags_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tags","teams_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/teams","trees_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/trees{\\/sha}","clone_url":"generated_clone_url","mirror_url":"generated_mirror_url","hooks_url":"http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks","svn_url":"generated_svn_url","homepage":"generated_homepage","language":"generated_language","forks_count":13,"stargazers_count":13,"watchers_count":13,"size":13,"default_branch":"generated_default_branch","open_issues_count":13,"is_template":false,"topics":["generated_topics"],"has_issues":false,"has_projects":false,"has_wiki":false,"has_pages":false,"has_downloads":false,"has_discussions":false,"archived":false,"disabled":false,"visibility":"generated_visibility","pushed_at":"2011-01-26T19:06:43Z","created_at":"2011-01-26T19:01:12Z","updated_at":"2011-01-26T19:14:43Z","permissions":{"admin":false,"maintain":false,"push":false,"triage":false,"pull":false},"role_name":"admin","temp_clone_token":"generated_temp_clone_token","delete_branch_on_merge":false,"subscribers_count":13,"network_count":13,"code_of_conduct":{"key":"contributor_covenant","name":"Contributor Covenant","url":"https:\\/\\/api.github.com\\/codes_of_conduct\\/contributor_covenant","body":"# Contributor Covenant Code of Conduct\\n\\n## Our Pledge\\n\\nIn the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.\\n\\n## Our Standards\\n\\nExamples of behavior that contributes to creating a positive environment include:\\n\\n* Using welcoming and inclusive language\\n* Being respectful of differing viewpoints and experiences\\n* Gracefully accepting constructive criticism\\n* Focusing on what is best for the community\\n* Showing empathy towards other community members\\n\\nExamples of unacceptable behavior by participants include:\\n\\n* The use of sexualized language or imagery and unwelcome sexual attention or advances\\n* Trolling, insulting\\/derogatory comments, and personal or political attacks\\n* Public or private harassment\\n* Publishing others\' private information, such as a physical or electronic address, without explicit permission\\n* Other conduct which could reasonably be considered inappropriate in a professional setting\\n\\n## Our Responsibilities\\n\\nProject maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response\\n                  to any instances of unacceptable behavior.\\n\\nProject maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.\\n\\n## Scope\\n\\nThis Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address,\\n                  posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.\\n\\n## Enforcement\\n\\nInstances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at [EMAIL]. The project team will review and investigate all complaints, and will respond in a way that it deems appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.\\n\\nProject maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project\'s leadership.\\n\\n## Attribution\\n\\nThis Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4, available at [http:\\/\\/contributor-covenant.org\\/version\\/1\\/4][version]\\n\\n[homepage]: http:\\/\\/contributor-covenant.org\\n[version]: http:\\/\\/contributor-covenant.org\\/version\\/1\\/4\\/\\n","html_url":"generated_html_url"},"license":{"key":"generated_key","name":"generated_name","spdx_id":"generated_spdx_id","url":"generated_url","node_id":"generated_node_id"},"forks":0,"open_issues":0,"watchers":0,"allow_forking":false,"web_commit_signoff_required":false,"security_and_analysis":{"advanced_security":{"status":"generated_status"},"secret_scanning":{"status":"generated_status"},"secret_scanning_push_protection":{"status":"generated_status"}}},"head_repository_id":5,"display_title":"Simple Workflow"}';
     /**
-     * The ID of the workflow run.
+     * id: The ID of the workflow run.
+     * name: The name of the workflow run.
+     * check_suite_id: The ID of the associated check suite.
+     * check_suite_node_id: The node ID of the associated check suite.
+     * head_sha: The SHA of the head commit that points to the version of the workflow being run.
+     * path: The full path of the workflow
+     * run_number: The auto incrementing run number for the workflow run.
+     * run_attempt: Attempt number of the run, 1 for first attempt and higher if the workflow was re-run.
+     * @param ?array<\ApiClients\Client\GitHub\Schema\ReferencedWorkflow> $referenced_workflows
+     * workflow_id: The ID of the parent workflow.
+     * url: The URL to the workflow run.
+     * @param ?array<\ApiClients\Client\GitHub\Schema\PullRequestMinimal> $pull_requests
+     * actor: A GitHub user.
+     * triggering_actor: A GitHub user.
+     * run_started_at: The start time of the latest run. Resets on re-run.
+     * jobs_url: The URL to the jobs for the workflow run.
+     * logs_url: The URL to download the logs for the workflow run.
+     * check_suite_url: The URL to the associated check suite.
+     * artifacts_url: The URL to the artifacts for the workflow run.
+     * cancel_url: The URL to cancel the workflow run.
+     * rerun_url: The URL to rerun the workflow run.
+     * previous_attempt_url: The URL to the previous attempted run of this workflow, if one exists.
+     * workflow_url: The URL to the workflow.
+     * repository: Minimal Repository
+     * head_repository: Minimal Repository
+     * display_title: The event-specific title associated with the run or the run-name if set, or the value of `run-name` if it is set in the workflow.
      */
-    public ?int $id;
-    /**
-     * The name of the workflow run.
-     */
-    public ?string $name;
-    public ?string $node_id;
-    /**
-     * The ID of the associated check suite.
-     */
-    public int $check_suite_id;
-    /**
-     * The node ID of the associated check suite.
-     */
-    public string $check_suite_node_id;
-    public ?string $head_branch;
-    /**
-     * The SHA of the head commit that points to the version of the workflow being run.
-     */
-    public ?string $head_sha;
-    /**
-     * The full path of the workflow
-     */
-    public ?string $path;
-    /**
-     * The auto incrementing run number for the workflow run.
-     */
-    public ?int $run_number;
-    /**
-     * Attempt number of the run, 1 for first attempt and higher if the workflow was re-run.
-     */
-    public int $run_attempt;
-    /**
-     * @var array<Schema\ReferencedWorkflow>
-     */
-    public ?array $referenced_workflows;
-    public ?string $event;
-    public ?string $status;
-    public ?string $conclusion;
-    /**
-     * The ID of the parent workflow.
-     */
-    public ?int $workflow_id;
-    /**
-     * The URL to the workflow run.
-     */
-    public ?string $url;
-    public ?string $html_url;
-    /**
-     * @var array<Schema\PullRequestMinimal>
-     */
-    public ?array $pull_requests;
-    public ?string $created_at;
-    public ?string $updated_at;
-    /**
-     * A GitHub user.
-     */
-    public Schema\SimpleUser $actor;
-    /**
-     * A GitHub user.
-     */
-    public Schema\SimpleUser $triggering_actor;
-    /**
-     * The start time of the latest run. Resets on re-run.
-     */
-    public string $run_started_at;
-    /**
-     * The URL to the jobs for the workflow run.
-     */
-    public ?string $jobs_url;
-    /**
-     * The URL to download the logs for the workflow run.
-     */
-    public ?string $logs_url;
-    /**
-     * The URL to the associated check suite.
-     */
-    public ?string $check_suite_url;
-    /**
-     * The URL to the artifacts for the workflow run.
-     */
-    public ?string $artifacts_url;
-    /**
-     * The URL to cancel the workflow run.
-     */
-    public ?string $cancel_url;
-    /**
-     * The URL to rerun the workflow run.
-     */
-    public ?string $rerun_url;
-    /**
-     * The URL to the previous attempted run of this workflow, if one exists.
-     */
-    public ?string $previous_attempt_url;
-    /**
-     * The URL to the workflow.
-     */
-    public ?string $workflow_url;
-    public ?Schema\SimpleCommit $head_commit;
-    /**
-     * Minimal Repository
-     */
-    public ?Schema\MinimalRepository $repository;
-    /**
-     * Minimal Repository
-     */
-    public ?Schema\MinimalRepository $head_repository;
-    public int $head_repository_id;
-    /**
-     * The event-specific title associated with the run or the run-name if set, or the value of `run-name` if it is set in the workflow.
-     */
-    public ?string $display_title;
-    public function __construct(int $id, string $name, string $node_id, int $check_suite_id, string $check_suite_node_id, string $head_branch, string $head_sha, string $path, int $run_number, int $run_attempt, array $referenced_workflows, string $event, string $status, string $conclusion, int $workflow_id, string $url, string $html_url, array $pull_requests, string $created_at, string $updated_at, Schema\SimpleUser $actor, Schema\SimpleUser $triggering_actor, string $run_started_at, string $jobs_url, string $logs_url, string $check_suite_url, string $artifacts_url, string $cancel_url, string $rerun_url, string $previous_attempt_url, string $workflow_url, Schema\SimpleCommit $head_commit, Schema\MinimalRepository $repository, Schema\MinimalRepository $head_repository, int $head_repository_id, string $display_title)
+    public function __construct(public ?int $id, public ?string $name, public ?string $node_id, public int $check_suite_id, public string $check_suite_node_id, public ?string $head_branch, public ?string $head_sha, public ?string $path, public ?int $run_number, public int $run_attempt, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ReferencedWorkflow::class)] public ?array $referenced_workflows, public ?string $event, public ?string $status, public ?string $conclusion, public ?int $workflow_id, public ?string $url, public ?string $html_url, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\PullRequestMinimal::class)] public ?array $pull_requests, public ?string $created_at, public ?string $updated_at, public Schema\SimpleUser $actor, public Schema\SimpleUser $triggering_actor, public string $run_started_at, public ?string $jobs_url, public ?string $logs_url, public ?string $check_suite_url, public ?string $artifacts_url, public ?string $cancel_url, public ?string $rerun_url, public ?string $previous_attempt_url, public ?string $workflow_url, public ?Schema\SimpleCommit $head_commit, public ?Schema\MinimalRepository $repository, public ?Schema\MinimalRepository $head_repository, public int $head_repository_id, public ?string $display_title)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->node_id = $node_id;
-        $this->check_suite_id = $check_suite_id;
-        $this->check_suite_node_id = $check_suite_node_id;
-        $this->head_branch = $head_branch;
-        $this->head_sha = $head_sha;
-        $this->path = $path;
-        $this->run_number = $run_number;
-        $this->run_attempt = $run_attempt;
-        $this->referenced_workflows = $referenced_workflows;
-        $this->event = $event;
-        $this->status = $status;
-        $this->conclusion = $conclusion;
-        $this->workflow_id = $workflow_id;
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->pull_requests = $pull_requests;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->actor = $actor;
-        $this->triggering_actor = $triggering_actor;
-        $this->run_started_at = $run_started_at;
-        $this->jobs_url = $jobs_url;
-        $this->logs_url = $logs_url;
-        $this->check_suite_url = $check_suite_url;
-        $this->artifacts_url = $artifacts_url;
-        $this->cancel_url = $cancel_url;
-        $this->rerun_url = $rerun_url;
-        $this->previous_attempt_url = $previous_attempt_url;
-        $this->workflow_url = $workflow_url;
-        $this->head_commit = $head_commit;
-        $this->repository = $repository;
-        $this->head_repository = $head_repository;
-        $this->head_repository_id = $head_repository_id;
-        $this->display_title = $display_title;
     }
 }

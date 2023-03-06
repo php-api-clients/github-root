@@ -40,7 +40,7 @@ class Repositories implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -51,7 +51,7 @@ class Repositories implements ObjectMapper
                 $value = $payload['incomplete_results'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'incomplete_results';
+                    $properties['incomplete_results'] = null;
                     goto after_incomplete_results;
                 }
 
@@ -62,9 +62,19 @@ class Repositories implements ObjectMapper
                 $value = $payload['items'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'items';
+                    $properties['items'] = null;
                     goto after_items;
                 }
+
+                static $itemsCaster1;
+    
+                if ($itemsCaster1 === null) {
+                    $itemsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepoSearchResultItem',
+));
+                }
+    
+                $value = $itemsCaster1->cast($value, $this);
 
                 $properties['items'] = $value;
     
@@ -95,7 +105,7 @@ class Repositories implements ObjectMapper
                 $value = $payload['code'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'code';
+                    $properties['code'] = null;
                     goto after_code;
                 }
 
@@ -106,7 +116,7 @@ class Repositories implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -117,7 +127,7 @@ class Repositories implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -150,7 +160,7 @@ class Repositories implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -161,7 +171,7 @@ class Repositories implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -175,6 +185,16 @@ class Repositories implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -311,7 +331,8 @@ class Repositories implements ObjectMapper
         static $itemsSerializer0;
 
         if ($itemsSerializer0 === null) {
-            $itemsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $itemsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepoSearchResultItem',
 ));
         }
         
@@ -381,7 +402,8 @@ class Repositories implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ValidationError\\Errors',
 ));
         }
         

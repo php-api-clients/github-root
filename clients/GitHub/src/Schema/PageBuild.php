@@ -13,23 +13,7 @@ final readonly class PageBuild
     public const SCHEMA_TITLE = 'Page Build';
     public const SCHEMA_DESCRIPTION = 'Page Build';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url","status":"generated_status","error":{"message":"generated_message"},"pusher":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"commit":"generated_commit","duration":13,"created_at":"generated_created_at","updated_at":"generated_updated_at"}';
-    public ?string $url;
-    public ?string $status;
-    public ?Schema\PageBuild\Error $error;
-    public ?Schema\SimpleUser $pusher;
-    public ?string $commit;
-    public ?int $duration;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public function __construct(string $url, string $status, Schema\PageBuild\Error $error, Schema\SimpleUser $pusher, string $commit, int $duration, string $created_at, string $updated_at)
+    public function __construct(public ?string $url, public ?string $status, public ?Schema\PageBuild\Error $error, public ?Schema\SimpleUser $pusher, public ?string $commit, public ?int $duration, public ?string $created_at, public ?string $updated_at)
     {
-        $this->url = $url;
-        $this->status = $status;
-        $this->error = $error;
-        $this->pusher = $pusher;
-        $this->commit = $commit;
-        $this->duration = $duration;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
     }
 }

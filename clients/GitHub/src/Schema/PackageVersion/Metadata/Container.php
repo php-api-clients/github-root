@@ -14,11 +14,9 @@ final readonly class Container
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"tags":["generated_tags"]}';
     /**
-     * @var array<string>
+     * @param ?array<string> $tags
      */
-    public ?array $tags;
-    public function __construct(array $tags)
+    public function __construct(public ?array $tags)
     {
-        $this->tags = $tags;
     }
 }

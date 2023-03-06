@@ -14,33 +14,13 @@ final readonly class OrganizationActionsVariable
     public const SCHEMA_DESCRIPTION = 'Organization variable for GitHub Actions.';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"USERNAME","value":"octocat","created_at":"2019-01-24T22:45:36.000Z","updated_at":"2019-01-24T22:45:36.000Z","visibility":"generated_visibility","selected_repositories_url":"https:\\/\\/api.github.com\\/organizations\\/org\\/variables\\/USERNAME\\/repositories"}';
     /**
-     * The name of the variable.
+     * name: The name of the variable.
+     * value: The value of the variable.
+     * created_at: The date and time at which the variable was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.
+     * updated_at: The date and time at which the variable was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.
+     * visibility: Visibility of a variable
      */
-    public ?string $name;
-    /**
-     * The value of the variable.
-     */
-    public ?string $value;
-    /**
-     * The date and time at which the variable was created, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.
-     */
-    public ?string $created_at;
-    /**
-     * The date and time at which the variable was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.
-     */
-    public ?string $updated_at;
-    /**
-     * Visibility of a variable
-     */
-    public ?string $visibility;
-    public string $selected_repositories_url;
-    public function __construct(string $name, string $value, string $created_at, string $updated_at, string $visibility, string $selected_repositories_url)
+    public function __construct(public ?string $name, public ?string $value, public ?string $created_at, public ?string $updated_at, public ?string $visibility, public string $selected_repositories_url)
     {
-        $this->name = $name;
-        $this->value = $value;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->visibility = $visibility;
-        $this->selected_repositories_url = $selected_repositories_url;
     }
 }

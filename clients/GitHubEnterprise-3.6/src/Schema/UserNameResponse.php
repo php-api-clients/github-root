@@ -14,26 +14,12 @@ final readonly class UserNameResponse
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"formatted":"Ms. Mona Lisa Octocat","familyName":"Octocat","givenName":"Mona","middleName":"Lisa"}';
     /**
-     * The full name, including all middle names, titles, and suffixes as appropriate, formatted for display.
+     * formatted: The full name, including all middle names, titles, and suffixes as appropriate, formatted for display.
+     * familyName: The family name of the user.
+     * givenName: The given name of the user.
+     * middleName: The middle name(s) of the user.
      */
-    public ?string $formatted;
-    /**
-     * The family name of the user.
-     */
-    public ?string $familyName;
-    /**
-     * The given name of the user.
-     */
-    public ?string $givenName;
-    /**
-     * The middle name(s) of the user.
-     */
-    public ?string $middleName;
-    public function __construct(string $formatted, string $familyName, string $givenName, string $middleName)
+    public function __construct(public ?string $formatted, public ?string $familyName, public ?string $givenName, public ?string $middleName)
     {
-        $this->formatted = $formatted;
-        $this->familyName = $familyName;
-        $this->givenName = $givenName;
-        $this->middleName = $middleName;
     }
 }

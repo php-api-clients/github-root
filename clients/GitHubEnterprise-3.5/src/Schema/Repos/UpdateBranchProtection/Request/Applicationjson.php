@@ -14,51 +14,17 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"required_status_checks":{"strict":false,"contexts":["generated_contexts"],"checks":[{"context":"generated_context","app_id":13}]},"enforce_admins":false,"required_pull_request_reviews":{"dismissal_restrictions":{"users":["generated_users"],"teams":["generated_teams"],"apps":["generated_apps"]},"dismiss_stale_reviews":false,"require_code_owner_reviews":false,"required_approving_review_count":13,"bypass_pull_request_allowances":{"users":["generated_users"],"teams":["generated_teams"],"apps":["generated_apps"]}},"restrictions":{"users":["generated_users"],"teams":["generated_teams"],"apps":["generated_apps"]},"required_linear_history":false,"allow_force_pushes":false,"allow_deletions":false,"block_creations":false,"required_conversation_resolution":false}';
     /**
-     * Require status checks to pass before merging. Set to `null` to disable.
+     * required_status_checks: Require status checks to pass before merging. Set to `null` to disable.
+     * enforce_admins: Enforce all configured restrictions for administrators. Set to `true` to enforce required status checks for repository administrators. Set to `null` to disable.
+     * required_pull_request_reviews: Require at least one approving review on a pull request, before merging. Set to `null` to disable.
+     * restrictions: Restrict who can push to the protected branch. User, app, and team `restrictions` are only available for organization-owned repositories. Set to `null` to disable.
+     * required_linear_history: Enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch. Set to `true` to enforce a linear commit history. Set to `false` to disable a linear commit Git history. Your repository must allow squash merging or rebase merging before you can enable a linear commit history. Default: `false`. For more information, see "[Requiring a linear commit history](https://docs.github.com/enterprise-server@3.5/github/administering-a-repository/requiring-a-linear-commit-history)" in the GitHub Help documentation.
+     * allow_force_pushes: Permits force pushes to the protected branch by anyone with write access to the repository. Set to `true` to allow force pushes. Set to `false` or `null` to block force pushes. Default: `false`. For more information, see "[Enabling force pushes to a protected branch](https://docs.github.com/enterprise-server@3.5/github/administering-a-repository/enabling-force-pushes-to-a-protected-branch)" in the GitHub Help documentation."
+     * allow_deletions: Allows deletion of the protected branch by anyone with write access to the repository. Set to `false` to prevent deletion of the protected branch. Default: `false`. For more information, see "[Enabling force pushes to a protected branch](https://docs.github.com/enterprise-server@3.5/github/administering-a-repository/enabling-force-pushes-to-a-protected-branch)" in the GitHub Help documentation.
+     * block_creations: If set to `true`, the `restrictions` branch protection settings which limits who can push will also block pushes which create new branches, unless the push is initiated by a user, team, or app which has the ability to push. Set to `true` to restrict new branch creation. Default: `false`.
+     * required_conversation_resolution: Requires all conversations on code to be resolved before a pull request can be merged into a branch that matches this rule. Set to `false` to disable. Default: `false`.
      */
-    public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredStatusChecks $required_status_checks;
-    /**
-     * Enforce all configured restrictions for administrators. Set to `true` to enforce required status checks for repository administrators. Set to `null` to disable.
-     */
-    public ?bool $enforce_admins;
-    /**
-     * Require at least one approving review on a pull request, before merging. Set to `null` to disable.
-     */
-    public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredPullRequestReviews $required_pull_request_reviews;
-    /**
-     * Restrict who can push to the protected branch. User, app, and team `restrictions` are only available for organization-owned repositories. Set to `null` to disable.
-     */
-    public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\Restrictions $restrictions;
-    /**
-     * Enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch. Set to `true` to enforce a linear commit history. Set to `false` to disable a linear commit Git history. Your repository must allow squash merging or rebase merging before you can enable a linear commit history. Default: `false`. For more information, see "[Requiring a linear commit history](https://docs.github.com/enterprise-server@3.5/github/administering-a-repository/requiring-a-linear-commit-history)" in the GitHub Help documentation.
-     */
-    public bool $required_linear_history;
-    /**
-     * Permits force pushes to the protected branch by anyone with write access to the repository. Set to `true` to allow force pushes. Set to `false` or `null` to block force pushes. Default: `false`. For more information, see "[Enabling force pushes to a protected branch](https://docs.github.com/enterprise-server@3.5/github/administering-a-repository/enabling-force-pushes-to-a-protected-branch)" in the GitHub Help documentation."
-     */
-    public ?bool $allow_force_pushes;
-    /**
-     * Allows deletion of the protected branch by anyone with write access to the repository. Set to `false` to prevent deletion of the protected branch. Default: `false`. For more information, see "[Enabling force pushes to a protected branch](https://docs.github.com/enterprise-server@3.5/github/administering-a-repository/enabling-force-pushes-to-a-protected-branch)" in the GitHub Help documentation.
-     */
-    public bool $allow_deletions;
-    /**
-     * If set to `true`, the `restrictions` branch protection settings which limits who can push will also block pushes which create new branches, unless the push is initiated by a user, team, or app which has the ability to push. Set to `true` to restrict new branch creation. Default: `false`.
-     */
-    public bool $block_creations;
-    /**
-     * Requires all conversations on code to be resolved before a pull request can be merged into a branch that matches this rule. Set to `false` to disable. Default: `false`.
-     */
-    public bool $required_conversation_resolution;
-    public function __construct(Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredStatusChecks $required_status_checks, bool $enforce_admins, Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredPullRequestReviews $required_pull_request_reviews, Schema\Repos\UpdateBranchProtection\Request\Applicationjson\Restrictions $restrictions, bool $required_linear_history, bool $allow_force_pushes, bool $allow_deletions, bool $block_creations, bool $required_conversation_resolution)
+    public function __construct(public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredStatusChecks $required_status_checks, public ?bool $enforce_admins, public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredPullRequestReviews $required_pull_request_reviews, public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\Restrictions $restrictions, public bool $required_linear_history, public ?bool $allow_force_pushes, public bool $allow_deletions, public bool $block_creations, public bool $required_conversation_resolution)
     {
-        $this->required_status_checks = $required_status_checks;
-        $this->enforce_admins = $enforce_admins;
-        $this->required_pull_request_reviews = $required_pull_request_reviews;
-        $this->restrictions = $restrictions;
-        $this->required_linear_history = $required_linear_history;
-        $this->allow_force_pushes = $allow_force_pushes;
-        $this->allow_deletions = $allow_deletions;
-        $this->block_creations = $block_creations;
-        $this->required_conversation_resolution = $required_conversation_resolution;
     }
 }

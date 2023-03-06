@@ -38,7 +38,7 @@ class UsagePolicy implements ObjectMapper
                 $value = $payload['repo_cache_size_limit_in_gb'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repo_cache_size_limit_in_gb';
+                    $properties['repo_cache_size_limit_in_gb'] = null;
                     goto after_repo_cache_size_limit_in_gb;
                 }
 

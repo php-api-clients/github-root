@@ -14,24 +14,12 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"config":{"url":"https:\\/\\/example.com\\/webhook","content_type":"\\"json\\"","secret":"\\"********\\"","insecure_ssl":13},"events":["generated_events"],"active":false,"name":"\\"web\\""}';
     /**
-     * Key/value pairs to provide settings for this webhook. [These are defined below](https://docs.github.com/enterprise-server@3.2/rest/reference/orgs#update-hook-config-params).
+     * config: Key/value pairs to provide settings for this webhook. [These are defined below](https://docs.github.com/enterprise-server@3.2/rest/reference/orgs#update-hook-config-params).
+     * events: Determines what [events](https://docs.github.com/enterprise-server@3.2/webhooks/event-payloads) the hook is triggered for.
+     * @param ?array<string> $events
+     * active: Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
      */
-    public ?Schema\Orgs\UpdateWebhook\Request\Applicationjson\Config $config;
-    /**
-     * Determines what [events](https://docs.github.com/enterprise-server@3.2/webhooks/event-payloads) the hook is triggered for.
-     * @var array<string>
-     */
-    public ?array $events;
-    /**
-     * Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
-     */
-    public ?bool $active;
-    public ?string $name;
-    public function __construct(Schema\Orgs\UpdateWebhook\Request\Applicationjson\Config $config, array $events, bool $active, string $name)
+    public function __construct(public ?Schema\Orgs\UpdateWebhook\Request\Applicationjson\Config $config, public ?array $events, public ?bool $active, public ?string $name)
     {
-        $this->config = $config;
-        $this->events = $events;
-        $this->active = $active;
-        $this->name = $name;
     }
 }

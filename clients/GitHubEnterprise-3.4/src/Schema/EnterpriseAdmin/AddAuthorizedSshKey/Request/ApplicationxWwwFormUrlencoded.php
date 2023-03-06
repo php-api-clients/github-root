@@ -14,11 +14,9 @@ final readonly class ApplicationxWwwFormUrlencoded
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"authorized_key":"generated_authorized_key"}';
     /**
-     * The public SSH key.
+     * authorized_key: The public SSH key.
      */
-    public ?string $authorized_key;
-    public function __construct(string $authorized_key)
+    public function __construct(public ?string $authorized_key)
     {
-        $this->authorized_key = $authorized_key;
     }
 }

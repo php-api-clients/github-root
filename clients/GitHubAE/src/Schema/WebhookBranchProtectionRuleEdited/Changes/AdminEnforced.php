@@ -13,9 +13,7 @@ final readonly class AdminEnforced
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"from":false}';
-    public ?bool $from;
-    public function __construct(bool $from)
+    public function __construct(public ?bool $from)
     {
-        $this->from = $from;
     }
 }

@@ -41,7 +41,7 @@ class Health implements ObjectMapper
                 $value = $payload['domain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'domain';
+                    $properties['domain'] = null;
                     goto after_domain;
                 }
 
@@ -61,7 +61,7 @@ class Health implements ObjectMapper
                 $value = $payload['alt_domain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'alt_domain';
+                    $properties['alt_domain'] = null;
                     goto after_alt_domain;
                 }
 
@@ -103,7 +103,7 @@ class Health implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -114,7 +114,7 @@ class Health implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -125,7 +125,7 @@ class Health implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -136,7 +136,7 @@ class Health implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -169,7 +169,7 @@ class Health implements ObjectMapper
                 $value = $payload['host'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'host';
+                    $properties['host'] = null;
                     goto after_host;
                 }
 
@@ -180,7 +180,7 @@ class Health implements ObjectMapper
                 $value = $payload['uri'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'uri';
+                    $properties['uri'] = null;
                     goto after_uri;
                 }
 
@@ -191,7 +191,7 @@ class Health implements ObjectMapper
                 $value = $payload['nameservers'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'nameservers';
+                    $properties['nameservers'] = null;
                     goto after_nameservers;
                 }
 
@@ -202,7 +202,7 @@ class Health implements ObjectMapper
                 $value = $payload['dns_resolves'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'dns_resolves';
+                    $properties['dns_resolves'] = null;
                     goto after_dns_resolves;
                 }
 
@@ -213,7 +213,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_proxied'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_proxied';
+                    $properties['is_proxied'] = null;
                     goto after_is_proxied;
                 }
 
@@ -224,7 +224,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_cloudflare_ip'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_cloudflare_ip';
+                    $properties['is_cloudflare_ip'] = null;
                     goto after_is_cloudflare_ip;
                 }
 
@@ -235,7 +235,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_fastly_ip'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_fastly_ip';
+                    $properties['is_fastly_ip'] = null;
                     goto after_is_fastly_ip;
                 }
 
@@ -246,7 +246,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_old_ip_address'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_old_ip_address';
+                    $properties['is_old_ip_address'] = null;
                     goto after_is_old_ip_address;
                 }
 
@@ -257,7 +257,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_a_record'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_a_record';
+                    $properties['is_a_record'] = null;
                     goto after_is_a_record;
                 }
 
@@ -268,7 +268,7 @@ class Health implements ObjectMapper
                 $value = $payload['has_cname_record'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_cname_record';
+                    $properties['has_cname_record'] = null;
                     goto after_has_cname_record;
                 }
 
@@ -279,7 +279,7 @@ class Health implements ObjectMapper
                 $value = $payload['has_mx_records_present'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_mx_records_present';
+                    $properties['has_mx_records_present'] = null;
                     goto after_has_mx_records_present;
                 }
 
@@ -290,7 +290,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_valid_domain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_valid_domain';
+                    $properties['is_valid_domain'] = null;
                     goto after_is_valid_domain;
                 }
 
@@ -301,7 +301,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_apex_domain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_apex_domain';
+                    $properties['is_apex_domain'] = null;
                     goto after_is_apex_domain;
                 }
 
@@ -312,7 +312,7 @@ class Health implements ObjectMapper
                 $value = $payload['should_be_a_record'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'should_be_a_record';
+                    $properties['should_be_a_record'] = null;
                     goto after_should_be_a_record;
                 }
 
@@ -323,7 +323,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_cname_to_github_user_domain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_cname_to_github_user_domain';
+                    $properties['is_cname_to_github_user_domain'] = null;
                     goto after_is_cname_to_github_user_domain;
                 }
 
@@ -334,7 +334,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_cname_to_pages_dot_github_dot_com'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_cname_to_pages_dot_github_dot_com';
+                    $properties['is_cname_to_pages_dot_github_dot_com'] = null;
                     goto after_is_cname_to_pages_dot_github_dot_com;
                 }
 
@@ -345,7 +345,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_cname_to_fastly'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_cname_to_fastly';
+                    $properties['is_cname_to_fastly'] = null;
                     goto after_is_cname_to_fastly;
                 }
 
@@ -356,7 +356,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_pointed_to_github_pages_ip'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_pointed_to_github_pages_ip';
+                    $properties['is_pointed_to_github_pages_ip'] = null;
                     goto after_is_pointed_to_github_pages_ip;
                 }
 
@@ -367,7 +367,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_non_github_pages_ip_present'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_non_github_pages_ip_present';
+                    $properties['is_non_github_pages_ip_present'] = null;
                     goto after_is_non_github_pages_ip_present;
                 }
 
@@ -378,7 +378,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_pages_domain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_pages_domain';
+                    $properties['is_pages_domain'] = null;
                     goto after_is_pages_domain;
                 }
 
@@ -389,7 +389,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_served_by_pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_served_by_pages';
+                    $properties['is_served_by_pages'] = null;
                     goto after_is_served_by_pages;
                 }
 
@@ -400,7 +400,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_valid'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_valid';
+                    $properties['is_valid'] = null;
                     goto after_is_valid;
                 }
 
@@ -411,7 +411,7 @@ class Health implements ObjectMapper
                 $value = $payload['reason'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'reason';
+                    $properties['reason'] = null;
                     goto after_reason;
                 }
 
@@ -422,7 +422,7 @@ class Health implements ObjectMapper
                 $value = $payload['responds_to_https'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'responds_to_https';
+                    $properties['responds_to_https'] = null;
                     goto after_responds_to_https;
                 }
 
@@ -433,7 +433,7 @@ class Health implements ObjectMapper
                 $value = $payload['enforces_https'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enforces_https';
+                    $properties['enforces_https'] = null;
                     goto after_enforces_https;
                 }
 
@@ -444,7 +444,7 @@ class Health implements ObjectMapper
                 $value = $payload['https_error'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'https_error';
+                    $properties['https_error'] = null;
                     goto after_https_error;
                 }
 
@@ -455,7 +455,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_https_eligible'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_https_eligible';
+                    $properties['is_https_eligible'] = null;
                     goto after_is_https_eligible;
                 }
 
@@ -466,7 +466,7 @@ class Health implements ObjectMapper
                 $value = $payload['caa_error'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'caa_error';
+                    $properties['caa_error'] = null;
                     goto after_caa_error;
                 }
 
@@ -499,7 +499,7 @@ class Health implements ObjectMapper
                 $value = $payload['host'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'host';
+                    $properties['host'] = null;
                     goto after_host;
                 }
 
@@ -510,7 +510,7 @@ class Health implements ObjectMapper
                 $value = $payload['uri'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'uri';
+                    $properties['uri'] = null;
                     goto after_uri;
                 }
 
@@ -521,7 +521,7 @@ class Health implements ObjectMapper
                 $value = $payload['nameservers'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'nameservers';
+                    $properties['nameservers'] = null;
                     goto after_nameservers;
                 }
 
@@ -532,7 +532,7 @@ class Health implements ObjectMapper
                 $value = $payload['dns_resolves'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'dns_resolves';
+                    $properties['dns_resolves'] = null;
                     goto after_dns_resolves;
                 }
 
@@ -543,7 +543,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_proxied'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_proxied';
+                    $properties['is_proxied'] = null;
                     goto after_is_proxied;
                 }
 
@@ -554,7 +554,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_cloudflare_ip'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_cloudflare_ip';
+                    $properties['is_cloudflare_ip'] = null;
                     goto after_is_cloudflare_ip;
                 }
 
@@ -565,7 +565,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_fastly_ip'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_fastly_ip';
+                    $properties['is_fastly_ip'] = null;
                     goto after_is_fastly_ip;
                 }
 
@@ -576,7 +576,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_old_ip_address'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_old_ip_address';
+                    $properties['is_old_ip_address'] = null;
                     goto after_is_old_ip_address;
                 }
 
@@ -587,7 +587,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_a_record'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_a_record';
+                    $properties['is_a_record'] = null;
                     goto after_is_a_record;
                 }
 
@@ -598,7 +598,7 @@ class Health implements ObjectMapper
                 $value = $payload['has_cname_record'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_cname_record';
+                    $properties['has_cname_record'] = null;
                     goto after_has_cname_record;
                 }
 
@@ -609,7 +609,7 @@ class Health implements ObjectMapper
                 $value = $payload['has_mx_records_present'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_mx_records_present';
+                    $properties['has_mx_records_present'] = null;
                     goto after_has_mx_records_present;
                 }
 
@@ -620,7 +620,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_valid_domain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_valid_domain';
+                    $properties['is_valid_domain'] = null;
                     goto after_is_valid_domain;
                 }
 
@@ -631,7 +631,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_apex_domain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_apex_domain';
+                    $properties['is_apex_domain'] = null;
                     goto after_is_apex_domain;
                 }
 
@@ -642,7 +642,7 @@ class Health implements ObjectMapper
                 $value = $payload['should_be_a_record'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'should_be_a_record';
+                    $properties['should_be_a_record'] = null;
                     goto after_should_be_a_record;
                 }
 
@@ -653,7 +653,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_cname_to_github_user_domain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_cname_to_github_user_domain';
+                    $properties['is_cname_to_github_user_domain'] = null;
                     goto after_is_cname_to_github_user_domain;
                 }
 
@@ -664,7 +664,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_cname_to_pages_dot_github_dot_com'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_cname_to_pages_dot_github_dot_com';
+                    $properties['is_cname_to_pages_dot_github_dot_com'] = null;
                     goto after_is_cname_to_pages_dot_github_dot_com;
                 }
 
@@ -675,7 +675,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_cname_to_fastly'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_cname_to_fastly';
+                    $properties['is_cname_to_fastly'] = null;
                     goto after_is_cname_to_fastly;
                 }
 
@@ -686,7 +686,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_pointed_to_github_pages_ip'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_pointed_to_github_pages_ip';
+                    $properties['is_pointed_to_github_pages_ip'] = null;
                     goto after_is_pointed_to_github_pages_ip;
                 }
 
@@ -697,7 +697,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_non_github_pages_ip_present'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_non_github_pages_ip_present';
+                    $properties['is_non_github_pages_ip_present'] = null;
                     goto after_is_non_github_pages_ip_present;
                 }
 
@@ -708,7 +708,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_pages_domain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_pages_domain';
+                    $properties['is_pages_domain'] = null;
                     goto after_is_pages_domain;
                 }
 
@@ -719,7 +719,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_served_by_pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_served_by_pages';
+                    $properties['is_served_by_pages'] = null;
                     goto after_is_served_by_pages;
                 }
 
@@ -730,7 +730,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_valid'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_valid';
+                    $properties['is_valid'] = null;
                     goto after_is_valid;
                 }
 
@@ -741,7 +741,7 @@ class Health implements ObjectMapper
                 $value = $payload['reason'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'reason';
+                    $properties['reason'] = null;
                     goto after_reason;
                 }
 
@@ -752,7 +752,7 @@ class Health implements ObjectMapper
                 $value = $payload['responds_to_https'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'responds_to_https';
+                    $properties['responds_to_https'] = null;
                     goto after_responds_to_https;
                 }
 
@@ -763,7 +763,7 @@ class Health implements ObjectMapper
                 $value = $payload['enforces_https'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enforces_https';
+                    $properties['enforces_https'] = null;
                     goto after_enforces_https;
                 }
 
@@ -774,7 +774,7 @@ class Health implements ObjectMapper
                 $value = $payload['https_error'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'https_error';
+                    $properties['https_error'] = null;
                     goto after_https_error;
                 }
 
@@ -785,7 +785,7 @@ class Health implements ObjectMapper
                 $value = $payload['is_https_eligible'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_https_eligible';
+                    $properties['is_https_eligible'] = null;
                     goto after_is_https_eligible;
                 }
 
@@ -796,7 +796,7 @@ class Health implements ObjectMapper
                 $value = $payload['caa_error'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'caa_error';
+                    $properties['caa_error'] = null;
                     goto after_caa_error;
                 }
 

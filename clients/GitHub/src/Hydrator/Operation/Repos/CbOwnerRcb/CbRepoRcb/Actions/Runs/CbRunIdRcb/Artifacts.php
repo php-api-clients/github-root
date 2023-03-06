@@ -38,7 +38,7 @@ class Artifacts implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class Artifacts implements ObjectMapper
                 $value = $payload['artifacts'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'artifacts';
+                    $properties['artifacts'] = null;
                     goto after_artifacts;
                 }
+
+                static $artifactsCaster1;
+    
+                if ($artifactsCaster1 === null) {
+                    $artifactsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\Artifact',
+));
+                }
+    
+                $value = $artifactsCaster1->cast($value, $this);
 
                 $properties['artifacts'] = $value;
     
@@ -178,7 +188,8 @@ class Artifacts implements ObjectMapper
         static $artifactsSerializer0;
 
         if ($artifactsSerializer0 === null) {
-            $artifactsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $artifactsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\Artifact',
 ));
         }
         

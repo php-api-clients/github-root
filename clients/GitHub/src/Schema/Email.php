@@ -13,15 +13,7 @@ final readonly class Email
     public const SCHEMA_TITLE = 'Email';
     public const SCHEMA_DESCRIPTION = 'Email';
     public const SCHEMA_EXAMPLE_DATA = '{"email":"octocat@github.com","primary":true,"verified":true,"visibility":"public"}';
-    public ?string $email;
-    public ?bool $primary;
-    public ?bool $verified;
-    public ?string $visibility;
-    public function __construct(string $email, bool $primary, bool $verified, string $visibility)
+    public function __construct(public ?string $email, public ?bool $primary, public ?bool $verified, public ?string $visibility)
     {
-        $this->email = $email;
-        $this->primary = $primary;
-        $this->verified = $verified;
-        $this->visibility = $visibility;
     }
 }

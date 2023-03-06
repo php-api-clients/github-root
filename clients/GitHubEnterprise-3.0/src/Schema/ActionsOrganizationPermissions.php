@@ -14,26 +14,12 @@ final readonly class ActionsOrganizationPermissions
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enabled_repositories":"generated_enabled_repositories","selected_repositories_url":"generated_selected_repositories_url","allowed_actions":"generated_allowed_actions","selected_actions_url":"generated_selected_actions_url"}';
     /**
-     * The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+     * enabled_repositories: The policy that controls the repositories in the organization that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
+     * selected_repositories_url: The API URL to use to get or set the selected repositories that are allowed to run GitHub Actions, when `enabled_repositories` is set to `selected`.
+     * allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
+     * selected_actions_url: The API URL to use to get or set the actions that are allowed to run, when `allowed_actions` is set to `selected`.
      */
-    public ?string $enabled_repositories;
-    /**
-     * The API URL to use to get or set the selected repositories that are allowed to run GitHub Actions, when `enabled_repositories` is set to `selected`.
-     */
-    public string $selected_repositories_url;
-    /**
-     * The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
-     */
-    public string $allowed_actions;
-    /**
-     * The API URL to use to get or set the actions that are allowed to run, when `allowed_actions` is set to `selected`.
-     */
-    public string $selected_actions_url;
-    public function __construct(string $enabled_repositories, string $selected_repositories_url, string $allowed_actions, string $selected_actions_url)
+    public function __construct(public ?string $enabled_repositories, public string $selected_repositories_url, public string $allowed_actions, public string $selected_actions_url)
     {
-        $this->enabled_repositories = $enabled_repositories;
-        $this->selected_repositories_url = $selected_repositories_url;
-        $this->allowed_actions = $allowed_actions;
-        $this->selected_actions_url = $selected_actions_url;
     }
 }

@@ -13,21 +13,7 @@ final readonly class Commit
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"author":{"date":"generated_date","email":"generated_email","name":"generated_name"},"comment_count":13,"committer":{"date":"generated_date","email":"generated_email","name":"generated_name"},"message":"generated_message","tree":{"sha":"generated_sha","url":"generated_url"},"url":"generated_url","verification":{"payload":"generated_payload","reason":"generated_reason","signature":"generated_signature","verified":false}}';
-    public ?Schema\WebhookStatus\Commit\Commit\Author $author;
-    public ?int $comment_count;
-    public ?Schema\WebhookStatus\Commit\Commit\Author $committer;
-    public ?string $message;
-    public ?Schema\ShortBranch\Commit $tree;
-    public ?string $url;
-    public ?Schema\WebhookStatus\Commit\Commit\Verification $verification;
-    public function __construct(Schema\WebhookStatus\Commit\Commit\Author $author, int $comment_count, Schema\WebhookStatus\Commit\Commit\Author $committer, string $message, Schema\ShortBranch\Commit $tree, string $url, Schema\WebhookStatus\Commit\Commit\Verification $verification)
+    public function __construct(public ?Schema\WebhookStatus\Commit\Commit\Author $author, public ?int $comment_count, public ?Schema\WebhookStatus\Commit\Commit\Author $committer, public ?string $message, public ?Schema\ShortBranch\Commit $tree, public ?string $url, public ?Schema\WebhookStatus\Commit\Commit\Verification $verification)
     {
-        $this->author = $author;
-        $this->comment_count = $comment_count;
-        $this->committer = $committer;
-        $this->message = $message;
-        $this->tree = $tree;
-        $this->url = $url;
-        $this->verification = $verification;
     }
 }

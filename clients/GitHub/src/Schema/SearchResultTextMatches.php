@@ -13,20 +13,10 @@ final readonly class SearchResultTextMatches
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"object_url":"generated_object_url","object_type":"generated_object_type","property":"generated_property","fragment":"generated_fragment","matches":[{"text":"generated_text","indices":[13]}]}';
-    public ?string $object_url;
-    public ?string $object_type;
-    public ?string $property;
-    public ?string $fragment;
     /**
-     * @var array<Schema\SearchResultTextMatches\Matches>
+     * @param ?array<\ApiClients\Client\GitHub\Schema\SearchResultTextMatches\Matches> $matches
      */
-    public ?array $matches;
-    public function __construct(string $object_url, string $object_type, string $property, string $fragment, array $matches)
+    public function __construct(public ?string $object_url, public ?string $object_type, public ?string $property, public ?string $fragment, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\SearchResultTextMatches\Matches::class)] public ?array $matches)
     {
-        $this->object_url = $object_url;
-        $this->object_type = $object_type;
-        $this->property = $property;
-        $this->fragment = $fragment;
-        $this->matches = $matches;
     }
 }

@@ -13,11 +13,7 @@ final readonly class Base
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"ref":{"from":"generated_from"},"sha":{"from":"generated_from"}}';
-    public ?Schema\WebhookDiscussionCommentEdited\Changes\Body $ref;
-    public ?Schema\WebhookDiscussionCommentEdited\Changes\Body $sha;
-    public function __construct(Schema\WebhookDiscussionCommentEdited\Changes\Body $ref, Schema\WebhookDiscussionCommentEdited\Changes\Body $sha)
+    public function __construct(public ?Schema\WebhookDiscussionCommentEdited\Changes\Body $ref, public ?Schema\WebhookDiscussionCommentEdited\Changes\Body $sha)
     {
-        $this->ref = $ref;
-        $this->sha = $sha;
     }
 }

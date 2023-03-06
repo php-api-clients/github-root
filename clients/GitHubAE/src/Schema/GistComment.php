@@ -13,29 +13,11 @@ final readonly class GistComment
     public const SCHEMA_TITLE = 'Gist Comment';
     public const SCHEMA_DESCRIPTION = 'A comment made to a gist.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":1,"node_id":"MDExOkdpc3RDb21tZW50MQ==","url":"https:\\/\\/api.github.com\\/gists\\/a6db0bec360bb87e9418\\/comments\\/1","body":"Body of the attachment","user":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"created_at":"2011-04-18T23:23:56Z","updated_at":"2011-04-18T23:23:56Z","author_association":"OWNER"}';
-    public ?int $id;
-    public ?string $node_id;
-    public ?string $url;
     /**
-     * The comment text.
+     * body: The comment text.
+     * author_association: How the author is associated with the repository.
      */
-    public ?string $body;
-    public ?Schema\SimpleUser $user;
-    public ?string $created_at;
-    public ?string $updated_at;
-    /**
-     * How the author is associated with the repository.
-     */
-    public ?string $author_association;
-    public function __construct(int $id, string $node_id, string $url, string $body, Schema\SimpleUser $user, string $created_at, string $updated_at, string $author_association)
+    public function __construct(public ?int $id, public ?string $node_id, public ?string $url, public ?string $body, public ?Schema\SimpleUser $user, public ?string $created_at, public ?string $updated_at, public ?string $author_association)
     {
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->url = $url;
-        $this->body = $body;
-        $this->user = $user;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->author_association = $author_association;
     }
 }

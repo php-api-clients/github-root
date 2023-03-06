@@ -9,15 +9,11 @@ use ApiClients\Client\GitHub\Schema;
 use ApiClients\Client\GitHub\WebHook;
 final readonly class Devcontainers
 {
-    public const SCHEMA_JSON = '{"required":["path"],"type":"object","properties":{"path":{"type":"string"},"name":{"type":"string"}}}';
+    public const SCHEMA_JSON = '{"required":["path"],"type":"object","properties":{"path":{"type":"string"},"name":{"type":"string"},"display_name":{"type":"string"}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"path":"generated_path","name":"generated_name"}';
-    public ?string $path;
-    public string $name;
-    public function __construct(string $path, string $name)
+    public const SCHEMA_EXAMPLE_DATA = '{"path":"generated_path","name":"generated_name","display_name":"generated_display_name"}';
+    public function __construct(public ?string $path, public string $name, public string $display_name)
     {
-        $this->path = $path;
-        $this->name = $name;
     }
 }

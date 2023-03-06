@@ -13,29 +13,7 @@ final readonly class SimpleCommitStatus
     public const SCHEMA_TITLE = 'Simple Commit Status';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"description":"generated_description","id":13,"node_id":"generated_node_id","state":"generated_state","context":"generated_context","target_url":"generated_target_url","required":false,"avatar_url":"generated_avatar_url","url":"generated_url","created_at":"generated_created_at","updated_at":"generated_updated_at"}';
-    public ?string $description;
-    public ?int $id;
-    public ?string $node_id;
-    public ?string $state;
-    public ?string $context;
-    public ?string $target_url;
-    public ?bool $required;
-    public ?string $avatar_url;
-    public ?string $url;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public function __construct(string $description, int $id, string $node_id, string $state, string $context, string $target_url, bool $required, string $avatar_url, string $url, string $created_at, string $updated_at)
+    public function __construct(public ?string $description, public ?int $id, public ?string $node_id, public ?string $state, public ?string $context, public ?string $target_url, public ?bool $required, public ?string $avatar_url, public ?string $url, public ?string $created_at, public ?string $updated_at)
     {
-        $this->description = $description;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->state = $state;
-        $this->context = $context;
-        $this->target_url = $target_url;
-        $this->required = $required;
-        $this->avatar_url = $avatar_url;
-        $this->url = $url;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
     }
 }

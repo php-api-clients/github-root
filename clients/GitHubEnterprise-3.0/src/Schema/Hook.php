@@ -13,44 +13,14 @@ final readonly class Hook
     public const SCHEMA_TITLE = 'Webhook';
     public const SCHEMA_DESCRIPTION = 'Webhooks for repositories.';
     public const SCHEMA_EXAMPLE_DATA = '{"type":"generated_type","id":42,"name":"web","active":true,"events":["push"],"config":{"email":"\\"foo@bar.com\\"","password":"\\"foo\\"","room":"\\"roomer\\"","subdomain":"\\"foo\\"","url":"https:\\/\\/example.com\\/webhook","insecure_ssl":13,"content_type":"\\"json\\"","digest":"\\"sha256\\"","secret":"\\"********\\"","token":"\\"abc\\""},"updated_at":"2011-09-06T20:39:23Z","created_at":"2011-09-06T17:26:27Z","url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks\\/1","test_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks\\/1\\/test","ping_url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks\\/1\\/pings","last_response":{"code":13,"status":"generated_status","message":"generated_message"}}';
-    public ?string $type;
     /**
-     * Unique identifier of the webhook.
+     * id: Unique identifier of the webhook.
+     * name: The name of a valid service, use 'web' for a webhook.
+     * active: Determines whether the hook is actually triggered on pushes.
+     * events: Determines what events the hook is triggered for. Default: ['push'].
+     * @param ?array<string> $events
      */
-    public ?int $id;
-    /**
-     * The name of a valid service, use 'web' for a webhook.
-     */
-    public ?string $name;
-    /**
-     * Determines whether the hook is actually triggered on pushes.
-     */
-    public ?bool $active;
-    /**
-     * Determines what events the hook is triggered for. Default: ['push'].
-     * @var array<string>
-     */
-    public ?array $events;
-    public ?Schema\Hook\Config $config;
-    public ?string $updated_at;
-    public ?string $created_at;
-    public ?string $url;
-    public ?string $test_url;
-    public ?string $ping_url;
-    public ?Schema\HookResponse $last_response;
-    public function __construct(string $type, int $id, string $name, bool $active, array $events, Schema\Hook\Config $config, string $updated_at, string $created_at, string $url, string $test_url, string $ping_url, Schema\HookResponse $last_response)
+    public function __construct(public ?string $type, public ?int $id, public ?string $name, public ?bool $active, public ?array $events, public ?Schema\Hook\Config $config, public ?string $updated_at, public ?string $created_at, public ?string $url, public ?string $test_url, public ?string $ping_url, public ?Schema\HookResponse $last_response)
     {
-        $this->type = $type;
-        $this->id = $id;
-        $this->name = $name;
-        $this->active = $active;
-        $this->events = $events;
-        $this->config = $config;
-        $this->updated_at = $updated_at;
-        $this->created_at = $created_at;
-        $this->url = $url;
-        $this->test_url = $test_url;
-        $this->ping_url = $ping_url;
-        $this->last_response = $last_response;
     }
 }

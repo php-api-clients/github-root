@@ -13,9 +13,7 @@ final readonly class Milestone
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"title":"generated_title"}';
-    public ?string $title;
-    public function __construct(string $title)
+    public function __construct(public ?string $title)
     {
-        $this->title = $title;
     }
 }

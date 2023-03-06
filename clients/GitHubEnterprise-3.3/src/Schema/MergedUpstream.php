@@ -13,13 +13,7 @@ final readonly class MergedUpstream
     public const SCHEMA_TITLE = 'Merged upstream';
     public const SCHEMA_DESCRIPTION = 'Results of a successful merge upstream request';
     public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message","merge_type":"generated_merge_type","base_branch":"generated_base_branch"}';
-    public ?string $message;
-    public ?string $merge_type;
-    public ?string $base_branch;
-    public function __construct(string $message, string $merge_type, string $base_branch)
+    public function __construct(public ?string $message, public ?string $merge_type, public ?string $base_branch)
     {
-        $this->message = $message;
-        $this->merge_type = $merge_type;
-        $this->base_branch = $base_branch;
     }
 }

@@ -39,7 +39,7 @@ class CbAutolinkIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -50,7 +50,7 @@ class CbAutolinkIdRcb implements ObjectMapper
                 $value = $payload['key_prefix'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key_prefix';
+                    $properties['key_prefix'] = null;
                     goto after_key_prefix;
                 }
 
@@ -61,7 +61,7 @@ class CbAutolinkIdRcb implements ObjectMapper
                 $value = $payload['url_template'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url_template';
+                    $properties['url_template'] = null;
                     goto after_url_template;
                 }
 
@@ -94,7 +94,7 @@ class CbAutolinkIdRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -105,7 +105,7 @@ class CbAutolinkIdRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -116,7 +116,7 @@ class CbAutolinkIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -127,7 +127,7 @@ class CbAutolinkIdRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 

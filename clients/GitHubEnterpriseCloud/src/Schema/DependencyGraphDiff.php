@@ -13,33 +13,11 @@ final readonly class DependencyGraphDiff
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"change_type":"generated_change_type","manifest":"path\\/to\\/package-lock.json","ecosystem":"npm","name":"@actions\\/core","version":"1.0.0","package_url":"pkg:\\/npm\\/%40actions\\/core@1.1.0","license":"MIT","source_repository_url":"https:\\/\\/github.com\\/github\\/actions","vulnerabilities":[{"severity":"critical","advisory_ghsa_id":"GHSA-rf4j-j272-fj86","advisory_summary":"A summary of the advisory.","advisory_url":"https:\\/\\/github.com\\/advisories\\/GHSA-rf4j-j272-fj86"}],"scope":"generated_scope"}';
-    public ?string $change_type;
-    public ?string $manifest;
-    public ?string $ecosystem;
-    public ?string $name;
-    public ?string $version;
-    public ?string $package_url;
-    public ?string $license;
-    public ?string $source_repository_url;
     /**
-     * @var array<Schema\DependencyGraphDiff\Vulnerabilities>
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\DependencyGraphDiff\Vulnerabilities> $vulnerabilities
+     * scope: Where the dependency is utilized. `development` means that the dependency is only utilized in the development environment. `runtime` means that the dependency is utilized at runtime and in the development environment.
      */
-    public ?array $vulnerabilities;
-    /**
-     * Where the dependency is utilized. `development` means that the dependency is only utilized in the development environment. `runtime` means that the dependency is utilized at runtime and in the development environment.
-     */
-    public ?string $scope;
-    public function __construct(string $change_type, string $manifest, string $ecosystem, string $name, string $version, string $package_url, string $license, string $source_repository_url, array $vulnerabilities, string $scope)
+    public function __construct(public ?string $change_type, public ?string $manifest, public ?string $ecosystem, public ?string $name, public ?string $version, public ?string $package_url, public ?string $license, public ?string $source_repository_url, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\DependencyGraphDiff\Vulnerabilities::class)] public ?array $vulnerabilities, public ?string $scope)
     {
-        $this->change_type = $change_type;
-        $this->manifest = $manifest;
-        $this->ecosystem = $ecosystem;
-        $this->name = $name;
-        $this->version = $version;
-        $this->package_url = $package_url;
-        $this->license = $license;
-        $this->source_repository_url = $source_repository_url;
-        $this->vulnerabilities = $vulnerabilities;
-        $this->scope = $scope;
     }
 }

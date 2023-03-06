@@ -13,9 +13,7 @@ final readonly class Changes
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"content_type":{"from":"generated_from","to":"generated_to"}}';
-    public ?Schema\WebhookProjectsV2ItemConverted\Changes\ContentType $content_type;
-    public function __construct(Schema\WebhookProjectsV2ItemConverted\Changes\ContentType $content_type)
+    public function __construct(public ?Schema\WebhookProjectsV2ItemConverted\Changes\ContentType $content_type)
     {
-        $this->content_type = $content_type;
     }
 }

@@ -13,122 +13,30 @@ final readonly class Comments
     public const SCHEMA_TITLE = 'Pull Request Review Comment';
     public const SCHEMA_DESCRIPTION = 'The [comment](https://docs.github.com/github-ae@latest/rest/reference/pulls#comments) itself.';
     public const SCHEMA_EXAMPLE_DATA = '{"_links":{"html":{"href":"generated_href"},"pull_request":{"href":"generated_href"},"self":{"href":"generated_href"}},"author_association":"generated_author_association","body":"generated_body","commit_id":"generated_commit_id","created_at":"generated_created_at","diff_hunk":"generated_diff_hunk","html_url":"generated_html_url","id":13,"in_reply_to_id":13,"line":13,"node_id":"generated_node_id","original_commit_id":"generated_original_commit_id","original_line":13,"original_position":13,"original_start_line":13,"path":"generated_path","position":13,"pull_request_review_id":13,"pull_request_url":"generated_pull_request_url","reactions":{"_PLUSES_1":13,"_MINUS_1":13,"confused":13,"eyes":13,"heart":13,"hooray":13,"laugh":13,"rocket":13,"total_count":13,"url":"generated_url"},"side":"generated_side","start_line":13,"start_side":"generated_start_side","updated_at":"generated_updated_at","url":"generated_url","user":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"}}';
-    public ?Schema\WebhookPullRequestReviewCommentCreated\Comment\Links $_links;
     /**
-     * How the author is associated with the repository.
+     * author_association: How the author is associated with the repository.
+     * body: The text of the comment.
+     * commit_id: The SHA of the commit to which the comment applies.
+     * diff_hunk: The diff of the line that the comment refers to.
+     * html_url: HTML URL for the pull request review comment.
+     * id: The ID of the pull request review comment.
+     * in_reply_to_id: The comment ID to reply to.
+     * line: The line of the blob to which the comment applies. The last line of the range for a multi-line comment
+     * node_id: The node ID of the pull request review comment.
+     * original_commit_id: The SHA of the original commit to which the comment applies.
+     * original_line: The line of the blob to which the comment applies. The last line of the range for a multi-line comment
+     * original_position: The index of the original line in the diff to which the comment applies.
+     * original_start_line: The first line of the range for a multi-line comment.
+     * path: The relative path of the file to which the comment applies.
+     * position: The line index in the diff to which the comment applies.
+     * pull_request_review_id: The ID of the pull request review to which the comment belongs.
+     * pull_request_url: URL for the pull request that the review comment belongs to.
+     * side: The side of the first line of the range for a multi-line comment.
+     * start_line: The first line of the range for a multi-line comment.
+     * start_side: The side of the first line of the range for a multi-line comment.
+     * url: URL for the pull request review comment
      */
-    public ?string $author_association;
-    /**
-     * The text of the comment.
-     */
-    public ?string $body;
-    /**
-     * The SHA of the commit to which the comment applies.
-     */
-    public ?string $commit_id;
-    public ?string $created_at;
-    /**
-     * The diff of the line that the comment refers to.
-     */
-    public ?string $diff_hunk;
-    /**
-     * HTML URL for the pull request review comment.
-     */
-    public ?string $html_url;
-    /**
-     * The ID of the pull request review comment.
-     */
-    public ?int $id;
-    /**
-     * The comment ID to reply to.
-     */
-    public int $in_reply_to_id;
-    /**
-     * The line of the blob to which the comment applies. The last line of the range for a multi-line comment
-     */
-    public ?int $line;
-    /**
-     * The node ID of the pull request review comment.
-     */
-    public ?string $node_id;
-    /**
-     * The SHA of the original commit to which the comment applies.
-     */
-    public ?string $original_commit_id;
-    /**
-     * The line of the blob to which the comment applies. The last line of the range for a multi-line comment
-     */
-    public ?int $original_line;
-    /**
-     * The index of the original line in the diff to which the comment applies.
-     */
-    public ?int $original_position;
-    /**
-     * The first line of the range for a multi-line comment.
-     */
-    public ?int $original_start_line;
-    /**
-     * The relative path of the file to which the comment applies.
-     */
-    public ?string $path;
-    /**
-     * The line index in the diff to which the comment applies.
-     */
-    public ?int $position;
-    /**
-     * The ID of the pull request review to which the comment belongs.
-     */
-    public ?int $pull_request_review_id;
-    /**
-     * URL for the pull request that the review comment belongs to.
-     */
-    public ?string $pull_request_url;
-    public ?Schema\Discussion\Reactions $reactions;
-    /**
-     * The side of the first line of the range for a multi-line comment.
-     */
-    public ?string $side;
-    /**
-     * The first line of the range for a multi-line comment.
-     */
-    public ?int $start_line;
-    /**
-     * The side of the first line of the range for a multi-line comment.
-     */
-    public ?string $start_side;
-    public ?string $updated_at;
-    /**
-     * URL for the pull request review comment
-     */
-    public ?string $url;
-    public ?Schema\WebhookIssueCommentCreated\Issue\Assignee $user;
-    public function __construct(Schema\WebhookPullRequestReviewCommentCreated\Comment\Links $_links, string $author_association, string $body, string $commit_id, string $created_at, string $diff_hunk, string $html_url, int $id, int $in_reply_to_id, int $line, string $node_id, string $original_commit_id, int $original_line, int $original_position, int $original_start_line, string $path, int $position, int $pull_request_review_id, string $pull_request_url, Schema\Discussion\Reactions $reactions, string $side, int $start_line, string $start_side, string $updated_at, string $url, Schema\WebhookIssueCommentCreated\Issue\Assignee $user)
+    public function __construct(public ?Schema\WebhookPullRequestReviewCommentCreated\Comment\Links $_links, public ?string $author_association, public ?string $body, public ?string $commit_id, public ?string $created_at, public ?string $diff_hunk, public ?string $html_url, public ?int $id, public int $in_reply_to_id, public ?int $line, public ?string $node_id, public ?string $original_commit_id, public ?int $original_line, public ?int $original_position, public ?int $original_start_line, public ?string $path, public ?int $position, public ?int $pull_request_review_id, public ?string $pull_request_url, public ?Schema\Discussion\Reactions $reactions, public ?string $side, public ?int $start_line, public ?string $start_side, public ?string $updated_at, public ?string $url, public ?Schema\WebhookIssueCommentCreated\Issue\Assignee $user)
     {
-        $this->_links = $_links;
-        $this->author_association = $author_association;
-        $this->body = $body;
-        $this->commit_id = $commit_id;
-        $this->created_at = $created_at;
-        $this->diff_hunk = $diff_hunk;
-        $this->html_url = $html_url;
-        $this->id = $id;
-        $this->in_reply_to_id = $in_reply_to_id;
-        $this->line = $line;
-        $this->node_id = $node_id;
-        $this->original_commit_id = $original_commit_id;
-        $this->original_line = $original_line;
-        $this->original_position = $original_position;
-        $this->original_start_line = $original_start_line;
-        $this->path = $path;
-        $this->position = $position;
-        $this->pull_request_review_id = $pull_request_review_id;
-        $this->pull_request_url = $pull_request_url;
-        $this->reactions = $reactions;
-        $this->side = $side;
-        $this->start_line = $start_line;
-        $this->start_side = $start_side;
-        $this->updated_at = $updated_at;
-        $this->url = $url;
-        $this->user = $user;
     }
 }

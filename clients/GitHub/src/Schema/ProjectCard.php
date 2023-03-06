@@ -13,39 +13,11 @@ final readonly class ProjectCard
     public const SCHEMA_TITLE = 'Project Card';
     public const SCHEMA_DESCRIPTION = 'Project cards represent a scope of work.';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"https:\\/\\/api.github.com\\/projects\\/columns\\/cards\\/1478","id":42,"node_id":"MDExOlByb2plY3RDYXJkMTQ3OA==","note":"Add payload for delete Project column","creator":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"created_at":"2016-09-05T14:21:06Z","updated_at":"2016-09-05T14:20:22Z","archived":false,"column_name":"generated_column_name","project_id":"generated_project_id","column_url":"https:\\/\\/api.github.com\\/projects\\/columns\\/367","content_url":"https:\\/\\/api.github.com\\/repos\\/api-playground\\/projects-test\\/issues\\/3","project_url":"https:\\/\\/api.github.com\\/projects\\/120"}';
-    public ?string $url;
     /**
-     * The project card's ID
+     * id: The project card's ID
+     * archived: Whether or not the card is archived
      */
-    public ?int $id;
-    public ?string $node_id;
-    public ?string $note;
-    public ?Schema\SimpleUser $creator;
-    public ?string $created_at;
-    public ?string $updated_at;
-    /**
-     * Whether or not the card is archived
-     */
-    public bool $archived;
-    public string $column_name;
-    public string $project_id;
-    public ?string $column_url;
-    public string $content_url;
-    public ?string $project_url;
-    public function __construct(string $url, int $id, string $node_id, string $note, Schema\SimpleUser $creator, string $created_at, string $updated_at, bool $archived, string $column_name, string $project_id, string $column_url, string $content_url, string $project_url)
+    public function __construct(public ?string $url, public ?int $id, public ?string $node_id, public ?string $note, public ?Schema\SimpleUser $creator, public ?string $created_at, public ?string $updated_at, public bool $archived, public string $column_name, public string $project_id, public ?string $column_url, public string $content_url, public ?string $project_url)
     {
-        $this->url = $url;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->note = $note;
-        $this->creator = $creator;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->archived = $archived;
-        $this->column_name = $column_name;
-        $this->project_id = $project_id;
-        $this->column_url = $column_url;
-        $this->content_url = $content_url;
-        $this->project_url = $project_url;
     }
 }

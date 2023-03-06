@@ -13,32 +13,12 @@ final readonly class GitTag
     public const SCHEMA_TITLE = 'Git Tag';
     public const SCHEMA_DESCRIPTION = 'Metadata for a Git tag';
     public const SCHEMA_EXAMPLE_DATA = '{"node_id":"MDM6VGFnOTQwYmQzMzYyNDhlZmFlMGY5ZWU1YmM3YjJkNWM5ODU4ODdiMTZhYw==","tag":"v0.0.1","sha":"940bd336248efae0f9ee5bc7b2d5c985887b16ac","url":"https:\\/\\/api.github.com\\/repositories\\/42\\/git\\/tags\\/940bd336248efae0f9ee5bc7b2d5c985887b16ac","message":"Initial public release","tagger":{"date":"generated_date","email":"generated_email","name":"generated_name"},"object":{"sha":"generated_sha","type":"generated_type","url":"generated_url"},"verification":{"verified":false,"reason":"generated_reason","payload":"generated_payload","signature":"generated_signature"}}';
-    public ?string $node_id;
     /**
-     * Name of the tag
+     * tag: Name of the tag
+     * url: URL for the tag
+     * message: Message describing the purpose of the tag
      */
-    public ?string $tag;
-    public ?string $sha;
-    /**
-     * URL for the tag
-     */
-    public ?string $url;
-    /**
-     * Message describing the purpose of the tag
-     */
-    public ?string $message;
-    public ?Schema\GitTag\Tagger $tagger;
-    public ?Schema\GitTag\Object_ $object;
-    public Schema\Verification $verification;
-    public function __construct(string $node_id, string $tag, string $sha, string $url, string $message, Schema\GitTag\Tagger $tagger, Schema\GitTag\Object_ $object, Schema\Verification $verification)
+    public function __construct(public ?string $node_id, public ?string $tag, public ?string $sha, public ?string $url, public ?string $message, public ?Schema\GitTag\Tagger $tagger, public ?Schema\GitTag\Object_ $object, public Schema\Verification $verification)
     {
-        $this->node_id = $node_id;
-        $this->tag = $tag;
-        $this->sha = $sha;
-        $this->url = $url;
-        $this->message = $message;
-        $this->tagger = $tagger;
-        $this->object = $object;
-        $this->verification = $verification;
     }
 }

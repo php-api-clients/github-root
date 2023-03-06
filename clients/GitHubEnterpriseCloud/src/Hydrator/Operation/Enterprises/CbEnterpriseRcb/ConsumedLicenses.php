@@ -38,7 +38,7 @@ class ConsumedLicenses implements ObjectMapper
                 $value = $payload['total_seats_consumed'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_seats_consumed';
+                    $properties['total_seats_consumed'] = null;
                     goto after_total_seats_consumed;
                 }
 
@@ -49,7 +49,7 @@ class ConsumedLicenses implements ObjectMapper
                 $value = $payload['total_seats_purchased'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_seats_purchased';
+                    $properties['total_seats_purchased'] = null;
                     goto after_total_seats_purchased;
                 }
 
@@ -60,9 +60,19 @@ class ConsumedLicenses implements ObjectMapper
                 $value = $payload['users'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'users';
+                    $properties['users'] = null;
                     goto after_users;
                 }
+
+                static $usersCaster1;
+    
+                if ($usersCaster1 === null) {
+                    $usersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GetConsumedLicenses\\Users',
+));
+                }
+    
+                $value = $usersCaster1->cast($value, $this);
 
                 $properties['users'] = $value;
     
@@ -197,7 +207,8 @@ class ConsumedLicenses implements ObjectMapper
         static $usersSerializer0;
 
         if ($usersSerializer0 === null) {
-            $usersSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $usersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GetConsumedLicenses\\Users',
 ));
         }
         

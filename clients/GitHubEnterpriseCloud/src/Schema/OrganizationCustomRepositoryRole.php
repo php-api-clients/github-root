@@ -14,41 +14,15 @@ final readonly class OrganizationCustomRepositoryRole
     public const SCHEMA_DESCRIPTION = 'Custom repository roles created by organization administrators';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"name":"generated_name","description":"generated_description","base_role":"generated_base_role","permissions":["generated_permissions"],"organization":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"created_at":"generated_created_at","updated_at":"generated_updated_at"}';
     /**
-     * The unique identifier of the custom role.
+     * id: The unique identifier of the custom role.
+     * name: The name of the custom role.
+     * description: A short description about who this role is for or what permissions it grants.
+     * base_role: The system role from which this role inherits permissions.
+     * permissions: A list of additional permissions included in this role.
+     * @param array<string> $permissions
+     * organization: A GitHub user.
      */
-    public ?int $id;
-    /**
-     * The name of the custom role.
-     */
-    public ?string $name;
-    /**
-     * A short description about who this role is for or what permissions it grants.
-     */
-    public ?string $description;
-    /**
-     * The system role from which this role inherits permissions.
-     */
-    public string $base_role;
-    /**
-     * A list of additional permissions included in this role.
-     * @var array<string>
-     */
-    public array $permissions;
-    /**
-     * A GitHub user.
-     */
-    public Schema\SimpleUser $organization;
-    public string $created_at;
-    public string $updated_at;
-    public function __construct(int $id, string $name, string $description, string $base_role, array $permissions, Schema\SimpleUser $organization, string $created_at, string $updated_at)
+    public function __construct(public ?int $id, public ?string $name, public ?string $description, public string $base_role, public array $permissions, public Schema\SimpleUser $organization, public string $created_at, public string $updated_at)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->description = $description;
-        $this->base_role = $base_role;
-        $this->permissions = $permissions;
-        $this->organization = $organization;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
     }
 }

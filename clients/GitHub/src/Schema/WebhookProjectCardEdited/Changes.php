@@ -13,9 +13,7 @@ final readonly class Changes
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"note":{"from":"generated_from"}}';
-    public ?Schema\WebhookProjectCardEdited\Changes\Note $note;
-    public function __construct(Schema\WebhookProjectCardEdited\Changes\Note $note)
+    public function __construct(public ?Schema\WebhookProjectCardEdited\Changes\Note $note)
     {
-        $this->note = $note;
     }
 }

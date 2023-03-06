@@ -38,7 +38,7 @@ class Access implements ObjectMapper
                 $value = $payload['access_level'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'access_level';
+                    $properties['access_level'] = null;
                     goto after_access_level;
                 }
 

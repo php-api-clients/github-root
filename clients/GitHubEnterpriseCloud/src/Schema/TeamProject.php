@@ -13,48 +13,12 @@ final readonly class TeamProject
     public const SCHEMA_TITLE = 'Team Project';
     public const SCHEMA_DESCRIPTION = 'A team\'s access to a project.';
     public const SCHEMA_EXAMPLE_DATA = '{"owner_url":"generated_owner_url","url":"generated_url","html_url":"generated_html_url","columns_url":"generated_columns_url","id":13,"node_id":"generated_node_id","name":"generated_name","body":"generated_body","number":13,"state":"generated_state","creator":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"created_at":"generated_created_at","updated_at":"generated_updated_at","organization_permission":"generated_organization_permission","private":false,"permissions":{"read":false,"write":false,"admin":false}}';
-    public ?string $owner_url;
-    public ?string $url;
-    public ?string $html_url;
-    public ?string $columns_url;
-    public ?int $id;
-    public ?string $node_id;
-    public ?string $name;
-    public ?string $body;
-    public ?int $number;
-    public ?string $state;
     /**
-     * A GitHub user.
+     * creator: A GitHub user.
+     * organization_permission: The organization permission for this project. Only present when owner is an organization.
+     * private: Whether the project is private or not. Only present when owner is an organization.
      */
-    public ?Schema\SimpleUser $creator;
-    public ?string $created_at;
-    public ?string $updated_at;
-    /**
-     * The organization permission for this project. Only present when owner is an organization.
-     */
-    public string $organization_permission;
-    /**
-     * Whether the project is private or not. Only present when owner is an organization.
-     */
-    public bool $private;
-    public ?Schema\TeamProject\Permissions $permissions;
-    public function __construct(string $owner_url, string $url, string $html_url, string $columns_url, int $id, string $node_id, string $name, string $body, int $number, string $state, Schema\SimpleUser $creator, string $created_at, string $updated_at, string $organization_permission, bool $private, Schema\TeamProject\Permissions $permissions)
+    public function __construct(public ?string $owner_url, public ?string $url, public ?string $html_url, public ?string $columns_url, public ?int $id, public ?string $node_id, public ?string $name, public ?string $body, public ?int $number, public ?string $state, public ?Schema\SimpleUser $creator, public ?string $created_at, public ?string $updated_at, public string $organization_permission, public bool $private, public ?Schema\TeamProject\Permissions $permissions)
     {
-        $this->owner_url = $owner_url;
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->columns_url = $columns_url;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->name = $name;
-        $this->body = $body;
-        $this->number = $number;
-        $this->state = $state;
-        $this->creator = $creator;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->organization_permission = $organization_permission;
-        $this->private = $private;
-        $this->permissions = $permissions;
     }
 }

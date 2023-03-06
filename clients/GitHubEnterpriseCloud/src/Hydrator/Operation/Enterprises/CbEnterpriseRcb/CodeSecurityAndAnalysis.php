@@ -39,7 +39,7 @@ class CodeSecurityAndAnalysis implements ObjectMapper
                 $value = $payload['advanced_security_enabled_for_new_repositories'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'advanced_security_enabled_for_new_repositories';
+                    $properties['advanced_security_enabled_for_new_repositories'] = null;
                     goto after_advanced_security_enabled_for_new_repositories;
                 }
 
@@ -50,7 +50,7 @@ class CodeSecurityAndAnalysis implements ObjectMapper
                 $value = $payload['dependabot_alerts_enabled_for_new_repositories'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'dependabot_alerts_enabled_for_new_repositories';
+                    $properties['dependabot_alerts_enabled_for_new_repositories'] = null;
                     goto after_dependabot_alerts_enabled_for_new_repositories;
                 }
 
@@ -61,7 +61,7 @@ class CodeSecurityAndAnalysis implements ObjectMapper
                 $value = $payload['secret_scanning_enabled_for_new_repositories'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secret_scanning_enabled_for_new_repositories';
+                    $properties['secret_scanning_enabled_for_new_repositories'] = null;
                     goto after_secret_scanning_enabled_for_new_repositories;
                 }
 
@@ -72,7 +72,7 @@ class CodeSecurityAndAnalysis implements ObjectMapper
                 $value = $payload['secret_scanning_push_protection_enabled_for_new_repositories'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secret_scanning_push_protection_enabled_for_new_repositories';
+                    $properties['secret_scanning_push_protection_enabled_for_new_repositories'] = null;
                     goto after_secret_scanning_push_protection_enabled_for_new_repositories;
                 }
 
@@ -83,7 +83,7 @@ class CodeSecurityAndAnalysis implements ObjectMapper
                 $value = $payload['secret_scanning_push_protection_custom_link'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secret_scanning_push_protection_custom_link';
+                    $properties['secret_scanning_push_protection_custom_link'] = null;
                     goto after_secret_scanning_push_protection_custom_link;
                 }
 
@@ -116,7 +116,7 @@ class CodeSecurityAndAnalysis implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -127,7 +127,7 @@ class CodeSecurityAndAnalysis implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -138,7 +138,7 @@ class CodeSecurityAndAnalysis implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -149,7 +149,7 @@ class CodeSecurityAndAnalysis implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 

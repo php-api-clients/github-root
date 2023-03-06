@@ -13,13 +13,7 @@ final readonly class Syslog
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enabled":false,"server":"generated_server","protocol_name":"generated_protocol_name"}';
-    public ?bool $enabled;
-    public ?string $server;
-    public ?string $protocol_name;
-    public function __construct(bool $enabled, string $server, string $protocol_name)
+    public function __construct(public ?bool $enabled, public ?string $server, public ?string $protocol_name)
     {
-        $this->enabled = $enabled;
-        $this->server = $server;
-        $this->protocol_name = $protocol_name;
     }
 }

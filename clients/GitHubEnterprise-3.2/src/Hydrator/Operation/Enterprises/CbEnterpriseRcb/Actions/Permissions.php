@@ -38,7 +38,7 @@ class Permissions implements ObjectMapper
                 $value = $payload['enabled_organizations'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enabled_organizations';
+                    $properties['enabled_organizations'] = null;
                     goto after_enabled_organizations;
                 }
 

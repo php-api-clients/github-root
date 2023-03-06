@@ -13,21 +13,7 @@ final readonly class PorterAuthor
     public const SCHEMA_TITLE = 'Porter Author';
     public const SCHEMA_DESCRIPTION = 'Porter Author';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"remote_id":"generated_remote_id","remote_name":"generated_remote_name","email":"generated_email","name":"generated_name","url":"generated_url","import_url":"generated_import_url"}';
-    public ?int $id;
-    public ?string $remote_id;
-    public ?string $remote_name;
-    public ?string $email;
-    public ?string $name;
-    public ?string $url;
-    public ?string $import_url;
-    public function __construct(int $id, string $remote_id, string $remote_name, string $email, string $name, string $url, string $import_url)
+    public function __construct(public ?int $id, public ?string $remote_id, public ?string $remote_name, public ?string $email, public ?string $name, public ?string $url, public ?string $import_url)
     {
-        $this->id = $id;
-        $this->remote_id = $remote_id;
-        $this->remote_name = $remote_name;
-        $this->email = $email;
-        $this->name = $name;
-        $this->url = $url;
-        $this->import_url = $import_url;
     }
 }

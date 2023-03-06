@@ -13,48 +13,12 @@ final readonly class TopicSearchResultItem
     public const SCHEMA_TITLE = 'Topic Search Result Item';
     public const SCHEMA_DESCRIPTION = 'Topic Search Result Item';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","display_name":"generated_display_name","short_description":"generated_short_description","description":"generated_description","created_by":"generated_created_by","released":"generated_released","created_at":"generated_created_at","updated_at":"generated_updated_at","featured":false,"curated":false,"score":13,"repository_count":13,"logo_url":"generated_logo_url","text_matches":[{"object_url":"generated_object_url","object_type":"generated_object_type","property":"generated_property","fragment":"generated_fragment","matches":[{"text":"generated_text","indices":[13]}]}],"related":[{"topic_relation":{"id":13,"name":"generated_name","topic_id":13,"relation_type":"generated_relation_type"}}],"aliases":[{"topic_relation":{"id":13,"name":"generated_name","topic_id":13,"relation_type":"generated_relation_type"}}]}';
-    public ?string $name;
-    public ?string $display_name;
-    public ?string $short_description;
-    public ?string $description;
-    public ?string $created_by;
-    public ?string $released;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public ?bool $featured;
-    public ?bool $curated;
-    public ?int $score;
-    public ?int $repository_count;
-    public ?string $logo_url;
     /**
-     * @var array<Schema\SearchResultTextMatches>
+     * @param array<\ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches> $text_matches
+     * @param ?array<\ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related> $related
+     * @param ?array<\ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related> $aliases
      */
-    public array $text_matches;
-    /**
-     * @var array<Schema\TopicSearchResultItem\Related>
-     */
-    public ?array $related;
-    /**
-     * @var array<Schema\TopicSearchResultItem\Related>
-     */
-    public ?array $aliases;
-    public function __construct(string $name, string $display_name, string $short_description, string $description, string $created_by, string $released, string $created_at, string $updated_at, bool $featured, bool $curated, int $score, int $repository_count, string $logo_url, array $text_matches, array $related, array $aliases)
+    public function __construct(public ?string $name, public ?string $display_name, public ?string $short_description, public ?string $description, public ?string $created_by, public ?string $released, public ?string $created_at, public ?string $updated_at, public ?bool $featured, public ?bool $curated, public ?int $score, public ?int $repository_count, public ?string $logo_url, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\SearchResultTextMatches::class)] public array $text_matches, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\TopicSearchResultItem\Related::class)] public ?array $related, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\TopicSearchResultItem\Related::class)] public ?array $aliases)
     {
-        $this->name = $name;
-        $this->display_name = $display_name;
-        $this->short_description = $short_description;
-        $this->description = $description;
-        $this->created_by = $created_by;
-        $this->released = $released;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->featured = $featured;
-        $this->curated = $curated;
-        $this->score = $score;
-        $this->repository_count = $repository_count;
-        $this->logo_url = $logo_url;
-        $this->text_matches = $text_matches;
-        $this->related = $related;
-        $this->aliases = $aliases;
     }
 }

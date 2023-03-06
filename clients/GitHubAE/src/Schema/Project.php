@@ -13,52 +13,14 @@ final readonly class Project
     public const SCHEMA_TITLE = 'Project';
     public const SCHEMA_DESCRIPTION = 'Projects are a way to organize columns and cards of work.';
     public const SCHEMA_EXAMPLE_DATA = '{"owner_url":"https:\\/\\/api.github.com\\/repos\\/api-playground\\/projects-test","url":"https:\\/\\/api.github.com\\/projects\\/1002604","html_url":"https:\\/\\/github.com\\/api-playground\\/projects-test\\/projects\\/12","columns_url":"https:\\/\\/api.github.com\\/projects\\/1002604\\/columns","id":1002604,"node_id":"MDc6UHJvamVjdDEwMDI2MDQ=","name":"Week One Sprint","body":"This project represents the sprint of the first week in January","number":1,"state":"open","creator":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"created_at":"2011-04-10T20:09:31Z","updated_at":"2014-03-03T18:58:10Z","organization_permission":"generated_organization_permission","private":false}';
-    public ?string $owner_url;
-    public ?string $url;
-    public ?string $html_url;
-    public ?string $columns_url;
-    public ?int $id;
-    public ?string $node_id;
     /**
-     * Name of the project
+     * name: Name of the project
+     * body: Body of the project
+     * state: State of the project; either 'open' or 'closed'
+     * organization_permission: The baseline permission that all organization members have on this project. Only present if owner is an organization.
+     * private: Whether or not this project can be seen by everyone. Only present if owner is an organization.
      */
-    public ?string $name;
-    /**
-     * Body of the project
-     */
-    public ?string $body;
-    public ?int $number;
-    /**
-     * State of the project; either 'open' or 'closed'
-     */
-    public ?string $state;
-    public ?Schema\SimpleUser $creator;
-    public ?string $created_at;
-    public ?string $updated_at;
-    /**
-     * The baseline permission that all organization members have on this project. Only present if owner is an organization.
-     */
-    public string $organization_permission;
-    /**
-     * Whether or not this project can be seen by everyone. Only present if owner is an organization.
-     */
-    public bool $private;
-    public function __construct(string $owner_url, string $url, string $html_url, string $columns_url, int $id, string $node_id, string $name, string $body, int $number, string $state, Schema\SimpleUser $creator, string $created_at, string $updated_at, string $organization_permission, bool $private)
+    public function __construct(public ?string $owner_url, public ?string $url, public ?string $html_url, public ?string $columns_url, public ?int $id, public ?string $node_id, public ?string $name, public ?string $body, public ?int $number, public ?string $state, public ?Schema\SimpleUser $creator, public ?string $created_at, public ?string $updated_at, public string $organization_permission, public bool $private)
     {
-        $this->owner_url = $owner_url;
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->columns_url = $columns_url;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->name = $name;
-        $this->body = $body;
-        $this->number = $number;
-        $this->state = $state;
-        $this->creator = $creator;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->organization_permission = $organization_permission;
-        $this->private = $private;
     }
 }

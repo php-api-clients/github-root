@@ -13,9 +13,7 @@ final readonly class CheckSuite
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13}';
-    public ?int $id;
-    public function __construct(int $id)
+    public function __construct(public ?int $id)
     {
-        $this->id = $id;
     }
 }

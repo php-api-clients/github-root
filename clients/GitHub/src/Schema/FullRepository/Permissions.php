@@ -13,17 +13,7 @@ final readonly class Permissions
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"admin":false,"maintain":false,"push":false,"triage":false,"pull":false}';
-    public ?bool $admin;
-    public bool $maintain;
-    public ?bool $push;
-    public bool $triage;
-    public ?bool $pull;
-    public function __construct(bool $admin, bool $maintain, bool $push, bool $triage, bool $pull)
+    public function __construct(public ?bool $admin, public bool $maintain, public ?bool $push, public bool $triage, public ?bool $pull)
     {
-        $this->admin = $admin;
-        $this->maintain = $maintain;
-        $this->push = $push;
-        $this->triage = $triage;
-        $this->pull = $pull;
     }
 }

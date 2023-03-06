@@ -109,9 +109,19 @@ class Gollum implements ObjectMapper
                 $value = $payload['pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pages';
+                    $properties['pages'] = null;
                     goto after_pages;
                 }
+
+                static $pagesCaster1;
+    
+                if ($pagesCaster1 === null) {
+                    $pagesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookGollum\\Pages',
+));
+                }
+    
+                $value = $pagesCaster1->cast($value, $this);
 
                 $properties['pages'] = $value;
     
@@ -120,7 +130,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
@@ -140,7 +150,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['sender'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sender';
+                    $properties['sender'] = null;
                     goto after_sender;
                 }
 
@@ -182,7 +192,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -193,7 +203,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -204,7 +214,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['website_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'website_url';
+                    $properties['website_url'] = null;
                     goto after_website_url;
                 }
 
@@ -215,7 +225,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -226,7 +236,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -237,7 +247,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -248,7 +258,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['slug'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'slug';
+                    $properties['slug'] = null;
                     goto after_slug;
                 }
 
@@ -259,7 +269,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -270,7 +280,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -281,7 +291,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -314,7 +324,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -325,7 +335,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -358,7 +368,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -369,7 +379,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -380,7 +390,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -391,7 +401,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -402,7 +412,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -413,7 +423,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -424,7 +434,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -435,7 +445,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -446,7 +456,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['members_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'members_url';
+                    $properties['members_url'] = null;
                     goto after_members_url;
                 }
 
@@ -457,7 +467,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['public_members_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'public_members_url';
+                    $properties['public_members_url'] = null;
                     goto after_public_members_url;
                 }
 
@@ -468,7 +478,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -479,7 +489,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -512,7 +522,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['action'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'action';
+                    $properties['action'] = null;
                     goto after_action;
                 }
 
@@ -523,7 +533,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -534,7 +544,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['page_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'page_name';
+                    $properties['page_name'] = null;
                     goto after_page_name;
                 }
 
@@ -545,7 +555,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -556,7 +566,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['summary'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'summary';
+                    $properties['summary'] = null;
                     goto after_summary;
                 }
 
@@ -567,7 +577,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['title'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'title';
+                    $properties['title'] = null;
                     goto after_title;
                 }
 
@@ -600,7 +610,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -611,7 +621,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -622,7 +632,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -633,7 +643,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['full_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'full_name';
+                    $properties['full_name'] = null;
                     goto after_full_name;
                 }
 
@@ -644,7 +654,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'license';
+                    $properties['license'] = null;
                     goto after_license;
                 }
 
@@ -684,7 +694,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['forks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks';
+                    $properties['forks'] = null;
                     goto after_forks;
                 }
 
@@ -715,7 +725,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -735,7 +745,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['private'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'private';
+                    $properties['private'] = null;
                     goto after_private;
                 }
 
@@ -746,7 +756,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -757,7 +767,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -768,7 +778,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['fork'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'fork';
+                    $properties['fork'] = null;
                     goto after_fork;
                 }
 
@@ -779,7 +789,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -790,7 +800,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['archive_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archive_url';
+                    $properties['archive_url'] = null;
                     goto after_archive_url;
                 }
 
@@ -801,7 +811,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['assignees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees_url';
+                    $properties['assignees_url'] = null;
                     goto after_assignees_url;
                 }
 
@@ -812,7 +822,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['blobs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'blobs_url';
+                    $properties['blobs_url'] = null;
                     goto after_blobs_url;
                 }
 
@@ -823,7 +833,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['branches_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'branches_url';
+                    $properties['branches_url'] = null;
                     goto after_branches_url;
                 }
 
@@ -834,7 +844,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['collaborators_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'collaborators_url';
+                    $properties['collaborators_url'] = null;
                     goto after_collaborators_url;
                 }
 
@@ -845,7 +855,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['comments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'comments_url';
+                    $properties['comments_url'] = null;
                     goto after_comments_url;
                 }
 
@@ -856,7 +866,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commits_url';
+                    $properties['commits_url'] = null;
                     goto after_commits_url;
                 }
 
@@ -867,7 +877,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['compare_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'compare_url';
+                    $properties['compare_url'] = null;
                     goto after_compare_url;
                 }
 
@@ -878,7 +888,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['contents_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents_url';
+                    $properties['contents_url'] = null;
                     goto after_contents_url;
                 }
 
@@ -889,7 +899,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['contributors_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contributors_url';
+                    $properties['contributors_url'] = null;
                     goto after_contributors_url;
                 }
 
@@ -900,7 +910,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['deployments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments_url';
+                    $properties['deployments_url'] = null;
                     goto after_deployments_url;
                 }
 
@@ -911,7 +921,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['downloads_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'downloads_url';
+                    $properties['downloads_url'] = null;
                     goto after_downloads_url;
                 }
 
@@ -922,7 +932,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -933,7 +943,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['forks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_url';
+                    $properties['forks_url'] = null;
                     goto after_forks_url;
                 }
 
@@ -944,7 +954,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['git_commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_commits_url';
+                    $properties['git_commits_url'] = null;
                     goto after_git_commits_url;
                 }
 
@@ -955,7 +965,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['git_refs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_refs_url';
+                    $properties['git_refs_url'] = null;
                     goto after_git_refs_url;
                 }
 
@@ -966,7 +976,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['git_tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_tags_url';
+                    $properties['git_tags_url'] = null;
                     goto after_git_tags_url;
                 }
 
@@ -977,7 +987,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['git_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_url';
+                    $properties['git_url'] = null;
                     goto after_git_url;
                 }
 
@@ -988,7 +998,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['issue_comment_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_comment_url';
+                    $properties['issue_comment_url'] = null;
                     goto after_issue_comment_url;
                 }
 
@@ -999,7 +1009,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['issue_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_events_url';
+                    $properties['issue_events_url'] = null;
                     goto after_issue_events_url;
                 }
 
@@ -1010,7 +1020,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -1021,7 +1031,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['keys_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'keys_url';
+                    $properties['keys_url'] = null;
                     goto after_keys_url;
                 }
 
@@ -1032,7 +1042,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['labels_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels_url';
+                    $properties['labels_url'] = null;
                     goto after_labels_url;
                 }
 
@@ -1043,7 +1053,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['languages_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'languages_url';
+                    $properties['languages_url'] = null;
                     goto after_languages_url;
                 }
 
@@ -1054,7 +1064,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['merges_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merges_url';
+                    $properties['merges_url'] = null;
                     goto after_merges_url;
                 }
 
@@ -1065,7 +1075,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['milestones_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'milestones_url';
+                    $properties['milestones_url'] = null;
                     goto after_milestones_url;
                 }
 
@@ -1076,7 +1086,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['notifications_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'notifications_url';
+                    $properties['notifications_url'] = null;
                     goto after_notifications_url;
                 }
 
@@ -1087,7 +1097,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['pulls_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pulls_url';
+                    $properties['pulls_url'] = null;
                     goto after_pulls_url;
                 }
 
@@ -1098,7 +1108,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['releases_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'releases_url';
+                    $properties['releases_url'] = null;
                     goto after_releases_url;
                 }
 
@@ -1109,7 +1119,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['ssh_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ssh_url';
+                    $properties['ssh_url'] = null;
                     goto after_ssh_url;
                 }
 
@@ -1120,7 +1130,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['stargazers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_url';
+                    $properties['stargazers_url'] = null;
                     goto after_stargazers_url;
                 }
 
@@ -1131,7 +1141,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['statuses_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses_url';
+                    $properties['statuses_url'] = null;
                     goto after_statuses_url;
                 }
 
@@ -1142,7 +1152,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['subscribers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscribers_url';
+                    $properties['subscribers_url'] = null;
                     goto after_subscribers_url;
                 }
 
@@ -1153,7 +1163,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['subscription_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscription_url';
+                    $properties['subscription_url'] = null;
                     goto after_subscription_url;
                 }
 
@@ -1164,7 +1174,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tags_url';
+                    $properties['tags_url'] = null;
                     goto after_tags_url;
                 }
 
@@ -1175,7 +1185,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['teams_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams_url';
+                    $properties['teams_url'] = null;
                     goto after_teams_url;
                 }
 
@@ -1186,7 +1196,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['trees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'trees_url';
+                    $properties['trees_url'] = null;
                     goto after_trees_url;
                 }
 
@@ -1197,7 +1207,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['clone_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'clone_url';
+                    $properties['clone_url'] = null;
                     goto after_clone_url;
                 }
 
@@ -1208,7 +1218,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['mirror_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'mirror_url';
+                    $properties['mirror_url'] = null;
                     goto after_mirror_url;
                 }
 
@@ -1219,7 +1229,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -1230,7 +1240,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['svn_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'svn_url';
+                    $properties['svn_url'] = null;
                     goto after_svn_url;
                 }
 
@@ -1241,7 +1251,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['homepage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'homepage';
+                    $properties['homepage'] = null;
                     goto after_homepage;
                 }
 
@@ -1252,7 +1262,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['language'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'language';
+                    $properties['language'] = null;
                     goto after_language;
                 }
 
@@ -1263,7 +1273,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['forks_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_count';
+                    $properties['forks_count'] = null;
                     goto after_forks_count;
                 }
 
@@ -1274,7 +1284,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['stargazers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_count';
+                    $properties['stargazers_count'] = null;
                     goto after_stargazers_count;
                 }
 
@@ -1285,7 +1295,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['watchers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'watchers_count';
+                    $properties['watchers_count'] = null;
                     goto after_watchers_count;
                 }
 
@@ -1296,7 +1306,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['size'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'size';
+                    $properties['size'] = null;
                     goto after_size;
                 }
 
@@ -1307,7 +1317,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['default_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default_branch';
+                    $properties['default_branch'] = null;
                     goto after_default_branch;
                 }
 
@@ -1318,7 +1328,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['open_issues_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues_count';
+                    $properties['open_issues_count'] = null;
                     goto after_open_issues_count;
                 }
 
@@ -1351,7 +1361,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['has_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_issues';
+                    $properties['has_issues'] = null;
                     goto after_has_issues;
                 }
 
@@ -1362,7 +1372,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['has_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_projects';
+                    $properties['has_projects'] = null;
                     goto after_has_projects;
                 }
 
@@ -1373,7 +1383,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['has_wiki'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_wiki';
+                    $properties['has_wiki'] = null;
                     goto after_has_wiki;
                 }
 
@@ -1384,7 +1394,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['has_pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_pages';
+                    $properties['has_pages'] = null;
                     goto after_has_pages;
                 }
 
@@ -1395,7 +1405,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['has_downloads'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_downloads';
+                    $properties['has_downloads'] = null;
                     goto after_has_downloads;
                 }
 
@@ -1406,7 +1416,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['archived'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archived';
+                    $properties['archived'] = null;
                     goto after_archived;
                 }
 
@@ -1417,7 +1427,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['disabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'disabled';
+                    $properties['disabled'] = null;
                     goto after_disabled;
                 }
 
@@ -1439,7 +1449,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['pushed_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pushed_at';
+                    $properties['pushed_at'] = null;
                     goto after_pushed_at;
                 }
 
@@ -1450,7 +1460,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -1461,7 +1471,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -1483,7 +1493,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['template_repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'template_repository';
+                    $properties['template_repository'] = null;
                     goto after_template_repository;
                 }
 
@@ -1613,7 +1623,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['open_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues';
+                    $properties['open_issues'] = null;
                     goto after_open_issues;
                 }
 
@@ -1624,7 +1634,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['watchers'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'watchers';
+                    $properties['watchers'] = null;
                     goto after_watchers;
                 }
 
@@ -1690,7 +1700,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 
@@ -1701,7 +1711,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1712,7 +1722,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -1723,7 +1733,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['spdx_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'spdx_id';
+                    $properties['spdx_id'] = null;
                     goto after_spdx_id;
                 }
 
@@ -1734,7 +1744,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -1778,7 +1788,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1789,7 +1799,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -1800,7 +1810,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -1811,7 +1821,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1822,7 +1832,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -1833,7 +1843,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -1844,7 +1854,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -1855,7 +1865,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -1866,7 +1876,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -1877,7 +1887,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -1888,7 +1898,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -1899,7 +1909,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -1910,7 +1920,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -1921,7 +1931,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -1932,7 +1942,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -1943,7 +1953,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -1954,7 +1964,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -1965,7 +1975,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -1976,7 +1986,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -1987,7 +1997,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -2031,7 +2041,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin';
+                    $properties['admin'] = null;
                     goto after_admin;
                 }
 
@@ -2042,7 +2052,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['pull'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull';
+                    $properties['pull'] = null;
                     goto after_pull;
                 }
 
@@ -2064,7 +2074,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['push'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'push';
+                    $properties['push'] = null;
                     goto after_push;
                 }
 
@@ -2108,7 +2118,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -2119,7 +2129,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -2130,7 +2140,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -2141,7 +2151,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['full_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'full_name';
+                    $properties['full_name'] = null;
                     goto after_full_name;
                 }
 
@@ -2152,7 +2162,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -2172,7 +2182,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['private'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'private';
+                    $properties['private'] = null;
                     goto after_private;
                 }
 
@@ -2183,7 +2193,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -2194,7 +2204,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -2205,7 +2215,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['fork'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'fork';
+                    $properties['fork'] = null;
                     goto after_fork;
                 }
 
@@ -2216,7 +2226,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -2227,7 +2237,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['archive_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archive_url';
+                    $properties['archive_url'] = null;
                     goto after_archive_url;
                 }
 
@@ -2238,7 +2248,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['assignees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees_url';
+                    $properties['assignees_url'] = null;
                     goto after_assignees_url;
                 }
 
@@ -2249,7 +2259,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['blobs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'blobs_url';
+                    $properties['blobs_url'] = null;
                     goto after_blobs_url;
                 }
 
@@ -2260,7 +2270,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['branches_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'branches_url';
+                    $properties['branches_url'] = null;
                     goto after_branches_url;
                 }
 
@@ -2271,7 +2281,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['collaborators_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'collaborators_url';
+                    $properties['collaborators_url'] = null;
                     goto after_collaborators_url;
                 }
 
@@ -2282,7 +2292,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['comments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'comments_url';
+                    $properties['comments_url'] = null;
                     goto after_comments_url;
                 }
 
@@ -2293,7 +2303,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commits_url';
+                    $properties['commits_url'] = null;
                     goto after_commits_url;
                 }
 
@@ -2304,7 +2314,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['compare_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'compare_url';
+                    $properties['compare_url'] = null;
                     goto after_compare_url;
                 }
 
@@ -2315,7 +2325,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['contents_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents_url';
+                    $properties['contents_url'] = null;
                     goto after_contents_url;
                 }
 
@@ -2326,7 +2336,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['contributors_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contributors_url';
+                    $properties['contributors_url'] = null;
                     goto after_contributors_url;
                 }
 
@@ -2337,7 +2347,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['deployments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments_url';
+                    $properties['deployments_url'] = null;
                     goto after_deployments_url;
                 }
 
@@ -2348,7 +2358,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['downloads_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'downloads_url';
+                    $properties['downloads_url'] = null;
                     goto after_downloads_url;
                 }
 
@@ -2359,7 +2369,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -2370,7 +2380,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['forks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_url';
+                    $properties['forks_url'] = null;
                     goto after_forks_url;
                 }
 
@@ -2381,7 +2391,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['git_commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_commits_url';
+                    $properties['git_commits_url'] = null;
                     goto after_git_commits_url;
                 }
 
@@ -2392,7 +2402,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['git_refs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_refs_url';
+                    $properties['git_refs_url'] = null;
                     goto after_git_refs_url;
                 }
 
@@ -2403,7 +2413,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['git_tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_tags_url';
+                    $properties['git_tags_url'] = null;
                     goto after_git_tags_url;
                 }
 
@@ -2414,7 +2424,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['git_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_url';
+                    $properties['git_url'] = null;
                     goto after_git_url;
                 }
 
@@ -2425,7 +2435,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['issue_comment_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_comment_url';
+                    $properties['issue_comment_url'] = null;
                     goto after_issue_comment_url;
                 }
 
@@ -2436,7 +2446,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['issue_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_events_url';
+                    $properties['issue_events_url'] = null;
                     goto after_issue_events_url;
                 }
 
@@ -2447,7 +2457,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -2458,7 +2468,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['keys_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'keys_url';
+                    $properties['keys_url'] = null;
                     goto after_keys_url;
                 }
 
@@ -2469,7 +2479,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['labels_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels_url';
+                    $properties['labels_url'] = null;
                     goto after_labels_url;
                 }
 
@@ -2480,7 +2490,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['languages_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'languages_url';
+                    $properties['languages_url'] = null;
                     goto after_languages_url;
                 }
 
@@ -2491,7 +2501,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['merges_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merges_url';
+                    $properties['merges_url'] = null;
                     goto after_merges_url;
                 }
 
@@ -2502,7 +2512,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['milestones_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'milestones_url';
+                    $properties['milestones_url'] = null;
                     goto after_milestones_url;
                 }
 
@@ -2513,7 +2523,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['notifications_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'notifications_url';
+                    $properties['notifications_url'] = null;
                     goto after_notifications_url;
                 }
 
@@ -2524,7 +2534,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['pulls_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pulls_url';
+                    $properties['pulls_url'] = null;
                     goto after_pulls_url;
                 }
 
@@ -2535,7 +2545,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['releases_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'releases_url';
+                    $properties['releases_url'] = null;
                     goto after_releases_url;
                 }
 
@@ -2546,7 +2556,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['ssh_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ssh_url';
+                    $properties['ssh_url'] = null;
                     goto after_ssh_url;
                 }
 
@@ -2557,7 +2567,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['stargazers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_url';
+                    $properties['stargazers_url'] = null;
                     goto after_stargazers_url;
                 }
 
@@ -2568,7 +2578,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['statuses_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses_url';
+                    $properties['statuses_url'] = null;
                     goto after_statuses_url;
                 }
 
@@ -2579,7 +2589,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['subscribers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscribers_url';
+                    $properties['subscribers_url'] = null;
                     goto after_subscribers_url;
                 }
 
@@ -2590,7 +2600,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['subscription_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscription_url';
+                    $properties['subscription_url'] = null;
                     goto after_subscription_url;
                 }
 
@@ -2601,7 +2611,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tags_url';
+                    $properties['tags_url'] = null;
                     goto after_tags_url;
                 }
 
@@ -2612,7 +2622,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['teams_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams_url';
+                    $properties['teams_url'] = null;
                     goto after_teams_url;
                 }
 
@@ -2623,7 +2633,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['trees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'trees_url';
+                    $properties['trees_url'] = null;
                     goto after_trees_url;
                 }
 
@@ -2634,7 +2644,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['clone_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'clone_url';
+                    $properties['clone_url'] = null;
                     goto after_clone_url;
                 }
 
@@ -2645,7 +2655,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['mirror_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'mirror_url';
+                    $properties['mirror_url'] = null;
                     goto after_mirror_url;
                 }
 
@@ -2656,7 +2666,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -2667,7 +2677,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['svn_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'svn_url';
+                    $properties['svn_url'] = null;
                     goto after_svn_url;
                 }
 
@@ -2678,7 +2688,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['homepage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'homepage';
+                    $properties['homepage'] = null;
                     goto after_homepage;
                 }
 
@@ -2689,7 +2699,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['language'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'language';
+                    $properties['language'] = null;
                     goto after_language;
                 }
 
@@ -2700,7 +2710,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['forks_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_count';
+                    $properties['forks_count'] = null;
                     goto after_forks_count;
                 }
 
@@ -2711,7 +2721,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['stargazers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_count';
+                    $properties['stargazers_count'] = null;
                     goto after_stargazers_count;
                 }
 
@@ -2722,7 +2732,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['watchers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'watchers_count';
+                    $properties['watchers_count'] = null;
                     goto after_watchers_count;
                 }
 
@@ -2733,7 +2743,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['size'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'size';
+                    $properties['size'] = null;
                     goto after_size;
                 }
 
@@ -2744,7 +2754,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['default_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default_branch';
+                    $properties['default_branch'] = null;
                     goto after_default_branch;
                 }
 
@@ -2755,7 +2765,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['open_issues_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues_count';
+                    $properties['open_issues_count'] = null;
                     goto after_open_issues_count;
                 }
 
@@ -2766,7 +2776,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['is_template'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_template';
+                    $properties['is_template'] = null;
                     goto after_is_template;
                 }
 
@@ -2777,7 +2787,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['topics'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'topics';
+                    $properties['topics'] = null;
                     goto after_topics;
                 }
 
@@ -2788,7 +2798,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['has_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_issues';
+                    $properties['has_issues'] = null;
                     goto after_has_issues;
                 }
 
@@ -2799,7 +2809,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['has_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_projects';
+                    $properties['has_projects'] = null;
                     goto after_has_projects;
                 }
 
@@ -2810,7 +2820,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['has_wiki'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_wiki';
+                    $properties['has_wiki'] = null;
                     goto after_has_wiki;
                 }
 
@@ -2821,7 +2831,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['has_pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_pages';
+                    $properties['has_pages'] = null;
                     goto after_has_pages;
                 }
 
@@ -2832,7 +2842,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['has_downloads'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_downloads';
+                    $properties['has_downloads'] = null;
                     goto after_has_downloads;
                 }
 
@@ -2843,7 +2853,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['archived'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archived';
+                    $properties['archived'] = null;
                     goto after_archived;
                 }
 
@@ -2854,7 +2864,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['disabled'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'disabled';
+                    $properties['disabled'] = null;
                     goto after_disabled;
                 }
 
@@ -2865,7 +2875,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['visibility'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'visibility';
+                    $properties['visibility'] = null;
                     goto after_visibility;
                 }
 
@@ -2876,7 +2886,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['pushed_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pushed_at';
+                    $properties['pushed_at'] = null;
                     goto after_pushed_at;
                 }
 
@@ -2887,7 +2897,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -2898,7 +2908,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -2909,7 +2919,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['permissions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'permissions';
+                    $properties['permissions'] = null;
                     goto after_permissions;
                 }
 
@@ -2929,7 +2939,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['allow_rebase_merge'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_rebase_merge';
+                    $properties['allow_rebase_merge'] = null;
                     goto after_allow_rebase_merge;
                 }
 
@@ -2940,7 +2950,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['temp_clone_token'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'temp_clone_token';
+                    $properties['temp_clone_token'] = null;
                     goto after_temp_clone_token;
                 }
 
@@ -2951,7 +2961,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['allow_squash_merge'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_squash_merge';
+                    $properties['allow_squash_merge'] = null;
                     goto after_allow_squash_merge;
                 }
 
@@ -2962,7 +2972,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['allow_auto_merge'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_auto_merge';
+                    $properties['allow_auto_merge'] = null;
                     goto after_allow_auto_merge;
                 }
 
@@ -2973,7 +2983,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['delete_branch_on_merge'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'delete_branch_on_merge';
+                    $properties['delete_branch_on_merge'] = null;
                     goto after_delete_branch_on_merge;
                 }
 
@@ -2984,7 +2994,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['allow_update_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_update_branch';
+                    $properties['allow_update_branch'] = null;
                     goto after_allow_update_branch;
                 }
 
@@ -2995,7 +3005,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['allow_merge_commit'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_merge_commit';
+                    $properties['allow_merge_commit'] = null;
                     goto after_allow_merge_commit;
                 }
 
@@ -3006,7 +3016,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['subscribers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscribers_count';
+                    $properties['subscribers_count'] = null;
                     goto after_subscribers_count;
                 }
 
@@ -3017,7 +3027,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['network_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'network_count';
+                    $properties['network_count'] = null;
                     goto after_network_count;
                 }
 
@@ -3050,7 +3060,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -3061,7 +3071,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -3072,7 +3082,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -3083,7 +3093,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -3094,7 +3104,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -3105,7 +3115,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -3116,7 +3126,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -3127,7 +3137,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -3138,7 +3148,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -3149,7 +3159,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -3160,7 +3170,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -3171,7 +3181,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -3182,7 +3192,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -3193,7 +3203,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -3204,7 +3214,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -3215,7 +3225,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -3226,7 +3236,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -3237,7 +3247,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -3270,7 +3280,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin';
+                    $properties['admin'] = null;
                     goto after_admin;
                 }
 
@@ -3281,7 +3291,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['maintain'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'maintain';
+                    $properties['maintain'] = null;
                     goto after_maintain;
                 }
 
@@ -3292,7 +3302,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['push'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'push';
+                    $properties['push'] = null;
                     goto after_push;
                 }
 
@@ -3303,7 +3313,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['triage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'triage';
+                    $properties['triage'] = null;
                     goto after_triage;
                 }
 
@@ -3314,7 +3324,7 @@ class Gollum implements ObjectMapper
                 $value = $payload['pull'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull';
+                    $properties['pull'] = null;
                     goto after_pull;
                 }
 
@@ -3461,7 +3471,8 @@ class Gollum implements ObjectMapper
         static $pagesSerializer0;
 
         if ($pagesSerializer0 === null) {
-            $pagesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $pagesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookGollum\\Pages',
 ));
         }
         

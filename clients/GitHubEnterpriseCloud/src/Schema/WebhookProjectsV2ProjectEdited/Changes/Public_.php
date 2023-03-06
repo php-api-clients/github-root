@@ -13,11 +13,7 @@ final readonly class Public_
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"from":false,"to":false}';
-    public ?bool $from;
-    public ?bool $to;
-    public function __construct(bool $from, bool $to)
+    public function __construct(public ?bool $from, public ?bool $to)
     {
-        $this->from = $from;
-        $this->to = $to;
     }
 }

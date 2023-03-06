@@ -14,41 +14,15 @@ final readonly class CodespaceExportDetails
     public const SCHEMA_DESCRIPTION = 'An export of a codespace. Also, latest export details for a codespace can be fetched with id = latest';
     public const SCHEMA_EXAMPLE_DATA = '{"state":"succeeded | failed | in_progress","completed_at":"2021-01-01T19:01:12Z","branch":"codespace-monalisa-octocat-hello-world-g4wpq6h95q","sha":"fd95a81ca01e48ede9f39c799ecbcef817b8a3b2","id":"latest","export_url":"https:\\/\\/api.github.com\\/user\\/codespaces\\/:name\\/exports\\/latest","html_url":"https:\\/\\/github.com\\/octocat\\/hello-world\\/tree\\/:branch"}';
     /**
-     * State of the latest export
+     * state: State of the latest export
+     * completed_at: Completion time of the last export operation
+     * branch: Name of the exported branch
+     * sha: Git commit SHA of the exported branch
+     * id: Id for the export details
+     * export_url: Url for fetching export details
+     * html_url: Web url for the exported branch
      */
-    public ?string $state;
-    /**
-     * Completion time of the last export operation
-     */
-    public ?string $completed_at;
-    /**
-     * Name of the exported branch
-     */
-    public ?string $branch;
-    /**
-     * Git commit SHA of the exported branch
-     */
-    public ?string $sha;
-    /**
-     * Id for the export details
-     */
-    public ?string $id;
-    /**
-     * Url for fetching export details
-     */
-    public ?string $export_url;
-    /**
-     * Web url for the exported branch
-     */
-    public ?string $html_url;
-    public function __construct(string $state, string $completed_at, string $branch, string $sha, string $id, string $export_url, string $html_url)
+    public function __construct(public ?string $state, public ?string $completed_at, public ?string $branch, public ?string $sha, public ?string $id, public ?string $export_url, public ?string $html_url)
     {
-        $this->state = $state;
-        $this->completed_at = $completed_at;
-        $this->branch = $branch;
-        $this->sha = $sha;
-        $this->id = $id;
-        $this->export_url = $export_url;
-        $this->html_url = $html_url;
     }
 }

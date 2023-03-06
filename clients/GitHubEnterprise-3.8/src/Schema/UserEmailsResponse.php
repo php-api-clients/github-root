@@ -14,21 +14,11 @@ final readonly class UserEmailsResponse
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"value":"mlisa@example.com","type":"work","primary":true}';
     /**
-     * The email address.
+     * value: The email address.
+     * type: The type of email address.
+     * primary: Whether this email address is the primary address.
      */
-    public ?string $value;
-    /**
-     * The type of email address.
-     */
-    public string $type;
-    /**
-     * Whether this email address is the primary address.
-     */
-    public bool $primary;
-    public function __construct(string $value, string $type, bool $primary)
+    public function __construct(public ?string $value, public string $type, public bool $primary)
     {
-        $this->value = $value;
-        $this->type = $type;
-        $this->primary = $primary;
     }
 }

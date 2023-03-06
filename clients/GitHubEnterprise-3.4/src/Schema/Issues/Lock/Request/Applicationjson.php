@@ -14,15 +14,13 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"lock_reason":"generated_lock_reason"}';
     /**
-     * The reason for locking the issue or pull request conversation. Lock will fail if you don't use one of these reasons:  
+     * lock_reason: The reason for locking the issue or pull request conversation. Lock will fail if you don't use one of these reasons:  
      * `off-topic`  
      * `too heated`  
      * `resolved`  
      * `spam`
      */
-    public ?string $lock_reason;
-    public function __construct(string $lock_reason)
+    public function __construct(public ?string $lock_reason)
     {
-        $this->lock_reason = $lock_reason;
     }
 }

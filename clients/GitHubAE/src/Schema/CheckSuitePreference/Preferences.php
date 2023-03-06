@@ -14,11 +14,9 @@ final readonly class Preferences
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"auto_trigger_checks":[{"app_id":13,"setting":false}]}';
     /**
-     * @var array<Schema\CheckSuitePreference\Preferences\AutoTriggerChecks>
+     * @param ?array<\ApiClients\Client\GitHubAE\Schema\CheckSuitePreference\Preferences\AutoTriggerChecks> $auto_trigger_checks
      */
-    public ?array $auto_trigger_checks;
-    public function __construct(array $auto_trigger_checks)
+    public function __construct(#[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\CheckSuitePreference\Preferences\AutoTriggerChecks::class)] public ?array $auto_trigger_checks)
     {
-        $this->auto_trigger_checks = $auto_trigger_checks;
     }
 }

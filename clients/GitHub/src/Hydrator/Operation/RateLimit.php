@@ -41,7 +41,7 @@ class RateLimit implements ObjectMapper
                 $value = $payload['resources'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'resources';
+                    $properties['resources'] = null;
                     goto after_resources;
                 }
 
@@ -61,7 +61,7 @@ class RateLimit implements ObjectMapper
                 $value = $payload['rate'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'rate';
+                    $properties['rate'] = null;
                     goto after_rate;
                 }
 
@@ -103,7 +103,7 @@ class RateLimit implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -114,7 +114,7 @@ class RateLimit implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -125,7 +125,7 @@ class RateLimit implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -136,7 +136,7 @@ class RateLimit implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -169,7 +169,7 @@ class RateLimit implements ObjectMapper
                 $value = $payload['core'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'core';
+                    $properties['core'] = null;
                     goto after_core;
                 }
 
@@ -209,7 +209,7 @@ class RateLimit implements ObjectMapper
                 $value = $payload['search'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'search';
+                    $properties['search'] = null;
                     goto after_search;
                 }
 
@@ -371,7 +371,7 @@ class RateLimit implements ObjectMapper
                 $value = $payload['limit'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'limit';
+                    $properties['limit'] = null;
                     goto after_limit;
                 }
 
@@ -382,7 +382,7 @@ class RateLimit implements ObjectMapper
                 $value = $payload['remaining'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'remaining';
+                    $properties['remaining'] = null;
                     goto after_remaining;
                 }
 
@@ -393,7 +393,7 @@ class RateLimit implements ObjectMapper
                 $value = $payload['reset'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'reset';
+                    $properties['reset'] = null;
                     goto after_reset;
                 }
 
@@ -404,7 +404,7 @@ class RateLimit implements ObjectMapper
                 $value = $payload['used'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'used';
+                    $properties['used'] = null;
                     goto after_used;
                 }
 

@@ -14,30 +14,16 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"invitee_id":13,"email":"generated_email","role":"generated_role","team_ids":[13]}';
     /**
-     * **Required unless you provide `email`**. GitHub user ID for the person you are inviting.
-     */
-    public ?int $invitee_id;
-    /**
-     * **Required unless you provide `invitee_id`**. Email address of the person you are inviting, which can be an existing GitHub user.
-     */
-    public ?string $email;
-    /**
-     * The role for the new member. 
+     * invitee_id: **Required unless you provide `email`**. GitHub user ID for the person you are inviting.
+     * email: **Required unless you provide `invitee_id`**. Email address of the person you are inviting, which can be an existing GitHub user.
+     * role: The role for the new member. 
      * `admin` - Organization owners with full administrative rights to the organization and complete access to all repositories and teams.  
      * `direct_member` - Non-owner organization members with ability to see other members and join teams by invitation.  
      * `billing_manager` - Non-owner organization members with ability to manage the billing settings of your organization.
+     * team_ids: Specify IDs for the teams you want to invite new members to.
+     * @param ?array<int> $team_ids
      */
-    public ?string $role;
-    /**
-     * Specify IDs for the teams you want to invite new members to.
-     * @var array<int>
-     */
-    public ?array $team_ids;
-    public function __construct(int $invitee_id, string $email, string $role, array $team_ids)
+    public function __construct(public ?int $invitee_id, public ?string $email, public ?string $role, public ?array $team_ids)
     {
-        $this->invitee_id = $invitee_id;
-        $this->email = $email;
-        $this->role = $role;
-        $this->team_ids = $team_ids;
     }
 }

@@ -13,16 +13,10 @@ final readonly class ValidationError
     public const SCHEMA_TITLE = 'Validation Error';
     public const SCHEMA_DESCRIPTION = 'Validation Error';
     public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message","documentation_url":"generated_documentation_url","errors":[{"resource":"generated_resource","field":"generated_field","message":"generated_message","code":"generated_code","index":13,"value":["generated_value"]}]}';
-    public ?string $message;
-    public ?string $documentation_url;
     /**
-     * @var array<Schema\ValidationError\Errors>
+     * @param array<\ApiClients\Client\GitHubAE\Schema\ValidationError\Errors> $errors
      */
-    public array $errors;
-    public function __construct(string $message, string $documentation_url, array $errors)
+    public function __construct(public ?string $message, public ?string $documentation_url, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ValidationError\Errors::class)] public array $errors)
     {
-        $this->message = $message;
-        $this->documentation_url = $documentation_url;
-        $this->errors = $errors;
     }
 }

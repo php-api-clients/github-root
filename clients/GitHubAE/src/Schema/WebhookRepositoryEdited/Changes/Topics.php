@@ -14,11 +14,9 @@ final readonly class Topics
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"from":["generated_from"]}';
     /**
-     * @var array<string>
+     * @param ?array<string> $from
      */
-    public ?array $from;
-    public function __construct(array $from)
+    public function __construct(public ?array $from)
     {
-        $this->from = $from;
     }
 }

@@ -14,12 +14,10 @@ final readonly class ExternalGroups
     public const SCHEMA_DESCRIPTION = 'A list of external groups available to be connected to a team';
     public const SCHEMA_EXAMPLE_DATA = '{"groups":[{"group_id":2,"group_name":"group-azuread-test2","updated_at":"2021-06-03 22:27:15:000 -700"}]}';
     /**
-     * An array of external groups available to be mapped to a team
-     * @var array<Schema\ExternalGroups\Groups>
+     * groups: An array of external groups available to be mapped to a team
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\ExternalGroups\Groups> $groups
      */
-    public ?array $groups;
-    public function __construct(array $groups)
+    public function __construct(#[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ExternalGroups\Groups::class)] public ?array $groups)
     {
-        $this->groups = $groups;
     }
 }

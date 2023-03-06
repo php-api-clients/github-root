@@ -14,37 +14,13 @@ final readonly class Rule
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"description":"generated_description","full_description":"generated_full_description","help":"generated_help","help_uri":"generated_help_uri","id":"generated_id","name":"generated_name","severity":"generated_severity","tags":["generated_tags"]}';
     /**
-     * A short description of the rule used to detect the alert.
+     * description: A short description of the rule used to detect the alert.
+     * help_uri: A link to the documentation for the rule used to detect the alert.
+     * id: A unique identifier for the rule used to detect the alert.
+     * severity: The severity of the alert.
+     * @param ?array<string> $tags
      */
-    public ?string $description;
-    public string $full_description;
-    public ?string $help;
-    /**
-     * A link to the documentation for the rule used to detect the alert.
-     */
-    public ?string $help_uri;
-    /**
-     * A unique identifier for the rule used to detect the alert.
-     */
-    public ?string $id;
-    public string $name;
-    /**
-     * The severity of the alert.
-     */
-    public ?string $severity;
-    /**
-     * @var array<string>
-     */
-    public ?array $tags;
-    public function __construct(string $description, string $full_description, string $help, string $help_uri, string $id, string $name, string $severity, array $tags)
+    public function __construct(public ?string $description, public string $full_description, public ?string $help, public ?string $help_uri, public ?string $id, public string $name, public ?string $severity, public ?array $tags)
     {
-        $this->description = $description;
-        $this->full_description = $full_description;
-        $this->help = $help;
-        $this->help_uri = $help_uri;
-        $this->id = $id;
-        $this->name = $name;
-        $this->severity = $severity;
-        $this->tags = $tags;
     }
 }

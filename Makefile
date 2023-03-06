@@ -27,4 +27,3 @@ endif
 generate-clients:
 	$(DOCKER_RUN) php utils/client-skelleton-setup.php
 	$(DOCKER_RUN) ls ./clients | xargs -I % $(DOCKER_RUN) php ./vendor/bin/openapi-client-generator ./clients/%/etc/openapi-generator-config.yaml
-	cs-fix

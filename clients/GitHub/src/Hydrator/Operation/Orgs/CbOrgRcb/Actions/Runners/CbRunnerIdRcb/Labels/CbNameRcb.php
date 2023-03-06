@@ -40,7 +40,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -51,9 +51,19 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['labels'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels';
+                    $properties['labels'] = null;
                     goto after_labels;
                 }
+
+                static $labelsCaster1;
+    
+                if ($labelsCaster1 === null) {
+                    $labelsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\RunnerLabel',
+));
+                }
+    
+                $value = $labelsCaster1->cast($value, $this);
 
                 $properties['labels'] = $value;
     
@@ -84,7 +94,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -95,7 +105,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -106,7 +116,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -117,7 +127,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -150,7 +160,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -161,7 +171,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -303,7 +313,8 @@ class CbNameRcb implements ObjectMapper
         static $labelsSerializer0;
 
         if ($labelsSerializer0 === null) {
-            $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\RunnerLabel',
 ));
         }
         

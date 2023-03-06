@@ -40,7 +40,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -51,7 +51,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['primary_key_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'primary_key_id';
+                    $properties['primary_key_id'] = null;
                     goto after_primary_key_id;
                 }
 
@@ -62,7 +62,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['key_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key_id';
+                    $properties['key_id'] = null;
                     goto after_key_id;
                 }
 
@@ -73,7 +73,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['public_key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'public_key';
+                    $properties['public_key'] = null;
                     goto after_public_key;
                 }
 
@@ -84,9 +84,19 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['emails'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'emails';
+                    $properties['emails'] = null;
                     goto after_emails;
                 }
+
+                static $emailsCaster1;
+    
+                if ($emailsCaster1 === null) {
+                    $emailsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\GpgKey\\Emails',
+));
+                }
+    
+                $value = $emailsCaster1->cast($value, $this);
 
                 $properties['emails'] = $value;
     
@@ -95,9 +105,19 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['subkeys'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subkeys';
+                    $properties['subkeys'] = null;
                     goto after_subkeys;
                 }
+
+                static $subkeysCaster1;
+    
+                if ($subkeysCaster1 === null) {
+                    $subkeysCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\GpgKey\\Subkeys',
+));
+                }
+    
+                $value = $subkeysCaster1->cast($value, $this);
 
                 $properties['subkeys'] = $value;
     
@@ -106,7 +126,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['can_sign'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'can_sign';
+                    $properties['can_sign'] = null;
                     goto after_can_sign;
                 }
 
@@ -117,7 +137,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['can_encrypt_comms'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'can_encrypt_comms';
+                    $properties['can_encrypt_comms'] = null;
                     goto after_can_encrypt_comms;
                 }
 
@@ -128,7 +148,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['can_encrypt_storage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'can_encrypt_storage';
+                    $properties['can_encrypt_storage'] = null;
                     goto after_can_encrypt_storage;
                 }
 
@@ -139,7 +159,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['can_certify'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'can_certify';
+                    $properties['can_certify'] = null;
                     goto after_can_certify;
                 }
 
@@ -150,7 +170,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -161,7 +181,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['expires_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'expires_at';
+                    $properties['expires_at'] = null;
                     goto after_expires_at;
                 }
 
@@ -172,7 +192,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['raw_key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'raw_key';
+                    $properties['raw_key'] = null;
                     goto after_raw_key;
                 }
 
@@ -205,7 +225,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -216,7 +236,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -227,7 +247,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -238,7 +258,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -271,7 +291,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -282,7 +302,7 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -296,6 +316,16 @@ class CbGpgKeyIdRcb implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -448,7 +478,8 @@ class CbGpgKeyIdRcb implements ObjectMapper
         static $emailsSerializer0;
 
         if ($emailsSerializer0 === null) {
-            $emailsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $emailsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\GpgKey\\Emails',
 ));
         }
         
@@ -464,7 +495,8 @@ class CbGpgKeyIdRcb implements ObjectMapper
         static $subkeysSerializer0;
 
         if ($subkeysSerializer0 === null) {
-            $subkeysSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $subkeysSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\GpgKey\\Subkeys',
 ));
         }
         
@@ -598,7 +630,8 @@ class CbGpgKeyIdRcb implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ValidationError\\Errors',
 ));
         }
         

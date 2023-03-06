@@ -13,18 +13,10 @@ final readonly class TimelineCommitCommentedEvent
     public const SCHEMA_TITLE = 'Timeline Commit Commented Event';
     public const SCHEMA_DESCRIPTION = 'Timeline Commit Commented Event';
     public const SCHEMA_EXAMPLE_DATA = '{"event":"generated_event","node_id":"generated_node_id","commit_id":"generated_commit_id","comments":[{"html_url":"generated_html_url","url":"generated_url","id":13,"node_id":"generated_node_id","body":"generated_body","path":"generated_path","position":13,"line":13,"commit_id":"generated_commit_id","user":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"created_at":"generated_created_at","updated_at":"generated_updated_at","author_association":"OWNER","reactions":{"url":"generated_url","total_count":13,"_PLUSES_1":13,"_MINUS_1":13,"laugh":13,"confused":13,"heart":13,"hooray":13,"eyes":13,"rocket":13}}]}';
-    public ?string $event;
-    public ?string $node_id;
-    public ?string $commit_id;
     /**
-     * @var array<Schema\CommitComment>
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\CommitComment> $comments
      */
-    public ?array $comments;
-    public function __construct(string $event, string $node_id, string $commit_id, array $comments)
+    public function __construct(public ?string $event, public ?string $node_id, public ?string $commit_id, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\CommitComment::class)] public ?array $comments)
     {
-        $this->event = $event;
-        $this->node_id = $node_id;
-        $this->commit_id = $commit_id;
-        $this->comments = $comments;
     }
 }

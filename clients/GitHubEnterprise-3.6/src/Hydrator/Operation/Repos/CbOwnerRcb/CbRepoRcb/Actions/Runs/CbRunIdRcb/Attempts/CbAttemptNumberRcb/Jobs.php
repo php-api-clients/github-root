@@ -39,7 +39,7 @@ class Jobs implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -50,9 +50,19 @@ class Jobs implements ObjectMapper
                 $value = $payload['jobs'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'jobs';
+                    $properties['jobs'] = null;
                     goto after_jobs;
                 }
+
+                static $jobsCaster1;
+    
+                if ($jobsCaster1 === null) {
+                    $jobsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Job',
+));
+                }
+    
+                $value = $jobsCaster1->cast($value, $this);
 
                 $properties['jobs'] = $value;
     
@@ -83,7 +93,7 @@ class Jobs implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -94,7 +104,7 @@ class Jobs implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -105,7 +115,7 @@ class Jobs implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -116,7 +126,7 @@ class Jobs implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -246,7 +256,8 @@ class Jobs implements ObjectMapper
         static $jobsSerializer0;
 
         if ($jobsSerializer0 === null) {
-            $jobsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $jobsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Job',
 ));
         }
         

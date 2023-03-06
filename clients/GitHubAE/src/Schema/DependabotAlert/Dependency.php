@@ -14,21 +14,11 @@ final readonly class Dependency
     public const SCHEMA_DESCRIPTION = 'Details for the vulnerable dependency.';
     public const SCHEMA_EXAMPLE_DATA = '{"package":{"ecosystem":"generated_ecosystem","name":"generated_name"},"manifest_path":"generated_manifest_path","scope":"generated_scope"}';
     /**
-     * Details for the vulnerable package.
+     * package: Details for the vulnerable package.
+     * manifest_path: The full path to the dependency manifest file, relative to the root of the repository.
+     * scope: The execution scope of the vulnerable dependency.
      */
-    public ?Schema\DependabotAlertPackage $package;
-    /**
-     * The full path to the dependency manifest file, relative to the root of the repository.
-     */
-    public ?string $manifest_path;
-    /**
-     * The execution scope of the vulnerable dependency.
-     */
-    public ?string $scope;
-    public function __construct(Schema\DependabotAlertPackage $package, string $manifest_path, string $scope)
+    public function __construct(public ?Schema\DependabotAlertPackage $package, public ?string $manifest_path, public ?string $scope)
     {
-        $this->package = $package;
-        $this->manifest_path = $manifest_path;
-        $this->scope = $scope;
     }
 }

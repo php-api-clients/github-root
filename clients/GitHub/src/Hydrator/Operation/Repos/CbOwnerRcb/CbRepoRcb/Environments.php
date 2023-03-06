@@ -38,7 +38,7 @@ class Environments implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class Environments implements ObjectMapper
                 $value = $payload['environments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'environments';
+                    $properties['environments'] = null;
                     goto after_environments;
                 }
+
+                static $environmentsCaster1;
+    
+                if ($environmentsCaster1 === null) {
+                    $environmentsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\Environment',
+));
+                }
+    
+                $value = $environmentsCaster1->cast($value, $this);
 
                 $properties['environments'] = $value;
     
@@ -178,7 +188,8 @@ class Environments implements ObjectMapper
         static $environmentsSerializer0;
 
         if ($environmentsSerializer0 === null) {
-            $environmentsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $environmentsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\Environment',
 ));
         }
         

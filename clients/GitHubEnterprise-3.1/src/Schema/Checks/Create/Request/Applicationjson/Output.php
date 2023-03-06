@@ -14,33 +14,15 @@ final readonly class Output
     public const SCHEMA_DESCRIPTION = 'Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run. See the [`output` object](https://docs.github.com/enterprise-server@3.1/rest/reference/checks#output-object) description.';
     public const SCHEMA_EXAMPLE_DATA = '{"title":"generated_title","summary":"generated_summary","text":"generated_text","annotations":[{"path":"generated_path","start_line":13,"end_line":13,"start_column":13,"end_column":13,"annotation_level":"generated_annotation_level","message":"generated_message","title":"generated_title","raw_details":"generated_raw_details"}],"images":[{"alt":"generated_alt","image_url":"generated_image_url","caption":"generated_caption"}]}';
     /**
-     * The title of the check run.
+     * title: The title of the check run.
+     * summary: The summary of the check run. This parameter supports Markdown.
+     * text: The details of the check run. This parameter supports Markdown.
+     * annotations: Adds information from your analysis to specific lines of code. Annotations are visible on GitHub in the **Checks** and **Files changed** tab of the pull request. The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [Update a check run](https://docs.github.com/enterprise-server@3.1/rest/reference/checks#update-a-check-run) endpoint. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run. For details about how you can view annotations on GitHub, see "[About status checks](https://docs.github.com/articles/about-status-checks#checks)". See the [`annotations` object](https://docs.github.com/enterprise-server@3.1/rest/reference/checks#annotations-object) description for details about how to use this parameter.
+     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\Checks\Create\Request\Applicationjson\Output\Annotations> $annotations
+     * images: Adds images to the output displayed in the GitHub pull request UI. See the [`images` object](https://docs.github.com/enterprise-server@3.1/rest/reference/checks#images-object) description for details.
+     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\Checks\Create\Request\Applicationjson\Output\Images> $images
      */
-    public ?string $title;
-    /**
-     * The summary of the check run. This parameter supports Markdown.
-     */
-    public ?string $summary;
-    /**
-     * The details of the check run. This parameter supports Markdown.
-     */
-    public string $text;
-    /**
-     * Adds information from your analysis to specific lines of code. Annotations are visible on GitHub in the **Checks** and **Files changed** tab of the pull request. The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [Update a check run](https://docs.github.com/enterprise-server@3.1/rest/reference/checks#update-a-check-run) endpoint. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run. For details about how you can view annotations on GitHub, see "[About status checks](https://docs.github.com/articles/about-status-checks#checks)". See the [`annotations` object](https://docs.github.com/enterprise-server@3.1/rest/reference/checks#annotations-object) description for details about how to use this parameter.
-     * @var array<Schema\Checks\Create\Request\Applicationjson\Output\Annotations>
-     */
-    public array $annotations;
-    /**
-     * Adds images to the output displayed in the GitHub pull request UI. See the [`images` object](https://docs.github.com/enterprise-server@3.1/rest/reference/checks#images-object) description for details.
-     * @var array<Schema\Checks\Create\Request\Applicationjson\Output\Images>
-     */
-    public array $images;
-    public function __construct(string $title, string $summary, string $text, array $annotations, array $images)
+    public function __construct(public ?string $title, public ?string $summary, public string $text, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Checks\Create\Request\Applicationjson\Output\Annotations::class)] public array $annotations, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Checks\Create\Request\Applicationjson\Output\Images::class)] public array $images)
     {
-        $this->title = $title;
-        $this->summary = $summary;
-        $this->text = $text;
-        $this->annotations = $annotations;
-        $this->images = $images;
     }
 }

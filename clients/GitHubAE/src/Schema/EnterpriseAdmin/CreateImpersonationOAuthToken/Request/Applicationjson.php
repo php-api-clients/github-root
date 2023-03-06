@@ -14,12 +14,10 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"scopes":["generated_scopes"]}';
     /**
-     * A list of [scopes](https://docs.github.com/github-ae@latest/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
-     * @var array<string>
+     * scopes: A list of [scopes](https://docs.github.com/github-ae@latest/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+     * @param ?array<string> $scopes
      */
-    public ?array $scopes;
-    public function __construct(array $scopes)
+    public function __construct(public ?array $scopes)
     {
-        $this->scopes = $scopes;
     }
 }

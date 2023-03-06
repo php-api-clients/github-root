@@ -14,33 +14,15 @@ final readonly class ExternalGroup
     public const SCHEMA_DESCRIPTION = 'Information about an external group\'s usage and its members';
     public const SCHEMA_EXAMPLE_DATA = '{"group_id":1,"group_name":"group-azuread-test","updated_at":"2021-01-03 22:27:15:000 -700","teams":[{"team_id":1,"team_name":"team-test"}],"members":[{"member_id":1,"member_login":"mona-lisa_eocsaxrs","member_name":"Mona Lisa","member_email":"mona_lisa@github.com"}]}';
     /**
-     * The internal ID of the group
+     * group_id: The internal ID of the group
+     * group_name: The display name for the group
+     * updated_at: The date when the group was last updated_at
+     * teams: An array of teams linked to this group
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Teams> $teams
+     * members: An array of external members linked to this group
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Members> $members
      */
-    public ?int $group_id;
-    /**
-     * The display name for the group
-     */
-    public ?string $group_name;
-    /**
-     * The date when the group was last updated_at
-     */
-    public string $updated_at;
-    /**
-     * An array of teams linked to this group
-     * @var array<Schema\ExternalGroup\Teams>
-     */
-    public ?array $teams;
-    /**
-     * An array of external members linked to this group
-     * @var array<Schema\ExternalGroup\Members>
-     */
-    public ?array $members;
-    public function __construct(int $group_id, string $group_name, string $updated_at, array $teams, array $members)
+    public function __construct(public ?int $group_id, public ?string $group_name, public string $updated_at, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ExternalGroup\Teams::class)] public ?array $teams, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ExternalGroup\Members::class)] public ?array $members)
     {
-        $this->group_id = $group_id;
-        $this->group_name = $group_name;
-        $this->updated_at = $updated_at;
-        $this->teams = $teams;
-        $this->members = $members;
     }
 }

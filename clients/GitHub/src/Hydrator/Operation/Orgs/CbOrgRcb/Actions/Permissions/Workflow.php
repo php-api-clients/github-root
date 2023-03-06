@@ -38,7 +38,7 @@ class Workflow implements ObjectMapper
                 $value = $payload['default_workflow_permissions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default_workflow_permissions';
+                    $properties['default_workflow_permissions'] = null;
                     goto after_default_workflow_permissions;
                 }
 
@@ -49,7 +49,7 @@ class Workflow implements ObjectMapper
                 $value = $payload['can_approve_pull_request_reviews'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'can_approve_pull_request_reviews';
+                    $properties['can_approve_pull_request_reviews'] = null;
                     goto after_can_approve_pull_request_reviews;
                 }
 

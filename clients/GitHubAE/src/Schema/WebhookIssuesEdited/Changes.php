@@ -13,11 +13,7 @@ final readonly class Changes
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = 'The changes to the issue.';
     public const SCHEMA_EXAMPLE_DATA = '{"body":{"from":"generated_from"},"title":{"from":"generated_from"}}';
-    public ?Schema\WebhookIssueCommentEdited\Changes\Body $body;
-    public ?Schema\WebhookIssuesEdited\Changes\Title $title;
-    public function __construct(Schema\WebhookIssueCommentEdited\Changes\Body $body, Schema\WebhookIssuesEdited\Changes\Title $title)
+    public function __construct(public ?Schema\WebhookIssueCommentEdited\Changes\Body $body, public ?Schema\WebhookIssuesEdited\Changes\Title $title)
     {
-        $this->body = $body;
-        $this->title = $title;
     }
 }

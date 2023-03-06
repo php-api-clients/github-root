@@ -14,22 +14,12 @@ final readonly class Resources
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":"7fce0092-d52e-4f76-b727-3955bd72c939","members":[{"value":"0db508eb-91e2-46e4-809c-30dcbda0c685","ref":"generated_ref","display":"generated_display","$+ref":"https:\\/\\/api.github.localhost\\/scim\\/v2\\/Users\\/0db508eb-91e2-46e4-809c-30dcbda0c685","displayName":"User 2"}],"meta":{"resourceType":"User","created":"2022-03-27T19:59:26.000Z","lastModified":"2022-03-27T19:59:26.000Z","location":"generated_location"}}';
     /**
-     * The internally generated id for the group object.
+     * id: The internally generated id for the group object.
+     * members: The security group members.
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList\Resources\Members> $members
+     * meta: The metadata associated with the creation/updates to the user.
      */
-    public ?string $id;
-    /**
-     * The security group members.
-     * @var array<Schema\ScimEnterpriseGroupList\Resources\Members>
-     */
-    public ?array $members;
-    /**
-     * The metadata associated with the creation/updates to the user.
-     */
-    public ?Schema\Meta $meta;
-    public function __construct(string $id, array $members, Schema\Meta $meta)
+    public function __construct(public ?string $id, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ScimEnterpriseGroupList\Resources\Members::class)] public ?array $members, public ?Schema\Meta $meta)
     {
-        $this->id = $id;
-        $this->members = $members;
-        $this->meta = $meta;
     }
 }

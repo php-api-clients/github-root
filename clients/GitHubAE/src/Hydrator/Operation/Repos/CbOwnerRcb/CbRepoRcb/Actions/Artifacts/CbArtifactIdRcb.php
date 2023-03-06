@@ -39,7 +39,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -50,7 +50,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -61,7 +61,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -72,7 +72,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['size_in_bytes'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'size_in_bytes';
+                    $properties['size_in_bytes'] = null;
                     goto after_size_in_bytes;
                 }
 
@@ -83,7 +83,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -94,7 +94,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['archive_download_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archive_download_url';
+                    $properties['archive_download_url'] = null;
                     goto after_archive_download_url;
                 }
 
@@ -105,7 +105,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['expired'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'expired';
+                    $properties['expired'] = null;
                     goto after_expired;
                 }
 
@@ -116,7 +116,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -127,7 +127,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['expires_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'expires_at';
+                    $properties['expires_at'] = null;
                     goto after_expires_at;
                 }
 
@@ -138,7 +138,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -149,7 +149,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['workflow_run'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'workflow_run';
+                    $properties['workflow_run'] = null;
                     goto after_workflow_run;
                 }
 
@@ -191,7 +191,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -202,7 +202,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['repository_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository_id';
+                    $properties['repository_id'] = null;
                     goto after_repository_id;
                 }
 
@@ -213,7 +213,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['head_repository_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_repository_id';
+                    $properties['head_repository_id'] = null;
                     goto after_head_repository_id;
                 }
 
@@ -224,7 +224,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['head_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_branch';
+                    $properties['head_branch'] = null;
                     goto after_head_branch;
                 }
 
@@ -235,7 +235,7 @@ class CbArtifactIdRcb implements ObjectMapper
                 $value = $payload['head_sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_sha';
+                    $properties['head_sha'] = null;
                     goto after_head_sha;
                 }
 

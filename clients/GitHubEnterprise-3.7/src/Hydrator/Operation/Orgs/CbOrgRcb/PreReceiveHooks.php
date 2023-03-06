@@ -38,7 +38,7 @@ class PreReceiveHooks implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -49,7 +49,7 @@ class PreReceiveHooks implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -60,7 +60,7 @@ class PreReceiveHooks implements ObjectMapper
                 $value = $payload['enforcement'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'enforcement';
+                    $properties['enforcement'] = null;
                     goto after_enforcement;
                 }
 
@@ -71,7 +71,7 @@ class PreReceiveHooks implements ObjectMapper
                 $value = $payload['configuration_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'configuration_url';
+                    $properties['configuration_url'] = null;
                     goto after_configuration_url;
                 }
 
@@ -82,7 +82,7 @@ class PreReceiveHooks implements ObjectMapper
                 $value = $payload['allow_downstream_configuration'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'allow_downstream_configuration';
+                    $properties['allow_downstream_configuration'] = null;
                     goto after_allow_downstream_configuration;
                 }
 

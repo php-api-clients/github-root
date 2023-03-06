@@ -14,13 +14,9 @@ final readonly class SecretScanningLocation
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"type":"commit","details":{"path":"\\/example\\/secrets.txt","start_line":13,"end_line":13,"start_column":13,"end_column":13,"blob_sha":"af5626b4a114abcb82d63db7c8082c3c4756e51b","blob_url":"generated_blob_url","commit_sha":"af5626b4a114abcb82d63db7c8082c3c4756e51b","commit_url":"generated_commit_url"}}';
     /**
-     * The location type. Because secrets may be found in different types of resources (ie. code, comments, issues), this field identifies the type of resource where the secret was found.
+     * type: The location type. Because secrets may be found in different types of resources (ie. code, comments, issues), this field identifies the type of resource where the secret was found.
      */
-    public ?string $type;
-    public ?Schema\SecretScanningLocationCommit $details;
-    public function __construct(string $type, Schema\SecretScanningLocationCommit $details)
+    public function __construct(public ?string $type, public ?Schema\SecretScanningLocationCommit $details)
     {
-        $this->type = $type;
-        $this->details = $details;
     }
 }

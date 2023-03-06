@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enforcement":"generated_enforcement"}';
     /**
-     * The state of enforcement for the hook on this repository.
+     * enforcement: The state of enforcement for the hook on this repository.
      */
-    public ?string $enforcement;
-    public function __construct(string $enforcement)
+    public function __construct(public ?string $enforcement)
     {
-        $this->enforcement = $enforcement;
     }
 }

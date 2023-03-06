@@ -40,7 +40,7 @@ class CbSarifIdRcb implements ObjectMapper
                 $value = $payload['processing_status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'processing_status';
+                    $properties['processing_status'] = null;
                     goto after_processing_status;
                 }
 
@@ -51,7 +51,7 @@ class CbSarifIdRcb implements ObjectMapper
                 $value = $payload['analyses_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'analyses_url';
+                    $properties['analyses_url'] = null;
                     goto after_analyses_url;
                 }
 
@@ -84,7 +84,7 @@ class CbSarifIdRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -95,7 +95,7 @@ class CbSarifIdRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -106,7 +106,7 @@ class CbSarifIdRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -117,7 +117,7 @@ class CbSarifIdRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -150,7 +150,7 @@ class CbSarifIdRcb implements ObjectMapper
                 $value = $payload['code'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'code';
+                    $properties['code'] = null;
                     goto after_code;
                 }
 
@@ -161,7 +161,7 @@ class CbSarifIdRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -172,7 +172,7 @@ class CbSarifIdRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 

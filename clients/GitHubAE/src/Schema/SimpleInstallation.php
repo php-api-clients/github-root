@@ -14,16 +14,10 @@ final readonly class SimpleInstallation
     public const SCHEMA_DESCRIPTION = 'The GitHub App installation. This property is included when the event is configured for and sent to a GitHub App.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":1,"node_id":"MDQ6VXNlcjU4MzIzMQ=="}';
     /**
-     * The ID of the installation.
+     * id: The ID of the installation.
+     * node_id: The global node ID of the installation.
      */
-    public ?int $id;
-    /**
-     * The global node ID of the installation.
-     */
-    public ?string $node_id;
-    public function __construct(int $id, string $node_id)
+    public function __construct(public ?int $id, public ?string $node_id)
     {
-        $this->id = $id;
-        $this->node_id = $node_id;
     }
 }

@@ -14,21 +14,11 @@ final readonly class ActionsCacheUsageByRepository
     public const SCHEMA_DESCRIPTION = 'GitHub Actions Cache Usage by repository.';
     public const SCHEMA_EXAMPLE_DATA = '{"full_name":"octo-org\\/Hello-World","active_caches_size_in_bytes":2322142,"active_caches_count":3}';
     /**
-     * The repository owner and name for the cache usage being shown.
+     * full_name: The repository owner and name for the cache usage being shown.
+     * active_caches_size_in_bytes: The sum of the size in bytes of all the active cache items in the repository.
+     * active_caches_count: The number of active caches in the repository.
      */
-    public ?string $full_name;
-    /**
-     * The sum of the size in bytes of all the active cache items in the repository.
-     */
-    public ?int $active_caches_size_in_bytes;
-    /**
-     * The number of active caches in the repository.
-     */
-    public ?int $active_caches_count;
-    public function __construct(string $full_name, int $active_caches_size_in_bytes, int $active_caches_count)
+    public function __construct(public ?string $full_name, public ?int $active_caches_size_in_bytes, public ?int $active_caches_count)
     {
-        $this->full_name = $full_name;
-        $this->active_caches_size_in_bytes = $active_caches_size_in_bytes;
-        $this->active_caches_count = $active_caches_count;
     }
 }

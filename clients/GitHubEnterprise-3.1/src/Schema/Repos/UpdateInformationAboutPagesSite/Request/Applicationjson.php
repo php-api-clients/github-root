@@ -14,23 +14,11 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"cname":"generated_cname","https_enforced":false,"public":false,"source":{"branch":"generated_branch","path":"generated_path"}}';
     /**
-     * Specify a custom domain for the repository. Sending a `null` value will remove the custom domain. For more about custom domains, see "[Using a custom domain with GitHub Pages](https://docs.github.com/articles/using-a-custom-domain-with-github-pages/)."
+     * cname: Specify a custom domain for the repository. Sending a `null` value will remove the custom domain. For more about custom domains, see "[Using a custom domain with GitHub Pages](https://docs.github.com/articles/using-a-custom-domain-with-github-pages/)."
+     * https_enforced: Specify whether HTTPS should be enforced for the repository.
+     * public: Configures access controls for the GitHub Pages site. If public is set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site. This includes anyone in your Enterprise if the repository is set to `internal` visibility. This feature is only available to repositories in an organization on an Enterprise plan.
      */
-    public ?string $cname;
-    /**
-     * Specify whether HTTPS should be enforced for the repository.
-     */
-    public ?bool $https_enforced;
-    /**
-     * Configures access controls for the GitHub Pages site. If public is set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site. This includes anyone in your Enterprise if the repository is set to `internal` visibility. This feature is only available to repositories in an organization on an Enterprise plan.
-     */
-    public ?bool $public;
-    public ?Schema\Repos\UpdateInformationAboutPagesSite\Request\Applicationjson\Source $source;
-    public function __construct(string $cname, bool $https_enforced, bool $public, Schema\Repos\UpdateInformationAboutPagesSite\Request\Applicationjson\Source $source)
+    public function __construct(public ?string $cname, public ?bool $https_enforced, public ?bool $public, public ?Schema\Repos\UpdateInformationAboutPagesSite\Request\Applicationjson\Source $source)
     {
-        $this->cname = $cname;
-        $this->https_enforced = $https_enforced;
-        $this->public = $public;
-        $this->source = $source;
     }
 }

@@ -43,7 +43,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -54,7 +54,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -65,7 +65,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -76,7 +76,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -98,7 +98,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -109,7 +109,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['marketplace_pending_change'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'marketplace_pending_change';
+                    $properties['marketplace_pending_change'] = null;
                     goto after_marketplace_pending_change;
                 }
 
@@ -129,7 +129,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['marketplace_purchase'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'marketplace_purchase';
+                    $properties['marketplace_purchase'] = null;
                     goto after_marketplace_purchase;
                 }
 
@@ -171,7 +171,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -182,7 +182,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -193,7 +193,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -204,7 +204,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -237,7 +237,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -248,7 +248,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -262,6 +262,16 @@ class Accounts implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -292,7 +302,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['is_installed'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_installed';
+                    $properties['is_installed'] = null;
                     goto after_is_installed;
                 }
 
@@ -303,7 +313,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['effective_date'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'effective_date';
+                    $properties['effective_date'] = null;
                     goto after_effective_date;
                 }
 
@@ -314,7 +324,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['unit_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'unit_count';
+                    $properties['unit_count'] = null;
                     goto after_unit_count;
                 }
 
@@ -325,7 +335,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -336,7 +346,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['plan'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'plan';
+                    $properties['plan'] = null;
                     goto after_plan;
                 }
 
@@ -378,7 +388,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['billing_cycle'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'billing_cycle';
+                    $properties['billing_cycle'] = null;
                     goto after_billing_cycle;
                 }
 
@@ -389,7 +399,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['next_billing_date'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'next_billing_date';
+                    $properties['next_billing_date'] = null;
                     goto after_next_billing_date;
                 }
 
@@ -400,7 +410,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['is_installed'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'is_installed';
+                    $properties['is_installed'] = null;
                     goto after_is_installed;
                 }
 
@@ -411,7 +421,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['unit_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'unit_count';
+                    $properties['unit_count'] = null;
                     goto after_unit_count;
                 }
 
@@ -422,7 +432,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['on_free_trial'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'on_free_trial';
+                    $properties['on_free_trial'] = null;
                     goto after_on_free_trial;
                 }
 
@@ -433,7 +443,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['free_trial_ends_on'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'free_trial_ends_on';
+                    $properties['free_trial_ends_on'] = null;
                     goto after_free_trial_ends_on;
                 }
 
@@ -444,7 +454,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -455,7 +465,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['plan'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'plan';
+                    $properties['plan'] = null;
                     goto after_plan;
                 }
 
@@ -497,7 +507,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -508,7 +518,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['accounts_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'accounts_url';
+                    $properties['accounts_url'] = null;
                     goto after_accounts_url;
                 }
 
@@ -519,7 +529,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -530,7 +540,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['number'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'number';
+                    $properties['number'] = null;
                     goto after_number;
                 }
 
@@ -541,7 +551,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -552,7 +562,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -563,7 +573,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['monthly_price_in_cents'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'monthly_price_in_cents';
+                    $properties['monthly_price_in_cents'] = null;
                     goto after_monthly_price_in_cents;
                 }
 
@@ -574,7 +584,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['yearly_price_in_cents'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'yearly_price_in_cents';
+                    $properties['yearly_price_in_cents'] = null;
                     goto after_yearly_price_in_cents;
                 }
 
@@ -585,7 +595,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['price_model'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'price_model';
+                    $properties['price_model'] = null;
                     goto after_price_model;
                 }
 
@@ -596,7 +606,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['has_free_trial'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_free_trial';
+                    $properties['has_free_trial'] = null;
                     goto after_has_free_trial;
                 }
 
@@ -607,7 +617,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['unit_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'unit_name';
+                    $properties['unit_name'] = null;
                     goto after_unit_name;
                 }
 
@@ -618,7 +628,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'state';
+                    $properties['state'] = null;
                     goto after_state;
                 }
 
@@ -629,7 +639,7 @@ class Accounts implements ObjectMapper
                 $value = $payload['bullets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'bullets';
+                    $properties['bullets'] = null;
                     goto after_bullets;
                 }
 
@@ -876,7 +886,8 @@ class Accounts implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ValidationError\\Errors',
 ));
         }
         

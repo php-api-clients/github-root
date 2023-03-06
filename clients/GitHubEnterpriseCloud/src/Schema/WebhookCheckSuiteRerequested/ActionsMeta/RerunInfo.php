@@ -13,14 +13,10 @@ final readonly class RerunInfo
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"plan_id":"generated_plan_id","job_ids":["generated_job_ids"]}';
-    public ?string $plan_id;
     /**
-     * @var array<string>
+     * @param ?array<string> $job_ids
      */
-    public ?array $job_ids;
-    public function __construct(string $plan_id, array $job_ids)
+    public function __construct(public ?string $plan_id, public ?array $job_ids)
     {
-        $this->plan_id = $plan_id;
-        $this->job_ids = $job_ids;
     }
 }

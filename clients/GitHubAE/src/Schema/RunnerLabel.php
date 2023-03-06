@@ -14,21 +14,11 @@ final readonly class RunnerLabel
     public const SCHEMA_DESCRIPTION = 'A label for a self hosted runner';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"name":"generated_name","type":"generated_type"}';
     /**
-     * Unique identifier of the label.
+     * id: Unique identifier of the label.
+     * name: Name of the label.
+     * type: The type of label. Read-only labels are applied automatically when the runner is configured.
      */
-    public int $id;
-    /**
-     * Name of the label.
-     */
-    public ?string $name;
-    /**
-     * The type of label. Read-only labels are applied automatically when the runner is configured.
-     */
-    public string $type;
-    public function __construct(int $id, string $name, string $type)
+    public function __construct(public int $id, public ?string $name, public string $type)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->type = $type;
     }
 }

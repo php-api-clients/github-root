@@ -13,19 +13,11 @@ final readonly class PagesHttpsCertificate
     public const SCHEMA_TITLE = 'Pages Https Certificate';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"state":"approved","description":"Certificate is approved","domains":["www.example.com"],"expires_at":"generated_expires_at"}';
-    public ?string $state;
-    public ?string $description;
     /**
-     * Array of the domain set and its alternate name (if it is configured)
-     * @var array<string>
+     * domains: Array of the domain set and its alternate name (if it is configured)
+     * @param ?array<string> $domains
      */
-    public ?array $domains;
-    public string $expires_at;
-    public function __construct(string $state, string $description, array $domains, string $expires_at)
+    public function __construct(public ?string $state, public ?string $description, public ?array $domains, public string $expires_at)
     {
-        $this->state = $state;
-        $this->description = $description;
-        $this->domains = $domains;
-        $this->expires_at = $expires_at;
     }
 }

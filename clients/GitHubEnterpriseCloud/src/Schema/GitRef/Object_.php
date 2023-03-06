@@ -13,16 +13,10 @@ final readonly class Object_
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"type":"generated_type","sha":"7638417db6d59f3c431d3e1f261cc637155684cd","url":"generated_url"}';
-    public ?string $type;
     /**
-     * SHA for the reference
+     * sha: SHA for the reference
      */
-    public ?string $sha;
-    public ?string $url;
-    public function __construct(string $type, string $sha, string $url)
+    public function __construct(public ?string $type, public ?string $sha, public ?string $url)
     {
-        $this->type = $type;
-        $this->sha = $sha;
-        $this->url = $url;
     }
 }

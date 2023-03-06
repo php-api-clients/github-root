@@ -13,15 +13,7 @@ final readonly class Orgs
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_orgs":13,"disabled_orgs":13,"total_teams":13,"total_team_members":13}';
-    public ?int $total_orgs;
-    public ?int $disabled_orgs;
-    public ?int $total_teams;
-    public ?int $total_team_members;
-    public function __construct(int $total_orgs, int $disabled_orgs, int $total_teams, int $total_team_members)
+    public function __construct(public ?int $total_orgs, public ?int $disabled_orgs, public ?int $total_teams, public ?int $total_team_members)
     {
-        $this->total_orgs = $total_orgs;
-        $this->disabled_orgs = $disabled_orgs;
-        $this->total_teams = $total_teams;
-        $this->total_team_members = $total_team_members;
     }
 }

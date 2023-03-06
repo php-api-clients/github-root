@@ -38,7 +38,7 @@ class Snapshots implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -49,7 +49,7 @@ class Snapshots implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -60,7 +60,7 @@ class Snapshots implements ObjectMapper
                 $value = $payload['result'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'result';
+                    $properties['result'] = null;
                     goto after_result;
                 }
 
@@ -71,7 +71,7 @@ class Snapshots implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 

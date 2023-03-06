@@ -14,16 +14,10 @@ final readonly class ReleaseNotesContent
     public const SCHEMA_DESCRIPTION = 'Generated name and body describing a release';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"Release v1.0.0 is now available!","body":"generated_body"}';
     /**
-     * The generated name of the release
+     * name: The generated name of the release
+     * body: The generated body describing the contents of the release supporting markdown formatting
      */
-    public ?string $name;
-    /**
-     * The generated body describing the contents of the release supporting markdown formatting
-     */
-    public ?string $body;
-    public function __construct(string $name, string $body)
+    public function __construct(public ?string $name, public ?string $body)
     {
-        $this->name = $name;
-        $this->body = $body;
     }
 }

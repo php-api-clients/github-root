@@ -14,11 +14,9 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"visibility":"generated_visibility"}';
     /**
-     * Denotes whether an email is publicly visible.
+     * visibility: Denotes whether an email is publicly visible.
      */
-    public ?string $visibility;
-    public function __construct(string $visibility)
+    public function __construct(public ?string $visibility)
     {
-        $this->visibility = $visibility;
     }
 }

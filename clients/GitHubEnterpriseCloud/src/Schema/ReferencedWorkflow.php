@@ -13,13 +13,7 @@ final readonly class ReferencedWorkflow
     public const SCHEMA_TITLE = 'Referenced workflow';
     public const SCHEMA_DESCRIPTION = 'A workflow referenced/reused by the initial caller workflow';
     public const SCHEMA_EXAMPLE_DATA = '{"path":"generated_path","sha":"generated_sha","ref":"generated_ref"}';
-    public ?string $path;
-    public ?string $sha;
-    public string $ref;
-    public function __construct(string $path, string $sha, string $ref)
+    public function __construct(public ?string $path, public ?string $sha, public string $ref)
     {
-        $this->path = $path;
-        $this->sha = $sha;
-        $this->ref = $ref;
     }
 }

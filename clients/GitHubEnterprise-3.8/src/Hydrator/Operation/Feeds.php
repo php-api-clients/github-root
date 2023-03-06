@@ -40,7 +40,7 @@ class Feeds implements ObjectMapper
                 $value = $payload['timeline_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'timeline_url';
+                    $properties['timeline_url'] = null;
                     goto after_timeline_url;
                 }
 
@@ -51,7 +51,7 @@ class Feeds implements ObjectMapper
                 $value = $payload['user_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user_url';
+                    $properties['user_url'] = null;
                     goto after_user_url;
                 }
 
@@ -150,7 +150,7 @@ class Feeds implements ObjectMapper
                 $value = $payload['_links'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = '_links';
+                    $properties['_links'] = null;
                     goto after__links;
                 }
 
@@ -192,7 +192,7 @@ class Feeds implements ObjectMapper
                 $value = $payload['timeline'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'timeline';
+                    $properties['timeline'] = null;
                     goto after_timeline;
                 }
 
@@ -212,7 +212,7 @@ class Feeds implements ObjectMapper
                 $value = $payload['user'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'user';
+                    $properties['user'] = null;
                     goto after_user;
                 }
 
@@ -336,6 +336,16 @@ class Feeds implements ObjectMapper
                     goto after_current_user_organizations;
                 }
 
+                static $current_user_organizationsCaster1;
+    
+                if ($current_user_organizationsCaster1 === null) {
+                    $current_user_organizationsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\LinkWithType',
+));
+                }
+    
+                $value = $current_user_organizationsCaster1->cast($value, $this);
+
                 $properties['current_user_organizations'] = $value;
     
                 after_current_user_organizations:
@@ -405,7 +415,7 @@ class Feeds implements ObjectMapper
                 $value = $payload['href'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'href';
+                    $properties['href'] = null;
                     goto after_href;
                 }
 
@@ -416,7 +426,7 @@ class Feeds implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 

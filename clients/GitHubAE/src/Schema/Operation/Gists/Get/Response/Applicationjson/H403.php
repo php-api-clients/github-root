@@ -13,13 +13,7 @@ final readonly class H403
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"block":{"reason":"generated_reason","created_at":"generated_created_at","html_url":"generated_html_url"},"message":"generated_message","documentation_url":"generated_documentation_url"}';
-    public ?Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block $block;
-    public ?string $message;
-    public ?string $documentation_url;
-    public function __construct(Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block $block, string $message, string $documentation_url)
+    public function __construct(public ?Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block $block, public ?string $message, public ?string $documentation_url)
     {
-        $this->block = $block;
-        $this->message = $message;
-        $this->documentation_url = $documentation_url;
     }
 }

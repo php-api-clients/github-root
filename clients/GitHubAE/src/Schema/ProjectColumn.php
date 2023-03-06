@@ -13,29 +13,11 @@ final readonly class ProjectColumn
     public const SCHEMA_TITLE = 'Project Column';
     public const SCHEMA_DESCRIPTION = 'Project columns contain cards of work.';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"https:\\/\\/api.github.com\\/projects\\/columns\\/367","project_url":"https:\\/\\/api.github.com\\/projects\\/120","cards_url":"https:\\/\\/api.github.com\\/projects\\/columns\\/367\\/cards","id":42,"node_id":"MDEzOlByb2plY3RDb2x1bW4zNjc=","name":"Remaining tasks","created_at":"2016-09-05T14:18:44Z","updated_at":"2016-09-05T14:22:28Z"}';
-    public ?string $url;
-    public ?string $project_url;
-    public ?string $cards_url;
     /**
-     * The unique identifier of the project column
+     * id: The unique identifier of the project column
+     * name: Name of the project column
      */
-    public ?int $id;
-    public ?string $node_id;
-    /**
-     * Name of the project column
-     */
-    public ?string $name;
-    public ?string $created_at;
-    public ?string $updated_at;
-    public function __construct(string $url, string $project_url, string $cards_url, int $id, string $node_id, string $name, string $created_at, string $updated_at)
+    public function __construct(public ?string $url, public ?string $project_url, public ?string $cards_url, public ?int $id, public ?string $node_id, public ?string $name, public ?string $created_at, public ?string $updated_at)
     {
-        $this->url = $url;
-        $this->project_url = $project_url;
-        $this->cards_url = $cards_url;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->name = $name;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
     }
 }

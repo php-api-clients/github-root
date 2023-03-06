@@ -14,21 +14,11 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","visibility":"generated_visibility","allows_public_repositories":false}';
     /**
-     * Name of the runner group.
+     * name: Name of the runner group.
+     * visibility: Visibility of a runner group. You can select all organizations or select individual organizations. Can be one of: `all` or `selected`
+     * allows_public_repositories: Whether the runner group can be used by `public` repositories.
      */
-    public ?string $name;
-    /**
-     * Visibility of a runner group. You can select all organizations or select individual organizations. Can be one of: `all` or `selected`
-     */
-    public ?string $visibility;
-    /**
-     * Whether the runner group can be used by `public` repositories.
-     */
-    public ?bool $allows_public_repositories;
-    public function __construct(string $name, string $visibility, bool $allows_public_repositories)
+    public function __construct(public ?string $name, public ?string $visibility, public ?bool $allows_public_repositories)
     {
-        $this->name = $name;
-        $this->visibility = $visibility;
-        $this->allows_public_repositories = $allows_public_repositories;
     }
 }

@@ -14,16 +14,10 @@ final readonly class CodeScanningAnalysisDeletion
     public const SCHEMA_DESCRIPTION = 'Successful deletion of a code scanning analysis';
     public const SCHEMA_EXAMPLE_DATA = '{"next_analysis_url":"generated_next_analysis_url","confirm_delete_url":"generated_confirm_delete_url"}';
     /**
-     * Next deletable analysis in chain, without last analysis deletion confirmation
+     * next_analysis_url: Next deletable analysis in chain, without last analysis deletion confirmation
+     * confirm_delete_url: Next deletable analysis in chain, with last analysis deletion confirmation
      */
-    public ?string $next_analysis_url;
-    /**
-     * Next deletable analysis in chain, with last analysis deletion confirmation
-     */
-    public ?string $confirm_delete_url;
-    public function __construct(string $next_analysis_url, string $confirm_delete_url)
+    public function __construct(public ?string $next_analysis_url, public ?string $confirm_delete_url)
     {
-        $this->next_analysis_url = $next_analysis_url;
-        $this->confirm_delete_url = $confirm_delete_url;
     }
 }

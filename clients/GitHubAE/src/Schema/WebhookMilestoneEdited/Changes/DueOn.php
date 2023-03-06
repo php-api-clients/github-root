@@ -14,11 +14,9 @@ final readonly class DueOn
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"from":"generated_from"}';
     /**
-     * The previous version of the due date if the action was `edited`.
+     * from: The previous version of the due date if the action was `edited`.
      */
-    public ?string $from;
-    public function __construct(string $from)
+    public function __construct(public ?string $from)
     {
-        $this->from = $from;
     }
 }

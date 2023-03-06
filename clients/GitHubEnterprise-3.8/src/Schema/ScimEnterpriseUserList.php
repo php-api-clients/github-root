@@ -14,33 +14,15 @@ final readonly class ScimEnterpriseUserList
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"schemas":["urn:ietf:params:scim:api:messages:2.0:ListResponse"],"totalResults":1,"Resources":[{"id":"7fce0092-d52e-4f76-b727-3955bd72c939","groups":[{"value":"generated_value","ref":"generated_ref","display":"generated_display"}],"meta":{"resourceType":"User","created":"2022-03-27T19:59:26.000Z","lastModified":"2022-03-27T19:59:26.000Z","location":"generated_location"}}],"startIndex":1,"itemsPerPage":20}';
     /**
-     * The URIs that are used to indicate the namespaces of the list SCIM schemas.
-     * @var array<string>
+     * schemas: The URIs that are used to indicate the namespaces of the list SCIM schemas.
+     * @param ?array<string> $schemas
+     * totalResults: Number of results found
+     * Resources: Information about each provisioned account.
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList\Resources> $Resources
+     * startIndex: A starting index for the returned page
+     * itemsPerPage: Number of objects per page
      */
-    public ?array $schemas;
-    /**
-     * Number of results found
-     */
-    public ?int $totalResults;
-    /**
-     * Information about each provisioned account.
-     * @var array<Schema\ScimEnterpriseUserList\Resources>
-     */
-    public ?array $Resources;
-    /**
-     * A starting index for the returned page
-     */
-    public ?int $startIndex;
-    /**
-     * Number of objects per page
-     */
-    public ?int $itemsPerPage;
-    public function __construct(array $schemas, int $totalResults, array $Resources, int $startIndex, int $itemsPerPage)
+    public function __construct(public ?array $schemas, public ?int $totalResults, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ScimEnterpriseUserList\Resources::class)] public ?array $Resources, public ?int $startIndex, public ?int $itemsPerPage)
     {
-        $this->schemas = $schemas;
-        $this->totalResults = $totalResults;
-        $this->Resources = $Resources;
-        $this->startIndex = $startIndex;
-        $this->itemsPerPage = $itemsPerPage;
     }
 }

@@ -13,31 +13,7 @@ final readonly class OrganizationSimple
     public const SCHEMA_TITLE = 'Organization Simple';
     public const SCHEMA_DESCRIPTION = 'A GitHub organization.';
     public const SCHEMA_EXAMPLE_DATA = '{"login":"github","id":1,"node_id":"MDEyOk9yZ2FuaXphdGlvbjE=","url":"https:\\/\\/api.github.com\\/orgs\\/github","repos_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/repos","events_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/events","hooks_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/hooks","issues_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/issues","members_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/members{\\/member}","public_members_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/public_members{\\/member}","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","description":"A great organization"}';
-    public ?string $login;
-    public ?int $id;
-    public ?string $node_id;
-    public ?string $url;
-    public ?string $repos_url;
-    public ?string $events_url;
-    public ?string $hooks_url;
-    public ?string $issues_url;
-    public ?string $members_url;
-    public ?string $public_members_url;
-    public ?string $avatar_url;
-    public ?string $description;
-    public function __construct(string $login, int $id, string $node_id, string $url, string $repos_url, string $events_url, string $hooks_url, string $issues_url, string $members_url, string $public_members_url, string $avatar_url, string $description)
+    public function __construct(public ?string $login, public ?int $id, public ?string $node_id, public ?string $url, public ?string $repos_url, public ?string $events_url, public ?string $hooks_url, public ?string $issues_url, public ?string $members_url, public ?string $public_members_url, public ?string $avatar_url, public ?string $description)
     {
-        $this->login = $login;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->url = $url;
-        $this->repos_url = $repos_url;
-        $this->events_url = $events_url;
-        $this->hooks_url = $hooks_url;
-        $this->issues_url = $issues_url;
-        $this->members_url = $members_url;
-        $this->public_members_url = $public_members_url;
-        $this->avatar_url = $avatar_url;
-        $this->description = $description;
     }
 }

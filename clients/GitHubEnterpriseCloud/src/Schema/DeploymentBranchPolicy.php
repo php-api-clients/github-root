@@ -14,18 +14,10 @@ final readonly class DeploymentBranchPolicy
     public const SCHEMA_DESCRIPTION = 'Details of a deployment branch policy.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":361471,"node_id":"MDE2OkdhdGVCcmFuY2hQb2xpY3kzNjE0NzE=","name":"release\\/*"}';
     /**
-     * The unique identifier of the branch policy.
+     * id: The unique identifier of the branch policy.
+     * name: The name pattern that branches must match in order to deploy to the environment.
      */
-    public ?int $id;
-    public ?string $node_id;
-    /**
-     * The name pattern that branches must match in order to deploy to the environment.
-     */
-    public ?string $name;
-    public function __construct(int $id, string $node_id, string $name)
+    public function __construct(public ?int $id, public ?string $node_id, public ?string $name)
     {
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->name = $name;
     }
 }

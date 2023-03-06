@@ -13,11 +13,7 @@ final readonly class PagesSourceHash
     public const SCHEMA_TITLE = 'Pages Source Hash';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"branch":"generated_branch","path":"generated_path"}';
-    public ?string $branch;
-    public ?string $path;
-    public function __construct(string $branch, string $path)
+    public function __construct(public ?string $branch, public ?string $path)
     {
-        $this->branch = $branch;
-        $this->path = $path;
     }
 }

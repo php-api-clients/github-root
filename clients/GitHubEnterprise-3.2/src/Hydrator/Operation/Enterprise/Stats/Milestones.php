@@ -38,7 +38,7 @@ class Milestones implements ObjectMapper
                 $value = $payload['total_milestones'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_milestones';
+                    $properties['total_milestones'] = null;
                     goto after_total_milestones;
                 }
 
@@ -49,7 +49,7 @@ class Milestones implements ObjectMapper
                 $value = $payload['open_milestones'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_milestones';
+                    $properties['open_milestones'] = null;
                     goto after_open_milestones;
                 }
 
@@ -60,7 +60,7 @@ class Milestones implements ObjectMapper
                 $value = $payload['closed_milestones'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'closed_milestones';
+                    $properties['closed_milestones'] = null;
                     goto after_closed_milestones;
                 }
 

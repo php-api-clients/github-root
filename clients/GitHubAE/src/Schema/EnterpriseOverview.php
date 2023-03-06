@@ -13,27 +13,7 @@ final readonly class EnterpriseOverview
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"repos":{"total_repos":13,"root_repos":13,"fork_repos":13,"org_repos":13,"total_pushes":13,"total_wikis":13},"hooks":{"total_hooks":13,"active_hooks":13,"inactive_hooks":13},"pages":{"total_pages":13},"orgs":{"total_orgs":13,"disabled_orgs":13,"total_teams":13,"total_team_members":13},"users":{"total_users":13,"admin_users":13,"suspended_users":13},"pulls":{"total_pulls":13,"merged_pulls":13,"mergeable_pulls":13,"unmergeable_pulls":13},"issues":{"total_issues":13,"open_issues":13,"closed_issues":13},"milestones":{"total_milestones":13,"open_milestones":13,"closed_milestones":13},"gists":{"total_gists":13,"private_gists":13,"public_gists":13},"comments":{"total_commit_comments":13,"total_gist_comments":13,"total_issue_comments":13,"total_pull_request_comments":13}}';
-    public ?Schema\EnterpriseRepositoryOverview $repos;
-    public ?Schema\EnterpriseHookOverview $hooks;
-    public ?Schema\EnterprisePageOverview $pages;
-    public ?Schema\EnterpriseOrganizationOverview $orgs;
-    public ?Schema\EnterpriseUserOverview $users;
-    public ?Schema\EnterprisePullRequestOverview $pulls;
-    public ?Schema\EnterpriseIssueOverview $issues;
-    public ?Schema\EnterpriseMilestoneOverview $milestones;
-    public ?Schema\EnterpriseGistOverview $gists;
-    public ?Schema\EnterpriseCommentOverview $comments;
-    public function __construct(Schema\EnterpriseRepositoryOverview $repos, Schema\EnterpriseHookOverview $hooks, Schema\EnterprisePageOverview $pages, Schema\EnterpriseOrganizationOverview $orgs, Schema\EnterpriseUserOverview $users, Schema\EnterprisePullRequestOverview $pulls, Schema\EnterpriseIssueOverview $issues, Schema\EnterpriseMilestoneOverview $milestones, Schema\EnterpriseGistOverview $gists, Schema\EnterpriseCommentOverview $comments)
+    public function __construct(public ?Schema\EnterpriseRepositoryOverview $repos, public ?Schema\EnterpriseHookOverview $hooks, public ?Schema\EnterprisePageOverview $pages, public ?Schema\EnterpriseOrganizationOverview $orgs, public ?Schema\EnterpriseUserOverview $users, public ?Schema\EnterprisePullRequestOverview $pulls, public ?Schema\EnterpriseIssueOverview $issues, public ?Schema\EnterpriseMilestoneOverview $milestones, public ?Schema\EnterpriseGistOverview $gists, public ?Schema\EnterpriseCommentOverview $comments)
     {
-        $this->repos = $repos;
-        $this->hooks = $hooks;
-        $this->pages = $pages;
-        $this->orgs = $orgs;
-        $this->users = $users;
-        $this->pulls = $pulls;
-        $this->issues = $issues;
-        $this->milestones = $milestones;
-        $this->gists = $gists;
-        $this->comments = $comments;
     }
 }

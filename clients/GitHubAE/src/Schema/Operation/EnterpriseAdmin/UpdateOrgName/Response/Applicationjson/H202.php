@@ -13,11 +13,7 @@ final readonly class H202
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message","url":"generated_url"}';
-    public ?string $message;
-    public ?string $url;
-    public function __construct(string $message, string $url)
+    public function __construct(public ?string $message, public ?string $url)
     {
-        $this->message = $message;
-        $this->url = $url;
     }
 }

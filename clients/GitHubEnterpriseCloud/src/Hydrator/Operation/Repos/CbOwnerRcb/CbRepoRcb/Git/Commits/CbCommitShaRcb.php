@@ -42,7 +42,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -53,7 +53,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -64,7 +64,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -75,7 +75,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['author'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'author';
+                    $properties['author'] = null;
                     goto after_author;
                 }
 
@@ -95,7 +95,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['committer'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'committer';
+                    $properties['committer'] = null;
                     goto after_committer;
                 }
 
@@ -115,7 +115,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -126,7 +126,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['tree'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tree';
+                    $properties['tree'] = null;
                     goto after_tree;
                 }
 
@@ -146,9 +146,19 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['parents'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'parents';
+                    $properties['parents'] = null;
                     goto after_parents;
                 }
+
+                static $parentsCaster1;
+    
+                if ($parentsCaster1 === null) {
+                    $parentsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GitCommit\\Parents',
+));
+                }
+    
+                $value = $parentsCaster1->cast($value, $this);
 
                 $properties['parents'] = $value;
     
@@ -157,7 +167,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['verification'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'verification';
+                    $properties['verification'] = null;
                     goto after_verification;
                 }
 
@@ -177,7 +187,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -210,7 +220,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -221,7 +231,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -232,7 +242,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -243,7 +253,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -276,7 +286,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['date'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'date';
+                    $properties['date'] = null;
                     goto after_date;
                 }
 
@@ -287,7 +297,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -298,7 +308,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -331,7 +341,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -342,7 +352,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -375,7 +385,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['verified'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'verified';
+                    $properties['verified'] = null;
                     goto after_verified;
                 }
 
@@ -386,7 +396,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['reason'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'reason';
+                    $properties['reason'] = null;
                     goto after_reason;
                 }
 
@@ -397,7 +407,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['signature'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'signature';
+                    $properties['signature'] = null;
                     goto after_signature;
                 }
 
@@ -408,7 +418,7 @@ class CbCommitShaRcb implements ObjectMapper
                 $value = $payload['payload'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'payload';
+                    $properties['payload'] = null;
                     goto after_payload;
                 }
 
@@ -589,7 +599,8 @@ class CbCommitShaRcb implements ObjectMapper
         static $parentsSerializer0;
 
         if ($parentsSerializer0 === null) {
-            $parentsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $parentsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GitCommit\\Parents',
 ));
         }
         

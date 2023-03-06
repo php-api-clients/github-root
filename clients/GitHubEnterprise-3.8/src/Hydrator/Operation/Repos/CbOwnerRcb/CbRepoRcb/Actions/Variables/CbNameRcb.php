@@ -38,7 +38,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -49,7 +49,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['value'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'value';
+                    $properties['value'] = null;
                     goto after_value;
                 }
 
@@ -60,7 +60,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -71,7 +71,7 @@ class CbNameRcb implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 

@@ -13,26 +13,12 @@ final readonly class Repositories
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"full_name":"generated_full_name","id":13,"name":"generated_name","node_id":"generated_node_id","private":false}';
-    public ?string $full_name;
     /**
-     * Unique identifier of the repository
+     * id: Unique identifier of the repository
+     * name: The name of the repository.
+     * private: Whether the repository is private or public.
      */
-    public ?int $id;
-    /**
-     * The name of the repository.
-     */
-    public ?string $name;
-    public ?string $node_id;
-    /**
-     * Whether the repository is private or public.
-     */
-    public ?bool $private;
-    public function __construct(string $full_name, int $id, string $name, string $node_id, bool $private)
+    public function __construct(public ?string $full_name, public ?int $id, public ?string $name, public ?string $node_id, public ?bool $private)
     {
-        $this->full_name = $full_name;
-        $this->id = $id;
-        $this->name = $name;
-        $this->node_id = $node_id;
-        $this->private = $private;
     }
 }

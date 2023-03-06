@@ -13,21 +13,7 @@ final readonly class PreReceiveHook
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"name":"generated_name","enforcement":"generated_enforcement","script":"generated_script","script_repository":{"id":13,"full_name":"generated_full_name","url":"generated_url","html_url":"generated_html_url"},"environment":{"id":13,"name":"generated_name","image_url":"generated_image_url","url":"generated_url","html_url":"generated_html_url","default_environment":false,"created_at":"generated_created_at","hooks_count":13,"download":{"url":"generated_url","state":"generated_state","downloaded_at":"generated_downloaded_at","message":"generated_message"}},"allow_downstream_configuration":false}';
-    public ?int $id;
-    public ?string $name;
-    public ?string $enforcement;
-    public ?string $script;
-    public ?Schema\PreReceiveHook\ScriptRepository $script_repository;
-    public ?Schema\PreReceiveEnvironment $environment;
-    public ?bool $allow_downstream_configuration;
-    public function __construct(int $id, string $name, string $enforcement, string $script, Schema\PreReceiveHook\ScriptRepository $script_repository, Schema\PreReceiveEnvironment $environment, bool $allow_downstream_configuration)
+    public function __construct(public ?int $id, public ?string $name, public ?string $enforcement, public ?string $script, public ?Schema\PreReceiveHook\ScriptRepository $script_repository, public ?Schema\PreReceiveEnvironment $environment, public ?bool $allow_downstream_configuration)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->enforcement = $enforcement;
-        $this->script = $script;
-        $this->script_repository = $script_repository;
-        $this->environment = $environment;
-        $this->allow_downstream_configuration = $allow_downstream_configuration;
     }
 }

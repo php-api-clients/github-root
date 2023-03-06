@@ -13,9 +13,7 @@ final readonly class Changes
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"note":{"from":"generated_from"}}';
-    public ?Schema\WebhookDiscussionCommentEdited\Changes\Body $note;
-    public function __construct(Schema\WebhookDiscussionCommentEdited\Changes\Body $note)
+    public function __construct(public ?Schema\WebhookDiscussionCommentEdited\Changes\Body $note)
     {
-        $this->note = $note;
     }
 }

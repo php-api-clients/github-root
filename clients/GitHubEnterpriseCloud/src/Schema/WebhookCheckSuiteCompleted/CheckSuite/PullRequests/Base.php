@@ -13,13 +13,7 @@ final readonly class Base
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"ref":"generated_ref","repo":{"id":13,"name":"generated_name","url":"generated_url"},"sha":"generated_sha"}';
-    public ?string $ref;
-    public ?Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base\Repo $repo;
-    public ?string $sha;
-    public function __construct(string $ref, Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base\Repo $repo, string $sha)
+    public function __construct(public ?string $ref, public ?Schema\WebhookCheckSuiteCompleted\CheckSuite\PullRequests\Base\Repo $repo, public ?string $sha)
     {
-        $this->ref = $ref;
-        $this->repo = $repo;
-        $this->sha = $sha;
     }
 }

@@ -13,9 +13,7 @@ final readonly class Changes
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"permission":{"to":"generated_to"}}';
-    public ?Schema\WebhookMemberAdded\Changes\Permission $permission;
-    public function __construct(Schema\WebhookMemberAdded\Changes\Permission $permission)
+    public function __construct(public ?Schema\WebhookMemberAdded\Changes\Permission $permission)
     {
-        $this->permission = $permission;
     }
 }

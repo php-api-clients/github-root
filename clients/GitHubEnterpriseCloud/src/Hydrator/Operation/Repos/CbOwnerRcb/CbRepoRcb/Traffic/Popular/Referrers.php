@@ -39,7 +39,7 @@ class Referrers implements ObjectMapper
                 $value = $payload['referrer'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'referrer';
+                    $properties['referrer'] = null;
                     goto after_referrer;
                 }
 
@@ -50,7 +50,7 @@ class Referrers implements ObjectMapper
                 $value = $payload['count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'count';
+                    $properties['count'] = null;
                     goto after_count;
                 }
 
@@ -61,7 +61,7 @@ class Referrers implements ObjectMapper
                 $value = $payload['uniques'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'uniques';
+                    $properties['uniques'] = null;
                     goto after_uniques;
                 }
 
@@ -94,7 +94,7 @@ class Referrers implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -105,7 +105,7 @@ class Referrers implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -116,7 +116,7 @@ class Referrers implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -127,7 +127,7 @@ class Referrers implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 

@@ -14,15 +14,9 @@ final readonly class Parents
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"sha":"7638417db6d59f3c431d3e1f261cc637155684cd","url":"generated_url","html_url":"generated_html_url"}';
     /**
-     * SHA for the commit
+     * sha: SHA for the commit
      */
-    public ?string $sha;
-    public ?string $url;
-    public ?string $html_url;
-    public function __construct(string $sha, string $url, string $html_url)
+    public function __construct(public ?string $sha, public ?string $url, public ?string $html_url)
     {
-        $this->sha = $sha;
-        $this->url = $url;
-        $this->html_url = $html_url;
     }
 }

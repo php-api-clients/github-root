@@ -14,23 +14,13 @@ final readonly class SelectedActions
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"github_owned_allowed":false,"verified_allowed":false,"patterns_allowed":["generated_patterns_allowed"]}';
     /**
-     * Whether GitHub-owned actions are allowed. For example, this includes the actions in the `actions` organization.
-     */
-    public ?bool $github_owned_allowed;
-    /**
-     * Whether actions from GitHub Marketplace verified creators are allowed. Set to `true` to allow all actions by GitHub Marketplace verified creators.
-     */
-    public ?bool $verified_allowed;
-    /**
-     * Specifies a list of string-matching patterns to allow specific action(s) and reusable workflow(s). Wildcards, tags, and SHAs are allowed. For example, `monalisa/octocat@*`, `monalisa/octocat@v2`, `monalisa/*`.
+     * github_owned_allowed: Whether GitHub-owned actions are allowed. For example, this includes the actions in the `actions` organization.
+     * verified_allowed: Whether actions from GitHub Marketplace verified creators are allowed. Set to `true` to allow all actions by GitHub Marketplace verified creators.
+     * patterns_allowed: Specifies a list of string-matching patterns to allow specific action(s) and reusable workflow(s). Wildcards, tags, and SHAs are allowed. For example, `monalisa/octocat@*`, `monalisa/octocat@v2`, `monalisa/*`.
      **Note**: The `patterns_allowed` setting only applies to public repositories.
-     * @var array<string>
+     * @param ?array<string> $patterns_allowed
      */
-    public ?array $patterns_allowed;
-    public function __construct(bool $github_owned_allowed, bool $verified_allowed, array $patterns_allowed)
+    public function __construct(public ?bool $github_owned_allowed, public ?bool $verified_allowed, public ?array $patterns_allowed)
     {
-        $this->github_owned_allowed = $github_owned_allowed;
-        $this->verified_allowed = $verified_allowed;
-        $this->patterns_allowed = $patterns_allowed;
     }
 }

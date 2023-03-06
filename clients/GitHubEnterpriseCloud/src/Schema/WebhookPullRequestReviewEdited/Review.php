@@ -13,41 +13,13 @@ final readonly class Review
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = 'The review that was affected.';
     public const SCHEMA_EXAMPLE_DATA = '{"_links":{"html":{"href":"generated_href"},"pull_request":{"href":"generated_href"}},"author_association":"generated_author_association","body":"generated_body","commit_id":"generated_commit_id","html_url":"generated_html_url","id":13,"node_id":"generated_node_id","pull_request_url":"generated_pull_request_url","state":"generated_state","submitted_at":"generated_submitted_at","user":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"}}';
-    public ?Schema\WebhookPullRequestReviewDismissed\Review\Links $_links;
     /**
-     * How the author is associated with the repository.
+     * author_association: How the author is associated with the repository.
+     * body: The text of the review.
+     * commit_id: A commit SHA for the review.
+     * id: Unique identifier of the review
      */
-    public ?string $author_association;
-    /**
-     * The text of the review.
-     */
-    public ?string $body;
-    /**
-     * A commit SHA for the review.
-     */
-    public ?string $commit_id;
-    public ?string $html_url;
-    /**
-     * Unique identifier of the review
-     */
-    public ?int $id;
-    public ?string $node_id;
-    public ?string $pull_request_url;
-    public ?string $state;
-    public ?string $submitted_at;
-    public ?Schema\Discussion\AnswerChosenBy $user;
-    public function __construct(Schema\WebhookPullRequestReviewDismissed\Review\Links $_links, string $author_association, string $body, string $commit_id, string $html_url, int $id, string $node_id, string $pull_request_url, string $state, string $submitted_at, Schema\Discussion\AnswerChosenBy $user)
+    public function __construct(public ?Schema\WebhookPullRequestReviewDismissed\Review\Links $_links, public ?string $author_association, public ?string $body, public ?string $commit_id, public ?string $html_url, public ?int $id, public ?string $node_id, public ?string $pull_request_url, public ?string $state, public ?string $submitted_at, public ?Schema\Discussion\AnswerChosenBy $user)
     {
-        $this->_links = $_links;
-        $this->author_association = $author_association;
-        $this->body = $body;
-        $this->commit_id = $commit_id;
-        $this->html_url = $html_url;
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->pull_request_url = $pull_request_url;
-        $this->state = $state;
-        $this->submitted_at = $submitted_at;
-        $this->user = $user;
     }
 }

@@ -38,7 +38,7 @@ class Repositories implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class Repositories implements ObjectMapper
                 $value = $payload['repositories'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repositories';
+                    $properties['repositories'] = null;
                     goto after_repositories;
                 }
+
+                static $repositoriesCaster1;
+    
+                if ($repositoriesCaster1 === null) {
+                    $repositoriesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Repository',
+));
+                }
+    
+                $value = $repositoriesCaster1->cast($value, $this);
 
                 $properties['repositories'] = $value;
     
@@ -178,7 +188,8 @@ class Repositories implements ObjectMapper
         static $repositoriesSerializer0;
 
         if ($repositoriesSerializer0 === null) {
-            $repositoriesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $repositoriesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Repository',
 ));
         }
         

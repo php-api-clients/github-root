@@ -14,15 +14,9 @@ final readonly class InteractionLimitResponse
     public const SCHEMA_DESCRIPTION = 'Interaction limit settings.';
     public const SCHEMA_EXAMPLE_DATA = '{"limit":"collaborators_only","origin":"repository","expires_at":"2018-08-17T04:18:39Z"}';
     /**
-     * The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.
+     * limit: The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.
      */
-    public ?string $limit;
-    public ?string $origin;
-    public ?string $expires_at;
-    public function __construct(string $limit, string $origin, string $expires_at)
+    public function __construct(public ?string $limit, public ?string $origin, public ?string $expires_at)
     {
-        $this->limit = $limit;
-        $this->origin = $origin;
-        $this->expires_at = $expires_at;
     }
 }

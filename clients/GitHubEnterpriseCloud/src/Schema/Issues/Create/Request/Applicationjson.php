@@ -14,35 +14,15 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"title":13,"body":"generated_body","assignee":"generated_assignee","milestone":13,"labels":[{"id":13,"name":"generated_name","description":"generated_description","color":"generated_color"}],"assignees":["generated_assignees"]}';
     /**
-     * The title of the issue.
+     * title: The title of the issue.
+     * body: The contents of the issue.
+     * assignee: Login for the user that this issue should be assigned to. _NOTE: Only users with push access can set the assignee for new issues. The assignee is silently dropped otherwise. **This field is deprecated.**_
+     * labels: Labels to associate with this issue. _NOTE: Only users with push access can set labels for new issues. Labels are silently dropped otherwise._
+     * @param array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\Issues\Create\Request\Applicationjson\Labels> $labels
+     * assignees: Logins for Users to assign to this issue. _NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise._
+     * @param array<string> $assignees
      */
-    public ?int $title;
-    /**
-     * The contents of the issue.
-     */
-    public string $body;
-    /**
-     * Login for the user that this issue should be assigned to. _NOTE: Only users with push access can set the assignee for new issues. The assignee is silently dropped otherwise. **This field is deprecated.**_
-     */
-    public ?string $assignee;
-    public int $milestone;
-    /**
-     * Labels to associate with this issue. _NOTE: Only users with push access can set labels for new issues. Labels are silently dropped otherwise._
-     * @var array<Schema\Issues\Create\Request\Applicationjson\Labels>
-     */
-    public array $labels;
-    /**
-     * Logins for Users to assign to this issue. _NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise._
-     * @var array<string>
-     */
-    public array $assignees;
-    public function __construct(int $title, string $body, string $assignee, int $milestone, array $labels, array $assignees)
+    public function __construct(public ?int $title, public string $body, public ?string $assignee, public int $milestone, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Issues\Create\Request\Applicationjson\Labels::class)] public array $labels, public array $assignees)
     {
-        $this->title = $title;
-        $this->body = $body;
-        $this->assignee = $assignee;
-        $this->milestone = $milestone;
-        $this->labels = $labels;
-        $this->assignees = $assignees;
     }
 }

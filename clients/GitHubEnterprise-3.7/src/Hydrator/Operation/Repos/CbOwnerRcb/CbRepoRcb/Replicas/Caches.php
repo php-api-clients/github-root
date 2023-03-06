@@ -40,7 +40,7 @@ class Caches implements ObjectMapper
                 $value = $payload['host'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'host';
+                    $properties['host'] = null;
                     goto after_host;
                 }
 
@@ -51,7 +51,7 @@ class Caches implements ObjectMapper
                 $value = $payload['location'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'location';
+                    $properties['location'] = null;
                     goto after_location;
                 }
 
@@ -62,7 +62,7 @@ class Caches implements ObjectMapper
                 $value = $payload['git'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git';
+                    $properties['git'] = null;
                     goto after_git;
                 }
 
@@ -104,7 +104,7 @@ class Caches implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -115,7 +115,7 @@ class Caches implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -126,7 +126,7 @@ class Caches implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -137,7 +137,7 @@ class Caches implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -170,7 +170,7 @@ class Caches implements ObjectMapper
                 $value = $payload['sync_status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sync_status';
+                    $properties['sync_status'] = null;
                     goto after_sync_status;
                 }
 
@@ -181,7 +181,7 @@ class Caches implements ObjectMapper
                 $value = $payload['last_sync'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'last_sync';
+                    $properties['last_sync'] = null;
                     goto after_last_sync;
                 }
 

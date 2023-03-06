@@ -39,7 +39,7 @@ class Users implements ObjectMapper
                 $value = $payload['schemas'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'schemas';
+                    $properties['schemas'] = null;
                     goto after_schemas;
                 }
 
@@ -50,7 +50,7 @@ class Users implements ObjectMapper
                 $value = $payload['total_results'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_results';
+                    $properties['totalResults'] = null;
                     goto after_totalResults;
                 }
 
@@ -61,9 +61,19 @@ class Users implements ObjectMapper
                 $value = $payload['resources'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'resources';
+                    $properties['Resources'] = null;
                     goto after_Resources;
                 }
+
+                static $ResourcesCaster1;
+    
+                if ($ResourcesCaster1 === null) {
+                    $ResourcesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ScimEnterpriseUserList\\Resources',
+));
+                }
+    
+                $value = $ResourcesCaster1->cast($value, $this);
 
                 $properties['Resources'] = $value;
     
@@ -72,7 +82,7 @@ class Users implements ObjectMapper
                 $value = $payload['start_index'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'start_index';
+                    $properties['startIndex'] = null;
                     goto after_startIndex;
                 }
 
@@ -83,7 +93,7 @@ class Users implements ObjectMapper
                 $value = $payload['items_per_page'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'items_per_page';
+                    $properties['itemsPerPage'] = null;
                     goto after_itemsPerPage;
                 }
 
@@ -116,7 +126,7 @@ class Users implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -127,7 +137,7 @@ class Users implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -138,7 +148,7 @@ class Users implements ObjectMapper
                 $value = $payload['detail'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'detail';
+                    $properties['detail'] = null;
                     goto after_detail;
                 }
 
@@ -149,7 +159,7 @@ class Users implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -160,7 +170,7 @@ class Users implements ObjectMapper
                 $value = $payload['scim_type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'scim_type';
+                    $properties['scimType'] = null;
                     goto after_scimType;
                 }
 
@@ -171,7 +181,7 @@ class Users implements ObjectMapper
                 $value = $payload['schemas'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'schemas';
+                    $properties['schemas'] = null;
                     goto after_schemas;
                 }
 
@@ -317,7 +327,8 @@ class Users implements ObjectMapper
         static $ResourcesSerializer0;
 
         if ($ResourcesSerializer0 === null) {
-            $ResourcesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $ResourcesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ScimEnterpriseUserList\\Resources',
 ));
         }
         

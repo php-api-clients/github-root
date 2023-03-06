@@ -14,21 +14,11 @@ final readonly class Rule
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"description":"generated_description","id":"generated_id","severity":"generated_severity"}';
     /**
-     * A short description of the rule used to detect the alert.
+     * description: A short description of the rule used to detect the alert.
+     * id: A unique identifier for the rule used to detect the alert.
+     * severity: The severity of the alert.
      */
-    public ?string $description;
-    /**
-     * A unique identifier for the rule used to detect the alert.
-     */
-    public ?string $id;
-    /**
-     * The severity of the alert.
-     */
-    public ?string $severity;
-    public function __construct(string $description, string $id, string $severity)
+    public function __construct(public ?string $description, public ?string $id, public ?string $severity)
     {
-        $this->description = $description;
-        $this->id = $id;
-        $this->severity = $severity;
     }
 }

@@ -14,78 +14,22 @@ final readonly class SecretScanningAlert
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"number":13,"created_at":"generated_created_at","updated_at":"generated_updated_at","url":"generated_url","html_url":"generated_html_url","locations_url":"generated_locations_url","state":"generated_state","resolution":"generated_resolution","resolved_at":"generated_resolved_at","resolved_by":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"secret_type":"generated_secret_type","secret_type_display_name":"generated_secret_type_display_name","secret":"generated_secret","push_protection_bypassed":false,"push_protection_bypassed_by":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"push_protection_bypassed_at":"generated_push_protection_bypassed_at"}';
     /**
-     * The security alert number.
-     */
-    public ?int $number;
-    /**
-     * The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $created_at;
-    public ?string $updated_at;
-    /**
-     * The REST API URL of the alert resource.
-     */
-    public ?string $url;
-    /**
-     * The GitHub URL of the alert resource.
-     */
-    public ?string $html_url;
-    /**
-     * The REST API URL of the code locations for this alert.
-     */
-    public ?string $locations_url;
-    /**
-     * Sets the state of the secret scanning alert. You must provide `resolution` when you set the state to `resolved`.
-     */
-    public ?string $state;
-    /**
-     * **Required when the `state` is `resolved`.** The reason for resolving the alert.
-     */
-    public ?string $resolution;
-    /**
-     * The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $resolved_at;
-    public ?Schema\SimpleUser $resolved_by;
-    /**
-     * The type of secret that secret scanning detected.
-     */
-    public ?string $secret_type;
-    /**
-    * User-friendly name for the detected secret, matching the `secret_type`.
+    * number: The security alert number.
+    * created_at: The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+    * url: The REST API URL of the alert resource.
+    * html_url: The GitHub URL of the alert resource.
+    * locations_url: The REST API URL of the code locations for this alert.
+    * state: Sets the state of the secret scanning alert. You must provide `resolution` when you set the state to `resolved`.
+    * resolution: **Required when the `state` is `resolved`.** The reason for resolving the alert.
+    * resolved_at: The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+    * secret_type: The type of secret that secret scanning detected.
+    * secret_type_display_name: User-friendly name for the detected secret, matching the `secret_type`.
     For a list of built-in patterns, see "[Secret scanning patterns](https://docs.github.com/enterprise-server@3.7/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security)."
+    * secret: The secret that was detected.
+    * push_protection_bypassed: Whether push protection was bypassed for the detected secret.
+    * push_protection_bypassed_at: The time that push protection was bypassed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
     */
-    public ?string $secret_type_display_name;
-    /**
-     * The secret that was detected.
-     */
-    public ?string $secret;
-    /**
-     * Whether push protection was bypassed for the detected secret.
-     */
-    public ?bool $push_protection_bypassed;
-    public ?Schema\SimpleUser $push_protection_bypassed_by;
-    /**
-     * The time that push protection was bypassed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $push_protection_bypassed_at;
-    public function __construct(int $number, string $created_at, string $updated_at, string $url, string $html_url, string $locations_url, string $state, string $resolution, string $resolved_at, Schema\SimpleUser $resolved_by, string $secret_type, string $secret_type_display_name, string $secret, bool $push_protection_bypassed, Schema\SimpleUser $push_protection_bypassed_by, string $push_protection_bypassed_at)
+    public function __construct(public ?int $number, public ?string $created_at, public ?string $updated_at, public ?string $url, public ?string $html_url, public ?string $locations_url, public ?string $state, public ?string $resolution, public ?string $resolved_at, public ?Schema\SimpleUser $resolved_by, public ?string $secret_type, public ?string $secret_type_display_name, public ?string $secret, public ?bool $push_protection_bypassed, public ?Schema\SimpleUser $push_protection_bypassed_by, public ?string $push_protection_bypassed_at)
     {
-        $this->number = $number;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->locations_url = $locations_url;
-        $this->state = $state;
-        $this->resolution = $resolution;
-        $this->resolved_at = $resolved_at;
-        $this->resolved_by = $resolved_by;
-        $this->secret_type = $secret_type;
-        $this->secret_type_display_name = $secret_type_display_name;
-        $this->secret = $secret;
-        $this->push_protection_bypassed = $push_protection_bypassed;
-        $this->push_protection_bypassed_by = $push_protection_bypassed_by;
-        $this->push_protection_bypassed_at = $push_protection_bypassed_at;
     }
 }

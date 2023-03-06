@@ -14,26 +14,12 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = 'The object used to create GitHub Pages deployment';
     public const SCHEMA_EXAMPLE_DATA = '{"artifact_url":"generated_artifact_url","environment":"generated_environment","pages_build_version":"generated_pages_build_version","oidc_token":"generated_oidc_token"}';
     /**
-     * The URL of an artifact that contains the .zip or .tar of static assets to deploy. The artifact belongs to the repository.
+     * artifact_url: The URL of an artifact that contains the .zip or .tar of static assets to deploy. The artifact belongs to the repository.
+     * environment: The target environment for this GitHub Pages deployment.
+     * pages_build_version: A unique string that represents the version of the build for this deployment.
+     * oidc_token: The OIDC token issued by GitHub Actions certifying the origin of the deployment.
      */
-    public ?string $artifact_url;
-    /**
-     * The target environment for this GitHub Pages deployment.
-     */
-    public string $environment;
-    /**
-     * A unique string that represents the version of the build for this deployment.
-     */
-    public ?string $pages_build_version;
-    /**
-     * The OIDC token issued by GitHub Actions certifying the origin of the deployment.
-     */
-    public ?string $oidc_token;
-    public function __construct(string $artifact_url, string $environment, string $pages_build_version, string $oidc_token)
+    public function __construct(public ?string $artifact_url, public string $environment, public ?string $pages_build_version, public ?string $oidc_token)
     {
-        $this->artifact_url = $artifact_url;
-        $this->environment = $environment;
-        $this->pages_build_version = $pages_build_version;
-        $this->oidc_token = $oidc_token;
     }
 }

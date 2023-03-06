@@ -14,51 +14,15 @@ final readonly class TeamSimple
     public const SCHEMA_DESCRIPTION = 'Groups of organization members that gives permissions on specified repositories.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":1,"node_id":"MDQ6VGVhbTE=","url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1","members_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}","name":"Justice League","description":"A great team.","permission":"admin","privacy":"closed","html_url":"https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core","repositories_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos","slug":"justice-league","ldap_dn":"uid=example,ou=users,dc=github,dc=com"}';
     /**
-     * Unique identifier of the team
+     * id: Unique identifier of the team
+     * url: URL for the team
+     * name: Name of the team
+     * description: Description of the team
+     * permission: Permission that the team will have for its repositories
+     * privacy: The level of privacy this team should have
+     * ldap_dn: Distinguished Name (DN) that team maps to within LDAP environment
      */
-    public ?int $id;
-    public ?string $node_id;
-    /**
-     * URL for the team
-     */
-    public ?string $url;
-    public ?string $members_url;
-    /**
-     * Name of the team
-     */
-    public ?string $name;
-    /**
-     * Description of the team
-     */
-    public ?string $description;
-    /**
-     * Permission that the team will have for its repositories
-     */
-    public ?string $permission;
-    /**
-     * The level of privacy this team should have
-     */
-    public string $privacy;
-    public ?string $html_url;
-    public ?string $repositories_url;
-    public ?string $slug;
-    /**
-     * Distinguished Name (DN) that team maps to within LDAP environment
-     */
-    public string $ldap_dn;
-    public function __construct(int $id, string $node_id, string $url, string $members_url, string $name, string $description, string $permission, string $privacy, string $html_url, string $repositories_url, string $slug, string $ldap_dn)
+    public function __construct(public ?int $id, public ?string $node_id, public ?string $url, public ?string $members_url, public ?string $name, public ?string $description, public ?string $permission, public string $privacy, public ?string $html_url, public ?string $repositories_url, public ?string $slug, public string $ldap_dn)
     {
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->url = $url;
-        $this->members_url = $members_url;
-        $this->name = $name;
-        $this->description = $description;
-        $this->permission = $permission;
-        $this->privacy = $privacy;
-        $this->html_url = $html_url;
-        $this->repositories_url = $repositories_url;
-        $this->slug = $slug;
-        $this->ldap_dn = $ldap_dn;
     }
 }

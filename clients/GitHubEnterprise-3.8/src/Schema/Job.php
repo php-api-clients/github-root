@@ -14,103 +14,27 @@ final readonly class Job
     public const SCHEMA_DESCRIPTION = 'Information of a job execution in a workflow run';
     public const SCHEMA_EXAMPLE_DATA = '{"id":21,"run_id":5,"run_url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/runs\\/5","run_attempt":1,"node_id":"MDg6Q2hlY2tSdW40","head_sha":"009b8a3a9ccbb128af87f9b1c0f4c62e8a304f6d","url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/actions\\/jobs\\/21","html_url":"https:\\/\\/github.com\\/github\\/hello-world\\/runs\\/4","status":"queued","conclusion":"success","started_at":"2019-08-08T08:00:00-07:00","completed_at":"2019-08-08T08:00:00-07:00","name":"test-coverage","steps":[{"status":"queued","conclusion":"success","name":"test-coverage","number":1,"started_at":"2019-08-08T08:00:00-07:00","completed_at":"2019-08-08T08:00:00-07:00"}],"check_run_url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/check-runs\\/4","labels":["self-hosted"],"runner_id":1,"runner_name":"my runner","runner_group_id":2,"runner_group_name":"my runner group","workflow_name":"Build","head_branch":"main"}';
     /**
-     * The id of the job.
+     * id: The id of the job.
+     * run_id: The id of the associated workflow run.
+     * run_attempt: Attempt number of the associated workflow run, 1 for first attempt and higher if the workflow was re-run.
+     * head_sha: The SHA of the commit that is being run.
+     * status: The phase of the lifecycle that the job is currently in.
+     * conclusion: The outcome of the job.
+     * started_at: The time that the job started, in ISO 8601 format.
+     * completed_at: The time that the job finished, in ISO 8601 format.
+     * name: The name of the job.
+     * steps: Steps in this job.
+     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\Job\Steps> $steps
+     * labels: Labels for the workflow job. Specified by the "runs_on" attribute in the action's workflow file.
+     * @param ?array<string> $labels
+     * runner_id: The ID of the runner to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.)
+     * runner_name: The name of the runner to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.)
+     * runner_group_id: The ID of the runner group to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.)
+     * runner_group_name: The name of the runner group to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.)
+     * workflow_name: The name of the workflow.
+     * head_branch: The name of the current branch.
      */
-    public ?int $id;
-    /**
-     * The id of the associated workflow run.
-     */
-    public ?int $run_id;
-    public ?string $run_url;
-    /**
-     * Attempt number of the associated workflow run, 1 for first attempt and higher if the workflow was re-run.
-     */
-    public int $run_attempt;
-    public ?string $node_id;
-    /**
-     * The SHA of the commit that is being run.
-     */
-    public ?string $head_sha;
-    public ?string $url;
-    public ?string $html_url;
-    /**
-     * The phase of the lifecycle that the job is currently in.
-     */
-    public ?string $status;
-    /**
-     * The outcome of the job.
-     */
-    public ?string $conclusion;
-    /**
-     * The time that the job started, in ISO 8601 format.
-     */
-    public ?string $started_at;
-    /**
-     * The time that the job finished, in ISO 8601 format.
-     */
-    public ?string $completed_at;
-    /**
-     * The name of the job.
-     */
-    public ?string $name;
-    /**
-     * Steps in this job.
-     * @var array<Schema\Job\Steps>
-     */
-    public array $steps;
-    public ?string $check_run_url;
-    /**
-     * Labels for the workflow job. Specified by the "runs_on" attribute in the action's workflow file.
-     * @var array<string>
-     */
-    public ?array $labels;
-    /**
-     * The ID of the runner to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.)
-     */
-    public ?int $runner_id;
-    /**
-     * The name of the runner to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.)
-     */
-    public ?string $runner_name;
-    /**
-     * The ID of the runner group to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.)
-     */
-    public ?int $runner_group_id;
-    /**
-     * The name of the runner group to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.)
-     */
-    public ?string $runner_group_name;
-    /**
-     * The name of the workflow.
-     */
-    public ?string $workflow_name;
-    /**
-     * The name of the current branch.
-     */
-    public ?string $head_branch;
-    public function __construct(int $id, int $run_id, string $run_url, int $run_attempt, string $node_id, string $head_sha, string $url, string $html_url, string $status, string $conclusion, string $started_at, string $completed_at, string $name, array $steps, string $check_run_url, array $labels, int $runner_id, string $runner_name, int $runner_group_id, string $runner_group_name, string $workflow_name, string $head_branch)
+    public function __construct(public ?int $id, public ?int $run_id, public ?string $run_url, public int $run_attempt, public ?string $node_id, public ?string $head_sha, public ?string $url, public ?string $html_url, public ?string $status, public ?string $conclusion, public ?string $started_at, public ?string $completed_at, public ?string $name, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Job\Steps::class)] public array $steps, public ?string $check_run_url, public ?array $labels, public ?int $runner_id, public ?string $runner_name, public ?int $runner_group_id, public ?string $runner_group_name, public ?string $workflow_name, public ?string $head_branch)
     {
-        $this->id = $id;
-        $this->run_id = $run_id;
-        $this->run_url = $run_url;
-        $this->run_attempt = $run_attempt;
-        $this->node_id = $node_id;
-        $this->head_sha = $head_sha;
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->status = $status;
-        $this->conclusion = $conclusion;
-        $this->started_at = $started_at;
-        $this->completed_at = $completed_at;
-        $this->name = $name;
-        $this->steps = $steps;
-        $this->check_run_url = $check_run_url;
-        $this->labels = $labels;
-        $this->runner_id = $runner_id;
-        $this->runner_name = $runner_name;
-        $this->runner_group_id = $runner_group_id;
-        $this->runner_group_name = $runner_group_name;
-        $this->workflow_name = $workflow_name;
-        $this->head_branch = $head_branch;
     }
 }

@@ -13,33 +13,7 @@ final readonly class Smtp
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enabled":false,"address":"generated_address","authentication":"generated_authentication","port":"generated_port","domain":"generated_domain","username":"generated_username","user_name":"generated_user_name","enable_starttls_auto":false,"password":"generated_password","discard_MINUS_to_MINUS_noreply_MINUS_address":false,"support_address":"generated_support_address","support_address_type":"generated_support_address_type","noreply_address":"generated_noreply_address"}';
-    public ?bool $enabled;
-    public ?string $address;
-    public ?string $authentication;
-    public ?string $port;
-    public ?string $domain;
-    public ?string $username;
-    public ?string $user_name;
-    public ?bool $enable_starttls_auto;
-    public ?string $password;
-    public ?bool $discard_MINUS_to_MINUS_noreply_MINUS_address;
-    public ?string $support_address;
-    public ?string $support_address_type;
-    public ?string $noreply_address;
-    public function __construct(bool $enabled, string $address, string $authentication, string $port, string $domain, string $username, string $user_name, bool $enable_starttls_auto, string $password, bool $discard_MINUS_to_MINUS_noreply_MINUS_address, string $support_address, string $support_address_type, string $noreply_address)
+    public function __construct(public ?bool $enabled, public ?string $address, public ?string $authentication, public ?string $port, public ?string $domain, public ?string $username, public ?string $user_name, public ?bool $enable_starttls_auto, public ?string $password, public ?bool $discard_MINUS_to_MINUS_noreply_MINUS_address, public ?string $support_address, public ?string $support_address_type, public ?string $noreply_address)
     {
-        $this->enabled = $enabled;
-        $this->address = $address;
-        $this->authentication = $authentication;
-        $this->port = $port;
-        $this->domain = $domain;
-        $this->username = $username;
-        $this->user_name = $user_name;
-        $this->enable_starttls_auto = $enable_starttls_auto;
-        $this->password = $password;
-        $this->discard_MINUS_to_MINUS_noreply_MINUS_address = $discard_MINUS_to_MINUS_noreply_MINUS_address;
-        $this->support_address = $support_address;
-        $this->support_address_type = $support_address_type;
-        $this->noreply_address = $noreply_address;
     }
 }

@@ -13,21 +13,7 @@ final readonly class Commit
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e","author":{"name":"\\"Chris Wanstrath\\"","email":"\\"chris@ozmm.org\\"","date":"\\"2007-10-29T02:42:39.000-07:00\\""},"committer":{"name":"\\"Chris Wanstrath\\"","email":"\\"chris@ozmm.org\\"","date":"\\"2007-10-29T02:42:39.000-07:00\\""},"message":"Fix all the bugs","comment_count":0,"tree":{"sha":"827efc6d56897b048c772eb4087f854f46256132","url":"https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tree\\/827efc6d56897b048c772eb4087f854f46256132"},"verification":{"verified":false,"reason":"generated_reason","payload":"generated_payload","signature":"generated_signature"}}';
-    public ?string $url;
-    public ?Schema\GitUser $author;
-    public ?Schema\GitUser $committer;
-    public ?string $message;
-    public ?int $comment_count;
-    public ?Schema\Commit\Commit\Tree $tree;
-    public Schema\Verification $verification;
-    public function __construct(string $url, Schema\GitUser $author, Schema\GitUser $committer, string $message, int $comment_count, Schema\Commit\Commit\Tree $tree, Schema\Verification $verification)
+    public function __construct(public ?string $url, public ?Schema\GitUser $author, public ?Schema\GitUser $committer, public ?string $message, public ?int $comment_count, public ?Schema\Commit\Commit\Tree $tree, public Schema\Verification $verification)
     {
-        $this->url = $url;
-        $this->author = $author;
-        $this->committer = $committer;
-        $this->message = $message;
-        $this->comment_count = $comment_count;
-        $this->tree = $tree;
-        $this->verification = $verification;
     }
 }

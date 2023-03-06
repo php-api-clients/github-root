@@ -14,81 +14,23 @@ final readonly class WebhookPush
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"after":"generated_after","base_ref":"generated_base_ref","before":"generated_before","commits":[{"added":["generated_added"],"author":{"date":"generated_date","email":"generated_email","name":"generated_name","username":"generated_username"},"committer":{"date":"generated_date","email":"generated_email","name":"generated_name","username":"generated_username"},"distinct":false,"id":"generated_id","message":"generated_message","modified":["generated_modified"],"removed":["generated_removed"],"timestamp":"generated_timestamp","tree_id":"generated_tree_id","url":"generated_url"}],"compare":"generated_compare","created":false,"deleted":false,"enterprise":{"description":"generated_description","html_url":"https:\\/\\/github.com\\/enterprises\\/octo-business","website_url":"generated_website_url","id":42,"node_id":"MDEwOlJlcG9zaXRvcnkxMjk2MjY5","name":"Octo Business","slug":"octo-business","created_at":"2019-01-26T19:01:12Z","updated_at":"2019-01-26T19:14:43Z","avatar_url":"generated_avatar_url"},"forced":false,"head_commit":{"added":["generated_added"],"author":{"date":"generated_date","email":"generated_email","name":"generated_name","username":"generated_username"},"committer":{"date":"generated_date","email":"generated_email","name":"generated_name","username":"generated_username"},"distinct":false,"id":"generated_id","message":"generated_message","modified":["generated_modified"],"removed":["generated_removed"],"timestamp":"generated_timestamp","tree_id":"generated_tree_id","url":"generated_url"},"installation":{"id":1,"node_id":"MDQ6VXNlcjU4MzIzMQ=="},"organization":{"login":"github","id":1,"node_id":"MDEyOk9yZ2FuaXphdGlvbjE=","url":"https:\\/\\/api.github.com\\/orgs\\/github","repos_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/repos","events_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/events","hooks_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/hooks","issues_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/issues","members_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/members{\\/member}","public_members_url":"https:\\/\\/api.github.com\\/orgs\\/github\\/public_members{\\/member}","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","description":"A great organization"},"pusher":{"date":"generated_date","email":"generated_email","name":"generated_name","username":"generated_username"},"ref":"generated_ref","repository":{"allow_auto_merge":false,"allow_forking":false,"allow_merge_commit":false,"allow_rebase_merge":false,"allow_squash_merge":false,"allow_update_branch":false,"archive_url":"generated_archive_url","archived":false,"assignees_url":"generated_assignees_url","blobs_url":"generated_blobs_url","branches_url":"generated_branches_url","clone_url":"generated_clone_url","collaborators_url":"generated_collaborators_url","comments_url":"generated_comments_url","commits_url":"generated_commits_url","compare_url":"generated_compare_url","contents_url":"generated_contents_url","contributors_url":"generated_contributors_url","created_at":"generated_created_at","default_branch":"generated_default_branch","delete_branch_on_merge":false,"deployments_url":"generated_deployments_url","description":"generated_description","disabled":false,"downloads_url":"generated_downloads_url","events_url":"generated_events_url","fork":false,"forks":13,"forks_count":13,"forks_url":"generated_forks_url","full_name":"generated_full_name","git_commits_url":"generated_git_commits_url","git_refs_url":"generated_git_refs_url","git_tags_url":"generated_git_tags_url","git_url":"generated_git_url","has_downloads":false,"has_issues":false,"has_pages":false,"has_projects":false,"has_wiki":false,"has_discussions":false,"homepage":"generated_homepage","hooks_url":"generated_hooks_url","html_url":"generated_html_url","id":13,"is_template":false,"issue_comment_url":"generated_issue_comment_url","issue_events_url":"generated_issue_events_url","issues_url":"generated_issues_url","keys_url":"generated_keys_url","labels_url":"generated_labels_url","language":"generated_language","languages_url":"generated_languages_url","license":{"key":"generated_key","name":"generated_name","node_id":"generated_node_id","spdx_id":"generated_spdx_id","url":"generated_url"},"master_branch":"generated_master_branch","merges_url":"generated_merges_url","milestones_url":"generated_milestones_url","mirror_url":"generated_mirror_url","name":"generated_name","node_id":"generated_node_id","notifications_url":"generated_notifications_url","open_issues":13,"open_issues_count":13,"organization":"generated_organization","owner":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"permissions":{"admin":false,"maintain":false,"pull":false,"push":false,"triage":false},"private":false,"public":false,"pulls_url":"generated_pulls_url","pushed_at":"generated_pushed_at","releases_url":"generated_releases_url","role_name":"generated_role_name","size":13,"ssh_url":"generated_ssh_url","stargazers":13,"stargazers_count":13,"stargazers_url":"generated_stargazers_url","statuses_url":"generated_statuses_url","subscribers_url":"generated_subscribers_url","subscription_url":"generated_subscription_url","svn_url":"generated_svn_url","tags_url":"generated_tags_url","teams_url":"generated_teams_url","topics":["generated_topics"],"trees_url":"generated_trees_url","updated_at":"generated_updated_at","url":"generated_url","visibility":"generated_visibility","watchers":13,"watchers_count":13,"web_commit_signoff_required":false},"sender":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""}}';
     /**
-     * The SHA of the most recent commit on `ref` after the push.
+     * after: The SHA of the most recent commit on `ref` after the push.
+     * before: The SHA of the most recent commit on `ref` before the push.
+     * commits: An array of commit objects describing the pushed commits. (Pushed commits are all commits that are included in the `compare` between the `before` commit and the `after` commit.) The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](https://docs.github.com/enterprise-server@3.7/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Commits> $commits
+     * compare: URL that shows the changes in this `ref` update, from the `before` commit to the `after` commit. For a newly created `ref` that is directly based on the default branch, this is the comparison between the head of the default branch and the `after` commit. Otherwise, this shows all commits until the `after` commit.
+     * created: Whether this push created the `ref`.
+     * deleted: Whether this push deleted the `ref`.
+     * enterprise: An enterprise on GitHub.
+     * forced: Whether this push was a force push of the `ref`.
+     * installation: The GitHub App installation. This property is included when the event is configured for and sent to a GitHub App.
+     * organization: A GitHub organization.
+     * pusher: Metaproperties for Git author/committer information.
+     * ref: The full git ref that was pushed. Example: `refs/heads/main` or `refs/tags/v3.14.1`.
+     * repository: A git repository
+     * sender: A GitHub user.
      */
-    public ?string $after;
-    public ?string $base_ref;
-    /**
-     * The SHA of the most recent commit on `ref` before the push.
-     */
-    public ?string $before;
-    /**
-     * An array of commit objects describing the pushed commits. (Pushed commits are all commits that are included in the `compare` between the `before` commit and the `after` commit.) The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](https://docs.github.com/enterprise-server@3.7/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.
-     * @var array<Schema\WebhookPush\Commits>
-     */
-    public ?array $commits;
-    /**
-     * URL that shows the changes in this `ref` update, from the `before` commit to the `after` commit. For a newly created `ref` that is directly based on the default branch, this is the comparison between the head of the default branch and the `after` commit. Otherwise, this shows all commits until the `after` commit.
-     */
-    public ?string $compare;
-    /**
-     * Whether this push created the `ref`.
-     */
-    public ?bool $created;
-    /**
-     * Whether this push deleted the `ref`.
-     */
-    public ?bool $deleted;
-    /**
-     * An enterprise on GitHub.
-     */
-    public Schema\Enterprise $enterprise;
-    /**
-     * Whether this push was a force push of the `ref`.
-     */
-    public ?bool $forced;
-    public ?Schema\WebhookPush\HeadCommit $head_commit;
-    /**
-     * The GitHub App installation. This property is included when the event is configured for and sent to a GitHub App.
-     */
-    public Schema\SimpleInstallation $installation;
-    /**
-     * A GitHub organization.
-     */
-    public Schema\OrganizationSimple $organization;
-    /**
-     * Metaproperties for Git author/committer information.
-     */
-    public ?Schema\WebhookPush\Pusher $pusher;
-    /**
-     * The full git ref that was pushed. Example: `refs/heads/main` or `refs/tags/v3.14.1`.
-     */
-    public ?string $ref;
-    /**
-     * A git repository
-     */
-    public ?Schema\WebhookDiscussionTransferred\Changes\NewRepository $repository;
-    /**
-     * A GitHub user.
-     */
-    public Schema\SimpleUser $sender;
-    public function __construct(string $after, string $base_ref, string $before, array $commits, string $compare, bool $created, bool $deleted, Schema\Enterprise $enterprise, bool $forced, Schema\WebhookPush\HeadCommit $head_commit, Schema\SimpleInstallation $installation, Schema\OrganizationSimple $organization, Schema\WebhookPush\Pusher $pusher, string $ref, Schema\WebhookDiscussionTransferred\Changes\NewRepository $repository, Schema\SimpleUser $sender)
+    public function __construct(public ?string $after, public ?string $base_ref, public ?string $before, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\WebhookPush\Commits::class)] public ?array $commits, public ?string $compare, public ?bool $created, public ?bool $deleted, public Schema\Enterprise $enterprise, public ?bool $forced, public ?Schema\WebhookPush\HeadCommit $head_commit, public Schema\SimpleInstallation $installation, public Schema\OrganizationSimple $organization, public ?Schema\WebhookPush\Pusher $pusher, public ?string $ref, public ?Schema\WebhookIssuesTransferred\Changes\NewRepository $repository, public Schema\SimpleUser $sender)
     {
-        $this->after = $after;
-        $this->base_ref = $base_ref;
-        $this->before = $before;
-        $this->commits = $commits;
-        $this->compare = $compare;
-        $this->created = $created;
-        $this->deleted = $deleted;
-        $this->enterprise = $enterprise;
-        $this->forced = $forced;
-        $this->head_commit = $head_commit;
-        $this->installation = $installation;
-        $this->organization = $organization;
-        $this->pusher = $pusher;
-        $this->ref = $ref;
-        $this->repository = $repository;
-        $this->sender = $sender;
     }
 }

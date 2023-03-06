@@ -13,15 +13,7 @@ final readonly class ScriptRepository
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"full_name":"generated_full_name","url":"generated_url","html_url":"generated_html_url"}';
-    public ?int $id;
-    public ?string $full_name;
-    public ?string $url;
-    public ?string $html_url;
-    public function __construct(int $id, string $full_name, string $url, string $html_url)
+    public function __construct(public ?int $id, public ?string $full_name, public ?string $url, public ?string $html_url)
     {
-        $this->id = $id;
-        $this->full_name = $full_name;
-        $this->url = $url;
-        $this->html_url = $html_url;
     }
 }

@@ -14,75 +14,21 @@ final readonly class CodeScanningAnalysis
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"ref":"generated_ref","commit_sha":"generated_commit_sha","analysis_key":"generated_analysis_key","environment":"generated_environment","category":"generated_category","error":"error reading field xyz","created_at":"generated_created_at","results_count":13,"rules_count":13,"id":13,"url":"generated_url","sarif_id":"6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53","tool":{"name":"generated_name","version":"generated_version","guid":"generated_guid"},"deletable":false,"warning":"123 results were ignored","tool_name":"generated_tool_name"}';
     /**
-    * The full Git reference, formatted as `refs/heads/<branch name>`,
+    * ref: The full Git reference, formatted as `refs/heads/<branch name>`,
     `refs/pull/<number>/merge`, or `refs/pull/<number>/head`.
+    * commit_sha: The SHA of the commit to which the analysis you are uploading relates.
+    * analysis_key: Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name.
+    * environment: Identifies the variable values associated with the environment in which this analysis was performed.
+    * category: Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.
+    * created_at: The time that the analysis was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+    * results_count: The total number of results in the analysis.
+    * rules_count: The total number of rules used in the analysis.
+    * id: Unique identifier for this analysis.
+    * url: The REST API URL of the analysis resource.
+    * sarif_id: An identifier for the upload.
+    * warning: Warning generated when processing the analysis
     */
-    public ?string $ref;
-    /**
-     * The SHA of the commit to which the analysis you are uploading relates.
-     */
-    public ?string $commit_sha;
-    /**
-     * Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name.
-     */
-    public ?string $analysis_key;
-    /**
-     * Identifies the variable values associated with the environment in which this analysis was performed.
-     */
-    public ?string $environment;
-    /**
-     * Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.
-     */
-    public string $category;
-    public ?string $error;
-    /**
-     * The time that the analysis was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $created_at;
-    /**
-     * The total number of results in the analysis.
-     */
-    public ?int $results_count;
-    /**
-     * The total number of rules used in the analysis.
-     */
-    public ?int $rules_count;
-    /**
-     * Unique identifier for this analysis.
-     */
-    public ?int $id;
-    /**
-     * The REST API URL of the analysis resource.
-     */
-    public ?string $url;
-    /**
-     * An identifier for the upload.
-     */
-    public ?string $sarif_id;
-    public ?Schema\CodeScanningAnalysisTool $tool;
-    public ?bool $deletable;
-    /**
-     * Warning generated when processing the analysis
-     */
-    public ?string $warning;
-    public string $tool_name;
-    public function __construct(string $ref, string $commit_sha, string $analysis_key, string $environment, string $category, string $error, string $created_at, int $results_count, int $rules_count, int $id, string $url, string $sarif_id, Schema\CodeScanningAnalysisTool $tool, bool $deletable, string $warning, string $tool_name)
+    public function __construct(public ?string $ref, public ?string $commit_sha, public ?string $analysis_key, public ?string $environment, public string $category, public ?string $error, public ?string $created_at, public ?int $results_count, public ?int $rules_count, public ?int $id, public ?string $url, public ?string $sarif_id, public ?Schema\CodeScanningAnalysisTool $tool, public ?bool $deletable, public ?string $warning, public string $tool_name)
     {
-        $this->ref = $ref;
-        $this->commit_sha = $commit_sha;
-        $this->analysis_key = $analysis_key;
-        $this->environment = $environment;
-        $this->category = $category;
-        $this->error = $error;
-        $this->created_at = $created_at;
-        $this->results_count = $results_count;
-        $this->rules_count = $rules_count;
-        $this->id = $id;
-        $this->url = $url;
-        $this->sarif_id = $sarif_id;
-        $this->tool = $tool;
-        $this->deletable = $deletable;
-        $this->warning = $warning;
-        $this->tool_name = $tool_name;
     }
 }

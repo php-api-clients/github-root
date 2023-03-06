@@ -38,7 +38,7 @@ class Secrets implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,9 +49,19 @@ class Secrets implements ObjectMapper
                 $value = $payload['secrets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'secrets';
+                    $properties['secrets'] = null;
                     goto after_secrets;
                 }
+
+                static $secretsCaster1;
+    
+                if ($secretsCaster1 === null) {
+                    $secretsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationDependabotSecret',
+));
+                }
+    
+                $value = $secretsCaster1->cast($value, $this);
 
                 $properties['secrets'] = $value;
     
@@ -178,7 +188,8 @@ class Secrets implements ObjectMapper
         static $secretsSerializer0;
 
         if ($secretsSerializer0 === null) {
-            $secretsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $secretsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationDependabotSecret',
 ));
         }
         

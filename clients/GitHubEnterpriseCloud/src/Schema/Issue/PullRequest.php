@@ -13,17 +13,7 @@ final readonly class PullRequest
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"merged_at":"generated_merged_at","diff_url":"generated_diff_url","html_url":"generated_html_url","patch_url":"generated_patch_url","url":"generated_url"}';
-    public ?string $merged_at;
-    public ?string $diff_url;
-    public ?string $html_url;
-    public ?string $patch_url;
-    public ?string $url;
-    public function __construct(string $merged_at, string $diff_url, string $html_url, string $patch_url, string $url)
+    public function __construct(public ?string $merged_at, public ?string $diff_url, public ?string $html_url, public ?string $patch_url, public ?string $url)
     {
-        $this->merged_at = $merged_at;
-        $this->diff_url = $diff_url;
-        $this->html_url = $html_url;
-        $this->patch_url = $patch_url;
-        $this->url = $url;
     }
 }

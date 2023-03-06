@@ -14,34 +14,16 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"config":{"url":"https:\\/\\/example.com\\/webhook","content_type":"\\"json\\"","secret":"\\"********\\"","insecure_ssl":13,"address":"\\"bar@example.com\\"","room":"\\"The Serious Room\\""},"events":["generated_events"],"add_events":["generated_add_events"],"remove_events":["generated_remove_events"],"active":false}';
     /**
-     * Key/value pairs to provide settings for this webhook. [These are defined below](https://docs.github.com/rest/reference/repos#create-hook-config-params).
+     * config: Key/value pairs to provide settings for this webhook. [These are defined below](https://docs.github.com/rest/reference/repos#create-hook-config-params).
+     * events: Determines what [events](https://docs.github.com/webhooks/event-payloads) the hook is triggered for. This replaces the entire array of events.
+     * @param ?array<string> $events
+     * add_events: Determines a list of events to be added to the list of events that the Hook triggers for.
+     * @param ?array<string> $add_events
+     * remove_events: Determines a list of events to be removed from the list of events that the Hook triggers for.
+     * @param ?array<string> $remove_events
+     * active: Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
      */
-    public ?Schema\Repos\UpdateWebhook\Request\Applicationjson\Config $config;
-    /**
-     * Determines what [events](https://docs.github.com/webhooks/event-payloads) the hook is triggered for. This replaces the entire array of events.
-     * @var array<string>
-     */
-    public ?array $events;
-    /**
-     * Determines a list of events to be added to the list of events that the Hook triggers for.
-     * @var array<string>
-     */
-    public ?array $add_events;
-    /**
-     * Determines a list of events to be removed from the list of events that the Hook triggers for.
-     * @var array<string>
-     */
-    public ?array $remove_events;
-    /**
-     * Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
-     */
-    public ?bool $active;
-    public function __construct(Schema\Repos\UpdateWebhook\Request\Applicationjson\Config $config, array $events, array $add_events, array $remove_events, bool $active)
+    public function __construct(public ?Schema\Repos\UpdateWebhook\Request\Applicationjson\Config $config, public ?array $events, public ?array $add_events, public ?array $remove_events, public ?bool $active)
     {
-        $this->config = $config;
-        $this->events = $events;
-        $this->add_events = $add_events;
-        $this->remove_events = $remove_events;
-        $this->active = $active;
     }
 }

@@ -13,13 +13,7 @@ final readonly class ReferrerTraffic
     public const SCHEMA_TITLE = 'Referrer Traffic';
     public const SCHEMA_DESCRIPTION = 'Referrer Traffic';
     public const SCHEMA_EXAMPLE_DATA = '{"referrer":"Google","count":4,"uniques":3}';
-    public ?string $referrer;
-    public ?int $count;
-    public ?int $uniques;
-    public function __construct(string $referrer, int $count, int $uniques)
+    public function __construct(public ?string $referrer, public ?int $count, public ?int $uniques)
     {
-        $this->referrer = $referrer;
-        $this->count = $count;
-        $this->uniques = $uniques;
     }
 }

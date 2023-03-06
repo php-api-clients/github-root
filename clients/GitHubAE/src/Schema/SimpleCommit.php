@@ -13,19 +13,7 @@ final readonly class SimpleCommit
     public const SCHEMA_TITLE = 'Simple Commit';
     public const SCHEMA_DESCRIPTION = 'A commit.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":"generated_id","tree_id":"generated_tree_id","message":"generated_message","timestamp":"generated_timestamp","author":{"name":"generated_name","email":"generated_email"},"committer":{"name":"generated_name","email":"generated_email"}}';
-    public ?string $id;
-    public ?string $tree_id;
-    public ?string $message;
-    public ?string $timestamp;
-    public ?Schema\SimpleCommit\Author $author;
-    public ?Schema\SimpleCommit\Author $committer;
-    public function __construct(string $id, string $tree_id, string $message, string $timestamp, Schema\SimpleCommit\Author $author, Schema\SimpleCommit\Author $committer)
+    public function __construct(public ?string $id, public ?string $tree_id, public ?string $message, public ?string $timestamp, public ?Schema\SimpleCommit\Author $author, public ?Schema\SimpleCommit\Author $committer)
     {
-        $this->id = $id;
-        $this->tree_id = $tree_id;
-        $this->message = $message;
-        $this->timestamp = $timestamp;
-        $this->author = $author;
-        $this->committer = $committer;
     }
 }

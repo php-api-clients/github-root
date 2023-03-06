@@ -39,7 +39,7 @@ class Tags implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -50,7 +50,7 @@ class Tags implements ObjectMapper
                 $value = $payload['commit'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commit';
+                    $properties['commit'] = null;
                     goto after_commit;
                 }
 
@@ -70,7 +70,7 @@ class Tags implements ObjectMapper
                 $value = $payload['zipball_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'zipball_url';
+                    $properties['zipball_url'] = null;
                     goto after_zipball_url;
                 }
 
@@ -81,7 +81,7 @@ class Tags implements ObjectMapper
                 $value = $payload['tarball_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tarball_url';
+                    $properties['tarball_url'] = null;
                     goto after_tarball_url;
                 }
 
@@ -92,7 +92,7 @@ class Tags implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -125,7 +125,7 @@ class Tags implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -136,7 +136,7 @@ class Tags implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 

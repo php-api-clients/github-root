@@ -38,7 +38,7 @@ class Comments implements ObjectMapper
                 $value = $payload['total_commit_comments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_commit_comments';
+                    $properties['total_commit_comments'] = null;
                     goto after_total_commit_comments;
                 }
 
@@ -49,7 +49,7 @@ class Comments implements ObjectMapper
                 $value = $payload['total_gist_comments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_gist_comments';
+                    $properties['total_gist_comments'] = null;
                     goto after_total_gist_comments;
                 }
 
@@ -60,7 +60,7 @@ class Comments implements ObjectMapper
                 $value = $payload['total_issue_comments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_issue_comments';
+                    $properties['total_issue_comments'] = null;
                     goto after_total_issue_comments;
                 }
 
@@ -71,7 +71,7 @@ class Comments implements ObjectMapper
                 $value = $payload['total_pull_request_comments'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_pull_request_comments';
+                    $properties['total_pull_request_comments'] = null;
                     goto after_total_pull_request_comments;
                 }
 

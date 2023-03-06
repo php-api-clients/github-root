@@ -14,51 +14,19 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"ref":"generated_ref","task":"generated_task","auto_merge":false,"required_contexts":["generated_required_contexts"],"payload":"generated_payload","environment":"generated_environment","description":"generated_description","transient_environment":false,"production_environment":false}';
     /**
-     * The ref to deploy. This can be a branch, tag, or SHA.
-     */
-    public ?string $ref;
-    /**
-     * Specifies a task to execute (e.g., `deploy` or `deploy:migrations`).
-     */
-    public string $task;
-    /**
-     * Attempts to automatically merge the default branch into the requested ref, if it's behind the default branch.
-     */
-    public bool $auto_merge;
-    /**
-     * The [status](https://docs.github.com/enterprise-server@3.0/rest/reference/commits#commit-statuses) contexts to verify against commit status checks. If you omit this parameter, GitHub verifies all unique contexts before creating a deployment. To bypass checking entirely, pass an empty array. Defaults to all unique contexts.
-     * @var array<string>
-     */
-    public array $required_contexts;
-    public string $payload;
-    /**
-     * Name for the target deployment environment (e.g., `production`, `staging`, `qa`).
-     */
-    public string $environment;
-    /**
-     * Short description of the deployment.
-     */
-    public ?string $description;
-    /**
-    * Specifies if the given environment is specific to the deployment and will no longer exist at some point in the future. Default: `false`  
+    * ref: The ref to deploy. This can be a branch, tag, or SHA.
+    * task: Specifies a task to execute (e.g., `deploy` or `deploy:migrations`).
+    * auto_merge: Attempts to automatically merge the default branch into the requested ref, if it's behind the default branch.
+    * required_contexts: The [status](https://docs.github.com/enterprise-server@3.0/rest/reference/commits#commit-statuses) contexts to verify against commit status checks. If you omit this parameter, GitHub verifies all unique contexts before creating a deployment. To bypass checking entirely, pass an empty array. Defaults to all unique contexts.
+    * @param array<string> $required_contexts
+    * environment: Name for the target deployment environment (e.g., `production`, `staging`, `qa`).
+    * description: Short description of the deployment.
+    * transient_environment: Specifies if the given environment is specific to the deployment and will no longer exist at some point in the future. Default: `false`  
+    **Note:** This parameter requires you to use the [`application/vnd.github.ant-man-preview+json`](https://docs.github.com/enterprise-server@3.0/rest/overview/api-previews#enhanced-deployments) custom media type.
+    * production_environment: Specifies if the given environment is one that end-users directly interact with. Default: `true` when `environment` is `production` and `false` otherwise.  
     **Note:** This parameter requires you to use the [`application/vnd.github.ant-man-preview+json`](https://docs.github.com/enterprise-server@3.0/rest/overview/api-previews#enhanced-deployments) custom media type.
     */
-    public bool $transient_environment;
-    /**
-    * Specifies if the given environment is one that end-users directly interact with. Default: `true` when `environment` is `production` and `false` otherwise.  
-    **Note:** This parameter requires you to use the [`application/vnd.github.ant-man-preview+json`](https://docs.github.com/enterprise-server@3.0/rest/overview/api-previews#enhanced-deployments) custom media type.
-    */
-    public bool $production_environment;
-    public function __construct(string $ref, string $task, bool $auto_merge, array $required_contexts, string $payload, string $environment, string $description, bool $transient_environment, bool $production_environment)
+    public function __construct(public ?string $ref, public string $task, public bool $auto_merge, public array $required_contexts, public string $payload, public string $environment, public ?string $description, public bool $transient_environment, public bool $production_environment)
     {
-        $this->ref = $ref;
-        $this->task = $task;
-        $this->auto_merge = $auto_merge;
-        $this->required_contexts = $required_contexts;
-        $this->payload = $payload;
-        $this->environment = $environment;
-        $this->description = $description;
-        $this->transient_environment = $transient_environment;
-        $this->production_environment = $production_environment;
     }
 }

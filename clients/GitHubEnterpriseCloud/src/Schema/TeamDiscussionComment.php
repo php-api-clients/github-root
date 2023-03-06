@@ -13,42 +13,12 @@ final readonly class TeamDiscussionComment
     public const SCHEMA_TITLE = 'Team Discussion Comment';
     public const SCHEMA_DESCRIPTION = 'A reply to a discussion within a team.';
     public const SCHEMA_EXAMPLE_DATA = '{"author":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"body":"I agree with this suggestion.","body_html":"<p>Do you like apples?<\\/p>","body_version":"0307116bbf7ced493b8d8a346c650b71","created_at":"2018-01-15T23:53:58Z","last_edited_at":"generated_last_edited_at","discussion_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/2403582\\/discussions\\/1","html_url":"https:\\/\\/github.com\\/orgs\\/github\\/teams\\/justice-league\\/discussions\\/1\\/comments\\/1","node_id":"MDIxOlRlYW1EaXNjdXNzaW9uQ29tbWVudDE=","number":42,"updated_at":"2018-01-15T23:53:58Z","url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/2403582\\/discussions\\/1\\/comments\\/1","reactions":{"url":"generated_url","total_count":13,"_PLUSES_1":13,"_MINUS_1":13,"laugh":13,"confused":13,"heart":13,"hooray":13,"eyes":13,"rocket":13}}';
-    public ?Schema\SimpleUser $author;
     /**
-     * The main text of the comment.
+     * body: The main text of the comment.
+     * body_version: The current version of the body content. If provided, this update operation will be rejected if the given version does not match the latest version on the server.
+     * number: The unique sequence number of a team discussion comment.
      */
-    public ?string $body;
-    public ?string $body_html;
-    /**
-     * The current version of the body content. If provided, this update operation will be rejected if the given version does not match the latest version on the server.
-     */
-    public ?string $body_version;
-    public ?string $created_at;
-    public ?string $last_edited_at;
-    public ?string $discussion_url;
-    public ?string $html_url;
-    public ?string $node_id;
-    /**
-     * The unique sequence number of a team discussion comment.
-     */
-    public ?int $number;
-    public ?string $updated_at;
-    public ?string $url;
-    public Schema\ReactionRollup $reactions;
-    public function __construct(Schema\SimpleUser $author, string $body, string $body_html, string $body_version, string $created_at, string $last_edited_at, string $discussion_url, string $html_url, string $node_id, int $number, string $updated_at, string $url, Schema\ReactionRollup $reactions)
+    public function __construct(public ?Schema\SimpleUser $author, public ?string $body, public ?string $body_html, public ?string $body_version, public ?string $created_at, public ?string $last_edited_at, public ?string $discussion_url, public ?string $html_url, public ?string $node_id, public ?int $number, public ?string $updated_at, public ?string $url, public Schema\ReactionRollup $reactions)
     {
-        $this->author = $author;
-        $this->body = $body;
-        $this->body_html = $body_html;
-        $this->body_version = $body_version;
-        $this->created_at = $created_at;
-        $this->last_edited_at = $last_edited_at;
-        $this->discussion_url = $discussion_url;
-        $this->html_url = $html_url;
-        $this->node_id = $node_id;
-        $this->number = $number;
-        $this->updated_at = $updated_at;
-        $this->url = $url;
-        $this->reactions = $reactions;
     }
 }

@@ -13,15 +13,7 @@ final readonly class Download
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url","state":"generated_state","downloaded_at":"generated_downloaded_at","message":"generated_message"}';
-    public ?string $url;
-    public ?string $state;
-    public ?string $downloaded_at;
-    public ?string $message;
-    public function __construct(string $url, string $state, string $downloaded_at, string $message)
+    public function __construct(public ?string $url, public ?string $state, public ?string $downloaded_at, public ?string $message)
     {
-        $this->url = $url;
-        $this->state = $state;
-        $this->downloaded_at = $downloaded_at;
-        $this->message = $message;
     }
 }

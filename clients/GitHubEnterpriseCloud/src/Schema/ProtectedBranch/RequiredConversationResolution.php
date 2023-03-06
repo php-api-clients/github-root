@@ -13,9 +13,7 @@ final readonly class RequiredConversationResolution
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enabled":false}';
-    public ?bool $enabled;
-    public function __construct(bool $enabled)
+    public function __construct(public ?bool $enabled)
     {
-        $this->enabled = $enabled;
     }
 }

@@ -14,25 +14,13 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","description":"generated_description","maintainers":["generated_maintainers"],"repo_names":["generated_repo_names"],"privacy":"generated_privacy","permission":"generated_permission","parent_team_id":13,"ldap_dn":"generated_ldap_dn"}';
     /**
-     * The name of the team.
-     */
-    public ?string $name;
-    /**
-     * The description of the team.
-     */
-    public string $description;
-    /**
-     * List GitHub IDs for organization members who will become team maintainers.
-     * @var array<string>
-     */
-    public array $maintainers;
-    /**
-     * The full name (e.g., "organization-name/repository-name") of repositories to add the team to.
-     * @var array<string>
-     */
-    public array $repo_names;
-    /**
-    * The level of privacy this team should have. The options are:  
+    * name: The name of the team.
+    * description: The description of the team.
+    * maintainers: List GitHub IDs for organization members who will become team maintainers.
+    * @param array<string> $maintainers
+    * repo_names: The full name (e.g., "organization-name/repository-name") of repositories to add the team to.
+    * @param array<string> $repo_names
+    * privacy: The level of privacy this team should have. The options are:  
     **For a non-nested team:**  
     * `secret` - only visible to organization owners and members of this team.  
     * `closed` - visible to all members of this organization.  
@@ -40,29 +28,11 @@ final readonly class Applicationjson
     **For a parent or child team:**  
     * `closed` - visible to all members of this organization.  
     Default for child team: `closed`
+    * permission: **Deprecated**. The permission that new repositories will be added to the team with when none is specified.
+    * parent_team_id: The ID of a team to set as the parent team.
+    * ldap_dn: The [distinguished name](https://www.ldap.com/ldap-dns-and-rdns) (DN) of the LDAP entry to map to a team. LDAP synchronization must be enabled to map LDAP entries to a team. Use the "[Update LDAP mapping for a team](https://docs.github.com/enterprise-server@3.8/rest/reference/enterprise-admin#update-ldap-mapping-for-a-team)" endpoint to change the LDAP DN. For more information, see "[Using LDAP](https://docs.github.com/enterprise-server@3.8/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-ldap#enabling-ldap-sync)."
     */
-    public string $privacy;
-    /**
-     * **Deprecated**. The permission that new repositories will be added to the team with when none is specified.
-     */
-    public string $permission;
-    /**
-     * The ID of a team to set as the parent team.
-     */
-    public int $parent_team_id;
-    /**
-     * The [distinguished name](https://www.ldap.com/ldap-dns-and-rdns) (DN) of the LDAP entry to map to a team. LDAP synchronization must be enabled to map LDAP entries to a team. Use the "[Update LDAP mapping for a team](https://docs.github.com/enterprise-server@3.8/rest/reference/enterprise-admin#update-ldap-mapping-for-a-team)" endpoint to change the LDAP DN. For more information, see "[Using LDAP](https://docs.github.com/enterprise-server@3.8/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-ldap#enabling-ldap-sync)."
-     */
-    public string $ldap_dn;
-    public function __construct(string $name, string $description, array $maintainers, array $repo_names, string $privacy, string $permission, int $parent_team_id, string $ldap_dn)
+    public function __construct(public ?string $name, public string $description, public array $maintainers, public array $repo_names, public string $privacy, public string $permission, public int $parent_team_id, public string $ldap_dn)
     {
-        $this->name = $name;
-        $this->description = $description;
-        $this->maintainers = $maintainers;
-        $this->repo_names = $repo_names;
-        $this->privacy = $privacy;
-        $this->permission = $permission;
-        $this->parent_team_id = $parent_team_id;
-        $this->ldap_dn = $ldap_dn;
     }
 }

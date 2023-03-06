@@ -13,15 +13,7 @@ final readonly class Mapping
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enabled":false,"tileserver":"generated_tileserver","basemap":"generated_basemap","token":"generated_token"}';
-    public ?bool $enabled;
-    public ?string $tileserver;
-    public ?string $basemap;
-    public ?string $token;
-    public function __construct(bool $enabled, string $tileserver, string $basemap, string $token)
+    public function __construct(public ?bool $enabled, public ?string $tileserver, public ?string $basemap, public ?string $token)
     {
-        $this->enabled = $enabled;
-        $this->tileserver = $tileserver;
-        $this->basemap = $basemap;
-        $this->token = $token;
     }
 }

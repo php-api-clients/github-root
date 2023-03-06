@@ -40,7 +40,7 @@ class Trees implements ObjectMapper
                 $value = $payload['sha'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'sha';
+                    $properties['sha'] = null;
                     goto after_sha;
                 }
 
@@ -51,7 +51,7 @@ class Trees implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -62,7 +62,7 @@ class Trees implements ObjectMapper
                 $value = $payload['truncated'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'truncated';
+                    $properties['truncated'] = null;
                     goto after_truncated;
                 }
 
@@ -73,9 +73,19 @@ class Trees implements ObjectMapper
                 $value = $payload['tree'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tree';
+                    $properties['tree'] = null;
                     goto after_tree;
                 }
+
+                static $treeCaster1;
+    
+                if ($treeCaster1 === null) {
+                    $treeCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\GitTree\\Tree',
+));
+                }
+    
+                $value = $treeCaster1->cast($value, $this);
 
                 $properties['tree'] = $value;
     
@@ -106,7 +116,7 @@ class Trees implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -117,7 +127,7 @@ class Trees implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -131,6 +141,16 @@ class Trees implements ObjectMapper
                     $missingFields[] = 'errors';
                     goto after_errors;
                 }
+
+                static $errorsCaster1;
+    
+                if ($errorsCaster1 === null) {
+                    $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ValidationError\\Errors',
+));
+                }
+    
+                $value = $errorsCaster1->cast($value, $this);
 
                 $properties['errors'] = $value;
     
@@ -161,7 +181,7 @@ class Trees implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -172,7 +192,7 @@ class Trees implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -183,7 +203,7 @@ class Trees implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -194,7 +214,7 @@ class Trees implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -341,7 +361,8 @@ class Trees implements ObjectMapper
         static $treeSerializer0;
 
         if ($treeSerializer0 === null) {
-            $treeSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $treeSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\GitTree\\Tree',
 ));
         }
         
@@ -378,7 +399,8 @@ class Trees implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ValidationError\\Errors',
 ));
         }
         

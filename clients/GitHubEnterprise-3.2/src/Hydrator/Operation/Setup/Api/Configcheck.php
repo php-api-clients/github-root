@@ -38,7 +38,7 @@ class Configcheck implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -49,9 +49,19 @@ class Configcheck implements ObjectMapper
                 $value = $payload['progress'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'progress';
+                    $properties['progress'] = null;
                     goto after_progress;
                 }
+
+                static $progressCaster1;
+    
+                if ($progressCaster1 === null) {
+                    $progressCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ConfigurationStatus\\Progress',
+));
+                }
+    
+                $value = $progressCaster1->cast($value, $this);
 
                 $properties['progress'] = $value;
     
@@ -178,7 +188,8 @@ class Configcheck implements ObjectMapper
         static $progressSerializer0;
 
         if ($progressSerializer0 === null) {
-            $progressSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $progressSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ConfigurationStatus\\Progress',
 ));
         }
         

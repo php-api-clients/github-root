@@ -14,11 +14,9 @@ final readonly class Tier
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"from":{"created_at":"generated_created_at","description":"generated_description","is_custom_ammount":false,"is_custom_amount":false,"is_one_time":false,"monthly_price_in_cents":13,"monthly_price_in_dollars":13,"name":"generated_name","node_id":"generated_node_id"}}';
     /**
-     * The `tier_changed` and `pending_tier_change` will include the original tier before the change or pending change. For more information, see the pending tier change payload.
+     * from: The `tier_changed` and `pending_tier_change` will include the original tier before the change or pending change. For more information, see the pending tier change payload.
      */
-    public ?Schema\WebhookSponsorshipCancelled\Sponsorship\Tier $from;
-    public function __construct(Schema\WebhookSponsorshipCancelled\Sponsorship\Tier $from)
+    public function __construct(public ?Schema\WebhookSponsorshipCancelled\Sponsorship\Tier $from)
     {
-        $this->from = $from;
     }
 }

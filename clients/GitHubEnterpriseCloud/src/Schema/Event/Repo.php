@@ -13,13 +13,7 @@ final readonly class Repo
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":13,"name":"generated_name","url":"generated_url"}';
-    public ?int $id;
-    public ?string $name;
-    public ?string $url;
-    public function __construct(int $id, string $name, string $url)
+    public function __construct(public ?int $id, public ?string $name, public ?string $url)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->url = $url;
     }
 }

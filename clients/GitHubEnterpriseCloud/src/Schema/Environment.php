@@ -14,43 +14,15 @@ final readonly class Environment
     public const SCHEMA_DESCRIPTION = 'Details of a deployment environment';
     public const SCHEMA_EXAMPLE_DATA = '{"id":56780428,"node_id":"MDExOkVudmlyb25tZW50NTY3ODA0Mjg=","name":"staging","url":"https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/environments\\/staging","html_url":"https:\\/\\/github.com\\/github\\/hello-world\\/deployments\\/activity_log?environments_filter=staging","created_at":"2020-11-23T22:00:40Z","updated_at":"2020-11-23T22:00:40Z","protection_rules":[{"id":3515,"node_id":"MDQ6R2F0ZTM1MTU=","type":"branch_policy"}],"deployment_branch_policy":{"protected_branches":false,"custom_branch_policies":false}}';
     /**
-     * The id of the environment.
+     * id: The id of the environment.
+     * name: The name of the environment.
+     * created_at: The time that the environment was created, in ISO 8601 format.
+     * updated_at: The time that the environment was last updated, in ISO 8601 format.
+     * protection_rules: Built-in deployment protection rules for the environment.
+     * @param array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\Environment\ProtectionRules> $protection_rules
+     * deployment_branch_policy: The type of deployment branch policy for this environment. To allow all branches to deploy, set to `null`.
      */
-    public ?int $id;
-    public ?string $node_id;
-    /**
-     * The name of the environment.
-     */
-    public ?string $name;
-    public ?string $url;
-    public ?string $html_url;
-    /**
-     * The time that the environment was created, in ISO 8601 format.
-     */
-    public ?string $created_at;
-    /**
-     * The time that the environment was last updated, in ISO 8601 format.
-     */
-    public ?string $updated_at;
-    /**
-     * Built-in deployment protection rules for the environment.
-     * @var array<Schema\Environment\ProtectionRules>
-     */
-    public array $protection_rules;
-    /**
-     * The type of deployment branch policy for this environment. To allow all branches to deploy, set to `null`.
-     */
-    public ?Schema\DeploymentBranchPolicySettings $deployment_branch_policy;
-    public function __construct(int $id, string $node_id, string $name, string $url, string $html_url, string $created_at, string $updated_at, array $protection_rules, Schema\DeploymentBranchPolicySettings $deployment_branch_policy)
+    public function __construct(public ?int $id, public ?string $node_id, public ?string $name, public ?string $url, public ?string $html_url, public ?string $created_at, public ?string $updated_at, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Environment\ProtectionRules::class)] public array $protection_rules, public ?Schema\DeploymentBranchPolicySettings $deployment_branch_policy)
     {
-        $this->id = $id;
-        $this->node_id = $node_id;
-        $this->name = $name;
-        $this->url = $url;
-        $this->html_url = $html_url;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->protection_rules = $protection_rules;
-        $this->deployment_branch_policy = $deployment_branch_policy;
     }
 }

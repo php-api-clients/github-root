@@ -38,7 +38,7 @@ class Commits implements ObjectMapper
                 $value = $payload['total_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'total_count';
+                    $properties['total_count'] = null;
                     goto after_total_count;
                 }
 
@@ -49,7 +49,7 @@ class Commits implements ObjectMapper
                 $value = $payload['incomplete_results'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'incomplete_results';
+                    $properties['incomplete_results'] = null;
                     goto after_incomplete_results;
                 }
 
@@ -60,9 +60,19 @@ class Commits implements ObjectMapper
                 $value = $payload['items'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'items';
+                    $properties['items'] = null;
                     goto after_items;
                 }
+
+                static $itemsCaster1;
+    
+                if ($itemsCaster1 === null) {
+                    $itemsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\CommitSearchResultItem',
+));
+                }
+    
+                $value = $itemsCaster1->cast($value, $this);
 
                 $properties['items'] = $value;
     
@@ -197,7 +207,8 @@ class Commits implements ObjectMapper
         static $itemsSerializer0;
 
         if ($itemsSerializer0 === null) {
-            $itemsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $itemsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHub\\Schema\\CommitSearchResultItem',
 ));
         }
         

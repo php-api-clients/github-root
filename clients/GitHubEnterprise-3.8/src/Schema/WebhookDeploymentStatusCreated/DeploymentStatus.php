@@ -13,49 +13,13 @@ final readonly class DeploymentStatus
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = 'The [deployment status](https://docs.github.com/enterprise-server@3.8/rest/reference/deployments#list-deployment-statuses).';
     public const SCHEMA_EXAMPLE_DATA = '{"created_at":"generated_created_at","creator":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"deployment_url":"generated_deployment_url","description":"generated_description","environment":"generated_environment","environment_url":"generated_environment_url","id":13,"log_url":"generated_log_url","node_id":"generated_node_id","performed_via_github_app":{"created_at":"generated_created_at","description":"generated_description","events":["generated_events"],"external_url":"generated_external_url","html_url":"generated_html_url","id":13,"name":"generated_name","node_id":"generated_node_id","owner":{"avatar_url":"generated_avatar_url","deleted":false,"email":"generated_email","events_url":"generated_events_url","followers_url":"generated_followers_url","following_url":"generated_following_url","gists_url":"generated_gists_url","gravatar_id":"generated_gravatar_id","html_url":"generated_html_url","id":13,"login":"generated_login","name":"generated_name","node_id":"generated_node_id","organizations_url":"generated_organizations_url","received_events_url":"generated_received_events_url","repos_url":"generated_repos_url","site_admin":false,"starred_url":"generated_starred_url","subscriptions_url":"generated_subscriptions_url","type":"generated_type","url":"generated_url"},"permissions":{"actions":"generated_actions","administration":"generated_administration","checks":"generated_checks","content_references":"generated_content_references","contents":"generated_contents","deployments":"generated_deployments","discussions":"generated_discussions","emails":"generated_emails","environments":"generated_environments","issues":"generated_issues","keys":"generated_keys","members":"generated_members","metadata":"generated_metadata","organization_administration":"generated_organization_administration","organization_hooks":"generated_organization_hooks","organization_packages":"generated_organization_packages","organization_plan":"generated_organization_plan","organization_projects":"generated_organization_projects","organization_secrets":"generated_organization_secrets","organization_self_hosted_runners":"generated_organization_self_hosted_runners","organization_user_blocking":"generated_organization_user_blocking","packages":"generated_packages","pages":"generated_pages","pull_requests":"generated_pull_requests","repository_hooks":"generated_repository_hooks","repository_projects":"generated_repository_projects","secret_scanning_alerts":"generated_secret_scanning_alerts","secrets":"generated_secrets","security_events":"generated_security_events","security_scanning_alert":"generated_security_scanning_alert","single_file":"generated_single_file","statuses":"generated_statuses","team_discussions":"generated_team_discussions","vulnerability_alerts":"generated_vulnerability_alerts","workflows":"generated_workflows"},"slug":"generated_slug","updated_at":"generated_updated_at"},"repository_url":"generated_repository_url","state":"generated_state","target_url":"generated_target_url","updated_at":"generated_updated_at","url":"generated_url"}';
-    public ?string $created_at;
-    public ?Schema\Discussion\AnswerChosenBy $creator;
-    public ?string $deployment_url;
     /**
-     * The optional human-readable description added to the status.
+     * description: The optional human-readable description added to the status.
+     * performed_via_github_app: GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.
+     * state: The new state. Can be `pending`, `success`, `failure`, or `error`.
+     * target_url: The optional link added to the status.
      */
-    public ?string $description;
-    public ?string $environment;
-    public string $environment_url;
-    public ?int $id;
-    public string $log_url;
-    public ?string $node_id;
-    /**
-     * GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.
-     */
-    public ?Schema\WebhookDeploymentStatusCreated\DeploymentStatus\PerformedViaGithubApp $performed_via_github_app;
-    public ?string $repository_url;
-    /**
-     * The new state. Can be `pending`, `success`, `failure`, or `error`.
-     */
-    public ?string $state;
-    /**
-     * The optional link added to the status.
-     */
-    public ?string $target_url;
-    public ?string $updated_at;
-    public ?string $url;
-    public function __construct(string $created_at, Schema\Discussion\AnswerChosenBy $creator, string $deployment_url, string $description, string $environment, string $environment_url, int $id, string $log_url, string $node_id, Schema\WebhookDeploymentStatusCreated\DeploymentStatus\PerformedViaGithubApp $performed_via_github_app, string $repository_url, string $state, string $target_url, string $updated_at, string $url)
+    public function __construct(public ?string $created_at, public ?Schema\Discussion\AnswerChosenBy $creator, public ?string $deployment_url, public ?string $description, public ?string $environment, public string $environment_url, public ?int $id, public string $log_url, public ?string $node_id, public ?Schema\WebhookDeploymentStatusCreated\DeploymentStatus\PerformedViaGithubApp $performed_via_github_app, public ?string $repository_url, public ?string $state, public ?string $target_url, public ?string $updated_at, public ?string $url)
     {
-        $this->created_at = $created_at;
-        $this->creator = $creator;
-        $this->deployment_url = $deployment_url;
-        $this->description = $description;
-        $this->environment = $environment;
-        $this->environment_url = $environment_url;
-        $this->id = $id;
-        $this->log_url = $log_url;
-        $this->node_id = $node_id;
-        $this->performed_via_github_app = $performed_via_github_app;
-        $this->repository_url = $repository_url;
-        $this->state = $state;
-        $this->target_url = $target_url;
-        $this->updated_at = $updated_at;
-        $this->url = $url;
     }
 }

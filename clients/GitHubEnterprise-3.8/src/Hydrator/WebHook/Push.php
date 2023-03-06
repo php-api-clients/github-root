@@ -31,10 +31,10 @@ class Push implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleInstallation($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrganizationSimple($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Pusher' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPush⚡️Pusher($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Discussion\AnswerChosenBy' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -50,7 +50,7 @@ class Push implements ObjectMapper
                 $value = $payload['after'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'after';
+                    $properties['after'] = null;
                     goto after_after;
                 }
 
@@ -61,7 +61,7 @@ class Push implements ObjectMapper
                 $value = $payload['base_ref'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'base_ref';
+                    $properties['base_ref'] = null;
                     goto after_base_ref;
                 }
 
@@ -72,7 +72,7 @@ class Push implements ObjectMapper
                 $value = $payload['before'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'before';
+                    $properties['before'] = null;
                     goto after_before;
                 }
 
@@ -83,9 +83,19 @@ class Push implements ObjectMapper
                 $value = $payload['commits'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commits';
+                    $properties['commits'] = null;
                     goto after_commits;
                 }
+
+                static $commitsCaster1;
+    
+                if ($commitsCaster1 === null) {
+                    $commitsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\WebhookPush\\Commits',
+));
+                }
+    
+                $value = $commitsCaster1->cast($value, $this);
 
                 $properties['commits'] = $value;
     
@@ -94,7 +104,7 @@ class Push implements ObjectMapper
                 $value = $payload['compare'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'compare';
+                    $properties['compare'] = null;
                     goto after_compare;
                 }
 
@@ -105,7 +115,7 @@ class Push implements ObjectMapper
                 $value = $payload['created'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created';
+                    $properties['created'] = null;
                     goto after_created;
                 }
 
@@ -116,7 +126,7 @@ class Push implements ObjectMapper
                 $value = $payload['deleted'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deleted';
+                    $properties['deleted'] = null;
                     goto after_deleted;
                 }
 
@@ -147,7 +157,7 @@ class Push implements ObjectMapper
                 $value = $payload['forced'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forced';
+                    $properties['forced'] = null;
                     goto after_forced;
                 }
 
@@ -158,7 +168,7 @@ class Push implements ObjectMapper
                 $value = $payload['head_commit'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'head_commit';
+                    $properties['head_commit'] = null;
                     goto after_head_commit;
                 }
 
@@ -218,7 +228,7 @@ class Push implements ObjectMapper
                 $value = $payload['pusher'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pusher';
+                    $properties['pusher'] = null;
                     goto after_pusher;
                 }
 
@@ -238,7 +248,7 @@ class Push implements ObjectMapper
                 $value = $payload['ref'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ref';
+                    $properties['ref'] = null;
                     goto after_ref;
                 }
 
@@ -249,14 +259,14 @@ class Push implements ObjectMapper
                 $value = $payload['repository'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repository';
+                    $properties['repository'] = null;
                     goto after_repository;
                 }
 
                 if (is_array($value)) {
                     try {
                         $this->hydrationStack[] = 'repository';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository($value);
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository($value);
                     } finally {
                         array_pop($this->hydrationStack);
                     }
@@ -322,7 +332,7 @@ class Push implements ObjectMapper
                 $value = $payload['author'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'author';
+                    $properties['author'] = null;
                     goto after_author;
                 }
 
@@ -342,7 +352,7 @@ class Push implements ObjectMapper
                 $value = $payload['committer'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'committer';
+                    $properties['committer'] = null;
                     goto after_committer;
                 }
 
@@ -362,7 +372,7 @@ class Push implements ObjectMapper
                 $value = $payload['distinct'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'distinct';
+                    $properties['distinct'] = null;
                     goto after_distinct;
                 }
 
@@ -373,7 +383,7 @@ class Push implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -384,7 +394,7 @@ class Push implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -417,7 +427,7 @@ class Push implements ObjectMapper
                 $value = $payload['timestamp'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'timestamp';
+                    $properties['timestamp'] = null;
                     goto after_timestamp;
                 }
 
@@ -428,7 +438,7 @@ class Push implements ObjectMapper
                 $value = $payload['tree_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tree_id';
+                    $properties['tree_id'] = null;
                     goto after_tree_id;
                 }
 
@@ -439,7 +449,7 @@ class Push implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -483,7 +493,7 @@ class Push implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -494,7 +504,7 @@ class Push implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -538,7 +548,7 @@ class Push implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -549,7 +559,7 @@ class Push implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -560,7 +570,7 @@ class Push implements ObjectMapper
                 $value = $payload['website_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'website_url';
+                    $properties['website_url'] = null;
                     goto after_website_url;
                 }
 
@@ -571,7 +581,7 @@ class Push implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -582,7 +592,7 @@ class Push implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -593,7 +603,7 @@ class Push implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -604,7 +614,7 @@ class Push implements ObjectMapper
                 $value = $payload['slug'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'slug';
+                    $properties['slug'] = null;
                     goto after_slug;
                 }
 
@@ -615,7 +625,7 @@ class Push implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -626,7 +636,7 @@ class Push implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -637,7 +647,7 @@ class Push implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -681,7 +691,7 @@ class Push implements ObjectMapper
                 $value = $payload['author'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'author';
+                    $properties['author'] = null;
                     goto after_author;
                 }
 
@@ -701,7 +711,7 @@ class Push implements ObjectMapper
                 $value = $payload['committer'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'committer';
+                    $properties['committer'] = null;
                     goto after_committer;
                 }
 
@@ -721,7 +731,7 @@ class Push implements ObjectMapper
                 $value = $payload['distinct'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'distinct';
+                    $properties['distinct'] = null;
                     goto after_distinct;
                 }
 
@@ -732,7 +742,7 @@ class Push implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -743,7 +753,7 @@ class Push implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -776,7 +786,7 @@ class Push implements ObjectMapper
                 $value = $payload['timestamp'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'timestamp';
+                    $properties['timestamp'] = null;
                     goto after_timestamp;
                 }
 
@@ -787,7 +797,7 @@ class Push implements ObjectMapper
                 $value = $payload['tree_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tree_id';
+                    $properties['tree_id'] = null;
                     goto after_tree_id;
                 }
 
@@ -798,7 +808,7 @@ class Push implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -831,7 +841,7 @@ class Push implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -842,7 +852,7 @@ class Push implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -875,7 +885,7 @@ class Push implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -886,7 +896,7 @@ class Push implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -897,7 +907,7 @@ class Push implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -908,7 +918,7 @@ class Push implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -919,7 +929,7 @@ class Push implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -930,7 +940,7 @@ class Push implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -941,7 +951,7 @@ class Push implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -952,7 +962,7 @@ class Push implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -963,7 +973,7 @@ class Push implements ObjectMapper
                 $value = $payload['members_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'members_url';
+                    $properties['members_url'] = null;
                     goto after_members_url;
                 }
 
@@ -974,7 +984,7 @@ class Push implements ObjectMapper
                 $value = $payload['public_members_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'public_members_url';
+                    $properties['public_members_url'] = null;
                     goto after_public_members_url;
                 }
 
@@ -985,7 +995,7 @@ class Push implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -996,7 +1006,7 @@ class Push implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -1040,7 +1050,7 @@ class Push implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -1051,7 +1061,7 @@ class Push implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1086,7 +1096,7 @@ class Push implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository
         {
             $properties = []; 
             $missingFields = [];
@@ -1161,7 +1171,7 @@ class Push implements ObjectMapper
                 $value = $payload['archive_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archive_url';
+                    $properties['archive_url'] = null;
                     goto after_archive_url;
                 }
 
@@ -1172,7 +1182,7 @@ class Push implements ObjectMapper
                 $value = $payload['archived'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'archived';
+                    $properties['archived'] = null;
                     goto after_archived;
                 }
 
@@ -1183,7 +1193,7 @@ class Push implements ObjectMapper
                 $value = $payload['assignees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'assignees_url';
+                    $properties['assignees_url'] = null;
                     goto after_assignees_url;
                 }
 
@@ -1194,7 +1204,7 @@ class Push implements ObjectMapper
                 $value = $payload['blobs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'blobs_url';
+                    $properties['blobs_url'] = null;
                     goto after_blobs_url;
                 }
 
@@ -1205,7 +1215,7 @@ class Push implements ObjectMapper
                 $value = $payload['branches_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'branches_url';
+                    $properties['branches_url'] = null;
                     goto after_branches_url;
                 }
 
@@ -1216,7 +1226,7 @@ class Push implements ObjectMapper
                 $value = $payload['clone_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'clone_url';
+                    $properties['clone_url'] = null;
                     goto after_clone_url;
                 }
 
@@ -1227,7 +1237,7 @@ class Push implements ObjectMapper
                 $value = $payload['collaborators_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'collaborators_url';
+                    $properties['collaborators_url'] = null;
                     goto after_collaborators_url;
                 }
 
@@ -1238,7 +1248,7 @@ class Push implements ObjectMapper
                 $value = $payload['comments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'comments_url';
+                    $properties['comments_url'] = null;
                     goto after_comments_url;
                 }
 
@@ -1249,7 +1259,7 @@ class Push implements ObjectMapper
                 $value = $payload['commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'commits_url';
+                    $properties['commits_url'] = null;
                     goto after_commits_url;
                 }
 
@@ -1260,7 +1270,7 @@ class Push implements ObjectMapper
                 $value = $payload['compare_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'compare_url';
+                    $properties['compare_url'] = null;
                     goto after_compare_url;
                 }
 
@@ -1271,7 +1281,7 @@ class Push implements ObjectMapper
                 $value = $payload['contents_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contents_url';
+                    $properties['contents_url'] = null;
                     goto after_contents_url;
                 }
 
@@ -1282,7 +1292,7 @@ class Push implements ObjectMapper
                 $value = $payload['contributors_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'contributors_url';
+                    $properties['contributors_url'] = null;
                     goto after_contributors_url;
                 }
 
@@ -1293,7 +1303,7 @@ class Push implements ObjectMapper
                 $value = $payload['created_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'created_at';
+                    $properties['created_at'] = null;
                     goto after_created_at;
                 }
 
@@ -1304,7 +1314,7 @@ class Push implements ObjectMapper
                 $value = $payload['default_branch'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'default_branch';
+                    $properties['default_branch'] = null;
                     goto after_default_branch;
                 }
 
@@ -1326,7 +1336,7 @@ class Push implements ObjectMapper
                 $value = $payload['deployments_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'deployments_url';
+                    $properties['deployments_url'] = null;
                     goto after_deployments_url;
                 }
 
@@ -1337,7 +1347,7 @@ class Push implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -1359,7 +1369,7 @@ class Push implements ObjectMapper
                 $value = $payload['downloads_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'downloads_url';
+                    $properties['downloads_url'] = null;
                     goto after_downloads_url;
                 }
 
@@ -1370,7 +1380,7 @@ class Push implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -1381,7 +1391,7 @@ class Push implements ObjectMapper
                 $value = $payload['fork'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'fork';
+                    $properties['fork'] = null;
                     goto after_fork;
                 }
 
@@ -1392,7 +1402,7 @@ class Push implements ObjectMapper
                 $value = $payload['forks'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks';
+                    $properties['forks'] = null;
                     goto after_forks;
                 }
 
@@ -1403,7 +1413,7 @@ class Push implements ObjectMapper
                 $value = $payload['forks_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_count';
+                    $properties['forks_count'] = null;
                     goto after_forks_count;
                 }
 
@@ -1414,7 +1424,7 @@ class Push implements ObjectMapper
                 $value = $payload['forks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'forks_url';
+                    $properties['forks_url'] = null;
                     goto after_forks_url;
                 }
 
@@ -1425,7 +1435,7 @@ class Push implements ObjectMapper
                 $value = $payload['full_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'full_name';
+                    $properties['full_name'] = null;
                     goto after_full_name;
                 }
 
@@ -1436,7 +1446,7 @@ class Push implements ObjectMapper
                 $value = $payload['git_commits_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_commits_url';
+                    $properties['git_commits_url'] = null;
                     goto after_git_commits_url;
                 }
 
@@ -1447,7 +1457,7 @@ class Push implements ObjectMapper
                 $value = $payload['git_refs_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_refs_url';
+                    $properties['git_refs_url'] = null;
                     goto after_git_refs_url;
                 }
 
@@ -1458,7 +1468,7 @@ class Push implements ObjectMapper
                 $value = $payload['git_tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_tags_url';
+                    $properties['git_tags_url'] = null;
                     goto after_git_tags_url;
                 }
 
@@ -1469,7 +1479,7 @@ class Push implements ObjectMapper
                 $value = $payload['git_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'git_url';
+                    $properties['git_url'] = null;
                     goto after_git_url;
                 }
 
@@ -1480,7 +1490,7 @@ class Push implements ObjectMapper
                 $value = $payload['has_downloads'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_downloads';
+                    $properties['has_downloads'] = null;
                     goto after_has_downloads;
                 }
 
@@ -1491,7 +1501,7 @@ class Push implements ObjectMapper
                 $value = $payload['has_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_issues';
+                    $properties['has_issues'] = null;
                     goto after_has_issues;
                 }
 
@@ -1502,7 +1512,7 @@ class Push implements ObjectMapper
                 $value = $payload['has_pages'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_pages';
+                    $properties['has_pages'] = null;
                     goto after_has_pages;
                 }
 
@@ -1513,7 +1523,7 @@ class Push implements ObjectMapper
                 $value = $payload['has_projects'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_projects';
+                    $properties['has_projects'] = null;
                     goto after_has_projects;
                 }
 
@@ -1524,7 +1534,7 @@ class Push implements ObjectMapper
                 $value = $payload['has_wiki'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_wiki';
+                    $properties['has_wiki'] = null;
                     goto after_has_wiki;
                 }
 
@@ -1535,7 +1545,7 @@ class Push implements ObjectMapper
                 $value = $payload['has_discussions'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_discussions';
+                    $properties['has_discussions'] = null;
                     goto after_has_discussions;
                 }
 
@@ -1546,7 +1556,7 @@ class Push implements ObjectMapper
                 $value = $payload['homepage'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'homepage';
+                    $properties['homepage'] = null;
                     goto after_homepage;
                 }
 
@@ -1557,7 +1567,7 @@ class Push implements ObjectMapper
                 $value = $payload['hooks_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'hooks_url';
+                    $properties['hooks_url'] = null;
                     goto after_hooks_url;
                 }
 
@@ -1568,7 +1578,7 @@ class Push implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -1579,7 +1589,7 @@ class Push implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -1601,7 +1611,7 @@ class Push implements ObjectMapper
                 $value = $payload['issue_comment_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_comment_url';
+                    $properties['issue_comment_url'] = null;
                     goto after_issue_comment_url;
                 }
 
@@ -1612,7 +1622,7 @@ class Push implements ObjectMapper
                 $value = $payload['issue_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issue_events_url';
+                    $properties['issue_events_url'] = null;
                     goto after_issue_events_url;
                 }
 
@@ -1623,7 +1633,7 @@ class Push implements ObjectMapper
                 $value = $payload['issues_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'issues_url';
+                    $properties['issues_url'] = null;
                     goto after_issues_url;
                 }
 
@@ -1634,7 +1644,7 @@ class Push implements ObjectMapper
                 $value = $payload['keys_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'keys_url';
+                    $properties['keys_url'] = null;
                     goto after_keys_url;
                 }
 
@@ -1645,7 +1655,7 @@ class Push implements ObjectMapper
                 $value = $payload['labels_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'labels_url';
+                    $properties['labels_url'] = null;
                     goto after_labels_url;
                 }
 
@@ -1656,7 +1666,7 @@ class Push implements ObjectMapper
                 $value = $payload['language'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'language';
+                    $properties['language'] = null;
                     goto after_language;
                 }
 
@@ -1667,7 +1677,7 @@ class Push implements ObjectMapper
                 $value = $payload['languages_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'languages_url';
+                    $properties['languages_url'] = null;
                     goto after_languages_url;
                 }
 
@@ -1678,14 +1688,14 @@ class Push implements ObjectMapper
                 $value = $payload['license'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'license';
+                    $properties['license'] = null;
                     goto after_license;
                 }
 
                 if (is_array($value)) {
                     try {
                         $this->hydrationStack[] = 'license';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License($value);
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License($value);
                     } finally {
                         array_pop($this->hydrationStack);
                     }
@@ -1709,7 +1719,7 @@ class Push implements ObjectMapper
                 $value = $payload['merges_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'merges_url';
+                    $properties['merges_url'] = null;
                     goto after_merges_url;
                 }
 
@@ -1720,7 +1730,7 @@ class Push implements ObjectMapper
                 $value = $payload['milestones_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'milestones_url';
+                    $properties['milestones_url'] = null;
                     goto after_milestones_url;
                 }
 
@@ -1731,7 +1741,7 @@ class Push implements ObjectMapper
                 $value = $payload['mirror_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'mirror_url';
+                    $properties['mirror_url'] = null;
                     goto after_mirror_url;
                 }
 
@@ -1742,7 +1752,7 @@ class Push implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -1753,7 +1763,7 @@ class Push implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -1764,7 +1774,7 @@ class Push implements ObjectMapper
                 $value = $payload['notifications_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'notifications_url';
+                    $properties['notifications_url'] = null;
                     goto after_notifications_url;
                 }
 
@@ -1775,7 +1785,7 @@ class Push implements ObjectMapper
                 $value = $payload['open_issues'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues';
+                    $properties['open_issues'] = null;
                     goto after_open_issues;
                 }
 
@@ -1786,7 +1796,7 @@ class Push implements ObjectMapper
                 $value = $payload['open_issues_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'open_issues_count';
+                    $properties['open_issues_count'] = null;
                     goto after_open_issues_count;
                 }
 
@@ -1808,7 +1818,7 @@ class Push implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
                 }
 
@@ -1835,7 +1845,7 @@ class Push implements ObjectMapper
                 if (is_array($value)) {
                     try {
                         $this->hydrationStack[] = 'permissions';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions($value);
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions($value);
                     } finally {
                         array_pop($this->hydrationStack);
                     }
@@ -1848,7 +1858,7 @@ class Push implements ObjectMapper
                 $value = $payload['private'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'private';
+                    $properties['private'] = null;
                     goto after_private;
                 }
 
@@ -1870,7 +1880,7 @@ class Push implements ObjectMapper
                 $value = $payload['pulls_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pulls_url';
+                    $properties['pulls_url'] = null;
                     goto after_pulls_url;
                 }
 
@@ -1881,7 +1891,7 @@ class Push implements ObjectMapper
                 $value = $payload['pushed_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pushed_at';
+                    $properties['pushed_at'] = null;
                     goto after_pushed_at;
                 }
 
@@ -1892,7 +1902,7 @@ class Push implements ObjectMapper
                 $value = $payload['releases_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'releases_url';
+                    $properties['releases_url'] = null;
                     goto after_releases_url;
                 }
 
@@ -1903,7 +1913,7 @@ class Push implements ObjectMapper
                 $value = $payload['role_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'role_name';
+                    $properties['role_name'] = null;
                     goto after_role_name;
                 }
 
@@ -1914,7 +1924,7 @@ class Push implements ObjectMapper
                 $value = $payload['size'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'size';
+                    $properties['size'] = null;
                     goto after_size;
                 }
 
@@ -1925,7 +1935,7 @@ class Push implements ObjectMapper
                 $value = $payload['ssh_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'ssh_url';
+                    $properties['ssh_url'] = null;
                     goto after_ssh_url;
                 }
 
@@ -1947,7 +1957,7 @@ class Push implements ObjectMapper
                 $value = $payload['stargazers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_count';
+                    $properties['stargazers_count'] = null;
                     goto after_stargazers_count;
                 }
 
@@ -1958,7 +1968,7 @@ class Push implements ObjectMapper
                 $value = $payload['stargazers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'stargazers_url';
+                    $properties['stargazers_url'] = null;
                     goto after_stargazers_url;
                 }
 
@@ -1969,7 +1979,7 @@ class Push implements ObjectMapper
                 $value = $payload['statuses_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'statuses_url';
+                    $properties['statuses_url'] = null;
                     goto after_statuses_url;
                 }
 
@@ -1980,7 +1990,7 @@ class Push implements ObjectMapper
                 $value = $payload['subscribers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscribers_url';
+                    $properties['subscribers_url'] = null;
                     goto after_subscribers_url;
                 }
 
@@ -1991,7 +2001,7 @@ class Push implements ObjectMapper
                 $value = $payload['subscription_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscription_url';
+                    $properties['subscription_url'] = null;
                     goto after_subscription_url;
                 }
 
@@ -2002,7 +2012,7 @@ class Push implements ObjectMapper
                 $value = $payload['svn_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'svn_url';
+                    $properties['svn_url'] = null;
                     goto after_svn_url;
                 }
 
@@ -2013,7 +2023,7 @@ class Push implements ObjectMapper
                 $value = $payload['tags_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'tags_url';
+                    $properties['tags_url'] = null;
                     goto after_tags_url;
                 }
 
@@ -2024,7 +2034,7 @@ class Push implements ObjectMapper
                 $value = $payload['teams_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'teams_url';
+                    $properties['teams_url'] = null;
                     goto after_teams_url;
                 }
 
@@ -2035,7 +2045,7 @@ class Push implements ObjectMapper
                 $value = $payload['topics'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'topics';
+                    $properties['topics'] = null;
                     goto after_topics;
                 }
 
@@ -2046,7 +2056,7 @@ class Push implements ObjectMapper
                 $value = $payload['trees_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'trees_url';
+                    $properties['trees_url'] = null;
                     goto after_trees_url;
                 }
 
@@ -2057,7 +2067,7 @@ class Push implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -2068,7 +2078,7 @@ class Push implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -2079,7 +2089,7 @@ class Push implements ObjectMapper
                 $value = $payload['visibility'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'visibility';
+                    $properties['visibility'] = null;
                     goto after_visibility;
                 }
 
@@ -2090,7 +2100,7 @@ class Push implements ObjectMapper
                 $value = $payload['watchers'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'watchers';
+                    $properties['watchers'] = null;
                     goto after_watchers;
                 }
 
@@ -2101,7 +2111,7 @@ class Push implements ObjectMapper
                 $value = $payload['watchers_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'watchers_count';
+                    $properties['watchers_count'] = null;
                     goto after_watchers_count;
                 }
 
@@ -2121,22 +2131,22 @@ class Push implements ObjectMapper
                 after_web_commit_signoff_required:
 
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository', $exception, stack: $this->hydrationStack);
             }
             
             if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository::class, $missingFields, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository::class, $missingFields, stack: $this->hydrationStack);
             }
             
             try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository(...$properties);
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository(...$properties);
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository', $exception, stack: $this->hydrationStack);
             }
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\License
         {
             $properties = []; 
             $missingFields = [];
@@ -2145,7 +2155,7 @@ class Push implements ObjectMapper
                 $value = $payload['key'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'key';
+                    $properties['key'] = null;
                     goto after_key;
                 }
 
@@ -2156,7 +2166,7 @@ class Push implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -2167,7 +2177,7 @@ class Push implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -2178,7 +2188,7 @@ class Push implements ObjectMapper
                 $value = $payload['spdx_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'spdx_id';
+                    $properties['spdx_id'] = null;
                     goto after_spdx_id;
                 }
 
@@ -2189,7 +2199,7 @@ class Push implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -2198,17 +2208,17 @@ class Push implements ObjectMapper
                 after_url:
 
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\License', $exception, stack: $this->hydrationStack);
             }
             
             if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License::class, $missingFields, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\License::class, $missingFields, stack: $this->hydrationStack);
             }
             
             try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License(...$properties);
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\License(...$properties);
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\License', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -2244,7 +2254,7 @@ class Push implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -2321,7 +2331,7 @@ class Push implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -2332,7 +2342,7 @@ class Push implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -2466,7 +2476,7 @@ class Push implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions
         {
             $properties = []; 
             $missingFields = [];
@@ -2475,7 +2485,7 @@ class Push implements ObjectMapper
                 $value = $payload['admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'admin';
+                    $properties['admin'] = null;
                     goto after_admin;
                 }
 
@@ -2497,7 +2507,7 @@ class Push implements ObjectMapper
                 $value = $payload['pull'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'pull';
+                    $properties['pull'] = null;
                     goto after_pull;
                 }
 
@@ -2508,7 +2518,7 @@ class Push implements ObjectMapper
                 $value = $payload['push'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'push';
+                    $properties['push'] = null;
                     goto after_push;
                 }
 
@@ -2528,17 +2538,17 @@ class Push implements ObjectMapper
                 after_triage:
 
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions', $exception, stack: $this->hydrationStack);
             }
             
             if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
             }
             
             try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions(...$properties);
+                return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions(...$properties);
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -2552,7 +2562,7 @@ class Push implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -2563,7 +2573,7 @@ class Push implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -2574,7 +2584,7 @@ class Push implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -2585,7 +2595,7 @@ class Push implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -2596,7 +2606,7 @@ class Push implements ObjectMapper
                 $value = $payload['node_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'node_id';
+                    $properties['node_id'] = null;
                     goto after_node_id;
                 }
 
@@ -2607,7 +2617,7 @@ class Push implements ObjectMapper
                 $value = $payload['avatar_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'avatar_url';
+                    $properties['avatar_url'] = null;
                     goto after_avatar_url;
                 }
 
@@ -2618,7 +2628,7 @@ class Push implements ObjectMapper
                 $value = $payload['gravatar_id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gravatar_id';
+                    $properties['gravatar_id'] = null;
                     goto after_gravatar_id;
                 }
 
@@ -2629,7 +2639,7 @@ class Push implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -2640,7 +2650,7 @@ class Push implements ObjectMapper
                 $value = $payload['html_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'html_url';
+                    $properties['html_url'] = null;
                     goto after_html_url;
                 }
 
@@ -2651,7 +2661,7 @@ class Push implements ObjectMapper
                 $value = $payload['followers_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'followers_url';
+                    $properties['followers_url'] = null;
                     goto after_followers_url;
                 }
 
@@ -2662,7 +2672,7 @@ class Push implements ObjectMapper
                 $value = $payload['following_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'following_url';
+                    $properties['following_url'] = null;
                     goto after_following_url;
                 }
 
@@ -2673,7 +2683,7 @@ class Push implements ObjectMapper
                 $value = $payload['gists_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'gists_url';
+                    $properties['gists_url'] = null;
                     goto after_gists_url;
                 }
 
@@ -2684,7 +2694,7 @@ class Push implements ObjectMapper
                 $value = $payload['starred_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'starred_url';
+                    $properties['starred_url'] = null;
                     goto after_starred_url;
                 }
 
@@ -2695,7 +2705,7 @@ class Push implements ObjectMapper
                 $value = $payload['subscriptions_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'subscriptions_url';
+                    $properties['subscriptions_url'] = null;
                     goto after_subscriptions_url;
                 }
 
@@ -2706,7 +2716,7 @@ class Push implements ObjectMapper
                 $value = $payload['organizations_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organizations_url';
+                    $properties['organizations_url'] = null;
                     goto after_organizations_url;
                 }
 
@@ -2717,7 +2727,7 @@ class Push implements ObjectMapper
                 $value = $payload['repos_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'repos_url';
+                    $properties['repos_url'] = null;
                     goto after_repos_url;
                 }
 
@@ -2728,7 +2738,7 @@ class Push implements ObjectMapper
                 $value = $payload['events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'events_url';
+                    $properties['events_url'] = null;
                     goto after_events_url;
                 }
 
@@ -2739,7 +2749,7 @@ class Push implements ObjectMapper
                 $value = $payload['received_events_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'received_events_url';
+                    $properties['received_events_url'] = null;
                     goto after_received_events_url;
                 }
 
@@ -2750,7 +2760,7 @@ class Push implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -2761,7 +2771,7 @@ class Push implements ObjectMapper
                 $value = $payload['site_admin'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'site_admin';
+                    $properties['site_admin'] = null;
                     goto after_site_admin;
                 }
 
@@ -2814,10 +2824,10 @@ class Push implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleInstallation($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrganizationSimple($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Pusher' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPush⚡️Pusher($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Discussion\AnswerChosenBy' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -2929,7 +2939,8 @@ class Push implements ObjectMapper
         static $commitsSerializer0;
 
         if ($commitsSerializer0 === null) {
-            $commitsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $commitsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\WebhookPush\\Commits',
 ));
         }
         
@@ -3015,7 +3026,7 @@ class Push implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
@@ -3535,9 +3546,9 @@ class Push implements ObjectMapper
     }
 
     
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository);
         $result = [];
         
         $allow_auto_merge = $object->allow_auto_merge;
@@ -3933,7 +3944,7 @@ class Push implements ObjectMapper
         if ($license === null) {
             goto after_license;
         }
-        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License($license);
+        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License($license);
         after_license:        $result['license'] = $license;
 
         
@@ -4019,7 +4030,7 @@ class Push implements ObjectMapper
 
         
         $permissions = $object->permissions;
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -4223,9 +4234,9 @@ class Push implements ObjectMapper
     }
 
     
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️License(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\License);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\License);
         $result = [];
         
         $key = $object->key;
@@ -4377,9 +4388,9 @@ class Push implements ObjectMapper
     }
 
     
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes⚡️NewRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookDiscussionTransferred\Changes\NewRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions);
         $result = [];
         
         $admin = $object->admin;

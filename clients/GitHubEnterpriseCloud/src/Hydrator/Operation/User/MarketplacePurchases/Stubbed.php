@@ -41,7 +41,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['billing_cycle'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'billing_cycle';
+                    $properties['billing_cycle'] = null;
                     goto after_billing_cycle;
                 }
 
@@ -52,7 +52,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['next_billing_date'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'next_billing_date';
+                    $properties['next_billing_date'] = null;
                     goto after_next_billing_date;
                 }
 
@@ -63,7 +63,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['unit_count'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'unit_count';
+                    $properties['unit_count'] = null;
                     goto after_unit_count;
                 }
 
@@ -74,7 +74,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['on_free_trial'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'on_free_trial';
+                    $properties['on_free_trial'] = null;
                     goto after_on_free_trial;
                 }
 
@@ -85,7 +85,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['free_trial_ends_on'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'free_trial_ends_on';
+                    $properties['free_trial_ends_on'] = null;
                     goto after_free_trial_ends_on;
                 }
 
@@ -96,7 +96,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['updated_at'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'updated_at';
+                    $properties['updated_at'] = null;
                     goto after_updated_at;
                 }
 
@@ -107,7 +107,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['account'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'account';
+                    $properties['account'] = null;
                     goto after_account;
                 }
 
@@ -127,7 +127,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['plan'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'plan';
+                    $properties['plan'] = null;
                     goto after_plan;
                 }
 
@@ -169,7 +169,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['message'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'message';
+                    $properties['message'] = null;
                     goto after_message;
                 }
 
@@ -180,7 +180,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['documentation_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'documentation_url';
+                    $properties['documentation_url'] = null;
                     goto after_documentation_url;
                 }
 
@@ -191,7 +191,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -202,7 +202,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['status'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'status';
+                    $properties['status'] = null;
                     goto after_status;
                 }
 
@@ -235,7 +235,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -246,7 +246,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -257,7 +257,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['type'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'type';
+                    $properties['type'] = null;
                     goto after_type;
                 }
 
@@ -279,7 +279,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['login'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'login';
+                    $properties['login'] = null;
                     goto after_login;
                 }
 
@@ -290,7 +290,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'email';
+                    $properties['email'] = null;
                     goto after_email;
                 }
 
@@ -301,7 +301,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['organization_billing_email'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization_billing_email';
+                    $properties['organization_billing_email'] = null;
                     goto after_organization_billing_email;
                 }
 
@@ -334,7 +334,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'url';
+                    $properties['url'] = null;
                     goto after_url;
                 }
 
@@ -345,7 +345,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['accounts_url'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'accounts_url';
+                    $properties['accounts_url'] = null;
                     goto after_accounts_url;
                 }
 
@@ -356,7 +356,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['id'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'id';
+                    $properties['id'] = null;
                     goto after_id;
                 }
 
@@ -367,7 +367,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['number'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'number';
+                    $properties['number'] = null;
                     goto after_number;
                 }
 
@@ -378,7 +378,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'name';
+                    $properties['name'] = null;
                     goto after_name;
                 }
 
@@ -389,7 +389,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['description'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'description';
+                    $properties['description'] = null;
                     goto after_description;
                 }
 
@@ -400,7 +400,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['monthly_price_in_cents'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'monthly_price_in_cents';
+                    $properties['monthly_price_in_cents'] = null;
                     goto after_monthly_price_in_cents;
                 }
 
@@ -411,7 +411,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['yearly_price_in_cents'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'yearly_price_in_cents';
+                    $properties['yearly_price_in_cents'] = null;
                     goto after_yearly_price_in_cents;
                 }
 
@@ -422,7 +422,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['price_model'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'price_model';
+                    $properties['price_model'] = null;
                     goto after_price_model;
                 }
 
@@ -433,7 +433,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['has_free_trial'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'has_free_trial';
+                    $properties['has_free_trial'] = null;
                     goto after_has_free_trial;
                 }
 
@@ -444,7 +444,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['unit_name'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'unit_name';
+                    $properties['unit_name'] = null;
                     goto after_unit_name;
                 }
 
@@ -455,7 +455,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['state'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'state';
+                    $properties['state'] = null;
                     goto after_state;
                 }
 
@@ -466,7 +466,7 @@ class Stubbed implements ObjectMapper
                 $value = $payload['bullets'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'bullets';
+                    $properties['bullets'] = null;
                     goto after_bullets;
                 }
 

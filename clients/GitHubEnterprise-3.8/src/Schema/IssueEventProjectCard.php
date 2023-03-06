@@ -13,19 +13,7 @@ final readonly class IssueEventProjectCard
     public const SCHEMA_TITLE = 'Issue Event Project Card';
     public const SCHEMA_DESCRIPTION = 'Issue Event Project Card';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url","id":13,"project_url":"generated_project_url","project_id":13,"column_name":"generated_column_name","previous_column_name":"generated_previous_column_name"}';
-    public ?string $url;
-    public ?int $id;
-    public ?string $project_url;
-    public ?int $project_id;
-    public ?string $column_name;
-    public string $previous_column_name;
-    public function __construct(string $url, int $id, string $project_url, int $project_id, string $column_name, string $previous_column_name)
+    public function __construct(public ?string $url, public ?int $id, public ?string $project_url, public ?int $project_id, public ?string $column_name, public string $previous_column_name)
     {
-        $this->url = $url;
-        $this->id = $id;
-        $this->project_url = $project_url;
-        $this->project_id = $project_id;
-        $this->column_name = $column_name;
-        $this->previous_column_name = $previous_column_name;
     }
 }

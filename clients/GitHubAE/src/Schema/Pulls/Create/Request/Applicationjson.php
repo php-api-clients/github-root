@@ -14,41 +14,15 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"title":"generated_title","head":"generated_head","base":"generated_base","body":"generated_body","maintainer_can_modify":false,"draft":false,"issue":1}';
     /**
-     * The title of the new pull request. Required unless `issue` is specified.
+     * title: The title of the new pull request. Required unless `issue` is specified.
+     * head: The name of the branch where your changes are implemented. For cross-repository pull requests in the same network, namespace `head` with a user like this: `username:branch`.
+     * base: The name of the branch you want the changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repository that requests a merge to a base of another repository.
+     * body: The contents of the pull request.
+     * maintainer_can_modify: Indicates whether [maintainers can modify](https://docs.github.com/github-ae@latest/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.
+     * draft: Indicates whether the pull request is a draft. See "[Draft Pull Requests](https://docs.github.com/github-ae@latest/articles/about-pull-requests#draft-pull-requests)" in the GitHub Help documentation to learn more.
+     * issue: An issue in the repository to convert to a pull request. The issue title, body, and comments will become the title, body, and comments on the new pull request. Required unless `title` is specified.
      */
-    public string $title;
-    /**
-     * The name of the branch where your changes are implemented. For cross-repository pull requests in the same network, namespace `head` with a user like this: `username:branch`.
-     */
-    public ?string $head;
-    /**
-     * The name of the branch you want the changes pulled into. This should be an existing branch on the current repository. You cannot submit a pull request to one repository that requests a merge to a base of another repository.
-     */
-    public ?string $base;
-    /**
-     * The contents of the pull request.
-     */
-    public string $body;
-    /**
-     * Indicates whether [maintainers can modify](https://docs.github.com/github-ae@latest/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.
-     */
-    public bool $maintainer_can_modify;
-    /**
-     * Indicates whether the pull request is a draft. See "[Draft Pull Requests](https://docs.github.com/github-ae@latest/articles/about-pull-requests#draft-pull-requests)" in the GitHub Help documentation to learn more.
-     */
-    public bool $draft;
-    /**
-     * An issue in the repository to convert to a pull request. The issue title, body, and comments will become the title, body, and comments on the new pull request. Required unless `title` is specified.
-     */
-    public int $issue;
-    public function __construct(string $title, string $head, string $base, string $body, bool $maintainer_can_modify, bool $draft, int $issue)
+    public function __construct(public string $title, public ?string $head, public ?string $base, public string $body, public bool $maintainer_can_modify, public bool $draft, public int $issue)
     {
-        $this->title = $title;
-        $this->head = $head;
-        $this->base = $base;
-        $this->body = $body;
-        $this->maintainer_can_modify = $maintainer_can_modify;
-        $this->draft = $draft;
-        $this->issue = $issue;
     }
 }

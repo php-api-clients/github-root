@@ -13,15 +13,7 @@ final readonly class Changes
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"default_branch":{"from":"generated_from"},"description":{"from":"generated_from"},"homepage":{"from":"generated_from"},"topics":{"from":["generated_from"]}}';
-    public ?Schema\WebhookDiscussionCommentEdited\Changes\Body $default_branch;
-    public ?Schema\WebhookProjectCardEdited\Changes\Note $description;
-    public ?Schema\WebhookProjectCardEdited\Changes\Note $homepage;
-    public ?Schema\WebhookRepositoryEdited\Changes\Topics $topics;
-    public function __construct(Schema\WebhookDiscussionCommentEdited\Changes\Body $default_branch, Schema\WebhookProjectCardEdited\Changes\Note $description, Schema\WebhookProjectCardEdited\Changes\Note $homepage, Schema\WebhookRepositoryEdited\Changes\Topics $topics)
+    public function __construct(public ?Schema\WebhookDiscussionCommentEdited\Changes\Body $default_branch, public ?Schema\WebhookProjectCardEdited\Changes\Note $description, public ?Schema\WebhookProjectCardEdited\Changes\Note $homepage, public ?Schema\WebhookRepositoryEdited\Changes\Topics $topics)
     {
-        $this->default_branch = $default_branch;
-        $this->description = $description;
-        $this->homepage = $homepage;
-        $this->topics = $topics;
     }
 }

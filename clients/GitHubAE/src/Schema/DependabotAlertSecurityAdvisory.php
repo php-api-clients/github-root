@@ -14,75 +14,25 @@ final readonly class DependabotAlertSecurityAdvisory
     public const SCHEMA_DESCRIPTION = 'Details for the GitHub Security Advisory.';
     public const SCHEMA_EXAMPLE_DATA = '{"ghsa_id":"generated_ghsa_id","cve_id":"generated_cve_id","summary":"generated_summary","description":"generated_description","vulnerabilities":[{"package":{"ecosystem":"generated_ecosystem","name":"generated_name"},"severity":"generated_severity","vulnerable_version_range":"generated_vulnerable_version_range","first_patched_version":{"identifier":"generated_identifier"}}],"severity":"generated_severity","cvss":{"score":13,"vector_string":"generated_vector_string"},"cwes":[{"cwe_id":"generated_cwe_id","name":"generated_name"}],"identifiers":[{"type":"generated_type","value":"generated_value"}],"references":[{"url":"generated_url"}],"published_at":"generated_published_at","updated_at":"generated_updated_at","withdrawn_at":"generated_withdrawn_at"}';
     /**
-     * The unique GitHub Security Advisory ID assigned to the advisory.
+     * ghsa_id: The unique GitHub Security Advisory ID assigned to the advisory.
+     * cve_id: The unique CVE ID assigned to the advisory.
+     * summary: A short, plain text summary of the advisory.
+     * description: A long-form Markdown-supported description of the advisory.
+     * vulnerabilities: Vulnerable version range information for the advisory.
+     * @param ?array<\ApiClients\Client\GitHubAE\Schema\DependabotAlertSecurityVulnerability> $vulnerabilities
+     * severity: The severity of the advisory.
+     * cvss: Details for the advisory pertaining to the Common Vulnerability Scoring System.
+     * cwes: Details for the advisory pertaining to Common Weakness Enumeration.
+     * @param ?array<\ApiClients\Client\GitHubAE\Schema\DependabotAlertSecurityAdvisory\Cwes> $cwes
+     * identifiers: Values that identify this advisory among security information sources.
+     * @param ?array<\ApiClients\Client\GitHubAE\Schema\DependabotAlertSecurityAdvisory\Identifiers> $identifiers
+     * references: Links to additional advisory information.
+     * @param ?array<\ApiClients\Client\GitHubAE\Schema\DependabotAlertSecurityAdvisory\References> $references
+     * published_at: The time that the advisory was published in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     * updated_at: The time that the advisory was last modified in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+     * withdrawn_at: The time that the advisory was withdrawn in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
      */
-    public ?string $ghsa_id;
-    /**
-     * The unique CVE ID assigned to the advisory.
-     */
-    public ?string $cve_id;
-    /**
-     * A short, plain text summary of the advisory.
-     */
-    public ?string $summary;
-    /**
-     * A long-form Markdown-supported description of the advisory.
-     */
-    public ?string $description;
-    /**
-     * Vulnerable version range information for the advisory.
-     * @var array<Schema\DependabotAlertSecurityVulnerability>
-     */
-    public ?array $vulnerabilities;
-    /**
-     * The severity of the advisory.
-     */
-    public ?string $severity;
-    /**
-     * Details for the advisory pertaining to the Common Vulnerability Scoring System.
-     */
-    public ?Schema\DependabotAlertSecurityAdvisory\Cvss $cvss;
-    /**
-     * Details for the advisory pertaining to Common Weakness Enumeration.
-     * @var array<Schema\DependabotAlertSecurityAdvisory\Cwes>
-     */
-    public ?array $cwes;
-    /**
-     * Values that identify this advisory among security information sources.
-     * @var array<Schema\DependabotAlertSecurityAdvisory\Identifiers>
-     */
-    public ?array $identifiers;
-    /**
-     * Links to additional advisory information.
-     * @var array<Schema\DependabotAlertSecurityAdvisory\References>
-     */
-    public ?array $references;
-    /**
-     * The time that the advisory was published in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $published_at;
-    /**
-     * The time that the advisory was last modified in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $updated_at;
-    /**
-     * The time that the advisory was withdrawn in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     */
-    public ?string $withdrawn_at;
-    public function __construct(string $ghsa_id, string $cve_id, string $summary, string $description, array $vulnerabilities, string $severity, Schema\DependabotAlertSecurityAdvisory\Cvss $cvss, array $cwes, array $identifiers, array $references, string $published_at, string $updated_at, string $withdrawn_at)
+    public function __construct(public ?string $ghsa_id, public ?string $cve_id, public ?string $summary, public ?string $description, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\DependabotAlertSecurityVulnerability::class)] public ?array $vulnerabilities, public ?string $severity, public ?Schema\DependabotAlertSecurityAdvisory\Cvss $cvss, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\DependabotAlertSecurityAdvisory\Cwes::class)] public ?array $cwes, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\DependabotAlertSecurityAdvisory\Identifiers::class)] public ?array $identifiers, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\DependabotAlertSecurityAdvisory\References::class)] public ?array $references, public ?string $published_at, public ?string $updated_at, public ?string $withdrawn_at)
     {
-        $this->ghsa_id = $ghsa_id;
-        $this->cve_id = $cve_id;
-        $this->summary = $summary;
-        $this->description = $description;
-        $this->vulnerabilities = $vulnerabilities;
-        $this->severity = $severity;
-        $this->cvss = $cvss;
-        $this->cwes = $cwes;
-        $this->identifiers = $identifiers;
-        $this->references = $references;
-        $this->published_at = $published_at;
-        $this->updated_at = $updated_at;
-        $this->withdrawn_at = $withdrawn_at;
     }
 }

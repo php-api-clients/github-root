@@ -14,21 +14,11 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"login":"generated_login","admin":"generated_admin","profile_name":"generated_profile_name"}';
     /**
-     * The organization's username.
+     * login: The organization's username.
+     * admin: The login of the user who will manage this organization.
+     * profile_name: The organization's display name.
      */
-    public ?string $login;
-    /**
-     * The login of the user who will manage this organization.
-     */
-    public ?string $admin;
-    /**
-     * The organization's display name.
-     */
-    public string $profile_name;
-    public function __construct(string $login, string $admin, string $profile_name)
+    public function __construct(public ?string $login, public ?string $admin, public string $profile_name)
     {
-        $this->login = $login;
-        $this->admin = $admin;
-        $this->profile_name = $profile_name;
     }
 }

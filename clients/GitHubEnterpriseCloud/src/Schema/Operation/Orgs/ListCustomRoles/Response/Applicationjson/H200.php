@@ -14,16 +14,10 @@ final readonly class H200
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_count":3,"custom_roles":[{"id":13,"name":"generated_name","description":"generated_description","base_role":"generated_base_role","permissions":["generated_permissions"],"organization":{"name":"generated_name","email":"generated_email","login":"octocat","id":1,"node_id":"MDQ6VXNlcjE=","avatar_url":"https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif","gravatar_id":"41d064eb2195891e12d0413f63227ea7","url":"https:\\/\\/api.github.com\\/users\\/octocat","html_url":"https:\\/\\/github.com\\/octocat","followers_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/followers","following_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}","gists_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}","starred_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}","subscriptions_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions","organizations_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/orgs","repos_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/repos","events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}","received_events_url":"https:\\/\\/api.github.com\\/users\\/octocat\\/received_events","type":"User","site_admin":false,"starred_at":"\\"2020-07-09T00:17:55Z\\""},"created_at":"generated_created_at","updated_at":"generated_updated_at"}]}';
     /**
-     * The number of custom roles in this organization
+     * total_count: The number of custom roles in this organization
+     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationCustomRepositoryRole> $custom_roles
      */
-    public ?int $total_count;
-    /**
-     * @var array<Schema\OrganizationCustomRepositoryRole>
-     */
-    public ?array $custom_roles;
-    public function __construct(int $total_count, array $custom_roles)
+    public function __construct(public ?int $total_count, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\OrganizationCustomRepositoryRole::class)] public ?array $custom_roles)
     {
-        $this->total_count = $total_count;
-        $this->custom_roles = $custom_roles;
     }
 }

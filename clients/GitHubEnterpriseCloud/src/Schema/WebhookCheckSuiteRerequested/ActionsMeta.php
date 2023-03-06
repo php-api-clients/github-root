@@ -13,9 +13,7 @@ final readonly class ActionsMeta
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"rerun_info":{"plan_id":"generated_plan_id","job_ids":["generated_job_ids"]}}';
-    public ?Schema\WebhookCheckSuiteRerequested\ActionsMeta\RerunInfo $rerun_info;
-    public function __construct(Schema\WebhookCheckSuiteRerequested\ActionsMeta\RerunInfo $rerun_info)
+    public function __construct(public ?Schema\WebhookCheckSuiteRerequested\ActionsMeta\RerunInfo $rerun_info)
     {
-        $this->rerun_info = $rerun_info;
     }
 }
