@@ -43,7 +43,7 @@ final class GetOrgVariable
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\OrganizationActionsVariable::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\OrganizationActionsVariable', $body);
+                        return $this->hydrator->hydrateObject(Schema\OrganizationActionsVariable::class, $body);
                 }
                 break;
         }

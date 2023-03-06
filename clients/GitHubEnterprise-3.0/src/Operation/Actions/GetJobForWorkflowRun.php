@@ -44,7 +44,7 @@ final class GetJobForWorkflowRun
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Job::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Job', $body);
+                        return $this->hydrator->hydrateObject(Schema\Job::class, $body);
                 }
                 break;
         }

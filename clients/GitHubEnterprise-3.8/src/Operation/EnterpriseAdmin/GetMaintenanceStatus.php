@@ -37,7 +37,7 @@ final class GetMaintenanceStatus
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\MaintenanceStatus::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\MaintenanceStatus', $body);
+                        return $this->hydrator->hydrateObject(Schema\MaintenanceStatus::class, $body);
                 }
                 break;
         }

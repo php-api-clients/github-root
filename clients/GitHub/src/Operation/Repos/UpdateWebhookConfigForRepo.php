@@ -49,7 +49,7 @@ final class UpdateWebhookConfigForRepo
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\WebhookConfig::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\WebhookConfig', $body);
+                        return $this->hydrator->hydrateObject(Schema\WebhookConfig::class, $body);
                 }
                 break;
         }

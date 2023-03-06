@@ -46,7 +46,7 @@ final class GetCommitComment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\CommitComment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\CommitComment', $body);
+                        return $this->hydrator->hydrateObject(Schema\CommitComment::class, $body);
                 }
                 break;
             /**Resource not found**/
@@ -54,7 +54,7 @@ final class GetCommitComment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
         }

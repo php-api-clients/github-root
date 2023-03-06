@@ -47,7 +47,7 @@ final class CreateForPullRequestReviewComment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Reaction::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Reaction', $body);
+                        return $this->hydrator->hydrateObject(Schema\Reaction::class, $body);
                 }
                 break;
             /**Validation failed**/
@@ -55,7 +55,7 @@ final class CreateForPullRequestReviewComment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Reaction::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Reaction', $body);
+                        return $this->hydrator->hydrateObject(Schema\Reaction::class, $body);
                 }
                 break;
             /**Validation failed**/
@@ -63,7 +63,7 @@ final class CreateForPullRequestReviewComment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ValidationError', $body);
+                        return $this->hydrator->hydrateObject(Schema\ValidationError::class, $body);
                 }
                 break;
         }

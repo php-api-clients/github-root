@@ -46,7 +46,7 @@ final class GetEnvironment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Environment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Environment', $body);
+                        return $this->hydrator->hydrateObject(Schema\Environment::class, $body);
                 }
                 break;
         }

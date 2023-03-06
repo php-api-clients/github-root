@@ -37,7 +37,7 @@ final class GetLicenseInformation
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\LicenseInfo::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\LicenseInfo', $body);
+                        return $this->hydrator->hydrateObject(Schema\LicenseInfo::class, $body);
                 }
                 break;
         }

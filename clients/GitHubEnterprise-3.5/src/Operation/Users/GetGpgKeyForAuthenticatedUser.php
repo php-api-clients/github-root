@@ -40,7 +40,7 @@ final class GetGpgKeyForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\GpgKey::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\GpgKey', $body);
+                        return $this->hydrator->hydrateObject(Schema\GpgKey::class, $body);
                 }
                 break;
             /**Requires authentication**/
@@ -48,7 +48,7 @@ final class GetGpgKeyForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
             /**Requires authentication**/
@@ -56,7 +56,7 @@ final class GetGpgKeyForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
             /**Requires authentication**/
@@ -64,7 +64,7 @@ final class GetGpgKeyForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
         }

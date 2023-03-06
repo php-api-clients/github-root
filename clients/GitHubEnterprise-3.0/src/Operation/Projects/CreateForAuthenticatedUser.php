@@ -40,7 +40,7 @@ final class CreateForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Project::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Project', $body);
+                        return $this->hydrator->hydrateObject(Schema\Project::class, $body);
                 }
                 break;
             /**Validation failed**/
@@ -48,7 +48,7 @@ final class CreateForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
             /**Validation failed**/
@@ -56,7 +56,7 @@ final class CreateForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
             /**Validation failed**/
@@ -64,7 +64,7 @@ final class CreateForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Apps\GetInstallation\Response\Applicationjson\H415::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\Apps\\GetInstallation\\Response\\Applicationjson\\H415', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\Apps\GetInstallation\Response\Applicationjson\H415::class, $body);
                 }
                 break;
             /**Validation failed**/
@@ -72,7 +72,7 @@ final class CreateForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationErrorSimple::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ValidationErrorSimple', $body);
+                        return $this->hydrator->hydrateObject(Schema\ValidationErrorSimple::class, $body);
                 }
                 break;
         }

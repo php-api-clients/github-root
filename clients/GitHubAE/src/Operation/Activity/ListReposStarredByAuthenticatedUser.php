@@ -50,12 +50,12 @@ final class ListReposStarredByAuthenticatedUser
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Repository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\Repository {
-                            return $this->hydrator->hydrateObject('Schema\\Repository', $body);
+                            return $this->hydrator->hydrateObject(Schema\Repository::class, $body);
                         });
                     case 'application/vnd.github.v3.star+json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\StarredRepository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\StarredRepository {
-                            return $this->hydrator->hydrateObject('Schema\\StarredRepository', $body);
+                            return $this->hydrator->hydrateObject(Schema\StarredRepository::class, $body);
                         });
                 }
                 break;
@@ -64,7 +64,7 @@ final class ListReposStarredByAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
             /**Requires authentication**/
@@ -72,7 +72,7 @@ final class ListReposStarredByAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
         }

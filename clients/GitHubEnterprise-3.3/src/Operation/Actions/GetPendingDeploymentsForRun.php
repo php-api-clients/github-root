@@ -47,7 +47,7 @@ final class GetPendingDeploymentsForRun
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\PendingDeployment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\PendingDeployment {
-                            return $this->hydrator->hydrateObject('Schema\\PendingDeployment', $body);
+                            return $this->hydrator->hydrateObject(Schema\PendingDeployment::class, $body);
                         });
                 }
                 break;

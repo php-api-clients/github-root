@@ -50,7 +50,7 @@ final class ListForOrg
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Migration::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\Migration {
-                            return $this->hydrator->hydrateObject('Schema\\Migration', $body);
+                            return $this->hydrator->hydrateObject(Schema\Migration::class, $body);
                         });
                 }
                 break;

@@ -44,7 +44,7 @@ final class GetRepoSecret
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ActionsSecret::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ActionsSecret', $body);
+                        return $this->hydrator->hydrateObject(Schema\ActionsSecret::class, $body);
                 }
                 break;
         }

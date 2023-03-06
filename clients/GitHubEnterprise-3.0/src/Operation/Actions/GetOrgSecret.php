@@ -42,7 +42,7 @@ final class GetOrgSecret
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\OrganizationActionsSecret::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\OrganizationActionsSecret', $body);
+                        return $this->hydrator->hydrateObject(Schema\OrganizationActionsSecret::class, $body);
                 }
                 break;
         }

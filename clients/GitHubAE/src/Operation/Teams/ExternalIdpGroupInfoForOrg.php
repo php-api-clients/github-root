@@ -43,7 +43,7 @@ final class ExternalIdpGroupInfoForOrg
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ExternalGroup::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ExternalGroup', $body);
+                        return $this->hydrator->hydrateObject(Schema\ExternalGroup::class, $body);
                 }
                 break;
         }

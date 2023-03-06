@@ -42,7 +42,7 @@ final class UpdateLdapMappingForTeam
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\LdapMappingTeam::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\LdapMappingTeam', $body);
+                        return $this->hydrator->hydrateObject(Schema\LdapMappingTeam::class, $body);
                 }
                 break;
         }

@@ -43,7 +43,7 @@ final class GetRepoPublicKey
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ActionsPublicKey::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ActionsPublicKey', $body);
+                        return $this->hydrator->hydrateObject(Schema\ActionsPublicKey::class, $body);
                 }
                 break;
         }

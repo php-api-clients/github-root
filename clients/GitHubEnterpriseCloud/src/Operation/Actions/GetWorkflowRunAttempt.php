@@ -52,7 +52,7 @@ final class GetWorkflowRunAttempt
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\WorkflowRun::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\WorkflowRun', $body);
+                        return $this->hydrator->hydrateObject(Schema\WorkflowRun::class, $body);
                 }
                 break;
         }

@@ -43,7 +43,7 @@ final class RequestPagesBuild
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\PageBuildStatus::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\PageBuildStatus', $body);
+                        return $this->hydrator->hydrateObject(Schema\PageBuildStatus::class, $body);
                 }
                 break;
         }

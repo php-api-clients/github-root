@@ -39,7 +39,7 @@ final class GetGithubActionsPermissionsOrganization
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ActionsOrganizationPermissions::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ActionsOrganizationPermissions', $body);
+                        return $this->hydrator->hydrateObject(Schema\ActionsOrganizationPermissions::class, $body);
                 }
                 break;
         }

@@ -67,7 +67,7 @@ final class GetAuditLog
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\AuditLogEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\AuditLogEvent {
-                            return $this->hydrator->hydrateObject('Schema\\AuditLogEvent', $body);
+                            return $this->hydrator->hydrateObject(Schema\AuditLogEvent::class, $body);
                         });
                 }
                 break;

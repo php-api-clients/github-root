@@ -62,7 +62,7 @@ final class ListRepoNotificationsForAuthenticatedUser
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Thread::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\Thread {
-                            return $this->hydrator->hydrateObject('Schema\\Thread', $body);
+                            return $this->hydrator->hydrateObject(Schema\Thread::class, $body);
                         });
                 }
                 break;

@@ -43,7 +43,7 @@ final class UpdateLdapMappingForUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\LdapMappingUser::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\LdapMappingUser', $body);
+                        return $this->hydrator->hydrateObject(Schema\LdapMappingUser::class, $body);
                 }
                 break;
         }

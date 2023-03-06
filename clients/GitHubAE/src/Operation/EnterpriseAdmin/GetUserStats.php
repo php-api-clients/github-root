@@ -37,7 +37,7 @@ final class GetUserStats
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\EnterpriseUserOverview::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\EnterpriseUserOverview', $body);
+                        return $this->hydrator->hydrateObject(Schema\EnterpriseUserOverview::class, $body);
                 }
                 break;
         }

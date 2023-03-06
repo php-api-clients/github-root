@@ -44,7 +44,7 @@ final class CreateSuite
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\CheckSuite::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\CheckSuite', $body);
+                        return $this->hydrator->hydrateObject(Schema\CheckSuite::class, $body);
                 }
                 break;
             /**Response when the suite was created**/
@@ -52,7 +52,7 @@ final class CreateSuite
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\CheckSuite::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\CheckSuite', $body);
+                        return $this->hydrator->hydrateObject(Schema\CheckSuite::class, $body);
                 }
                 break;
         }

@@ -43,7 +43,7 @@ final class CreateImpersonationOAuthToken
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Authorization', $body);
+                        return $this->hydrator->hydrateObject(Schema\Authorization::class, $body);
                 }
                 break;
             /**Response when getting an existing impersonation OAuth token**/
@@ -51,7 +51,7 @@ final class CreateImpersonationOAuthToken
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Authorization', $body);
+                        return $this->hydrator->hydrateObject(Schema\Authorization::class, $body);
                 }
                 break;
         }

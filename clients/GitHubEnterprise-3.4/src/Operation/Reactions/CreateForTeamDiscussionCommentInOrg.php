@@ -52,7 +52,7 @@ final class CreateForTeamDiscussionCommentInOrg
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Reaction::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Reaction', $body);
+                        return $this->hydrator->hydrateObject(Schema\Reaction::class, $body);
                 }
                 break;
             /**Response**/
@@ -60,7 +60,7 @@ final class CreateForTeamDiscussionCommentInOrg
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Reaction::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Reaction', $body);
+                        return $this->hydrator->hydrateObject(Schema\Reaction::class, $body);
                 }
                 break;
         }

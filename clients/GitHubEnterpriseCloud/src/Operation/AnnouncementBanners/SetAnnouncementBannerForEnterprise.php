@@ -43,7 +43,7 @@ final class SetAnnouncementBannerForEnterprise
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\AnnouncementBanner::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\AnnouncementBanner', $body);
+                        return $this->hydrator->hydrateObject(Schema\AnnouncementBanner::class, $body);
                 }
                 break;
         }

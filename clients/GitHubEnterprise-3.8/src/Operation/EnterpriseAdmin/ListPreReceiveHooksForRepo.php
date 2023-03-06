@@ -55,7 +55,7 @@ final class ListPreReceiveHooksForRepo
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\RepositoryPreReceiveHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\RepositoryPreReceiveHook {
-                            return $this->hydrator->hydrateObject('Schema\\RepositoryPreReceiveHook', $body);
+                            return $this->hydrator->hydrateObject(Schema\RepositoryPreReceiveHook::class, $body);
                         });
                 }
                 break;

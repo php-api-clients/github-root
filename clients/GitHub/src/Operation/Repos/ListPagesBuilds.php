@@ -50,7 +50,7 @@ final class ListPagesBuilds
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\PageBuild::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\PageBuild {
-                            return $this->hydrator->hydrateObject('Schema\\PageBuild', $body);
+                            return $this->hydrator->hydrateObject(Schema\PageBuild::class, $body);
                         });
                 }
                 break;

@@ -62,7 +62,7 @@ final class ListReviewComments
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\PullRequestReviewComment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\PullRequestReviewComment {
-                            return $this->hydrator->hydrateObject('Schema\\PullRequestReviewComment', $body);
+                            return $this->hydrator->hydrateObject(Schema\PullRequestReviewComment::class, $body);
                         });
                 }
                 break;

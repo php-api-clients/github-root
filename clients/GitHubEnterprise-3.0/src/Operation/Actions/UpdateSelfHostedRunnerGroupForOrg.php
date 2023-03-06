@@ -45,7 +45,7 @@ final class UpdateSelfHostedRunnerGroupForOrg
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\RunnerGroupsOrg::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\RunnerGroupsOrg', $body);
+                        return $this->hydrator->hydrateObject(Schema\RunnerGroupsOrg::class, $body);
                 }
                 break;
         }

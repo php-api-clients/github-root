@@ -43,7 +43,7 @@ final class EnableLfsForRepo
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\WebhookDeploymentStatusCreated\Deployment\Payload::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\WebhookDeploymentStatusCreated\\Deployment\\Payload', $body);
+                        return $this->hydrator->hydrateObject(Schema\WebhookDeploymentStatusCreated\Deployment\Payload::class, $body);
                 }
                 break;
         }

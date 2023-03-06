@@ -52,7 +52,7 @@ final class CompareCommits
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\CommitComparison::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\CommitComparison', $body);
+                        return $this->hydrator->hydrateObject(Schema\CommitComparison::class, $body);
                 }
                 break;
             /**Service unavailable**/
@@ -60,7 +60,7 @@ final class CompareCommits
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
             /**Service unavailable**/
@@ -68,7 +68,7 @@ final class CompareCommits
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
             /**Service unavailable**/
@@ -76,7 +76,7 @@ final class CompareCommits
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\CodeScanning\\ListAlertsForEnterprise\\Response\\Applicationjson\\H503', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::class, $body);
                 }
                 break;
         }

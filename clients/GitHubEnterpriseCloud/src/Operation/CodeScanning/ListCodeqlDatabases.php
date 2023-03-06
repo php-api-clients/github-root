@@ -44,7 +44,7 @@ final class ListCodeqlDatabases
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\CodeScanningCodeqlDatabase::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\CodeScanningCodeqlDatabase {
-                            return $this->hydrator->hydrateObject('Schema\\CodeScanningCodeqlDatabase', $body);
+                            return $this->hydrator->hydrateObject(Schema\CodeScanningCodeqlDatabase::class, $body);
                         });
                 }
                 break;
@@ -53,7 +53,7 @@ final class ListCodeqlDatabases
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
             /**Service unavailable**/
@@ -61,7 +61,7 @@ final class ListCodeqlDatabases
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
             /**Service unavailable**/
@@ -69,7 +69,7 @@ final class ListCodeqlDatabases
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\CodeScanning\\ListAlertsForEnterprise\\Response\\Applicationjson\\H503', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::class, $body);
                 }
                 break;
         }

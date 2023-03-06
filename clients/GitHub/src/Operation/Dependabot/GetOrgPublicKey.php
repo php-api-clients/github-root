@@ -40,7 +40,7 @@ final class GetOrgPublicKey
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\DependabotPublicKey::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\DependabotPublicKey', $body);
+                        return $this->hydrator->hydrateObject(Schema\DependabotPublicKey::class, $body);
                 }
                 break;
         }

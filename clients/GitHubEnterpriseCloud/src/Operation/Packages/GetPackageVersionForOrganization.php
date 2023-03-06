@@ -49,7 +49,7 @@ final class GetPackageVersionForOrganization
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\PackageVersion::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\PackageVersion', $body);
+                        return $this->hydrator->hydrateObject(Schema\PackageVersion::class, $body);
                 }
                 break;
         }

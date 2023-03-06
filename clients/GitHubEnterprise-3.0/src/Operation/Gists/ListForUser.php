@@ -49,7 +49,7 @@ final class ListForUser
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BaseGist::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\BaseGist {
-                            return $this->hydrator->hydrateObject('Schema\\BaseGist', $body);
+                            return $this->hydrator->hydrateObject(Schema\BaseGist::class, $body);
                         });
                 }
                 break;
@@ -58,7 +58,7 @@ final class ListForUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ValidationError', $body);
+                        return $this->hydrator->hydrateObject(Schema\ValidationError::class, $body);
                 }
                 break;
         }

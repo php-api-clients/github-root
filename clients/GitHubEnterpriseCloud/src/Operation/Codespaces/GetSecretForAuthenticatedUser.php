@@ -40,7 +40,7 @@ final class GetSecretForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\CodespacesSecret::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\CodespacesSecret', $body);
+                        return $this->hydrator->hydrateObject(Schema\CodespacesSecret::class, $body);
                 }
                 break;
         }

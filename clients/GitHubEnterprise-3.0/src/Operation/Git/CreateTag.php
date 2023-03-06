@@ -44,7 +44,7 @@ final class CreateTag
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\GitTag::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\GitTag', $body);
+                        return $this->hydrator->hydrateObject(Schema\GitTag::class, $body);
                 }
                 break;
             /**Validation failed**/
@@ -52,7 +52,7 @@ final class CreateTag
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ValidationError', $body);
+                        return $this->hydrator->hydrateObject(Schema\ValidationError::class, $body);
                 }
                 break;
         }

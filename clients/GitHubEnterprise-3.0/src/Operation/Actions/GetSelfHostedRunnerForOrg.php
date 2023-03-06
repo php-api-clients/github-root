@@ -42,7 +42,7 @@ final class GetSelfHostedRunnerForOrg
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Runner::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Runner', $body);
+                        return $this->hydrator->hydrateObject(Schema\Runner::class, $body);
                 }
                 break;
         }

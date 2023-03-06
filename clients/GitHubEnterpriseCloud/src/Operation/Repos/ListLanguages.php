@@ -43,7 +43,7 @@ final class ListLanguages
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Language::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Language', $body);
+                        return $this->hydrator->hydrateObject(Schema\Language::class, $body);
                 }
                 break;
         }

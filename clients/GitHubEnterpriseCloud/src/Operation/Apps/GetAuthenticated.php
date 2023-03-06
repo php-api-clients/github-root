@@ -37,7 +37,7 @@ final class GetAuthenticated
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Integration::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Integration', $body);
+                        return $this->hydrator->hydrateObject(Schema\Integration::class, $body);
                 }
                 break;
         }

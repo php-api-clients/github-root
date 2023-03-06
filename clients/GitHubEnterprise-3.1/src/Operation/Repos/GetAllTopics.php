@@ -49,7 +49,7 @@ final class GetAllTopics
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Topic::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Topic', $body);
+                        return $this->hydrator->hydrateObject(Schema\Topic::class, $body);
                 }
                 break;
             /**Preview header missing**/
@@ -57,7 +57,7 @@ final class GetAllTopics
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
             /**Preview header missing**/
@@ -65,7 +65,7 @@ final class GetAllTopics
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\Reactions\\CreateForCommitComment\\Response\\Applicationjson\\H415', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415::class, $body);
                 }
                 break;
         }

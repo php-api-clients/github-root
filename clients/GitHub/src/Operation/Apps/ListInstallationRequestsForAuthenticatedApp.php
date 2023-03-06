@@ -44,7 +44,7 @@ final class ListInstallationRequestsForAuthenticatedApp
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\IntegrationInstallationRequest::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\IntegrationInstallationRequest {
-                            return $this->hydrator->hydrateObject('Schema\\IntegrationInstallationRequest', $body);
+                            return $this->hydrator->hydrateObject(Schema\IntegrationInstallationRequest::class, $body);
                         });
                 }
                 break;
@@ -53,7 +53,7 @@ final class ListInstallationRequestsForAuthenticatedApp
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
         }

@@ -47,7 +47,7 @@ final class Update
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\CheckRun::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\CheckRun', $body);
+                        return $this->hydrator->hydrateObject(Schema\CheckRun::class, $body);
                 }
                 break;
         }

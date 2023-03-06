@@ -46,7 +46,7 @@ final class GetWorkflowUsage
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\WorkflowUsage::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\WorkflowUsage', $body);
+                        return $this->hydrator->hydrateObject(Schema\WorkflowUsage::class, $body);
                 }
                 break;
         }

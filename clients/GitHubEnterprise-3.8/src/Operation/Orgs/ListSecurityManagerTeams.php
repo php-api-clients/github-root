@@ -41,7 +41,7 @@ final class ListSecurityManagerTeams
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\TeamSimple::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\TeamSimple {
-                            return $this->hydrator->hydrateObject('Schema\\TeamSimple', $body);
+                            return $this->hydrator->hydrateObject(Schema\TeamSimple::class, $body);
                         });
                 }
                 break;

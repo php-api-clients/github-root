@@ -37,7 +37,7 @@ final class GetZen
                 switch ($contentType) {
                     case 'text/plain':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Gitignore\GetAllTemplates\Response\Applicationjson\H200::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\Gitignore\\GetAllTemplates\\Response\\Applicationjson\\H200', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\Gitignore\GetAllTemplates\Response\Applicationjson\H200::class, $body);
                 }
                 break;
         }

@@ -44,7 +44,7 @@ final class GetCommitActivityStats
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\CommitActivity::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\CommitActivity {
-                            return $this->hydrator->hydrateObject('Schema\\CommitActivity', $body);
+                            return $this->hydrator->hydrateObject(Schema\CommitActivity::class, $body);
                         });
                 }
                 break;
@@ -53,7 +53,7 @@ final class GetCommitActivityStats
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Apps\RedeliverWebhookDelivery\Response\Applicationjson\H202::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\Apps\\RedeliverWebhookDelivery\\Response\\Applicationjson\\H202', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\Apps\RedeliverWebhookDelivery\Response\Applicationjson\H202::class, $body);
                 }
                 break;
         }

@@ -41,7 +41,7 @@ final class GetLatestPagesBuild
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\PageBuild::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\PageBuild', $body);
+                        return $this->hydrator->hydrateObject(Schema\PageBuild::class, $body);
                 }
                 break;
         }

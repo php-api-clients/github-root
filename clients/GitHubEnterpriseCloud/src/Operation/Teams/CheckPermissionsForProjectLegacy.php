@@ -43,7 +43,7 @@ final class CheckPermissionsForProjectLegacy
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\TeamProject::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\TeamProject', $body);
+                        return $this->hydrator->hydrateObject(Schema\TeamProject::class, $body);
                 }
                 break;
         }

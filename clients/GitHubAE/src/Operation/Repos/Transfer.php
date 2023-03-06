@@ -46,7 +46,7 @@ final class Transfer
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\MinimalRepository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\MinimalRepository', $body);
+                        return $this->hydrator->hydrateObject(Schema\MinimalRepository::class, $body);
                 }
                 break;
         }

@@ -37,7 +37,7 @@ final class GetZen
                 switch ($contentType) {
                     case 'text/plain':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\WebHookHeader\\UserAgent', $body);
+                        return $this->hydrator->hydrateObject(Schema\WebHookHeader\UserAgent::class, $body);
                 }
                 break;
         }

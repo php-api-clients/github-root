@@ -43,7 +43,7 @@ final class CheckPermissionsForRepoLegacy
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\TeamRepository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\TeamRepository', $body);
+                        return $this->hydrator->hydrateObject(Schema\TeamRepository::class, $body);
                 }
                 break;
         }

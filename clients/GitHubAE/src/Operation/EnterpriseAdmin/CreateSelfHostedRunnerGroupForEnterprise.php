@@ -43,7 +43,7 @@ final class CreateSelfHostedRunnerGroupForEnterprise
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\RunnerGroupsEnterprise::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\RunnerGroupsEnterprise', $body);
+                        return $this->hydrator->hydrateObject(Schema\RunnerGroupsEnterprise::class, $body);
                 }
                 break;
         }

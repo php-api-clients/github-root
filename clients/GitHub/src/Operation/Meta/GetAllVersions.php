@@ -38,7 +38,7 @@ final class GetAllVersions
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Meta\GetAllVersions\Response\Applicationjson\H200::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\Operation\Meta\GetAllVersions\Response\Applicationjson\H200 {
-                            return $this->hydrator->hydrateObject('Schema\\Operation\\Meta\\GetAllVersions\\Response\\Applicationjson\\H200', $body);
+                            return $this->hydrator->hydrateObject(Schema\Operation\Meta\GetAllVersions\Response\Applicationjson\H200::class, $body);
                         });
                 }
                 break;
@@ -47,7 +47,7 @@ final class GetAllVersions
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
         }

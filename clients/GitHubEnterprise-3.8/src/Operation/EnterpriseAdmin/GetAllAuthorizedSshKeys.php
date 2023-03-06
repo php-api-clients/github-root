@@ -38,7 +38,7 @@ final class GetAllAuthorizedSshKeys
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\SshKey::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\SshKey {
-                            return $this->hydrator->hydrateObject('Schema\\SshKey', $body);
+                            return $this->hydrator->hydrateObject(Schema\SshKey::class, $body);
                         });
                 }
                 break;

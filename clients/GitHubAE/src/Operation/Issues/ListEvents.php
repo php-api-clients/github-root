@@ -53,7 +53,7 @@ final class ListEvents
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\IssueEventForIssue::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\IssueEventForIssue {
-                            return $this->hydrator->hydrateObject('Schema\\IssueEventForIssue', $body);
+                            return $this->hydrator->hydrateObject(Schema\IssueEventForIssue::class, $body);
                         });
                 }
                 break;
@@ -62,7 +62,7 @@ final class ListEvents
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
         }

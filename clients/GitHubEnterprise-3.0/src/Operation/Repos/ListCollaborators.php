@@ -54,7 +54,7 @@ final class ListCollaborators
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Collaborator::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\Collaborator {
-                            return $this->hydrator->hydrateObject('Schema\\Collaborator', $body);
+                            return $this->hydrator->hydrateObject(Schema\Collaborator::class, $body);
                         });
                 }
                 break;
@@ -63,7 +63,7 @@ final class ListCollaborators
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
         }

@@ -37,7 +37,7 @@ final class GetAnnouncement
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Announcement::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Announcement', $body);
+                        return $this->hydrator->hydrateObject(Schema\Announcement::class, $body);
                 }
                 break;
         }

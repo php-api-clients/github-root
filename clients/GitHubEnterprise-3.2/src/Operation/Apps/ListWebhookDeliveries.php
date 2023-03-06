@@ -44,7 +44,7 @@ final class ListWebhookDeliveries
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\HookDeliveryItem::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\HookDeliveryItem {
-                            return $this->hydrator->hydrateObject('Schema\\HookDeliveryItem', $body);
+                            return $this->hydrator->hydrateObject(Schema\HookDeliveryItem::class, $body);
                         });
                 }
                 break;
@@ -53,10 +53,10 @@ final class ListWebhookDeliveries
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                     case 'application/scim+json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ScimError', $body);
+                        return $this->hydrator->hydrateObject(Schema\ScimError::class, $body);
                 }
                 break;
             /**Validation failed, or the endpoint has been spammed.**/
@@ -64,7 +64,7 @@ final class ListWebhookDeliveries
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ValidationError', $body);
+                        return $this->hydrator->hydrateObject(Schema\ValidationError::class, $body);
                 }
                 break;
         }

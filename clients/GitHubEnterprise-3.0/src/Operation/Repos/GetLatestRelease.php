@@ -41,7 +41,7 @@ final class GetLatestRelease
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Release::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Release', $body);
+                        return $this->hydrator->hydrateObject(Schema\Release::class, $body);
                 }
                 break;
         }

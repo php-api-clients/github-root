@@ -47,7 +47,7 @@ final class GetServerStatistics
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ServerStatistics::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\ServerStatistics {
-                            return $this->hydrator->hydrateObject('Schema\\ServerStatistics', $body);
+                            return $this->hydrator->hydrateObject(Schema\ServerStatistics::class, $body);
                         });
                 }
                 break;

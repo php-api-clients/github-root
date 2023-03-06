@@ -42,7 +42,7 @@ final class RemovePreReceiveHookEnforcementForOrg
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\OrgPreReceiveHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\OrgPreReceiveHook', $body);
+                        return $this->hydrator->hydrateObject(Schema\OrgPreReceiveHook::class, $body);
                 }
                 break;
         }

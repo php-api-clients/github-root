@@ -46,7 +46,7 @@ final class CreateRepositorySnapshot
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\DependencyGraph\CreateRepositorySnapshot\Response\Applicationjson\H201::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\DependencyGraph\\CreateRepositorySnapshot\\Response\\Applicationjson\\H201', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\DependencyGraph\CreateRepositorySnapshot\Response\Applicationjson\H201::class, $body);
                 }
                 break;
         }

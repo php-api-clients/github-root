@@ -55,7 +55,7 @@ final class ListDiscussionsInOrg
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\TeamDiscussion::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\TeamDiscussion {
-                            return $this->hydrator->hydrateObject('Schema\\TeamDiscussion', $body);
+                            return $this->hydrator->hydrateObject(Schema\TeamDiscussion::class, $body);
                         });
                 }
                 break;

@@ -37,7 +37,7 @@ final class GetOrgStats
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\EnterpriseOrganizationOverview::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\EnterpriseOrganizationOverview', $body);
+                        return $this->hydrator->hydrateObject(Schema\EnterpriseOrganizationOverview::class, $body);
                 }
                 break;
         }

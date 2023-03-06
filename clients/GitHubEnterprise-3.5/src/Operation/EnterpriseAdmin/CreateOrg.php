@@ -40,7 +40,7 @@ final class CreateOrg
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\OrganizationSimple::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\OrganizationSimple', $body);
+                        return $this->hydrator->hydrateObject(Schema\OrganizationSimple::class, $body);
                 }
                 break;
         }

@@ -44,7 +44,7 @@ final class ListGlobalWebhooks
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\GlobalHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\GlobalHook {
-                            return $this->hydrator->hydrateObject('Schema\\GlobalHook', $body);
+                            return $this->hydrator->hydrateObject(Schema\GlobalHook::class, $body);
                         });
                 }
                 break;

@@ -37,7 +37,7 @@ final class GetRepoStats
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\EnterpriseRepositoryOverview::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\EnterpriseRepositoryOverview', $body);
+                        return $this->hydrator->hydrateObject(Schema\EnterpriseRepositoryOverview::class, $body);
                 }
                 break;
         }

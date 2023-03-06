@@ -40,7 +40,7 @@ final class GetPreReceiveHook
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\PreReceiveHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\PreReceiveHook', $body);
+                        return $this->hydrator->hydrateObject(Schema\PreReceiveHook::class, $body);
                 }
                 break;
         }

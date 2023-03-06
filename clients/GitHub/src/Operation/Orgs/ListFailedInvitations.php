@@ -47,7 +47,7 @@ final class ListFailedInvitations
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\OrganizationInvitation::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\OrganizationInvitation {
-                            return $this->hydrator->hydrateObject('Schema\\OrganizationInvitation', $body);
+                            return $this->hydrator->hydrateObject(Schema\OrganizationInvitation::class, $body);
                         });
                 }
                 break;
@@ -56,7 +56,7 @@ final class ListFailedInvitations
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
         }

@@ -50,7 +50,7 @@ final class ListSamlSsoAuthorizations
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\CredentialAuthorization::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\CredentialAuthorization {
-                            return $this->hydrator->hydrateObject('Schema\\CredentialAuthorization', $body);
+                            return $this->hydrator->hydrateObject(Schema\CredentialAuthorization::class, $body);
                         });
                 }
                 break;

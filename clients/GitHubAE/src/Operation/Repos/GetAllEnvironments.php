@@ -49,7 +49,7 @@ final class GetAllEnvironments
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Repos\GetAllEnvironments\Response\Applicationjson\H200::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\Repos\\GetAllEnvironments\\Response\\Applicationjson\\H200', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\Repos\GetAllEnvironments\Response\Applicationjson\H200::class, $body);
                 }
                 break;
         }

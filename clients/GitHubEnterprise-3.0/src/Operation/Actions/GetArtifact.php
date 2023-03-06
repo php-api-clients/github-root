@@ -44,7 +44,7 @@ final class GetArtifact
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Artifact::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Artifact', $body);
+                        return $this->hydrator->hydrateObject(Schema\Artifact::class, $body);
                 }
                 break;
         }

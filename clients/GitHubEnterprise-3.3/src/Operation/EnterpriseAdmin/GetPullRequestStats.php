@@ -37,7 +37,7 @@ final class GetPullRequestStats
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\EnterprisePullRequestOverview::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\EnterprisePullRequestOverview', $body);
+                        return $this->hydrator->hydrateObject(Schema\EnterprisePullRequestOverview::class, $body);
                 }
                 break;
         }

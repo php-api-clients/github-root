@@ -37,7 +37,7 @@ final class GetHooksStats
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\EnterpriseHookOverview::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\EnterpriseHookOverview', $body);
+                        return $this->hydrator->hydrateObject(Schema\EnterpriseHookOverview::class, $body);
                 }
                 break;
         }

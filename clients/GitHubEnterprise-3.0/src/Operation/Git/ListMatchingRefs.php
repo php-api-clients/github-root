@@ -51,7 +51,7 @@ final class ListMatchingRefs
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\GitRef::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\GitRef {
-                            return $this->hydrator->hydrateObject('Schema\\GitRef', $body);
+                            return $this->hydrator->hydrateObject(Schema\GitRef::class, $body);
                         });
                 }
                 break;

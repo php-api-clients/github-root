@@ -45,7 +45,7 @@ final class UpdateGlobalWebhook
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\GlobalHook2::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\GlobalHook2', $body);
+                        return $this->hydrator->hydrateObject(Schema\GlobalHook2::class, $body);
                 }
                 break;
         }

@@ -43,7 +43,7 @@ final class GetActionsCacheUsagePolicy
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ActionsCacheUsagePolicyForRepository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ActionsCacheUsagePolicyForRepository', $body);
+                        return $this->hydrator->hydrateObject(Schema\ActionsCacheUsagePolicyForRepository::class, $body);
                 }
                 break;
         }

@@ -41,7 +41,7 @@ final class ListFineGrainedPermissions
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\RepositoryFineGrainedPermission::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\RepositoryFineGrainedPermission {
-                            return $this->hydrator->hydrateObject('Schema\\RepositoryFineGrainedPermission', $body);
+                            return $this->hydrator->hydrateObject(Schema\RepositoryFineGrainedPermission::class, $body);
                         });
                 }
                 break;

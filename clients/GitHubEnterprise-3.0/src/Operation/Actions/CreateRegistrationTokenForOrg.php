@@ -39,7 +39,7 @@ final class CreateRegistrationTokenForOrg
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\AuthenticationToken::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\AuthenticationToken', $body);
+                        return $this->hydrator->hydrateObject(Schema\AuthenticationToken::class, $body);
                 }
                 break;
         }

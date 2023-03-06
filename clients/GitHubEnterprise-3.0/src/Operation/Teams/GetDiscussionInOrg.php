@@ -44,7 +44,7 @@ final class GetDiscussionInOrg
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\TeamDiscussion::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\TeamDiscussion', $body);
+                        return $this->hydrator->hydrateObject(Schema\TeamDiscussion::class, $body);
                 }
                 break;
         }

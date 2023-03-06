@@ -44,7 +44,7 @@ final class GetTopReferrers
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ReferrerTraffic::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\ReferrerTraffic {
-                            return $this->hydrator->hydrateObject('Schema\\ReferrerTraffic', $body);
+                            return $this->hydrator->hydrateObject(Schema\ReferrerTraffic::class, $body);
                         });
                 }
                 break;
@@ -53,7 +53,7 @@ final class GetTopReferrers
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
         }

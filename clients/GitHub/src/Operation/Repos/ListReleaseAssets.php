@@ -53,7 +53,7 @@ final class ListReleaseAssets
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ReleaseAsset::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\ReleaseAsset {
-                            return $this->hydrator->hydrateObject('Schema\\ReleaseAsset', $body);
+                            return $this->hydrator->hydrateObject(Schema\ReleaseAsset::class, $body);
                         });
                 }
                 break;

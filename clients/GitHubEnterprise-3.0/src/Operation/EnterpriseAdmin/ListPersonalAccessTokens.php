@@ -44,7 +44,7 @@ final class ListPersonalAccessTokens
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\Authorization {
-                            return $this->hydrator->hydrateObject('Schema\\Authorization', $body);
+                            return $this->hydrator->hydrateObject(Schema\Authorization::class, $body);
                         });
                 }
                 break;

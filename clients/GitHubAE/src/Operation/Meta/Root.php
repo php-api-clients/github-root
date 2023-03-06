@@ -37,7 +37,7 @@ final class Root
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Root::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Root', $body);
+                        return $this->hydrator->hydrateObject(Schema\Root::class, $body);
                 }
                 break;
         }

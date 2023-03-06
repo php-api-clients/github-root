@@ -61,7 +61,7 @@ final class GetActionsCacheList
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ActionsCacheList::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ActionsCacheList', $body);
+                        return $this->hydrator->hydrateObject(Schema\ActionsCacheList::class, $body);
                 }
                 break;
         }

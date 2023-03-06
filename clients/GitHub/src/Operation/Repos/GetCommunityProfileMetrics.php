@@ -43,7 +43,7 @@ final class GetCommunityProfileMetrics
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\CommunityProfile::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\CommunityProfile', $body);
+                        return $this->hydrator->hydrateObject(Schema\CommunityProfile::class, $body);
                 }
                 break;
         }

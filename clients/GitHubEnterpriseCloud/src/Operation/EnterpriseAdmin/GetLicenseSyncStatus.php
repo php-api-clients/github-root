@@ -40,7 +40,7 @@ final class GetLicenseSyncStatus
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\GetLicenseSyncStatus::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\GetLicenseSyncStatus', $body);
+                        return $this->hydrator->hydrateObject(Schema\GetLicenseSyncStatus::class, $body);
                 }
                 break;
         }

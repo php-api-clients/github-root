@@ -39,7 +39,7 @@ final class GetTemplate
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\GitignoreTemplate::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\GitignoreTemplate', $body);
+                        return $this->hydrator->hydrateObject(Schema\GitignoreTemplate::class, $body);
                 }
                 break;
         }

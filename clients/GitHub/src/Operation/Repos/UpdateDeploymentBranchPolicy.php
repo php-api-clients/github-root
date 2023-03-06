@@ -52,7 +52,7 @@ final class UpdateDeploymentBranchPolicy
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\DeploymentBranchPolicy::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\DeploymentBranchPolicy', $body);
+                        return $this->hydrator->hydrateObject(Schema\DeploymentBranchPolicy::class, $body);
                 }
                 break;
         }

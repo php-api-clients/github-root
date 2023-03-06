@@ -37,7 +37,7 @@ final class GetSettings
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\EnterpriseSettings::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\EnterpriseSettings', $body);
+                        return $this->hydrator->hydrateObject(Schema\EnterpriseSettings::class, $body);
                 }
                 break;
         }

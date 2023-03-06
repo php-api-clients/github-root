@@ -44,7 +44,7 @@ final class CreateUsingTemplate
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Repository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Repository', $body);
+                        return $this->hydrator->hydrateObject(Schema\Repository::class, $body);
                 }
                 break;
         }

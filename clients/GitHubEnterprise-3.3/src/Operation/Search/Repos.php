@@ -52,7 +52,7 @@ final class Repos
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Search\Repos\Response\Applicationjson\H200::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\Search\\Repos\\Response\\Applicationjson\\H200', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\Search\Repos\Response\Applicationjson\H200::class, $body);
                 }
                 break;
             /**Validation failed, or the endpoint has been spammed.**/
@@ -60,7 +60,7 @@ final class Repos
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\Activity\\ListPublicEvents\\Response\\Applicationjson\\H503', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503::class, $body);
                 }
                 break;
             /**Validation failed, or the endpoint has been spammed.**/
@@ -68,7 +68,7 @@ final class Repos
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ValidationError', $body);
+                        return $this->hydrator->hydrateObject(Schema\ValidationError::class, $body);
                 }
                 break;
         }

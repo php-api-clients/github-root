@@ -43,7 +43,7 @@ final class GetRepoSubscription
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\RepositorySubscription::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\RepositorySubscription', $body);
+                        return $this->hydrator->hydrateObject(Schema\RepositorySubscription::class, $body);
                 }
                 break;
             /**Forbidden**/
@@ -51,7 +51,7 @@ final class GetRepoSubscription
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
         }

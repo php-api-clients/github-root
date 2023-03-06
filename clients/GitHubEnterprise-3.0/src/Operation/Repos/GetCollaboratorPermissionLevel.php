@@ -43,7 +43,7 @@ final class GetCollaboratorPermissionLevel
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\RepositoryCollaboratorPermission::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\RepositoryCollaboratorPermission', $body);
+                        return $this->hydrator->hydrateObject(Schema\RepositoryCollaboratorPermission::class, $body);
                 }
                 break;
             /**Resource not found**/
@@ -51,7 +51,7 @@ final class GetCollaboratorPermissionLevel
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
         }

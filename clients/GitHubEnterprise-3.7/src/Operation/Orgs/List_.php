@@ -44,7 +44,7 @@ final class List_
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\OrganizationSimple::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\OrganizationSimple {
-                            return $this->hydrator->hydrateObject('Schema\\OrganizationSimple', $body);
+                            return $this->hydrator->hydrateObject(Schema\OrganizationSimple::class, $body);
                         });
                 }
                 break;

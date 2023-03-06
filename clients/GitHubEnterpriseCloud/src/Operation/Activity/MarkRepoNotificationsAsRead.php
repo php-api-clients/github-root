@@ -46,7 +46,7 @@ final class MarkRepoNotificationsAsRead
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Activity\MarkRepoNotificationsAsRead\Response\Applicationjson\H202::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\Activity\\MarkRepoNotificationsAsRead\\Response\\Applicationjson\\H202', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\Activity\MarkRepoNotificationsAsRead\Response\Applicationjson\H202::class, $body);
                 }
                 break;
         }

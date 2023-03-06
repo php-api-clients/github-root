@@ -44,7 +44,7 @@ final class GetCodeFrequencyStats
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H200::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H200 {
-                            return $this->hydrator->hydrateObject('Schema\\Operation\\Repos\\GetCodeFrequencyStats\\Response\\Applicationjson\\H200', $body);
+                            return $this->hydrator->hydrateObject(Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H200::class, $body);
                         });
                 }
                 break;
@@ -53,7 +53,7 @@ final class GetCodeFrequencyStats
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\WebhookDeploymentStatusCreated\Deployment\Payload::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\WebhookDeploymentStatusCreated\\Deployment\\Payload', $body);
+                        return $this->hydrator->hydrateObject(Schema\WebhookDeploymentStatusCreated\Deployment\Payload::class, $body);
                 }
                 break;
         }

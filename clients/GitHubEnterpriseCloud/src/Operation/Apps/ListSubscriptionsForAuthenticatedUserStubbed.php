@@ -44,7 +44,7 @@ final class ListSubscriptionsForAuthenticatedUserStubbed
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\UserMarketplacePurchase::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\UserMarketplacePurchase {
-                            return $this->hydrator->hydrateObject('Schema\\UserMarketplacePurchase', $body);
+                            return $this->hydrator->hydrateObject(Schema\UserMarketplacePurchase::class, $body);
                         });
                 }
                 break;
@@ -53,7 +53,7 @@ final class ListSubscriptionsForAuthenticatedUserStubbed
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
         }

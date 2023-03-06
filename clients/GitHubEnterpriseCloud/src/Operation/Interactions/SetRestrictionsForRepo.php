@@ -46,7 +46,7 @@ final class SetRestrictionsForRepo
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\InteractionLimitResponse::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\InteractionLimitResponse', $body);
+                        return $this->hydrator->hydrateObject(Schema\InteractionLimitResponse::class, $body);
                 }
                 break;
         }

@@ -49,7 +49,7 @@ final class ListPreReceiveEnvironments
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\PreReceiveEnvironment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\PreReceiveEnvironment {
-                            return $this->hydrator->hydrateObject('Schema\\PreReceiveEnvironment', $body);
+                            return $this->hydrator->hydrateObject(Schema\PreReceiveEnvironment::class, $body);
                         });
                 }
                 break;

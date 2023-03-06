@@ -47,7 +47,7 @@ final class ListPackagesForAuthenticatedUser
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Package::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\Package {
-                            return $this->hydrator->hydrateObject('Schema\\Package', $body);
+                            return $this->hydrator->hydrateObject(Schema\Package::class, $body);
                         });
                 }
                 break;

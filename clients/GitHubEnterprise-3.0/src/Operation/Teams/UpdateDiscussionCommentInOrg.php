@@ -49,7 +49,7 @@ final class UpdateDiscussionCommentInOrg
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\TeamDiscussionComment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\TeamDiscussionComment', $body);
+                        return $this->hydrator->hydrateObject(Schema\TeamDiscussionComment::class, $body);
                 }
                 break;
         }

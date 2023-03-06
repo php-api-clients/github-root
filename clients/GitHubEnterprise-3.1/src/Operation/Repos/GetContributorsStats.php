@@ -44,7 +44,7 @@ final class GetContributorsStats
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ContributorActivity::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\ContributorActivity {
-                            return $this->hydrator->hydrateObject('Schema\\ContributorActivity', $body);
+                            return $this->hydrator->hydrateObject(Schema\ContributorActivity::class, $body);
                         });
                 }
                 break;
@@ -53,7 +53,7 @@ final class GetContributorsStats
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\Repos\\GetCodeFrequencyStats\\Response\\Applicationjson\\H202', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202::class, $body);
                 }
                 break;
         }

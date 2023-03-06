@@ -40,7 +40,7 @@ final class CreatePreReceiveEnvironment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\PreReceiveEnvironment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\PreReceiveEnvironment', $body);
+                        return $this->hydrator->hydrateObject(Schema\PreReceiveEnvironment::class, $body);
                 }
                 break;
         }

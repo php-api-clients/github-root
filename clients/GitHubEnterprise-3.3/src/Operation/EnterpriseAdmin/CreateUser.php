@@ -40,7 +40,7 @@ final class CreateUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\SimpleUser::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\SimpleUser', $body);
+                        return $this->hydrator->hydrateObject(Schema\SimpleUser::class, $body);
                 }
                 break;
         }

@@ -44,7 +44,7 @@ final class GetPullRequestReviewProtection
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ProtectedBranchPullRequestReview::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ProtectedBranchPullRequestReview', $body);
+                        return $this->hydrator->hydrateObject(Schema\ProtectedBranchPullRequestReview::class, $body);
                 }
                 break;
         }

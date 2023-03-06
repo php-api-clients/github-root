@@ -37,7 +37,7 @@ final class GetMilestoneStats
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\EnterpriseMilestoneOverview::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\EnterpriseMilestoneOverview', $body);
+                        return $this->hydrator->hydrateObject(Schema\EnterpriseMilestoneOverview::class, $body);
                 }
                 break;
         }

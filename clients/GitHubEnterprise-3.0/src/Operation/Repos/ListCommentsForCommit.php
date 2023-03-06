@@ -51,7 +51,7 @@ final class ListCommentsForCommit
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\CommitComment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\CommitComment {
-                            return $this->hydrator->hydrateObject('Schema\\CommitComment', $body);
+                            return $this->hydrator->hydrateObject(Schema\CommitComment::class, $body);
                         });
                 }
                 break;

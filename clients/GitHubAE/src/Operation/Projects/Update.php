@@ -43,7 +43,7 @@ final class Update
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Project::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Project', $body);
+                        return $this->hydrator->hydrateObject(Schema\Project::class, $body);
                 }
                 break;
             /**Validation failed, or the endpoint has been spammed.**/
@@ -51,7 +51,7 @@ final class Update
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Projects\DeleteCard\Response\Applicationjson\H403::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\Projects\\DeleteCard\\Response\\Applicationjson\\H403', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\Projects\DeleteCard\Response\Applicationjson\H403::class, $body);
                 }
                 break;
             /**Validation failed, or the endpoint has been spammed.**/
@@ -59,7 +59,7 @@ final class Update
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
             /**Validation failed, or the endpoint has been spammed.**/
@@ -67,7 +67,7 @@ final class Update
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
             /**Validation failed, or the endpoint has been spammed.**/
@@ -75,7 +75,7 @@ final class Update
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationErrorSimple::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ValidationErrorSimple', $body);
+                        return $this->hydrator->hydrateObject(Schema\ValidationErrorSimple::class, $body);
                 }
                 break;
         }

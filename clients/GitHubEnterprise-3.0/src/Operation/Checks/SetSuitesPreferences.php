@@ -44,7 +44,7 @@ final class SetSuitesPreferences
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\CheckSuitePreference::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\CheckSuitePreference', $body);
+                        return $this->hydrator->hydrateObject(Schema\CheckSuitePreference::class, $body);
                 }
                 break;
         }

@@ -47,7 +47,7 @@ final class UpdateReleaseAsset
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ReleaseAsset::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ReleaseAsset', $body);
+                        return $this->hydrator->hydrateObject(Schema\ReleaseAsset::class, $body);
                 }
                 break;
         }

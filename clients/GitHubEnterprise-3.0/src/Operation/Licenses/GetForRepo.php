@@ -41,7 +41,7 @@ final class GetForRepo
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\LicenseContent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\LicenseContent', $body);
+                        return $this->hydrator->hydrateObject(Schema\LicenseContent::class, $body);
                 }
                 break;
         }

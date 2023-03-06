@@ -881,12 +881,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/openapi-client-generator.git",
-                "reference": "17cf550d430d7e0b8236098f0fdd2a27ff28d17c"
+                "reference": "1188cf188019172cd9886e6e4d5f75e7216b0cfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/17cf550d430d7e0b8236098f0fdd2a27ff28d17c",
-                "reference": "17cf550d430d7e0b8236098f0fdd2a27ff28d17c",
+                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/1188cf188019172cd9886e6e4d5f75e7216b0cfe",
+                "reference": "1188cf188019172cd9886e6e4d5f75e7216b0cfe",
                 "shasum": ""
             },
             "require": {
@@ -947,7 +947,7 @@
                 "issues": "https://github.com/php-api-clients/openapi-client-generator/issues",
                 "source": "https://github.com/php-api-clients/openapi-client-generator/tree/master"
             },
-            "time": "2023-03-06T10:54:24+00:00"
+            "time": "2023-03-06T11:45:54+00:00"
         },
         {
             "name": "azjezz/psl",

@@ -37,7 +37,7 @@ final class GetCommentStats
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\EnterpriseCommentOverview::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\EnterpriseCommentOverview', $body);
+                        return $this->hydrator->hydrateObject(Schema\EnterpriseCommentOverview::class, $body);
                 }
                 break;
         }

@@ -37,7 +37,7 @@ final class GetConfigurationStatus
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ConfigurationStatus::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ConfigurationStatus', $body);
+                        return $this->hydrator->hydrateObject(Schema\ConfigurationStatus::class, $body);
                 }
                 break;
         }

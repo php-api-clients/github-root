@@ -46,7 +46,7 @@ final class UpdateRequiredWorkflow
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\RequiredWorkflow::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\RequiredWorkflow', $body);
+                        return $this->hydrator->hydrateObject(Schema\RequiredWorkflow::class, $body);
                 }
                 break;
             /**Validation failed, or the endpoint has been spammed.**/
@@ -54,7 +54,7 @@ final class UpdateRequiredWorkflow
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationErrorSimple::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ValidationErrorSimple', $body);
+                        return $this->hydrator->hydrateObject(Schema\ValidationErrorSimple::class, $body);
                 }
                 break;
         }

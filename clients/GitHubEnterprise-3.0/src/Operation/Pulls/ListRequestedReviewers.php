@@ -49,7 +49,7 @@ final class ListRequestedReviewers
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\PullRequestReviewRequest::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\PullRequestReviewRequest', $body);
+                        return $this->hydrator->hydrateObject(Schema\PullRequestReviewRequest::class, $body);
                 }
                 break;
         }

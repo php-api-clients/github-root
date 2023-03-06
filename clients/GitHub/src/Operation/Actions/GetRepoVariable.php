@@ -46,7 +46,7 @@ final class GetRepoVariable
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ActionsVariable::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ActionsVariable', $body);
+                        return $this->hydrator->hydrateObject(Schema\ActionsVariable::class, $body);
                 }
                 break;
         }

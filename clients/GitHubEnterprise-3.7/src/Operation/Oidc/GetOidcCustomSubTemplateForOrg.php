@@ -40,7 +40,7 @@ final class GetOidcCustomSubTemplateForOrg
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\OidcCustomSub::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\OidcCustomSub', $body);
+                        return $this->hydrator->hydrateObject(Schema\OidcCustomSub::class, $body);
                 }
                 break;
         }

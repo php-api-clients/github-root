@@ -50,7 +50,7 @@ final class ListDeployKeys
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\DeployKey::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\DeployKey {
-                            return $this->hydrator->hydrateObject('Schema\\DeployKey', $body);
+                            return $this->hydrator->hydrateObject(Schema\DeployKey::class, $body);
                         });
                 }
                 break;

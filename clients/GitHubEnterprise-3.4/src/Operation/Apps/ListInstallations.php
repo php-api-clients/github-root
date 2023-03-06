@@ -49,7 +49,7 @@ final class ListInstallations
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Installation::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\Installation {
-                            return $this->hydrator->hydrateObject('Schema\\Installation', $body);
+                            return $this->hydrator->hydrateObject(Schema\Installation::class, $body);
                         });
                 }
                 break;

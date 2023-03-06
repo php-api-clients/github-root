@@ -46,7 +46,7 @@ final class MergeUpstream
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\MergedUpstream::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\MergedUpstream', $body);
+                        return $this->hydrator->hydrateObject(Schema\MergedUpstream::class, $body);
                 }
                 break;
         }

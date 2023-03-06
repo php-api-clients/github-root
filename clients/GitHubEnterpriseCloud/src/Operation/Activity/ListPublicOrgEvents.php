@@ -47,7 +47,7 @@ final class ListPublicOrgEvents
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Event::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\Event {
-                            return $this->hydrator->hydrateObject('Schema\\Event', $body);
+                            return $this->hydrator->hydrateObject(Schema\Event::class, $body);
                         });
                 }
                 break;

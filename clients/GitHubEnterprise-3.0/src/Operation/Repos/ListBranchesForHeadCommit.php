@@ -45,7 +45,7 @@ final class ListBranchesForHeadCommit
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BranchShort::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\BranchShort {
-                            return $this->hydrator->hydrateObject('Schema\\BranchShort', $body);
+                            return $this->hydrator->hydrateObject(Schema\BranchShort::class, $body);
                         });
                 }
                 break;
@@ -54,7 +54,7 @@ final class ListBranchesForHeadCommit
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ValidationError', $body);
+                        return $this->hydrator->hydrateObject(Schema\ValidationError::class, $body);
                 }
                 break;
         }

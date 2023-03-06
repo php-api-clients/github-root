@@ -53,7 +53,7 @@ final class ListAccountsForPlanStubbed
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\MarketplacePurchase::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\MarketplacePurchase {
-                            return $this->hydrator->hydrateObject('Schema\\MarketplacePurchase', $body);
+                            return $this->hydrator->hydrateObject(Schema\MarketplacePurchase::class, $body);
                         });
                 }
                 break;
@@ -62,7 +62,7 @@ final class ListAccountsForPlanStubbed
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
         }

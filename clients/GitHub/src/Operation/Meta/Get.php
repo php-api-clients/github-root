@@ -37,7 +37,7 @@ final class Get
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ApiOverview::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ApiOverview', $body);
+                        return $this->hydrator->hydrateObject(Schema\ApiOverview::class, $body);
                 }
                 break;
         }

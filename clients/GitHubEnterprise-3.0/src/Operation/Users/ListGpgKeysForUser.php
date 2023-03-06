@@ -46,7 +46,7 @@ final class ListGpgKeysForUser
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\GpgKey::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\GpgKey {
-                            return $this->hydrator->hydrateObject('Schema\\GpgKey', $body);
+                            return $this->hydrator->hydrateObject(Schema\GpgKey::class, $body);
                         });
                 }
                 break;

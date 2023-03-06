@@ -42,7 +42,7 @@ final class UpdatePreReceiveEnvironment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\PreReceiveEnvironment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\PreReceiveEnvironment', $body);
+                        return $this->hydrator->hydrateObject(Schema\PreReceiveEnvironment::class, $body);
                 }
                 break;
             /**Client Errors**/
@@ -50,7 +50,7 @@ final class UpdatePreReceiveEnvironment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422::class, $body);
                 }
                 break;
         }

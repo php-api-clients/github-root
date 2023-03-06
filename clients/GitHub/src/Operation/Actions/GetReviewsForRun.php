@@ -47,7 +47,7 @@ final class GetReviewsForRun
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\EnvironmentApprovals::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\EnvironmentApprovals {
-                            return $this->hydrator->hydrateObject('Schema\\EnvironmentApprovals', $body);
+                            return $this->hydrator->hydrateObject(Schema\EnvironmentApprovals::class, $body);
                         });
                 }
                 break;

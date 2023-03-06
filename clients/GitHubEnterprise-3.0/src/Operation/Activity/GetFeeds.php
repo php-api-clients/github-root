@@ -37,7 +37,7 @@ final class GetFeeds
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Feed::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Feed', $body);
+                        return $this->hydrator->hydrateObject(Schema\Feed::class, $body);
                 }
                 break;
         }

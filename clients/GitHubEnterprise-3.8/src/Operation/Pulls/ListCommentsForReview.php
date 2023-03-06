@@ -56,7 +56,7 @@ final class ListCommentsForReview
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ReviewComment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\ReviewComment {
-                            return $this->hydrator->hydrateObject('Schema\\ReviewComment', $body);
+                            return $this->hydrator->hydrateObject(Schema\ReviewComment::class, $body);
                         });
                 }
                 break;
@@ -65,7 +65,7 @@ final class ListCommentsForReview
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\BasicError', $body);
+                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
         }

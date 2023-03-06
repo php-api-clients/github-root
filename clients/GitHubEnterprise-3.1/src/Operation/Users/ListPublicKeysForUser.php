@@ -47,7 +47,7 @@ final class ListPublicKeysForUser
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\KeySimple::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\KeySimple {
-                            return $this->hydrator->hydrateObject('Schema\\KeySimple', $body);
+                            return $this->hydrator->hydrateObject(Schema\KeySimple::class, $body);
                         });
                 }
                 break;

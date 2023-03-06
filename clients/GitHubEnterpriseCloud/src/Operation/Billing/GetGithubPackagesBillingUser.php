@@ -40,7 +40,7 @@ final class GetGithubPackagesBillingUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\PackagesBillingUsage::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\PackagesBillingUsage', $body);
+                        return $this->hydrator->hydrateObject(Schema\PackagesBillingUsage::class, $body);
                 }
                 break;
         }

@@ -37,7 +37,7 @@ final class GetGistStats
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\EnterpriseGistOverview::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\EnterpriseGistOverview', $body);
+                        return $this->hydrator->hydrateObject(Schema\EnterpriseGistOverview::class, $body);
                 }
                 break;
         }

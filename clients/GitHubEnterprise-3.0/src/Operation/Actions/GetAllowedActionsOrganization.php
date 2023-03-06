@@ -39,7 +39,7 @@ final class GetAllowedActionsOrganization
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\SelectedActions::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\SelectedActions', $body);
+                        return $this->hydrator->hydrateObject(Schema\SelectedActions::class, $body);
                 }
                 break;
         }

@@ -46,7 +46,7 @@ final class CreateDeployment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Deployment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Deployment', $body);
+                        return $this->hydrator->hydrateObject(Schema\Deployment::class, $body);
                 }
                 break;
             /**Validation failed**/
@@ -54,7 +54,7 @@ final class CreateDeployment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\Operation\\Activity\\MarkNotificationsAsRead\\Response\\Applicationjson\\H202', $body);
+                        return $this->hydrator->hydrateObject(Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202::class, $body);
                 }
                 break;
             /**Validation failed**/
@@ -62,7 +62,7 @@ final class CreateDeployment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject('Schema\\ValidationError', $body);
+                        return $this->hydrator->hydrateObject(Schema\ValidationError::class, $body);
                 }
                 break;
         }
