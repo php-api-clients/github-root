@@ -24,7 +24,6 @@ class InstallationRequests implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\IntegrationInstallationRequest' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IntegrationInstallationRequest($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Enterprise($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
@@ -70,7 +69,7 @@ class InstallationRequests implements ObjectMapper
                 if (is_array($value)) {
                     try {
                         $this->hydrationStack[] = 'account';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Enterprise($value);
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
                     } finally {
                         array_pop($this->hydrationStack);
                     }
@@ -123,138 +122,6 @@ class InstallationRequests implements ObjectMapper
                 return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\IntegrationInstallationRequest(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\IntegrationInstallationRequest', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Enterprise(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Enterprise
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['description'] ?? null;
-    
-                if ($value === null) {
-                    $properties['description'] = null;
-                    goto after_description;
-                }
-
-                $properties['description'] = $value;
-    
-                after_description:
-
-                $value = $payload['html_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['html_url'] = null;
-                    goto after_html_url;
-                }
-
-                $properties['html_url'] = $value;
-    
-                after_html_url:
-
-                $value = $payload['website_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['website_url'] = null;
-                    goto after_website_url;
-                }
-
-                $properties['website_url'] = $value;
-    
-                after_website_url:
-
-                $value = $payload['id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['id'] = null;
-                    goto after_id;
-                }
-
-                $properties['id'] = $value;
-    
-                after_id:
-
-                $value = $payload['node_id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['node_id'] = null;
-                    goto after_node_id;
-                }
-
-                $properties['node_id'] = $value;
-    
-                after_node_id:
-
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['name'] = null;
-                    goto after_name;
-                }
-
-                $properties['name'] = $value;
-    
-                after_name:
-
-                $value = $payload['slug'] ?? null;
-    
-                if ($value === null) {
-                    $properties['slug'] = null;
-                    goto after_slug;
-                }
-
-                $properties['slug'] = $value;
-    
-                after_slug:
-
-                $value = $payload['created_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['created_at'] = null;
-                    goto after_created_at;
-                }
-
-                $properties['created_at'] = $value;
-    
-                after_created_at:
-
-                $value = $payload['updated_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['updated_at'] = null;
-                    goto after_updated_at;
-                }
-
-                $properties['updated_at'] = $value;
-    
-                after_updated_at:
-
-                $value = $payload['avatar_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['avatar_url'] = null;
-                    goto after_avatar_url;
-                }
-
-                $properties['avatar_url'] = $value;
-    
-                after_avatar_url:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Enterprise', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Enterprise::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Enterprise(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Enterprise', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -589,7 +456,6 @@ class InstallationRequests implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\IntegrationInstallationRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IntegrationInstallationRequest($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Enterprise($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
@@ -687,7 +553,7 @@ class InstallationRequests implements ObjectMapper
         if ($account === null) {
             goto after_account;
         }
-        $account = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Enterprise($account);
+        $account = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($account);
         after_account:        $result['account'] = $account;
 
         
@@ -706,95 +572,6 @@ class InstallationRequests implements ObjectMapper
             goto after_created_at;
         }
         after_created_at:        $result['created_at'] = $created_at;
-
-
-        return $result;
-    }
-
-    
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Enterprise(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Enterprise);
-        $result = [];
-        
-        $description = $object->description;
-
-        if ($description === null) {
-            goto after_description;
-        }
-        after_description:        $result['description'] = $description;
-
-        
-        $html_url = $object->html_url;
-
-        if ($html_url === null) {
-            goto after_html_url;
-        }
-        after_html_url:        $result['html_url'] = $html_url;
-
-        
-        $website_url = $object->website_url;
-
-        if ($website_url === null) {
-            goto after_website_url;
-        }
-        after_website_url:        $result['website_url'] = $website_url;
-
-        
-        $id = $object->id;
-
-        if ($id === null) {
-            goto after_id;
-        }
-        after_id:        $result['id'] = $id;
-
-        
-        $node_id = $object->node_id;
-
-        if ($node_id === null) {
-            goto after_node_id;
-        }
-        after_node_id:        $result['node_id'] = $node_id;
-
-        
-        $name = $object->name;
-
-        if ($name === null) {
-            goto after_name;
-        }
-        after_name:        $result['name'] = $name;
-
-        
-        $slug = $object->slug;
-
-        if ($slug === null) {
-            goto after_slug;
-        }
-        after_slug:        $result['slug'] = $slug;
-
-        
-        $created_at = $object->created_at;
-
-        if ($created_at === null) {
-            goto after_created_at;
-        }
-        after_created_at:        $result['created_at'] = $created_at;
-
-        
-        $updated_at = $object->updated_at;
-
-        if ($updated_at === null) {
-            goto after_updated_at;
-        }
-        after_updated_at:        $result['updated_at'] = $updated_at;
-
-        
-        $avatar_url = $object->avatar_url;
-
-        if ($avatar_url === null) {
-            goto after_avatar_url;
-        }
-        after_avatar_url:        $result['avatar_url'] = $avatar_url;
 
 
         return $result;

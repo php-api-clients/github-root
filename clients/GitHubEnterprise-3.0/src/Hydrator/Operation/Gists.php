@@ -207,15 +207,6 @@ class Gists implements ObjectMapper
                     goto after_user;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'user';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['user'] = $value;
     
                 after_user:
@@ -1524,15 +1515,6 @@ class Gists implements ObjectMapper
                     goto after_user;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'user';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['user'] = $value;
     
                 after_user:
@@ -1828,15 +1810,6 @@ class Gists implements ObjectMapper
                     goto after_user;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'user';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['user'] = $value;
     
                 after_user:
@@ -1855,17 +1828,8 @@ class Gists implements ObjectMapper
                 $value = $payload['owner'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'owner';
+                    $properties['owner'] = null;
                     goto after_owner;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'owner';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['owner'] = $value;
@@ -2291,7 +2255,6 @@ class Gists implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($user);
         after_user:        $result['user'] = $user;
 
         
@@ -3142,7 +3105,6 @@ class Gists implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($user);
         after_user:        $result['user'] = $user;
 
         
@@ -3338,7 +3300,6 @@ class Gists implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($user);
         after_user:        $result['user'] = $user;
 
         
@@ -3351,7 +3312,10 @@ class Gists implements ObjectMapper
 
         
         $owner = $object->owner;
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($owner);
+
+        if ($owner === null) {
+            goto after_owner;
+        }
         after_owner:        $result['owner'] = $owner;
 
         
@@ -3459,14 +3423,6 @@ class Gists implements ObjectMapper
         if ($value === null) {
             goto after_value;
         }
-        static $valueSerializer0;
-
-        if ($valueSerializer0 === null) {
-            $valueSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
-));
-        }
-        
-        $value = $valueSerializer0->serialize($value, $this);
         after_value:        $result['value'] = $value;
 
 

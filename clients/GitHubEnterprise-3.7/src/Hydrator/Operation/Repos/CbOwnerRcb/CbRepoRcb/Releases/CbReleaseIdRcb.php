@@ -723,15 +723,6 @@ class CbReleaseIdRcb implements ObjectMapper
                     goto after_uploader;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'uploader';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['uploader'] = $value;
     
                 after_uploader:
@@ -1497,7 +1488,6 @@ class CbReleaseIdRcb implements ObjectMapper
         if ($uploader === null) {
             goto after_uploader;
         }
-        $uploader = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($uploader);
         after_uploader:        $result['uploader'] = $uploader;
 
 

@@ -725,15 +725,6 @@ class Releases implements ObjectMapper
                     goto after_uploader;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'uploader';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['uploader'] = $value;
     
                 after_uploader:
@@ -1654,7 +1645,6 @@ class Releases implements ObjectMapper
         if ($uploader === null) {
             goto after_uploader;
         }
-        $uploader = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($uploader);
         after_uploader:        $result['uploader'] = $uploader;
 
 
@@ -1864,14 +1854,6 @@ class Releases implements ObjectMapper
         if ($value === null) {
             goto after_value;
         }
-        static $valueSerializer0;
-
-        if ($valueSerializer0 === null) {
-            $valueSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
-));
-        }
-        
-        $value = $valueSerializer0->serialize($value, $this);
         after_value:        $result['value'] = $value;
 
 

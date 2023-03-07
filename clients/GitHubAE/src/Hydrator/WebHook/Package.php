@@ -34,14 +34,12 @@ class Package implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Tag' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️ContainerMetadata⚡️Tag($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NpmMetadata($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata⚡️Value($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\PackageFiles' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️PackageFiles($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\Release' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️Release($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\Registry' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️Registry($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($payload),
-                'ApiClients\Client\GitHubAE\Schema\LicenseSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️LicenseSimple($payload),
-                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
@@ -1001,7 +999,7 @@ class Package implements ObjectMapper
                 $value = $payload['body'] ?? null;
     
                 if ($value === null) {
-                    $properties['body'] = null;
+                    $missingFields[] = 'body';
                     goto after_body;
                 }
 
@@ -1930,15 +1928,6 @@ class Package implements ObjectMapper
                     goto after_value;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'value';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata⚡️Value($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['value'] = $value;
     
                 after_value:
@@ -1955,72 +1944,6 @@ class Package implements ObjectMapper
                 return new \ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata⚡️Value(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
-                }
-
-                $properties['url'] = $value;
-    
-                after_url:
-
-                $value = $payload['branch'] ?? null;
-    
-                if ($value === null) {
-                    $properties['branch'] = null;
-                    goto after_branch;
-                }
-
-                $properties['branch'] = $value;
-    
-                after_branch:
-
-                $value = $payload['commit'] ?? null;
-    
-                if ($value === null) {
-                    $properties['commit'] = null;
-                    goto after_commit;
-                }
-
-                $properties['commit'] = $value;
-    
-                after_commit:
-
-                $value = $payload['type'] ?? null;
-    
-                if ($value === null) {
-                    $properties['type'] = null;
-                    goto after_type;
-                }
-
-                $properties['type'] = $value;
-    
-                after_type:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -2454,15 +2377,6 @@ class Package implements ObjectMapper
                     goto after_license;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'license';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️LicenseSimple($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['license'] = $value;
     
                 after_license:
@@ -2470,17 +2384,8 @@ class Package implements ObjectMapper
                 $value = $payload['organization'] ?? null;
     
                 if ($value === null) {
-                    $missingFields[] = 'organization';
+                    $properties['organization'] = null;
                     goto after_organization;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'organization';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['organization'] = $value;
@@ -3487,90 +3392,79 @@ class Package implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️LicenseSimple(array $payload): \ApiClients\Client\GitHubAE\Schema\LicenseSimple
+        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\Permissions
         {
             $properties = []; 
             $missingFields = [];
             try {
                 
-                $value = $payload['key'] ?? null;
+                $value = $payload['admin'] ?? null;
     
                 if ($value === null) {
-                    $properties['key'] = null;
-                    goto after_key;
+                    $properties['admin'] = null;
+                    goto after_admin;
                 }
 
-                $properties['key'] = $value;
+                $properties['admin'] = $value;
     
-                after_key:
+                after_admin:
 
-                $value = $payload['name'] ?? null;
+                $value = $payload['pull'] ?? null;
     
                 if ($value === null) {
-                    $properties['name'] = null;
-                    goto after_name;
+                    $properties['pull'] = null;
+                    goto after_pull;
                 }
 
-                $properties['name'] = $value;
+                $properties['pull'] = $value;
     
-                after_name:
+                after_pull:
 
-                $value = $payload['url'] ?? null;
+                $value = $payload['triage'] ?? null;
     
                 if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
+                    $missingFields[] = 'triage';
+                    goto after_triage;
                 }
 
-                $properties['url'] = $value;
+                $properties['triage'] = $value;
     
-                after_url:
+                after_triage:
 
-                $value = $payload['spdx_id'] ?? null;
+                $value = $payload['push'] ?? null;
     
                 if ($value === null) {
-                    $properties['spdx_id'] = null;
-                    goto after_spdx_id;
+                    $properties['push'] = null;
+                    goto after_push;
                 }
 
-                $properties['spdx_id'] = $value;
+                $properties['push'] = $value;
     
-                after_spdx_id:
+                after_push:
 
-                $value = $payload['node_id'] ?? null;
+                $value = $payload['maintain'] ?? null;
     
                 if ($value === null) {
-                    $properties['node_id'] = null;
-                    goto after_node_id;
+                    $missingFields[] = 'maintain';
+                    goto after_maintain;
                 }
 
-                $properties['node_id'] = $value;
+                $properties['maintain'] = $value;
     
-                after_node_id:
-
-                $value = $payload['html_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'html_url';
-                    goto after_html_url;
-                }
-
-                $properties['html_url'] = $value;
-    
-                after_html_url:
+                after_maintain:
 
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\LicenseSimple', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
             }
             
             if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\LicenseSimple::class, $missingFields, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
             }
             
             try {
-                return new \ApiClients\Client\GitHubAE\Schema\LicenseSimple(...$properties);
+                return new \ApiClients\Client\GitHubAE\Schema\Repository\Permissions(...$properties);
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\LicenseSimple', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -3824,83 +3718,6 @@ class Package implements ObjectMapper
                 return new \ApiClients\Client\GitHubAE\Schema\SimpleUser(...$properties);
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\Permissions
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['admin'] ?? null;
-    
-                if ($value === null) {
-                    $properties['admin'] = null;
-                    goto after_admin;
-                }
-
-                $properties['admin'] = $value;
-    
-                after_admin:
-
-                $value = $payload['pull'] ?? null;
-    
-                if ($value === null) {
-                    $properties['pull'] = null;
-                    goto after_pull;
-                }
-
-                $properties['pull'] = $value;
-    
-                after_pull:
-
-                $value = $payload['triage'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'triage';
-                    goto after_triage;
-                }
-
-                $properties['triage'] = $value;
-    
-                after_triage:
-
-                $value = $payload['push'] ?? null;
-    
-                if ($value === null) {
-                    $properties['push'] = null;
-                    goto after_push;
-                }
-
-                $properties['push'] = $value;
-    
-                after_push:
-
-                $value = $payload['maintain'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'maintain';
-                    goto after_maintain;
-                }
-
-                $properties['maintain'] = $value;
-    
-                after_maintain:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\Repository\Permissions(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -6119,14 +5936,12 @@ class Package implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Tag' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️ContainerMetadata⚡️Tag($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NpmMetadata($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata($object),
-                'ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata⚡️Value($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\PackageFiles' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️PackageFiles($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\Release' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️Release($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\Registry' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️Registry($object),
                 'ApiClients\Client\GitHubAE\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($object),
-                'ApiClients\Client\GitHubAE\Schema\LicenseSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️LicenseSimple($object),
-                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
                 'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($object),
+                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($object),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
@@ -6710,10 +6525,6 @@ class Package implements ObjectMapper
 
         
         $body = $object->body;
-
-        if ($body === null) {
-            goto after_body;
-        }
         after_body:        $result['body'] = $body;
 
         
@@ -7332,49 +7143,7 @@ class Package implements ObjectMapper
         if ($value === null) {
             goto after_value;
         }
-        $value = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata⚡️Value($value);
         after_value:        $result['value'] = $value;
-
-
-        return $result;
-    }
-
-    
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPackagePublished⚡️Package⚡️PackageVersion⚡️NugetMetadata⚡️Value(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value);
-        $result = [];
-        
-        $url = $object->url;
-
-        if ($url === null) {
-            goto after_url;
-        }
-        after_url:        $result['url'] = $url;
-
-        
-        $branch = $object->branch;
-
-        if ($branch === null) {
-            goto after_branch;
-        }
-        after_branch:        $result['branch'] = $branch;
-
-        
-        $commit = $object->commit;
-
-        if ($commit === null) {
-            goto after_commit;
-        }
-        after_commit:        $result['commit'] = $commit;
-
-        
-        $type = $object->type;
-
-        if ($type === null) {
-            goto after_type;
-        }
-        after_type:        $result['type'] = $type;
 
 
         return $result;
@@ -7667,12 +7436,14 @@ class Package implements ObjectMapper
         if ($license === null) {
             goto after_license;
         }
-        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️LicenseSimple($license);
         after_license:        $result['license'] = $license;
 
         
         $organization = $object->organization;
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($organization);
+
+        if ($organization === null) {
+            goto after_organization;
+        }
         after_organization:        $result['organization'] = $organization;
 
         
@@ -8315,53 +8086,41 @@ class Package implements ObjectMapper
     }
 
     
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️LicenseSimple(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\LicenseSimple);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\Permissions);
         $result = [];
         
-        $key = $object->key;
+        $admin = $object->admin;
 
-        if ($key === null) {
-            goto after_key;
+        if ($admin === null) {
+            goto after_admin;
         }
-        after_key:        $result['key'] = $key;
+        after_admin:        $result['admin'] = $admin;
 
         
-        $name = $object->name;
+        $pull = $object->pull;
 
-        if ($name === null) {
-            goto after_name;
+        if ($pull === null) {
+            goto after_pull;
         }
-        after_name:        $result['name'] = $name;
+        after_pull:        $result['pull'] = $pull;
 
         
-        $url = $object->url;
-
-        if ($url === null) {
-            goto after_url;
-        }
-        after_url:        $result['url'] = $url;
+        $triage = $object->triage;
+        after_triage:        $result['triage'] = $triage;
 
         
-        $spdx_id = $object->spdx_id;
+        $push = $object->push;
 
-        if ($spdx_id === null) {
-            goto after_spdx_id;
+        if ($push === null) {
+            goto after_push;
         }
-        after_spdx_id:        $result['spdx_id'] = $spdx_id;
+        after_push:        $result['push'] = $push;
 
         
-        $node_id = $object->node_id;
-
-        if ($node_id === null) {
-            goto after_node_id;
-        }
-        after_node_id:        $result['node_id'] = $node_id;
-
-        
-        $html_url = $object->html_url;
-        after_html_url:        $result['html_url'] = $html_url;
+        $maintain = $object->maintain;
+        after_maintain:        $result['maintain'] = $maintain;
 
 
         return $result;
@@ -8535,47 +8294,6 @@ class Package implements ObjectMapper
         
         $starred_at = $object->starred_at;
         after_starred_at:        $result['starred_at'] = $starred_at;
-
-
-        return $result;
-    }
-
-    
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\Permissions);
-        $result = [];
-        
-        $admin = $object->admin;
-
-        if ($admin === null) {
-            goto after_admin;
-        }
-        after_admin:        $result['admin'] = $admin;
-
-        
-        $pull = $object->pull;
-
-        if ($pull === null) {
-            goto after_pull;
-        }
-        after_pull:        $result['pull'] = $pull;
-
-        
-        $triage = $object->triage;
-        after_triage:        $result['triage'] = $triage;
-
-        
-        $push = $object->push;
-
-        if ($push === null) {
-            goto after_push;
-        }
-        after_push:        $result['push'] = $push;
-
-        
-        $maintain = $object->maintain;
-        after_maintain:        $result['maintain'] = $maintain;
 
 
         return $result;

@@ -34,7 +34,6 @@ class Branches implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubAE\Schema\Team' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team($payload),
                 'ApiClients\Client\GitHubAE\Schema\Team\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\TeamSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamSimple($payload),
                 'ApiClients\Client\GitHubAE\Schema\Integration' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration($payload),
                 'ApiClients\Client\GitHubAE\Schema\Integration\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration⚡️Permissions($payload),
                 'ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️BypassPullRequestAllowances($payload),
@@ -1274,15 +1273,6 @@ class Branches implements ObjectMapper
                     goto after_parent;
                 }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'parent';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamSimple($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
                 $properties['parent'] = $value;
     
                 after_parent:
@@ -1380,160 +1370,6 @@ class Branches implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamSimple(array $payload): \ApiClients\Client\GitHubAE\Schema\TeamSimple
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['id'] = null;
-                    goto after_id;
-                }
-
-                $properties['id'] = $value;
-    
-                after_id:
-
-                $value = $payload['node_id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['node_id'] = null;
-                    goto after_node_id;
-                }
-
-                $properties['node_id'] = $value;
-    
-                after_node_id:
-
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
-                }
-
-                $properties['url'] = $value;
-    
-                after_url:
-
-                $value = $payload['members_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['members_url'] = null;
-                    goto after_members_url;
-                }
-
-                $properties['members_url'] = $value;
-    
-                after_members_url:
-
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['name'] = null;
-                    goto after_name;
-                }
-
-                $properties['name'] = $value;
-    
-                after_name:
-
-                $value = $payload['description'] ?? null;
-    
-                if ($value === null) {
-                    $properties['description'] = null;
-                    goto after_description;
-                }
-
-                $properties['description'] = $value;
-    
-                after_description:
-
-                $value = $payload['permission'] ?? null;
-    
-                if ($value === null) {
-                    $properties['permission'] = null;
-                    goto after_permission;
-                }
-
-                $properties['permission'] = $value;
-    
-                after_permission:
-
-                $value = $payload['privacy'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'privacy';
-                    goto after_privacy;
-                }
-
-                $properties['privacy'] = $value;
-    
-                after_privacy:
-
-                $value = $payload['html_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['html_url'] = null;
-                    goto after_html_url;
-                }
-
-                $properties['html_url'] = $value;
-    
-                after_html_url:
-
-                $value = $payload['repositories_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['repositories_url'] = null;
-                    goto after_repositories_url;
-                }
-
-                $properties['repositories_url'] = $value;
-    
-                after_repositories_url:
-
-                $value = $payload['slug'] ?? null;
-    
-                if ($value === null) {
-                    $properties['slug'] = null;
-                    goto after_slug;
-                }
-
-                $properties['slug'] = $value;
-    
-                after_slug:
-
-                $value = $payload['ldap_dn'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'ldap_dn';
-                    goto after_ldap_dn;
-                }
-
-                $properties['ldap_dn'] = $value;
-    
-                after_ldap_dn:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TeamSimple', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\TeamSimple::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\TeamSimple(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TeamSimple', $exception, stack: $this->hydrationStack);
-            }
-        }
-
-        
         private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration(array $payload): \ApiClients\Client\GitHubAE\Schema\Integration
         {
             $properties = []; 
@@ -1578,15 +1414,6 @@ class Branches implements ObjectMapper
                 if ($value === null) {
                     $properties['owner'] = null;
                     goto after_owner;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'owner';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
                 }
 
                 $properties['owner'] = $value;
@@ -3103,7 +2930,6 @@ class Branches implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
                 'ApiClients\Client\GitHubAE\Schema\Team' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team($object),
                 'ApiClients\Client\GitHubAE\Schema\Team\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team⚡️Permissions($object),
-                'ApiClients\Client\GitHubAE\Schema\TeamSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamSimple($object),
                 'ApiClients\Client\GitHubAE\Schema\Integration' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration($object),
                 'ApiClients\Client\GitHubAE\Schema\Integration\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration⚡️Permissions($object),
                 'ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️BypassPullRequestAllowances($object),
@@ -3895,7 +3721,6 @@ class Branches implements ObjectMapper
         if ($parent === null) {
             goto after_parent;
         }
-        $parent = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamSimple($parent);
         after_parent:        $result['parent'] = $parent;
 
 
@@ -3952,103 +3777,6 @@ class Branches implements ObjectMapper
     }
 
     
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamSimple(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\TeamSimple);
-        $result = [];
-        
-        $id = $object->id;
-
-        if ($id === null) {
-            goto after_id;
-        }
-        after_id:        $result['id'] = $id;
-
-        
-        $node_id = $object->node_id;
-
-        if ($node_id === null) {
-            goto after_node_id;
-        }
-        after_node_id:        $result['node_id'] = $node_id;
-
-        
-        $url = $object->url;
-
-        if ($url === null) {
-            goto after_url;
-        }
-        after_url:        $result['url'] = $url;
-
-        
-        $members_url = $object->members_url;
-
-        if ($members_url === null) {
-            goto after_members_url;
-        }
-        after_members_url:        $result['members_url'] = $members_url;
-
-        
-        $name = $object->name;
-
-        if ($name === null) {
-            goto after_name;
-        }
-        after_name:        $result['name'] = $name;
-
-        
-        $description = $object->description;
-
-        if ($description === null) {
-            goto after_description;
-        }
-        after_description:        $result['description'] = $description;
-
-        
-        $permission = $object->permission;
-
-        if ($permission === null) {
-            goto after_permission;
-        }
-        after_permission:        $result['permission'] = $permission;
-
-        
-        $privacy = $object->privacy;
-        after_privacy:        $result['privacy'] = $privacy;
-
-        
-        $html_url = $object->html_url;
-
-        if ($html_url === null) {
-            goto after_html_url;
-        }
-        after_html_url:        $result['html_url'] = $html_url;
-
-        
-        $repositories_url = $object->repositories_url;
-
-        if ($repositories_url === null) {
-            goto after_repositories_url;
-        }
-        after_repositories_url:        $result['repositories_url'] = $repositories_url;
-
-        
-        $slug = $object->slug;
-
-        if ($slug === null) {
-            goto after_slug;
-        }
-        after_slug:        $result['slug'] = $slug;
-
-        
-        $ldap_dn = $object->ldap_dn;
-        after_ldap_dn:        $result['ldap_dn'] = $ldap_dn;
-
-
-        return $result;
-    }
-
-    
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Integration);
@@ -4079,7 +3807,6 @@ class Branches implements ObjectMapper
         if ($owner === null) {
             goto after_owner;
         }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($owner);
         after_owner:        $result['owner'] = $owner;
 
         

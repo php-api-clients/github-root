@@ -32,9 +32,9 @@ class Push implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimple($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookPush\Pusher' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookPush⚡️Pusher($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTransferred\Changes\NewRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️License($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\AnswerChosenBy' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️AnswerChosenBy($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -1695,7 +1695,7 @@ class Push implements ObjectMapper
                 if (is_array($value)) {
                     try {
                         $this->hydrationStack[] = 'license';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License($value);
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️License($value);
                     } finally {
                         array_pop($this->hydrationStack);
                     }
@@ -1845,7 +1845,7 @@ class Push implements ObjectMapper
                 if (is_array($value)) {
                     try {
                         $this->hydrationStack[] = 'permissions';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions($value);
+                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️Permissions($value);
                     } finally {
                         array_pop($this->hydrationStack);
                     }
@@ -2146,7 +2146,7 @@ class Push implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\License
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️License(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\License
         {
             $properties = []; 
             $missingFields = [];
@@ -2208,17 +2208,17 @@ class Push implements ObjectMapper
                 after_url:
 
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\License', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\License', $exception, stack: $this->hydrationStack);
             }
             
             if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\License::class, $missingFields, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\License::class, $missingFields, stack: $this->hydrationStack);
             }
             
             try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\License(...$properties);
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\License(...$properties);
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\License', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\License', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -2476,7 +2476,7 @@ class Push implements ObjectMapper
         }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions
+        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\Permissions
         {
             $properties = []; 
             $missingFields = [];
@@ -2538,17 +2538,17 @@ class Push implements ObjectMapper
                 after_triage:
 
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\Permissions', $exception, stack: $this->hydrationStack);
             }
             
             if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\Permissions::class, $missingFields, stack: $this->hydrationStack);
             }
             
             try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions(...$properties);
+                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\Permissions(...$properties);
             } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions', $exception, stack: $this->hydrationStack);
+                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\Permissions', $exception, stack: $this->hydrationStack);
             }
         }
 
@@ -2825,9 +2825,9 @@ class Push implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimple($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookPush\Pusher' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookPush⚡️Pusher($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesTransferred\Changes\NewRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️License($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\AnswerChosenBy' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️AnswerChosenBy($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️Permissions($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -3944,7 +3944,7 @@ class Push implements ObjectMapper
         if ($license === null) {
             goto after_license;
         }
-        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License($license);
+        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️License($license);
         after_license:        $result['license'] = $license;
 
         
@@ -4030,7 +4030,7 @@ class Push implements ObjectMapper
 
         
         $permissions = $object->permissions;
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -4234,9 +4234,9 @@ class Push implements ObjectMapper
     }
 
     
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️License(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️License(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\License);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\License);
         $result = [];
         
         $key = $object->key;
@@ -4388,9 +4388,9 @@ class Push implements ObjectMapper
     }
 
     
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesOpened\Changes\OldRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\Permissions);
         $result = [];
         
         $admin = $object->admin;
