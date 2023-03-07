@@ -3,6 +3,7 @@
 declare (strict_types=1);
 namespace ApiClients\Client\GitHubAE\Operation\Gists;
 
+use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
 use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Operation;
 use ApiClients\Client\GitHubAE\Schema;
@@ -37,9 +38,9 @@ final class ListForUser
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{username}', '{since}', '{per_page}', '{page}'), array($this->username, $this->since, $this->per_page, $this->page), self::PATH . '?since={since}&per_page={per_page}&page={page}'));
     }
     /**
-     * @return \Rx\Observable<Schema\BaseGist>|Schema\ValidationError
+     * @return \Rx\Observable<Schema\BaseGist>
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable|Schema\ValidationError
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -59,7 +60,7 @@ final class ListForUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\ValidationError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationError::class, $body);
                 }
                 break;
         }

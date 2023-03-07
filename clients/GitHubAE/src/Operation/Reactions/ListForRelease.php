@@ -3,6 +3,7 @@
 declare (strict_types=1);
 namespace ApiClients\Client\GitHubAE\Operation\Reactions;
 
+use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
 use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Operation;
 use ApiClients\Client\GitHubAE\Schema;
@@ -43,9 +44,9 @@ final class ListForRelease
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{release_id}', '{content}', '{per_page}', '{page}'), array($this->owner, $this->repo, $this->release_id, $this->content, $this->per_page, $this->page), self::PATH . '?content={content}&per_page={per_page}&page={page}'));
     }
     /**
-     * @return \Rx\Observable<Schema\Reaction>|Schema\BasicError|Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415
+     * @return \Rx\Observable<Schema\Reaction>
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable|Schema\BasicError|Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -65,7 +66,7 @@ final class ListForRelease
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
             /**Preview header missing**/
@@ -73,7 +74,7 @@ final class ListForRelease
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415::class, $body);
                 }
                 break;
         }

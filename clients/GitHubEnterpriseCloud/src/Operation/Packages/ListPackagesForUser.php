@@ -3,6 +3,7 @@
 declare (strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\Packages;
 
+use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
@@ -37,9 +38,9 @@ final class ListPackagesForUser
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{package_type}', '{visibility}', '{username}'), array($this->package_type, $this->visibility, $this->username), self::PATH . '?package_type={package_type}&visibility={visibility}'));
     }
     /**
-     * @return \Rx\Observable<Schema\Package>|Schema\BasicError
+     * @return \Rx\Observable<Schema\Package>
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable|Schema\BasicError
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -59,7 +60,7 @@ final class ListPackagesForUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
             /**Requires authentication**/
@@ -67,7 +68,7 @@ final class ListPackagesForUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
         }

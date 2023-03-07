@@ -3,6 +3,7 @@
 declare (strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operation\Apps;
 
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
@@ -30,9 +31,9 @@ final class CheckAuthorization
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{client_id}', '{access_token}'), array($this->client_id, $this->access_token), self::PATH));
     }
     /**
-     * @return Schema\Operation\Apps\CheckAuthorization\Response\Applicationjson\H200|Schema\BasicError
+     * @return Schema\Operation\Apps\CheckAuthorization\Response\Applicationjson\H200
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Operation\Apps\CheckAuthorization\Response\Applicationjson\H200|Schema\BasicError
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Operation\Apps\CheckAuthorization\Response\Applicationjson\H200
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -50,7 +51,7 @@ final class CheckAuthorization
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
         }

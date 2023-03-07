@@ -3,6 +3,7 @@
 declare (strict_types=1);
 namespace ApiClients\Client\GitHubAE\Operation\Teams;
 
+use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
 use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Operation;
 use ApiClients\Client\GitHubAE\Schema;
@@ -34,9 +35,9 @@ final class AddOrUpdateMembershipForUserLegacy
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{team_id}', '{username}'), array($this->team_id, $this->username), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     /**
-     * @return Schema\TeamMembership|Schema\BasicError
+     * @return Schema\TeamMembership
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\TeamMembership|Schema\BasicError
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\TeamMembership
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -54,7 +55,7 @@ final class AddOrUpdateMembershipForUserLegacy
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
         }

@@ -3,6 +3,7 @@
 declare (strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operation\CodeScanning;
 
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
@@ -34,9 +35,9 @@ final class GetAnalysis
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{analysis_id}'), array($this->owner, $this->repo, $this->analysis_id), self::PATH));
     }
     /**
-     * @return Schema\CodeScanningAnalysis|Schema\Deployment\Payload|Schema\BasicError|Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503
+     * @return Schema\CodeScanningAnalysis|Schema\Deployment\Payload
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\CodeScanningAnalysis|Schema\Deployment\Payload|Schema\BasicError|Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\CodeScanningAnalysis|Schema\Deployment\Payload
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -57,7 +58,7 @@ final class GetAnalysis
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
             /**Service unavailable**/
@@ -65,7 +66,7 @@ final class GetAnalysis
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
             /**Service unavailable**/
@@ -73,7 +74,7 @@ final class GetAnalysis
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503::class, $body);
                 }
                 break;
         }

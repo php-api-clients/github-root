@@ -3,6 +3,7 @@
 declare (strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\Codespaces;
 
+use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
@@ -33,10 +34,7 @@ final class SetSelectedReposForOrgSecret
         $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\Codespaces\SetSelectedReposForOrgSecret\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{secret_name}'), array($this->org, $this->secret_name), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
-    /**
-     * @return Schema\BasicError
-     */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\BasicError
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : void
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -46,7 +44,7 @@ final class SetSelectedReposForOrgSecret
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
         }

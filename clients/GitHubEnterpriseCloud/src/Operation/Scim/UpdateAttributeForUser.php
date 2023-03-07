@@ -3,6 +3,7 @@
 declare (strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\Scim;
 
+use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
@@ -34,9 +35,9 @@ final class UpdateAttributeForUser
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{scim_user_id}'), array($this->org, $this->scim_user_id), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     /**
-     * @return Schema\ScimUser|Schema\ScimError|Schema\BasicError
+     * @return Schema\ScimUser
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\ScimUser|Schema\ScimError|Schema\BasicError
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\ScimUser
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -54,10 +55,10 @@ final class UpdateAttributeForUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\ScimError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                     case 'application/scim+json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\ScimError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                 }
                 break;
             /**Response**/
@@ -65,10 +66,10 @@ final class UpdateAttributeForUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\ScimError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                     case 'application/scim+json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\ScimError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                 }
                 break;
             /**Response**/
@@ -76,10 +77,10 @@ final class UpdateAttributeForUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\ScimError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                     case 'application/scim+json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\ScimError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                 }
                 break;
             /**Response**/
@@ -87,7 +88,7 @@ final class UpdateAttributeForUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
         }

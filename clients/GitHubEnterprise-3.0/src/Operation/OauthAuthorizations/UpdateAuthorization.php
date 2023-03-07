@@ -3,6 +3,7 @@
 declare (strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations;
 
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
@@ -31,9 +32,9 @@ final class UpdateAuthorization
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{authorization_id}'), array($this->authorization_id), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     /**
-     * @return Schema\Authorization|Schema\ValidationError
+     * @return Schema\Authorization
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Authorization|Schema\ValidationError
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Authorization
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -51,7 +52,7 @@ final class UpdateAuthorization
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\ValidationError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationError::class, $body);
                 }
                 break;
         }

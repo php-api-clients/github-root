@@ -3,6 +3,7 @@
 declare (strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operation\Repos;
 
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
@@ -35,9 +36,9 @@ final class GetContent
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{path}', '{ref}'), array($this->owner, $this->repo, $this->path, $this->ref), self::PATH . '?ref={ref}'));
     }
     /**
-     * @return Schema\ContentTree|Schema\Operation\Repos\GetContent\Response\Applicationjson\H200|Schema\BasicError
+     * @return Schema\ContentTree|Schema\Operation\Repos\GetContent\Response\Applicationjson\H200
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\ContentTree|Schema\Operation\Repos\GetContent\Response\Applicationjson\H200|Schema\BasicError
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\ContentTree|Schema\Operation\Repos\GetContent\Response\Applicationjson\H200
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -58,7 +59,7 @@ final class GetContent
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
             /**Forbidden**/
@@ -66,7 +67,7 @@ final class GetContent
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
         }

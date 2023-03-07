@@ -3,6 +3,7 @@
 declare (strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operation\Apps;
 
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
@@ -31,9 +32,9 @@ final class ListInstallationsForAuthenticatedUser
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{per_page}', '{page}'), array($this->per_page, $this->page), self::PATH . '?per_page={per_page}&page={page}'));
     }
     /**
-     * @return Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200|Schema\BasicError|Schema\Operation\Apps\GetInstallation\Response\Applicationjson\H415
+     * @return Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200|Schema\BasicError|Schema\Operation\Apps\GetInstallation\Response\Applicationjson\H415
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -51,7 +52,7 @@ final class ListInstallationsForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
             /**Preview header missing**/
@@ -59,7 +60,7 @@ final class ListInstallationsForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
             /**Preview header missing**/
@@ -67,7 +68,7 @@ final class ListInstallationsForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Apps\GetInstallation\Response\Applicationjson\H415::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\Operation\Apps\GetInstallation\Response\Applicationjson\H415::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Apps\GetInstallation\Response\Applicationjson\H415::class, $body);
                 }
                 break;
         }

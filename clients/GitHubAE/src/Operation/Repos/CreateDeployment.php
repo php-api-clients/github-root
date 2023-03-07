@@ -3,6 +3,7 @@
 declare (strict_types=1);
 namespace ApiClients\Client\GitHubAE\Operation\Repos;
 
+use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
 use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Operation;
 use ApiClients\Client\GitHubAE\Schema;
@@ -34,9 +35,9 @@ final class CreateDeployment
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}'), array($this->owner, $this->repo), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     /**
-     * @return Schema\Deployment|Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202|Schema\ValidationError
+     * @return Schema\Deployment|Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Deployment|Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202|Schema\ValidationError
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Deployment|Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -62,7 +63,7 @@ final class CreateDeployment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\ValidationError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationError::class, $body);
                 }
                 break;
         }

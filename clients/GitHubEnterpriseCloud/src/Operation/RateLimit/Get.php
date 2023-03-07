@@ -3,6 +3,7 @@
 declare (strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\RateLimit;
 
+use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
@@ -25,9 +26,9 @@ final class Get
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array(), array(), self::PATH));
     }
     /**
-     * @return Schema\RateLimitOverview|Schema\BasicError
+     * @return Schema\RateLimitOverview
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\RateLimitOverview|Schema\BasicError
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\RateLimitOverview
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
@@ -45,7 +46,7 @@ final class Get
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
         }
