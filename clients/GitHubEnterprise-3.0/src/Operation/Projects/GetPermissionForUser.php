@@ -37,7 +37,7 @@ final class GetPermissionForUser
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Requires authentication**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -45,7 +45,7 @@ final class GetPermissionForUser
                         return $this->hydrator->hydrateObject(Schema\ProjectCollaboratorPermission::class, $body);
                 }
                 break;
-            /**Requires authentication**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':
@@ -53,7 +53,7 @@ final class GetPermissionForUser
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Requires authentication**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':
@@ -61,7 +61,7 @@ final class GetPermissionForUser
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationError::class, $body);
                 }
                 break;
-            /**Requires authentication**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':

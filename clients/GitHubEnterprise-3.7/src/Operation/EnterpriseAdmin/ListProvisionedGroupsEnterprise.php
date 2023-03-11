@@ -45,7 +45,7 @@ final class ListProvisionedGroupsEnterprise
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Internal server error**/
+            /**Success, either groups were found or not found**/
             case 200:
                 switch ($contentType) {
                     case 'application/scim+json':
@@ -53,7 +53,7 @@ final class ListProvisionedGroupsEnterprise
                         return $this->hydrator->hydrateObject(Schema\ScimEnterpriseGroupList::class, $body);
                 }
                 break;
-            /**Internal server error**/
+            /**Bad request**/
             case 400:
                 switch ($contentType) {
                     case 'application/json':
@@ -64,7 +64,7 @@ final class ListProvisionedGroupsEnterprise
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                 }
                 break;
-            /**Internal server error**/
+            /**Too many requests**/
             case 429:
                 switch ($contentType) {
                     case 'application/json':

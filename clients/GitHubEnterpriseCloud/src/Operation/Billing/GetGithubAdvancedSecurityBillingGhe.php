@@ -42,7 +42,7 @@ final class GetGithubAdvancedSecurityBillingGhe
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Response if GitHub Advanced Security is not enabled for this repository**/
+            /**Success**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':

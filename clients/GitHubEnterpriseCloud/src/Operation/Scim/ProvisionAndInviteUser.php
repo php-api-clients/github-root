@@ -39,7 +39,7 @@ final class ProvisionAndInviteUser
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Bad request**/
+            /**Response**/
             case 201:
                 switch ($contentType) {
                     case 'application/scim+json':
@@ -47,7 +47,7 @@ final class ProvisionAndInviteUser
                         return $this->hydrator->hydrateObject(Schema\ScimUser::class, $body);
                 }
                 break;
-            /**Bad request**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':
@@ -58,7 +58,7 @@ final class ProvisionAndInviteUser
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                 }
                 break;
-            /**Bad request**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':
@@ -69,7 +69,7 @@ final class ProvisionAndInviteUser
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                 }
                 break;
-            /**Bad request**/
+            /**Internal server error**/
             case 500:
                 switch ($contentType) {
                     case 'application/json':
@@ -80,7 +80,7 @@ final class ProvisionAndInviteUser
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                 }
                 break;
-            /**Bad request**/
+            /**Conflict**/
             case 409:
                 switch ($contentType) {
                     case 'application/json':

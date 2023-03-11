@@ -43,7 +43,7 @@ final class AddStatusCheckContexts
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Resource not found**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -53,7 +53,7 @@ final class AddStatusCheckContexts
                         });
                 }
                 break;
-            /**Resource not found**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':
@@ -61,7 +61,7 @@ final class AddStatusCheckContexts
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationError::class, $body);
                 }
                 break;
-            /**Resource not found**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':

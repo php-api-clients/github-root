@@ -34,7 +34,7 @@ final class RemoveProjectLegacy
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Validation failed**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':
@@ -42,7 +42,7 @@ final class RemoveProjectLegacy
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Validation failed**/
+            /**Preview header missing**/
             case 415:
                 switch ($contentType) {
                     case 'application/json':

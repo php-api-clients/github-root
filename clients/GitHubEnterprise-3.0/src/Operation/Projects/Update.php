@@ -38,7 +38,7 @@ final class Update
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Validation failed**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -46,7 +46,7 @@ final class Update
                         return $this->hydrator->hydrateObject(Schema\Project::class, $body);
                 }
                 break;
-            /**Validation failed**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':
@@ -54,7 +54,7 @@ final class Update
                         throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Projects\DeleteCard\Response\Applicationjson\H403::class, $body);
                 }
                 break;
-            /**Validation failed**/
+            /**Requires authentication**/
             case 401:
                 switch ($contentType) {
                     case 'application/json':
@@ -62,7 +62,7 @@ final class Update
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Validation failed**/
+            /**Gone**/
             case 410:
                 switch ($contentType) {
                     case 'application/json':

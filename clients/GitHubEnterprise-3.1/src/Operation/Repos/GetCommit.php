@@ -48,7 +48,7 @@ final class GetCommit
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Internal Error**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -56,7 +56,7 @@ final class GetCommit
                         return $this->hydrator->hydrateObject(Schema\Commit::class, $body);
                 }
                 break;
-            /**Internal Error**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':
@@ -64,7 +64,7 @@ final class GetCommit
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationError::class, $body);
                 }
                 break;
-            /**Internal Error**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':

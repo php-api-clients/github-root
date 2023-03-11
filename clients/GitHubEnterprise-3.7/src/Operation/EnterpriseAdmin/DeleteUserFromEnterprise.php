@@ -33,7 +33,7 @@ final class DeleteUserFromEnterprise
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Internal server error**/
+            /**Bad request**/
             case 400:
                 switch ($contentType) {
                     case 'application/json':
@@ -44,7 +44,7 @@ final class DeleteUserFromEnterprise
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                 }
                 break;
-            /**Internal server error**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':
@@ -52,7 +52,7 @@ final class DeleteUserFromEnterprise
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Internal server error**/
+            /**Too many requests**/
             case 429:
                 switch ($contentType) {
                     case 'application/json':

@@ -37,7 +37,7 @@ final class DeleteDeployment
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Validation failed**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':

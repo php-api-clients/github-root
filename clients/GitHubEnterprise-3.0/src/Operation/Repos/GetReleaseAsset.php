@@ -40,7 +40,7 @@ final class GetReleaseAsset
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Preview header missing**/
+            /**To download the asset's binary content, set the `Accept` header of the request to [`application/octet-stream`](https://docs.github.com/enterprise-server@3.0/rest/overview/media-types). The API will either redirect the client to the location, or stream it directly if possible. API clients should handle both a `200` or `302` response.**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -48,7 +48,7 @@ final class GetReleaseAsset
                         return $this->hydrator->hydrateObject(Schema\ReleaseAsset::class, $body);
                 }
                 break;
-            /**Preview header missing**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':

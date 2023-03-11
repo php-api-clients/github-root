@@ -42,7 +42,7 @@ final class AddOrUpdateRepoPermissionsLegacy
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Validation failed**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':

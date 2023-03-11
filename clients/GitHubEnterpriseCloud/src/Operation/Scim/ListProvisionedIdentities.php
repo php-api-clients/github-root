@@ -51,7 +51,7 @@ final class ListProvisionedIdentities
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Too many requests**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/scim+json':
@@ -59,7 +59,7 @@ final class ListProvisionedIdentities
                         return $this->hydrator->hydrateObject(Schema\ScimUserList::class, $body);
                 }
                 break;
-            /**Too many requests**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':
@@ -70,7 +70,7 @@ final class ListProvisionedIdentities
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                 }
                 break;
-            /**Too many requests**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':
@@ -81,7 +81,7 @@ final class ListProvisionedIdentities
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                 }
                 break;
-            /**Too many requests**/
+            /**Bad request**/
             case 400:
                 switch ($contentType) {
                     case 'application/json':

@@ -45,14 +45,14 @@ final class ListMembers
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{filter}', '{role}', '{per_page}', '{page}'), array($this->org, $this->filter, $this->role, $this->per_page, $this->page), self::PATH . '?filter={filter}&role={role}&per_page={per_page}&page={page}'));
     }
     /**
-     * @return \Rx\Observable<Schema\SimpleUser>
+     * @return \Rx\Observable<Schema\SimpleUser>|array{code: int,location: string}
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable|array
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Validation failed**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -69,6 +69,10 @@ final class ListMembers
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationError::class, $body);
                 }
+                break;
+            /**Response if requester is not an organization member**/
+            case 302:
+                return array('code' => 302, 'location' => $response->getHeaderLine('Location'));
                 break;
         }
         throw new \RuntimeException('Unable to find matching response code and content type');

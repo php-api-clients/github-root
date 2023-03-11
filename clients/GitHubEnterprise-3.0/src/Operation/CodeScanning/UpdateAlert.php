@@ -43,7 +43,7 @@ final class UpdateAlert
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Service unavailable**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -51,7 +51,7 @@ final class UpdateAlert
                         return $this->hydrator->hydrateObject(Schema\CodeScanningAlert::class, $body);
                 }
                 break;
-            /**Service unavailable**/
+            /**Response if the repository is archived or if github advanced security is not enabled for this repository**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':
@@ -59,7 +59,7 @@ final class UpdateAlert
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Service unavailable**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':

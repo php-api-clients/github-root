@@ -38,7 +38,7 @@ final class CreateInOrg
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Validation failed**/
+            /**Response**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':
@@ -46,7 +46,7 @@ final class CreateInOrg
                         return $this->hydrator->hydrateObject(Schema\Repository::class, $body);
                 }
                 break;
-            /**Validation failed**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':

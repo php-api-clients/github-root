@@ -40,7 +40,7 @@ final class Merge
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Validation failed**/
+            /**Successful Response (The resulting merge commit)**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':
@@ -48,7 +48,7 @@ final class Merge
                         return $this->hydrator->hydrateObject(Schema\Commit::class, $body);
                 }
                 break;
-            /**Validation failed**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':

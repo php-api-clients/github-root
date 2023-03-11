@@ -39,7 +39,7 @@ final class UpdateInformationAboutPagesSite
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Bad Request**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':

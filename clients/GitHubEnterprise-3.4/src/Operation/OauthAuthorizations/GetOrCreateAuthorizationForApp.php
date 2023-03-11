@@ -39,7 +39,7 @@ final class GetOrCreateAuthorizationForApp
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Requires authentication**/
+            /**if returning an existing token**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -47,7 +47,7 @@ final class GetOrCreateAuthorizationForApp
                         return $this->hydrator->hydrateObject(Schema\Authorization::class, $body);
                 }
                 break;
-            /**Requires authentication**/
+            /****Deprecation Notice:** GitHub will discontinue the [OAuth Authorizations API](https://docs.github.com/enterprise-server@3.4/rest/reference/oauth-authorizations), which is used by integrations to create personal access tokens and OAuth tokens, and you must now create these tokens using our [web application flow](https://docs.github.com/enterprise-server@3.4/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow). The [OAuth Authorizations API](https://docs.github.com/enterprise-server@3.4/rest/reference/oauth-authorizations) will be removed on November, 13, 2020. For more information, including scheduled brownouts, see the [blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-auth-endpoint/).**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':
@@ -55,7 +55,7 @@ final class GetOrCreateAuthorizationForApp
                         return $this->hydrator->hydrateObject(Schema\Authorization::class, $body);
                 }
                 break;
-            /**Requires authentication**/
+            /**Validation failed, or the endpoint has been spammed.**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':
@@ -63,7 +63,7 @@ final class GetOrCreateAuthorizationForApp
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationError::class, $body);
                 }
                 break;
-            /**Requires authentication**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':

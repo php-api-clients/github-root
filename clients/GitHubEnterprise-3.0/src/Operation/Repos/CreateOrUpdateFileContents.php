@@ -43,7 +43,7 @@ final class CreateOrUpdateFileContents
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Conflict**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -51,7 +51,7 @@ final class CreateOrUpdateFileContents
                         return $this->hydrator->hydrateObject(Schema\FileCommit::class, $body);
                 }
                 break;
-            /**Conflict**/
+            /**Response**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':
@@ -59,7 +59,7 @@ final class CreateOrUpdateFileContents
                         return $this->hydrator->hydrateObject(Schema\FileCommit::class, $body);
                 }
                 break;
-            /**Conflict**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':
@@ -67,7 +67,7 @@ final class CreateOrUpdateFileContents
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Conflict**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':

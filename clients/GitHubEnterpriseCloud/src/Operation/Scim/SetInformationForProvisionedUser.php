@@ -42,7 +42,7 @@ final class SetInformationForProvisionedUser
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Forbidden**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/scim+json':
@@ -50,7 +50,7 @@ final class SetInformationForProvisionedUser
                         return $this->hydrator->hydrateObject(Schema\ScimUser::class, $body);
                 }
                 break;
-            /**Forbidden**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':

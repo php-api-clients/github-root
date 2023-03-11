@@ -39,7 +39,7 @@ final class GetEvent
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Forbidden**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -47,7 +47,7 @@ final class GetEvent
                         return $this->hydrator->hydrateObject(Schema\IssueEvent::class, $body);
                 }
                 break;
-            /**Forbidden**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':
@@ -55,7 +55,7 @@ final class GetEvent
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Forbidden**/
+            /**Gone**/
             case 410:
                 switch ($contentType) {
                     case 'application/json':

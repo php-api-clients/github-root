@@ -40,7 +40,7 @@ final class GetBranch
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Resource not found**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -48,7 +48,7 @@ final class GetBranch
                         return $this->hydrator->hydrateObject(Schema\BranchWithProtection::class, $body);
                 }
                 break;
-            /**Resource not found**/
+            /**Moved permanently**/
             case 301:
                 switch ($contentType) {
                     case 'application/json':
@@ -56,7 +56,7 @@ final class GetBranch
                         return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
-            /**Resource not found**/
+            /**Preview header missing**/
             case 415:
                 switch ($contentType) {
                     case 'application/json':

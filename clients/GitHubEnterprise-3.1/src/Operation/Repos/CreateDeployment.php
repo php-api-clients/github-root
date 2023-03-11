@@ -42,7 +42,7 @@ final class CreateDeployment
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Validation failed**/
+            /**Response**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':
@@ -50,7 +50,7 @@ final class CreateDeployment
                         return $this->hydrator->hydrateObject(Schema\Deployment::class, $body);
                 }
                 break;
-            /**Validation failed**/
+            /**Merged branch response**/
             case 202:
                 switch ($contentType) {
                     case 'application/json':

@@ -37,7 +37,10 @@ final class GetContributorsStats
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Accepted**/
+            /***   `w` - Start of the week, given as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time).
+            *   `a` - Number of additions
+            *   `d` - Number of deletions
+            *   `c` - Number of commits**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':

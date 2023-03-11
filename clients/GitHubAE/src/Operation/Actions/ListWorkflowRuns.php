@@ -30,6 +30,10 @@ final class ListWorkflowRuns
     private string $status;
     /**Returns workflow runs created within the given date-time range. For more information on the syntax, see "[Understanding the search syntax](https://docs.github.com/github-ae@latest/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates)."**/
     private string $created;
+    /**Returns workflow runs with the `check_suite_id` that you specify.**/
+    private int $check_suite_id;
+    /**Only returns workflow runs that are associated with the specified `head_sha`.**/
+    private string $head_sha;
     /**The number of results per page (max 100).**/
     private int $per_page;
     /**Page number of the results to fetch.**/
@@ -38,7 +42,7 @@ final class ListWorkflowRuns
     private bool $exclude_pull_requests;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Runs $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Runs $hydrator, string $owner, string $repo, $workflow_id, string $actor, string $branch, string $event, string $status, string $created, int $per_page = 30, int $page = 1, bool $exclude_pull_requests = false)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Runs $hydrator, string $owner, string $repo, $workflow_id, string $actor, string $branch, string $event, string $status, string $created, int $check_suite_id, string $head_sha, int $per_page = 30, int $page = 1, bool $exclude_pull_requests = false)
     {
         $this->owner = $owner;
         $this->repo = $repo;
@@ -48,6 +52,8 @@ final class ListWorkflowRuns
         $this->event = $event;
         $this->status = $status;
         $this->created = $created;
+        $this->check_suite_id = $check_suite_id;
+        $this->head_sha = $head_sha;
         $this->per_page = $per_page;
         $this->page = $page;
         $this->exclude_pull_requests = $exclude_pull_requests;
@@ -56,7 +62,7 @@ final class ListWorkflowRuns
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{workflow_id}', '{actor}', '{branch}', '{event}', '{status}', '{created}', '{per_page}', '{page}', '{exclude_pull_requests}'), array($this->owner, $this->repo, $this->workflow_id, $this->actor, $this->branch, $this->event, $this->status, $this->created, $this->per_page, $this->page, $this->exclude_pull_requests), self::PATH . '?actor={actor}&branch={branch}&event={event}&status={status}&created={created}&per_page={per_page}&page={page}&exclude_pull_requests={exclude_pull_requests}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{workflow_id}', '{actor}', '{branch}', '{event}', '{status}', '{created}', '{check_suite_id}', '{head_sha}', '{per_page}', '{page}', '{exclude_pull_requests}'), array($this->owner, $this->repo, $this->workflow_id, $this->actor, $this->branch, $this->event, $this->status, $this->created, $this->check_suite_id, $this->head_sha, $this->per_page, $this->page, $this->exclude_pull_requests), self::PATH . '?actor={actor}&branch={branch}&event={event}&status={status}&created={created}&check_suite_id={check_suite_id}&head_sha={head_sha}&per_page={per_page}&page={page}&exclude_pull_requests={exclude_pull_requests}'));
     }
     /**
      * @return Schema\Operation\Actions\ListWorkflowRunsForRepo\Response\Applicationjson\H200

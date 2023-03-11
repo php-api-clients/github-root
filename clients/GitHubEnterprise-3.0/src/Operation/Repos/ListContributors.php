@@ -46,7 +46,7 @@ final class ListContributors
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Resource not found**/
+            /**if repository contains content**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -56,7 +56,7 @@ final class ListContributors
                         });
                 }
                 break;
-            /**Resource not found**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':

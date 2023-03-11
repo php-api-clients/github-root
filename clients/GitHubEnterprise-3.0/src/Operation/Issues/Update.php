@@ -43,7 +43,7 @@ final class Update
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Gone**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -51,7 +51,7 @@ final class Update
                         return $this->hydrator->hydrateObject(Schema\Issue::class, $body);
                 }
                 break;
-            /**Gone**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':
@@ -59,7 +59,7 @@ final class Update
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationError::class, $body);
                 }
                 break;
-            /**Gone**/
+            /**Service unavailable**/
             case 503:
                 switch ($contentType) {
                     case 'application/json':
@@ -67,7 +67,7 @@ final class Update
                         throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503::class, $body);
                 }
                 break;
-            /**Gone**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':
@@ -75,7 +75,7 @@ final class Update
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Gone**/
+            /**Moved permanently**/
             case 301:
                 switch ($contentType) {
                     case 'application/json':
@@ -83,7 +83,7 @@ final class Update
                         return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
-            /**Gone**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':

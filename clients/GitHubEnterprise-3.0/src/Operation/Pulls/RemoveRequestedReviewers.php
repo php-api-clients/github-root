@@ -42,7 +42,7 @@ final class RemoveRequestedReviewers
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Validation failed**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':

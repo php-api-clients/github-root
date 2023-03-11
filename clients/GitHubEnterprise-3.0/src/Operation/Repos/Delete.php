@@ -37,7 +37,7 @@ final class Delete
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Resource not found**/
+            /**If an organization owner has configured the organization to prevent members from deleting organization-owned repositories, a member will get this response:**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':
@@ -45,7 +45,7 @@ final class Delete
                         throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422::class, $body);
                 }
                 break;
-            /**Resource not found**/
+            /**Temporary Redirect**/
             case 307:
                 switch ($contentType) {
                     case 'application/json':

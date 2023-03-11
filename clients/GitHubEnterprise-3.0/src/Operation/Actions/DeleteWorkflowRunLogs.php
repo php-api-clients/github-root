@@ -37,7 +37,7 @@ final class DeleteWorkflowRunLogs
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Internal Error**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':

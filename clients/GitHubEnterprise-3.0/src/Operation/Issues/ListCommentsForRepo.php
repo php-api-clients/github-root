@@ -52,7 +52,7 @@ final class ListCommentsForRepo
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Resource not found**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -62,7 +62,7 @@ final class ListCommentsForRepo
                         });
                 }
                 break;
-            /**Resource not found**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':

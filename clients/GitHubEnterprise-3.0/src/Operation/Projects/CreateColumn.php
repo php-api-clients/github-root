@@ -38,7 +38,7 @@ final class CreateColumn
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Requires authentication**/
+            /**Response**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':
@@ -46,7 +46,7 @@ final class CreateColumn
                         return $this->hydrator->hydrateObject(Schema\ProjectColumn::class, $body);
                 }
                 break;
-            /**Requires authentication**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':
@@ -54,7 +54,7 @@ final class CreateColumn
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Requires authentication**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':

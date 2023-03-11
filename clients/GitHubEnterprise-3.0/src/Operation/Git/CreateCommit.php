@@ -40,7 +40,7 @@ final class CreateCommit
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Resource not found**/
+            /**Response**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':
@@ -48,7 +48,7 @@ final class CreateCommit
                         return $this->hydrator->hydrateObject(Schema\GitCommit::class, $body);
                 }
                 break;
-            /**Resource not found**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':

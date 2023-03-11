@@ -40,7 +40,7 @@ final class Update
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Resource not found**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -48,7 +48,7 @@ final class Update
                         return $this->hydrator->hydrateObject(Schema\FullRepository::class, $body);
                 }
                 break;
-            /**Resource not found**/
+            /**Temporary Redirect**/
             case 307:
                 switch ($contentType) {
                     case 'application/json':
@@ -56,7 +56,7 @@ final class Update
                         return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                 }
                 break;
-            /**Resource not found**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':
@@ -64,7 +64,7 @@ final class Update
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Resource not found**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':

@@ -51,7 +51,7 @@ final class Labels
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Validation failed**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -59,7 +59,7 @@ final class Labels
                         return $this->hydrator->hydrateObject(Schema\Operation\Search\Labels\Response\Applicationjson\H200::class, $body);
                 }
                 break;
-            /**Validation failed**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':
@@ -67,7 +67,7 @@ final class Labels
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Validation failed**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':

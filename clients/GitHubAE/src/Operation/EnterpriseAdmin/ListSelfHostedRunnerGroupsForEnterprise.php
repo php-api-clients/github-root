@@ -16,15 +16,18 @@ final class ListSelfHostedRunnerGroupsForEnterprise
     private const PATH = '/enterprises/{enterprise}/actions/runner-groups';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
     private string $enterprise;
+    /**Only return runner groups that are allowed to be used by this organization.**/
+    private string $visible_to_organization;
     /**The number of results per page (max 100).**/
     private int $per_page;
     /**Page number of the results to fetch.**/
     private int $page;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerGroups $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerGroups $hydrator, string $enterprise, int $per_page = 30, int $page = 1)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerGroups $hydrator, string $enterprise, string $visible_to_organization, int $per_page = 30, int $page = 1)
     {
         $this->enterprise = $enterprise;
+        $this->visible_to_organization = $visible_to_organization;
         $this->per_page = $per_page;
         $this->page = $page;
         $this->responseSchemaValidator = $responseSchemaValidator;
@@ -32,7 +35,7 @@ final class ListSelfHostedRunnerGroupsForEnterprise
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{per_page}', '{page}'), array($this->enterprise, $this->per_page, $this->page), self::PATH . '?per_page={per_page}&page={page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{visible_to_organization}', '{per_page}', '{page}'), array($this->enterprise, $this->visible_to_organization, $this->per_page, $this->page), self::PATH . '?visible_to_organization={visible_to_organization}&per_page={per_page}&page={page}'));
     }
     /**
      * @return Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\Applicationjson\H200

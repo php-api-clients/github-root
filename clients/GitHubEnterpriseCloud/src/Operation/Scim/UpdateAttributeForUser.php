@@ -50,7 +50,7 @@ final class UpdateAttributeForUser
                         return $this->hydrator->hydrateObject(Schema\ScimUser::class, $body);
                 }
                 break;
-            /**Response**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':
@@ -61,7 +61,7 @@ final class UpdateAttributeForUser
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                 }
                 break;
-            /**Response**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':
@@ -72,7 +72,7 @@ final class UpdateAttributeForUser
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                 }
                 break;
-            /**Response**/
+            /**Bad request**/
             case 400:
                 switch ($contentType) {
                     case 'application/json':

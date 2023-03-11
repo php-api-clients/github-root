@@ -33,7 +33,7 @@ final class DeleteLegacy
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Gone**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':
@@ -41,7 +41,7 @@ final class DeleteLegacy
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Gone**/
+            /**Requires authentication**/
             case 401:
                 switch ($contentType) {
                     case 'application/json':

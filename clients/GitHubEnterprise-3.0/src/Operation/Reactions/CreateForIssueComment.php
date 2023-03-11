@@ -43,7 +43,7 @@ final class CreateForIssueComment
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Validation failed**/
+            /**Reaction exists**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -51,7 +51,7 @@ final class CreateForIssueComment
                         return $this->hydrator->hydrateObject(Schema\Reaction::class, $body);
                 }
                 break;
-            /**Validation failed**/
+            /**Reaction created**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':

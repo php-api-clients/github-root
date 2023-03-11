@@ -36,7 +36,7 @@ final class ProvisionEnterpriseUser
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Internal server error**/
+            /**User has been created**/
             case 201:
                 switch ($contentType) {
                     case 'application/scim+json':
@@ -44,7 +44,7 @@ final class ProvisionEnterpriseUser
                         return $this->hydrator->hydrateObject(Schema\ScimEnterpriseUserResponse::class, $body);
                 }
                 break;
-            /**Internal server error**/
+            /**Bad request**/
             case 400:
                 switch ($contentType) {
                     case 'application/json':
@@ -55,7 +55,7 @@ final class ProvisionEnterpriseUser
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
                 }
                 break;
-            /**Internal server error**/
+            /**Too many requests**/
             case 429:
                 switch ($contentType) {
                     case 'application/json':

@@ -42,7 +42,7 @@ final class ReplaceAllTopics
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Preview header missing**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -50,7 +50,7 @@ final class ReplaceAllTopics
                         return $this->hydrator->hydrateObject(Schema\Topic::class, $body);
                 }
                 break;
-            /**Preview header missing**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':
@@ -58,7 +58,7 @@ final class ReplaceAllTopics
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Preview header missing**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':

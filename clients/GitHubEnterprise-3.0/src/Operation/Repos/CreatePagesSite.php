@@ -40,7 +40,7 @@ final class CreatePagesSite
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Conflict**/
+            /**Response**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':
@@ -48,7 +48,7 @@ final class CreatePagesSite
                         return $this->hydrator->hydrateObject(Schema\Page::class, $body);
                 }
                 break;
-            /**Conflict**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':

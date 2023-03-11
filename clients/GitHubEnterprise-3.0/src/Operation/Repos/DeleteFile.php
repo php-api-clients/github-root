@@ -43,7 +43,7 @@ final class DeleteFile
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Service unavailable**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -51,7 +51,7 @@ final class DeleteFile
                         return $this->hydrator->hydrateObject(Schema\FileCommit::class, $body);
                 }
                 break;
-            /**Service unavailable**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':
@@ -59,7 +59,7 @@ final class DeleteFile
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationError::class, $body);
                 }
                 break;
-            /**Service unavailable**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':
@@ -67,7 +67,7 @@ final class DeleteFile
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Service unavailable**/
+            /**Conflict**/
             case 409:
                 switch ($contentType) {
                     case 'application/json':

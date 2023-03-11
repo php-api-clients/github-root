@@ -40,7 +40,7 @@ final class CreateTree
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Forbidden**/
+            /**Response**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':
@@ -48,7 +48,7 @@ final class CreateTree
                         return $this->hydrator->hydrateObject(Schema\GitTree::class, $body);
                 }
                 break;
-            /**Forbidden**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':
@@ -56,7 +56,7 @@ final class CreateTree
                         throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationError::class, $body);
                 }
                 break;
-            /**Forbidden**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':

@@ -39,7 +39,7 @@ final class Get
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Resource not found**/
+            /**Pass the appropriate [media type](https://docs.github.com/enterprise-server@3.0/rest/overview/media-types/#commits-commit-comparison-and-pull-requests) to fetch diff and patch formats.**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -47,7 +47,7 @@ final class Get
                         return $this->hydrator->hydrateObject(Schema\PullRequest::class, $body);
                 }
                 break;
-            /**Resource not found**/
+            /**Internal Error**/
             case 500:
                 switch ($contentType) {
                     case 'application/json':

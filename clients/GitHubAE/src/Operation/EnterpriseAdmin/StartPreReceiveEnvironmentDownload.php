@@ -36,7 +36,7 @@ final class StartPreReceiveEnvironmentDownload
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Client Errors**/
+            /**Response**/
             case 202:
                 switch ($contentType) {
                     case 'application/json':

@@ -39,7 +39,7 @@ final class AddOrUpdateProjectPermissionsLegacy
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Validation failed**/
+            /**Forbidden if the project is not owned by the organization**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':
@@ -47,7 +47,7 @@ final class AddOrUpdateProjectPermissionsLegacy
                         throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422::class, $body);
                 }
                 break;
-            /**Validation failed**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':

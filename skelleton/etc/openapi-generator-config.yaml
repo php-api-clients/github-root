@@ -1,3 +1,6 @@
 spec: {{ specUrl }}
 namespace: ApiClients\Client\{{ namespace }}
 destination: ../src
+voter:
+  streamOperation:
+    - ApiClients\Tools\OpenApiClientGenerator\Voter\StreamOperation\DownloadInOperationId

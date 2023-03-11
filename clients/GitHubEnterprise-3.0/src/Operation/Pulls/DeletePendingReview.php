@@ -42,7 +42,7 @@ final class DeletePendingReview
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Resource not found**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -50,7 +50,7 @@ final class DeletePendingReview
                         return $this->hydrator->hydrateObject(Schema\PullRequestReview::class, $body);
                 }
                 break;
-            /**Resource not found**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':

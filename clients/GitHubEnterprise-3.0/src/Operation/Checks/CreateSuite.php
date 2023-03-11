@@ -40,7 +40,7 @@ final class CreateSuite
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Response when the suite was created**/
+            /**when the suite already existed**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':

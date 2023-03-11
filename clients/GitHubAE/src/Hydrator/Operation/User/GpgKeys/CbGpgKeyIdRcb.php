@@ -51,6 +51,17 @@ class CbGpgKeyIdRcb implements ObjectMapper
     
                 after_id:
 
+                $value = $payload['name'] ?? null;
+    
+                if ($value === null) {
+                    $properties['name'] = null;
+                    goto after_name;
+                }
+
+                $properties['name'] = $value;
+    
+                after_name:
+
                 $value = $payload['primary_key_id'] ?? null;
     
                 if ($value === null) {
@@ -191,6 +202,17 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $properties['expires_at'] = $value;
     
                 after_expires_at:
+
+                $value = $payload['revoked'] ?? null;
+    
+                if ($value === null) {
+                    $properties['revoked'] = null;
+                    goto after_revoked;
+                }
+
+                $properties['revoked'] = $value;
+    
+                after_revoked:
 
                 $value = $payload['raw_key'] ?? null;
     
@@ -411,6 +433,17 @@ class CbGpgKeyIdRcb implements ObjectMapper
                 $properties['raw_key'] = $value;
     
                 after_raw_key:
+
+                $value = $payload['revoked'] ?? null;
+    
+                if ($value === null) {
+                    $properties['revoked'] = null;
+                    goto after_revoked;
+                }
+
+                $properties['revoked'] = $value;
+    
+                after_revoked:
 
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GpgKey\Subkeys', $exception, stack: $this->hydrationStack);
@@ -749,6 +782,14 @@ class CbGpgKeyIdRcb implements ObjectMapper
         after_id:        $result['id'] = $id;
 
         
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
         $primary_key_id = $object->primary_key_id;
 
         if ($primary_key_id === null) {
@@ -853,6 +894,14 @@ class CbGpgKeyIdRcb implements ObjectMapper
             goto after_expires_at;
         }
         after_expires_at:        $result['expires_at'] = $expires_at;
+
+        
+        $revoked = $object->revoked;
+
+        if ($revoked === null) {
+            goto after_revoked;
+        }
+        after_revoked:        $result['revoked'] = $revoked;
 
         
         $raw_key = $object->raw_key;
@@ -1015,6 +1064,14 @@ class CbGpgKeyIdRcb implements ObjectMapper
             goto after_raw_key;
         }
         after_raw_key:        $result['raw_key'] = $raw_key;
+
+        
+        $revoked = $object->revoked;
+
+        if ($revoked === null) {
+            goto after_revoked;
+        }
+        after_revoked:        $result['revoked'] = $revoked;
 
 
         return $result;

@@ -45,7 +45,7 @@ final class CreateForCommitComment
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Preview header missing**/
+            /**Reaction exists**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -53,7 +53,7 @@ final class CreateForCommitComment
                         return $this->hydrator->hydrateObject(Schema\Reaction::class, $body);
                 }
                 break;
-            /**Preview header missing**/
+            /**Reaction created**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':
@@ -61,7 +61,7 @@ final class CreateForCommitComment
                         return $this->hydrator->hydrateObject(Schema\Reaction::class, $body);
                 }
                 break;
-            /**Preview header missing**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':

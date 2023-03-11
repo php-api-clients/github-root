@@ -167,6 +167,39 @@ class RunnerGroups implements ObjectMapper
     
                 after_allows_public_repositories:
 
+                $value = $payload['workflow_restrictions_read_only'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'workflow_restrictions_read_only';
+                    goto after_workflow_restrictions_read_only;
+                }
+
+                $properties['workflow_restrictions_read_only'] = $value;
+    
+                after_workflow_restrictions_read_only:
+
+                $value = $payload['restricted_to_workflows'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'restricted_to_workflows';
+                    goto after_restricted_to_workflows;
+                }
+
+                $properties['restricted_to_workflows'] = $value;
+    
+                after_restricted_to_workflows:
+
+                $value = $payload['selected_workflows'] ?? null;
+    
+                if ($value === null) {
+                    $missingFields[] = 'selected_workflows';
+                    goto after_selected_workflows;
+                }
+
+                $properties['selected_workflows'] = $value;
+    
+                after_selected_workflows:
+
             } catch (\Throwable $exception) {
                 throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\RunnerGroupsEnterprise', $exception, stack: $this->hydrationStack);
             }
@@ -357,6 +390,26 @@ class RunnerGroups implements ObjectMapper
             goto after_allows_public_repositories;
         }
         after_allows_public_repositories:        $result['allows_public_repositories'] = $allows_public_repositories;
+
+        
+        $workflow_restrictions_read_only = $object->workflow_restrictions_read_only;
+        after_workflow_restrictions_read_only:        $result['workflow_restrictions_read_only'] = $workflow_restrictions_read_only;
+
+        
+        $restricted_to_workflows = $object->restricted_to_workflows;
+        after_restricted_to_workflows:        $result['restricted_to_workflows'] = $restricted_to_workflows;
+
+        
+        $selected_workflows = $object->selected_workflows;
+        static $selected_workflowsSerializer0;
+
+        if ($selected_workflowsSerializer0 === null) {
+            $selected_workflowsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $selected_workflows = $selected_workflowsSerializer0->serialize($selected_workflows, $this);
+        after_selected_workflows:        $result['selected_workflows'] = $selected_workflows;
 
 
         return $result;

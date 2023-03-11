@@ -39,7 +39,7 @@ final class CreateImpersonationOAuthToken
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Response when getting an existing impersonation OAuth token**/
+            /**Response when creating a new impersonation OAuth token**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':

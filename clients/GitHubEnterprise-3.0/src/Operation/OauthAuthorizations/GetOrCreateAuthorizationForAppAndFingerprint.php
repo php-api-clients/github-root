@@ -41,7 +41,7 @@ final class GetOrCreateAuthorizationForAppAndFingerprint
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Validation failed**/
+            /**if returning an existing token**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -49,7 +49,7 @@ final class GetOrCreateAuthorizationForAppAndFingerprint
                         return $this->hydrator->hydrateObject(Schema\Authorization::class, $body);
                 }
                 break;
-            /**Validation failed**/
+            /**Response if returning a new token**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':

@@ -43,7 +43,7 @@ final class CreateComment
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Resource not found**/
+            /**Response**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':
@@ -51,7 +51,7 @@ final class CreateComment
                         return $this->hydrator->hydrateObject(Schema\IssueComment::class, $body);
                 }
                 break;
-            /**Resource not found**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':
@@ -59,7 +59,7 @@ final class CreateComment
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Resource not found**/
+            /**Gone**/
             case 410:
                 switch ($contentType) {
                     case 'application/json':
@@ -67,7 +67,7 @@ final class CreateComment
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Resource not found**/
+            /**Validation failed**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':

@@ -43,7 +43,7 @@ final class GetAllTopics
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Preview header missing**/
+            /**Response**/
             case 200:
                 switch ($contentType) {
                     case 'application/json':
@@ -51,7 +51,7 @@ final class GetAllTopics
                         return $this->hydrator->hydrateObject(Schema\Topic::class, $body);
                 }
                 break;
-            /**Preview header missing**/
+            /**Resource not found**/
             case 404:
                 switch ($contentType) {
                     case 'application/json':

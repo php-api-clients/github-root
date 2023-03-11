@@ -36,7 +36,7 @@ final class CreateForAuthenticatedUser
         $contentType = $response->getHeaderLine('Content-Type');
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
-            /**Preview header missing**/
+            /**Response**/
             case 201:
                 switch ($contentType) {
                     case 'application/json':
@@ -44,7 +44,7 @@ final class CreateForAuthenticatedUser
                         return $this->hydrator->hydrateObject(Schema\Project::class, $body);
                 }
                 break;
-            /**Preview header missing**/
+            /**Forbidden**/
             case 403:
                 switch ($contentType) {
                     case 'application/json':
@@ -52,7 +52,7 @@ final class CreateForAuthenticatedUser
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Preview header missing**/
+            /**Requires authentication**/
             case 401:
                 switch ($contentType) {
                     case 'application/json':
@@ -60,7 +60,7 @@ final class CreateForAuthenticatedUser
                         throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
                 }
                 break;
-            /**Preview header missing**/
+            /**Validation failed, or the endpoint has been spammed.**/
             case 422:
                 switch ($contentType) {
                     case 'application/json':
