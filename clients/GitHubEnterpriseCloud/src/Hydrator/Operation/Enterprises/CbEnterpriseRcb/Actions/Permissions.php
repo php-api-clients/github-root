@@ -29,83 +29,102 @@ class Permissions implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsEnterprisePermissions(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['enabled_organizations'] ?? null;
-    
-                if ($value === null) {
-                    $properties['enabled_organizations'] = null;
-                    goto after_enabled_organizations;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsEnterprisePermissions(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['enabled_organizations'] ?? null;
 
-                $properties['enabled_organizations'] = $value;
-    
-                after_enabled_organizations:
-
-                $value = $payload['selected_organizations_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'selected_organizations_url';
-                    goto after_selected_organizations_url;
-                }
-
-                $properties['selected_organizations_url'] = $value;
-    
-                after_selected_organizations_url:
-
-                $value = $payload['allowed_actions'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'allowed_actions';
-                    goto after_allowed_actions;
-                }
-
-                $properties['allowed_actions'] = $value;
-    
-                after_allowed_actions:
-
-                $value = $payload['selected_actions_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'selected_actions_url';
-                    goto after_selected_actions_url;
-                }
-
-                $properties['selected_actions_url'] = $value;
-    
-                after_selected_actions_url:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'enabled_organizations';
+                goto after_enabled_organizations;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['enabled_organizations'] = $value;
+
+            after_enabled_organizations:
+
+            $value = $payload['selected_organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['selected_organizations_url'] = null;
+                goto after_selected_organizations_url;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions', $exception, stack: $this->hydrationStack);
+
+            $properties['selected_organizations_url'] = $value;
+
+            after_selected_organizations_url:
+
+            $value = $payload['allowed_actions'] ?? null;
+
+            if ($value === null) {
+                $properties['allowed_actions'] = null;
+                goto after_allowed_actions;
+            }
+
+            $properties['allowed_actions'] = $value;
+
+            after_allowed_actions:
+
+            $value = $payload['selected_actions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['selected_actions_url'] = null;
+                goto after_selected_actions_url;
+            }
+
+            $properties['selected_actions_url'] = $value;
+
+            after_selected_actions_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsEnterprisePermissions($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsEnterprisePermissions($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -178,29 +197,37 @@ class Permissions implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsEnterprisePermissions(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions);
         $result = [];
-        
-        $enabled_organizations = $object->enabled_organizations;
 
-        if ($enabled_organizations === null) {
-            goto after_enabled_organizations;
-        }
+        $enabled_organizations = $object->enabled_organizations;
         after_enabled_organizations:        $result['enabled_organizations'] = $enabled_organizations;
 
         
         $selected_organizations_url = $object->selected_organizations_url;
+
+        if ($selected_organizations_url === null) {
+            goto after_selected_organizations_url;
+        }
         after_selected_organizations_url:        $result['selected_organizations_url'] = $selected_organizations_url;
 
         
         $allowed_actions = $object->allowed_actions;
+
+        if ($allowed_actions === null) {
+            goto after_allowed_actions;
+        }
         after_allowed_actions:        $result['allowed_actions'] = $allowed_actions;
 
         
         $selected_actions_url = $object->selected_actions_url;
+
+        if ($selected_actions_url === null) {
+            goto after_selected_actions_url;
+        }
         after_selected_actions_url:        $result['selected_actions_url'] = $selected_actions_url;
 
 

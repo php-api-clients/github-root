@@ -14,7 +14,7 @@ final readonly class EnterpriseUserOverview
     public const SCHEMA_TITLE = 'Enterprise User Stats';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_users":13,"admin_users":13,"suspended_users":13}';
-    public function __construct(public ?int $total_users, public ?int $admin_users, public ?int $suspended_users)
+    public function __construct(public int $total_users, public int $admin_users, public int $suspended_users)
     {
     }
 }

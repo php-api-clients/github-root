@@ -29,171 +29,190 @@ class CredentialAuthorizations implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CredentialAuthorization(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['login'] ?? null;
-    
-                if ($value === null) {
-                    $properties['login'] = null;
-                    goto after_login;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CredentialAuthorization(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['login'] ?? null;
 
-                $properties['login'] = $value;
-    
-                after_login:
-
-                $value = $payload['credential_id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['credential_id'] = null;
-                    goto after_credential_id;
-                }
-
-                $properties['credential_id'] = $value;
-    
-                after_credential_id:
-
-                $value = $payload['credential_type'] ?? null;
-    
-                if ($value === null) {
-                    $properties['credential_type'] = null;
-                    goto after_credential_type;
-                }
-
-                $properties['credential_type'] = $value;
-    
-                after_credential_type:
-
-                $value = $payload['token_last_eight'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'token_last_eight';
-                    goto after_token_last_eight;
-                }
-
-                $properties['token_last_eight'] = $value;
-    
-                after_token_last_eight:
-
-                $value = $payload['credential_authorized_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['credential_authorized_at'] = null;
-                    goto after_credential_authorized_at;
-                }
-
-                $properties['credential_authorized_at'] = $value;
-    
-                after_credential_authorized_at:
-
-                $value = $payload['scopes'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'scopes';
-                    goto after_scopes;
-                }
-
-                $properties['scopes'] = $value;
-    
-                after_scopes:
-
-                $value = $payload['fingerprint'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'fingerprint';
-                    goto after_fingerprint;
-                }
-
-                $properties['fingerprint'] = $value;
-    
-                after_fingerprint:
-
-                $value = $payload['credential_accessed_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['credential_accessed_at'] = null;
-                    goto after_credential_accessed_at;
-                }
-
-                $properties['credential_accessed_at'] = $value;
-    
-                after_credential_accessed_at:
-
-                $value = $payload['authorized_credential_id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['authorized_credential_id'] = null;
-                    goto after_authorized_credential_id;
-                }
-
-                $properties['authorized_credential_id'] = $value;
-    
-                after_authorized_credential_id:
-
-                $value = $payload['authorized_credential_title'] ?? null;
-    
-                if ($value === null) {
-                    $properties['authorized_credential_title'] = null;
-                    goto after_authorized_credential_title;
-                }
-
-                $properties['authorized_credential_title'] = $value;
-    
-                after_authorized_credential_title:
-
-                $value = $payload['authorized_credential_note'] ?? null;
-    
-                if ($value === null) {
-                    $properties['authorized_credential_note'] = null;
-                    goto after_authorized_credential_note;
-                }
-
-                $properties['authorized_credential_note'] = $value;
-    
-                after_authorized_credential_note:
-
-                $value = $payload['authorized_credential_expires_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['authorized_credential_expires_at'] = null;
-                    goto after_authorized_credential_expires_at;
-                }
-
-                $properties['authorized_credential_expires_at'] = $value;
-    
-                after_authorized_credential_expires_at:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['credential_id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'credential_id';
+                goto after_credential_id;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization', $exception, stack: $this->hydrationStack);
+
+            $properties['credential_id'] = $value;
+
+            after_credential_id:
+
+            $value = $payload['credential_type'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'credential_type';
+                goto after_credential_type;
+            }
+
+            $properties['credential_type'] = $value;
+
+            after_credential_type:
+
+            $value = $payload['token_last_eight'] ?? null;
+
+            if ($value === null) {
+                $properties['token_last_eight'] = null;
+                goto after_token_last_eight;
+            }
+
+            $properties['token_last_eight'] = $value;
+
+            after_token_last_eight:
+
+            $value = $payload['credential_authorized_at'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'credential_authorized_at';
+                goto after_credential_authorized_at;
+            }
+
+            $properties['credential_authorized_at'] = $value;
+
+            after_credential_authorized_at:
+
+            $value = $payload['scopes'] ?? null;
+
+            if ($value === null) {
+                $properties['scopes'] = null;
+                goto after_scopes;
+            }
+
+            $properties['scopes'] = $value;
+
+            after_scopes:
+
+            $value = $payload['fingerprint'] ?? null;
+
+            if ($value === null) {
+                $properties['fingerprint'] = null;
+                goto after_fingerprint;
+            }
+
+            $properties['fingerprint'] = $value;
+
+            after_fingerprint:
+
+            $value = $payload['credential_accessed_at'] ?? null;
+
+            if ($value === null) {
+                $properties['credential_accessed_at'] = null;
+                goto after_credential_accessed_at;
+            }
+
+            $properties['credential_accessed_at'] = $value;
+
+            after_credential_accessed_at:
+
+            $value = $payload['authorized_credential_id'] ?? null;
+
+            if ($value === null) {
+                $properties['authorized_credential_id'] = null;
+                goto after_authorized_credential_id;
+            }
+
+            $properties['authorized_credential_id'] = $value;
+
+            after_authorized_credential_id:
+
+            $value = $payload['authorized_credential_title'] ?? null;
+
+            if ($value === null) {
+                $properties['authorized_credential_title'] = null;
+                goto after_authorized_credential_title;
+            }
+
+            $properties['authorized_credential_title'] = $value;
+
+            after_authorized_credential_title:
+
+            $value = $payload['authorized_credential_note'] ?? null;
+
+            if ($value === null) {
+                $properties['authorized_credential_note'] = null;
+                goto after_authorized_credential_note;
+            }
+
+            $properties['authorized_credential_note'] = $value;
+
+            after_authorized_credential_note:
+
+            $value = $payload['authorized_credential_expires_at'] ?? null;
+
+            if ($value === null) {
+                $properties['authorized_credential_expires_at'] = null;
+                goto after_authorized_credential_expires_at;
+            }
+
+            $properties['authorized_credential_expires_at'] = $value;
+
+            after_authorized_credential_expires_at:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CredentialAuthorization($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CredentialAuthorization($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -266,49 +285,41 @@ class CredentialAuthorizations implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CredentialAuthorization(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization);
         $result = [];
-        
-        $login = $object->login;
 
-        if ($login === null) {
-            goto after_login;
-        }
+        $login = $object->login;
         after_login:        $result['login'] = $login;
 
         
         $credential_id = $object->credential_id;
-
-        if ($credential_id === null) {
-            goto after_credential_id;
-        }
         after_credential_id:        $result['credential_id'] = $credential_id;
 
         
         $credential_type = $object->credential_type;
-
-        if ($credential_type === null) {
-            goto after_credential_type;
-        }
         after_credential_type:        $result['credential_type'] = $credential_type;
 
         
         $token_last_eight = $object->token_last_eight;
+
+        if ($token_last_eight === null) {
+            goto after_token_last_eight;
+        }
         after_token_last_eight:        $result['token_last_eight'] = $token_last_eight;
 
         
         $credential_authorized_at = $object->credential_authorized_at;
-
-        if ($credential_authorized_at === null) {
-            goto after_credential_authorized_at;
-        }
         after_credential_authorized_at:        $result['credential_authorized_at'] = $credential_authorized_at;
 
         
         $scopes = $object->scopes;
+
+        if ($scopes === null) {
+            goto after_scopes;
+        }
         static $scopesSerializer0;
 
         if ($scopesSerializer0 === null) {
@@ -321,6 +332,10 @@ class CredentialAuthorizations implements ObjectMapper
 
         
         $fingerprint = $object->fingerprint;
+
+        if ($fingerprint === null) {
+            goto after_fingerprint;
+        }
         after_fingerprint:        $result['fingerprint'] = $fingerprint;
 
         

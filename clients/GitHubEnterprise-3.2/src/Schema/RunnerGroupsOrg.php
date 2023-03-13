@@ -17,7 +17,7 @@ final readonly class RunnerGroupsOrg
     /**
      * selected_repositories_url: Link to the selected repositories resource for this runner group. Not present unless visibility was set to `selected`
      */
-    public function __construct(public ?int $id, public ?string $name, public ?string $visibility, public ?bool $default, public string $selected_repositories_url, public ?string $runners_url, public ?bool $inherited, public bool $inherited_allows_public_repositories, public ?bool $allows_public_repositories)
+    public function __construct(public int $id, public string $name, public string $visibility, public bool $default, public ?string $selected_repositories_url, public string $runners_url, public bool $inherited, public ?bool $inherited_allows_public_repositories, public bool $allows_public_repositories)
     {
     }
 }

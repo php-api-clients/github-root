@@ -29,105 +29,124 @@ class License implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseInfo(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['seats'] ?? null;
-    
-                if ($value === null) {
-                    $properties['seats'] = null;
-                    goto after_seats;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseInfo(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['seats'] ?? null;
 
-                $properties['seats'] = $value;
-    
-                after_seats:
-
-                $value = $payload['seats_used'] ?? null;
-    
-                if ($value === null) {
-                    $properties['seats_used'] = null;
-                    goto after_seats_used;
-                }
-
-                $properties['seats_used'] = $value;
-    
-                after_seats_used:
-
-                $value = $payload['seats_available'] ?? null;
-    
-                if ($value === null) {
-                    $properties['seats_available'] = null;
-                    goto after_seats_available;
-                }
-
-                $properties['seats_available'] = $value;
-    
-                after_seats_available:
-
-                $value = $payload['kind'] ?? null;
-    
-                if ($value === null) {
-                    $properties['kind'] = null;
-                    goto after_kind;
-                }
-
-                $properties['kind'] = $value;
-    
-                after_kind:
-
-                $value = $payload['days_until_expiration'] ?? null;
-    
-                if ($value === null) {
-                    $properties['days_until_expiration'] = null;
-                    goto after_days_until_expiration;
-                }
-
-                $properties['days_until_expiration'] = $value;
-    
-                after_days_until_expiration:
-
-                $value = $payload['expire_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['expire_at'] = null;
-                    goto after_expire_at;
-                }
-
-                $properties['expire_at'] = $value;
-    
-                after_expire_at:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $properties['seats'] = null;
+                goto after_seats;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['seats'] = $value;
+
+            after_seats:
+
+            $value = $payload['seats_used'] ?? null;
+
+            if ($value === null) {
+                $properties['seats_used'] = null;
+                goto after_seats_used;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo', $exception, stack: $this->hydrationStack);
+
+            $properties['seats_used'] = $value;
+
+            after_seats_used:
+
+            $value = $payload['seats_available'] ?? null;
+
+            if ($value === null) {
+                $properties['seats_available'] = null;
+                goto after_seats_available;
+            }
+
+            $properties['seats_available'] = $value;
+
+            after_seats_available:
+
+            $value = $payload['kind'] ?? null;
+
+            if ($value === null) {
+                $properties['kind'] = null;
+                goto after_kind;
+            }
+
+            $properties['kind'] = $value;
+
+            after_kind:
+
+            $value = $payload['days_until_expiration'] ?? null;
+
+            if ($value === null) {
+                $properties['days_until_expiration'] = null;
+                goto after_days_until_expiration;
+            }
+
+            $properties['days_until_expiration'] = $value;
+
+            after_days_until_expiration:
+
+            $value = $payload['expire_at'] ?? null;
+
+            if ($value === null) {
+                $properties['expire_at'] = null;
+                goto after_expire_at;
+            }
+
+            $properties['expire_at'] = $value;
+
+            after_expire_at:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseInfo($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseInfo($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -200,12 +219,12 @@ class License implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LicenseInfo(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo);
         $result = [];
-        
+
         $seats = $object->seats;
 
         if ($seats === null) {

@@ -18,7 +18,7 @@ final readonly class Applicationjson
      * name: The new pre-receive environment's name.
      * image_url: URL from which to download a tarball of this environment.
      */
-    public function __construct(public ?string $name, public ?string $image_url)
+    public function __construct(public string $name, public string $image_url)
     {
     }
 }

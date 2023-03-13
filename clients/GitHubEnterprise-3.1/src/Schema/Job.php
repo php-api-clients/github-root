@@ -24,9 +24,9 @@ final readonly class Job
      * completed_at: The time that the job finished, in ISO 8601 format.
      * name: The name of the job.
      * steps: Steps in this job.
-     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\Job\Steps> $steps
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\Job\Steps> $steps
      */
-    public function __construct(public ?int $id, public ?int $run_id, public ?string $run_url, public ?string $node_id, public ?string $head_sha, public ?string $url, public ?string $html_url, public ?string $status, public ?string $conclusion, public ?string $started_at, public ?string $completed_at, public ?string $name, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Job\Steps::class)] public array $steps, public ?string $check_run_url)
+    public function __construct(public int $id, public int $run_id, public string $run_url, public string $node_id, public string $head_sha, public string $url, public ?string $html_url, public string $status, public ?string $conclusion, public string $started_at, public ?string $completed_at, public string $name, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Job\Steps::class)] public ?array $steps, public string $check_run_url)
     {
     }
 }

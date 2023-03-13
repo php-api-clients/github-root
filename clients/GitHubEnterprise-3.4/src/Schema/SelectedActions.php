@@ -17,9 +17,9 @@ final readonly class SelectedActions
     /**
      * github_owned_allowed: Whether GitHub-owned actions are allowed. For example, this includes the actions in the `actions` organization.
      * patterns_allowed: Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, `monalisa/octocat@*`, `monalisa/octocat@v2`, `monalisa/*`.
-     * @param ?array<string> $patterns_allowed
+     * @param array<string> $patterns_allowed
      */
-    public function __construct(public ?bool $github_owned_allowed, public ?array $patterns_allowed)
+    public function __construct(public bool $github_owned_allowed, public array $patterns_allowed)
     {
     }
 }

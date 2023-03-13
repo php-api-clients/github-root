@@ -21,7 +21,7 @@ final readonly class Groups
      * status: synchronization status for this group mapping
      * synced_at: the time of the last sync for this group-mapping
      */
-    public function __construct(public ?string $group_id, public ?string $group_name, public ?string $group_description, public string $status, public ?string $synced_at)
+    public function __construct(public string $group_id, public string $group_name, public string $group_description, public ?string $status, public ?string $synced_at)
     {
     }
 }

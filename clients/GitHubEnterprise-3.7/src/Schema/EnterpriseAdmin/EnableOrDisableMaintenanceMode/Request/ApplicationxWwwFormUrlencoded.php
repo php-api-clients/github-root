@@ -21,7 +21,7 @@ final readonly class ApplicationxWwwFormUrlencoded
     
     The possible values for `when` are `now` or any date parseable by [mojombo/chronic](https://github.com/mojombo/chronic).
     */
-    public function __construct(public ?string $maintenance)
+    public function __construct(public string $maintenance)
     {
     }
 }

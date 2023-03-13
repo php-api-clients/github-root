@@ -15,10 +15,10 @@ final readonly class ApiOverview
     public const SCHEMA_DESCRIPTION = 'Api Overview';
     public const SCHEMA_EXAMPLE_DATA = '{"verifiable_password_authentication":true,"packages":["13.65.0.0\\/16"],"dependabot":["192.168.7.15\\/32"],"installed_version":"3.7.0"}';
     /**
-     * @param array<string> $packages
-     * @param array<string> $dependabot
+     * @param ?array<string> $packages
+     * @param ?array<string> $dependabot
      */
-    public function __construct(public ?bool $verifiable_password_authentication, public array $packages, public array $dependabot, public string $installed_version)
+    public function __construct(public bool $verifiable_password_authentication, public ?array $packages, public ?array $dependabot, public ?string $installed_version)
     {
     }
 }

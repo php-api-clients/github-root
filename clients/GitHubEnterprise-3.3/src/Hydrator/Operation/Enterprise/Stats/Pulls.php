@@ -29,83 +29,102 @@ class Pulls implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterprisePullRequestOverview(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_pulls'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_pulls'] = null;
-                    goto after_total_pulls;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterprisePullRequestOverview(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_pulls'] ?? null;
 
-                $properties['total_pulls'] = $value;
-    
-                after_total_pulls:
-
-                $value = $payload['merged_pulls'] ?? null;
-    
-                if ($value === null) {
-                    $properties['merged_pulls'] = null;
-                    goto after_merged_pulls;
-                }
-
-                $properties['merged_pulls'] = $value;
-    
-                after_merged_pulls:
-
-                $value = $payload['mergeable_pulls'] ?? null;
-    
-                if ($value === null) {
-                    $properties['mergeable_pulls'] = null;
-                    goto after_mergeable_pulls;
-                }
-
-                $properties['mergeable_pulls'] = $value;
-    
-                after_mergeable_pulls:
-
-                $value = $payload['unmergeable_pulls'] ?? null;
-    
-                if ($value === null) {
-                    $properties['unmergeable_pulls'] = null;
-                    goto after_unmergeable_pulls;
-                }
-
-                $properties['unmergeable_pulls'] = $value;
-    
-                after_unmergeable_pulls:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'total_pulls';
+                goto after_total_pulls;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['total_pulls'] = $value;
+
+            after_total_pulls:
+
+            $value = $payload['merged_pulls'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'merged_pulls';
+                goto after_merged_pulls;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['merged_pulls'] = $value;
+
+            after_merged_pulls:
+
+            $value = $payload['mergeable_pulls'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'mergeable_pulls';
+                goto after_mergeable_pulls;
+            }
+
+            $properties['mergeable_pulls'] = $value;
+
+            after_mergeable_pulls:
+
+            $value = $payload['unmergeable_pulls'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'unmergeable_pulls';
+                goto after_unmergeable_pulls;
+            }
+
+            $properties['unmergeable_pulls'] = $value;
+
+            after_unmergeable_pulls:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterprisePullRequestOverview($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterprisePullRequestOverview($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -178,41 +197,25 @@ class Pulls implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterprisePullRequestOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview);
         $result = [];
-        
-        $total_pulls = $object->total_pulls;
 
-        if ($total_pulls === null) {
-            goto after_total_pulls;
-        }
+        $total_pulls = $object->total_pulls;
         after_total_pulls:        $result['total_pulls'] = $total_pulls;
 
         
         $merged_pulls = $object->merged_pulls;
-
-        if ($merged_pulls === null) {
-            goto after_merged_pulls;
-        }
         after_merged_pulls:        $result['merged_pulls'] = $merged_pulls;
 
         
         $mergeable_pulls = $object->mergeable_pulls;
-
-        if ($mergeable_pulls === null) {
-            goto after_mergeable_pulls;
-        }
         after_mergeable_pulls:        $result['mergeable_pulls'] = $mergeable_pulls;
 
         
         $unmergeable_pulls = $object->unmergeable_pulls;
-
-        if ($unmergeable_pulls === null) {
-            goto after_unmergeable_pulls;
-        }
         after_unmergeable_pulls:        $result['unmergeable_pulls'] = $unmergeable_pulls;
 
 

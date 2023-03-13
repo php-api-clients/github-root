@@ -17,7 +17,7 @@ final readonly class Applicationjson
     /**
      * group_id: External Group Id
      */
-    public function __construct(public ?int $group_id)
+    public function __construct(public int $group_id)
     {
     }
 }

@@ -16,13 +16,13 @@ final readonly class Group
     public const SCHEMA_EXAMPLE_DATA = '{"schemas":["urn:ietf:params:scim:schemas:core:2.0:Group"],"externalId":"8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159","displayName":"Engineering","members":[{"value":"23a35c27-23d3-4c03-b4c5-6443c09e7173","displayName":"Monalisa Octocat"}]}';
     /**
      * schemas: The URIs that are used to indicate the namespaces of the SCIM schemas.
-     * @param ?array<string> $schemas
+     * @param array<string> $schemas
      * externalId: A unique identifier for the resource as defined by the provisioning client.
      * displayName: A human-readable name for a security group.
      * members: The group members.
-     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\Group\Members> $members
+     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\Group\Members> $members
      */
-    public function __construct(public ?array $schemas, public ?string $externalId, public ?string $displayName, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Group\Members::class)] public ?array $members)
+    public function __construct(public array $schemas, public string $externalId, public string $displayName, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Group\Members::class)] public array $members)
     {
     }
 }

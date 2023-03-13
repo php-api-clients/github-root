@@ -26,7 +26,7 @@ final readonly class Applicationjson
     * auto_inactive: Adds a new `inactive` status to all prior non-transient, non-production environment deployments with the same repository and `environment` name as the created status's deployment. An `inactive` status is only added to deployments that had a `success` state. Default: `true` 
     **Note:** This parameter requires you to use the [`application/vnd.github.ant-man-preview+json`](https://docs.github.com/enterprise-server@3.1/rest/overview/api-previews#enhanced-deployments) custom media type.
     */
-    public function __construct(public ?string $state, public string $target_url, public string $log_url, public string $description, public string $environment, public string $environment_url, public bool $auto_inactive)
+    public function __construct(public string $state, public ?string $target_url, public ?string $log_url, public ?string $description, public ?string $environment, public ?string $environment_url, public ?bool $auto_inactive)
     {
     }
 }

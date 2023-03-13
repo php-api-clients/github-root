@@ -18,7 +18,7 @@ final readonly class Applicationjson
      * login: The user's username.
      * email: **Required for built-in authentication.** The user's email address. This parameter can be omitted when using CAS, LDAP, or SAML. For details on built-in and centrally-managed authentication, see the the [GitHub authentication guide](https://docs.github.com/enterprise/2.18/admin/guides/user-management/authenticating-users-for-your-github-enterprise-server-instance/).
      */
-    public function __construct(public ?string $login, public string $email)
+    public function __construct(public string $login, public ?string $email)
     {
     }
 }

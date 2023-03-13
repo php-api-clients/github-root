@@ -34,7 +34,7 @@ final readonly class Applicationjson
     * allow_rebase_merge: Either `true` to allow rebase-merging pull requests, or `false` to prevent rebase-merging.
     * delete_branch_on_merge: Either `true` to allow automatically deleting head branches when pull requests are merged, or `false` to prevent automatic deletion.
     */
-    public function __construct(public ?string $name, public string $description, public string $homepage, public bool $private, public string $visibility, public bool $has_issues, public bool $has_projects, public bool $has_wiki, public bool $is_template, public int $team_id, public bool $auto_init, public string $gitignore_template, public string $license_template, public bool $allow_squash_merge, public bool $allow_merge_commit, public bool $allow_rebase_merge, public bool $delete_branch_on_merge)
+    public function __construct(public string $name, public ?string $description, public ?string $homepage, public ?bool $private, public ?string $visibility, public ?bool $has_issues, public ?bool $has_projects, public ?bool $has_wiki, public ?bool $is_template, public ?int $team_id, public ?bool $auto_init, public ?string $gitignore_template, public ?string $license_template, public ?bool $allow_squash_merge, public ?bool $allow_merge_commit, public ?bool $allow_rebase_merge, public ?bool $delete_branch_on_merge)
     {
     }
 }

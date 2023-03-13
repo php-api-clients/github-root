@@ -14,7 +14,7 @@ final readonly class H415
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message","documentation_url":"generated_documentation_url"}';
-    public function __construct(public ?string $message, public ?string $documentation_url)
+    public function __construct(public string $message, public string $documentation_url)
     {
     }
 }

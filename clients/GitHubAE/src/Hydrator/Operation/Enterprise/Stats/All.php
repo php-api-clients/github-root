@@ -39,843 +39,852 @@ class All implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['repos'] ?? null;
-    
-                if ($value === null) {
-                    $properties['repos'] = null;
-                    goto after_repos;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['repos'] ?? null;
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'repos';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['repos'] = $value;
-    
-                after_repos:
-
-                $value = $payload['hooks'] ?? null;
-    
-                if ($value === null) {
-                    $properties['hooks'] = null;
-                    goto after_hooks;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'hooks';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseHookOverview($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['hooks'] = $value;
-    
-                after_hooks:
-
-                $value = $payload['pages'] ?? null;
-    
-                if ($value === null) {
-                    $properties['pages'] = null;
-                    goto after_pages;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'pages';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePageOverview($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['pages'] = $value;
-    
-                after_pages:
-
-                $value = $payload['orgs'] ?? null;
-    
-                if ($value === null) {
-                    $properties['orgs'] = null;
-                    goto after_orgs;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'orgs';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOrganizationOverview($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['orgs'] = $value;
-    
-                after_orgs:
-
-                $value = $payload['users'] ?? null;
-    
-                if ($value === null) {
-                    $properties['users'] = null;
-                    goto after_users;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'users';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['users'] = $value;
-    
-                after_users:
-
-                $value = $payload['pulls'] ?? null;
-    
-                if ($value === null) {
-                    $properties['pulls'] = null;
-                    goto after_pulls;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'pulls';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePullRequestOverview($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['pulls'] = $value;
-    
-                after_pulls:
-
-                $value = $payload['issues'] ?? null;
-    
-                if ($value === null) {
-                    $properties['issues'] = null;
-                    goto after_issues;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'issues';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseIssueOverview($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['issues'] = $value;
-    
-                after_issues:
-
-                $value = $payload['milestones'] ?? null;
-    
-                if ($value === null) {
-                    $properties['milestones'] = null;
-                    goto after_milestones;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'milestones';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['milestones'] = $value;
-    
-                after_milestones:
-
-                $value = $payload['gists'] ?? null;
-    
-                if ($value === null) {
-                    $properties['gists'] = null;
-                    goto after_gists;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'gists';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseGistOverview($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['gists'] = $value;
-    
-                after_gists:
-
-                $value = $payload['comments'] ?? null;
-    
-                if ($value === null) {
-                    $properties['comments'] = null;
-                    goto after_comments;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'comments';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseCommentOverview($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['comments'] = $value;
-    
-                after_comments:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $properties['repos'] = null;
+                goto after_repos;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'repos';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\EnterpriseOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['repos'] = $value;
+
+            after_repos:
+
+            $value = $payload['hooks'] ?? null;
+
+            if ($value === null) {
+                $properties['hooks'] = null;
+                goto after_hooks;
             }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'hooks';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseHookOverview($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['hooks'] = $value;
+
+            after_hooks:
+
+            $value = $payload['pages'] ?? null;
+
+            if ($value === null) {
+                $properties['pages'] = null;
+                goto after_pages;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'pages';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePageOverview($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['pages'] = $value;
+
+            after_pages:
+
+            $value = $payload['orgs'] ?? null;
+
+            if ($value === null) {
+                $properties['orgs'] = null;
+                goto after_orgs;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'orgs';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOrganizationOverview($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['orgs'] = $value;
+
+            after_orgs:
+
+            $value = $payload['users'] ?? null;
+
+            if ($value === null) {
+                $properties['users'] = null;
+                goto after_users;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'users';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['users'] = $value;
+
+            after_users:
+
+            $value = $payload['pulls'] ?? null;
+
+            if ($value === null) {
+                $properties['pulls'] = null;
+                goto after_pulls;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'pulls';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePullRequestOverview($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['pulls'] = $value;
+
+            after_pulls:
+
+            $value = $payload['issues'] ?? null;
+
+            if ($value === null) {
+                $properties['issues'] = null;
+                goto after_issues;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'issues';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseIssueOverview($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['issues'] = $value;
+
+            after_issues:
+
+            $value = $payload['milestones'] ?? null;
+
+            if ($value === null) {
+                $properties['milestones'] = null;
+                goto after_milestones;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'milestones';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['milestones'] = $value;
+
+            after_milestones:
+
+            $value = $payload['gists'] ?? null;
+
+            if ($value === null) {
+                $properties['gists'] = null;
+                goto after_gists;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'gists';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseGistOverview($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['gists'] = $value;
+
+            after_gists:
+
+            $value = $payload['comments'] ?? null;
+
+            if ($value === null) {
+                $properties['comments'] = null;
+                goto after_comments;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'comments';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseCommentOverview($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['comments'] = $value;
+
+            after_comments:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseOverview', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_repos'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_repos'] = null;
-                    goto after_total_repos;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_repos'] ?? null;
 
-                $properties['total_repos'] = $value;
-    
-                after_total_repos:
-
-                $value = $payload['root_repos'] ?? null;
-    
-                if ($value === null) {
-                    $properties['root_repos'] = null;
-                    goto after_root_repos;
-                }
-
-                $properties['root_repos'] = $value;
-    
-                after_root_repos:
-
-                $value = $payload['fork_repos'] ?? null;
-    
-                if ($value === null) {
-                    $properties['fork_repos'] = null;
-                    goto after_fork_repos;
-                }
-
-                $properties['fork_repos'] = $value;
-    
-                after_fork_repos:
-
-                $value = $payload['org_repos'] ?? null;
-    
-                if ($value === null) {
-                    $properties['org_repos'] = null;
-                    goto after_org_repos;
-                }
-
-                $properties['org_repos'] = $value;
-    
-                after_org_repos:
-
-                $value = $payload['total_pushes'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_pushes'] = null;
-                    goto after_total_pushes;
-                }
-
-                $properties['total_pushes'] = $value;
-    
-                after_total_pushes:
-
-                $value = $payload['total_wikis'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_wikis'] = null;
-                    goto after_total_wikis;
-                }
-
-                $properties['total_wikis'] = $value;
-    
-                after_total_wikis:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'total_repos';
+                goto after_total_repos;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['total_repos'] = $value;
+
+            after_total_repos:
+
+            $value = $payload['root_repos'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'root_repos';
+                goto after_root_repos;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['root_repos'] = $value;
+
+            after_root_repos:
+
+            $value = $payload['fork_repos'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'fork_repos';
+                goto after_fork_repos;
             }
+
+            $properties['fork_repos'] = $value;
+
+            after_fork_repos:
+
+            $value = $payload['org_repos'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'org_repos';
+                goto after_org_repos;
+            }
+
+            $properties['org_repos'] = $value;
+
+            after_org_repos:
+
+            $value = $payload['total_pushes'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total_pushes';
+                goto after_total_pushes;
+            }
+
+            $properties['total_pushes'] = $value;
+
+            after_total_pushes:
+
+            $value = $payload['total_wikis'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total_wikis';
+                goto after_total_wikis;
+            }
+
+            $properties['total_wikis'] = $value;
+
+            after_total_wikis:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseHookOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_hooks'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_hooks'] = null;
-                    goto after_total_hooks;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseHookOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_hooks'] ?? null;
 
-                $properties['total_hooks'] = $value;
-    
-                after_total_hooks:
-
-                $value = $payload['active_hooks'] ?? null;
-    
-                if ($value === null) {
-                    $properties['active_hooks'] = null;
-                    goto after_active_hooks;
-                }
-
-                $properties['active_hooks'] = $value;
-    
-                after_active_hooks:
-
-                $value = $payload['inactive_hooks'] ?? null;
-    
-                if ($value === null) {
-                    $properties['inactive_hooks'] = null;
-                    goto after_inactive_hooks;
-                }
-
-                $properties['inactive_hooks'] = $value;
-    
-                after_inactive_hooks:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'total_hooks';
+                goto after_total_hooks;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['total_hooks'] = $value;
+
+            after_total_hooks:
+
+            $value = $payload['active_hooks'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'active_hooks';
+                goto after_active_hooks;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['active_hooks'] = $value;
+
+            after_active_hooks:
+
+            $value = $payload['inactive_hooks'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'inactive_hooks';
+                goto after_inactive_hooks;
             }
+
+            $properties['inactive_hooks'] = $value;
+
+            after_inactive_hooks:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePageOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_pages'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_pages'] = null;
-                    goto after_total_pages;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePageOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_pages'] ?? null;
 
-                $properties['total_pages'] = $value;
-    
-                after_total_pages:
+            if ($value === null) {
+                $missingFields[] = 'total_pages';
+                goto after_total_pages;
+            }
 
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview', $exception, stack: $this->hydrationStack);
-            }
+            $properties['total_pages'] = $value;
+
+            after_total_pages:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOrganizationOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_orgs'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_orgs'] = null;
-                    goto after_total_orgs;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOrganizationOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_orgs'] ?? null;
 
-                $properties['total_orgs'] = $value;
-    
-                after_total_orgs:
-
-                $value = $payload['disabled_orgs'] ?? null;
-    
-                if ($value === null) {
-                    $properties['disabled_orgs'] = null;
-                    goto after_disabled_orgs;
-                }
-
-                $properties['disabled_orgs'] = $value;
-    
-                after_disabled_orgs:
-
-                $value = $payload['total_teams'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_teams'] = null;
-                    goto after_total_teams;
-                }
-
-                $properties['total_teams'] = $value;
-    
-                after_total_teams:
-
-                $value = $payload['total_team_members'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_team_members'] = null;
-                    goto after_total_team_members;
-                }
-
-                $properties['total_team_members'] = $value;
-    
-                after_total_team_members:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'total_orgs';
+                goto after_total_orgs;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['total_orgs'] = $value;
+
+            after_total_orgs:
+
+            $value = $payload['disabled_orgs'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'disabled_orgs';
+                goto after_disabled_orgs;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['disabled_orgs'] = $value;
+
+            after_disabled_orgs:
+
+            $value = $payload['total_teams'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total_teams';
+                goto after_total_teams;
             }
+
+            $properties['total_teams'] = $value;
+
+            after_total_teams:
+
+            $value = $payload['total_team_members'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total_team_members';
+                goto after_total_team_members;
+            }
+
+            $properties['total_team_members'] = $value;
+
+            after_total_team_members:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_users'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_users'] = null;
-                    goto after_total_users;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_users'] ?? null;
 
-                $properties['total_users'] = $value;
-    
-                after_total_users:
-
-                $value = $payload['admin_users'] ?? null;
-    
-                if ($value === null) {
-                    $properties['admin_users'] = null;
-                    goto after_admin_users;
-                }
-
-                $properties['admin_users'] = $value;
-    
-                after_admin_users:
-
-                $value = $payload['suspended_users'] ?? null;
-    
-                if ($value === null) {
-                    $properties['suspended_users'] = null;
-                    goto after_suspended_users;
-                }
-
-                $properties['suspended_users'] = $value;
-    
-                after_suspended_users:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'total_users';
+                goto after_total_users;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['total_users'] = $value;
+
+            after_total_users:
+
+            $value = $payload['admin_users'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'admin_users';
+                goto after_admin_users;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['admin_users'] = $value;
+
+            after_admin_users:
+
+            $value = $payload['suspended_users'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'suspended_users';
+                goto after_suspended_users;
             }
+
+            $properties['suspended_users'] = $value;
+
+            after_suspended_users:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePullRequestOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_pulls'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_pulls'] = null;
-                    goto after_total_pulls;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePullRequestOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_pulls'] ?? null;
 
-                $properties['total_pulls'] = $value;
-    
-                after_total_pulls:
-
-                $value = $payload['merged_pulls'] ?? null;
-    
-                if ($value === null) {
-                    $properties['merged_pulls'] = null;
-                    goto after_merged_pulls;
-                }
-
-                $properties['merged_pulls'] = $value;
-    
-                after_merged_pulls:
-
-                $value = $payload['mergeable_pulls'] ?? null;
-    
-                if ($value === null) {
-                    $properties['mergeable_pulls'] = null;
-                    goto after_mergeable_pulls;
-                }
-
-                $properties['mergeable_pulls'] = $value;
-    
-                after_mergeable_pulls:
-
-                $value = $payload['unmergeable_pulls'] ?? null;
-    
-                if ($value === null) {
-                    $properties['unmergeable_pulls'] = null;
-                    goto after_unmergeable_pulls;
-                }
-
-                $properties['unmergeable_pulls'] = $value;
-    
-                after_unmergeable_pulls:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'total_pulls';
+                goto after_total_pulls;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['total_pulls'] = $value;
+
+            after_total_pulls:
+
+            $value = $payload['merged_pulls'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'merged_pulls';
+                goto after_merged_pulls;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['merged_pulls'] = $value;
+
+            after_merged_pulls:
+
+            $value = $payload['mergeable_pulls'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'mergeable_pulls';
+                goto after_mergeable_pulls;
             }
+
+            $properties['mergeable_pulls'] = $value;
+
+            after_mergeable_pulls:
+
+            $value = $payload['unmergeable_pulls'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'unmergeable_pulls';
+                goto after_unmergeable_pulls;
+            }
+
+            $properties['unmergeable_pulls'] = $value;
+
+            after_unmergeable_pulls:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseIssueOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_issues'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_issues'] = null;
-                    goto after_total_issues;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseIssueOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_issues'] ?? null;
 
-                $properties['total_issues'] = $value;
-    
-                after_total_issues:
-
-                $value = $payload['open_issues'] ?? null;
-    
-                if ($value === null) {
-                    $properties['open_issues'] = null;
-                    goto after_open_issues;
-                }
-
-                $properties['open_issues'] = $value;
-    
-                after_open_issues:
-
-                $value = $payload['closed_issues'] ?? null;
-    
-                if ($value === null) {
-                    $properties['closed_issues'] = null;
-                    goto after_closed_issues;
-                }
-
-                $properties['closed_issues'] = $value;
-    
-                after_closed_issues:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'total_issues';
+                goto after_total_issues;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['total_issues'] = $value;
+
+            after_total_issues:
+
+            $value = $payload['open_issues'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'open_issues';
+                goto after_open_issues;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['open_issues'] = $value;
+
+            after_open_issues:
+
+            $value = $payload['closed_issues'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'closed_issues';
+                goto after_closed_issues;
             }
+
+            $properties['closed_issues'] = $value;
+
+            after_closed_issues:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_milestones'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_milestones'] = null;
-                    goto after_total_milestones;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_milestones'] ?? null;
 
-                $properties['total_milestones'] = $value;
-    
-                after_total_milestones:
-
-                $value = $payload['open_milestones'] ?? null;
-    
-                if ($value === null) {
-                    $properties['open_milestones'] = null;
-                    goto after_open_milestones;
-                }
-
-                $properties['open_milestones'] = $value;
-    
-                after_open_milestones:
-
-                $value = $payload['closed_milestones'] ?? null;
-    
-                if ($value === null) {
-                    $properties['closed_milestones'] = null;
-                    goto after_closed_milestones;
-                }
-
-                $properties['closed_milestones'] = $value;
-    
-                after_closed_milestones:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'total_milestones';
+                goto after_total_milestones;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['total_milestones'] = $value;
+
+            after_total_milestones:
+
+            $value = $payload['open_milestones'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'open_milestones';
+                goto after_open_milestones;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['open_milestones'] = $value;
+
+            after_open_milestones:
+
+            $value = $payload['closed_milestones'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'closed_milestones';
+                goto after_closed_milestones;
             }
+
+            $properties['closed_milestones'] = $value;
+
+            after_closed_milestones:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseGistOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_gists'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_gists'] = null;
-                    goto after_total_gists;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseGistOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_gists'] ?? null;
 
-                $properties['total_gists'] = $value;
-    
-                after_total_gists:
-
-                $value = $payload['private_gists'] ?? null;
-    
-                if ($value === null) {
-                    $properties['private_gists'] = null;
-                    goto after_private_gists;
-                }
-
-                $properties['private_gists'] = $value;
-    
-                after_private_gists:
-
-                $value = $payload['public_gists'] ?? null;
-    
-                if ($value === null) {
-                    $properties['public_gists'] = null;
-                    goto after_public_gists;
-                }
-
-                $properties['public_gists'] = $value;
-    
-                after_public_gists:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'total_gists';
+                goto after_total_gists;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['total_gists'] = $value;
+
+            after_total_gists:
+
+            $value = $payload['private_gists'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'private_gists';
+                goto after_private_gists;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['private_gists'] = $value;
+
+            after_private_gists:
+
+            $value = $payload['public_gists'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'public_gists';
+                goto after_public_gists;
             }
+
+            $properties['public_gists'] = $value;
+
+            after_public_gists:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseCommentOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_commit_comments'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_commit_comments'] = null;
-                    goto after_total_commit_comments;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseCommentOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_commit_comments'] ?? null;
 
-                $properties['total_commit_comments'] = $value;
-    
-                after_total_commit_comments:
-
-                $value = $payload['total_gist_comments'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_gist_comments'] = null;
-                    goto after_total_gist_comments;
-                }
-
-                $properties['total_gist_comments'] = $value;
-    
-                after_total_gist_comments:
-
-                $value = $payload['total_issue_comments'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_issue_comments'] = null;
-                    goto after_total_issue_comments;
-                }
-
-                $properties['total_issue_comments'] = $value;
-    
-                after_total_issue_comments:
-
-                $value = $payload['total_pull_request_comments'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_pull_request_comments'] = null;
-                    goto after_total_pull_request_comments;
-                }
-
-                $properties['total_pull_request_comments'] = $value;
-    
-                after_total_pull_request_comments:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'total_commit_comments';
+                goto after_total_commit_comments;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['total_commit_comments'] = $value;
+
+            after_total_commit_comments:
+
+            $value = $payload['total_gist_comments'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total_gist_comments';
+                goto after_total_gist_comments;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['total_gist_comments'] = $value;
+
+            after_total_gist_comments:
+
+            $value = $payload['total_issue_comments'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total_issue_comments';
+                goto after_total_issue_comments;
+            }
+
+            $properties['total_issue_comments'] = $value;
+
+            after_total_issue_comments:
+
+            $value = $payload['total_pull_request_comments'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total_pull_request_comments';
+                goto after_total_pull_request_comments;
+            }
+
+            $properties['total_pull_request_comments'] = $value;
+
+            after_total_pull_request_comments:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubAE\Schema\EnterpriseOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOverview($object),
-                'ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview($object),
-                'ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseHookOverview($object),
-                'ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePageOverview($object),
-                'ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOrganizationOverview($object),
-                'ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview($object),
-                'ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePullRequestOverview($object),
-                'ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseIssueOverview($object),
-                'ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview($object),
-                'ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseGistOverview($object),
-                'ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseCommentOverview($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseHookOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePageOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOrganizationOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePullRequestOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseIssueOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseGistOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseCommentOverview($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -948,12 +957,12 @@ class All implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseOverview);
         $result = [];
-        
+
         $repos = $object->repos;
 
         if ($repos === null) {
@@ -1047,362 +1056,226 @@ class All implements ObjectMapper
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview);
         $result = [];
-        
-        $total_repos = $object->total_repos;
 
-        if ($total_repos === null) {
-            goto after_total_repos;
-        }
+        $total_repos = $object->total_repos;
         after_total_repos:        $result['total_repos'] = $total_repos;
 
         
         $root_repos = $object->root_repos;
-
-        if ($root_repos === null) {
-            goto after_root_repos;
-        }
         after_root_repos:        $result['root_repos'] = $root_repos;
 
         
         $fork_repos = $object->fork_repos;
-
-        if ($fork_repos === null) {
-            goto after_fork_repos;
-        }
         after_fork_repos:        $result['fork_repos'] = $fork_repos;
 
         
         $org_repos = $object->org_repos;
-
-        if ($org_repos === null) {
-            goto after_org_repos;
-        }
         after_org_repos:        $result['org_repos'] = $org_repos;
 
         
         $total_pushes = $object->total_pushes;
-
-        if ($total_pushes === null) {
-            goto after_total_pushes;
-        }
         after_total_pushes:        $result['total_pushes'] = $total_pushes;
 
         
         $total_wikis = $object->total_wikis;
-
-        if ($total_wikis === null) {
-            goto after_total_wikis;
-        }
         after_total_wikis:        $result['total_wikis'] = $total_wikis;
 
 
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseHookOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview);
         $result = [];
-        
-        $total_hooks = $object->total_hooks;
 
-        if ($total_hooks === null) {
-            goto after_total_hooks;
-        }
+        $total_hooks = $object->total_hooks;
         after_total_hooks:        $result['total_hooks'] = $total_hooks;
 
         
         $active_hooks = $object->active_hooks;
-
-        if ($active_hooks === null) {
-            goto after_active_hooks;
-        }
         after_active_hooks:        $result['active_hooks'] = $active_hooks;
 
         
         $inactive_hooks = $object->inactive_hooks;
-
-        if ($inactive_hooks === null) {
-            goto after_inactive_hooks;
-        }
         after_inactive_hooks:        $result['inactive_hooks'] = $inactive_hooks;
 
 
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePageOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview);
         $result = [];
-        
-        $total_pages = $object->total_pages;
 
-        if ($total_pages === null) {
-            goto after_total_pages;
-        }
+        $total_pages = $object->total_pages;
         after_total_pages:        $result['total_pages'] = $total_pages;
 
 
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOrganizationOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview);
         $result = [];
-        
-        $total_orgs = $object->total_orgs;
 
-        if ($total_orgs === null) {
-            goto after_total_orgs;
-        }
+        $total_orgs = $object->total_orgs;
         after_total_orgs:        $result['total_orgs'] = $total_orgs;
 
         
         $disabled_orgs = $object->disabled_orgs;
-
-        if ($disabled_orgs === null) {
-            goto after_disabled_orgs;
-        }
         after_disabled_orgs:        $result['disabled_orgs'] = $disabled_orgs;
 
         
         $total_teams = $object->total_teams;
-
-        if ($total_teams === null) {
-            goto after_total_teams;
-        }
         after_total_teams:        $result['total_teams'] = $total_teams;
 
         
         $total_team_members = $object->total_team_members;
-
-        if ($total_team_members === null) {
-            goto after_total_team_members;
-        }
         after_total_team_members:        $result['total_team_members'] = $total_team_members;
 
 
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview);
         $result = [];
-        
-        $total_users = $object->total_users;
 
-        if ($total_users === null) {
-            goto after_total_users;
-        }
+        $total_users = $object->total_users;
         after_total_users:        $result['total_users'] = $total_users;
 
         
         $admin_users = $object->admin_users;
-
-        if ($admin_users === null) {
-            goto after_admin_users;
-        }
         after_admin_users:        $result['admin_users'] = $admin_users;
 
         
         $suspended_users = $object->suspended_users;
-
-        if ($suspended_users === null) {
-            goto after_suspended_users;
-        }
         after_suspended_users:        $result['suspended_users'] = $suspended_users;
 
 
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePullRequestOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview);
         $result = [];
-        
-        $total_pulls = $object->total_pulls;
 
-        if ($total_pulls === null) {
-            goto after_total_pulls;
-        }
+        $total_pulls = $object->total_pulls;
         after_total_pulls:        $result['total_pulls'] = $total_pulls;
 
         
         $merged_pulls = $object->merged_pulls;
-
-        if ($merged_pulls === null) {
-            goto after_merged_pulls;
-        }
         after_merged_pulls:        $result['merged_pulls'] = $merged_pulls;
 
         
         $mergeable_pulls = $object->mergeable_pulls;
-
-        if ($mergeable_pulls === null) {
-            goto after_mergeable_pulls;
-        }
         after_mergeable_pulls:        $result['mergeable_pulls'] = $mergeable_pulls;
 
         
         $unmergeable_pulls = $object->unmergeable_pulls;
-
-        if ($unmergeable_pulls === null) {
-            goto after_unmergeable_pulls;
-        }
         after_unmergeable_pulls:        $result['unmergeable_pulls'] = $unmergeable_pulls;
 
 
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseIssueOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview);
         $result = [];
-        
-        $total_issues = $object->total_issues;
 
-        if ($total_issues === null) {
-            goto after_total_issues;
-        }
+        $total_issues = $object->total_issues;
         after_total_issues:        $result['total_issues'] = $total_issues;
 
         
         $open_issues = $object->open_issues;
-
-        if ($open_issues === null) {
-            goto after_open_issues;
-        }
         after_open_issues:        $result['open_issues'] = $open_issues;
 
         
         $closed_issues = $object->closed_issues;
-
-        if ($closed_issues === null) {
-            goto after_closed_issues;
-        }
         after_closed_issues:        $result['closed_issues'] = $closed_issues;
 
 
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview);
         $result = [];
-        
-        $total_milestones = $object->total_milestones;
 
-        if ($total_milestones === null) {
-            goto after_total_milestones;
-        }
+        $total_milestones = $object->total_milestones;
         after_total_milestones:        $result['total_milestones'] = $total_milestones;
 
         
         $open_milestones = $object->open_milestones;
-
-        if ($open_milestones === null) {
-            goto after_open_milestones;
-        }
         after_open_milestones:        $result['open_milestones'] = $open_milestones;
 
         
         $closed_milestones = $object->closed_milestones;
-
-        if ($closed_milestones === null) {
-            goto after_closed_milestones;
-        }
         after_closed_milestones:        $result['closed_milestones'] = $closed_milestones;
 
 
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseGistOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview);
         $result = [];
-        
-        $total_gists = $object->total_gists;
 
-        if ($total_gists === null) {
-            goto after_total_gists;
-        }
+        $total_gists = $object->total_gists;
         after_total_gists:        $result['total_gists'] = $total_gists;
 
         
         $private_gists = $object->private_gists;
-
-        if ($private_gists === null) {
-            goto after_private_gists;
-        }
         after_private_gists:        $result['private_gists'] = $private_gists;
 
         
         $public_gists = $object->public_gists;
-
-        if ($public_gists === null) {
-            goto after_public_gists;
-        }
         after_public_gists:        $result['public_gists'] = $public_gists;
 
 
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseCommentOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview);
         $result = [];
-        
-        $total_commit_comments = $object->total_commit_comments;
 
-        if ($total_commit_comments === null) {
-            goto after_total_commit_comments;
-        }
+        $total_commit_comments = $object->total_commit_comments;
         after_total_commit_comments:        $result['total_commit_comments'] = $total_commit_comments;
 
         
         $total_gist_comments = $object->total_gist_comments;
-
-        if ($total_gist_comments === null) {
-            goto after_total_gist_comments;
-        }
         after_total_gist_comments:        $result['total_gist_comments'] = $total_gist_comments;
 
         
         $total_issue_comments = $object->total_issue_comments;
-
-        if ($total_issue_comments === null) {
-            goto after_total_issue_comments;
-        }
         after_total_issue_comments:        $result['total_issue_comments'] = $total_issue_comments;
 
         
         $total_pull_request_comments = $object->total_pull_request_comments;
-
-        if ($total_pull_request_comments === null) {
-            goto after_total_pull_request_comments;
-        }
         after_total_pull_request_comments:        $result['total_pull_request_comments'] = $total_pull_request_comments;
 
 

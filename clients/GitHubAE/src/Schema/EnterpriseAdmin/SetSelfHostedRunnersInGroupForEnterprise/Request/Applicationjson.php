@@ -16,9 +16,9 @@ final readonly class Applicationjson
     public const SCHEMA_EXAMPLE_DATA = '{"runners":[13]}';
     /**
      * runners: List of runner IDs to add to the runner group.
-     * @param ?array<int> $runners
+     * @param array<int> $runners
      */
-    public function __construct(public ?array $runners)
+    public function __construct(public array $runners)
     {
     }
 }

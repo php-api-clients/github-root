@@ -30,138 +30,156 @@ class Groups implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['groups'] ?? null;
-    
-                if ($value === null) {
-                    $properties['groups'] = null;
-                    goto after_groups;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['groups'] ?? null;
 
-                static $groupsCaster1;
-    
-                if ($groupsCaster1 === null) {
-                    $groupsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($value === null) {
+                $properties['groups'] = null;
+                goto after_groups;
+            }
+
+            static $groupsCaster1;
+
+            if ($groupsCaster1 === null) {
+                $groupsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GroupMapping\\Groups',
 ));
-                }
-    
-                $value = $groupsCaster1->cast($value, $this);
+            }
 
-                $properties['groups'] = $value;
-    
-                after_groups:
+            $value = $groupsCaster1->cast($value, $this);
 
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping', $exception, stack: $this->hydrationStack);
-            }
+            $properties['groups'] = $value;
+
+            after_groups:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping⚡️Groups(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['group_id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['group_id'] = null;
-                    goto after_group_id;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping⚡️Groups(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['group_id'] ?? null;
 
-                $properties['group_id'] = $value;
-    
-                after_group_id:
-
-                $value = $payload['group_name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['group_name'] = null;
-                    goto after_group_name;
-                }
-
-                $properties['group_name'] = $value;
-    
-                after_group_name:
-
-                $value = $payload['group_description'] ?? null;
-    
-                if ($value === null) {
-                    $properties['group_description'] = null;
-                    goto after_group_description;
-                }
-
-                $properties['group_description'] = $value;
-    
-                after_group_description:
-
-                $value = $payload['status'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'status';
-                    goto after_status;
-                }
-
-                $properties['status'] = $value;
-    
-                after_status:
-
-                $value = $payload['synced_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['synced_at'] = null;
-                    goto after_synced_at;
-                }
-
-                $properties['synced_at'] = $value;
-    
-                after_synced_at:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'group_id';
+                goto after_group_id;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['group_id'] = $value;
+
+            after_group_id:
+
+            $value = $payload['group_name'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'group_name';
+                goto after_group_name;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups', $exception, stack: $this->hydrationStack);
+
+            $properties['group_name'] = $value;
+
+            after_group_name:
+
+            $value = $payload['group_description'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'group_description';
+                goto after_group_description;
+            }
+
+            $properties['group_description'] = $value;
+
+            after_group_description:
+
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+
+            $value = $payload['synced_at'] ?? null;
+
+            if ($value === null) {
+                $properties['synced_at'] = null;
+                goto after_synced_at;
+            }
+
+            $properties['synced_at'] = $value;
+
+            after_synced_at:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping⚡️Groups($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping⚡️Groups($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -234,12 +252,12 @@ class Groups implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping);
         $result = [];
-        
+
         $groups = $object->groups;
 
         if ($groups === null) {
@@ -260,37 +278,29 @@ class Groups implements ObjectMapper
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GroupMapping⚡️Groups(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups);
         $result = [];
-        
-        $group_id = $object->group_id;
 
-        if ($group_id === null) {
-            goto after_group_id;
-        }
+        $group_id = $object->group_id;
         after_group_id:        $result['group_id'] = $group_id;
 
         
         $group_name = $object->group_name;
-
-        if ($group_name === null) {
-            goto after_group_name;
-        }
         after_group_name:        $result['group_name'] = $group_name;
 
         
         $group_description = $object->group_description;
-
-        if ($group_description === null) {
-            goto after_group_description;
-        }
         after_group_description:        $result['group_description'] = $group_description;
 
         
         $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
         after_status:        $result['status'] = $status;
 
         

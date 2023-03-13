@@ -29,138 +29,157 @@ class Keys implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PublicKeyFull(array $payload): \ApiClients\Client\GitHubAE\Schema\PublicKeyFull
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['id'] = null;
-                    goto after_id;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PublicKeyFull(array $payload): \ApiClients\Client\GitHubAE\Schema\PublicKeyFull
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['id'] ?? null;
 
-                $properties['id'] = $value;
-    
-                after_id:
-
-                $value = $payload['key'] ?? null;
-    
-                if ($value === null) {
-                    $properties['key'] = null;
-                    goto after_key;
-                }
-
-                $properties['key'] = $value;
-    
-                after_key:
-
-                $value = $payload['user_id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['user_id'] = null;
-                    goto after_user_id;
-                }
-
-                $properties['user_id'] = $value;
-    
-                after_user_id:
-
-                $value = $payload['repository_id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['repository_id'] = null;
-                    goto after_repository_id;
-                }
-
-                $properties['repository_id'] = $value;
-    
-                after_repository_id:
-
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
-                }
-
-                $properties['url'] = $value;
-    
-                after_url:
-
-                $value = $payload['title'] ?? null;
-    
-                if ($value === null) {
-                    $properties['title'] = null;
-                    goto after_title;
-                }
-
-                $properties['title'] = $value;
-    
-                after_title:
-
-                $value = $payload['read_only'] ?? null;
-    
-                if ($value === null) {
-                    $properties['read_only'] = null;
-                    goto after_read_only;
-                }
-
-                $properties['read_only'] = $value;
-    
-                after_read_only:
-
-                $value = $payload['verified'] ?? null;
-    
-                if ($value === null) {
-                    $properties['verified'] = null;
-                    goto after_verified;
-                }
-
-                $properties['verified'] = $value;
-    
-                after_verified:
-
-                $value = $payload['created_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['created_at'] = null;
-                    goto after_created_at;
-                }
-
-                $properties['created_at'] = $value;
-    
-                after_created_at:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PublicKeyFull', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PublicKeyFull::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['key'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'key';
+                goto after_key;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\PublicKeyFull(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PublicKeyFull', $exception, stack: $this->hydrationStack);
+
+            $properties['key'] = $value;
+
+            after_key:
+
+            $value = $payload['user_id'] ?? null;
+
+            if ($value === null) {
+                $properties['user_id'] = null;
+                goto after_user_id;
+            }
+
+            $properties['user_id'] = $value;
+
+            after_user_id:
+
+            $value = $payload['repository_id'] ?? null;
+
+            if ($value === null) {
+                $properties['repository_id'] = null;
+                goto after_repository_id;
+            }
+
+            $properties['repository_id'] = $value;
+
+            after_repository_id:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+            $value = $payload['title'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'title';
+                goto after_title;
+            }
+
+            $properties['title'] = $value;
+
+            after_title:
+
+            $value = $payload['read_only'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'read_only';
+                goto after_read_only;
+            }
+
+            $properties['read_only'] = $value;
+
+            after_read_only:
+
+            $value = $payload['verified'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'verified';
+                goto after_verified;
+            }
+
+            $properties['verified'] = $value;
+
+            after_verified:
+
+            $value = $payload['created_at'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'created_at';
+                goto after_created_at;
+            }
+
+            $properties['created_at'] = $value;
+
+            after_created_at:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PublicKeyFull', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PublicKeyFull::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\PublicKeyFull(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PublicKeyFull', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubAE\Schema\PublicKeyFull' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PublicKeyFull($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubAE\Schema\PublicKeyFull' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PublicKeyFull($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -233,25 +252,17 @@ class Keys implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PublicKeyFull(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PublicKeyFull);
         $result = [];
-        
-        $id = $object->id;
 
-        if ($id === null) {
-            goto after_id;
-        }
+        $id = $object->id;
         after_id:        $result['id'] = $id;
 
         
         $key = $object->key;
-
-        if ($key === null) {
-            goto after_key;
-        }
         after_key:        $result['key'] = $key;
 
         
@@ -272,42 +283,22 @@ class Keys implements ObjectMapper
 
         
         $url = $object->url;
-
-        if ($url === null) {
-            goto after_url;
-        }
         after_url:        $result['url'] = $url;
 
         
         $title = $object->title;
-
-        if ($title === null) {
-            goto after_title;
-        }
         after_title:        $result['title'] = $title;
 
         
         $read_only = $object->read_only;
-
-        if ($read_only === null) {
-            goto after_read_only;
-        }
         after_read_only:        $result['read_only'] = $read_only;
 
         
         $verified = $object->verified;
-
-        if ($verified === null) {
-            goto after_verified;
-        }
         after_verified:        $result['verified'] = $verified;
 
         
         $created_at = $object->created_at;
-
-        if ($created_at === null) {
-            goto after_created_at;
-        }
         after_created_at:        $result['created_at'] = $created_at;
 
 

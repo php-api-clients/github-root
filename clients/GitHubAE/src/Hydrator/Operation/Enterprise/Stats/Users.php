@@ -29,72 +29,91 @@ class Users implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_users'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_users'] = null;
-                    goto after_total_users;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_users'] ?? null;
 
-                $properties['total_users'] = $value;
-    
-                after_total_users:
-
-                $value = $payload['admin_users'] ?? null;
-    
-                if ($value === null) {
-                    $properties['admin_users'] = null;
-                    goto after_admin_users;
-                }
-
-                $properties['admin_users'] = $value;
-    
-                after_admin_users:
-
-                $value = $payload['suspended_users'] ?? null;
-    
-                if ($value === null) {
-                    $properties['suspended_users'] = null;
-                    goto after_suspended_users;
-                }
-
-                $properties['suspended_users'] = $value;
-    
-                after_suspended_users:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'total_users';
+                goto after_total_users;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['total_users'] = $value;
+
+            after_total_users:
+
+            $value = $payload['admin_users'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'admin_users';
+                goto after_admin_users;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['admin_users'] = $value;
+
+            after_admin_users:
+
+            $value = $payload['suspended_users'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'suspended_users';
+                goto after_suspended_users;
+            }
+
+            $properties['suspended_users'] = $value;
+
+            after_suspended_users:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -167,33 +186,21 @@ class Users implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview);
         $result = [];
-        
-        $total_users = $object->total_users;
 
-        if ($total_users === null) {
-            goto after_total_users;
-        }
+        $total_users = $object->total_users;
         after_total_users:        $result['total_users'] = $total_users;
 
         
         $admin_users = $object->admin_users;
-
-        if ($admin_users === null) {
-            goto after_admin_users;
-        }
         after_admin_users:        $result['admin_users'] = $admin_users;
 
         
         $suspended_users = $object->suspended_users;
-
-        if ($suspended_users === null) {
-            goto after_suspended_users;
-        }
         after_suspended_users:        $result['suspended_users'] = $suspended_users;
 
 

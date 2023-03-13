@@ -17,7 +17,7 @@ final readonly class StarredRepository
     /**
      * repo: A git repository
      */
-    public function __construct(public ?string $starred_at, public ?Schema\Repository $repo)
+    public function __construct(public string $starred_at, public Schema\Repository $repo)
     {
     }
 }

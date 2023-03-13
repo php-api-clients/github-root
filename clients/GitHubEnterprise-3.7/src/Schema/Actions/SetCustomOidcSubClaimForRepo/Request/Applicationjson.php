@@ -17,7 +17,7 @@ final readonly class Applicationjson
     /**
      * use_default: Whether to use the default template or not.
      */
-    public function __construct(public ?bool $use_default)
+    public function __construct(public bool $use_default)
     {
     }
 }

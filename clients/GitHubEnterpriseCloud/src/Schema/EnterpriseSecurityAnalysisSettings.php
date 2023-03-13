@@ -25,7 +25,7 @@ final readonly class EnterpriseSecurityAnalysisSettings
     transferred to this enterprise.
     * secret_scanning_push_protection_custom_link: An optional URL string to display to contributors who are blocked from pushing a secret.
     */
-    public function __construct(public ?bool $advanced_security_enabled_for_new_repositories, public ?bool $dependabot_alerts_enabled_for_new_repositories, public ?bool $secret_scanning_enabled_for_new_repositories, public ?bool $secret_scanning_push_protection_enabled_for_new_repositories, public ?string $secret_scanning_push_protection_custom_link)
+    public function __construct(public bool $advanced_security_enabled_for_new_repositories, public bool $dependabot_alerts_enabled_for_new_repositories, public bool $secret_scanning_enabled_for_new_repositories, public bool $secret_scanning_push_protection_enabled_for_new_repositories, public ?string $secret_scanning_push_protection_custom_link)
     {
     }
 }

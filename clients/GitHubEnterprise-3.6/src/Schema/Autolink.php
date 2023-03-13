@@ -18,7 +18,7 @@ final readonly class Autolink
      * key_prefix: The prefix of a key that is linkified.
      * url_template: A template for the target URL that is generated if a key was found.
      */
-    public function __construct(public ?int $id, public ?string $key_prefix, public ?string $url_template)
+    public function __construct(public int $id, public string $key_prefix, public string $url_template)
     {
     }
 }

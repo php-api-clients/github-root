@@ -30,292 +30,310 @@ class CbJobIdRcb implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Job(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Job
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['id'] = null;
-                    goto after_id;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Job(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Job
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['id'] ?? null;
 
-                $properties['id'] = $value;
-    
-                after_id:
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
 
-                $value = $payload['run_id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['run_id'] = null;
-                    goto after_run_id;
-                }
+            $properties['id'] = $value;
 
-                $properties['run_id'] = $value;
-    
-                after_run_id:
+            after_id:
 
-                $value = $payload['run_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['run_url'] = null;
-                    goto after_run_url;
-                }
+            $value = $payload['run_id'] ?? null;
 
-                $properties['run_url'] = $value;
-    
-                after_run_url:
+            if ($value === null) {
+                $missingFields[] = 'run_id';
+                goto after_run_id;
+            }
 
-                $value = $payload['node_id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['node_id'] = null;
-                    goto after_node_id;
-                }
+            $properties['run_id'] = $value;
 
-                $properties['node_id'] = $value;
-    
-                after_node_id:
+            after_run_id:
 
-                $value = $payload['head_sha'] ?? null;
-    
-                if ($value === null) {
-                    $properties['head_sha'] = null;
-                    goto after_head_sha;
-                }
+            $value = $payload['run_url'] ?? null;
 
-                $properties['head_sha'] = $value;
-    
-                after_head_sha:
+            if ($value === null) {
+                $missingFields[] = 'run_url';
+                goto after_run_url;
+            }
 
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
-                }
+            $properties['run_url'] = $value;
 
-                $properties['url'] = $value;
-    
-                after_url:
+            after_run_url:
 
-                $value = $payload['html_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['html_url'] = null;
-                    goto after_html_url;
-                }
+            $value = $payload['node_id'] ?? null;
 
-                $properties['html_url'] = $value;
-    
-                after_html_url:
+            if ($value === null) {
+                $missingFields[] = 'node_id';
+                goto after_node_id;
+            }
 
-                $value = $payload['status'] ?? null;
-    
-                if ($value === null) {
-                    $properties['status'] = null;
-                    goto after_status;
-                }
+            $properties['node_id'] = $value;
 
-                $properties['status'] = $value;
-    
-                after_status:
+            after_node_id:
 
-                $value = $payload['conclusion'] ?? null;
-    
-                if ($value === null) {
-                    $properties['conclusion'] = null;
-                    goto after_conclusion;
-                }
+            $value = $payload['head_sha'] ?? null;
 
-                $properties['conclusion'] = $value;
-    
-                after_conclusion:
+            if ($value === null) {
+                $missingFields[] = 'head_sha';
+                goto after_head_sha;
+            }
 
-                $value = $payload['started_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['started_at'] = null;
-                    goto after_started_at;
-                }
+            $properties['head_sha'] = $value;
 
-                $properties['started_at'] = $value;
-    
-                after_started_at:
+            after_head_sha:
 
-                $value = $payload['completed_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['completed_at'] = null;
-                    goto after_completed_at;
-                }
+            $value = $payload['url'] ?? null;
 
-                $properties['completed_at'] = $value;
-    
-                after_completed_at:
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
 
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['name'] = null;
-                    goto after_name;
-                }
+            $properties['url'] = $value;
 
-                $properties['name'] = $value;
-    
-                after_name:
+            after_url:
 
-                $value = $payload['steps'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'steps';
-                    goto after_steps;
-                }
+            $value = $payload['html_url'] ?? null;
 
-                static $stepsCaster1;
-    
-                if ($stepsCaster1 === null) {
-                    $stepsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($value === null) {
+                $properties['html_url'] = null;
+                goto after_html_url;
+            }
+
+            $properties['html_url'] = $value;
+
+            after_html_url:
+
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'status';
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+
+            $value = $payload['conclusion'] ?? null;
+
+            if ($value === null) {
+                $properties['conclusion'] = null;
+                goto after_conclusion;
+            }
+
+            $properties['conclusion'] = $value;
+
+            after_conclusion:
+
+            $value = $payload['started_at'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'started_at';
+                goto after_started_at;
+            }
+
+            $properties['started_at'] = $value;
+
+            after_started_at:
+
+            $value = $payload['completed_at'] ?? null;
+
+            if ($value === null) {
+                $properties['completed_at'] = null;
+                goto after_completed_at;
+            }
+
+            $properties['completed_at'] = $value;
+
+            after_completed_at:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'name';
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['steps'] ?? null;
+
+            if ($value === null) {
+                $properties['steps'] = null;
+                goto after_steps;
+            }
+
+            static $stepsCaster1;
+
+            if ($stepsCaster1 === null) {
+                $stepsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Job\\Steps',
 ));
-                }
-    
-                $value = $stepsCaster1->cast($value, $this);
-
-                $properties['steps'] = $value;
-    
-                after_steps:
-
-                $value = $payload['check_run_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['check_run_url'] = null;
-                    goto after_check_run_url;
-                }
-
-                $properties['check_run_url'] = $value;
-    
-                after_check_run_url:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Job', $exception, stack: $this->hydrationStack);
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Job::class, $missingFields, stack: $this->hydrationStack);
+
+            $value = $stepsCaster1->cast($value, $this);
+
+            $properties['steps'] = $value;
+
+            after_steps:
+
+            $value = $payload['check_run_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'check_run_url';
+                goto after_check_run_url;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\Job(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Job', $exception, stack: $this->hydrationStack);
-            }
+
+            $properties['check_run_url'] = $value;
+
+            after_check_run_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Job', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Job::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\Job(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Job', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Job⚡️Steps(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Job\Steps
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['status'] ?? null;
-    
-                if ($value === null) {
-                    $properties['status'] = null;
-                    goto after_status;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Job⚡️Steps(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Job\Steps
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['status'] ?? null;
 
-                $properties['status'] = $value;
-    
-                after_status:
-
-                $value = $payload['conclusion'] ?? null;
-    
-                if ($value === null) {
-                    $properties['conclusion'] = null;
-                    goto after_conclusion;
-                }
-
-                $properties['conclusion'] = $value;
-    
-                after_conclusion:
-
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['name'] = null;
-                    goto after_name;
-                }
-
-                $properties['name'] = $value;
-    
-                after_name:
-
-                $value = $payload['number'] ?? null;
-    
-                if ($value === null) {
-                    $properties['number'] = null;
-                    goto after_number;
-                }
-
-                $properties['number'] = $value;
-    
-                after_number:
-
-                $value = $payload['started_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['started_at'] = null;
-                    goto after_started_at;
-                }
-
-                $properties['started_at'] = $value;
-    
-                after_started_at:
-
-                $value = $payload['completed_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['completed_at'] = null;
-                    goto after_completed_at;
-                }
-
-                $properties['completed_at'] = $value;
-    
-                after_completed_at:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Job\Steps', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'status';
+                goto after_status;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Job\Steps::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['status'] = $value;
+
+            after_status:
+
+            $value = $payload['conclusion'] ?? null;
+
+            if ($value === null) {
+                $properties['conclusion'] = null;
+                goto after_conclusion;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\Job\Steps(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Job\Steps', $exception, stack: $this->hydrationStack);
+
+            $properties['conclusion'] = $value;
+
+            after_conclusion:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'name';
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['number'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'number';
+                goto after_number;
+            }
+
+            $properties['number'] = $value;
+
+            after_number:
+
+            $value = $payload['started_at'] ?? null;
+
+            if ($value === null) {
+                $properties['started_at'] = null;
+                goto after_started_at;
+            }
+
+            $properties['started_at'] = $value;
+
+            after_started_at:
+
+            $value = $payload['completed_at'] ?? null;
+
+            if ($value === null) {
+                $properties['completed_at'] = null;
+                goto after_completed_at;
+            }
+
+            $properties['completed_at'] = $value;
+
+            after_completed_at:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Job\Steps', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Job\Steps::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\Job\Steps(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Job\Steps', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\Job' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Job($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\Job\Steps' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Job⚡️Steps($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Job' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Job($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Job\Steps' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Job⚡️Steps($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -388,57 +406,33 @@ class CbJobIdRcb implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Job(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Job);
         $result = [];
-        
-        $id = $object->id;
 
-        if ($id === null) {
-            goto after_id;
-        }
+        $id = $object->id;
         after_id:        $result['id'] = $id;
 
         
         $run_id = $object->run_id;
-
-        if ($run_id === null) {
-            goto after_run_id;
-        }
         after_run_id:        $result['run_id'] = $run_id;
 
         
         $run_url = $object->run_url;
-
-        if ($run_url === null) {
-            goto after_run_url;
-        }
         after_run_url:        $result['run_url'] = $run_url;
 
         
         $node_id = $object->node_id;
-
-        if ($node_id === null) {
-            goto after_node_id;
-        }
         after_node_id:        $result['node_id'] = $node_id;
 
         
         $head_sha = $object->head_sha;
-
-        if ($head_sha === null) {
-            goto after_head_sha;
-        }
         after_head_sha:        $result['head_sha'] = $head_sha;
 
         
         $url = $object->url;
-
-        if ($url === null) {
-            goto after_url;
-        }
         after_url:        $result['url'] = $url;
 
         
@@ -451,10 +445,6 @@ class CbJobIdRcb implements ObjectMapper
 
         
         $status = $object->status;
-
-        if ($status === null) {
-            goto after_status;
-        }
         after_status:        $result['status'] = $status;
 
         
@@ -467,10 +457,6 @@ class CbJobIdRcb implements ObjectMapper
 
         
         $started_at = $object->started_at;
-
-        if ($started_at === null) {
-            goto after_started_at;
-        }
         after_started_at:        $result['started_at'] = $started_at;
 
         
@@ -483,14 +469,14 @@ class CbJobIdRcb implements ObjectMapper
 
         
         $name = $object->name;
-
-        if ($name === null) {
-            goto after_name;
-        }
         after_name:        $result['name'] = $name;
 
         
         $steps = $object->steps;
+
+        if ($steps === null) {
+            goto after_steps;
+        }
         static $stepsSerializer0;
 
         if ($stepsSerializer0 === null) {
@@ -504,27 +490,19 @@ class CbJobIdRcb implements ObjectMapper
 
         
         $check_run_url = $object->check_run_url;
-
-        if ($check_run_url === null) {
-            goto after_check_run_url;
-        }
         after_check_run_url:        $result['check_run_url'] = $check_run_url;
 
 
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Job⚡️Steps(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Job\Steps);
         $result = [];
-        
-        $status = $object->status;
 
-        if ($status === null) {
-            goto after_status;
-        }
+        $status = $object->status;
         after_status:        $result['status'] = $status;
 
         
@@ -537,18 +515,10 @@ class CbJobIdRcb implements ObjectMapper
 
         
         $name = $object->name;
-
-        if ($name === null) {
-            goto after_name;
-        }
         after_name:        $result['name'] = $name;
 
         
         $number = $object->number;
-
-        if ($number === null) {
-            goto after_number;
-        }
         after_number:        $result['number'] = $number;
 
         

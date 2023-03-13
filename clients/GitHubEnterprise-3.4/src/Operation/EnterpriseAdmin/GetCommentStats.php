@@ -30,7 +30,7 @@ final class GetCommentStats
      */
     function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\EnterpriseCommentOverview
     {
-        $contentType = $response->getHeaderLine('Content-Type');
+        [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
             /**Response**/

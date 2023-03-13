@@ -17,7 +17,7 @@ final readonly class WebhookEnterpriseAnonymousAccessDisabled
     /**
      * sender: A GitHub user.
      */
-    public function __construct(public ?string $action, public Schema\SimpleUser $sender)
+    public function __construct(public string $action, public ?Schema\SimpleUser $sender)
     {
     }
 }

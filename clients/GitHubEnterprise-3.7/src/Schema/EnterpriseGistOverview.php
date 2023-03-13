@@ -14,7 +14,7 @@ final readonly class EnterpriseGistOverview
     public const SCHEMA_TITLE = 'Enterprise Gist Stats';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_gists":13,"private_gists":13,"public_gists":13}';
-    public function __construct(public ?int $total_gists, public ?int $private_gists, public ?int $public_gists)
+    public function __construct(public int $total_gists, public int $private_gists, public int $public_gists)
     {
     }
 }

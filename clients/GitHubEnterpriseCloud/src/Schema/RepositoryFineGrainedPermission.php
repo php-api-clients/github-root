@@ -14,7 +14,7 @@ final readonly class RepositoryFineGrainedPermission
     public const SCHEMA_TITLE = 'Repository Fine-Grained Permission';
     public const SCHEMA_DESCRIPTION = 'A fine-grained permission that protects repository resources.';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","description":"generated_description"}';
-    public function __construct(public ?string $name, public ?string $description)
+    public function __construct(public string $name, public string $description)
     {
     }
 }

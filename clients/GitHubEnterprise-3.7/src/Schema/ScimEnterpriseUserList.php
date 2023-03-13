@@ -16,14 +16,14 @@ final readonly class ScimEnterpriseUserList
     public const SCHEMA_EXAMPLE_DATA = '{"schemas":["urn:ietf:params:scim:api:messages:2.0:ListResponse"],"totalResults":1,"Resources":[{"schemas":["urn:ietf:params:scim:schemas:core:2.0:User"],"externalId":"E012345","active":true,"userName":"E012345","name":{"formatted":"Ms. Mona Lisa Octocat","familyName":"Octocat","givenName":"Mona","middleName":"Lisa"},"displayName":"Mona Lisa","emails":[{"value":"mlisa@example.com","type":"work","primary":true}],"roles":[{"display":"generated_display","type":"generated_type","value":"user","primary":false}]}],"startIndex":1,"itemsPerPage":20}';
     /**
      * schemas: The URIs that are used to indicate the namespaces of the list SCIM schemas.
-     * @param ?array<string> $schemas
+     * @param array<string> $schemas
      * totalResults: Number of results found
      * Resources: Information about each provisioned account.
-     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\UserResponse> $Resources
+     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\UserResponse> $Resources
      * startIndex: A starting index for the returned page
      * itemsPerPage: Number of objects per page
      */
-    public function __construct(public ?array $schemas, public ?int $totalResults, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\UserResponse::class)] public ?array $Resources, public ?int $startIndex, public ?int $itemsPerPage)
+    public function __construct(public array $schemas, public int $totalResults, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\UserResponse::class)] public array $Resources, public int $startIndex, public int $itemsPerPage)
     {
     }
 }

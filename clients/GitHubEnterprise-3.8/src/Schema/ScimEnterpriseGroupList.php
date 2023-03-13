@@ -16,14 +16,14 @@ final readonly class ScimEnterpriseGroupList
     public const SCHEMA_EXAMPLE_DATA = '{"schemas":["urn:ietf:params:scim:api:messages:2.0:ListResponse"],"totalResults":1,"Resources":[{"schemas":["urn:ietf:params:scim:schemas:core:2.0:Group"],"externalId":"8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159","displayName":"Engineering","members":[{"value":"23a35c27-23d3-4c03-b4c5-6443c09e7173","ref":"generated_ref","display":"Monalisa Octocat"}]}],"startIndex":1,"itemsPerPage":20}';
     /**
      * schemas: The URIs that are used to indicate the namespaces of the list SCIM schemas.
-     * @param ?array<string> $schemas
+     * @param array<string> $schemas
      * totalResults: Number of results found
      * Resources: Information about each provisioned group.
-     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\GroupResponse> $Resources
+     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\GroupResponse> $Resources
      * startIndex: A starting index for the returned page
      * itemsPerPage: Number of objects per page
      */
-    public function __construct(public ?array $schemas, public ?int $totalResults, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\GroupResponse::class)] public ?array $Resources, public ?int $startIndex, public ?int $itemsPerPage)
+    public function __construct(public array $schemas, public int $totalResults, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\GroupResponse::class)] public array $Resources, public int $startIndex, public int $itemsPerPage)
     {
     }
 }

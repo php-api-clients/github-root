@@ -42,7 +42,7 @@ final class ListProvisionedGroupsEnterprise
      */
     function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\ScimEnterpriseGroupList
     {
-        $contentType = $response->getHeaderLine('Content-Type');
+        [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
             /**Success, either groups were found or not found**/

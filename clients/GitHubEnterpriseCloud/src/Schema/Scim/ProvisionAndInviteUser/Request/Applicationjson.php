@@ -18,11 +18,11 @@ final readonly class Applicationjson
      * userName: Configured by the admin. Could be an email, login, or username
      * displayName: The name of the user, suitable for display to end-users
      * emails: user emails
-     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser\Emails> $emails
-     * @param array<string> $schemas
-     * @param array<string> $groups
+     * @param array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser\Emails> $emails
+     * @param ?array<string> $schemas
+     * @param ?array<string> $groups
      */
-    public function __construct(public ?string $userName, public string $displayName, public ?Schema\Scim\ProvisionAndInviteUser\Request\Applicationjson\Name $name, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ScimUser\Emails::class)] public ?array $emails, public array $schemas, public string $externalId, public array $groups, public bool $active)
+    public function __construct(public string $userName, public ?string $displayName, public Schema\Scim\ProvisionAndInviteUser\Request\Applicationjson\Name $name, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ScimUser\Emails::class)] public array $emails, public ?array $schemas, public ?string $externalId, public ?array $groups, public ?bool $active)
     {
     }
 }

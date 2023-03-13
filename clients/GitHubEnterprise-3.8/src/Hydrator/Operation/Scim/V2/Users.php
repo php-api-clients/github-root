@@ -34,523 +34,537 @@ class Users implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['schemas'] ?? null;
-    
-                if ($value === null) {
-                    $properties['schemas'] = null;
-                    goto after_schemas;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['schemas'] ?? null;
 
-                $properties['schemas'] = $value;
-    
-                after_schemas:
+            if ($value === null) {
+                $missingFields[] = 'schemas';
+                goto after_schemas;
+            }
 
-                $value = $payload['total_results'] ?? null;
-    
-                if ($value === null) {
-                    $properties['totalResults'] = null;
-                    goto after_totalResults;
-                }
+            $properties['schemas'] = $value;
 
-                $properties['totalResults'] = $value;
-    
-                after_totalResults:
+            after_schemas:
 
-                $value = $payload['resources'] ?? null;
-    
-                if ($value === null) {
-                    $properties['Resources'] = null;
-                    goto after_Resources;
-                }
+            $value = $payload['total_results'] ?? null;
 
-                static $ResourcesCaster1;
-    
-                if ($ResourcesCaster1 === null) {
-                    $ResourcesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($value === null) {
+                $missingFields[] = 'total_results';
+                goto after_totalResults;
+            }
+
+            $properties['totalResults'] = $value;
+
+            after_totalResults:
+
+            $value = $payload['resources'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'resources';
+                goto after_Resources;
+            }
+
+            static $ResourcesCaster1;
+
+            if ($ResourcesCaster1 === null) {
+                $ResourcesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\UserResponse',
 ));
-                }
-    
-                $value = $ResourcesCaster1->cast($value, $this);
-
-                $properties['Resources'] = $value;
-    
-                after_Resources:
-
-                $value = $payload['start_index'] ?? null;
-    
-                if ($value === null) {
-                    $properties['startIndex'] = null;
-                    goto after_startIndex;
-                }
-
-                $properties['startIndex'] = $value;
-    
-                after_startIndex:
-
-                $value = $payload['items_per_page'] ?? null;
-    
-                if ($value === null) {
-                    $properties['itemsPerPage'] = null;
-                    goto after_itemsPerPage;
-                }
-
-                $properties['itemsPerPage'] = $value;
-    
-                after_itemsPerPage:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList', $exception, stack: $this->hydrationStack);
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList::class, $missingFields, stack: $this->hydrationStack);
+
+            $value = $ResourcesCaster1->cast($value, $this);
+
+            $properties['Resources'] = $value;
+
+            after_Resources:
+
+            $value = $payload['start_index'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'start_index';
+                goto after_startIndex;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList', $exception, stack: $this->hydrationStack);
+
+            $properties['startIndex'] = $value;
+
+            after_startIndex:
+
+            $value = $payload['items_per_page'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'items_per_page';
+                goto after_itemsPerPage;
             }
+
+            $properties['itemsPerPage'] = $value;
+
+            after_itemsPerPage:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList', $exception, stack: $this->hydrationStack);
         }
 
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList', $exception, stack: $this->hydrationStack);
+        }
+    }
+
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserResponse(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\UserResponse
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['schemas'] ?? null;
-    
-                if ($value === null) {
-                    $properties['schemas'] = null;
-                    goto after_schemas;
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserResponse(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\UserResponse
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['schemas'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'schemas';
+                goto after_schemas;
+            }
+
+            $properties['schemas'] = $value;
+
+            after_schemas:
+
+            $value = $payload['external_id'] ?? null;
+
+            if ($value === null) {
+                $properties['externalId'] = null;
+                goto after_externalId;
+            }
+
+            $properties['externalId'] = $value;
+
+            after_externalId:
+
+            $value = $payload['active'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'active';
+                goto after_active;
+            }
+
+            $properties['active'] = $value;
+
+            after_active:
+
+            $value = $payload['user_name'] ?? null;
+
+            if ($value === null) {
+                $properties['userName'] = null;
+                goto after_userName;
+            }
+
+            $properties['userName'] = $value;
+
+            after_userName:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'name';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserNameResponse($value);
+                } finally {
+                    array_pop($this->hydrationStack);
                 }
+            }
 
-                $properties['schemas'] = $value;
-    
-                after_schemas:
+            $properties['name'] = $value;
 
-                $value = $payload['external_id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['externalId'] = null;
-                    goto after_externalId;
-                }
+            after_name:
 
-                $properties['externalId'] = $value;
-    
-                after_externalId:
+            $value = $payload['display_name'] ?? null;
 
-                $value = $payload['active'] ?? null;
-    
-                if ($value === null) {
-                    $properties['active'] = null;
-                    goto after_active;
-                }
+            if ($value === null) {
+                $properties['displayName'] = null;
+                goto after_displayName;
+            }
 
-                $properties['active'] = $value;
-    
-                after_active:
+            $properties['displayName'] = $value;
 
-                $value = $payload['user_name'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'user_name';
-                    goto after_userName;
-                }
+            after_displayName:
 
-                $properties['userName'] = $value;
-    
-                after_userName:
+            $value = $payload['emails'] ?? null;
 
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'name';
-                    goto after_name;
-                }
+            if ($value === null) {
+                $missingFields[] = 'emails';
+                goto after_emails;
+            }
 
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'name';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserNameResponse($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
+            static $emailsCaster1;
 
-                $properties['name'] = $value;
-    
-                after_name:
-
-                $value = $payload['display_name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['displayName'] = null;
-                    goto after_displayName;
-                }
-
-                $properties['displayName'] = $value;
-    
-                after_displayName:
-
-                $value = $payload['emails'] ?? null;
-    
-                if ($value === null) {
-                    $properties['emails'] = null;
-                    goto after_emails;
-                }
-
-                static $emailsCaster1;
-    
-                if ($emailsCaster1 === null) {
-                    $emailsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($emailsCaster1 === null) {
+                $emailsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\UserEmailsResponse',
 ));
-                }
-    
-                $value = $emailsCaster1->cast($value, $this);
+            }
 
-                $properties['emails'] = $value;
-    
-                after_emails:
+            $value = $emailsCaster1->cast($value, $this);
 
-                $value = $payload['roles'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'roles';
-                    goto after_roles;
-                }
+            $properties['emails'] = $value;
 
-                static $rolesCaster1;
-    
-                if ($rolesCaster1 === null) {
-                    $rolesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            after_emails:
+
+            $value = $payload['roles'] ?? null;
+
+            if ($value === null) {
+                $properties['roles'] = null;
+                goto after_roles;
+            }
+
+            static $rolesCaster1;
+
+            if ($rolesCaster1 === null) {
+                $rolesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\UserRole',
 ));
-                }
-    
-                $value = $rolesCaster1->cast($value, $this);
+            }
 
-                $properties['roles'] = $value;
-    
-                after_roles:
+            $value = $rolesCaster1->cast($value, $this);
 
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserResponse', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\UserResponse::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\UserResponse(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserResponse', $exception, stack: $this->hydrationStack);
-            }
+            $properties['roles'] = $value;
+
+            after_roles:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserResponse', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\UserResponse::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\UserResponse(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserResponse', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserNameResponse(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['formatted'] ?? null;
-    
-                if ($value === null) {
-                    $properties['formatted'] = null;
-                    goto after_formatted;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserNameResponse(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['formatted'] ?? null;
 
-                $properties['formatted'] = $value;
-    
-                after_formatted:
-
-                $value = $payload['family_name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['familyName'] = null;
-                    goto after_familyName;
-                }
-
-                $properties['familyName'] = $value;
-    
-                after_familyName:
-
-                $value = $payload['given_name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['givenName'] = null;
-                    goto after_givenName;
-                }
-
-                $properties['givenName'] = $value;
-    
-                after_givenName:
-
-                $value = $payload['middle_name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['middleName'] = null;
-                    goto after_middleName;
-                }
-
-                $properties['middleName'] = $value;
-    
-                after_middleName:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $properties['formatted'] = null;
+                goto after_formatted;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['formatted'] = $value;
+
+            after_formatted:
+
+            $value = $payload['family_name'] ?? null;
+
+            if ($value === null) {
+                $properties['familyName'] = null;
+                goto after_familyName;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse', $exception, stack: $this->hydrationStack);
+
+            $properties['familyName'] = $value;
+
+            after_familyName:
+
+            $value = $payload['given_name'] ?? null;
+
+            if ($value === null) {
+                $properties['givenName'] = null;
+                goto after_givenName;
             }
+
+            $properties['givenName'] = $value;
+
+            after_givenName:
+
+            $value = $payload['middle_name'] ?? null;
+
+            if ($value === null) {
+                $properties['middleName'] = null;
+                goto after_middleName;
+            }
+
+            $properties['middleName'] = $value;
+
+            after_middleName:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserEmailsResponse(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['value'] ?? null;
-    
-                if ($value === null) {
-                    $properties['value'] = null;
-                    goto after_value;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserEmailsResponse(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['value'] ?? null;
 
-                $properties['value'] = $value;
-    
-                after_value:
-
-                $value = $payload['type'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'type';
-                    goto after_type;
-                }
-
-                $properties['type'] = $value;
-    
-                after_type:
-
-                $value = $payload['primary'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'primary';
-                    goto after_primary;
-                }
-
-                $properties['primary'] = $value;
-    
-                after_primary:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'value';
+                goto after_value;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['value'] = $value;
+
+            after_value:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse', $exception, stack: $this->hydrationStack);
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['primary'] ?? null;
+
+            if ($value === null) {
+                $properties['primary'] = null;
+                goto after_primary;
             }
+
+            $properties['primary'] = $value;
+
+            after_primary:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserRole(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\UserRole
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['display'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'display';
-                    goto after_display;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserRole(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\UserRole
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['display'] ?? null;
 
-                $properties['display'] = $value;
-    
-                after_display:
-
-                $value = $payload['type'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'type';
-                    goto after_type;
-                }
-
-                $properties['type'] = $value;
-    
-                after_type:
-
-                $value = $payload['value'] ?? null;
-    
-                if ($value === null) {
-                    $properties['value'] = null;
-                    goto after_value;
-                }
-
-                $properties['value'] = $value;
-    
-                after_value:
-
-                $value = $payload['primary'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'primary';
-                    goto after_primary;
-                }
-
-                $properties['primary'] = $value;
-    
-                after_primary:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserRole', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $properties['display'] = null;
+                goto after_display;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\UserRole::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['display'] = $value;
+
+            after_display:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\UserRole(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserRole', $exception, stack: $this->hydrationStack);
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['value'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'value';
+                goto after_value;
             }
+
+            $properties['value'] = $value;
+
+            after_value:
+
+            $value = $payload['primary'] ?? null;
+
+            if ($value === null) {
+                $properties['primary'] = null;
+                goto after_primary;
+            }
+
+            $properties['primary'] = $value;
+
+            after_primary:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserRole', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\UserRole::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\UserRole(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserRole', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ScimError
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['message'] ?? null;
-    
-                if ($value === null) {
-                    $properties['message'] = null;
-                    goto after_message;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ScimError
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['message'] ?? null;
 
-                $properties['message'] = $value;
-    
-                after_message:
-
-                $value = $payload['documentation_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['documentation_url'] = null;
-                    goto after_documentation_url;
-                }
-
-                $properties['documentation_url'] = $value;
-    
-                after_documentation_url:
-
-                $value = $payload['detail'] ?? null;
-    
-                if ($value === null) {
-                    $properties['detail'] = null;
-                    goto after_detail;
-                }
-
-                $properties['detail'] = $value;
-    
-                after_detail:
-
-                $value = $payload['status'] ?? null;
-    
-                if ($value === null) {
-                    $properties['status'] = null;
-                    goto after_status;
-                }
-
-                $properties['status'] = $value;
-    
-                after_status:
-
-                $value = $payload['scim_type'] ?? null;
-    
-                if ($value === null) {
-                    $properties['scimType'] = null;
-                    goto after_scimType;
-                }
-
-                $properties['scimType'] = $value;
-    
-                after_scimType:
-
-                $value = $payload['schemas'] ?? null;
-    
-                if ($value === null) {
-                    $properties['schemas'] = null;
-                    goto after_schemas;
-                }
-
-                $properties['schemas'] = $value;
-    
-                after_schemas:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimError', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $properties['message'] = null;
+                goto after_message;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ScimError::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['message'] = $value;
+
+            after_message:
+
+            $value = $payload['documentation_url'] ?? null;
+
+            if ($value === null) {
+                $properties['documentation_url'] = null;
+                goto after_documentation_url;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\ScimError(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimError', $exception, stack: $this->hydrationStack);
+
+            $properties['documentation_url'] = $value;
+
+            after_documentation_url:
+
+            $value = $payload['detail'] ?? null;
+
+            if ($value === null) {
+                $properties['detail'] = null;
+                goto after_detail;
+            }
+
+            $properties['detail'] = $value;
+
+            after_detail:
+
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+
+            $value = $payload['scim_type'] ?? null;
+
+            if ($value === null) {
+                $properties['scimType'] = null;
+                goto after_scimType;
+            }
+
+            $properties['scimType'] = $value;
+
+            after_scimType:
+
+            $value = $payload['schemas'] ?? null;
+
+            if ($value === null) {
+                $properties['schemas'] = null;
+                goto after_schemas;
+            }
+
+            $properties['schemas'] = $value;
+
+            after_schemas:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimError', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ScimError::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\ScimError(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimError', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\UserResponse' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserResponse($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserNameResponse($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserEmailsResponse($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\UserRole' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserRole($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\ScimError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimError($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\UserResponse' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserResponse($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserNameResponse($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserEmailsResponse($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\UserRole' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserRole($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\ScimError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -623,17 +637,13 @@ class Users implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList);
         $result = [];
-        
-        $schemas = $object->schemas;
 
-        if ($schemas === null) {
-            goto after_schemas;
-        }
+        $schemas = $object->schemas;
         static $schemasSerializer0;
 
         if ($schemasSerializer0 === null) {
@@ -646,18 +656,10 @@ class Users implements ObjectMapper
 
         
         $totalResults = $object->totalResults;
-
-        if ($totalResults === null) {
-            goto after_totalResults;
-        }
         after_totalResults:        $result['total_results'] = $totalResults;
 
         
         $Resources = $object->Resources;
-
-        if ($Resources === null) {
-            goto after_Resources;
-        }
         static $ResourcesSerializer0;
 
         if ($ResourcesSerializer0 === null) {
@@ -671,35 +673,23 @@ class Users implements ObjectMapper
 
         
         $startIndex = $object->startIndex;
-
-        if ($startIndex === null) {
-            goto after_startIndex;
-        }
         after_startIndex:        $result['start_index'] = $startIndex;
 
         
         $itemsPerPage = $object->itemsPerPage;
-
-        if ($itemsPerPage === null) {
-            goto after_itemsPerPage;
-        }
         after_itemsPerPage:        $result['items_per_page'] = $itemsPerPage;
 
 
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserResponse(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\UserResponse);
         $result = [];
-        
-        $schemas = $object->schemas;
 
-        if ($schemas === null) {
-            goto after_schemas;
-        }
+        $schemas = $object->schemas;
         static $schemasSerializer0;
 
         if ($schemasSerializer0 === null) {
@@ -720,18 +710,22 @@ class Users implements ObjectMapper
 
         
         $active = $object->active;
-
-        if ($active === null) {
-            goto after_active;
-        }
         after_active:        $result['active'] = $active;
 
         
         $userName = $object->userName;
+
+        if ($userName === null) {
+            goto after_userName;
+        }
         after_userName:        $result['user_name'] = $userName;
 
         
         $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
         $name = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserNameResponse($name);
         after_name:        $result['name'] = $name;
 
@@ -745,10 +739,6 @@ class Users implements ObjectMapper
 
         
         $emails = $object->emails;
-
-        if ($emails === null) {
-            goto after_emails;
-        }
         static $emailsSerializer0;
 
         if ($emailsSerializer0 === null) {
@@ -762,6 +752,10 @@ class Users implements ObjectMapper
 
         
         $roles = $object->roles;
+
+        if ($roles === null) {
+            goto after_roles;
+        }
         static $rolesSerializer0;
 
         if ($rolesSerializer0 === null) {
@@ -777,12 +771,12 @@ class Users implements ObjectMapper
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserNameResponse(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse);
         $result = [];
-        
+
         $formatted = $object->formatted;
 
         if ($formatted === null) {
@@ -818,66 +812,78 @@ class Users implements ObjectMapper
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserEmailsResponse(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse);
         $result = [];
-        
-        $value = $object->value;
 
-        if ($value === null) {
-            goto after_value;
-        }
+        $value = $object->value;
         after_value:        $result['value'] = $value;
 
         
         $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
         after_type:        $result['type'] = $type;
 
         
         $primary = $object->primary;
+
+        if ($primary === null) {
+            goto after_primary;
+        }
         after_primary:        $result['primary'] = $primary;
 
 
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserRole(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\UserRole);
         $result = [];
-        
+
         $display = $object->display;
+
+        if ($display === null) {
+            goto after_display;
+        }
         after_display:        $result['display'] = $display;
 
         
         $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
         after_type:        $result['type'] = $type;
 
         
         $value = $object->value;
-
-        if ($value === null) {
-            goto after_value;
-        }
         after_value:        $result['value'] = $value;
 
         
         $primary = $object->primary;
+
+        if ($primary === null) {
+            goto after_primary;
+        }
         after_primary:        $result['primary'] = $primary;
 
 
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimError(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ScimError);
         $result = [];
-        
+
         $message = $object->message;
 
         if ($message === null) {

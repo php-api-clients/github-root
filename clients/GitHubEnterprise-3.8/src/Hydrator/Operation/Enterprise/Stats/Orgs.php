@@ -29,83 +29,102 @@ class Orgs implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseOrganizationOverview(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_orgs'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_orgs'] = null;
-                    goto after_total_orgs;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseOrganizationOverview(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_orgs'] ?? null;
 
-                $properties['total_orgs'] = $value;
-    
-                after_total_orgs:
-
-                $value = $payload['disabled_orgs'] ?? null;
-    
-                if ($value === null) {
-                    $properties['disabled_orgs'] = null;
-                    goto after_disabled_orgs;
-                }
-
-                $properties['disabled_orgs'] = $value;
-    
-                after_disabled_orgs:
-
-                $value = $payload['total_teams'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_teams'] = null;
-                    goto after_total_teams;
-                }
-
-                $properties['total_teams'] = $value;
-    
-                after_total_teams:
-
-                $value = $payload['total_team_members'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_team_members'] = null;
-                    goto after_total_team_members;
-                }
-
-                $properties['total_team_members'] = $value;
-    
-                after_total_team_members:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'total_orgs';
+                goto after_total_orgs;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['total_orgs'] = $value;
+
+            after_total_orgs:
+
+            $value = $payload['disabled_orgs'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'disabled_orgs';
+                goto after_disabled_orgs;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['disabled_orgs'] = $value;
+
+            after_disabled_orgs:
+
+            $value = $payload['total_teams'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total_teams';
+                goto after_total_teams;
+            }
+
+            $properties['total_teams'] = $value;
+
+            after_total_teams:
+
+            $value = $payload['total_team_members'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total_team_members';
+                goto after_total_team_members;
+            }
+
+            $properties['total_team_members'] = $value;
+
+            after_total_team_members:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseOrganizationOverview($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseOrganizationOverview($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -178,41 +197,25 @@ class Orgs implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseOrganizationOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview);
         $result = [];
-        
-        $total_orgs = $object->total_orgs;
 
-        if ($total_orgs === null) {
-            goto after_total_orgs;
-        }
+        $total_orgs = $object->total_orgs;
         after_total_orgs:        $result['total_orgs'] = $total_orgs;
 
         
         $disabled_orgs = $object->disabled_orgs;
-
-        if ($disabled_orgs === null) {
-            goto after_disabled_orgs;
-        }
         after_disabled_orgs:        $result['disabled_orgs'] = $disabled_orgs;
 
         
         $total_teams = $object->total_teams;
-
-        if ($total_teams === null) {
-            goto after_total_teams;
-        }
         after_total_teams:        $result['total_teams'] = $total_teams;
 
         
         $total_team_members = $object->total_team_members;
-
-        if ($total_team_members === null) {
-            goto after_total_team_members;
-        }
         after_total_team_members:        $result['total_team_members'] = $total_team_members;
 
 

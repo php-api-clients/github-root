@@ -19,10 +19,10 @@ final readonly class Environment
      * name: The name of the environment.
      * created_at: The time that the environment was created, in ISO 8601 format.
      * updated_at: The time that the environment was last updated, in ISO 8601 format.
-     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\Environment\ProtectionRules> $protection_rules
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\Environment\ProtectionRules> $protection_rules
      * deployment_branch_policy: The type of deployment branch policy for this environment. To allow all branches to deploy, set to `null`.
      */
-    public function __construct(public ?int $id, public ?string $node_id, public ?string $name, public ?string $url, public ?string $html_url, public ?string $created_at, public ?string $updated_at, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Environment\ProtectionRules::class)] public array $protection_rules, public ?Schema\DeploymentBranchPolicySettings $deployment_branch_policy)
+    public function __construct(public int $id, public string $node_id, public string $name, public string $url, public string $html_url, public string $created_at, public string $updated_at, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Environment\ProtectionRules::class)] public ?array $protection_rules, public ?Schema\DeploymentBranchPolicySettings $deployment_branch_policy)
     {
     }
 }

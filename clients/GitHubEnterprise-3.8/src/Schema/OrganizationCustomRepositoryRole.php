@@ -18,7 +18,7 @@ final readonly class OrganizationCustomRepositoryRole
      * id: The unique identifier of the custom role.
      * name: The name of the custom role.
      */
-    public function __construct(public ?int $id, public ?string $name)
+    public function __construct(public int $id, public string $name)
     {
     }
 }

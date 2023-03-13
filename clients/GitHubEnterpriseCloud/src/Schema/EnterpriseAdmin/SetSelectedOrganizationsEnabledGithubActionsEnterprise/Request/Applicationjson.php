@@ -16,9 +16,9 @@ final readonly class Applicationjson
     public const SCHEMA_EXAMPLE_DATA = '{"selected_organization_ids":[13]}';
     /**
      * selected_organization_ids: List of organization IDs to enable for GitHub Actions.
-     * @param ?array<int> $selected_organization_ids
+     * @param array<int> $selected_organization_ids
      */
-    public function __construct(public ?array $selected_organization_ids)
+    public function __construct(public array $selected_organization_ids)
     {
     }
 }

@@ -36,7 +36,7 @@ final class GetProvisioningInformationForEnterpriseGroup
      */
     function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\ScimEnterpriseGroupResponse
     {
-        $contentType = $response->getHeaderLine('Content-Type');
+        [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
             /**Success, a group was found**/

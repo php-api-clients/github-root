@@ -14,7 +14,7 @@ final readonly class EnterprisePullRequestOverview
     public const SCHEMA_TITLE = 'Enterprise Pull Request Stats';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_pulls":13,"merged_pulls":13,"mergeable_pulls":13,"unmergeable_pulls":13}';
-    public function __construct(public ?int $total_pulls, public ?int $merged_pulls, public ?int $mergeable_pulls, public ?int $unmergeable_pulls)
+    public function __construct(public int $total_pulls, public int $merged_pulls, public int $mergeable_pulls, public int $unmergeable_pulls)
     {
     }
 }

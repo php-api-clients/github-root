@@ -18,7 +18,7 @@ final readonly class Applicationjson
      * enabled_organizations: The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions. Can be one of: `all`, `none`, or `selected`.
      * allowed_actions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
      */
-    public function __construct(public ?string $enabled_organizations, public string $allowed_actions)
+    public function __construct(public string $enabled_organizations, public ?string $allowed_actions)
     {
     }
 }

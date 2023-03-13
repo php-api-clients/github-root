@@ -14,7 +14,7 @@ final readonly class EnterpriseMilestoneOverview
     public const SCHEMA_TITLE = 'Enterprise Milestone Stats';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_milestones":13,"open_milestones":13,"closed_milestones":13}';
-    public function __construct(public ?int $total_milestones, public ?int $open_milestones, public ?int $closed_milestones)
+    public function __construct(public int $total_milestones, public int $open_milestones, public int $closed_milestones)
     {
     }
 }

@@ -19,7 +19,7 @@ final readonly class Applicationjson
      * admin: The login of the user who will manage this organization.
      * profile_name: The organization's display name.
      */
-    public function __construct(public ?string $login, public ?string $admin, public string $profile_name)
+    public function __construct(public string $login, public string $admin, public ?string $profile_name)
     {
     }
 }

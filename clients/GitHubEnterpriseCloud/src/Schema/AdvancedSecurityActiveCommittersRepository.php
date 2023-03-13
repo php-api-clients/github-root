@@ -15,9 +15,9 @@ final readonly class AdvancedSecurityActiveCommittersRepository
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"octocat\\/Hello-World","advanced_security_committers":25,"advanced_security_committers_breakdown":[{"user_login":"generated_user_login","last_pushed_date":"2021-11-03"}]}';
     /**
-     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser> $advanced_security_committers_breakdown
+     * @param array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser> $advanced_security_committers_breakdown
      */
-    public function __construct(public ?string $name, public ?int $advanced_security_committers, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\AdvancedSecurityActiveCommittersUser::class)] public ?array $advanced_security_committers_breakdown)
+    public function __construct(public string $name, public int $advanced_security_committers, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\AdvancedSecurityActiveCommittersUser::class)] public array $advanced_security_committers_breakdown)
     {
     }
 }

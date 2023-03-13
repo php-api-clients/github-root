@@ -42,7 +42,7 @@ final class ListProvisionedIdentitiesEnterprise
      */
     function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\ScimEnterpriseUserList
     {
-        $contentType = $response->getHeaderLine('Content-Type');
+        [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
             /**Success, either users were found or not found**/

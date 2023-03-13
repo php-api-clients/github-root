@@ -29,94 +29,113 @@ class PreReceiveHooks implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrgPreReceiveHook(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['id'] = null;
-                    goto after_id;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrgPreReceiveHook(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['id'] ?? null;
 
-                $properties['id'] = $value;
-    
-                after_id:
-
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['name'] = null;
-                    goto after_name;
-                }
-
-                $properties['name'] = $value;
-    
-                after_name:
-
-                $value = $payload['enforcement'] ?? null;
-    
-                if ($value === null) {
-                    $properties['enforcement'] = null;
-                    goto after_enforcement;
-                }
-
-                $properties['enforcement'] = $value;
-    
-                after_enforcement:
-
-                $value = $payload['configuration_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['configuration_url'] = null;
-                    goto after_configuration_url;
-                }
-
-                $properties['configuration_url'] = $value;
-    
-                after_configuration_url:
-
-                $value = $payload['allow_downstream_configuration'] ?? null;
-    
-                if ($value === null) {
-                    $properties['allow_downstream_configuration'] = null;
-                    goto after_allow_downstream_configuration;
-                }
-
-                $properties['allow_downstream_configuration'] = $value;
-    
-                after_allow_downstream_configuration:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $properties['id'] = null;
+                goto after_id;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook', $exception, stack: $this->hydrationStack);
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['enforcement'] ?? null;
+
+            if ($value === null) {
+                $properties['enforcement'] = null;
+                goto after_enforcement;
+            }
+
+            $properties['enforcement'] = $value;
+
+            after_enforcement:
+
+            $value = $payload['configuration_url'] ?? null;
+
+            if ($value === null) {
+                $properties['configuration_url'] = null;
+                goto after_configuration_url;
+            }
+
+            $properties['configuration_url'] = $value;
+
+            after_configuration_url:
+
+            $value = $payload['allow_downstream_configuration'] ?? null;
+
+            if ($value === null) {
+                $properties['allow_downstream_configuration'] = null;
+                goto after_allow_downstream_configuration;
+            }
+
+            $properties['allow_downstream_configuration'] = $value;
+
+            after_allow_downstream_configuration:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrgPreReceiveHook($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrgPreReceiveHook($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -189,12 +208,12 @@ class PreReceiveHooks implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrgPreReceiveHook(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook);
         $result = [];
-        
+
         $id = $object->id;
 
         if ($id === null) {

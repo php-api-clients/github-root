@@ -18,7 +18,7 @@ final readonly class Applicationjson
      * state: Sets the state of the code scanning alert. Can be one of `open` or `dismissed`. You must provide `dismissed_reason` when you set the state to `dismissed`.
      * dismissed_reason: **Required when the state is dismissed.** The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`.
      */
-    public function __construct(public ?string $state, public ?string $dismissed_reason)
+    public function __construct(public string $state, public ?string $dismissed_reason)
     {
     }
 }

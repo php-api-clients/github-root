@@ -21,14 +21,14 @@ final readonly class CredentialAuthorization
      * token_last_eight: Last eight characters of the credential. Only included in responses with credential_type of personal access token.
      * credential_authorized_at: Date when the credential was authorized for use.
      * scopes: List of oauth scopes the token has been granted.
-     * @param array<string> $scopes
+     * @param ?array<string> $scopes
      * fingerprint: Unique string to distinguish the credential. Only included in responses with credential_type of SSH Key.
      * credential_accessed_at: Date when the credential was last accessed. May be null if it was never accessed
      * authorized_credential_title: The title given to the ssh key. This will only be present when the credential is an ssh key.
      * authorized_credential_note: The note given to the token. This will only be present when the credential is a token.
      * authorized_credential_expires_at: The expiry for the token. This will only be present when the credential is a token.
      */
-    public function __construct(public ?string $login, public ?int $credential_id, public ?string $credential_type, public string $token_last_eight, public ?string $credential_authorized_at, public array $scopes, public string $fingerprint, public ?string $credential_accessed_at, public ?int $authorized_credential_id, public ?string $authorized_credential_title, public ?string $authorized_credential_note, public ?string $authorized_credential_expires_at)
+    public function __construct(public string $login, public int $credential_id, public string $credential_type, public ?string $token_last_eight, public string $credential_authorized_at, public ?array $scopes, public ?string $fingerprint, public ?string $credential_accessed_at, public ?int $authorized_credential_id, public ?string $authorized_credential_title, public ?string $authorized_credential_note, public ?string $authorized_credential_expires_at)
     {
     }
 }

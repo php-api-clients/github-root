@@ -36,7 +36,7 @@ final class UpdateAttributeForEnterpriseUser
      */
     function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\ScimEnterpriseUserResponse
     {
-        $contentType = $response->getHeaderLine('Content-Type');
+        [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
             /**Success, user was updated**/

@@ -16,17 +16,17 @@ final readonly class UserResponse
     public const SCHEMA_EXAMPLE_DATA = '{"schemas":["urn:ietf:params:scim:schemas:core:2.0:User"],"externalId":"E012345","active":true,"userName":"E012345","name":{"formatted":"Ms. Mona Lisa Octocat","familyName":"Octocat","givenName":"Mona","middleName":"Lisa"},"displayName":"Mona Lisa","emails":[{"value":"mlisa@example.com","type":"work","primary":true}],"roles":[{"display":"generated_display","type":"generated_type","value":"user","primary":false}]}';
     /**
      * schemas: The URIs that are used to indicate the namespaces of the SCIM schemas.
-     * @param ?array<string> $schemas
+     * @param array<string> $schemas
      * externalId: A unique identifier for the resource as defined by the provisioning client.
      * active: Whether the user active in the IdP.
      * userName: The username for the user.
      * displayName: A human-readable name for the user.
      * emails: The emails for the user.
-     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse> $emails
+     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse> $emails
      * roles: The roles assigned to the user.
-     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\UserRole> $roles
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\UserRole> $roles
      */
-    public function __construct(public ?array $schemas, public ?string $externalId, public ?bool $active, public string $userName, public Schema\UserNameResponse $name, public ?string $displayName, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\UserEmailsResponse::class)] public ?array $emails, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\UserRole::class)] public array $roles)
+    public function __construct(public array $schemas, public ?string $externalId, public bool $active, public ?string $userName, public ?Schema\UserNameResponse $name, public ?string $displayName, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\UserEmailsResponse::class)] public array $emails, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\UserRole::class)] public ?array $roles)
     {
     }
 }

@@ -17,7 +17,7 @@ final readonly class ApplicationxWwwFormUrlencoded
     /**
      * settings: A JSON string with the new settings. Note that you only need to pass the specific settings you want to modify. For a list of the available settings, see the [Get settings endpoint](https://docs.github.com/enterprise-server@3.4/rest/reference/enterprise-admin#get-settings).
      */
-    public function __construct(public ?string $settings)
+    public function __construct(public string $settings)
     {
     }
 }

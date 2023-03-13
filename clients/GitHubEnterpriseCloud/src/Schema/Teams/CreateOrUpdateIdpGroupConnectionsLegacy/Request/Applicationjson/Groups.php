@@ -19,7 +19,7 @@ final readonly class Groups
      * group_name: Name of the IdP group.
      * group_description: Description of the IdP group.
      */
-    public function __construct(public ?string $group_id, public ?string $group_name, public ?string $group_description, public string $id, public string $name, public string $description)
+    public function __construct(public string $group_id, public string $group_name, public string $group_description, public ?string $id, public ?string $name, public ?string $description)
     {
     }
 }

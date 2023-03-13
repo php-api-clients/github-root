@@ -20,10 +20,10 @@ final readonly class OrganizationCustomRepositoryRole
      * description: A short description about who this role is for or what permissions it grants.
      * base_role: The system role from which this role inherits permissions.
      * permissions: A list of additional permissions included in this role.
-     * @param ?array<string> $permissions
+     * @param array<string> $permissions
      * organization: A GitHub user.
      */
-    public function __construct(public ?int $id, public ?string $name, public ?string $description, public ?string $base_role, public ?array $permissions, public ?Schema\SimpleUser $organization, public ?string $created_at, public ?string $updated_at)
+    public function __construct(public int $id, public string $name, public ?string $description, public string $base_role, public array $permissions, public Schema\SimpleUser $organization, public string $created_at, public string $updated_at)
     {
     }
 }

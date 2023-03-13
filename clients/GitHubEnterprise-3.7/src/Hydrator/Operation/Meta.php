@@ -29,83 +29,102 @@ class Meta implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ApiOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['verifiable_password_authentication'] ?? null;
-    
-                if ($value === null) {
-                    $properties['verifiable_password_authentication'] = null;
-                    goto after_verifiable_password_authentication;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ApiOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['verifiable_password_authentication'] ?? null;
 
-                $properties['verifiable_password_authentication'] = $value;
-    
-                after_verifiable_password_authentication:
-
-                $value = $payload['packages'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'packages';
-                    goto after_packages;
-                }
-
-                $properties['packages'] = $value;
-    
-                after_packages:
-
-                $value = $payload['dependabot'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'dependabot';
-                    goto after_dependabot;
-                }
-
-                $properties['dependabot'] = $value;
-    
-                after_dependabot:
-
-                $value = $payload['installed_version'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'installed_version';
-                    goto after_installed_version;
-                }
-
-                $properties['installed_version'] = $value;
-    
-                after_installed_version:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApiOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'verifiable_password_authentication';
+                goto after_verifiable_password_authentication;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ApiOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['verifiable_password_authentication'] = $value;
+
+            after_verifiable_password_authentication:
+
+            $value = $payload['packages'] ?? null;
+
+            if ($value === null) {
+                $properties['packages'] = null;
+                goto after_packages;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\ApiOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApiOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['packages'] = $value;
+
+            after_packages:
+
+            $value = $payload['dependabot'] ?? null;
+
+            if ($value === null) {
+                $properties['dependabot'] = null;
+                goto after_dependabot;
+            }
+
+            $properties['dependabot'] = $value;
+
+            after_dependabot:
+
+            $value = $payload['installed_version'] ?? null;
+
+            if ($value === null) {
+                $properties['installed_version'] = null;
+                goto after_installed_version;
+            }
+
+            $properties['installed_version'] = $value;
+
+            after_installed_version:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApiOverview', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ApiOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\ApiOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApiOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\ApiOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\ApiOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -178,21 +197,21 @@ class Meta implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ApiOverview);
         $result = [];
-        
-        $verifiable_password_authentication = $object->verifiable_password_authentication;
 
-        if ($verifiable_password_authentication === null) {
-            goto after_verifiable_password_authentication;
-        }
+        $verifiable_password_authentication = $object->verifiable_password_authentication;
         after_verifiable_password_authentication:        $result['verifiable_password_authentication'] = $verifiable_password_authentication;
 
         
         $packages = $object->packages;
+
+        if ($packages === null) {
+            goto after_packages;
+        }
         static $packagesSerializer0;
 
         if ($packagesSerializer0 === null) {
@@ -205,6 +224,10 @@ class Meta implements ObjectMapper
 
         
         $dependabot = $object->dependabot;
+
+        if ($dependabot === null) {
+            goto after_dependabot;
+        }
         static $dependabotSerializer0;
 
         if ($dependabotSerializer0 === null) {
@@ -217,6 +240,10 @@ class Meta implements ObjectMapper
 
         
         $installed_version = $object->installed_version;
+
+        if ($installed_version === null) {
+            goto after_installed_version;
+        }
         after_installed_version:        $result['installed_version'] = $installed_version;
 
 

@@ -14,7 +14,7 @@ final readonly class EnterpriseIssueOverview
     public const SCHEMA_TITLE = 'Enterprise Issue Stats';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_issues":13,"open_issues":13,"closed_issues":13}';
-    public function __construct(public ?int $total_issues, public ?int $open_issues, public ?int $closed_issues)
+    public function __construct(public int $total_issues, public int $open_issues, public int $closed_issues)
     {
     }
 }

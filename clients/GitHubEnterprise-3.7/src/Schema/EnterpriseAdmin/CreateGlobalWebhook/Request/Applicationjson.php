@@ -18,10 +18,10 @@ final readonly class Applicationjson
      * name: Must be passed as "web".
      * config: Key/value pairs to provide settings for this webhook.
      * events: The [events](https://docs.github.com/enterprise-server@3.7/webhooks/event-payloads) that trigger this webhook. A global webhook can be triggered by `user` and `organization` events. Default: `user` and `organization`.
-     * @param array<string> $events
+     * @param ?array<string> $events
      * active: Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
      */
-    public function __construct(public ?string $name, public ?Schema\EnterpriseAdmin\CreateGlobalWebhook\Request\Applicationjson\Config $config, public array $events, public bool $active)
+    public function __construct(public string $name, public Schema\EnterpriseAdmin\CreateGlobalWebhook\Request\Applicationjson\Config $config, public ?array $events, public ?bool $active)
     {
     }
 }

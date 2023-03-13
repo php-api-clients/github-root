@@ -24,9 +24,9 @@ final readonly class Applicationjson
      * allow_deletions: Allows deletion of the protected branch by anyone with write access to the repository. Set to `false` to prevent deletion of the protected branch. Default: `false`. For more information, see "[Enabling force pushes to a protected branch](https://docs.github.com/en/github/administering-a-repository/enabling-force-pushes-to-a-protected-branch)" in the GitHub Help documentation.
      * required_conversation_resolution: Requires all conversations on code to be resolved before a pull request can be merged into a branch that matches this rule. Set to `false` to disable. Default: `false`.
      * contexts: The list of status checks to require in order to merge into this branch.
-     * @param array<string> $contexts
+     * @param ?array<string> $contexts
      */
-    public function __construct(public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredStatusChecks $required_status_checks, public ?bool $enforce_admins, public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredPullRequestReviews $required_pull_request_reviews, public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\Restrictions $restrictions, public bool $required_linear_history, public ?bool $allow_force_pushes, public bool $allow_deletions, public bool $required_conversation_resolution, public array $contexts)
+    public function __construct(public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredStatusChecks $required_status_checks, public ?bool $enforce_admins, public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredPullRequestReviews $required_pull_request_reviews, public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\Restrictions $restrictions, public ?bool $required_linear_history, public ?bool $allow_force_pushes, public ?bool $allow_deletions, public ?bool $required_conversation_resolution, public ?array $contexts)
     {
     }
 }

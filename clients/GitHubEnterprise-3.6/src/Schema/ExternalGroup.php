@@ -19,11 +19,11 @@ final readonly class ExternalGroup
      * group_name: The display name for the group
      * updated_at: The date when the group was last updated_at
      * teams: An array of teams linked to this group
-     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Teams> $teams
+     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Teams> $teams
      * members: An array of external members linked to this group
-     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Members> $members
+     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup\Members> $members
      */
-    public function __construct(public ?int $group_id, public ?string $group_name, public string $updated_at, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ExternalGroup\Teams::class)] public ?array $teams, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ExternalGroup\Members::class)] public ?array $members)
+    public function __construct(public int $group_id, public string $group_name, public ?string $updated_at, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ExternalGroup\Teams::class)] public array $teams, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ExternalGroup\Members::class)] public array $members)
     {
     }
 }

@@ -18,12 +18,12 @@ final readonly class Applicationjson
      * name: Name of the runner group.
      * visibility: Visibility of a runner group. You can select all repositories, select individual repositories, or limit access to private repositories. Can be one of: `all`, `selected`, or `private`.
      * selected_repository_ids: List of repository IDs that can access the runner group.
-     * @param array<int> $selected_repository_ids
+     * @param ?array<int> $selected_repository_ids
      * runners: List of runner IDs to add to the runner group.
-     * @param array<int> $runners
+     * @param ?array<int> $runners
      * allows_public_repositories: Whether the runner group can be used by `public` repositories.
      */
-    public function __construct(public ?string $name, public string $visibility, public array $selected_repository_ids, public array $runners, public bool $allows_public_repositories)
+    public function __construct(public string $name, public ?string $visibility, public ?array $selected_repository_ids, public ?array $runners, public ?bool $allows_public_repositories)
     {
     }
 }

@@ -18,7 +18,7 @@ final readonly class Teams
      * team_id: The id for a team
      * team_name: The name of the team
      */
-    public function __construct(public ?int $team_id, public ?string $team_name)
+    public function __construct(public int $team_id, public string $team_name)
     {
     }
 }

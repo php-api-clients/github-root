@@ -32,260 +32,276 @@ class AdvancedSecurity implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommitters(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_advanced_security_committers'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'total_advanced_security_committers';
-                    goto after_total_advanced_security_committers;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommitters(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_advanced_security_committers'] ?? null;
 
-                $properties['total_advanced_security_committers'] = $value;
-    
-                after_total_advanced_security_committers:
+            if ($value === null) {
+                $properties['total_advanced_security_committers'] = null;
+                goto after_total_advanced_security_committers;
+            }
 
-                $value = $payload['total_count'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'total_count';
-                    goto after_total_count;
-                }
+            $properties['total_advanced_security_committers'] = $value;
 
-                $properties['total_count'] = $value;
-    
-                after_total_count:
+            after_total_advanced_security_committers:
 
-                $value = $payload['repositories'] ?? null;
-    
-                if ($value === null) {
-                    $properties['repositories'] = null;
-                    goto after_repositories;
-                }
+            $value = $payload['total_count'] ?? null;
 
-                static $repositoriesCaster1;
-    
-                if ($repositoriesCaster1 === null) {
-                    $repositoriesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($value === null) {
+                $properties['total_count'] = null;
+                goto after_total_count;
+            }
+
+            $properties['total_count'] = $value;
+
+            after_total_count:
+
+            $value = $payload['repositories'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'repositories';
+                goto after_repositories;
+            }
+
+            static $repositoriesCaster1;
+
+            if ($repositoriesCaster1 === null) {
+                $repositoriesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AdvancedSecurityActiveCommittersRepository',
 ));
-                }
-    
-                $value = $repositoriesCaster1->cast($value, $this);
+            }
 
-                $properties['repositories'] = $value;
-    
-                after_repositories:
+            $value = $repositoriesCaster1->cast($value, $this);
 
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters', $exception, stack: $this->hydrationStack);
-            }
+            $properties['repositories'] = $value;
+
+            after_repositories:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters', $exception, stack: $this->hydrationStack);
         }
 
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters', $exception, stack: $this->hydrationStack);
+        }
+    }
+
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommittersRepository(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersRepository
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['name'] = null;
-                    goto after_name;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommittersRepository(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersRepository
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['name'] ?? null;
 
-                $properties['name'] = $value;
-    
-                after_name:
+            if ($value === null) {
+                $missingFields[] = 'name';
+                goto after_name;
+            }
 
-                $value = $payload['advanced_security_committers'] ?? null;
-    
-                if ($value === null) {
-                    $properties['advanced_security_committers'] = null;
-                    goto after_advanced_security_committers;
-                }
+            $properties['name'] = $value;
 
-                $properties['advanced_security_committers'] = $value;
-    
-                after_advanced_security_committers:
+            after_name:
 
-                $value = $payload['advanced_security_committers_breakdown'] ?? null;
-    
-                if ($value === null) {
-                    $properties['advanced_security_committers_breakdown'] = null;
-                    goto after_advanced_security_committers_breakdown;
-                }
+            $value = $payload['advanced_security_committers'] ?? null;
 
-                static $advanced_security_committers_breakdownCaster1;
-    
-                if ($advanced_security_committers_breakdownCaster1 === null) {
-                    $advanced_security_committers_breakdownCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($value === null) {
+                $missingFields[] = 'advanced_security_committers';
+                goto after_advanced_security_committers;
+            }
+
+            $properties['advanced_security_committers'] = $value;
+
+            after_advanced_security_committers:
+
+            $value = $payload['advanced_security_committers_breakdown'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'advanced_security_committers_breakdown';
+                goto after_advanced_security_committers_breakdown;
+            }
+
+            static $advanced_security_committers_breakdownCaster1;
+
+            if ($advanced_security_committers_breakdownCaster1 === null) {
+                $advanced_security_committers_breakdownCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AdvancedSecurityActiveCommittersUser',
 ));
-                }
-    
-                $value = $advanced_security_committers_breakdownCaster1->cast($value, $this);
+            }
 
-                $properties['advanced_security_committers_breakdown'] = $value;
-    
-                after_advanced_security_committers_breakdown:
+            $value = $advanced_security_committers_breakdownCaster1->cast($value, $this);
 
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersRepository', $exception, stack: $this->hydrationStack);
-            }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersRepository::class, $missingFields, stack: $this->hydrationStack);
-            }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersRepository(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersRepository', $exception, stack: $this->hydrationStack);
-            }
+            $properties['advanced_security_committers_breakdown'] = $value;
+
+            after_advanced_security_committers_breakdown:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersRepository', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersRepository::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersRepository(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersRepository', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommittersUser(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['user_login'] ?? null;
-    
-                if ($value === null) {
-                    $properties['user_login'] = null;
-                    goto after_user_login;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommittersUser(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['user_login'] ?? null;
 
-                $properties['user_login'] = $value;
-    
-                after_user_login:
-
-                $value = $payload['last_pushed_date'] ?? null;
-    
-                if ($value === null) {
-                    $properties['last_pushed_date'] = null;
-                    goto after_last_pushed_date;
-                }
-
-                $properties['last_pushed_date'] = $value;
-    
-                after_last_pushed_date:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'user_login';
+                goto after_user_login;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['user_login'] = $value;
+
+            after_user_login:
+
+            $value = $payload['last_pushed_date'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'last_pushed_date';
+                goto after_last_pushed_date;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser', $exception, stack: $this->hydrationStack);
-            }
+
+            $properties['last_pushed_date'] = $value;
+
+            after_last_pushed_date:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['message'] ?? null;
-    
-                if ($value === null) {
-                    $properties['message'] = null;
-                    goto after_message;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['message'] ?? null;
 
-                $properties['message'] = $value;
-    
-                after_message:
-
-                $value = $payload['documentation_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['documentation_url'] = null;
-                    goto after_documentation_url;
-                }
-
-                $properties['documentation_url'] = $value;
-    
-                after_documentation_url:
-
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
-                }
-
-                $properties['url'] = $value;
-    
-                after_url:
-
-                $value = $payload['status'] ?? null;
-    
-                if ($value === null) {
-                    $properties['status'] = null;
-                    goto after_status;
-                }
-
-                $properties['status'] = $value;
-    
-                after_status:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $properties['message'] = null;
+                goto after_message;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['message'] = $value;
+
+            after_message:
+
+            $value = $payload['documentation_url'] ?? null;
+
+            if ($value === null) {
+                $properties['documentation_url'] = null;
+                goto after_documentation_url;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+
+            $properties['documentation_url'] = $value;
+
+            after_documentation_url:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommitters($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommittersRepository($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommittersUser($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommitters($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommittersRepository($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommittersUser($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -358,25 +374,29 @@ class AdvancedSecurity implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommitters(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters);
         $result = [];
-        
+
         $total_advanced_security_committers = $object->total_advanced_security_committers;
+
+        if ($total_advanced_security_committers === null) {
+            goto after_total_advanced_security_committers;
+        }
         after_total_advanced_security_committers:        $result['total_advanced_security_committers'] = $total_advanced_security_committers;
 
         
         $total_count = $object->total_count;
+
+        if ($total_count === null) {
+            goto after_total_count;
+        }
         after_total_count:        $result['total_count'] = $total_count;
 
         
         $repositories = $object->repositories;
-
-        if ($repositories === null) {
-            goto after_repositories;
-        }
         static $repositoriesSerializer0;
 
         if ($repositoriesSerializer0 === null) {
@@ -392,33 +412,21 @@ class AdvancedSecurity implements ObjectMapper
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommittersRepository(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersRepository);
         $result = [];
-        
-        $name = $object->name;
 
-        if ($name === null) {
-            goto after_name;
-        }
+        $name = $object->name;
         after_name:        $result['name'] = $name;
 
         
         $advanced_security_committers = $object->advanced_security_committers;
-
-        if ($advanced_security_committers === null) {
-            goto after_advanced_security_committers;
-        }
         after_advanced_security_committers:        $result['advanced_security_committers'] = $advanced_security_committers;
 
         
         $advanced_security_committers_breakdown = $object->advanced_security_committers_breakdown;
-
-        if ($advanced_security_committers_breakdown === null) {
-            goto after_advanced_security_committers_breakdown;
-        }
         static $advanced_security_committers_breakdownSerializer0;
 
         if ($advanced_security_committers_breakdownSerializer0 === null) {
@@ -434,37 +442,29 @@ class AdvancedSecurity implements ObjectMapper
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AdvancedSecurityActiveCommittersUser(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser);
         $result = [];
-        
-        $user_login = $object->user_login;
 
-        if ($user_login === null) {
-            goto after_user_login;
-        }
+        $user_login = $object->user_login;
         after_user_login:        $result['user_login'] = $user_login;
 
         
         $last_pushed_date = $object->last_pushed_date;
-
-        if ($last_pushed_date === null) {
-            goto after_last_pushed_date;
-        }
         after_last_pushed_date:        $result['last_pushed_date'] = $last_pushed_date;
 
 
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError);
         $result = [];
-        
+
         $message = $object->message;
 
         if ($message === null) {

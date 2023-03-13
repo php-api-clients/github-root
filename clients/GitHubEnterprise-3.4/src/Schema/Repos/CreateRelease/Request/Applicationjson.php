@@ -23,7 +23,7 @@ final readonly class Applicationjson
      * prerelease: `true` to identify the release as a prerelease. `false` to identify the release as a full release.
      * generate_release_notes: Whether to automatically generate the name and body for this release. If `name` is specified, the specified name will be used; otherwise, a name will be automatically generated. If `body` is specified, the body will be pre-pended to the automatically generated notes.
      */
-    public function __construct(public ?string $tag_name, public string $target_commitish, public string $name, public string $body, public bool $draft, public bool $prerelease, public bool $generate_release_notes)
+    public function __construct(public string $tag_name, public ?string $target_commitish, public ?string $name, public ?string $body, public ?bool $draft, public ?bool $prerelease, public ?bool $generate_release_notes)
     {
     }
 }

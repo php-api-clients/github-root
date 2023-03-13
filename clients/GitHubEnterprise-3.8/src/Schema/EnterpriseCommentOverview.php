@@ -14,7 +14,7 @@ final readonly class EnterpriseCommentOverview
     public const SCHEMA_TITLE = 'Enterprise Comment Stats';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_commit_comments":13,"total_gist_comments":13,"total_issue_comments":13,"total_pull_request_comments":13}';
-    public function __construct(public ?int $total_commit_comments, public ?int $total_gist_comments, public ?int $total_issue_comments, public ?int $total_pull_request_comments)
+    public function __construct(public int $total_commit_comments, public int $total_gist_comments, public int $total_issue_comments, public int $total_pull_request_comments)
     {
     }
 }

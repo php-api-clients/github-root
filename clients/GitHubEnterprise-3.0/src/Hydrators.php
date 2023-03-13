@@ -13,98 +13,224 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\Root $operation🌀Root = null;
     private ?Hydrator\Operation\Admin\Hooks $operation🌀Admin🌀Hooks = null;
     private ?Hydrator\Operation\Admin\Hooks\CbHookIdRcb $operation🌀Admin🌀Hooks🌀CbHookIdRcb = null;
+    private ?Hydrator\Operation\Admin\Hooks\CbHookIdRcb\Pings $operation🌀Admin🌀Hooks🌀CbHookIdRcb🌀Pings = null;
     private ?Hydrator\Operation\Admin\Keys $operation🌀Admin🌀Keys = null;
+    private ?Hydrator\Operation\Admin\Keys\CbKeyIdsRcb $operation🌀Admin🌀Keys🌀CbKeyIdsRcb = null;
     private ?Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb\Mapping $operation🌀Admin🌀Ldap🌀Teams🌀CbTeamIdRcb🌀Mapping = null;
     private ?Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb\Sync $operation🌀Admin🌀Ldap🌀Teams🌀CbTeamIdRcb🌀Sync = null;
     private ?Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Mapping $operation🌀Admin🌀Ldap🌀Users🌀CbUsernameRcb🌀Mapping = null;
+    private ?Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Sync $operation🌀Admin🌀Ldap🌀Users🌀CbUsernameRcb🌀Sync = null;
     private ?Hydrator\Operation\Admin\Organizations $operation🌀Admin🌀Organizations = null;
     private ?Hydrator\Operation\Admin\Organizations\CbOrgRcb $operation🌀Admin🌀Organizations🌀CbOrgRcb = null;
     private ?Hydrator\Operation\Admin\PreReceiveEnvironments $operation🌀Admin🌀PreReceiveEnvironments = null;
     private ?Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb $operation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb = null;
     private ?Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads $operation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb🌀Downloads = null;
+    private ?Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads\Latest $operation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb🌀Downloads🌀Latest = null;
     private ?Hydrator\Operation\Admin\PreReceiveHooks $operation🌀Admin🌀PreReceiveHooks = null;
+    private ?Hydrator\Operation\Admin\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb $operation🌀Admin🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb = null;
     private ?Hydrator\Operation\Admin\Tokens $operation🌀Admin🌀Tokens = null;
+    private ?Hydrator\Operation\Admin\Tokens\CbTokenIdRcb $operation🌀Admin🌀Tokens🌀CbTokenIdRcb = null;
     private ?Hydrator\Operation\Admin\Users $operation🌀Admin🌀Users = null;
+    private ?Hydrator\Operation\Admin\Users\CbUsernameRcb $operation🌀Admin🌀Users🌀CbUsernameRcb = null;
+    private ?Hydrator\Operation\Admin\Users\CbUsernameRcb\Authorizations $operation🌀Admin🌀Users🌀CbUsernameRcb🌀Authorizations = null;
     private ?Hydrator\Operation\App $operation🌀App = null;
     private ?Hydrator\Operation\AppManifests\CbCodeRcb\Conversions $operation🌀AppManifests🌀CbCodeRcb🌀Conversions = null;
     private ?Hydrator\Operation\App\Hook\Config $operation🌀App🌀Hook🌀Config = null;
     private ?Hydrator\Operation\App\Installations $operation🌀App🌀Installations = null;
     private ?Hydrator\Operation\App\Installations\CbInstallationIdRcb $operation🌀App🌀Installations🌀CbInstallationIdRcb = null;
     private ?Hydrator\Operation\App\Installations\CbInstallationIdRcb\AccessTokens $operation🌀App🌀Installations🌀CbInstallationIdRcb🌀AccessTokens = null;
+    private ?Hydrator\Operation\App\Installations\CbInstallationIdRcb\Suspended $operation🌀App🌀Installations🌀CbInstallationIdRcb🌀Suspended = null;
     private ?Hydrator\Operation\Applications\Grants $operation🌀Applications🌀Grants = null;
+    private ?Hydrator\Operation\Applications\Grants\CbGrantIdRcb $operation🌀Applications🌀Grants🌀CbGrantIdRcb = null;
+    private ?Hydrator\Operation\Applications\CbClientIdRcb\Grant $operation🌀Applications🌀CbClientIdRcb🌀Grant = null;
+    private ?Hydrator\Operation\Applications\CbClientIdRcb\Grants\CbAccessTokenRcb $operation🌀Applications🌀CbClientIdRcb🌀Grants🌀CbAccessTokenRcb = null;
+    private ?Hydrator\Operation\Applications\CbClientIdRcb\Token $operation🌀Applications🌀CbClientIdRcb🌀Token = null;
+    private ?Hydrator\Operation\Applications\CbClientIdRcb\Token\Scoped $operation🌀Applications🌀CbClientIdRcb🌀Token🌀Scoped = null;
     private ?Hydrator\Operation\Applications\CbClientIdRcb\Tokens\CbAccessTokenRcb $operation🌀Applications🌀CbClientIdRcb🌀Tokens🌀CbAccessTokenRcb = null;
+    private ?Hydrator\Operation\Apps\CbAppSlugRcb $operation🌀Apps🌀CbAppSlugRcb = null;
+    private ?Hydrator\Operation\Authorizations $operation🌀Authorizations = null;
+    private ?Hydrator\Operation\Authorizations\Clients\CbClientIdRcb $operation🌀Authorizations🌀Clients🌀CbClientIdRcb = null;
+    private ?Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb $operation🌀Authorizations🌀Clients🌀CbClientIdRcb🌀CbFingerprintRcb = null;
+    private ?Hydrator\Operation\Authorizations\CbAuthorizationIdRcb $operation🌀Authorizations🌀CbAuthorizationIdRcb = null;
     private ?Hydrator\Operation\CodesOfConduct $operation🌀CodesOfConduct = null;
+    private ?Hydrator\Operation\CodesOfConduct\CbKeyRcb $operation🌀CodesOfConduct🌀CbKeyRcb = null;
     private ?Hydrator\Operation\Emojis $operation🌀Emojis = null;
     private ?Hydrator\Operation\Enterprise\Announcement $operation🌀Enterprise🌀Announcement = null;
     private ?Hydrator\Operation\Enterprise\Settings\License $operation🌀Enterprise🌀Settings🌀License = null;
     private ?Hydrator\Operation\Enterprise\Stats\All $operation🌀Enterprise🌀Stats🌀All = null;
+    private ?Hydrator\Operation\Enterprise\Stats\Comments $operation🌀Enterprise🌀Stats🌀Comments = null;
+    private ?Hydrator\Operation\Enterprise\Stats\Gists $operation🌀Enterprise🌀Stats🌀Gists = null;
+    private ?Hydrator\Operation\Enterprise\Stats\Hooks $operation🌀Enterprise🌀Stats🌀Hooks = null;
+    private ?Hydrator\Operation\Enterprise\Stats\Issues $operation🌀Enterprise🌀Stats🌀Issues = null;
+    private ?Hydrator\Operation\Enterprise\Stats\Milestones $operation🌀Enterprise🌀Stats🌀Milestones = null;
+    private ?Hydrator\Operation\Enterprise\Stats\Orgs $operation🌀Enterprise🌀Stats🌀Orgs = null;
+    private ?Hydrator\Operation\Enterprise\Stats\Pages $operation🌀Enterprise🌀Stats🌀Pages = null;
+    private ?Hydrator\Operation\Enterprise\Stats\Pulls $operation🌀Enterprise🌀Stats🌀Pulls = null;
+    private ?Hydrator\Operation\Enterprise\Stats\Repos $operation🌀Enterprise🌀Stats🌀Repos = null;
+    private ?Hydrator\Operation\Enterprise\Stats\Users $operation🌀Enterprise🌀Stats🌀Users = null;
     private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions = null;
     private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\Organizations $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀Organizations = null;
+    private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\Organizations\CbOrgIdRcb $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀Organizations🌀CbOrgIdRcb = null;
     private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\SelectedActions $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀SelectedActions = null;
     private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerGroups $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerGroups = null;
+    private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb = null;
+    private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Organizations $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Organizations = null;
+    private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Organizations\CbOrgIdRcb $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Organizations🌀CbOrgIdRcb = null;
     private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners = null;
+    private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners\CbRunnerIdRcb $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners🌀CbRunnerIdRcb = null;
     private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners = null;
     private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\Downloads $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀Downloads = null;
     private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RegistrationToken $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀RegistrationToken = null;
+    private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RemoveToken $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀RemoveToken = null;
+    private ?Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb $operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb = null;
     private ?Hydrator\Operation\Events $operation🌀Events = null;
     private ?Hydrator\Operation\Feeds $operation🌀Feeds = null;
     private ?Hydrator\Operation\Gists $operation🌀Gists = null;
+    private ?Hydrator\Operation\Gists\Public_ $operation🌀Gists🌀Public_ = null;
+    private ?Hydrator\Operation\Gists\Starred $operation🌀Gists🌀Starred = null;
     private ?Hydrator\Operation\Gists\CbGistIdRcb $operation🌀Gists🌀CbGistIdRcb = null;
     private ?Hydrator\Operation\Gists\CbGistIdRcb\Comments $operation🌀Gists🌀CbGistIdRcb🌀Comments = null;
+    private ?Hydrator\Operation\Gists\CbGistIdRcb\Comments\CbCommentIdRcb $operation🌀Gists🌀CbGistIdRcb🌀Comments🌀CbCommentIdRcb = null;
     private ?Hydrator\Operation\Gists\CbGistIdRcb\Commits $operation🌀Gists🌀CbGistIdRcb🌀Commits = null;
+    private ?Hydrator\Operation\Gists\CbGistIdRcb\Forks $operation🌀Gists🌀CbGistIdRcb🌀Forks = null;
     private ?Hydrator\Operation\Gists\CbGistIdRcb\Star $operation🌀Gists🌀CbGistIdRcb🌀Star = null;
+    private ?Hydrator\Operation\Gists\CbGistIdRcb\CbShaRcb $operation🌀Gists🌀CbGistIdRcb🌀CbShaRcb = null;
     private ?Hydrator\Operation\Gitignore\Templates $operation🌀Gitignore🌀Templates = null;
     private ?Hydrator\Operation\Gitignore\Templates\CbNameRcb $operation🌀Gitignore🌀Templates🌀CbNameRcb = null;
     private ?Hydrator\Operation\Installation\Repositories $operation🌀Installation🌀Repositories = null;
+    private ?Hydrator\Operation\Installation\Token $operation🌀Installation🌀Token = null;
+    private ?Hydrator\Operation\Issues $operation🌀Issues = null;
     private ?Hydrator\Operation\Licenses $operation🌀Licenses = null;
     private ?Hydrator\Operation\Licenses\CbLicenseRcb $operation🌀Licenses🌀CbLicenseRcb = null;
+    private ?Hydrator\Operation\Markdown $operation🌀Markdown = null;
+    private ?Hydrator\Operation\Markdown\Raw $operation🌀Markdown🌀Raw = null;
     private ?Hydrator\Operation\Meta $operation🌀Meta = null;
+    private ?Hydrator\Operation\Networks\CbOwnerRcb\CbRepoRcb\Events $operation🌀Networks🌀CbOwnerRcb🌀CbRepoRcb🌀Events = null;
     private ?Hydrator\Operation\Notifications $operation🌀Notifications = null;
+    private ?Hydrator\Operation\Notifications\Threads\CbThreadIdRcb $operation🌀Notifications🌀Threads🌀CbThreadIdRcb = null;
     private ?Hydrator\Operation\Notifications\Threads\CbThreadIdRcb\Subscription $operation🌀Notifications🌀Threads🌀CbThreadIdRcb🌀Subscription = null;
+    private ?Hydrator\Operation\Octocat $operation🌀Octocat = null;
+    private ?Hydrator\Operation\Organizations $operation🌀Organizations = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb $operation🌀Orgs🌀CbOrgRcb = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\Repositories $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀Repositories = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\Repositories\CbRepositoryIdRcb $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀Repositories🌀CbRepositoryIdRcb = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\SelectedActions $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀SelectedActions = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerGroups = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Repositories = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories\CbRepositoryIdRcb $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Repositories🌀CbRepositoryIdRcb = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners\CbRunnerIdRcb $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners🌀CbRunnerIdRcb = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\Downloads $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀Downloads = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\RegistrationToken $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀RegistrationToken = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\RemoveToken $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀RemoveToken = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀CbRunnerIdRcb = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\PublicKey $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀PublicKey = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb\Repositories $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb🌀Repositories = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb\Repositories\CbRepositoryIdRcb $operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb🌀Repositories🌀CbRepositoryIdRcb = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Events $operation🌀Orgs🌀CbOrgRcb🌀Events = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Hooks $operation🌀Orgs🌀CbOrgRcb🌀Hooks = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb $operation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Config $operation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Config = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Pings $operation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Pings = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Installation $operation🌀Orgs🌀CbOrgRcb🌀Installation = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Installations $operation🌀Orgs🌀CbOrgRcb🌀Installations = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Issues $operation🌀Orgs🌀CbOrgRcb🌀Issues = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Members $operation🌀Orgs🌀CbOrgRcb🌀Members = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Members\CbUsernameRcb $operation🌀Orgs🌀CbOrgRcb🌀Members🌀CbUsernameRcb = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Memberships\CbUsernameRcb $operation🌀Orgs🌀CbOrgRcb🌀Memberships🌀CbUsernameRcb = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\OutsideCollaborators $operation🌀Orgs🌀CbOrgRcb🌀OutsideCollaborators = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\OutsideCollaborators\CbUsernameRcb $operation🌀Orgs🌀CbOrgRcb🌀OutsideCollaborators🌀CbUsernameRcb = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\PreReceiveHooks $operation🌀Orgs🌀CbOrgRcb🌀PreReceiveHooks = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb $operation🌀Orgs🌀CbOrgRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Projects $operation🌀Orgs🌀CbOrgRcb🌀Projects = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\PublicMembers $operation🌀Orgs🌀CbOrgRcb🌀PublicMembers = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\PublicMembers\CbUsernameRcb $operation🌀Orgs🌀CbOrgRcb🌀PublicMembers🌀CbUsernameRcb = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Repos $operation🌀Orgs🌀CbOrgRcb🌀Repos = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams $operation🌀Orgs🌀CbOrgRcb🌀Teams = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions\CbReactionIdRcb $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions🌀CbReactionIdRcb = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions\CbReactionIdRcb $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions🌀CbReactionIdRcb = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Members $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Members = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Memberships🌀CbUsernameRcb = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects\CbProjectIdRcb $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects🌀CbProjectIdRcb = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos\CbOwnerRcb\CbRepoRcb $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Teams $operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Teams = null;
     private ?Hydrator\Operation\Projects\Columns\Cards\CbCardIdRcb $operation🌀Projects🌀Columns🌀Cards🌀CbCardIdRcb = null;
     private ?Hydrator\Operation\Projects\Columns\Cards\CbCardIdRcb\Moves $operation🌀Projects🌀Columns🌀Cards🌀CbCardIdRcb🌀Moves = null;
     private ?Hydrator\Operation\Projects\Columns\CbColumnIdRcb $operation🌀Projects🌀Columns🌀CbColumnIdRcb = null;
+    private ?Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Cards $operation🌀Projects🌀Columns🌀CbColumnIdRcb🌀Cards = null;
+    private ?Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Moves $operation🌀Projects🌀Columns🌀CbColumnIdRcb🌀Moves = null;
+    private ?Hydrator\Operation\Projects\CbProjectIdRcb $operation🌀Projects🌀CbProjectIdRcb = null;
+    private ?Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators $operation🌀Projects🌀CbProjectIdRcb🌀Collaborators = null;
+    private ?Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators\CbUsernameRcb $operation🌀Projects🌀CbProjectIdRcb🌀Collaborators🌀CbUsernameRcb = null;
     private ?Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators\CbUsernameRcb\Permission $operation🌀Projects🌀CbProjectIdRcb🌀Collaborators🌀CbUsernameRcb🌀Permission = null;
+    private ?Hydrator\Operation\Projects\CbProjectIdRcb\Columns $operation🌀Projects🌀CbProjectIdRcb🌀Columns = null;
     private ?Hydrator\Operation\RateLimit $operation🌀RateLimit = null;
+    private ?Hydrator\Operation\Reactions\CbReactionIdRcb $operation🌀Reactions🌀CbReactionIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb\CbArchiveFormatRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb🌀CbArchiveFormatRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb\Logs $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb🌀Logs = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions\SelectedActions $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions🌀SelectedActions = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\Downloads $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀Downloads = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\RegistrationToken $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀RegistrationToken = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\RemoveToken $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀RemoveToken = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀CbRunnerIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Artifacts $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Artifacts = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Cancel $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Cancel = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Jobs $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Jobs = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Logs $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Logs = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Rerun $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Rerun = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\PublicKey $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀PublicKey = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Disable $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Disable = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Dispatches $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Dispatches = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Enable $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Enable = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Runs $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Runs = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Assignees $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Assignees = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Assignees\CbAssigneeRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Assignees🌀CbAssigneeRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\EnforceAdmins $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀EnforceAdmins = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredPullRequestReviews $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredPullRequestReviews = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredSignatures $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredSignatures = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks\Contexts $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks🌀Contexts = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Apps $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Apps = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Teams $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Teams = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Users $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Users = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckRuns $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckRuns = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashRuns🌀CbCheckRunIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb\Annotations $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashRuns🌀CbCheckRunIdRcb🌀Annotations = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckSuites $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckSuites = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckSuites\Preferences $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckSuites🌀Preferences = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\CheckDashRuns $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀CheckDashRuns = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\Rerequest $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀Rerequest = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Alerts $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Alerts = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Analyses $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Analyses = null;
@@ -113,9 +239,15 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Collaborators\CbUsernameRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Collaborators🌀CbUsernameRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Collaborators\CbUsernameRcb\Permission $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Collaborators🌀CbUsernameRcb🌀Permission = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions\CbReactionIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\BranchesDashWhereDashHead $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀BranchesDashWhereDashHead = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Comments $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Comments = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Pulls $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Pulls = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\CheckRuns $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀CheckRuns = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\CheckSuites $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀CheckSuites = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\Status $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀Status = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\Statuses $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀Statuses = null;
@@ -124,41 +256,110 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contents\CbPathRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Contents🌀CbPathRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contributors $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Contributors = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses\CbStatusIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses🌀CbStatusIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Dispatches $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Dispatches = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Events $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Events = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Forks $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Forks = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Blobs $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Blobs = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Blobs\CbFileShaRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Blobs🌀CbFileShaRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Commits $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Commits = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Commits\CbCommitShaRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Commits🌀CbCommitShaRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\MatchingRefs\CbRefRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀MatchingRefs🌀CbRefRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Ref\CbRefRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Ref🌀CbRefRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Refs $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Refs = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Refs\CbRefRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Refs🌀CbRefRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Tags $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Tags\CbTagShaRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags🌀CbTagShaRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees\CbTreeShaRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees🌀CbTreeShaRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Config $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Config = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Pings $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Pings = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Tests $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Tests = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Installation $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Installation = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Invitations $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Invitations = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Invitations\CbInvitationIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Invitations🌀CbInvitationIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb🌀Reactions = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions\CbReactionIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events\CbEventIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events🌀CbEventIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Assignees $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Assignees = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Comments $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Comments = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Events $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Events = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels\CbNameRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels🌀CbNameRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Lock $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Lock = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Reactions = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions\CbReactionIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Reactions🌀CbReactionIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Timeline $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Timeline = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Keys = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys\CbKeyIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Keys🌀CbKeyIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Labels = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels\CbNameRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Labels🌀CbNameRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Languages $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Languages = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\License $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀License = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Merges $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Merges = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones🌀CbMilestoneNumberRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb\Labels $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones🌀CbMilestoneNumberRcb🌀Labels = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Notifications $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Notifications = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\Latest $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds🌀Latest = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\CbBuildIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds🌀CbBuildIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreReceiveHooks $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreReceiveHooks = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Projects $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Projects = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb🌀Reactions = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions\CbReactionIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Comments = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments\CbCommentIdRcb\Replies $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Comments🌀CbCommentIdRcb🌀Replies = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Commits $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Commits = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Files $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Files = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Merge $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Merge = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\RequestedReviewers $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀RequestedReviewers = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Comments $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Comments = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Dismissals $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Dismissals = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Events $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Events = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\UpdateDashBranch $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀UpdateDashBranch = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme\CbDirRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme🌀CbDirRcb = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Assets\CbAssetIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Assets🌀CbAssetIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Latest $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Latest = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Tags\CbTagRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Tags🌀CbTagRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Assets $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb🌀Assets = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stargazers $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stargazers = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\CodeFrequency $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀CodeFrequency = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\CommitActivity $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀CommitActivity = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\Contributors $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀Contributors = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\Participation $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀Participation = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\PunchCard $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀PunchCard = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Statuses\CbShaRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Statuses🌀CbShaRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscribers $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscribers = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscription $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscription = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Tags $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Tags = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Tarball\CbRefRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Tarball🌀CbRefRcb = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Teams $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Teams = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Topics $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Topics = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Transfer $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Transfer = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Zipball\CbRefRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Zipball🌀CbRefRcb = null;
+    private ?Hydrator\Operation\Repos\CbTemplateOwnerRcb\CbTemplateRepoRcb\Generate $operation🌀Repos🌀CbTemplateOwnerRcb🌀CbTemplateRepoRcb🌀Generate = null;
+    private ?Hydrator\Operation\Repositories $operation🌀Repositories = null;
     private ?Hydrator\Operation\Search\Code $operation🌀Search🌀Code = null;
     private ?Hydrator\Operation\Search\Commits $operation🌀Search🌀Commits = null;
     private ?Hydrator\Operation\Search\Issues $operation🌀Search🌀Issues = null;
@@ -167,18 +368,75 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     private ?Hydrator\Operation\Search\Topics $operation🌀Search🌀Topics = null;
     private ?Hydrator\Operation\Search\Users $operation🌀Search🌀Users = null;
     private ?Hydrator\Operation\Setup\Api\Configcheck $operation🌀Setup🌀Api🌀Configcheck = null;
+    private ?Hydrator\Operation\Setup\Api\Configure $operation🌀Setup🌀Api🌀Configure = null;
     private ?Hydrator\Operation\Setup\Api\Maintenance $operation🌀Setup🌀Api🌀Maintenance = null;
     private ?Hydrator\Operation\Setup\Api\Settings $operation🌀Setup🌀Api🌀Settings = null;
     private ?Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys $operation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys = null;
+    private ?Hydrator\Operation\Setup\Api\Start $operation🌀Setup🌀Api🌀Start = null;
+    private ?Hydrator\Operation\Setup\Api\Upgrade $operation🌀Setup🌀Api🌀Upgrade = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb $operation🌀Teams🌀CbTeamIdRcb = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb\Discussions $operation🌀Teams🌀CbTeamIdRcb🌀Discussions = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb $operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments $operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb $operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions $operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Reactions $operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb\Members $operation🌀Teams🌀CbTeamIdRcb🌀Members = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb\Members\CbUsernameRcb $operation🌀Teams🌀CbTeamIdRcb🌀Members🌀CbUsernameRcb = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb\Memberships\CbUsernameRcb $operation🌀Teams🌀CbTeamIdRcb🌀Memberships🌀CbUsernameRcb = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb\Projects $operation🌀Teams🌀CbTeamIdRcb🌀Projects = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb $operation🌀Teams🌀CbTeamIdRcb🌀Projects🌀CbProjectIdRcb = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb\Repos $operation🌀Teams🌀CbTeamIdRcb🌀Repos = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb $operation🌀Teams🌀CbTeamIdRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb = null;
+    private ?Hydrator\Operation\Teams\CbTeamIdRcb\Teams $operation🌀Teams🌀CbTeamIdRcb🌀Teams = null;
     private ?Hydrator\Operation\User $operation🌀User = null;
     private ?Hydrator\Operation\User\Emails $operation🌀User🌀Emails = null;
+    private ?Hydrator\Operation\User\Followers $operation🌀User🌀Followers = null;
+    private ?Hydrator\Operation\User\Following $operation🌀User🌀Following = null;
+    private ?Hydrator\Operation\User\Following\CbUsernameRcb $operation🌀User🌀Following🌀CbUsernameRcb = null;
     private ?Hydrator\Operation\User\GpgKeys $operation🌀User🌀GpgKeys = null;
+    private ?Hydrator\Operation\User\GpgKeys\CbGpgKeyIdRcb $operation🌀User🌀GpgKeys🌀CbGpgKeyIdRcb = null;
+    private ?Hydrator\Operation\User\Installations $operation🌀User🌀Installations = null;
     private ?Hydrator\Operation\User\Installations\CbInstallationIdRcb\Repositories $operation🌀User🌀Installations🌀CbInstallationIdRcb🌀Repositories = null;
+    private ?Hydrator\Operation\User\Installations\CbInstallationIdRcb\Repositories\CbRepositoryIdRcb $operation🌀User🌀Installations🌀CbInstallationIdRcb🌀Repositories🌀CbRepositoryIdRcb = null;
+    private ?Hydrator\Operation\User\Issues $operation🌀User🌀Issues = null;
     private ?Hydrator\Operation\User\Keys $operation🌀User🌀Keys = null;
+    private ?Hydrator\Operation\User\Keys\CbKeyIdRcb $operation🌀User🌀Keys🌀CbKeyIdRcb = null;
+    private ?Hydrator\Operation\User\Memberships\Orgs $operation🌀User🌀Memberships🌀Orgs = null;
+    private ?Hydrator\Operation\User\Memberships\Orgs\CbOrgRcb $operation🌀User🌀Memberships🌀Orgs🌀CbOrgRcb = null;
+    private ?Hydrator\Operation\User\Orgs $operation🌀User🌀Orgs = null;
+    private ?Hydrator\Operation\User\Projects $operation🌀User🌀Projects = null;
+    private ?Hydrator\Operation\User\PublicEmails $operation🌀User🌀PublicEmails = null;
+    private ?Hydrator\Operation\User\Repos $operation🌀User🌀Repos = null;
+    private ?Hydrator\Operation\User\RepositoryInvitations $operation🌀User🌀RepositoryInvitations = null;
+    private ?Hydrator\Operation\User\RepositoryInvitations\CbInvitationIdRcb $operation🌀User🌀RepositoryInvitations🌀CbInvitationIdRcb = null;
     private ?Hydrator\Operation\User\Starred $operation🌀User🌀Starred = null;
+    private ?Hydrator\Operation\User\Starred\CbOwnerRcb\CbRepoRcb $operation🌀User🌀Starred🌀CbOwnerRcb🌀CbRepoRcb = null;
+    private ?Hydrator\Operation\User\Subscriptions $operation🌀User🌀Subscriptions = null;
+    private ?Hydrator\Operation\User\Teams $operation🌀User🌀Teams = null;
+    private ?Hydrator\Operation\Users $operation🌀Users = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb $operation🌀Users🌀CbUsernameRcb = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\Events $operation🌀Users🌀CbUsernameRcb🌀Events = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\Events\Orgs\CbOrgRcb $operation🌀Users🌀CbUsernameRcb🌀Events🌀Orgs🌀CbOrgRcb = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\Events\Public_ $operation🌀Users🌀CbUsernameRcb🌀Events🌀Public_ = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\Followers $operation🌀Users🌀CbUsernameRcb🌀Followers = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\Following $operation🌀Users🌀CbUsernameRcb🌀Following = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\Following\CbTargetUserRcb $operation🌀Users🌀CbUsernameRcb🌀Following🌀CbTargetUserRcb = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\Gists $operation🌀Users🌀CbUsernameRcb🌀Gists = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\GpgKeys $operation🌀Users🌀CbUsernameRcb🌀GpgKeys = null;
     private ?Hydrator\Operation\Users\CbUsernameRcb\Hovercard $operation🌀Users🌀CbUsernameRcb🌀Hovercard = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\Installation $operation🌀Users🌀CbUsernameRcb🌀Installation = null;
     private ?Hydrator\Operation\Users\CbUsernameRcb\Keys $operation🌀Users🌀CbUsernameRcb🌀Keys = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\Orgs $operation🌀Users🌀CbUsernameRcb🌀Orgs = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\Projects $operation🌀Users🌀CbUsernameRcb🌀Projects = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\ReceivedEvents $operation🌀Users🌀CbUsernameRcb🌀ReceivedEvents = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\ReceivedEvents\Public_ $operation🌀Users🌀CbUsernameRcb🌀ReceivedEvents🌀Public_ = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\Repos $operation🌀Users🌀CbUsernameRcb🌀Repos = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\SiteAdmin $operation🌀Users🌀CbUsernameRcb🌀SiteAdmin = null;
     private ?Hydrator\Operation\Users\CbUsernameRcb\Starred $operation🌀Users🌀CbUsernameRcb🌀Starred = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\Subscriptions $operation🌀Users🌀CbUsernameRcb🌀Subscriptions = null;
+    private ?Hydrator\Operation\Users\CbUsernameRcb\Suspended $operation🌀Users🌀CbUsernameRcb🌀Suspended = null;
+    private ?Hydrator\Operation\Zen $operation🌀Zen = null;
     public function hydrateObject(string $className, array $payload) : object
     {
         return match ($className) {
@@ -365,7 +623,11 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
     }
     public function serializeObject(object $object) : mixed
     {
-        return match ($object::class) {
+        return $this->serializeObjectOfType($object, $object::class);
+    }
+    public function serializeObjectOfType(object $object, string $className) : mixed
+    {
+        return match ($className) {
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\Operation\\Meta\\Root\\Response\\Applicationjson\\H200' => $this->getObjectMapperOperation🌀Root()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook\\Config' => $this->getObjectMapperOperation🌀Admin🌀Hooks()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook2', 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GlobalHook2\\Config' => $this->getObjectMapperOperation🌀Admin🌀Hooks🌀CbHookIdRcb()->serializeObject($object),
@@ -568,12 +830,26 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Admin🌀Hooks🌀CbHookIdRcb;
     }
+    public function getObjectMapperOperation🌀Admin🌀Hooks🌀CbHookIdRcb🌀Pings() : Hydrator\Operation\Admin\Hooks\CbHookIdRcb\Pings
+    {
+        if ($this->operation🌀Admin🌀Hooks🌀CbHookIdRcb🌀Pings instanceof Hydrator\Operation\Admin\Hooks\CbHookIdRcb\Pings === false) {
+            $this->operation🌀Admin🌀Hooks🌀CbHookIdRcb🌀Pings = new Hydrator\Operation\Admin\Hooks\CbHookIdRcb\Pings();
+        }
+        return $this->operation🌀Admin🌀Hooks🌀CbHookIdRcb🌀Pings;
+    }
     public function getObjectMapperOperation🌀Admin🌀Keys() : Hydrator\Operation\Admin\Keys
     {
         if ($this->operation🌀Admin🌀Keys instanceof Hydrator\Operation\Admin\Keys === false) {
             $this->operation🌀Admin🌀Keys = new Hydrator\Operation\Admin\Keys();
         }
         return $this->operation🌀Admin🌀Keys;
+    }
+    public function getObjectMapperOperation🌀Admin🌀Keys🌀CbKeyIdsRcb() : Hydrator\Operation\Admin\Keys\CbKeyIdsRcb
+    {
+        if ($this->operation🌀Admin🌀Keys🌀CbKeyIdsRcb instanceof Hydrator\Operation\Admin\Keys\CbKeyIdsRcb === false) {
+            $this->operation🌀Admin🌀Keys🌀CbKeyIdsRcb = new Hydrator\Operation\Admin\Keys\CbKeyIdsRcb();
+        }
+        return $this->operation🌀Admin🌀Keys🌀CbKeyIdsRcb;
     }
     public function getObjectMapperOperation🌀Admin🌀Ldap🌀Teams🌀CbTeamIdRcb🌀Mapping() : Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb\Mapping
     {
@@ -595,6 +871,13 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
             $this->operation🌀Admin🌀Ldap🌀Users🌀CbUsernameRcb🌀Mapping = new Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Mapping();
         }
         return $this->operation🌀Admin🌀Ldap🌀Users🌀CbUsernameRcb🌀Mapping;
+    }
+    public function getObjectMapperOperation🌀Admin🌀Ldap🌀Users🌀CbUsernameRcb🌀Sync() : Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Sync
+    {
+        if ($this->operation🌀Admin🌀Ldap🌀Users🌀CbUsernameRcb🌀Sync instanceof Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Sync === false) {
+            $this->operation🌀Admin🌀Ldap🌀Users🌀CbUsernameRcb🌀Sync = new Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Sync();
+        }
+        return $this->operation🌀Admin🌀Ldap🌀Users🌀CbUsernameRcb🌀Sync;
     }
     public function getObjectMapperOperation🌀Admin🌀Organizations() : Hydrator\Operation\Admin\Organizations
     {
@@ -631,12 +914,26 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb🌀Downloads;
     }
+    public function getObjectMapperOperation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb🌀Downloads🌀Latest() : Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads\Latest
+    {
+        if ($this->operation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb🌀Downloads🌀Latest instanceof Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads\Latest === false) {
+            $this->operation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb🌀Downloads🌀Latest = new Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads\Latest();
+        }
+        return $this->operation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb🌀Downloads🌀Latest;
+    }
     public function getObjectMapperOperation🌀Admin🌀PreReceiveHooks() : Hydrator\Operation\Admin\PreReceiveHooks
     {
         if ($this->operation🌀Admin🌀PreReceiveHooks instanceof Hydrator\Operation\Admin\PreReceiveHooks === false) {
             $this->operation🌀Admin🌀PreReceiveHooks = new Hydrator\Operation\Admin\PreReceiveHooks();
         }
         return $this->operation🌀Admin🌀PreReceiveHooks;
+    }
+    public function getObjectMapperOperation🌀Admin🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb() : Hydrator\Operation\Admin\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb
+    {
+        if ($this->operation🌀Admin🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb instanceof Hydrator\Operation\Admin\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb === false) {
+            $this->operation🌀Admin🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb = new Hydrator\Operation\Admin\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb();
+        }
+        return $this->operation🌀Admin🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb;
     }
     public function getObjectMapperOperation🌀Admin🌀Tokens() : Hydrator\Operation\Admin\Tokens
     {
@@ -645,12 +942,33 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Admin🌀Tokens;
     }
+    public function getObjectMapperOperation🌀Admin🌀Tokens🌀CbTokenIdRcb() : Hydrator\Operation\Admin\Tokens\CbTokenIdRcb
+    {
+        if ($this->operation🌀Admin🌀Tokens🌀CbTokenIdRcb instanceof Hydrator\Operation\Admin\Tokens\CbTokenIdRcb === false) {
+            $this->operation🌀Admin🌀Tokens🌀CbTokenIdRcb = new Hydrator\Operation\Admin\Tokens\CbTokenIdRcb();
+        }
+        return $this->operation🌀Admin🌀Tokens🌀CbTokenIdRcb;
+    }
     public function getObjectMapperOperation🌀Admin🌀Users() : Hydrator\Operation\Admin\Users
     {
         if ($this->operation🌀Admin🌀Users instanceof Hydrator\Operation\Admin\Users === false) {
             $this->operation🌀Admin🌀Users = new Hydrator\Operation\Admin\Users();
         }
         return $this->operation🌀Admin🌀Users;
+    }
+    public function getObjectMapperOperation🌀Admin🌀Users🌀CbUsernameRcb() : Hydrator\Operation\Admin\Users\CbUsernameRcb
+    {
+        if ($this->operation🌀Admin🌀Users🌀CbUsernameRcb instanceof Hydrator\Operation\Admin\Users\CbUsernameRcb === false) {
+            $this->operation🌀Admin🌀Users🌀CbUsernameRcb = new Hydrator\Operation\Admin\Users\CbUsernameRcb();
+        }
+        return $this->operation🌀Admin🌀Users🌀CbUsernameRcb;
+    }
+    public function getObjectMapperOperation🌀Admin🌀Users🌀CbUsernameRcb🌀Authorizations() : Hydrator\Operation\Admin\Users\CbUsernameRcb\Authorizations
+    {
+        if ($this->operation🌀Admin🌀Users🌀CbUsernameRcb🌀Authorizations instanceof Hydrator\Operation\Admin\Users\CbUsernameRcb\Authorizations === false) {
+            $this->operation🌀Admin🌀Users🌀CbUsernameRcb🌀Authorizations = new Hydrator\Operation\Admin\Users\CbUsernameRcb\Authorizations();
+        }
+        return $this->operation🌀Admin🌀Users🌀CbUsernameRcb🌀Authorizations;
     }
     public function getObjectMapperOperation🌀App() : Hydrator\Operation\App
     {
@@ -694,12 +1012,54 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀App🌀Installations🌀CbInstallationIdRcb🌀AccessTokens;
     }
+    public function getObjectMapperOperation🌀App🌀Installations🌀CbInstallationIdRcb🌀Suspended() : Hydrator\Operation\App\Installations\CbInstallationIdRcb\Suspended
+    {
+        if ($this->operation🌀App🌀Installations🌀CbInstallationIdRcb🌀Suspended instanceof Hydrator\Operation\App\Installations\CbInstallationIdRcb\Suspended === false) {
+            $this->operation🌀App🌀Installations🌀CbInstallationIdRcb🌀Suspended = new Hydrator\Operation\App\Installations\CbInstallationIdRcb\Suspended();
+        }
+        return $this->operation🌀App🌀Installations🌀CbInstallationIdRcb🌀Suspended;
+    }
     public function getObjectMapperOperation🌀Applications🌀Grants() : Hydrator\Operation\Applications\Grants
     {
         if ($this->operation🌀Applications🌀Grants instanceof Hydrator\Operation\Applications\Grants === false) {
             $this->operation🌀Applications🌀Grants = new Hydrator\Operation\Applications\Grants();
         }
         return $this->operation🌀Applications🌀Grants;
+    }
+    public function getObjectMapperOperation🌀Applications🌀Grants🌀CbGrantIdRcb() : Hydrator\Operation\Applications\Grants\CbGrantIdRcb
+    {
+        if ($this->operation🌀Applications🌀Grants🌀CbGrantIdRcb instanceof Hydrator\Operation\Applications\Grants\CbGrantIdRcb === false) {
+            $this->operation🌀Applications🌀Grants🌀CbGrantIdRcb = new Hydrator\Operation\Applications\Grants\CbGrantIdRcb();
+        }
+        return $this->operation🌀Applications🌀Grants🌀CbGrantIdRcb;
+    }
+    public function getObjectMapperOperation🌀Applications🌀CbClientIdRcb🌀Grant() : Hydrator\Operation\Applications\CbClientIdRcb\Grant
+    {
+        if ($this->operation🌀Applications🌀CbClientIdRcb🌀Grant instanceof Hydrator\Operation\Applications\CbClientIdRcb\Grant === false) {
+            $this->operation🌀Applications🌀CbClientIdRcb🌀Grant = new Hydrator\Operation\Applications\CbClientIdRcb\Grant();
+        }
+        return $this->operation🌀Applications🌀CbClientIdRcb🌀Grant;
+    }
+    public function getObjectMapperOperation🌀Applications🌀CbClientIdRcb🌀Grants🌀CbAccessTokenRcb() : Hydrator\Operation\Applications\CbClientIdRcb\Grants\CbAccessTokenRcb
+    {
+        if ($this->operation🌀Applications🌀CbClientIdRcb🌀Grants🌀CbAccessTokenRcb instanceof Hydrator\Operation\Applications\CbClientIdRcb\Grants\CbAccessTokenRcb === false) {
+            $this->operation🌀Applications🌀CbClientIdRcb🌀Grants🌀CbAccessTokenRcb = new Hydrator\Operation\Applications\CbClientIdRcb\Grants\CbAccessTokenRcb();
+        }
+        return $this->operation🌀Applications🌀CbClientIdRcb🌀Grants🌀CbAccessTokenRcb;
+    }
+    public function getObjectMapperOperation🌀Applications🌀CbClientIdRcb🌀Token() : Hydrator\Operation\Applications\CbClientIdRcb\Token
+    {
+        if ($this->operation🌀Applications🌀CbClientIdRcb🌀Token instanceof Hydrator\Operation\Applications\CbClientIdRcb\Token === false) {
+            $this->operation🌀Applications🌀CbClientIdRcb🌀Token = new Hydrator\Operation\Applications\CbClientIdRcb\Token();
+        }
+        return $this->operation🌀Applications🌀CbClientIdRcb🌀Token;
+    }
+    public function getObjectMapperOperation🌀Applications🌀CbClientIdRcb🌀Token🌀Scoped() : Hydrator\Operation\Applications\CbClientIdRcb\Token\Scoped
+    {
+        if ($this->operation🌀Applications🌀CbClientIdRcb🌀Token🌀Scoped instanceof Hydrator\Operation\Applications\CbClientIdRcb\Token\Scoped === false) {
+            $this->operation🌀Applications🌀CbClientIdRcb🌀Token🌀Scoped = new Hydrator\Operation\Applications\CbClientIdRcb\Token\Scoped();
+        }
+        return $this->operation🌀Applications🌀CbClientIdRcb🌀Token🌀Scoped;
     }
     public function getObjectMapperOperation🌀Applications🌀CbClientIdRcb🌀Tokens🌀CbAccessTokenRcb() : Hydrator\Operation\Applications\CbClientIdRcb\Tokens\CbAccessTokenRcb
     {
@@ -708,12 +1068,54 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Applications🌀CbClientIdRcb🌀Tokens🌀CbAccessTokenRcb;
     }
+    public function getObjectMapperOperation🌀Apps🌀CbAppSlugRcb() : Hydrator\Operation\Apps\CbAppSlugRcb
+    {
+        if ($this->operation🌀Apps🌀CbAppSlugRcb instanceof Hydrator\Operation\Apps\CbAppSlugRcb === false) {
+            $this->operation🌀Apps🌀CbAppSlugRcb = new Hydrator\Operation\Apps\CbAppSlugRcb();
+        }
+        return $this->operation🌀Apps🌀CbAppSlugRcb;
+    }
+    public function getObjectMapperOperation🌀Authorizations() : Hydrator\Operation\Authorizations
+    {
+        if ($this->operation🌀Authorizations instanceof Hydrator\Operation\Authorizations === false) {
+            $this->operation🌀Authorizations = new Hydrator\Operation\Authorizations();
+        }
+        return $this->operation🌀Authorizations;
+    }
+    public function getObjectMapperOperation🌀Authorizations🌀Clients🌀CbClientIdRcb() : Hydrator\Operation\Authorizations\Clients\CbClientIdRcb
+    {
+        if ($this->operation🌀Authorizations🌀Clients🌀CbClientIdRcb instanceof Hydrator\Operation\Authorizations\Clients\CbClientIdRcb === false) {
+            $this->operation🌀Authorizations🌀Clients🌀CbClientIdRcb = new Hydrator\Operation\Authorizations\Clients\CbClientIdRcb();
+        }
+        return $this->operation🌀Authorizations🌀Clients🌀CbClientIdRcb;
+    }
+    public function getObjectMapperOperation🌀Authorizations🌀Clients🌀CbClientIdRcb🌀CbFingerprintRcb() : Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb
+    {
+        if ($this->operation🌀Authorizations🌀Clients🌀CbClientIdRcb🌀CbFingerprintRcb instanceof Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb === false) {
+            $this->operation🌀Authorizations🌀Clients🌀CbClientIdRcb🌀CbFingerprintRcb = new Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb();
+        }
+        return $this->operation🌀Authorizations🌀Clients🌀CbClientIdRcb🌀CbFingerprintRcb;
+    }
+    public function getObjectMapperOperation🌀Authorizations🌀CbAuthorizationIdRcb() : Hydrator\Operation\Authorizations\CbAuthorizationIdRcb
+    {
+        if ($this->operation🌀Authorizations🌀CbAuthorizationIdRcb instanceof Hydrator\Operation\Authorizations\CbAuthorizationIdRcb === false) {
+            $this->operation🌀Authorizations🌀CbAuthorizationIdRcb = new Hydrator\Operation\Authorizations\CbAuthorizationIdRcb();
+        }
+        return $this->operation🌀Authorizations🌀CbAuthorizationIdRcb;
+    }
     public function getObjectMapperOperation🌀CodesOfConduct() : Hydrator\Operation\CodesOfConduct
     {
         if ($this->operation🌀CodesOfConduct instanceof Hydrator\Operation\CodesOfConduct === false) {
             $this->operation🌀CodesOfConduct = new Hydrator\Operation\CodesOfConduct();
         }
         return $this->operation🌀CodesOfConduct;
+    }
+    public function getObjectMapperOperation🌀CodesOfConduct🌀CbKeyRcb() : Hydrator\Operation\CodesOfConduct\CbKeyRcb
+    {
+        if ($this->operation🌀CodesOfConduct🌀CbKeyRcb instanceof Hydrator\Operation\CodesOfConduct\CbKeyRcb === false) {
+            $this->operation🌀CodesOfConduct🌀CbKeyRcb = new Hydrator\Operation\CodesOfConduct\CbKeyRcb();
+        }
+        return $this->operation🌀CodesOfConduct🌀CbKeyRcb;
     }
     public function getObjectMapperOperation🌀Emojis() : Hydrator\Operation\Emojis
     {
@@ -743,6 +1145,76 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Enterprise🌀Stats🌀All;
     }
+    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Comments() : Hydrator\Operation\Enterprise\Stats\Comments
+    {
+        if ($this->operation🌀Enterprise🌀Stats🌀Comments instanceof Hydrator\Operation\Enterprise\Stats\Comments === false) {
+            $this->operation🌀Enterprise🌀Stats🌀Comments = new Hydrator\Operation\Enterprise\Stats\Comments();
+        }
+        return $this->operation🌀Enterprise🌀Stats🌀Comments;
+    }
+    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Gists() : Hydrator\Operation\Enterprise\Stats\Gists
+    {
+        if ($this->operation🌀Enterprise🌀Stats🌀Gists instanceof Hydrator\Operation\Enterprise\Stats\Gists === false) {
+            $this->operation🌀Enterprise🌀Stats🌀Gists = new Hydrator\Operation\Enterprise\Stats\Gists();
+        }
+        return $this->operation🌀Enterprise🌀Stats🌀Gists;
+    }
+    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Hooks() : Hydrator\Operation\Enterprise\Stats\Hooks
+    {
+        if ($this->operation🌀Enterprise🌀Stats🌀Hooks instanceof Hydrator\Operation\Enterprise\Stats\Hooks === false) {
+            $this->operation🌀Enterprise🌀Stats🌀Hooks = new Hydrator\Operation\Enterprise\Stats\Hooks();
+        }
+        return $this->operation🌀Enterprise🌀Stats🌀Hooks;
+    }
+    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Issues() : Hydrator\Operation\Enterprise\Stats\Issues
+    {
+        if ($this->operation🌀Enterprise🌀Stats🌀Issues instanceof Hydrator\Operation\Enterprise\Stats\Issues === false) {
+            $this->operation🌀Enterprise🌀Stats🌀Issues = new Hydrator\Operation\Enterprise\Stats\Issues();
+        }
+        return $this->operation🌀Enterprise🌀Stats🌀Issues;
+    }
+    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Milestones() : Hydrator\Operation\Enterprise\Stats\Milestones
+    {
+        if ($this->operation🌀Enterprise🌀Stats🌀Milestones instanceof Hydrator\Operation\Enterprise\Stats\Milestones === false) {
+            $this->operation🌀Enterprise🌀Stats🌀Milestones = new Hydrator\Operation\Enterprise\Stats\Milestones();
+        }
+        return $this->operation🌀Enterprise🌀Stats🌀Milestones;
+    }
+    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Orgs() : Hydrator\Operation\Enterprise\Stats\Orgs
+    {
+        if ($this->operation🌀Enterprise🌀Stats🌀Orgs instanceof Hydrator\Operation\Enterprise\Stats\Orgs === false) {
+            $this->operation🌀Enterprise🌀Stats🌀Orgs = new Hydrator\Operation\Enterprise\Stats\Orgs();
+        }
+        return $this->operation🌀Enterprise🌀Stats🌀Orgs;
+    }
+    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Pages() : Hydrator\Operation\Enterprise\Stats\Pages
+    {
+        if ($this->operation🌀Enterprise🌀Stats🌀Pages instanceof Hydrator\Operation\Enterprise\Stats\Pages === false) {
+            $this->operation🌀Enterprise🌀Stats🌀Pages = new Hydrator\Operation\Enterprise\Stats\Pages();
+        }
+        return $this->operation🌀Enterprise🌀Stats🌀Pages;
+    }
+    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Pulls() : Hydrator\Operation\Enterprise\Stats\Pulls
+    {
+        if ($this->operation🌀Enterprise🌀Stats🌀Pulls instanceof Hydrator\Operation\Enterprise\Stats\Pulls === false) {
+            $this->operation🌀Enterprise🌀Stats🌀Pulls = new Hydrator\Operation\Enterprise\Stats\Pulls();
+        }
+        return $this->operation🌀Enterprise🌀Stats🌀Pulls;
+    }
+    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Repos() : Hydrator\Operation\Enterprise\Stats\Repos
+    {
+        if ($this->operation🌀Enterprise🌀Stats🌀Repos instanceof Hydrator\Operation\Enterprise\Stats\Repos === false) {
+            $this->operation🌀Enterprise🌀Stats🌀Repos = new Hydrator\Operation\Enterprise\Stats\Repos();
+        }
+        return $this->operation🌀Enterprise🌀Stats🌀Repos;
+    }
+    public function getObjectMapperOperation🌀Enterprise🌀Stats🌀Users() : Hydrator\Operation\Enterprise\Stats\Users
+    {
+        if ($this->operation🌀Enterprise🌀Stats🌀Users instanceof Hydrator\Operation\Enterprise\Stats\Users === false) {
+            $this->operation🌀Enterprise🌀Stats🌀Users = new Hydrator\Operation\Enterprise\Stats\Users();
+        }
+        return $this->operation🌀Enterprise🌀Stats🌀Users;
+    }
     public function getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions() : Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions
     {
         if ($this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions instanceof Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions === false) {
@@ -756,6 +1228,13 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
             $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀Organizations = new Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\Organizations();
         }
         return $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀Organizations;
+    }
+    public function getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀Organizations🌀CbOrgIdRcb() : Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\Organizations\CbOrgIdRcb
+    {
+        if ($this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀Organizations🌀CbOrgIdRcb instanceof Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\Organizations\CbOrgIdRcb === false) {
+            $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀Organizations🌀CbOrgIdRcb = new Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\Organizations\CbOrgIdRcb();
+        }
+        return $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀Organizations🌀CbOrgIdRcb;
     }
     public function getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀SelectedActions() : Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\SelectedActions
     {
@@ -771,12 +1250,40 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerGroups;
     }
+    public function getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb() : Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb
+    {
+        if ($this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb instanceof Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb === false) {
+            $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb = new Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb();
+        }
+        return $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb;
+    }
+    public function getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Organizations() : Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Organizations
+    {
+        if ($this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Organizations instanceof Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Organizations === false) {
+            $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Organizations = new Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Organizations();
+        }
+        return $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Organizations;
+    }
+    public function getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Organizations🌀CbOrgIdRcb() : Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Organizations\CbOrgIdRcb
+    {
+        if ($this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Organizations🌀CbOrgIdRcb instanceof Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Organizations\CbOrgIdRcb === false) {
+            $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Organizations🌀CbOrgIdRcb = new Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Organizations\CbOrgIdRcb();
+        }
+        return $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Organizations🌀CbOrgIdRcb;
+    }
     public function getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners() : Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners
     {
         if ($this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners instanceof Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners === false) {
             $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners = new Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners();
         }
         return $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners;
+    }
+    public function getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners🌀CbRunnerIdRcb() : Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners\CbRunnerIdRcb
+    {
+        if ($this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners🌀CbRunnerIdRcb instanceof Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners\CbRunnerIdRcb === false) {
+            $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners🌀CbRunnerIdRcb = new Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners\CbRunnerIdRcb();
+        }
+        return $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners🌀CbRunnerIdRcb;
     }
     public function getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners() : Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners
     {
@@ -799,6 +1306,20 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀RegistrationToken;
     }
+    public function getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀RemoveToken() : Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RemoveToken
+    {
+        if ($this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀RemoveToken instanceof Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RemoveToken === false) {
+            $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀RemoveToken = new Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RemoveToken();
+        }
+        return $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀RemoveToken;
+    }
+    public function getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb() : Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb
+    {
+        if ($this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb instanceof Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb === false) {
+            $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb = new Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb();
+        }
+        return $this->operation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb;
+    }
     public function getObjectMapperOperation🌀Events() : Hydrator\Operation\Events
     {
         if ($this->operation🌀Events instanceof Hydrator\Operation\Events === false) {
@@ -820,6 +1341,20 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Gists;
     }
+    public function getObjectMapperOperation🌀Gists🌀Public_() : Hydrator\Operation\Gists\Public_
+    {
+        if ($this->operation🌀Gists🌀Public_ instanceof Hydrator\Operation\Gists\Public_ === false) {
+            $this->operation🌀Gists🌀Public_ = new Hydrator\Operation\Gists\Public_();
+        }
+        return $this->operation🌀Gists🌀Public_;
+    }
+    public function getObjectMapperOperation🌀Gists🌀Starred() : Hydrator\Operation\Gists\Starred
+    {
+        if ($this->operation🌀Gists🌀Starred instanceof Hydrator\Operation\Gists\Starred === false) {
+            $this->operation🌀Gists🌀Starred = new Hydrator\Operation\Gists\Starred();
+        }
+        return $this->operation🌀Gists🌀Starred;
+    }
     public function getObjectMapperOperation🌀Gists🌀CbGistIdRcb() : Hydrator\Operation\Gists\CbGistIdRcb
     {
         if ($this->operation🌀Gists🌀CbGistIdRcb instanceof Hydrator\Operation\Gists\CbGistIdRcb === false) {
@@ -834,6 +1369,13 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Gists🌀CbGistIdRcb🌀Comments;
     }
+    public function getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Comments🌀CbCommentIdRcb() : Hydrator\Operation\Gists\CbGistIdRcb\Comments\CbCommentIdRcb
+    {
+        if ($this->operation🌀Gists🌀CbGistIdRcb🌀Comments🌀CbCommentIdRcb instanceof Hydrator\Operation\Gists\CbGistIdRcb\Comments\CbCommentIdRcb === false) {
+            $this->operation🌀Gists🌀CbGistIdRcb🌀Comments🌀CbCommentIdRcb = new Hydrator\Operation\Gists\CbGistIdRcb\Comments\CbCommentIdRcb();
+        }
+        return $this->operation🌀Gists🌀CbGistIdRcb🌀Comments🌀CbCommentIdRcb;
+    }
     public function getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Commits() : Hydrator\Operation\Gists\CbGistIdRcb\Commits
     {
         if ($this->operation🌀Gists🌀CbGistIdRcb🌀Commits instanceof Hydrator\Operation\Gists\CbGistIdRcb\Commits === false) {
@@ -841,12 +1383,26 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Gists🌀CbGistIdRcb🌀Commits;
     }
+    public function getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Forks() : Hydrator\Operation\Gists\CbGistIdRcb\Forks
+    {
+        if ($this->operation🌀Gists🌀CbGistIdRcb🌀Forks instanceof Hydrator\Operation\Gists\CbGistIdRcb\Forks === false) {
+            $this->operation🌀Gists🌀CbGistIdRcb🌀Forks = new Hydrator\Operation\Gists\CbGistIdRcb\Forks();
+        }
+        return $this->operation🌀Gists🌀CbGistIdRcb🌀Forks;
+    }
     public function getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Star() : Hydrator\Operation\Gists\CbGistIdRcb\Star
     {
         if ($this->operation🌀Gists🌀CbGistIdRcb🌀Star instanceof Hydrator\Operation\Gists\CbGistIdRcb\Star === false) {
             $this->operation🌀Gists🌀CbGistIdRcb🌀Star = new Hydrator\Operation\Gists\CbGistIdRcb\Star();
         }
         return $this->operation🌀Gists🌀CbGistIdRcb🌀Star;
+    }
+    public function getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀CbShaRcb() : Hydrator\Operation\Gists\CbGistIdRcb\CbShaRcb
+    {
+        if ($this->operation🌀Gists🌀CbGistIdRcb🌀CbShaRcb instanceof Hydrator\Operation\Gists\CbGistIdRcb\CbShaRcb === false) {
+            $this->operation🌀Gists🌀CbGistIdRcb🌀CbShaRcb = new Hydrator\Operation\Gists\CbGistIdRcb\CbShaRcb();
+        }
+        return $this->operation🌀Gists🌀CbGistIdRcb🌀CbShaRcb;
     }
     public function getObjectMapperOperation🌀Gitignore🌀Templates() : Hydrator\Operation\Gitignore\Templates
     {
@@ -869,6 +1425,20 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Installation🌀Repositories;
     }
+    public function getObjectMapperOperation🌀Installation🌀Token() : Hydrator\Operation\Installation\Token
+    {
+        if ($this->operation🌀Installation🌀Token instanceof Hydrator\Operation\Installation\Token === false) {
+            $this->operation🌀Installation🌀Token = new Hydrator\Operation\Installation\Token();
+        }
+        return $this->operation🌀Installation🌀Token;
+    }
+    public function getObjectMapperOperation🌀Issues() : Hydrator\Operation\Issues
+    {
+        if ($this->operation🌀Issues instanceof Hydrator\Operation\Issues === false) {
+            $this->operation🌀Issues = new Hydrator\Operation\Issues();
+        }
+        return $this->operation🌀Issues;
+    }
     public function getObjectMapperOperation🌀Licenses() : Hydrator\Operation\Licenses
     {
         if ($this->operation🌀Licenses instanceof Hydrator\Operation\Licenses === false) {
@@ -883,12 +1453,33 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Licenses🌀CbLicenseRcb;
     }
+    public function getObjectMapperOperation🌀Markdown() : Hydrator\Operation\Markdown
+    {
+        if ($this->operation🌀Markdown instanceof Hydrator\Operation\Markdown === false) {
+            $this->operation🌀Markdown = new Hydrator\Operation\Markdown();
+        }
+        return $this->operation🌀Markdown;
+    }
+    public function getObjectMapperOperation🌀Markdown🌀Raw() : Hydrator\Operation\Markdown\Raw
+    {
+        if ($this->operation🌀Markdown🌀Raw instanceof Hydrator\Operation\Markdown\Raw === false) {
+            $this->operation🌀Markdown🌀Raw = new Hydrator\Operation\Markdown\Raw();
+        }
+        return $this->operation🌀Markdown🌀Raw;
+    }
     public function getObjectMapperOperation🌀Meta() : Hydrator\Operation\Meta
     {
         if ($this->operation🌀Meta instanceof Hydrator\Operation\Meta === false) {
             $this->operation🌀Meta = new Hydrator\Operation\Meta();
         }
         return $this->operation🌀Meta;
+    }
+    public function getObjectMapperOperation🌀Networks🌀CbOwnerRcb🌀CbRepoRcb🌀Events() : Hydrator\Operation\Networks\CbOwnerRcb\CbRepoRcb\Events
+    {
+        if ($this->operation🌀Networks🌀CbOwnerRcb🌀CbRepoRcb🌀Events instanceof Hydrator\Operation\Networks\CbOwnerRcb\CbRepoRcb\Events === false) {
+            $this->operation🌀Networks🌀CbOwnerRcb🌀CbRepoRcb🌀Events = new Hydrator\Operation\Networks\CbOwnerRcb\CbRepoRcb\Events();
+        }
+        return $this->operation🌀Networks🌀CbOwnerRcb🌀CbRepoRcb🌀Events;
     }
     public function getObjectMapperOperation🌀Notifications() : Hydrator\Operation\Notifications
     {
@@ -897,12 +1488,33 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Notifications;
     }
+    public function getObjectMapperOperation🌀Notifications🌀Threads🌀CbThreadIdRcb() : Hydrator\Operation\Notifications\Threads\CbThreadIdRcb
+    {
+        if ($this->operation🌀Notifications🌀Threads🌀CbThreadIdRcb instanceof Hydrator\Operation\Notifications\Threads\CbThreadIdRcb === false) {
+            $this->operation🌀Notifications🌀Threads🌀CbThreadIdRcb = new Hydrator\Operation\Notifications\Threads\CbThreadIdRcb();
+        }
+        return $this->operation🌀Notifications🌀Threads🌀CbThreadIdRcb;
+    }
     public function getObjectMapperOperation🌀Notifications🌀Threads🌀CbThreadIdRcb🌀Subscription() : Hydrator\Operation\Notifications\Threads\CbThreadIdRcb\Subscription
     {
         if ($this->operation🌀Notifications🌀Threads🌀CbThreadIdRcb🌀Subscription instanceof Hydrator\Operation\Notifications\Threads\CbThreadIdRcb\Subscription === false) {
             $this->operation🌀Notifications🌀Threads🌀CbThreadIdRcb🌀Subscription = new Hydrator\Operation\Notifications\Threads\CbThreadIdRcb\Subscription();
         }
         return $this->operation🌀Notifications🌀Threads🌀CbThreadIdRcb🌀Subscription;
+    }
+    public function getObjectMapperOperation🌀Octocat() : Hydrator\Operation\Octocat
+    {
+        if ($this->operation🌀Octocat instanceof Hydrator\Operation\Octocat === false) {
+            $this->operation🌀Octocat = new Hydrator\Operation\Octocat();
+        }
+        return $this->operation🌀Octocat;
+    }
+    public function getObjectMapperOperation🌀Organizations() : Hydrator\Operation\Organizations
+    {
+        if ($this->operation🌀Organizations instanceof Hydrator\Operation\Organizations === false) {
+            $this->operation🌀Organizations = new Hydrator\Operation\Organizations();
+        }
+        return $this->operation🌀Organizations;
     }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb() : Hydrator\Operation\Orgs\CbOrgRcb
     {
@@ -925,12 +1537,33 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀Repositories;
     }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀Repositories🌀CbRepositoryIdRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\Repositories\CbRepositoryIdRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀Repositories🌀CbRepositoryIdRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\Repositories\CbRepositoryIdRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀Repositories🌀CbRepositoryIdRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\Repositories\CbRepositoryIdRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀Repositories🌀CbRepositoryIdRcb;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀SelectedActions() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\SelectedActions
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀SelectedActions instanceof Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\SelectedActions === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀SelectedActions = new Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\SelectedActions();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀SelectedActions;
+    }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerGroups() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups
     {
         if ($this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerGroups instanceof Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups === false) {
             $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerGroups = new Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups();
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerGroups;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb;
     }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Repositories() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories
     {
@@ -939,12 +1572,61 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Repositories;
     }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Repositories🌀CbRepositoryIdRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories\CbRepositoryIdRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Repositories🌀CbRepositoryIdRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories\CbRepositoryIdRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Repositories🌀CbRepositoryIdRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories\CbRepositoryIdRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Repositories🌀CbRepositoryIdRcb;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners instanceof Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners = new Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners🌀CbRunnerIdRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners\CbRunnerIdRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners🌀CbRunnerIdRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners\CbRunnerIdRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners🌀CbRunnerIdRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners\CbRunnerIdRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners🌀CbRunnerIdRcb;
+    }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners
     {
         if ($this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners instanceof Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners === false) {
             $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners = new Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners();
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀Downloads() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\Downloads
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀Downloads instanceof Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\Downloads === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀Downloads = new Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\Downloads();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀Downloads;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀RegistrationToken() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\RegistrationToken
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀RegistrationToken instanceof Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\RegistrationToken === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀RegistrationToken = new Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\RegistrationToken();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀RegistrationToken;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀RemoveToken() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\RemoveToken
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀RemoveToken instanceof Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\RemoveToken === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀RemoveToken = new Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\RemoveToken();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀RemoveToken;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀CbRunnerIdRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀CbRunnerIdRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀CbRunnerIdRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀CbRunnerIdRcb;
     }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets
     {
@@ -974,12 +1656,54 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb🌀Repositories;
     }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb🌀Repositories🌀CbRepositoryIdRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb\Repositories\CbRepositoryIdRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb🌀Repositories🌀CbRepositoryIdRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb\Repositories\CbRepositoryIdRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb🌀Repositories🌀CbRepositoryIdRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb\Repositories\CbRepositoryIdRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb🌀Repositories🌀CbRepositoryIdRcb;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Events() : Hydrator\Operation\Orgs\CbOrgRcb\Events
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Events instanceof Hydrator\Operation\Orgs\CbOrgRcb\Events === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Events = new Hydrator\Operation\Orgs\CbOrgRcb\Events();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Events;
+    }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks() : Hydrator\Operation\Orgs\CbOrgRcb\Hooks
     {
         if ($this->operation🌀Orgs🌀CbOrgRcb🌀Hooks instanceof Hydrator\Operation\Orgs\CbOrgRcb\Hooks === false) {
             $this->operation🌀Orgs🌀CbOrgRcb🌀Hooks = new Hydrator\Operation\Orgs\CbOrgRcb\Hooks();
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Hooks;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Config() : Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Config
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Config instanceof Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Config === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Config = new Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Config();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Config;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Pings() : Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Pings
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Pings instanceof Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Pings === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Pings = new Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Pings();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Pings;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Installation() : Hydrator\Operation\Orgs\CbOrgRcb\Installation
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Installation instanceof Hydrator\Operation\Orgs\CbOrgRcb\Installation === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Installation = new Hydrator\Operation\Orgs\CbOrgRcb\Installation();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Installation;
     }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Installations() : Hydrator\Operation\Orgs\CbOrgRcb\Installations
     {
@@ -988,12 +1712,40 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Installations;
     }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Issues() : Hydrator\Operation\Orgs\CbOrgRcb\Issues
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Issues instanceof Hydrator\Operation\Orgs\CbOrgRcb\Issues === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Issues = new Hydrator\Operation\Orgs\CbOrgRcb\Issues();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Issues;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Members() : Hydrator\Operation\Orgs\CbOrgRcb\Members
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Members instanceof Hydrator\Operation\Orgs\CbOrgRcb\Members === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Members = new Hydrator\Operation\Orgs\CbOrgRcb\Members();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Members;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Members🌀CbUsernameRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Members\CbUsernameRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Members🌀CbUsernameRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Members\CbUsernameRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Members🌀CbUsernameRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Members\CbUsernameRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Members🌀CbUsernameRcb;
+    }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Memberships🌀CbUsernameRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Memberships\CbUsernameRcb
     {
         if ($this->operation🌀Orgs🌀CbOrgRcb🌀Memberships🌀CbUsernameRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Memberships\CbUsernameRcb === false) {
             $this->operation🌀Orgs🌀CbOrgRcb🌀Memberships🌀CbUsernameRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Memberships\CbUsernameRcb();
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Memberships🌀CbUsernameRcb;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀OutsideCollaborators() : Hydrator\Operation\Orgs\CbOrgRcb\OutsideCollaborators
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀OutsideCollaborators instanceof Hydrator\Operation\Orgs\CbOrgRcb\OutsideCollaborators === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀OutsideCollaborators = new Hydrator\Operation\Orgs\CbOrgRcb\OutsideCollaborators();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀OutsideCollaborators;
     }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀OutsideCollaborators🌀CbUsernameRcb() : Hydrator\Operation\Orgs\CbOrgRcb\OutsideCollaborators\CbUsernameRcb
     {
@@ -1009,12 +1761,40 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀PreReceiveHooks;
     }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb() : Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb = new Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb;
+    }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Projects() : Hydrator\Operation\Orgs\CbOrgRcb\Projects
     {
         if ($this->operation🌀Orgs🌀CbOrgRcb🌀Projects instanceof Hydrator\Operation\Orgs\CbOrgRcb\Projects === false) {
             $this->operation🌀Orgs🌀CbOrgRcb🌀Projects = new Hydrator\Operation\Orgs\CbOrgRcb\Projects();
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Projects;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀PublicMembers() : Hydrator\Operation\Orgs\CbOrgRcb\PublicMembers
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀PublicMembers instanceof Hydrator\Operation\Orgs\CbOrgRcb\PublicMembers === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀PublicMembers = new Hydrator\Operation\Orgs\CbOrgRcb\PublicMembers();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀PublicMembers;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀PublicMembers🌀CbUsernameRcb() : Hydrator\Operation\Orgs\CbOrgRcb\PublicMembers\CbUsernameRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀PublicMembers🌀CbUsernameRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\PublicMembers\CbUsernameRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀PublicMembers🌀CbUsernameRcb = new Hydrator\Operation\Orgs\CbOrgRcb\PublicMembers\CbUsernameRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀PublicMembers🌀CbUsernameRcb;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Repos() : Hydrator\Operation\Orgs\CbOrgRcb\Repos
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Repos instanceof Hydrator\Operation\Orgs\CbOrgRcb\Repos === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Repos = new Hydrator\Operation\Orgs\CbOrgRcb\Repos();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Repos;
     }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams() : Hydrator\Operation\Orgs\CbOrgRcb\Teams
     {
@@ -1023,12 +1803,26 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams;
     }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb;
+    }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions
     {
         if ($this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions instanceof Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions === false) {
             $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions = new Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions();
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb;
     }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments
     {
@@ -1037,12 +1831,47 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments;
     }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb;
+    }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions
     {
         if ($this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions instanceof Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions === false) {
             $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions = new Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions();
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions🌀CbReactionIdRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions\CbReactionIdRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions🌀CbReactionIdRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions\CbReactionIdRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions🌀CbReactionIdRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions\CbReactionIdRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions🌀CbReactionIdRcb;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions instanceof Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions = new Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions🌀CbReactionIdRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions\CbReactionIdRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions🌀CbReactionIdRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions\CbReactionIdRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions🌀CbReactionIdRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions\CbReactionIdRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions🌀CbReactionIdRcb;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Members() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Members
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Members instanceof Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Members === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Members = new Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Members();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Members;
     }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Memberships🌀CbUsernameRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb
     {
@@ -1058,12 +1887,33 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects;
     }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects🌀CbProjectIdRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects\CbProjectIdRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects🌀CbProjectIdRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects\CbProjectIdRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects🌀CbProjectIdRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects\CbProjectIdRcb();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects🌀CbProjectIdRcb;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos instanceof Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos = new Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos;
+    }
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos\CbOwnerRcb\CbRepoRcb
     {
         if ($this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos\CbOwnerRcb\CbRepoRcb === false) {
             $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos\CbOwnerRcb\CbRepoRcb();
         }
         return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb;
+    }
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Teams() : Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Teams
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Teams instanceof Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Teams === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Teams = new Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Teams();
+        }
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Teams;
     }
     public function getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CbCardIdRcb() : Hydrator\Operation\Projects\Columns\Cards\CbCardIdRcb
     {
@@ -1086,6 +1936,41 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Projects🌀Columns🌀CbColumnIdRcb;
     }
+    public function getObjectMapperOperation🌀Projects🌀Columns🌀CbColumnIdRcb🌀Cards() : Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Cards
+    {
+        if ($this->operation🌀Projects🌀Columns🌀CbColumnIdRcb🌀Cards instanceof Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Cards === false) {
+            $this->operation🌀Projects🌀Columns🌀CbColumnIdRcb🌀Cards = new Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Cards();
+        }
+        return $this->operation🌀Projects🌀Columns🌀CbColumnIdRcb🌀Cards;
+    }
+    public function getObjectMapperOperation🌀Projects🌀Columns🌀CbColumnIdRcb🌀Moves() : Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Moves
+    {
+        if ($this->operation🌀Projects🌀Columns🌀CbColumnIdRcb🌀Moves instanceof Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Moves === false) {
+            $this->operation🌀Projects🌀Columns🌀CbColumnIdRcb🌀Moves = new Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Moves();
+        }
+        return $this->operation🌀Projects🌀Columns🌀CbColumnIdRcb🌀Moves;
+    }
+    public function getObjectMapperOperation🌀Projects🌀CbProjectIdRcb() : Hydrator\Operation\Projects\CbProjectIdRcb
+    {
+        if ($this->operation🌀Projects🌀CbProjectIdRcb instanceof Hydrator\Operation\Projects\CbProjectIdRcb === false) {
+            $this->operation🌀Projects🌀CbProjectIdRcb = new Hydrator\Operation\Projects\CbProjectIdRcb();
+        }
+        return $this->operation🌀Projects🌀CbProjectIdRcb;
+    }
+    public function getObjectMapperOperation🌀Projects🌀CbProjectIdRcb🌀Collaborators() : Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators
+    {
+        if ($this->operation🌀Projects🌀CbProjectIdRcb🌀Collaborators instanceof Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators === false) {
+            $this->operation🌀Projects🌀CbProjectIdRcb🌀Collaborators = new Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators();
+        }
+        return $this->operation🌀Projects🌀CbProjectIdRcb🌀Collaborators;
+    }
+    public function getObjectMapperOperation🌀Projects🌀CbProjectIdRcb🌀Collaborators🌀CbUsernameRcb() : Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators\CbUsernameRcb
+    {
+        if ($this->operation🌀Projects🌀CbProjectIdRcb🌀Collaborators🌀CbUsernameRcb instanceof Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators\CbUsernameRcb === false) {
+            $this->operation🌀Projects🌀CbProjectIdRcb🌀Collaborators🌀CbUsernameRcb = new Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators\CbUsernameRcb();
+        }
+        return $this->operation🌀Projects🌀CbProjectIdRcb🌀Collaborators🌀CbUsernameRcb;
+    }
     public function getObjectMapperOperation🌀Projects🌀CbProjectIdRcb🌀Collaborators🌀CbUsernameRcb🌀Permission() : Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators\CbUsernameRcb\Permission
     {
         if ($this->operation🌀Projects🌀CbProjectIdRcb🌀Collaborators🌀CbUsernameRcb🌀Permission instanceof Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators\CbUsernameRcb\Permission === false) {
@@ -1093,12 +1978,26 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Projects🌀CbProjectIdRcb🌀Collaborators🌀CbUsernameRcb🌀Permission;
     }
+    public function getObjectMapperOperation🌀Projects🌀CbProjectIdRcb🌀Columns() : Hydrator\Operation\Projects\CbProjectIdRcb\Columns
+    {
+        if ($this->operation🌀Projects🌀CbProjectIdRcb🌀Columns instanceof Hydrator\Operation\Projects\CbProjectIdRcb\Columns === false) {
+            $this->operation🌀Projects🌀CbProjectIdRcb🌀Columns = new Hydrator\Operation\Projects\CbProjectIdRcb\Columns();
+        }
+        return $this->operation🌀Projects🌀CbProjectIdRcb🌀Columns;
+    }
     public function getObjectMapperOperation🌀RateLimit() : Hydrator\Operation\RateLimit
     {
         if ($this->operation🌀RateLimit instanceof Hydrator\Operation\RateLimit === false) {
             $this->operation🌀RateLimit = new Hydrator\Operation\RateLimit();
         }
         return $this->operation🌀RateLimit;
+    }
+    public function getObjectMapperOperation🌀Reactions🌀CbReactionIdRcb() : Hydrator\Operation\Reactions\CbReactionIdRcb
+    {
+        if ($this->operation🌀Reactions🌀CbReactionIdRcb instanceof Hydrator\Operation\Reactions\CbReactionIdRcb === false) {
+            $this->operation🌀Reactions🌀CbReactionIdRcb = new Hydrator\Operation\Reactions\CbReactionIdRcb();
+        }
+        return $this->operation🌀Reactions🌀CbReactionIdRcb;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb
     {
@@ -1114,12 +2013,33 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb🌀CbArchiveFormatRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb\CbArchiveFormatRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb🌀CbArchiveFormatRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb\CbArchiveFormatRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb🌀CbArchiveFormatRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb\CbArchiveFormatRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb🌀CbArchiveFormatRcb;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb🌀Logs() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb\Logs
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb🌀Logs instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb\Logs === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb🌀Logs = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb\Logs();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb🌀Logs;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions
     {
@@ -1128,12 +2048,75 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions🌀SelectedActions() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions\SelectedActions
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions🌀SelectedActions instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions\SelectedActions === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions🌀SelectedActions = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions\SelectedActions();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions🌀SelectedActions;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀Downloads() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\Downloads
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀Downloads instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\Downloads === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀Downloads = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\Downloads();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀Downloads;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀RegistrationToken() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\RegistrationToken
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀RegistrationToken instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\RegistrationToken === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀RegistrationToken = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\RegistrationToken();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀RegistrationToken;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀RemoveToken() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\RemoveToken
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀RemoveToken instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\RemoveToken === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀RemoveToken = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\RemoveToken();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀RemoveToken;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀CbRunnerIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀CbRunnerIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀CbRunnerIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀CbRunnerIdRcb;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Artifacts() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Artifacts
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Artifacts instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Artifacts === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Artifacts = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Artifacts();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Artifacts;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Cancel() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Cancel
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Cancel instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Cancel === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Cancel = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Cancel();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Cancel;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Jobs() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Jobs
     {
@@ -1142,6 +2125,20 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Jobs;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Logs() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Logs
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Logs instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Logs === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Logs = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Logs();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Logs;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Rerun() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Rerun
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Rerun instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Rerun === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Rerun = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Rerun();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Rerun;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets === false) {
@@ -1149,12 +2146,75 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀PublicKey() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\PublicKey
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀PublicKey instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\PublicKey === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀PublicKey = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\PublicKey();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀PublicKey;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Disable() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Disable
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Disable instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Disable === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Disable = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Disable();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Disable;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Dispatches() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Dispatches
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Dispatches instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Dispatches === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Dispatches = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Dispatches();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Dispatches;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Enable() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Enable
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Enable instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Enable === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Enable = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Enable();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Enable;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Runs() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Runs
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Runs instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Runs === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Runs = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Runs();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Runs;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Assignees() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Assignees
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Assignees instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Assignees === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Assignees = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Assignees();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Assignees;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Assignees🌀CbAssigneeRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Assignees\CbAssigneeRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Assignees🌀CbAssigneeRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Assignees\CbAssigneeRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Assignees🌀CbAssigneeRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Assignees\CbAssigneeRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Assignees🌀CbAssigneeRcb;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches
     {
@@ -1177,12 +2237,82 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀EnforceAdmins() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\EnforceAdmins
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀EnforceAdmins instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\EnforceAdmins === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀EnforceAdmins = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\EnforceAdmins();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀EnforceAdmins;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredPullRequestReviews() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredPullRequestReviews
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredPullRequestReviews instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredPullRequestReviews === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredPullRequestReviews = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredPullRequestReviews();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredPullRequestReviews;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredSignatures() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredSignatures
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredSignatures instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredSignatures === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredSignatures = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredSignatures();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredSignatures;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks🌀Contexts() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks\Contexts
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks🌀Contexts instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks\Contexts === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks🌀Contexts = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks\Contexts();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks🌀Contexts;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Apps() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Apps
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Apps instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Apps === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Apps = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Apps();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Apps;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Teams() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Teams
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Teams instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Teams === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Teams = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Teams();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Teams;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Users() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Users
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Users instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Users === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Users = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Users();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Users;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckRuns() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckRuns
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckRuns instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckRuns === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckRuns = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckRuns();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckRuns;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashRuns🌀CbCheckRunIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashRuns🌀CbCheckRunIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashRuns🌀CbCheckRunIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashRuns🌀CbCheckRunIdRcb;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashRuns🌀CbCheckRunIdRcb🌀Annotations() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb\Annotations
     {
@@ -1205,12 +2335,26 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckSuites🌀Preferences;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀CheckDashRuns() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\CheckDashRuns
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀CheckDashRuns instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\CheckDashRuns === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀CheckDashRuns = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\CheckDashRuns();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀CheckDashRuns;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀Rerequest() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\Rerequest
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀Rerequest instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\Rerequest === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀Rerequest = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\Rerequest();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀Rerequest;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Alerts() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Alerts
     {
@@ -1268,6 +2412,27 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions\CbReactionIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions\CbReactionIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions\CbReactionIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits === false) {
@@ -1282,12 +2447,33 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀BranchesDashWhereDashHead;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Comments() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Comments
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Comments instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Comments === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Comments = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Comments();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Comments;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Pulls() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Pulls
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Pulls instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Pulls === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Pulls = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Pulls();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Pulls;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀CheckRuns() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\CheckRuns
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀CheckRuns instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\CheckRuns === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀CheckRuns = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\CheckRuns();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀CheckRuns;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀CheckSuites() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\CheckSuites
     {
@@ -1345,12 +2531,47 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses🌀CbStatusIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses\CbStatusIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses🌀CbStatusIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses\CbStatusIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses🌀CbStatusIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses\CbStatusIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses🌀CbStatusIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Dispatches() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Dispatches
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Dispatches instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Dispatches === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Dispatches = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Dispatches();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Dispatches;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Events() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Events
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Events instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Events === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Events = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Events();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Events;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Forks() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Forks
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Forks instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Forks === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Forks = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Forks();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Forks;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Blobs() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Blobs
     {
@@ -1373,12 +2594,40 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Commits;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Commits🌀CbCommitShaRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Commits\CbCommitShaRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Commits🌀CbCommitShaRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Commits\CbCommitShaRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Commits🌀CbCommitShaRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Commits\CbCommitShaRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Commits🌀CbCommitShaRcb;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀MatchingRefs🌀CbRefRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\MatchingRefs\CbRefRcb
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀MatchingRefs🌀CbRefRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\MatchingRefs\CbRefRcb === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀MatchingRefs🌀CbRefRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\MatchingRefs\CbRefRcb();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀MatchingRefs🌀CbRefRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Ref🌀CbRefRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Ref\CbRefRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Ref🌀CbRefRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Ref\CbRefRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Ref🌀CbRefRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Ref\CbRefRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Ref🌀CbRefRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Refs() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Refs
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Refs instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Refs === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Refs = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Refs();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Refs;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Refs🌀CbRefRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Refs\CbRefRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Refs🌀CbRefRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Refs\CbRefRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Refs🌀CbRefRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Refs\CbRefRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Refs🌀CbRefRcb;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Tags
     {
@@ -1387,12 +2636,26 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags🌀CbTagShaRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Tags\CbTagShaRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags🌀CbTagShaRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Tags\CbTagShaRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags🌀CbTagShaRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Tags\CbTagShaRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags🌀CbTagShaRcb;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees🌀CbTreeShaRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees\CbTreeShaRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees🌀CbTreeShaRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees\CbTreeShaRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees🌀CbTreeShaRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees\CbTreeShaRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees🌀CbTreeShaRcb;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks
     {
@@ -1401,12 +2664,124 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Config() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Config
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Config instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Config === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Config = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Config();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Config;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Pings() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Pings
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Pings instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Pings === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Pings = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Pings();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Pings;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Tests() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Tests
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Tests instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Tests === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Tests = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Tests();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Tests;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Installation() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Installation
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Installation instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Installation === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Installation = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Installation();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Installation;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Invitations() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Invitations
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Invitations instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Invitations === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Invitations = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Invitations();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Invitations;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Invitations🌀CbInvitationIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Invitations\CbInvitationIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Invitations🌀CbInvitationIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Invitations\CbInvitationIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Invitations🌀CbInvitationIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Invitations\CbInvitationIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Invitations🌀CbInvitationIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb🌀Reactions() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb🌀Reactions instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb🌀Reactions = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb🌀Reactions;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions\CbReactionIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions\CbReactionIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions\CbReactionIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events🌀CbEventIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events\CbEventIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events🌀CbEventIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events\CbEventIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events🌀CbEventIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events\CbEventIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events🌀CbEventIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Assignees() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Assignees
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Assignees instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Assignees === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Assignees = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Assignees();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Assignees;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Comments() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Comments
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Comments instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Comments === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Comments = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Comments();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Comments;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Events() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Events
     {
@@ -1422,6 +2797,34 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels🌀CbNameRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels\CbNameRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels🌀CbNameRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels\CbNameRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels🌀CbNameRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels\CbNameRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels🌀CbNameRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Lock() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Lock
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Lock instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Lock === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Lock = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Lock();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Lock;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Reactions() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Reactions instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Reactions = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Reactions;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Reactions🌀CbReactionIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions\CbReactionIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Reactions🌀CbReactionIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions\CbReactionIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Reactions🌀CbReactionIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions\CbReactionIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Reactions🌀CbReactionIdRcb;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Timeline() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Timeline
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Timeline instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Timeline === false) {
@@ -1435,6 +2838,27 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Keys = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Keys;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Keys🌀CbKeyIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys\CbKeyIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Keys🌀CbKeyIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys\CbKeyIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Keys🌀CbKeyIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys\CbKeyIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Keys🌀CbKeyIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Labels() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Labels instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Labels = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Labels;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Labels🌀CbNameRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels\CbNameRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Labels🌀CbNameRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels\CbNameRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Labels🌀CbNameRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels\CbNameRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Labels🌀CbNameRcb;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Languages() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Languages
     {
@@ -1450,12 +2874,40 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀License;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Merges() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Merges
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Merges instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Merges === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Merges = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Merges();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Merges;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones🌀CbMilestoneNumberRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones🌀CbMilestoneNumberRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones🌀CbMilestoneNumberRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones🌀CbMilestoneNumberRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones🌀CbMilestoneNumberRcb🌀Labels() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb\Labels
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones🌀CbMilestoneNumberRcb🌀Labels instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb\Labels === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones🌀CbMilestoneNumberRcb🌀Labels = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb\Labels();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones🌀CbMilestoneNumberRcb🌀Labels;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Notifications() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Notifications
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Notifications instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Notifications === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Notifications = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Notifications();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Notifications;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages
     {
@@ -1471,12 +2923,40 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds🌀Latest() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\Latest
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds🌀Latest instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\Latest === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds🌀Latest = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\Latest();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds🌀Latest;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds🌀CbBuildIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\CbBuildIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds🌀CbBuildIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\CbBuildIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds🌀CbBuildIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\CbBuildIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds🌀CbBuildIdRcb;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreReceiveHooks() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreReceiveHooks
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreReceiveHooks instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreReceiveHooks === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreReceiveHooks = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreReceiveHooks();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreReceiveHooks;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Projects() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Projects
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Projects instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Projects === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Projects = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Projects();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Projects;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls
     {
@@ -1491,6 +2971,62 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb🌀Reactions() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb🌀Reactions instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb🌀Reactions = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb🌀Reactions;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions\CbReactionIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions\CbReactionIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions\CbReactionIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb🌀Reactions🌀CbReactionIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Comments() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Comments instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Comments = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Comments;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Comments🌀CbCommentIdRcb🌀Replies() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments\CbCommentIdRcb\Replies
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Comments🌀CbCommentIdRcb🌀Replies instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments\CbCommentIdRcb\Replies === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Comments🌀CbCommentIdRcb🌀Replies = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments\CbCommentIdRcb\Replies();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Comments🌀CbCommentIdRcb🌀Replies;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Commits() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Commits
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Commits instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Commits === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Commits = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Commits();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Commits;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Files() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Files
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Files instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Files === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Files = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Files();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Files;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Merge() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Merge
     {
@@ -1513,12 +3049,40 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Comments() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Comments
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Comments instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Comments === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Comments = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Comments();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Comments;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Dismissals() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Dismissals
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Dismissals instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Dismissals === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Dismissals = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Dismissals();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Dismissals;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Events() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Events
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Events instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Events === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Events = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Events();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Events;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀UpdateDashBranch() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\UpdateDashBranch
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀UpdateDashBranch instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\UpdateDashBranch === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀UpdateDashBranch = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\UpdateDashBranch();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀UpdateDashBranch;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme
     {
@@ -1527,12 +3091,54 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme🌀CbDirRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme\CbDirRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme🌀CbDirRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme\CbDirRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme🌀CbDirRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme\CbDirRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme🌀CbDirRcb;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Assets🌀CbAssetIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Assets\CbAssetIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Assets🌀CbAssetIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Assets\CbAssetIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Assets🌀CbAssetIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Assets\CbAssetIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Assets🌀CbAssetIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Latest() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Latest
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Latest instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Latest === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Latest = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Latest();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Latest;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Tags🌀CbTagRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Tags\CbTagRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Tags🌀CbTagRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Tags\CbTagRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Tags🌀CbTagRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Tags\CbTagRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Tags🌀CbTagRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb🌀Assets() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Assets
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb🌀Assets instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Assets === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb🌀Assets = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Assets();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb🌀Assets;
     }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stargazers() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stargazers
     {
@@ -1569,6 +3175,27 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀Participation;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀PunchCard() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\PunchCard
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀PunchCard instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\PunchCard === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀PunchCard = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\PunchCard();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀PunchCard;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Statuses🌀CbShaRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Statuses\CbShaRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Statuses🌀CbShaRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Statuses\CbShaRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Statuses🌀CbShaRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Statuses\CbShaRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Statuses🌀CbShaRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscribers() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscribers
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscribers instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscribers === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscribers = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscribers();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscribers;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscription() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscription
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscription instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscription === false) {
@@ -1583,12 +3210,54 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Tags;
     }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Tarball🌀CbRefRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Tarball\CbRefRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Tarball🌀CbRefRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Tarball\CbRefRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Tarball🌀CbRefRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Tarball\CbRefRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Tarball🌀CbRefRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Teams() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Teams
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Teams instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Teams === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Teams = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Teams();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Teams;
+    }
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Topics() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Topics
     {
         if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Topics instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Topics === false) {
             $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Topics = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Topics();
         }
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Topics;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Transfer() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Transfer
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Transfer instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Transfer === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Transfer = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Transfer();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Transfer;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Zipball🌀CbRefRcb() : Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Zipball\CbRefRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Zipball🌀CbRefRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Zipball\CbRefRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Zipball🌀CbRefRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Zipball\CbRefRcb();
+        }
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Zipball🌀CbRefRcb;
+    }
+    public function getObjectMapperOperation🌀Repos🌀CbTemplateOwnerRcb🌀CbTemplateRepoRcb🌀Generate() : Hydrator\Operation\Repos\CbTemplateOwnerRcb\CbTemplateRepoRcb\Generate
+    {
+        if ($this->operation🌀Repos🌀CbTemplateOwnerRcb🌀CbTemplateRepoRcb🌀Generate instanceof Hydrator\Operation\Repos\CbTemplateOwnerRcb\CbTemplateRepoRcb\Generate === false) {
+            $this->operation🌀Repos🌀CbTemplateOwnerRcb🌀CbTemplateRepoRcb🌀Generate = new Hydrator\Operation\Repos\CbTemplateOwnerRcb\CbTemplateRepoRcb\Generate();
+        }
+        return $this->operation🌀Repos🌀CbTemplateOwnerRcb🌀CbTemplateRepoRcb🌀Generate;
+    }
+    public function getObjectMapperOperation🌀Repositories() : Hydrator\Operation\Repositories
+    {
+        if ($this->operation🌀Repositories instanceof Hydrator\Operation\Repositories === false) {
+            $this->operation🌀Repositories = new Hydrator\Operation\Repositories();
+        }
+        return $this->operation🌀Repositories;
     }
     public function getObjectMapperOperation🌀Search🌀Code() : Hydrator\Operation\Search\Code
     {
@@ -1646,6 +3315,13 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Setup🌀Api🌀Configcheck;
     }
+    public function getObjectMapperOperation🌀Setup🌀Api🌀Configure() : Hydrator\Operation\Setup\Api\Configure
+    {
+        if ($this->operation🌀Setup🌀Api🌀Configure instanceof Hydrator\Operation\Setup\Api\Configure === false) {
+            $this->operation🌀Setup🌀Api🌀Configure = new Hydrator\Operation\Setup\Api\Configure();
+        }
+        return $this->operation🌀Setup🌀Api🌀Configure;
+    }
     public function getObjectMapperOperation🌀Setup🌀Api🌀Maintenance() : Hydrator\Operation\Setup\Api\Maintenance
     {
         if ($this->operation🌀Setup🌀Api🌀Maintenance instanceof Hydrator\Operation\Setup\Api\Maintenance === false) {
@@ -1667,6 +3343,125 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys;
     }
+    public function getObjectMapperOperation🌀Setup🌀Api🌀Start() : Hydrator\Operation\Setup\Api\Start
+    {
+        if ($this->operation🌀Setup🌀Api🌀Start instanceof Hydrator\Operation\Setup\Api\Start === false) {
+            $this->operation🌀Setup🌀Api🌀Start = new Hydrator\Operation\Setup\Api\Start();
+        }
+        return $this->operation🌀Setup🌀Api🌀Start;
+    }
+    public function getObjectMapperOperation🌀Setup🌀Api🌀Upgrade() : Hydrator\Operation\Setup\Api\Upgrade
+    {
+        if ($this->operation🌀Setup🌀Api🌀Upgrade instanceof Hydrator\Operation\Setup\Api\Upgrade === false) {
+            $this->operation🌀Setup🌀Api🌀Upgrade = new Hydrator\Operation\Setup\Api\Upgrade();
+        }
+        return $this->operation🌀Setup🌀Api🌀Upgrade;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb() : Hydrator\Operation\Teams\CbTeamIdRcb
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb instanceof Hydrator\Operation\Teams\CbTeamIdRcb === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb = new Hydrator\Operation\Teams\CbTeamIdRcb();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions() : Hydrator\Operation\Teams\CbTeamIdRcb\Discussions
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions instanceof Hydrator\Operation\Teams\CbTeamIdRcb\Discussions === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions = new Hydrator\Operation\Teams\CbTeamIdRcb\Discussions();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb() : Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb instanceof Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb = new Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments() : Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments instanceof Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments = new Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb() : Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb instanceof Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb = new Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions() : Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions instanceof Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions = new Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions() : Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Reactions
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions instanceof Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Reactions === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions = new Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Reactions();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Members() : Hydrator\Operation\Teams\CbTeamIdRcb\Members
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb🌀Members instanceof Hydrator\Operation\Teams\CbTeamIdRcb\Members === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb🌀Members = new Hydrator\Operation\Teams\CbTeamIdRcb\Members();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb🌀Members;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Members🌀CbUsernameRcb() : Hydrator\Operation\Teams\CbTeamIdRcb\Members\CbUsernameRcb
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb🌀Members🌀CbUsernameRcb instanceof Hydrator\Operation\Teams\CbTeamIdRcb\Members\CbUsernameRcb === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb🌀Members🌀CbUsernameRcb = new Hydrator\Operation\Teams\CbTeamIdRcb\Members\CbUsernameRcb();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb🌀Members🌀CbUsernameRcb;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Memberships🌀CbUsernameRcb() : Hydrator\Operation\Teams\CbTeamIdRcb\Memberships\CbUsernameRcb
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb🌀Memberships🌀CbUsernameRcb instanceof Hydrator\Operation\Teams\CbTeamIdRcb\Memberships\CbUsernameRcb === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb🌀Memberships🌀CbUsernameRcb = new Hydrator\Operation\Teams\CbTeamIdRcb\Memberships\CbUsernameRcb();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb🌀Memberships🌀CbUsernameRcb;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Projects() : Hydrator\Operation\Teams\CbTeamIdRcb\Projects
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb🌀Projects instanceof Hydrator\Operation\Teams\CbTeamIdRcb\Projects === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb🌀Projects = new Hydrator\Operation\Teams\CbTeamIdRcb\Projects();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb🌀Projects;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Projects🌀CbProjectIdRcb() : Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb🌀Projects🌀CbProjectIdRcb instanceof Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb🌀Projects🌀CbProjectIdRcb = new Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb🌀Projects🌀CbProjectIdRcb;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Repos() : Hydrator\Operation\Teams\CbTeamIdRcb\Repos
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb🌀Repos instanceof Hydrator\Operation\Teams\CbTeamIdRcb\Repos === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb🌀Repos = new Hydrator\Operation\Teams\CbTeamIdRcb\Repos();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb🌀Repos;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb() : Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb instanceof Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb = new Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb;
+    }
+    public function getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Teams() : Hydrator\Operation\Teams\CbTeamIdRcb\Teams
+    {
+        if ($this->operation🌀Teams🌀CbTeamIdRcb🌀Teams instanceof Hydrator\Operation\Teams\CbTeamIdRcb\Teams === false) {
+            $this->operation🌀Teams🌀CbTeamIdRcb🌀Teams = new Hydrator\Operation\Teams\CbTeamIdRcb\Teams();
+        }
+        return $this->operation🌀Teams🌀CbTeamIdRcb🌀Teams;
+    }
     public function getObjectMapperOperation🌀User() : Hydrator\Operation\User
     {
         if ($this->operation🌀User instanceof Hydrator\Operation\User === false) {
@@ -1681,12 +3476,47 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀User🌀Emails;
     }
+    public function getObjectMapperOperation🌀User🌀Followers() : Hydrator\Operation\User\Followers
+    {
+        if ($this->operation🌀User🌀Followers instanceof Hydrator\Operation\User\Followers === false) {
+            $this->operation🌀User🌀Followers = new Hydrator\Operation\User\Followers();
+        }
+        return $this->operation🌀User🌀Followers;
+    }
+    public function getObjectMapperOperation🌀User🌀Following() : Hydrator\Operation\User\Following
+    {
+        if ($this->operation🌀User🌀Following instanceof Hydrator\Operation\User\Following === false) {
+            $this->operation🌀User🌀Following = new Hydrator\Operation\User\Following();
+        }
+        return $this->operation🌀User🌀Following;
+    }
+    public function getObjectMapperOperation🌀User🌀Following🌀CbUsernameRcb() : Hydrator\Operation\User\Following\CbUsernameRcb
+    {
+        if ($this->operation🌀User🌀Following🌀CbUsernameRcb instanceof Hydrator\Operation\User\Following\CbUsernameRcb === false) {
+            $this->operation🌀User🌀Following🌀CbUsernameRcb = new Hydrator\Operation\User\Following\CbUsernameRcb();
+        }
+        return $this->operation🌀User🌀Following🌀CbUsernameRcb;
+    }
     public function getObjectMapperOperation🌀User🌀GpgKeys() : Hydrator\Operation\User\GpgKeys
     {
         if ($this->operation🌀User🌀GpgKeys instanceof Hydrator\Operation\User\GpgKeys === false) {
             $this->operation🌀User🌀GpgKeys = new Hydrator\Operation\User\GpgKeys();
         }
         return $this->operation🌀User🌀GpgKeys;
+    }
+    public function getObjectMapperOperation🌀User🌀GpgKeys🌀CbGpgKeyIdRcb() : Hydrator\Operation\User\GpgKeys\CbGpgKeyIdRcb
+    {
+        if ($this->operation🌀User🌀GpgKeys🌀CbGpgKeyIdRcb instanceof Hydrator\Operation\User\GpgKeys\CbGpgKeyIdRcb === false) {
+            $this->operation🌀User🌀GpgKeys🌀CbGpgKeyIdRcb = new Hydrator\Operation\User\GpgKeys\CbGpgKeyIdRcb();
+        }
+        return $this->operation🌀User🌀GpgKeys🌀CbGpgKeyIdRcb;
+    }
+    public function getObjectMapperOperation🌀User🌀Installations() : Hydrator\Operation\User\Installations
+    {
+        if ($this->operation🌀User🌀Installations instanceof Hydrator\Operation\User\Installations === false) {
+            $this->operation🌀User🌀Installations = new Hydrator\Operation\User\Installations();
+        }
+        return $this->operation🌀User🌀Installations;
     }
     public function getObjectMapperOperation🌀User🌀Installations🌀CbInstallationIdRcb🌀Repositories() : Hydrator\Operation\User\Installations\CbInstallationIdRcb\Repositories
     {
@@ -1695,12 +3525,89 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀User🌀Installations🌀CbInstallationIdRcb🌀Repositories;
     }
+    public function getObjectMapperOperation🌀User🌀Installations🌀CbInstallationIdRcb🌀Repositories🌀CbRepositoryIdRcb() : Hydrator\Operation\User\Installations\CbInstallationIdRcb\Repositories\CbRepositoryIdRcb
+    {
+        if ($this->operation🌀User🌀Installations🌀CbInstallationIdRcb🌀Repositories🌀CbRepositoryIdRcb instanceof Hydrator\Operation\User\Installations\CbInstallationIdRcb\Repositories\CbRepositoryIdRcb === false) {
+            $this->operation🌀User🌀Installations🌀CbInstallationIdRcb🌀Repositories🌀CbRepositoryIdRcb = new Hydrator\Operation\User\Installations\CbInstallationIdRcb\Repositories\CbRepositoryIdRcb();
+        }
+        return $this->operation🌀User🌀Installations🌀CbInstallationIdRcb🌀Repositories🌀CbRepositoryIdRcb;
+    }
+    public function getObjectMapperOperation🌀User🌀Issues() : Hydrator\Operation\User\Issues
+    {
+        if ($this->operation🌀User🌀Issues instanceof Hydrator\Operation\User\Issues === false) {
+            $this->operation🌀User🌀Issues = new Hydrator\Operation\User\Issues();
+        }
+        return $this->operation🌀User🌀Issues;
+    }
     public function getObjectMapperOperation🌀User🌀Keys() : Hydrator\Operation\User\Keys
     {
         if ($this->operation🌀User🌀Keys instanceof Hydrator\Operation\User\Keys === false) {
             $this->operation🌀User🌀Keys = new Hydrator\Operation\User\Keys();
         }
         return $this->operation🌀User🌀Keys;
+    }
+    public function getObjectMapperOperation🌀User🌀Keys🌀CbKeyIdRcb() : Hydrator\Operation\User\Keys\CbKeyIdRcb
+    {
+        if ($this->operation🌀User🌀Keys🌀CbKeyIdRcb instanceof Hydrator\Operation\User\Keys\CbKeyIdRcb === false) {
+            $this->operation🌀User🌀Keys🌀CbKeyIdRcb = new Hydrator\Operation\User\Keys\CbKeyIdRcb();
+        }
+        return $this->operation🌀User🌀Keys🌀CbKeyIdRcb;
+    }
+    public function getObjectMapperOperation🌀User🌀Memberships🌀Orgs() : Hydrator\Operation\User\Memberships\Orgs
+    {
+        if ($this->operation🌀User🌀Memberships🌀Orgs instanceof Hydrator\Operation\User\Memberships\Orgs === false) {
+            $this->operation🌀User🌀Memberships🌀Orgs = new Hydrator\Operation\User\Memberships\Orgs();
+        }
+        return $this->operation🌀User🌀Memberships🌀Orgs;
+    }
+    public function getObjectMapperOperation🌀User🌀Memberships🌀Orgs🌀CbOrgRcb() : Hydrator\Operation\User\Memberships\Orgs\CbOrgRcb
+    {
+        if ($this->operation🌀User🌀Memberships🌀Orgs🌀CbOrgRcb instanceof Hydrator\Operation\User\Memberships\Orgs\CbOrgRcb === false) {
+            $this->operation🌀User🌀Memberships🌀Orgs🌀CbOrgRcb = new Hydrator\Operation\User\Memberships\Orgs\CbOrgRcb();
+        }
+        return $this->operation🌀User🌀Memberships🌀Orgs🌀CbOrgRcb;
+    }
+    public function getObjectMapperOperation🌀User🌀Orgs() : Hydrator\Operation\User\Orgs
+    {
+        if ($this->operation🌀User🌀Orgs instanceof Hydrator\Operation\User\Orgs === false) {
+            $this->operation🌀User🌀Orgs = new Hydrator\Operation\User\Orgs();
+        }
+        return $this->operation🌀User🌀Orgs;
+    }
+    public function getObjectMapperOperation🌀User🌀Projects() : Hydrator\Operation\User\Projects
+    {
+        if ($this->operation🌀User🌀Projects instanceof Hydrator\Operation\User\Projects === false) {
+            $this->operation🌀User🌀Projects = new Hydrator\Operation\User\Projects();
+        }
+        return $this->operation🌀User🌀Projects;
+    }
+    public function getObjectMapperOperation🌀User🌀PublicEmails() : Hydrator\Operation\User\PublicEmails
+    {
+        if ($this->operation🌀User🌀PublicEmails instanceof Hydrator\Operation\User\PublicEmails === false) {
+            $this->operation🌀User🌀PublicEmails = new Hydrator\Operation\User\PublicEmails();
+        }
+        return $this->operation🌀User🌀PublicEmails;
+    }
+    public function getObjectMapperOperation🌀User🌀Repos() : Hydrator\Operation\User\Repos
+    {
+        if ($this->operation🌀User🌀Repos instanceof Hydrator\Operation\User\Repos === false) {
+            $this->operation🌀User🌀Repos = new Hydrator\Operation\User\Repos();
+        }
+        return $this->operation🌀User🌀Repos;
+    }
+    public function getObjectMapperOperation🌀User🌀RepositoryInvitations() : Hydrator\Operation\User\RepositoryInvitations
+    {
+        if ($this->operation🌀User🌀RepositoryInvitations instanceof Hydrator\Operation\User\RepositoryInvitations === false) {
+            $this->operation🌀User🌀RepositoryInvitations = new Hydrator\Operation\User\RepositoryInvitations();
+        }
+        return $this->operation🌀User🌀RepositoryInvitations;
+    }
+    public function getObjectMapperOperation🌀User🌀RepositoryInvitations🌀CbInvitationIdRcb() : Hydrator\Operation\User\RepositoryInvitations\CbInvitationIdRcb
+    {
+        if ($this->operation🌀User🌀RepositoryInvitations🌀CbInvitationIdRcb instanceof Hydrator\Operation\User\RepositoryInvitations\CbInvitationIdRcb === false) {
+            $this->operation🌀User🌀RepositoryInvitations🌀CbInvitationIdRcb = new Hydrator\Operation\User\RepositoryInvitations\CbInvitationIdRcb();
+        }
+        return $this->operation🌀User🌀RepositoryInvitations🌀CbInvitationIdRcb;
     }
     public function getObjectMapperOperation🌀User🌀Starred() : Hydrator\Operation\User\Starred
     {
@@ -1709,12 +3616,110 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀User🌀Starred;
     }
+    public function getObjectMapperOperation🌀User🌀Starred🌀CbOwnerRcb🌀CbRepoRcb() : Hydrator\Operation\User\Starred\CbOwnerRcb\CbRepoRcb
+    {
+        if ($this->operation🌀User🌀Starred🌀CbOwnerRcb🌀CbRepoRcb instanceof Hydrator\Operation\User\Starred\CbOwnerRcb\CbRepoRcb === false) {
+            $this->operation🌀User🌀Starred🌀CbOwnerRcb🌀CbRepoRcb = new Hydrator\Operation\User\Starred\CbOwnerRcb\CbRepoRcb();
+        }
+        return $this->operation🌀User🌀Starred🌀CbOwnerRcb🌀CbRepoRcb;
+    }
+    public function getObjectMapperOperation🌀User🌀Subscriptions() : Hydrator\Operation\User\Subscriptions
+    {
+        if ($this->operation🌀User🌀Subscriptions instanceof Hydrator\Operation\User\Subscriptions === false) {
+            $this->operation🌀User🌀Subscriptions = new Hydrator\Operation\User\Subscriptions();
+        }
+        return $this->operation🌀User🌀Subscriptions;
+    }
+    public function getObjectMapperOperation🌀User🌀Teams() : Hydrator\Operation\User\Teams
+    {
+        if ($this->operation🌀User🌀Teams instanceof Hydrator\Operation\User\Teams === false) {
+            $this->operation🌀User🌀Teams = new Hydrator\Operation\User\Teams();
+        }
+        return $this->operation🌀User🌀Teams;
+    }
+    public function getObjectMapperOperation🌀Users() : Hydrator\Operation\Users
+    {
+        if ($this->operation🌀Users instanceof Hydrator\Operation\Users === false) {
+            $this->operation🌀Users = new Hydrator\Operation\Users();
+        }
+        return $this->operation🌀Users;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb() : Hydrator\Operation\Users\CbUsernameRcb
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb instanceof Hydrator\Operation\Users\CbUsernameRcb === false) {
+            $this->operation🌀Users🌀CbUsernameRcb = new Hydrator\Operation\Users\CbUsernameRcb();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Events() : Hydrator\Operation\Users\CbUsernameRcb\Events
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀Events instanceof Hydrator\Operation\Users\CbUsernameRcb\Events === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀Events = new Hydrator\Operation\Users\CbUsernameRcb\Events();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀Events;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Events🌀Orgs🌀CbOrgRcb() : Hydrator\Operation\Users\CbUsernameRcb\Events\Orgs\CbOrgRcb
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀Events🌀Orgs🌀CbOrgRcb instanceof Hydrator\Operation\Users\CbUsernameRcb\Events\Orgs\CbOrgRcb === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀Events🌀Orgs🌀CbOrgRcb = new Hydrator\Operation\Users\CbUsernameRcb\Events\Orgs\CbOrgRcb();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀Events🌀Orgs🌀CbOrgRcb;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Events🌀Public_() : Hydrator\Operation\Users\CbUsernameRcb\Events\Public_
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀Events🌀Public_ instanceof Hydrator\Operation\Users\CbUsernameRcb\Events\Public_ === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀Events🌀Public_ = new Hydrator\Operation\Users\CbUsernameRcb\Events\Public_();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀Events🌀Public_;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Followers() : Hydrator\Operation\Users\CbUsernameRcb\Followers
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀Followers instanceof Hydrator\Operation\Users\CbUsernameRcb\Followers === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀Followers = new Hydrator\Operation\Users\CbUsernameRcb\Followers();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀Followers;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Following() : Hydrator\Operation\Users\CbUsernameRcb\Following
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀Following instanceof Hydrator\Operation\Users\CbUsernameRcb\Following === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀Following = new Hydrator\Operation\Users\CbUsernameRcb\Following();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀Following;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Following🌀CbTargetUserRcb() : Hydrator\Operation\Users\CbUsernameRcb\Following\CbTargetUserRcb
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀Following🌀CbTargetUserRcb instanceof Hydrator\Operation\Users\CbUsernameRcb\Following\CbTargetUserRcb === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀Following🌀CbTargetUserRcb = new Hydrator\Operation\Users\CbUsernameRcb\Following\CbTargetUserRcb();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀Following🌀CbTargetUserRcb;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Gists() : Hydrator\Operation\Users\CbUsernameRcb\Gists
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀Gists instanceof Hydrator\Operation\Users\CbUsernameRcb\Gists === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀Gists = new Hydrator\Operation\Users\CbUsernameRcb\Gists();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀Gists;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀GpgKeys() : Hydrator\Operation\Users\CbUsernameRcb\GpgKeys
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀GpgKeys instanceof Hydrator\Operation\Users\CbUsernameRcb\GpgKeys === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀GpgKeys = new Hydrator\Operation\Users\CbUsernameRcb\GpgKeys();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀GpgKeys;
+    }
     public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Hovercard() : Hydrator\Operation\Users\CbUsernameRcb\Hovercard
     {
         if ($this->operation🌀Users🌀CbUsernameRcb🌀Hovercard instanceof Hydrator\Operation\Users\CbUsernameRcb\Hovercard === false) {
             $this->operation🌀Users🌀CbUsernameRcb🌀Hovercard = new Hydrator\Operation\Users\CbUsernameRcb\Hovercard();
         }
         return $this->operation🌀Users🌀CbUsernameRcb🌀Hovercard;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Installation() : Hydrator\Operation\Users\CbUsernameRcb\Installation
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀Installation instanceof Hydrator\Operation\Users\CbUsernameRcb\Installation === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀Installation = new Hydrator\Operation\Users\CbUsernameRcb\Installation();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀Installation;
     }
     public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Keys() : Hydrator\Operation\Users\CbUsernameRcb\Keys
     {
@@ -1723,11 +3728,74 @@ final class Hydrators implements \EventSauce\ObjectHydrator\ObjectMapper
         }
         return $this->operation🌀Users🌀CbUsernameRcb🌀Keys;
     }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Orgs() : Hydrator\Operation\Users\CbUsernameRcb\Orgs
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀Orgs instanceof Hydrator\Operation\Users\CbUsernameRcb\Orgs === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀Orgs = new Hydrator\Operation\Users\CbUsernameRcb\Orgs();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀Orgs;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Projects() : Hydrator\Operation\Users\CbUsernameRcb\Projects
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀Projects instanceof Hydrator\Operation\Users\CbUsernameRcb\Projects === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀Projects = new Hydrator\Operation\Users\CbUsernameRcb\Projects();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀Projects;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀ReceivedEvents() : Hydrator\Operation\Users\CbUsernameRcb\ReceivedEvents
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀ReceivedEvents instanceof Hydrator\Operation\Users\CbUsernameRcb\ReceivedEvents === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀ReceivedEvents = new Hydrator\Operation\Users\CbUsernameRcb\ReceivedEvents();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀ReceivedEvents;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀ReceivedEvents🌀Public_() : Hydrator\Operation\Users\CbUsernameRcb\ReceivedEvents\Public_
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀ReceivedEvents🌀Public_ instanceof Hydrator\Operation\Users\CbUsernameRcb\ReceivedEvents\Public_ === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀ReceivedEvents🌀Public_ = new Hydrator\Operation\Users\CbUsernameRcb\ReceivedEvents\Public_();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀ReceivedEvents🌀Public_;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Repos() : Hydrator\Operation\Users\CbUsernameRcb\Repos
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀Repos instanceof Hydrator\Operation\Users\CbUsernameRcb\Repos === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀Repos = new Hydrator\Operation\Users\CbUsernameRcb\Repos();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀Repos;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀SiteAdmin() : Hydrator\Operation\Users\CbUsernameRcb\SiteAdmin
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀SiteAdmin instanceof Hydrator\Operation\Users\CbUsernameRcb\SiteAdmin === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀SiteAdmin = new Hydrator\Operation\Users\CbUsernameRcb\SiteAdmin();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀SiteAdmin;
+    }
     public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Starred() : Hydrator\Operation\Users\CbUsernameRcb\Starred
     {
         if ($this->operation🌀Users🌀CbUsernameRcb🌀Starred instanceof Hydrator\Operation\Users\CbUsernameRcb\Starred === false) {
             $this->operation🌀Users🌀CbUsernameRcb🌀Starred = new Hydrator\Operation\Users\CbUsernameRcb\Starred();
         }
         return $this->operation🌀Users🌀CbUsernameRcb🌀Starred;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Subscriptions() : Hydrator\Operation\Users\CbUsernameRcb\Subscriptions
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀Subscriptions instanceof Hydrator\Operation\Users\CbUsernameRcb\Subscriptions === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀Subscriptions = new Hydrator\Operation\Users\CbUsernameRcb\Subscriptions();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀Subscriptions;
+    }
+    public function getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Suspended() : Hydrator\Operation\Users\CbUsernameRcb\Suspended
+    {
+        if ($this->operation🌀Users🌀CbUsernameRcb🌀Suspended instanceof Hydrator\Operation\Users\CbUsernameRcb\Suspended === false) {
+            $this->operation🌀Users🌀CbUsernameRcb🌀Suspended = new Hydrator\Operation\Users\CbUsernameRcb\Suspended();
+        }
+        return $this->operation🌀Users🌀CbUsernameRcb🌀Suspended;
+    }
+    public function getObjectMapperOperation🌀Zen() : Hydrator\Operation\Zen
+    {
+        if ($this->operation🌀Zen instanceof Hydrator\Operation\Zen === false) {
+            $this->operation🌀Zen = new Hydrator\Operation\Zen();
+        }
+        return $this->operation🌀Zen;
     }
 }

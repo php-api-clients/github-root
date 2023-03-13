@@ -19,7 +19,7 @@ final readonly class Applicationjson
     * task: Specifies a task to execute (e.g., `deploy` or `deploy:migrations`).
     * auto_merge: Attempts to automatically merge the default branch into the requested ref, if it's behind the default branch.
     * required_contexts: The [status](https://docs.github.com/enterprise-server@3.0/rest/reference/commits#commit-statuses) contexts to verify against commit status checks. If you omit this parameter, GitHub verifies all unique contexts before creating a deployment. To bypass checking entirely, pass an empty array. Defaults to all unique contexts.
-    * @param array<string> $required_contexts
+    * @param ?array<string> $required_contexts
     * environment: Name for the target deployment environment (e.g., `production`, `staging`, `qa`).
     * description: Short description of the deployment.
     * transient_environment: Specifies if the given environment is specific to the deployment and will no longer exist at some point in the future. Default: `false`  
@@ -27,7 +27,7 @@ final readonly class Applicationjson
     * production_environment: Specifies if the given environment is one that end-users directly interact with. Default: `true` when `environment` is `production` and `false` otherwise.  
     **Note:** This parameter requires you to use the [`application/vnd.github.ant-man-preview+json`](https://docs.github.com/enterprise-server@3.0/rest/overview/api-previews#enhanced-deployments) custom media type.
     */
-    public function __construct(public ?string $ref, public string $task, public bool $auto_merge, public array $required_contexts, public mixed $payload, public string $environment, public ?string $description, public bool $transient_environment, public bool $production_environment)
+    public function __construct(public string $ref, public ?string $task, public ?bool $auto_merge, public ?array $required_contexts, public mixed $payload, public ?string $environment, public ?string $description, public ?bool $transient_environment, public ?bool $production_environment)
     {
     }
 }

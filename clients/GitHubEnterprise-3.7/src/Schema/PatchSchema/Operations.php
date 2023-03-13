@@ -17,7 +17,7 @@ final readonly class Operations
     /**
      * value: Corresponding 'value' of that field specified by 'path'
      */
-    public function __construct(public ?string $op, public string $path, public string $value)
+    public function __construct(public string $op, public ?string $path, public ?string $value)
     {
     }
 }

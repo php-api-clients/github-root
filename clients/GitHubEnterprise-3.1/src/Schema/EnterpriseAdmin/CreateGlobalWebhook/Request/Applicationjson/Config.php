@@ -20,7 +20,7 @@ final readonly class Config
      * secret: If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value in the [`X-Hub-Signature`](https://docs.github.com/enterprise-server@3.1/webhooks/event-payloads/#delivery-headers) header.
      * insecure_ssl: Determines whether the SSL certificate of the host for `url` will be verified when delivering payloads. Supported values include `0` (verification is performed) and `1` (verification is not performed). The default is `0`. **We strongly recommend not setting this to `1` as you are subject to man-in-the-middle and other attacks.**
      */
-    public function __construct(public ?string $url, public string $content_type, public string $secret, public string $insecure_ssl)
+    public function __construct(public string $url, public ?string $content_type, public ?string $secret, public ?string $insecure_ssl)
     {
     }
 }

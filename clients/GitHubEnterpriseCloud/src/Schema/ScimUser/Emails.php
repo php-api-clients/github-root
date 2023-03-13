@@ -14,7 +14,7 @@ final readonly class Emails
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"value":"generated_value","primary":false,"type":"generated_type"}';
-    public function __construct(public ?string $value, public bool $primary, public string $type)
+    public function __construct(public string $value, public ?bool $primary, public ?string $type)
     {
     }
 }

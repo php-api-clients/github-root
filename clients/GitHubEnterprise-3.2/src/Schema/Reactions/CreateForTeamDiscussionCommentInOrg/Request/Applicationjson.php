@@ -17,7 +17,7 @@ final readonly class Applicationjson
     /**
      * content: The [reaction type](https://docs.github.com/enterprise-server@3.2/rest/reference/reactions#reaction-types) to add to the team discussion comment.
      */
-    public function __construct(public ?string $content)
+    public function __construct(public string $content)
     {
     }
 }

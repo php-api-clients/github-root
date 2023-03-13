@@ -16,10 +16,10 @@ final readonly class ScimUserList
     public const SCHEMA_EXAMPLE_DATA = '{"schemas":["generated_schemas"],"totalResults":3,"itemsPerPage":10,"startIndex":1,"Resources":[{"schemas":["generated_schemas"],"id":"1b78eada-9baa-11e6-9eb6-a431576d590e","externalId":"a7b0f98395","userName":"someone@example.com","displayName":"Jon Doe","name":{"givenName":"Jane","familyName":"User","formatted":"generated_formatted"},"emails":[{"value":"someone@example.com","primary":true,"type":"generated_type"}],"active":true,"meta":{"resourceType":"User","created":"2019-01-24T22:45:36.000Z","lastModified":"2019-01-24T22:45:36.000Z","location":"https:\\/\\/api.github.com\\/scim\\/v2\\/organizations\\/myorg-123abc55141bfd8f\\/Users\\/c42772b5-2029-11e9-8543-9264a97dec8d"},"organization_id":13,"operations":[{"op":"replace","path":"generated_path","value":{"active":false}}],"groups":[{"value":"generated_value","display":"generated_display"}],"roles":[{"value":"generated_value","primary":false,"type":"generated_type","display":"generated_display"}]}]}';
     /**
      * schemas: SCIM schema used.
-     * @param ?array<string> $schemas
-     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser> $Resources
+     * @param array<string> $schemas
+     * @param array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser> $Resources
      */
-    public function __construct(public ?array $schemas, public ?int $totalResults, public ?int $itemsPerPage, public ?int $startIndex, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ScimUser::class)] public ?array $Resources)
+    public function __construct(public array $schemas, public int $totalResults, public int $itemsPerPage, public int $startIndex, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\ScimUser::class)] public array $Resources)
     {
     }
 }

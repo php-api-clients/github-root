@@ -37,7 +37,7 @@ final class RemovePreReceiveHookEnforcementForRepo
      */
     function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\RepositoryPreReceiveHook
     {
-        $contentType = $response->getHeaderLine('Content-Type');
+        [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);
         switch ($response->getStatusCode()) {
             /**Responds with effective values inherited from owner and/or global level.**/

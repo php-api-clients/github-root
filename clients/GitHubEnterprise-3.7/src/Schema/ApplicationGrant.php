@@ -15,9 +15,9 @@ final readonly class ApplicationGrant
     public const SCHEMA_DESCRIPTION = 'The authorization associated with an OAuth Access.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":1,"url":"https:\\/\\/api.github.com\\/applications\\/grants\\/1","app":{"client_id":"generated_client_id","name":"generated_name","url":"generated_url"},"created_at":"2011-09-06T17:26:27Z","updated_at":"2011-09-06T20:39:23Z","scopes":["public_repo"],"user":null}';
     /**
-     * @param ?array<string> $scopes
+     * @param array<string> $scopes
      */
-    public function __construct(public ?int $id, public ?string $url, public ?Schema\Authorization\App $app, public ?string $created_at, public ?string $updated_at, public ?array $scopes, public mixed $user)
+    public function __construct(public int $id, public string $url, public Schema\Authorization\App $app, public string $created_at, public string $updated_at, public array $scopes, public mixed $user)
     {
     }
 }

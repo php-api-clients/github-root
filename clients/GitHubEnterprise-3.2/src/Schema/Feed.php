@@ -15,9 +15,9 @@ final readonly class Feed
     public const SCHEMA_DESCRIPTION = 'Feed';
     public const SCHEMA_EXAMPLE_DATA = '{"timeline_url":"https:\\/\\/github.com\\/timeline","user_url":"https:\\/\\/github.com\\/{user}","current_user_public_url":"https:\\/\\/github.com\\/octocat","current_user_url":"https:\\/\\/github.com\\/octocat.private?token=abc123","current_user_actor_url":"https:\\/\\/github.com\\/octocat.private.actor?token=abc123","current_user_organization_url":"https:\\/\\/github.com\\/octocat-org","current_user_organization_urls":["https:\\/\\/github.com\\/organizations\\/github\\/octocat.private.atom?token=abc123"],"security_advisories_url":"https:\\/\\/github.com\\/security-advisories","_links":{"timeline":{"href":"generated_href","type":"generated_type"},"user":{"href":"generated_href","type":"generated_type"},"security_advisories":{"href":"generated_href","type":"generated_type"},"current_user":{"href":"generated_href","type":"generated_type"},"current_user_public":{"href":"generated_href","type":"generated_type"},"current_user_actor":{"href":"generated_href","type":"generated_type"},"current_user_organization":{"href":"generated_href","type":"generated_type"},"current_user_organizations":[{"href":"generated_href","type":"generated_type"}]}}';
     /**
-     * @param array<string> $current_user_organization_urls
+     * @param ?array<string> $current_user_organization_urls
      */
-    public function __construct(public ?string $timeline_url, public ?string $user_url, public string $current_user_public_url, public string $current_user_url, public string $current_user_actor_url, public string $current_user_organization_url, public array $current_user_organization_urls, public string $security_advisories_url, public ?Schema\Feed\Links $_links)
+    public function __construct(public string $timeline_url, public string $user_url, public ?string $current_user_public_url, public ?string $current_user_url, public ?string $current_user_actor_url, public ?string $current_user_organization_url, public ?array $current_user_organization_urls, public ?string $security_advisories_url, public Schema\Feed\Links $_links)
     {
     }
 }

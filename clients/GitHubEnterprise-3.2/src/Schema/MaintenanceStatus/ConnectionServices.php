@@ -14,7 +14,7 @@ final readonly class ConnectionServices
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated_name","number":13}';
-    public function __construct(public ?string $name, public ?int $number)
+    public function __construct(public string $name, public int $number)
     {
     }
 }

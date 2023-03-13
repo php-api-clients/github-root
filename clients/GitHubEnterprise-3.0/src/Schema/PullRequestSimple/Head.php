@@ -17,7 +17,7 @@ final readonly class Head
     /**
      * repo: A git repository
      */
-    public function __construct(public ?string $label, public ?string $ref, public ?Schema\Repository $repo, public ?string $sha, public mixed $user)
+    public function __construct(public string $label, public string $ref, public Schema\Repository $repo, public string $sha, public mixed $user)
     {
     }
 }

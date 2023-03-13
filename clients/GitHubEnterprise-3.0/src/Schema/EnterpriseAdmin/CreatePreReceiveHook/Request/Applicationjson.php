@@ -22,7 +22,7 @@ final readonly class Applicationjson
      * enforcement: The state of enforcement for this hook. default: `disabled`
      * allow_downstream_configuration: Whether enforcement can be overridden at the org or repo level. default: `false`
      */
-    public function __construct(public ?string $name, public ?string $script, public mixed $script_repository, public mixed $environment, public string $enforcement, public bool $allow_downstream_configuration)
+    public function __construct(public string $name, public string $script, public mixed $script_repository, public mixed $environment, public ?string $enforcement, public ?bool $allow_downstream_configuration)
     {
     }
 }

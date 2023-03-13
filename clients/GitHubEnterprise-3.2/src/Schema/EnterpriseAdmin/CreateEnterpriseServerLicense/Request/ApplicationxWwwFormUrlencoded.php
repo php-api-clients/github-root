@@ -19,7 +19,7 @@ final readonly class ApplicationxWwwFormUrlencoded
      * password: You **must** provide a password _only if_ you are uploading your license for the first time. If you previously set a password through the web interface, you don't need this parameter.
      * settings: An optional JSON string containing the installation settings. For a list of the available settings, see the [Get settings endpoint](https://docs.github.com/enterprise-server@3.2/rest/reference/enterprise-admin#get-settings).
      */
-    public function __construct(public ?string $license, public string $password, public string $settings)
+    public function __construct(public string $license, public ?string $password, public ?string $settings)
     {
     }
 }

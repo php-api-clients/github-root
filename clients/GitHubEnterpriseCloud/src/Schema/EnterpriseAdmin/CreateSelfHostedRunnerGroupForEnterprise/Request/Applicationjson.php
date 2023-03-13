@@ -18,15 +18,15 @@ final readonly class Applicationjson
      * name: Name of the runner group.
      * visibility: Visibility of a runner group. You can select all organizations or select individual organization.
      * selected_organization_ids: List of organization IDs that can access the runner group.
-     * @param array<int> $selected_organization_ids
+     * @param ?array<int> $selected_organization_ids
      * runners: List of runner IDs to add to the runner group.
-     * @param array<int> $runners
+     * @param ?array<int> $runners
      * allows_public_repositories: Whether the runner group can be used by `public` repositories.
      * restricted_to_workflows: If `true`, the runner group will be restricted to running only the workflows specified in the `selected_workflows` array.
      * selected_workflows: List of workflows the runner group should be allowed to run. This setting will be ignored unless `restricted_to_workflows` is set to `true`.
-     * @param array<string> $selected_workflows
+     * @param ?array<string> $selected_workflows
      */
-    public function __construct(public ?string $name, public string $visibility, public array $selected_organization_ids, public array $runners, public bool $allows_public_repositories, public bool $restricted_to_workflows, public array $selected_workflows)
+    public function __construct(public string $name, public ?string $visibility, public ?array $selected_organization_ids, public ?array $runners, public ?bool $allows_public_repositories, public ?bool $restricted_to_workflows, public ?array $selected_workflows)
     {
     }
 }

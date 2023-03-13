@@ -17,7 +17,7 @@ final readonly class Applicationjson
     /**
      * login: The user's new username.
      */
-    public function __construct(public ?string $login)
+    public function __construct(public string $login)
     {
     }
 }

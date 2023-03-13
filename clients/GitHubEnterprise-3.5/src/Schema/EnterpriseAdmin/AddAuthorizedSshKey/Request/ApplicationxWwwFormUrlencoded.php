@@ -17,7 +17,7 @@ final readonly class ApplicationxWwwFormUrlencoded
     /**
      * authorized_key: The public SSH key.
      */
-    public function __construct(public ?string $authorized_key)
+    public function __construct(public string $authorized_key)
     {
     }
 }

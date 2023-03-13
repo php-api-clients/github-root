@@ -21,7 +21,7 @@ final readonly class WebhookCacheSync
      * repository: A repository on GitHub.
      * sender: A GitHub user.
      */
-    public function __construct(public ?string $after, public ?string $before, public ?string $cache_location, public Schema\Enterprise $enterprise, public Schema\SimpleInstallation $installation, public Schema\OrganizationSimple $organization, public ?string $ref, public Schema\Repository $repository, public Schema\SimpleUser $sender)
+    public function __construct(public string $after, public string $before, public string $cache_location, public ?Schema\Enterprise $enterprise, public ?Schema\SimpleInstallation $installation, public ?Schema\OrganizationSimple $organization, public string $ref, public ?Schema\Repository $repository, public ?Schema\SimpleUser $sender)
     {
     }
 }

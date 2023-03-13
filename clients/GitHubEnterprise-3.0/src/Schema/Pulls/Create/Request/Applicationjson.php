@@ -22,7 +22,7 @@ final readonly class Applicationjson
      * maintainer_can_modify: Indicates whether [maintainers can modify](https://docs.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.
      * draft: Indicates whether the pull request is a draft. See "[Draft Pull Requests](https://docs.github.com/en/articles/about-pull-requests#draft-pull-requests)" in the GitHub Help documentation to learn more.
      */
-    public function __construct(public string $title, public ?string $head, public ?string $base, public string $body, public bool $maintainer_can_modify, public bool $draft, public int $issue)
+    public function __construct(public ?string $title, public string $head, public string $base, public ?string $body, public ?bool $maintainer_can_modify, public ?bool $draft, public ?int $issue)
     {
     }
 }

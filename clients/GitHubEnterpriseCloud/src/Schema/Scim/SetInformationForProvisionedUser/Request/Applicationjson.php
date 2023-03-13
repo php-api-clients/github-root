@@ -15,14 +15,14 @@ final readonly class Applicationjson
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"schemas":["generated_schemas"],"displayName":"Jon Doe","externalId":"generated_externalId","groups":["generated_groups"],"active":false,"userName":"someone@example.com","name":{"givenName":"Jane","familyName":"User","formatted":"generated_formatted"},"emails":[{"type":"generated_type","value":"someone@example.com","primary":true}]}';
     /**
-     * @param array<string> $schemas
+     * @param ?array<string> $schemas
      * displayName: The name of the user, suitable for display to end-users
-     * @param array<string> $groups
+     * @param ?array<string> $groups
      * userName: Configured by the admin. Could be an email, login, or username
      * emails: user emails
-     * @param ?array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\Scim\SetInformationForProvisionedUser\Request\Applicationjson\Emails> $emails
+     * @param array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\Scim\SetInformationForProvisionedUser\Request\Applicationjson\Emails> $emails
      */
-    public function __construct(public array $schemas, public string $displayName, public string $externalId, public array $groups, public bool $active, public ?string $userName, public ?Schema\Scim\ProvisionAndInviteUser\Request\Applicationjson\Name $name, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Scim\SetInformationForProvisionedUser\Request\Applicationjson\Emails::class)] public ?array $emails)
+    public function __construct(public ?array $schemas, public ?string $displayName, public ?string $externalId, public ?array $groups, public ?bool $active, public string $userName, public Schema\Scim\ProvisionAndInviteUser\Request\Applicationjson\Name $name, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Scim\SetInformationForProvisionedUser\Request\Applicationjson\Emails::class)] public array $emails)
     {
     }
 }

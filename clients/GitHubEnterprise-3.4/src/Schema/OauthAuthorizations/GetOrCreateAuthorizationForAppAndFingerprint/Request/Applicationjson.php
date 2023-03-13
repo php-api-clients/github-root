@@ -21,7 +21,7 @@ final readonly class Applicationjson
      * note: A note to remind you what the OAuth token is for.
      * note_url: A URL to remind you what app the OAuth token is for.
      */
-    public function __construct(public ?string $client_secret, public ?array $scopes, public string $note, public string $note_url)
+    public function __construct(public string $client_secret, public ?array $scopes, public ?string $note, public ?string $note_url)
     {
     }
 }

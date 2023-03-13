@@ -20,7 +20,7 @@ final readonly class Members
      * member_name: The user display name/profile name
      * member_email: An email attached to a user
      */
-    public function __construct(public ?int $member_id, public ?string $member_login, public ?string $member_name, public ?string $member_email)
+    public function __construct(public int $member_id, public string $member_login, public string $member_name, public string $member_email)
     {
     }
 }

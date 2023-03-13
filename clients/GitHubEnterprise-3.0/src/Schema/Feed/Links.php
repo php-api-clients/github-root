@@ -22,9 +22,9 @@ final readonly class Links
      * current_user_public: Hypermedia Link with Type
      * current_user_actor: Hypermedia Link with Type
      * current_user_organization: Hypermedia Link with Type
-     * @param array<\ApiClients\Client\GitHubEnterprise\Schema\LinkWithType> $current_user_organizations
+     * @param ?array<\ApiClients\Client\GitHubEnterprise\Schema\LinkWithType> $current_user_organizations
      */
-    public function __construct(public ?Schema\LinkWithType $timeline, public ?Schema\LinkWithType $user, public Schema\LinkWithType $security_advisories, public Schema\LinkWithType $current_user, public Schema\LinkWithType $current_user_public, public Schema\LinkWithType $current_user_actor, public Schema\LinkWithType $current_user_organization, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\LinkWithType::class)] public array $current_user_organizations)
+    public function __construct(public Schema\LinkWithType $timeline, public Schema\LinkWithType $user, public ?Schema\LinkWithType $security_advisories, public ?Schema\LinkWithType $current_user, public ?Schema\LinkWithType $current_user_public, public ?Schema\LinkWithType $current_user_actor, public ?Schema\LinkWithType $current_user_organization, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\LinkWithType::class)] public ?array $current_user_organizations)
     {
     }
 }

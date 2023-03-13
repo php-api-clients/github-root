@@ -25,7 +25,7 @@ final readonly class Applicationjson
      * block_creations: If set to `true`, the `restrictions` branch protection settings which limits who can push will also block pushes which create new branches, unless the push is initiated by a user, team, or app which has the ability to push. Set to `true` to restrict new branch creation. Default: `false`.
      * required_conversation_resolution: Requires all conversations on code to be resolved before a pull request can be merged into a branch that matches this rule. Set to `false` to disable. Default: `false`.
      */
-    public function __construct(public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredStatusChecks $required_status_checks, public ?bool $enforce_admins, public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredPullRequestReviews $required_pull_request_reviews, public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\Restrictions $restrictions, public bool $required_linear_history, public ?bool $allow_force_pushes, public bool $allow_deletions, public bool $block_creations, public bool $required_conversation_resolution)
+    public function __construct(public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredStatusChecks $required_status_checks, public ?bool $enforce_admins, public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\RequiredPullRequestReviews $required_pull_request_reviews, public ?Schema\Repos\UpdateBranchProtection\Request\Applicationjson\Restrictions $restrictions, public ?bool $required_linear_history, public ?bool $allow_force_pushes, public ?bool $allow_deletions, public ?bool $block_creations, public ?bool $required_conversation_resolution)
     {
     }
 }

@@ -19,9 +19,9 @@ final readonly class RunnerGroupsOrg
      * workflow_restrictions_read_only: If `true`, the `restricted_to_workflows` and `selected_workflows` fields cannot be modified.
      * restricted_to_workflows: If `true`, the runner group will be restricted to running only the workflows specified in the `selected_workflows` array.
      * selected_workflows: List of workflows the runner group should be allowed to run. This setting will be ignored unless `restricted_to_workflows` is set to `true`.
-     * @param array<string> $selected_workflows
+     * @param ?array<string> $selected_workflows
      */
-    public function __construct(public ?int $id, public ?string $name, public ?string $visibility, public ?bool $default, public string $selected_repositories_url, public ?string $runners_url, public ?bool $inherited, public bool $inherited_allows_public_repositories, public ?bool $allows_public_repositories, public bool $workflow_restrictions_read_only, public bool $restricted_to_workflows, public array $selected_workflows)
+    public function __construct(public int $id, public string $name, public string $visibility, public bool $default, public ?string $selected_repositories_url, public string $runners_url, public bool $inherited, public ?bool $inherited_allows_public_repositories, public bool $allows_public_repositories, public ?bool $workflow_restrictions_read_only, public ?bool $restricted_to_workflows, public ?array $selected_workflows)
     {
     }
 }

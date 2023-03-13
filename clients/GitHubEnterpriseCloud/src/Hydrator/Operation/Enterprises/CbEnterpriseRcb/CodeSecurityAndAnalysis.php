@@ -30,161 +30,179 @@ class CodeSecurityAndAnalysis implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️EnterpriseSecurityAnalysisSettings(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['advanced_security_enabled_for_new_repositories'] ?? null;
-    
-                if ($value === null) {
-                    $properties['advanced_security_enabled_for_new_repositories'] = null;
-                    goto after_advanced_security_enabled_for_new_repositories;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️EnterpriseSecurityAnalysisSettings(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['advanced_security_enabled_for_new_repositories'] ?? null;
 
-                $properties['advanced_security_enabled_for_new_repositories'] = $value;
-    
-                after_advanced_security_enabled_for_new_repositories:
-
-                $value = $payload['dependabot_alerts_enabled_for_new_repositories'] ?? null;
-    
-                if ($value === null) {
-                    $properties['dependabot_alerts_enabled_for_new_repositories'] = null;
-                    goto after_dependabot_alerts_enabled_for_new_repositories;
-                }
-
-                $properties['dependabot_alerts_enabled_for_new_repositories'] = $value;
-    
-                after_dependabot_alerts_enabled_for_new_repositories:
-
-                $value = $payload['secret_scanning_enabled_for_new_repositories'] ?? null;
-    
-                if ($value === null) {
-                    $properties['secret_scanning_enabled_for_new_repositories'] = null;
-                    goto after_secret_scanning_enabled_for_new_repositories;
-                }
-
-                $properties['secret_scanning_enabled_for_new_repositories'] = $value;
-    
-                after_secret_scanning_enabled_for_new_repositories:
-
-                $value = $payload['secret_scanning_push_protection_enabled_for_new_repositories'] ?? null;
-    
-                if ($value === null) {
-                    $properties['secret_scanning_push_protection_enabled_for_new_repositories'] = null;
-                    goto after_secret_scanning_push_protection_enabled_for_new_repositories;
-                }
-
-                $properties['secret_scanning_push_protection_enabled_for_new_repositories'] = $value;
-    
-                after_secret_scanning_push_protection_enabled_for_new_repositories:
-
-                $value = $payload['secret_scanning_push_protection_custom_link'] ?? null;
-    
-                if ($value === null) {
-                    $properties['secret_scanning_push_protection_custom_link'] = null;
-                    goto after_secret_scanning_push_protection_custom_link;
-                }
-
-                $properties['secret_scanning_push_protection_custom_link'] = $value;
-    
-                after_secret_scanning_push_protection_custom_link:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'advanced_security_enabled_for_new_repositories';
+                goto after_advanced_security_enabled_for_new_repositories;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['advanced_security_enabled_for_new_repositories'] = $value;
+
+            after_advanced_security_enabled_for_new_repositories:
+
+            $value = $payload['dependabot_alerts_enabled_for_new_repositories'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'dependabot_alerts_enabled_for_new_repositories';
+                goto after_dependabot_alerts_enabled_for_new_repositories;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings', $exception, stack: $this->hydrationStack);
+
+            $properties['dependabot_alerts_enabled_for_new_repositories'] = $value;
+
+            after_dependabot_alerts_enabled_for_new_repositories:
+
+            $value = $payload['secret_scanning_enabled_for_new_repositories'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'secret_scanning_enabled_for_new_repositories';
+                goto after_secret_scanning_enabled_for_new_repositories;
             }
+
+            $properties['secret_scanning_enabled_for_new_repositories'] = $value;
+
+            after_secret_scanning_enabled_for_new_repositories:
+
+            $value = $payload['secret_scanning_push_protection_enabled_for_new_repositories'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'secret_scanning_push_protection_enabled_for_new_repositories';
+                goto after_secret_scanning_push_protection_enabled_for_new_repositories;
+            }
+
+            $properties['secret_scanning_push_protection_enabled_for_new_repositories'] = $value;
+
+            after_secret_scanning_push_protection_enabled_for_new_repositories:
+
+            $value = $payload['secret_scanning_push_protection_custom_link'] ?? null;
+
+            if ($value === null) {
+                $properties['secret_scanning_push_protection_custom_link'] = null;
+                goto after_secret_scanning_push_protection_custom_link;
+            }
+
+            $properties['secret_scanning_push_protection_custom_link'] = $value;
+
+            after_secret_scanning_push_protection_custom_link:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['message'] ?? null;
-    
-                if ($value === null) {
-                    $properties['message'] = null;
-                    goto after_message;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['message'] ?? null;
 
-                $properties['message'] = $value;
-    
-                after_message:
-
-                $value = $payload['documentation_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['documentation_url'] = null;
-                    goto after_documentation_url;
-                }
-
-                $properties['documentation_url'] = $value;
-    
-                after_documentation_url:
-
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
-                }
-
-                $properties['url'] = $value;
-    
-                after_url:
-
-                $value = $payload['status'] ?? null;
-    
-                if ($value === null) {
-                    $properties['status'] = null;
-                    goto after_status;
-                }
-
-                $properties['status'] = $value;
-    
-                after_status:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $properties['message'] = null;
+                goto after_message;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['message'] = $value;
+
+            after_message:
+
+            $value = $payload['documentation_url'] ?? null;
+
+            if ($value === null) {
+                $properties['documentation_url'] = null;
+                goto after_documentation_url;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+
+            $properties['documentation_url'] = $value;
+
+            after_documentation_url:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️EnterpriseSecurityAnalysisSettings($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️EnterpriseSecurityAnalysisSettings($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -257,41 +275,25 @@ class CodeSecurityAndAnalysis implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️EnterpriseSecurityAnalysisSettings(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings);
         $result = [];
-        
-        $advanced_security_enabled_for_new_repositories = $object->advanced_security_enabled_for_new_repositories;
 
-        if ($advanced_security_enabled_for_new_repositories === null) {
-            goto after_advanced_security_enabled_for_new_repositories;
-        }
+        $advanced_security_enabled_for_new_repositories = $object->advanced_security_enabled_for_new_repositories;
         after_advanced_security_enabled_for_new_repositories:        $result['advanced_security_enabled_for_new_repositories'] = $advanced_security_enabled_for_new_repositories;
 
         
         $dependabot_alerts_enabled_for_new_repositories = $object->dependabot_alerts_enabled_for_new_repositories;
-
-        if ($dependabot_alerts_enabled_for_new_repositories === null) {
-            goto after_dependabot_alerts_enabled_for_new_repositories;
-        }
         after_dependabot_alerts_enabled_for_new_repositories:        $result['dependabot_alerts_enabled_for_new_repositories'] = $dependabot_alerts_enabled_for_new_repositories;
 
         
         $secret_scanning_enabled_for_new_repositories = $object->secret_scanning_enabled_for_new_repositories;
-
-        if ($secret_scanning_enabled_for_new_repositories === null) {
-            goto after_secret_scanning_enabled_for_new_repositories;
-        }
         after_secret_scanning_enabled_for_new_repositories:        $result['secret_scanning_enabled_for_new_repositories'] = $secret_scanning_enabled_for_new_repositories;
 
         
         $secret_scanning_push_protection_enabled_for_new_repositories = $object->secret_scanning_push_protection_enabled_for_new_repositories;
-
-        if ($secret_scanning_push_protection_enabled_for_new_repositories === null) {
-            goto after_secret_scanning_push_protection_enabled_for_new_repositories;
-        }
         after_secret_scanning_push_protection_enabled_for_new_repositories:        $result['secret_scanning_push_protection_enabled_for_new_repositories'] = $secret_scanning_push_protection_enabled_for_new_repositories;
 
         
@@ -306,12 +308,12 @@ class CodeSecurityAndAnalysis implements ObjectMapper
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError);
         $result = [];
-        
+
         $message = $object->message;
 
         if ($message === null) {

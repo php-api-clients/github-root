@@ -19,7 +19,7 @@ final readonly class Groups
      * group_name: The display name of the group
      * updated_at: The time of the last update for this group
      */
-    public function __construct(public ?int $group_id, public ?string $group_name, public ?string $updated_at)
+    public function __construct(public int $group_id, public string $group_name, public string $updated_at)
     {
     }
 }

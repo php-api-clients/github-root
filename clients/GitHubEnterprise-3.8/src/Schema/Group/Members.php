@@ -18,7 +18,7 @@ final readonly class Members
      * value: The local unique identifier for the member
      * displayName: The display name associated with the member
      */
-    public function __construct(public ?string $value, public ?string $displayName)
+    public function __construct(public string $value, public string $displayName)
     {
     }
 }

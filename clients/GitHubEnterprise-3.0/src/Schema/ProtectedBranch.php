@@ -18,7 +18,7 @@ final readonly class ProtectedBranch
      * required_status_checks: Status Check Policy
      * restrictions: Branch Restriction Policy
      */
-    public function __construct(public ?string $url, public Schema\StatusCheckPolicy $required_status_checks, public Schema\ProtectedBranch\RequiredPullRequestReviews $required_pull_request_reviews, public Schema\BranchProtection\RequiredSignatures $required_signatures, public Schema\ProtectedBranch\EnforceAdmins $enforce_admins, public Schema\ProtectedBranch\RequiredLinearHistory $required_linear_history, public Schema\ProtectedBranch\RequiredLinearHistory $allow_force_pushes, public Schema\ProtectedBranch\RequiredLinearHistory $allow_deletions, public Schema\BranchRestrictionPolicy $restrictions, public Schema\ProtectedBranch\RequiredConversationResolution $required_conversation_resolution)
+    public function __construct(public string $url, public ?Schema\StatusCheckPolicy $required_status_checks, public ?Schema\ProtectedBranch\RequiredPullRequestReviews $required_pull_request_reviews, public ?Schema\BranchProtection\RequiredSignatures $required_signatures, public ?Schema\ProtectedBranch\EnforceAdmins $enforce_admins, public ?Schema\ProtectedBranch\RequiredLinearHistory $required_linear_history, public ?Schema\ProtectedBranch\RequiredLinearHistory $allow_force_pushes, public ?Schema\ProtectedBranch\RequiredLinearHistory $allow_deletions, public ?Schema\BranchRestrictionPolicy $restrictions, public ?Schema\ProtectedBranch\RequiredConversationResolution $required_conversation_resolution)
     {
     }
 }

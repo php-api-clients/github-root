@@ -32,423 +32,439 @@ class CbHookIdRcb implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook(array $payload): \ApiClients\Client\GitHubAE\Schema\GlobalHook
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['type'] ?? null;
-    
-                if ($value === null) {
-                    $properties['type'] = null;
-                    goto after_type;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook(array $payload): \ApiClients\Client\GitHubAE\Schema\GlobalHook
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['type'] ?? null;
 
-                $properties['type'] = $value;
-    
-                after_type:
-
-                $value = $payload['id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['id'] = null;
-                    goto after_id;
-                }
-
-                $properties['id'] = $value;
-    
-                after_id:
-
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['name'] = null;
-                    goto after_name;
-                }
-
-                $properties['name'] = $value;
-    
-                after_name:
-
-                $value = $payload['active'] ?? null;
-    
-                if ($value === null) {
-                    $properties['active'] = null;
-                    goto after_active;
-                }
-
-                $properties['active'] = $value;
-    
-                after_active:
-
-                $value = $payload['events'] ?? null;
-    
-                if ($value === null) {
-                    $properties['events'] = null;
-                    goto after_events;
-                }
-
-                $properties['events'] = $value;
-    
-                after_events:
-
-                $value = $payload['config'] ?? null;
-    
-                if ($value === null) {
-                    $properties['config'] = null;
-                    goto after_config;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'config';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['config'] = $value;
-    
-                after_config:
-
-                $value = $payload['updated_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['updated_at'] = null;
-                    goto after_updated_at;
-                }
-
-                $properties['updated_at'] = $value;
-    
-                after_updated_at:
-
-                $value = $payload['created_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['created_at'] = null;
-                    goto after_created_at;
-                }
-
-                $properties['created_at'] = $value;
-    
-                after_created_at:
-
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
-                }
-
-                $properties['url'] = $value;
-    
-                after_url:
-
-                $value = $payload['ping_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['ping_url'] = null;
-                    goto after_ping_url;
-                }
-
-                $properties['ping_url'] = $value;
-    
-                after_ping_url:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\GlobalHook::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $properties['id'] = null;
+                goto after_id;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\GlobalHook(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook', $exception, stack: $this->hydrationStack);
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
             }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['active'] ?? null;
+
+            if ($value === null) {
+                $properties['active'] = null;
+                goto after_active;
+            }
+
+            $properties['active'] = $value;
+
+            after_active:
+
+            $value = $payload['events'] ?? null;
+
+            if ($value === null) {
+                $properties['events'] = null;
+                goto after_events;
+            }
+
+            $properties['events'] = $value;
+
+            after_events:
+
+            $value = $payload['config'] ?? null;
+
+            if ($value === null) {
+                $properties['config'] = null;
+                goto after_config;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'config';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['config'] = $value;
+
+            after_config:
+
+            $value = $payload['updated_at'] ?? null;
+
+            if ($value === null) {
+                $properties['updated_at'] = null;
+                goto after_updated_at;
+            }
+
+            $properties['updated_at'] = $value;
+
+            after_updated_at:
+
+            $value = $payload['created_at'] ?? null;
+
+            if ($value === null) {
+                $properties['created_at'] = null;
+                goto after_created_at;
+            }
+
+            $properties['created_at'] = $value;
+
+            after_created_at:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+            $value = $payload['ping_url'] ?? null;
+
+            if ($value === null) {
+                $properties['ping_url'] = null;
+                goto after_ping_url;
+            }
+
+            $properties['ping_url'] = $value;
+
+            after_ping_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\GlobalHook::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\GlobalHook(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config(array $payload): \ApiClients\Client\GitHubAE\Schema\GlobalHook\Config
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config(array $payload): \ApiClients\Client\GitHubAE\Schema\GlobalHook\Config
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['url'] ?? null;
 
-                $properties['url'] = $value;
-    
-                after_url:
-
-                $value = $payload['content_type'] ?? null;
-    
-                if ($value === null) {
-                    $properties['content_type'] = null;
-                    goto after_content_type;
-                }
-
-                $properties['content_type'] = $value;
-    
-                after_content_type:
-
-                $value = $payload['insecure_ssl'] ?? null;
-    
-                if ($value === null) {
-                    $properties['insecure_ssl'] = null;
-                    goto after_insecure_ssl;
-                }
-
-                $properties['insecure_ssl'] = $value;
-    
-                after_insecure_ssl:
-
-                $value = $payload['secret'] ?? null;
-    
-                if ($value === null) {
-                    $properties['secret'] = null;
-                    goto after_secret;
-                }
-
-                $properties['secret'] = $value;
-    
-                after_secret:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook\Config', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\GlobalHook\Config::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['url'] = $value;
+
+            after_url:
+
+            $value = $payload['content_type'] ?? null;
+
+            if ($value === null) {
+                $properties['content_type'] = null;
+                goto after_content_type;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\GlobalHook\Config(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook\Config', $exception, stack: $this->hydrationStack);
+
+            $properties['content_type'] = $value;
+
+            after_content_type:
+
+            $value = $payload['insecure_ssl'] ?? null;
+
+            if ($value === null) {
+                $properties['insecure_ssl'] = null;
+                goto after_insecure_ssl;
             }
+
+            $properties['insecure_ssl'] = $value;
+
+            after_insecure_ssl:
+
+            $value = $payload['secret'] ?? null;
+
+            if ($value === null) {
+                $properties['secret'] = null;
+                goto after_secret;
+            }
+
+            $properties['secret'] = $value;
+
+            after_secret:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook\Config', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\GlobalHook\Config::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\GlobalHook\Config(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook\Config', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2(array $payload): \ApiClients\Client\GitHubAE\Schema\GlobalHook2
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['type'] ?? null;
-    
-                if ($value === null) {
-                    $properties['type'] = null;
-                    goto after_type;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2(array $payload): \ApiClients\Client\GitHubAE\Schema\GlobalHook2
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['type'] ?? null;
 
-                $properties['type'] = $value;
-    
-                after_type:
-
-                $value = $payload['id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['id'] = null;
-                    goto after_id;
-                }
-
-                $properties['id'] = $value;
-    
-                after_id:
-
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['name'] = null;
-                    goto after_name;
-                }
-
-                $properties['name'] = $value;
-    
-                after_name:
-
-                $value = $payload['active'] ?? null;
-    
-                if ($value === null) {
-                    $properties['active'] = null;
-                    goto after_active;
-                }
-
-                $properties['active'] = $value;
-    
-                after_active:
-
-                $value = $payload['events'] ?? null;
-    
-                if ($value === null) {
-                    $properties['events'] = null;
-                    goto after_events;
-                }
-
-                $properties['events'] = $value;
-    
-                after_events:
-
-                $value = $payload['config'] ?? null;
-    
-                if ($value === null) {
-                    $properties['config'] = null;
-                    goto after_config;
-                }
-
-                if (is_array($value)) {
-                    try {
-                        $this->hydrationStack[] = 'config';
-                        $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2⚡️Config($value);
-                    } finally {
-                        array_pop($this->hydrationStack);
-                    }
-                }
-
-                $properties['config'] = $value;
-    
-                after_config:
-
-                $value = $payload['updated_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['updated_at'] = null;
-                    goto after_updated_at;
-                }
-
-                $properties['updated_at'] = $value;
-    
-                after_updated_at:
-
-                $value = $payload['created_at'] ?? null;
-    
-                if ($value === null) {
-                    $properties['created_at'] = null;
-                    goto after_created_at;
-                }
-
-                $properties['created_at'] = $value;
-    
-                after_created_at:
-
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
-                }
-
-                $properties['url'] = $value;
-    
-                after_url:
-
-                $value = $payload['ping_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['ping_url'] = null;
-                    goto after_ping_url;
-                }
-
-                $properties['ping_url'] = $value;
-    
-                after_ping_url:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook2', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\GlobalHook2::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $properties['id'] = null;
+                goto after_id;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\GlobalHook2(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook2', $exception, stack: $this->hydrationStack);
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
             }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['active'] ?? null;
+
+            if ($value === null) {
+                $properties['active'] = null;
+                goto after_active;
+            }
+
+            $properties['active'] = $value;
+
+            after_active:
+
+            $value = $payload['events'] ?? null;
+
+            if ($value === null) {
+                $properties['events'] = null;
+                goto after_events;
+            }
+
+            $properties['events'] = $value;
+
+            after_events:
+
+            $value = $payload['config'] ?? null;
+
+            if ($value === null) {
+                $properties['config'] = null;
+                goto after_config;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'config';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2⚡️Config($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['config'] = $value;
+
+            after_config:
+
+            $value = $payload['updated_at'] ?? null;
+
+            if ($value === null) {
+                $properties['updated_at'] = null;
+                goto after_updated_at;
+            }
+
+            $properties['updated_at'] = $value;
+
+            after_updated_at:
+
+            $value = $payload['created_at'] ?? null;
+
+            if ($value === null) {
+                $properties['created_at'] = null;
+                goto after_created_at;
+            }
+
+            $properties['created_at'] = $value;
+
+            after_created_at:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+            $value = $payload['ping_url'] ?? null;
+
+            if ($value === null) {
+                $properties['ping_url'] = null;
+                goto after_ping_url;
+            }
+
+            $properties['ping_url'] = $value;
+
+            after_ping_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook2', $exception, stack: $this->hydrationStack);
         }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\GlobalHook2::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\GlobalHook2(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook2', $exception, stack: $this->hydrationStack);
+        }
+    }
 
         
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2⚡️Config(array $payload): \ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['url'] = null;
-                    goto after_url;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2⚡️Config(array $payload): \ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['url'] ?? null;
 
-                $properties['url'] = $value;
-    
-                after_url:
-
-                $value = $payload['content_type'] ?? null;
-    
-                if ($value === null) {
-                    $properties['content_type'] = null;
-                    goto after_content_type;
-                }
-
-                $properties['content_type'] = $value;
-    
-                after_content_type:
-
-                $value = $payload['insecure_ssl'] ?? null;
-    
-                if ($value === null) {
-                    $properties['insecure_ssl'] = null;
-                    goto after_insecure_ssl;
-                }
-
-                $properties['insecure_ssl'] = $value;
-    
-                after_insecure_ssl:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['url'] = $value;
+
+            after_url:
+
+            $value = $payload['content_type'] ?? null;
+
+            if ($value === null) {
+                $properties['content_type'] = null;
+                goto after_content_type;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config', $exception, stack: $this->hydrationStack);
+
+            $properties['content_type'] = $value;
+
+            after_content_type:
+
+            $value = $payload['insecure_ssl'] ?? null;
+
+            if ($value === null) {
+                $properties['insecure_ssl'] = null;
+                goto after_insecure_ssl;
+            }
+
+            $properties['insecure_ssl'] = $value;
+
+            after_insecure_ssl:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubAE\Schema\GlobalHook' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook($object),
-                'ApiClients\Client\GitHubAE\Schema\GlobalHook\Config' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config($object),
-                'ApiClients\Client\GitHubAE\Schema\GlobalHook2' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2($object),
-                'ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2⚡️Config($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubAE\Schema\GlobalHook' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook($object),
+            'ApiClients\Client\GitHubAE\Schema\GlobalHook\Config' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config($object),
+            'ApiClients\Client\GitHubAE\Schema\GlobalHook2' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2($object),
+            'ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2⚡️Config($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -521,12 +537,12 @@ class CbHookIdRcb implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GlobalHook);
         $result = [];
-        
+
         $type = $object->type;
 
         if ($type === null) {
@@ -619,12 +635,12 @@ class CbHookIdRcb implements ObjectMapper
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GlobalHook\Config);
         $result = [];
-        
+
         $url = $object->url;
 
         if ($url === null) {
@@ -660,12 +676,12 @@ class CbHookIdRcb implements ObjectMapper
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GlobalHook2);
         $result = [];
-        
+
         $type = $object->type;
 
         if ($type === null) {
@@ -758,12 +774,12 @@ class CbHookIdRcb implements ObjectMapper
         return $result;
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook2⚡️Config(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GlobalHook2\Config);
         $result = [];
-        
+
         $url = $object->url;
 
         if ($url === null) {

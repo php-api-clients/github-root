@@ -24,7 +24,7 @@ final readonly class CodeScanningAlert
      * dismissed_at: The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
      * dismissed_reason: **Required when the state is dismissed.** The reason for dismissing or closing the alert. Can be one of: `false positive`, `won't fix`, and `used in tests`.
      */
-    public function __construct(public ?int $number, public ?string $created_at, public ?string $url, public ?string $html_url, public ?string $instances_url, public ?string $state, public mixed $dismissed_by, public ?string $dismissed_at, public ?string $dismissed_reason, public ?Schema\CodeScanningAlertRule $rule, public ?Schema\CodeScanningAnalysisTool $tool, public ?Schema\CodeScanningAlertInstance $most_recent_instance, public mixed $instances)
+    public function __construct(public int $number, public string $created_at, public string $url, public string $html_url, public string $instances_url, public string $state, public mixed $dismissed_by, public ?string $dismissed_at, public ?string $dismissed_reason, public Schema\CodeScanningAlertRule $rule, public Schema\CodeScanningAnalysisTool $tool, public Schema\CodeScanningAlertInstance $most_recent_instance, public mixed $instances)
     {
     }
 }

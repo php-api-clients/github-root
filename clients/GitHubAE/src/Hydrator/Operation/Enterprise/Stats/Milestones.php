@@ -29,72 +29,91 @@ class Milestones implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['total_milestones'] ?? null;
-    
-                if ($value === null) {
-                    $properties['total_milestones'] = null;
-                    goto after_total_milestones;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['total_milestones'] ?? null;
 
-                $properties['total_milestones'] = $value;
-    
-                after_total_milestones:
-
-                $value = $payload['open_milestones'] ?? null;
-    
-                if ($value === null) {
-                    $properties['open_milestones'] = null;
-                    goto after_open_milestones;
-                }
-
-                $properties['open_milestones'] = $value;
-    
-                after_open_milestones:
-
-                $value = $payload['closed_milestones'] ?? null;
-    
-                if ($value === null) {
-                    $properties['closed_milestones'] = null;
-                    goto after_closed_milestones;
-                }
-
-                $properties['closed_milestones'] = $value;
-    
-                after_closed_milestones:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'total_milestones';
+                goto after_total_milestones;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['total_milestones'] = $value;
+
+            after_total_milestones:
+
+            $value = $payload['open_milestones'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'open_milestones';
+                goto after_open_milestones;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview', $exception, stack: $this->hydrationStack);
+
+            $properties['open_milestones'] = $value;
+
+            after_open_milestones:
+
+            $value = $payload['closed_milestones'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'closed_milestones';
+                goto after_closed_milestones;
+            }
+
+            $properties['closed_milestones'] = $value;
+
+            after_closed_milestones:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -167,33 +186,21 @@ class Milestones implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview);
         $result = [];
-        
-        $total_milestones = $object->total_milestones;
 
-        if ($total_milestones === null) {
-            goto after_total_milestones;
-        }
+        $total_milestones = $object->total_milestones;
         after_total_milestones:        $result['total_milestones'] = $total_milestones;
 
         
         $open_milestones = $object->open_milestones;
-
-        if ($open_milestones === null) {
-            goto after_open_milestones;
-        }
         after_open_milestones:        $result['open_milestones'] = $open_milestones;
 
         
         $closed_milestones = $object->closed_milestones;
-
-        if ($closed_milestones === null) {
-            goto after_closed_milestones;
-        }
         after_closed_milestones:        $result['closed_milestones'] = $closed_milestones;
 
 

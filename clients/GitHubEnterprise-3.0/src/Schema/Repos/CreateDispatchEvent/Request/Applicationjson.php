@@ -18,7 +18,7 @@ final readonly class Applicationjson
      * event_type: A custom webhook event name.
      * client_payload: JSON payload with extra information about the webhook event that your action or worklow may use.
      */
-    public function __construct(public ?string $event_type, public mixed $client_payload)
+    public function __construct(public string $event_type, public mixed $client_payload)
     {
     }
 }

@@ -29,116 +29,135 @@ class CbRunnerGroupIdRcb implements ObjectMapper
     }
     
             
-        private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RunnerGroupsEnterprise(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise
-        {
-            $properties = []; 
-            $missingFields = [];
-            try {
-                
-                $value = $payload['id'] ?? null;
-    
-                if ($value === null) {
-                    $properties['id'] = null;
-                    goto after_id;
-                }
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RunnerGroupsEnterprise(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['id'] ?? null;
 
-                $properties['id'] = $value;
-    
-                after_id:
-
-                $value = $payload['name'] ?? null;
-    
-                if ($value === null) {
-                    $properties['name'] = null;
-                    goto after_name;
-                }
-
-                $properties['name'] = $value;
-    
-                after_name:
-
-                $value = $payload['visibility'] ?? null;
-    
-                if ($value === null) {
-                    $properties['visibility'] = null;
-                    goto after_visibility;
-                }
-
-                $properties['visibility'] = $value;
-    
-                after_visibility:
-
-                $value = $payload['default'] ?? null;
-    
-                if ($value === null) {
-                    $properties['default'] = null;
-                    goto after_default;
-                }
-
-                $properties['default'] = $value;
-    
-                after_default:
-
-                $value = $payload['selected_organizations_url'] ?? null;
-    
-                if ($value === null) {
-                    $missingFields[] = 'selected_organizations_url';
-                    goto after_selected_organizations_url;
-                }
-
-                $properties['selected_organizations_url'] = $value;
-    
-                after_selected_organizations_url:
-
-                $value = $payload['runners_url'] ?? null;
-    
-                if ($value === null) {
-                    $properties['runners_url'] = null;
-                    goto after_runners_url;
-                }
-
-                $properties['runners_url'] = $value;
-    
-                after_runners_url:
-
-                $value = $payload['allows_public_repositories'] ?? null;
-    
-                if ($value === null) {
-                    $properties['allows_public_repositories'] = null;
-                    goto after_allows_public_repositories;
-                }
-
-                $properties['allows_public_repositories'] = $value;
-    
-                after_allows_public_repositories:
-
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise', $exception, stack: $this->hydrationStack);
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
             }
-            
-            if (count($missingFields) > 0) {
-                throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise::class, $missingFields, stack: $this->hydrationStack);
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'name';
+                goto after_name;
             }
-            
-            try {
-                return new \ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise(...$properties);
-            } catch (\Throwable $exception) {
-                throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise', $exception, stack: $this->hydrationStack);
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['visibility'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'visibility';
+                goto after_visibility;
+            }
+
+            $properties['visibility'] = $value;
+
+            after_visibility:
+
+            $value = $payload['default'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'default';
+                goto after_default;
+            }
+
+            $properties['default'] = $value;
+
+            after_default:
+
+            $value = $payload['selected_organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['selected_organizations_url'] = null;
+                goto after_selected_organizations_url;
+            }
+
+            $properties['selected_organizations_url'] = $value;
+
+            after_selected_organizations_url:
+
+            $value = $payload['runners_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'runners_url';
+                goto after_runners_url;
+            }
+
+            $properties['runners_url'] = $value;
+
+            after_runners_url:
+
+            $value = $payload['allows_public_repositories'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'allows_public_repositories';
+                goto after_allows_public_repositories;
+            }
+
+            $properties['allows_public_repositories'] = $value;
+
+            after_allows_public_repositories:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise', $exception, stack: $this->hydrationStack);
+        }
+    }
+    
+    private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
+    {
+        foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
+            if (is_a($object, $valueType)) {
+                return [$accessor => $payloadType] + $this->{$method}($object);
             }
         }
-    
+
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
+    }
+
     public function serializeObject(object $object): mixed
     {
-        try {
-            $className = get_class($object);
+        return $this->serializeObjectOfType($object, get_class($object));
+    }
 
+    /**
+     * @template T
+     *
+     * @param T               $object
+     * @param class-string<T> $className
+     */
+    public function serializeObjectOfType(object $object, string $className): mixed
+    {
+        try {
             return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RunnerGroupsEnterprise($object),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RunnerGroupsEnterprise($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -211,61 +230,41 @@ class CbRunnerGroupIdRcb implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RunnerGroupsEnterprise(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise);
         $result = [];
-        
-        $id = $object->id;
 
-        if ($id === null) {
-            goto after_id;
-        }
+        $id = $object->id;
         after_id:        $result['id'] = $id;
 
         
         $name = $object->name;
-
-        if ($name === null) {
-            goto after_name;
-        }
         after_name:        $result['name'] = $name;
 
         
         $visibility = $object->visibility;
-
-        if ($visibility === null) {
-            goto after_visibility;
-        }
         after_visibility:        $result['visibility'] = $visibility;
 
         
         $default = $object->default;
-
-        if ($default === null) {
-            goto after_default;
-        }
         after_default:        $result['default'] = $default;
 
         
         $selected_organizations_url = $object->selected_organizations_url;
+
+        if ($selected_organizations_url === null) {
+            goto after_selected_organizations_url;
+        }
         after_selected_organizations_url:        $result['selected_organizations_url'] = $selected_organizations_url;
 
         
         $runners_url = $object->runners_url;
-
-        if ($runners_url === null) {
-            goto after_runners_url;
-        }
         after_runners_url:        $result['runners_url'] = $runners_url;
 
         
         $allows_public_repositories = $object->allows_public_repositories;
-
-        if ($allows_public_repositories === null) {
-            goto after_allows_public_repositories;
-        }
         after_allows_public_repositories:        $result['allows_public_repositories'] = $allows_public_repositories;
 
 

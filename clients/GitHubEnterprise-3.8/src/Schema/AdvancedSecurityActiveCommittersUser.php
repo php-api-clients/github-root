@@ -14,7 +14,7 @@ final readonly class AdvancedSecurityActiveCommittersUser
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
     public const SCHEMA_EXAMPLE_DATA = '{"user_login":"generated_user_login","last_pushed_date":"2021-11-03"}';
-    public function __construct(public ?string $user_login, public ?string $last_pushed_date)
+    public function __construct(public string $user_login, public string $last_pushed_date)
     {
     }
 }

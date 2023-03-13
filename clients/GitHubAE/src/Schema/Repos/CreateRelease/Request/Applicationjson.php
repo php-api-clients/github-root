@@ -22,7 +22,7 @@ final readonly class Applicationjson
      * draft: `true` to create a draft (unpublished) release, `false` to create a published one.
      * prerelease: `true` to identify the release as a prerelease. `false` to identify the release as a full release.
      */
-    public function __construct(public ?string $tag_name, public string $target_commitish, public string $name, public string $body, public bool $draft, public bool $prerelease)
+    public function __construct(public string $tag_name, public ?string $target_commitish, public ?string $name, public ?string $body, public ?bool $draft, public ?bool $prerelease)
     {
     }
 }

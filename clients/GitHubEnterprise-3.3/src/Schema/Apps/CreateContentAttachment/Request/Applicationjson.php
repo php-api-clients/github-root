@@ -18,7 +18,7 @@ final readonly class Applicationjson
      * title: The title of the attachment
      * body: The body of the attachment
      */
-    public function __construct(public ?string $title, public ?string $body)
+    public function __construct(public string $title, public string $body)
     {
     }
 }
