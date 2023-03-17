@@ -52,7 +52,7 @@ final class ListInstallationsForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, array('status' => 403, 'error' => $body));
                 }
                 break;
             /**Requires authentication**/
@@ -60,7 +60,7 @@ final class ListInstallationsForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, array('status' => 401, 'error' => $body));
                 }
                 break;
             /**Preview header missing**/
@@ -68,7 +68,7 @@ final class ListInstallationsForAuthenticatedUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Apps\GetInstallation\Response\Applicationjson\H415::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Apps\GetInstallation\Response\Applicationjson\H415::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Apps\GetInstallation\Response\Applicationjson\H415::class, array('status' => 415, 'error' => $body));
                 }
                 break;
         }

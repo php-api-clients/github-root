@@ -10,7 +10,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
 final class H404 extends \Error
 {
-    public function __construct(public Schema\Operation\Gists\CheckIsStarred\Response\Applicationjson\H404 $error)
+    public function __construct(public int $status, public Schema\Operation\Gists\CheckIsStarred\Response\Applicationjson\H404 $error)
     {
     }
 }

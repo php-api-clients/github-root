@@ -66,7 +66,7 @@ final class CreateForCommitComment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationError::class, array('status' => 422, 'error' => $body));
                 }
                 break;
             /**Preview header missing**/
@@ -74,7 +74,7 @@ final class CreateForCommitComment
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415::class, array('status' => 415, 'error' => $body));
                 }
                 break;
         }

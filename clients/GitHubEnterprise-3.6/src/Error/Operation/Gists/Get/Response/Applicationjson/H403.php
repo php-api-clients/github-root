@@ -10,7 +10,7 @@ use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\WebHook;
 final class H403 extends \Error
 {
-    public function __construct(public Schema\Operation\Gists\Get\Response\Applicationjson\H403 $error)
+    public function __construct(public int $status, public Schema\Operation\Gists\Get\Response\Applicationjson\H403 $error)
     {
     }
 }

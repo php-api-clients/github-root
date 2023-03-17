@@ -10,7 +10,7 @@ use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\WebHook;
 final class ScimError extends \Error
 {
-    public function __construct(public Schema\ScimError $error)
+    public function __construct(public int $status, public Schema\ScimError $error)
     {
     }
 }

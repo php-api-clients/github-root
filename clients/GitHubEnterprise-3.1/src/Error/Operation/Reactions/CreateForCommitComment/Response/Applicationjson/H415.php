@@ -10,7 +10,7 @@ use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\WebHook;
 final class H415 extends \Error
 {
-    public function __construct(public Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415 $error)
+    public function __construct(public int $status, public Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415 $error)
     {
     }
 }

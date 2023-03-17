@@ -10,7 +10,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
 final class ValidationErrorSimple extends \Error
 {
-    public function __construct(public Schema\ValidationErrorSimple $error)
+    public function __construct(public int $status, public Schema\ValidationErrorSimple $error)
     {
     }
 }

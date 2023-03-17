@@ -10,7 +10,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
 final class H403 extends \Error
 {
-    public function __construct(public Schema\Operation\Projects\DeleteCard\Response\Applicationjson\H403 $error)
+    public function __construct(public int $status, public Schema\Operation\Projects\DeleteCard\Response\Applicationjson\H403 $error)
     {
     }
 }

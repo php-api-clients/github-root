@@ -53,7 +53,7 @@ final class ReplaceAllTopics
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, array('status' => 404, 'error' => $body));
                 }
                 break;
             /**Validation failed**/
@@ -61,7 +61,7 @@ final class ReplaceAllTopics
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationErrorSimple::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationErrorSimple::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ValidationErrorSimple::class, array('status' => 422, 'error' => $body));
                 }
                 break;
             /**Preview header missing**/
@@ -69,7 +69,7 @@ final class ReplaceAllTopics
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Apps\GetInstallation\Response\Applicationjson\H415::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Apps\GetInstallation\Response\Applicationjson\H415::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Apps\GetInstallation\Response\Applicationjson\H415::class, array('status' => 415, 'error' => $body));
                 }
                 break;
         }

@@ -10,7 +10,7 @@ use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\WebHook;
 final class H422 extends \Error
 {
-    public function __construct(public Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422 $error)
+    public function __construct(public int $status, public Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422 $error)
     {
     }
 }

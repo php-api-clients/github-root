@@ -10,7 +10,7 @@ use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\WebHook;
 final class H503 extends \Error
 {
-    public function __construct(public Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503 $error)
+    public function __construct(public int $status, public Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503 $error)
     {
     }
 }

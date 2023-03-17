@@ -10,7 +10,7 @@ use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\WebHook;
 final class BasicError extends \Error
 {
-    public function __construct(public Schema\BasicError $error)
+    public function __construct(public int $status, public Schema\BasicError $error)
     {
     }
 }

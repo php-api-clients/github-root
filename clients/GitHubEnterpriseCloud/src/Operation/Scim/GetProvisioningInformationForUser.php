@@ -52,10 +52,10 @@ final class GetProvisioningInformationForUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, array('status' => 404, 'error' => $body));
                     case 'application/scim+json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, array('status' => 404, 'error' => $body));
                 }
                 break;
             /**Forbidden**/
@@ -63,10 +63,10 @@ final class GetProvisioningInformationForUser
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, array('status' => 403, 'error' => $body));
                     case 'application/scim+json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, array('status' => 403, 'error' => $body));
                 }
                 break;
         }

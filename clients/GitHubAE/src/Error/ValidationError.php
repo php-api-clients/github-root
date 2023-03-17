@@ -10,7 +10,7 @@ use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\WebHook;
 final class ValidationError extends \Error
 {
-    public function __construct(public Schema\ValidationError $error)
+    public function __construct(public int $status, public Schema\ValidationError $error)
     {
     }
 }

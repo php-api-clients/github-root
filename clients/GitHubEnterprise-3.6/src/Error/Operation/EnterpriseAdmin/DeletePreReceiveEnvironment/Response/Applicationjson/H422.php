@@ -10,7 +10,7 @@ use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\WebHook;
 final class H422 extends \Error
 {
-    public function __construct(public Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422 $error)
+    public function __construct(public int $status, public Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422 $error)
     {
     }
 }

@@ -10,7 +10,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
 final class H422 extends \Error
 {
-    public function __construct(public Schema\Operation\Orgs\Update\Response\Applicationjson\H422 $error)
+    public function __construct(public int $status, public Schema\Operation\Orgs\Update\Response\Applicationjson\H422 $error)
     {
     }
 }

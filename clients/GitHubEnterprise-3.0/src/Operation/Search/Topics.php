@@ -55,7 +55,7 @@ final class Topics
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Apps\GetInstallation\Response\Applicationjson\H415::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Apps\GetInstallation\Response\Applicationjson\H415::class, $body);
+                        throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Apps\GetInstallation\Response\Applicationjson\H415::class, array('status' => 415, 'error' => $body));
                 }
                 break;
         }
