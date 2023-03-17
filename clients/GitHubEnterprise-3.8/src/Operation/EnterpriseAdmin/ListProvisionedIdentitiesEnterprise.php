@@ -58,10 +58,10 @@ final class ListProvisionedIdentitiesEnterprise
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, array('status' => 400, 'error' => $body));
+                        throw new ErrorSchemas\ScimError(400, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                     case 'application/scim+json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, array('status' => 400, 'error' => $body));
+                        throw new ErrorSchemas\ScimError(400, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                 }
                 break;
             /**Too many requests**/
@@ -69,10 +69,10 @@ final class ListProvisionedIdentitiesEnterprise
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, array('status' => 429, 'error' => $body));
+                        throw new ErrorSchemas\ScimError(429, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                     case 'application/scim+json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, array('status' => 429, 'error' => $body));
+                        throw new ErrorSchemas\ScimError(429, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                 }
                 break;
             /**Internal server error**/
@@ -80,10 +80,10 @@ final class ListProvisionedIdentitiesEnterprise
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, array('status' => 500, 'error' => $body));
+                        throw new ErrorSchemas\ScimError(500, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                     case 'application/scim+json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\ScimError::class, array('status' => 500, 'error' => $body));
+                        throw new ErrorSchemas\ScimError(500, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                 }
                 break;
         }

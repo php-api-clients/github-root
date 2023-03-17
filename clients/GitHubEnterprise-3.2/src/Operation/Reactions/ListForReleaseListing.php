@@ -68,7 +68,7 @@ final class ListForReleaseListing
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\BasicError::class, array('status' => 404, 'error' => $body));
+                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }
                 break;
             /**Preview header missing**/
@@ -76,7 +76,7 @@ final class ListForReleaseListing
                 switch ($contentType) {
                     case 'application/json':
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        throw $this->hydrator->hydrateObject(ErrorSchemas\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415::class, array('status' => 415, 'error' => $body));
+                        throw new ErrorSchemas\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415(415, $this->hydrator->hydrateObject(Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415::class, $body));
                 }
                 break;
         }
