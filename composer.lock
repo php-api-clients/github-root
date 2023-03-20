@@ -881,17 +881,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/openapi-client-generator.git",
-                "reference": "29b455e1fc37bdf6672753663bf83a3627214519"
+                "reference": "42f57c637b179d31b490c8295491418bc33803d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/29b455e1fc37bdf6672753663bf83a3627214519",
-                "reference": "29b455e1fc37bdf6672753663bf83a3627214519",
+                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/42f57c637b179d31b490c8295491418bc33803d6",
+                "reference": "42f57c637b179d31b490c8295491418bc33803d6",
                 "shasum": ""
             },
             "require": {
                 "api-clients/contracts": "dev-main",
                 "cebe/php-openapi": "dev-openapi-31 as 1.6.0",
+                "ckr/arraymerger": "^3.0",
                 "eventsauce/object-hydrator": "^1.2",
                 "jawira/case-converter": "^3.5",
                 "league/openapi-psr7-validator": "^0.16",
@@ -901,7 +902,6 @@
                 "react/async": "^4.0",
                 "react/http": "^1.8",
                 "reactivex/rxphp": "^2.0",
-                "rikudou/array-merge-recursive": "^1.0",
                 "ringcentral/psr7": "^1.3",
                 "symfony/yaml": "^5.4",
                 "twig/twig": "^3.5",
@@ -948,20 +948,20 @@
                 "issues": "https://github.com/php-api-clients/openapi-client-generator/issues",
                 "source": "https://github.com/php-api-clients/openapi-client-generator/tree/master"
             },
-            "time": "2023-03-17T11:42:54+00:00"
+            "time": "2023-03-20T09:06:10+00:00"
         },
         {
             "name": "azjezz/psl",
-            "version": "2.4.1",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/azjezz/psl.git",
-                "reference": "eacc90cfdfd7eafffd630e81ab69b113309e594b"
+                "reference": "0b1eac31dfb86209043397d6f86271faa3db87ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/azjezz/psl/zipball/eacc90cfdfd7eafffd630e81ab69b113309e594b",
-                "reference": "eacc90cfdfd7eafffd630e81ab69b113309e594b",
+                "url": "https://api.github.com/repos/azjezz/psl/zipball/0b1eac31dfb86209043397d6f86271faa3db87ee",
+                "reference": "0b1eac31dfb86209043397d6f86271faa3db87ee",
                 "shasum": ""
             },
             "require": {
@@ -1014,7 +1014,7 @@
             "description": "PHP Standard Library",
             "support": {
                 "issues": "https://github.com/azjezz/psl/issues",
-                "source": "https://github.com/azjezz/psl/tree/2.4.1"
+                "source": "https://github.com/azjezz/psl/tree/2.5.0"
             },
             "funding": [
                 {
@@ -1022,7 +1022,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-01-26T12:53:04+00:00"
+            "time": "2023-03-17T11:52:46+00:00"
         },
         {
             "name": "beberlei/assert",
@@ -1090,6 +1090,49 @@
                 "source": "https://github.com/beberlei/assert/tree/v3.3.2"
             },
             "time": "2021-12-16T21:41:27+00:00"
+        },
+        {
+            "name": "ckr/arraymerger",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ckressibucher/array_merger.git",
+                "reference": "e9ac57360ca8c3002a674fdca9fd0b527dd5b651"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ckressibucher/array_merger/zipball/e9ac57360ca8c3002a674fdca9fd0b527dd5b651",
+                "reference": "e9ac57360ca8c3002a674fdca9fd0b527dd5b651",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ckr\\Util\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Claudio Kressibucher",
+                    "email": "ckressibucher@graphicworks.ch"
+                }
+            ],
+            "description": "Provides functionality to merge arrays recursively",
+            "support": {
+                "issues": "https://github.com/ckressibucher/array_merger/issues",
+                "source": "https://github.com/ckressibucher/array_merger/tree/3.0.0"
+            },
+            "time": "2022-04-23T20:26:40+00:00"
         },
         {
             "name": "clue/block-react",
@@ -2163,6 +2206,49 @@
                 "source": "https://github.com/doctrine/coding-standard/tree/9.0.2"
             },
             "time": "2021-04-12T15:11:14+00:00"
+        },
+        {
+            "name": "doctrine/deprecations",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/deprecations.git",
+                "reference": "0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de",
+                "reference": "0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^9",
+                "phpunit/phpunit": "^7.5|^8.5|^9.5",
+                "psr/log": "^1|^2|^3"
+            },
+            "suggest": {
+                "psr/log": "Allows logging deprecations via PSR-3 logger implementation"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Deprecations\\": "lib/Doctrine/Deprecations"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.",
+            "homepage": "https://www.doctrine-project.org/",
+            "support": {
+                "issues": "https://github.com/doctrine/deprecations/issues",
+                "source": "https://github.com/doctrine/deprecations/tree/v1.0.0"
+            },
+            "time": "2022-05-02T15:47:09+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -5530,24 +5616,27 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.6.2",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "48f445a408c131e38cab1c235aa6d2bb7a0bb20d"
+                "reference": "1534aea9bde19a5c85c5d1e1f834ab63f4c5dcf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/48f445a408c131e38cab1c235aa6d2bb7a0bb20d",
-                "reference": "48f445a408c131e38cab1c235aa6d2bb7a0bb20d",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/1534aea9bde19a5c85c5d1e1f834ab63f4c5dcf5",
+                "reference": "1534aea9bde19a5c85c5d1e1f834ab63f4c5dcf5",
                 "shasum": ""
             },
             "require": {
+                "doctrine/deprecations": "^1.0",
                 "php": "^7.4 || ^8.0",
-                "phpdocumentor/reflection-common": "^2.0"
+                "phpdocumentor/reflection-common": "^2.0",
+                "phpstan/phpdoc-parser": "^1.13"
             },
             "require-dev": {
                 "ext-tokenizer": "*",
+                "phpbench/phpbench": "^1.2",
                 "phpstan/extension-installer": "^1.1",
                 "phpstan/phpstan": "^1.8",
                 "phpstan/phpstan-phpunit": "^1.1",
@@ -5579,9 +5668,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.6.2"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.7.0"
             },
-            "time": "2022-10-14T12:47:21+00:00"
+            "time": "2023-03-12T10:13:29+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -7800,52 +7889,6 @@
                 "source": "https://github.com/revoltphp/event-loop/tree/v1.0.0"
             },
             "time": "2022-11-02T21:46:22+00:00"
-        },
-        {
-            "name": "rikudou/array-merge-recursive",
-            "version": "v1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/RikudouSage/ArrayMergeRecursive.git",
-                "reference": "90379c4906bd0fd54a2816486a7511c5d50dd86d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/RikudouSage/ArrayMergeRecursive/zipball/90379c4906bd0fd54a2816486a7511c5d50dd86d",
-                "reference": "90379c4906bd0fd54a2816486a7511c5d50dd86d",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.3|^8.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.18",
-                "php-coveralls/php-coveralls": "^2.4",
-                "phpstan/phpstan": "^0.12.84",
-                "phpunit/phpunit": "^9.5"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/array_merge_recursive.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "WTFPL"
-            ],
-            "authors": [
-                {
-                    "name": "Dominik Chrastecky",
-                    "email": "dominik@chrastecky.cz"
-                }
-            ],
-            "description": "Replacement of built-in array_merge_recursive function that doesn't add values to array but replaces them",
-            "support": {
-                "issues": "https://github.com/RikudouSage/ArrayMergeRecursive/issues",
-                "source": "https://github.com/RikudouSage/ArrayMergeRecursive/tree/v1.0.3"
-            },
-            "time": "2021-04-22T14:29:38+00:00"
         },
         {
             "name": "ringcentral/psr7",
@@ -10747,16 +10790,16 @@
         },
         {
             "name": "symfony/serializer",
-            "version": "v6.2.7",
+            "version": "v6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
-                "reference": "df9599873fdc2540e6f4291f49be4fcc167e9cbf"
+                "reference": "cf8df288db70003681b729b87a022d436b81035f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/df9599873fdc2540e6f4291f49be4fcc167e9cbf",
-                "reference": "df9599873fdc2540e6f4291f49be4fcc167e9cbf",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/cf8df288db70003681b729b87a022d436b81035f",
+                "reference": "cf8df288db70003681b729b87a022d436b81035f",
                 "shasum": ""
             },
             "require": {
@@ -10766,7 +10809,7 @@
             "conflict": {
                 "doctrine/annotations": "<1.12",
                 "phpdocumentor/reflection-docblock": "<3.2.2",
-                "phpdocumentor/type-resolver": "<1.4.0|>=1.7.0",
+                "phpdocumentor/type-resolver": "<1.4.0",
                 "symfony/dependency-injection": "<5.4",
                 "symfony/property-access": "<5.4",
                 "symfony/property-info": "<5.4",
@@ -10774,7 +10817,7 @@
                 "symfony/yaml": "<5.4"
             },
             "require-dev": {
-                "doctrine/annotations": "^1.12|^2",
+                "doctrine/annotations": "^1.12",
                 "phpdocumentor/reflection-docblock": "^3.2|^4.0|^5.0",
                 "symfony/cache": "^5.4|^6.0",
                 "symfony/config": "^5.4|^6.0",
@@ -10828,7 +10871,7 @@
             "description": "Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/serializer/tree/v6.2.7"
+                "source": "https://github.com/symfony/serializer/tree/v6.2.0"
             },
             "funding": [
                 {
@@ -10844,7 +10887,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-24T10:42:00+00:00"
+            "time": "2022-11-02T09:08:04+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -11950,16 +11993,16 @@
         },
         {
             "name": "wyrihaximus/phpstan-rules-wrapper",
-            "version": "2.11.1",
+            "version": "2.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-phpstan-rules-wrapper.git",
-                "reference": "d4e523ede1ecc6f7040d88c7b46efc10f753d6fb"
+                "reference": "4dea0dd366b232a91e53c532fd8eaa1fac9c9b7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-phpstan-rules-wrapper/zipball/d4e523ede1ecc6f7040d88c7b46efc10f753d6fb",
-                "reference": "d4e523ede1ecc6f7040d88c7b46efc10f753d6fb",
+                "url": "https://api.github.com/repos/WyriHaximus/php-phpstan-rules-wrapper/zipball/4dea0dd366b232a91e53c532fd8eaa1fac9c9b7a",
+                "reference": "4dea0dd366b232a91e53c532fd8eaa1fac9c9b7a",
                 "shasum": ""
             },
             "require": {
@@ -11989,7 +12032,7 @@
             "description": "🌯 PHPStan rules wrapper",
             "support": {
                 "issues": "https://github.com/WyriHaximus/php-phpstan-rules-wrapper/issues",
-                "source": "https://github.com/WyriHaximus/php-phpstan-rules-wrapper/tree/2.11.1"
+                "source": "https://github.com/WyriHaximus/php-phpstan-rules-wrapper/tree/2.12.0"
             },
             "funding": [
                 {
@@ -11997,7 +12040,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-16T10:57:18+00:00"
+            "time": "2023-03-18T23:04:25+00:00"
         },
         {
             "name": "wyrihaximus/react-awaitable-observable",

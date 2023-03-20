@@ -21,18 +21,24 @@ final class ListPackagesForAuthenticatedUser
     The `internal` visibility is only supported for GitHub Packages registries that allow for granular permissions. For other ecosystems `internal` is synonymous with `private`.
     For the list of GitHub Packages registries that support granular permissions, see "[About permissions for GitHub Packages](https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."**/
     private string $visibility;
+    /**Page number of the results to fetch.**/
+    private int $page;
+    /**The number of results per page (max 100).**/
+    private int $per_page;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\User\Packages $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\User\Packages $hydrator, string $package_type, string $visibility)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\User\Packages $hydrator, string $package_type, string $visibility, int $page = 1, int $per_page = 30)
     {
         $this->package_type = $package_type;
         $this->visibility = $visibility;
+        $this->page = $page;
+        $this->per_page = $per_page;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{package_type}', '{visibility}'), array($this->package_type, $this->visibility), self::PATH . '?package_type={package_type}&visibility={visibility}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{package_type}', '{visibility}', '{page}', '{per_page}'), array($this->package_type, $this->visibility, $this->page, $this->per_page), self::PATH . '?package_type={package_type}&visibility={visibility}&page={page}&per_page={per_page}'));
     }
     /**
      * @return \Rx\Observable<Schema\Package>
