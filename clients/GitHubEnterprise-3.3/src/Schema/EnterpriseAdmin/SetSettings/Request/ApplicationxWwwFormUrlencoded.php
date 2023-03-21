@@ -13,7 +13,7 @@ final readonly class ApplicationxWwwFormUrlencoded
     public const SCHEMA_JSON = '{"required":["settings"],"type":"object","properties":{"settings":{"type":"string","description":"A JSON string with the new settings. Note that you only need to pass the specific settings you want to modify. For a list of the available settings, see the [Get settings endpoint](https:\\/\\/docs.github.com\\/enterprise-server@3.3\\/rest\\/reference\\/enterprise-admin#get-settings)."}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"settings":"generated_settings"}';
+    public const SCHEMA_EXAMPLE_DATA = '{"settings":"generated_settings_null"}';
     /**
      * settings: A JSON string with the new settings. Note that you only need to pass the specific settings you want to modify. For a list of the available settings, see the [Get settings endpoint](https://docs.github.com/enterprise-server@3.3/rest/reference/enterprise-admin#get-settings).
      */

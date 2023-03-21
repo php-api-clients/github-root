@@ -13,7 +13,7 @@ final readonly class Applicationjson
     public const SCHEMA_JSON = '{"required":["message"],"type":"object","properties":{"message":{"type":"string","description":"The message for the pull request review dismissal"},"event":{"type":"string","examples":["\\"APPROVE\\""]}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message","event":"\\"APPROVE\\""}';
+    public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message_null","event":"\\"APPROVE\\""}';
     /**
      * message: The message for the pull request review dismissal
      */

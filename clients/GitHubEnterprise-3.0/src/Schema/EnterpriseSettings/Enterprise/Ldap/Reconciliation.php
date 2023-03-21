@@ -13,7 +13,7 @@ final readonly class Reconciliation
     public const SCHEMA_JSON = '{"type":"object","properties":{"user":{"type":["string","null"]},"org":{"type":["string","null"]}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"user":"generated_user","org":"generated_org"}';
+    public const SCHEMA_EXAMPLE_DATA = '{"user":"generated_user_null","org":"generated_org_null"}';
     public function __construct(public ?string $user, public ?string $org)
     {
     }

@@ -13,7 +13,7 @@ final readonly class SshKey
     public const SCHEMA_JSON = '{"type":"object","properties":{"key":{"type":"string"},"pretty-print":{"type":"string"}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"key":"generated_key","pretty_MINUS_print":"generated_pretty_MINUS_print"}';
+    public const SCHEMA_EXAMPLE_DATA = '{"key":"generated_key_null","pretty_MINUS_print":"generated_pretty_MINUS_print_null"}';
     public function __construct(public ?string $key, public ?string $pretty_MINUS_print)
     {
     }

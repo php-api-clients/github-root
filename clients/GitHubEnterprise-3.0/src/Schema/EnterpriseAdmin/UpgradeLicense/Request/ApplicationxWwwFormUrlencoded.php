@@ -13,7 +13,7 @@ final readonly class ApplicationxWwwFormUrlencoded
     public const SCHEMA_JSON = '{"type":"object","properties":{"license":{"type":"string","description":"The content of your new _.ghl_ license file."}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"license":"generated_license"}';
+    public const SCHEMA_EXAMPLE_DATA = '{"license":"generated_license_null"}';
     /**
      * license: The content of your new _.ghl_ license file.
      */
