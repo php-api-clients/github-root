@@ -28,6 +28,7 @@ class ProjectsV2 implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ProjectsV2' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ProjectsV2($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectCreated' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2ProjectCreated($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectDeleted' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2ProjectDeleted($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectEdited' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2ProjectEdited($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectEdited\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2ProjectEdited⚡️Changes($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookMemberEdited\Changes\Permission' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookMemberEdited⚡️Changes⚡️Permission($payload),
@@ -821,6 +822,98 @@ class ProjectsV2 implements ObjectMapper
     }
 
         
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2ProjectDeleted(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectDeleted
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['action'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'action';
+                goto after_action;
+            }
+
+            $properties['action'] = $value;
+
+            after_action:
+
+            $value = $payload['organization'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'organization';
+                goto after_organization;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'organization';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimple($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['organization'] = $value;
+
+            after_organization:
+
+            $value = $payload['projects_v2'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'projects_v2';
+                goto after_projects_v2;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'projects_v2';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ProjectsV2($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['projects_v2'] = $value;
+
+            after_projects_v2:
+
+            $value = $payload['sender'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'sender';
+                goto after_sender;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'sender';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['sender'] = $value;
+
+            after_sender:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectDeleted', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectDeleted::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectDeleted(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectDeleted', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
     private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2ProjectEdited(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectEdited
     {
         $properties = []; 
@@ -1290,6 +1383,7 @@ class ProjectsV2 implements ObjectMapper
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ProjectsV2' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ProjectsV2($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectCreated' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2ProjectCreated($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectDeleted' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2ProjectDeleted($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectEdited' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2ProjectEdited($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectEdited\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2ProjectEdited⚡️Changes($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookMemberEdited\Changes\Permission' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookMemberEdited⚡️Changes⚡️Permission($object),
@@ -1657,6 +1751,34 @@ class ProjectsV2 implements ObjectMapper
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2ProjectCreated(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectCreated);
+        $result = [];
+
+        $action = $object->action;
+        after_action:        $result['action'] = $action;
+
+        
+        $organization = $object->organization;
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimple($organization);
+        after_organization:        $result['organization'] = $organization;
+
+        
+        $projects_v2 = $object->projects_v2;
+        $projects_v2 = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ProjectsV2($projects_v2);
+        after_projects_v2:        $result['projects_v2'] = $projects_v2;
+
+        
+        $sender = $object->sender;
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($sender);
+        after_sender:        $result['sender'] = $sender;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2ProjectDeleted(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2ProjectDeleted);
         $result = [];
 
         $action = $object->action;
