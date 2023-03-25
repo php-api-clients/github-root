@@ -20,22 +20,22 @@ final class CreateContentAttachment
     /**The name of the repository. Determined from the `repository` `full_name` of the `content_reference` event.**/
     private string $repo;
     /**The `id` of the `content_reference` event.**/
-    private int $content_reference_id;
+    private int $contentReferenceId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\ContentReferences\CbContentReferenceIdRcb\Attachments $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\ContentReferences\CbContentReferenceIdRcb\Attachments $hydrator, string $owner, string $repo, int $content_reference_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\ContentReferences\CbContentReferenceIdRcb\Attachments $hydrator, string $owner, string $repo, int $contentReferenceId)
     {
         $this->requestSchemaValidator = $requestSchemaValidator;
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->content_reference_id = $content_reference_id;
+        $this->contentReferenceId = $contentReferenceId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\Apps\CreateContentAttachment\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{content_reference_id}'), array($this->owner, $this->repo, $this->content_reference_id), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{content_reference_id}'), array($this->owner, $this->repo, $this->contentReferenceId), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     /**
      * @return Schema\ContentReferenceAttachment

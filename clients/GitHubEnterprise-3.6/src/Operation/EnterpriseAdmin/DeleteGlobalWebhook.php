@@ -15,14 +15,14 @@ final class DeleteGlobalWebhook
     private const METHOD = 'DELETE';
     private const PATH = '/admin/hooks/{hook_id}';
     /**The unique identifier of the hook.**/
-    private int $hook_id;
-    public function __construct(int $hook_id)
+    private int $hookId;
+    public function __construct(int $hookId)
     {
-        $this->hook_id = $hook_id;
+        $this->hookId = $hookId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{hook_id}'), array($this->hook_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{hook_id}'), array($this->hookId), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

@@ -17,7 +17,7 @@ final class PostSecurityProductEnablementForEnterprise
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
     private string $enterprise;
     /**The security feature to enable or disable.**/
-    private string $security_product;
+    private string $securityProduct;
     /**The action to take.
     
     `enable_all` means to enable the specified security feature for all repositories in the enterprise.
@@ -25,17 +25,17 @@ final class PostSecurityProductEnablementForEnterprise
     private string $enablement;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\CbSecurityProductRcb\CbEnablementRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\CbSecurityProductRcb\CbEnablementRcb $hydrator, string $enterprise, string $security_product, string $enablement)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\CbSecurityProductRcb\CbEnablementRcb $hydrator, string $enterprise, string $securityProduct, string $enablement)
     {
         $this->enterprise = $enterprise;
-        $this->security_product = $security_product;
+        $this->securityProduct = $securityProduct;
         $this->enablement = $enablement;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{security_product}', '{enablement}'), array($this->enterprise, $this->security_product, $this->enablement), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{security_product}', '{enablement}'), array($this->enterprise, $this->securityProduct, $this->enablement), self::PATH));
     }
     function createResponse(\Psr\Http\Message\ResponseInterface $response) : void
     {

@@ -38,34 +38,34 @@ class Milestones implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_milestones';
-                goto after_total_milestones;
+                goto after_totalMilestones;
             }
 
-            $properties['total_milestones'] = $value;
+            $properties['totalMilestones'] = $value;
 
-            after_total_milestones:
+            after_totalMilestones:
 
             $value = $payload['open_milestones'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'open_milestones';
-                goto after_open_milestones;
+                goto after_openMilestones;
             }
 
-            $properties['open_milestones'] = $value;
+            $properties['openMilestones'] = $value;
 
-            after_open_milestones:
+            after_openMilestones:
 
             $value = $payload['closed_milestones'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'closed_milestones';
-                goto after_closed_milestones;
+                goto after_closedMilestones;
             }
 
-            $properties['closed_milestones'] = $value;
+            $properties['closedMilestones'] = $value;
 
-            after_closed_milestones:
+            after_closedMilestones:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseMilestoneOverview', $exception, stack: $this->hydrationStack);
@@ -192,16 +192,16 @@ class Milestones implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseMilestoneOverview);
         $result = [];
 
-        $total_milestones = $object->total_milestones;
-        after_total_milestones:        $result['total_milestones'] = $total_milestones;
+        $totalMilestones = $object->totalMilestones;
+        after_totalMilestones:        $result['total_milestones'] = $totalMilestones;
 
         
-        $open_milestones = $object->open_milestones;
-        after_open_milestones:        $result['open_milestones'] = $open_milestones;
+        $openMilestones = $object->openMilestones;
+        after_openMilestones:        $result['open_milestones'] = $openMilestones;
 
         
-        $closed_milestones = $object->closed_milestones;
-        after_closed_milestones:        $result['closed_milestones'] = $closed_milestones;
+        $closedMilestones = $object->closedMilestones;
+        after_closedMilestones:        $result['closed_milestones'] = $closedMilestones;
 
 
         return $result;

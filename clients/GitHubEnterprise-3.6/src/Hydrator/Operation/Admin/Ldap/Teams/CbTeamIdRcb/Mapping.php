@@ -37,13 +37,13 @@ class Mapping implements ObjectMapper
             $value = $payload['ldap_dn'] ?? null;
 
             if ($value === null) {
-                $properties['ldap_dn'] = null;
-                goto after_ldap_dn;
+                $properties['ldapDn'] = null;
+                goto after_ldapDn;
             }
 
-            $properties['ldap_dn'] = $value;
+            $properties['ldapDn'] = $value;
 
-            after_ldap_dn:
+            after_ldapDn:
 
             $value = $payload['id'] ?? null;
 
@@ -59,13 +59,13 @@ class Mapping implements ObjectMapper
             $value = $payload['node_id'] ?? null;
 
             if ($value === null) {
-                $properties['node_id'] = null;
-                goto after_node_id;
+                $properties['nodeId'] = null;
+                goto after_nodeId;
             }
 
-            $properties['node_id'] = $value;
+            $properties['nodeId'] = $value;
 
-            after_node_id:
+            after_nodeId:
 
             $value = $payload['url'] ?? null;
 
@@ -81,13 +81,13 @@ class Mapping implements ObjectMapper
             $value = $payload['html_url'] ?? null;
 
             if ($value === null) {
-                $properties['html_url'] = null;
-                goto after_html_url;
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
             }
 
-            $properties['html_url'] = $value;
+            $properties['htmlUrl'] = $value;
 
-            after_html_url:
+            after_htmlUrl:
 
             $value = $payload['name'] ?? null;
 
@@ -147,24 +147,24 @@ class Mapping implements ObjectMapper
             $value = $payload['members_url'] ?? null;
 
             if ($value === null) {
-                $properties['members_url'] = null;
-                goto after_members_url;
+                $properties['membersUrl'] = null;
+                goto after_membersUrl;
             }
 
-            $properties['members_url'] = $value;
+            $properties['membersUrl'] = $value;
 
-            after_members_url:
+            after_membersUrl:
 
             $value = $payload['repositories_url'] ?? null;
 
             if ($value === null) {
-                $properties['repositories_url'] = null;
-                goto after_repositories_url;
+                $properties['repositoriesUrl'] = null;
+                goto after_repositoriesUrl;
             }
 
-            $properties['repositories_url'] = $value;
+            $properties['repositoriesUrl'] = $value;
 
-            after_repositories_url:
+            after_repositoriesUrl:
 
             $value = $payload['parent'] ?? null;
 
@@ -302,12 +302,12 @@ class Mapping implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\LdapMappingTeam);
         $result = [];
 
-        $ldap_dn = $object->ldap_dn;
+        $ldapDn = $object->ldapDn;
 
-        if ($ldap_dn === null) {
-            goto after_ldap_dn;
+        if ($ldapDn === null) {
+            goto after_ldapDn;
         }
-        after_ldap_dn:        $result['ldap_dn'] = $ldap_dn;
+        after_ldapDn:        $result['ldap_dn'] = $ldapDn;
 
         
         $id = $object->id;
@@ -318,12 +318,12 @@ class Mapping implements ObjectMapper
         after_id:        $result['id'] = $id;
 
         
-        $node_id = $object->node_id;
+        $nodeId = $object->nodeId;
 
-        if ($node_id === null) {
-            goto after_node_id;
+        if ($nodeId === null) {
+            goto after_nodeId;
         }
-        after_node_id:        $result['node_id'] = $node_id;
+        after_nodeId:        $result['node_id'] = $nodeId;
 
         
         $url = $object->url;
@@ -334,12 +334,12 @@ class Mapping implements ObjectMapper
         after_url:        $result['url'] = $url;
 
         
-        $html_url = $object->html_url;
+        $htmlUrl = $object->htmlUrl;
 
-        if ($html_url === null) {
-            goto after_html_url;
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
         }
-        after_html_url:        $result['html_url'] = $html_url;
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
 
         
         $name = $object->name;
@@ -382,20 +382,20 @@ class Mapping implements ObjectMapper
         after_permission:        $result['permission'] = $permission;
 
         
-        $members_url = $object->members_url;
+        $membersUrl = $object->membersUrl;
 
-        if ($members_url === null) {
-            goto after_members_url;
+        if ($membersUrl === null) {
+            goto after_membersUrl;
         }
-        after_members_url:        $result['members_url'] = $members_url;
+        after_membersUrl:        $result['members_url'] = $membersUrl;
 
         
-        $repositories_url = $object->repositories_url;
+        $repositoriesUrl = $object->repositoriesUrl;
 
-        if ($repositories_url === null) {
-            goto after_repositories_url;
+        if ($repositoriesUrl === null) {
+            goto after_repositoriesUrl;
         }
-        after_repositories_url:        $result['repositories_url'] = $repositories_url;
+        after_repositoriesUrl:        $result['repositories_url'] = $repositoriesUrl;
 
         
         $parent = $object->parent;

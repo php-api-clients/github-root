@@ -17,16 +17,16 @@ final class DeleteWorkflowRun
     private string $owner;
     private string $repo;
     /**The id of the workflow run.**/
-    private int $run_id;
-    public function __construct(string $owner, string $repo, int $run_id)
+    private int $runId;
+    public function __construct(string $owner, string $repo, int $runId)
     {
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->run_id = $run_id;
+        $this->runId = $runId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{run_id}'), array($this->owner, $this->repo, $this->run_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{run_id}'), array($this->owner, $this->repo, $this->runId), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

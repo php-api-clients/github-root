@@ -103,23 +103,23 @@ class Caches implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'sync_status';
-                goto after_sync_status;
+                goto after_syncStatus;
             }
 
-            $properties['sync_status'] = $value;
+            $properties['syncStatus'] = $value;
 
-            after_sync_status:
+            after_syncStatus:
 
             $value = $payload['last_sync'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'last_sync';
-                goto after_last_sync;
+                goto after_lastSync;
             }
 
-            $properties['last_sync'] = $value;
+            $properties['lastSync'] = $value;
 
-            after_last_sync:
+            after_lastSync:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git', $exception, stack: $this->hydrationStack);
@@ -156,13 +156,13 @@ class Caches implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['url'] ?? null;
 
@@ -335,12 +335,12 @@ class Caches implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200\Git);
         $result = [];
 
-        $sync_status = $object->sync_status;
-        after_sync_status:        $result['sync_status'] = $sync_status;
+        $syncStatus = $object->syncStatus;
+        after_syncStatus:        $result['sync_status'] = $syncStatus;
 
         
-        $last_sync = $object->last_sync;
-        after_last_sync:        $result['last_sync'] = $last_sync;
+        $lastSync = $object->lastSync;
+        after_lastSync:        $result['last_sync'] = $lastSync;
 
 
         return $result;
@@ -360,12 +360,12 @@ class Caches implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $url = $object->url;

@@ -38,12 +38,12 @@ class Pages implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_pages';
-                goto after_total_pages;
+                goto after_totalPages;
             }
 
-            $properties['total_pages'] = $value;
+            $properties['totalPages'] = $value;
 
-            after_total_pages:
+            after_totalPages:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterprisePageOverview', $exception, stack: $this->hydrationStack);
@@ -170,8 +170,8 @@ class Pages implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterprisePageOverview);
         $result = [];
 
-        $total_pages = $object->total_pages;
-        after_total_pages:        $result['total_pages'] = $total_pages;
+        $totalPages = $object->totalPages;
+        after_totalPages:        $result['total_pages'] = $totalPages;
 
 
         return $result;

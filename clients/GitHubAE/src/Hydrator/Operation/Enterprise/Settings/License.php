@@ -48,24 +48,24 @@ class License implements ObjectMapper
             $value = $payload['seats_used'] ?? null;
 
             if ($value === null) {
-                $properties['seats_used'] = null;
-                goto after_seats_used;
+                $properties['seatsUsed'] = null;
+                goto after_seatsUsed;
             }
 
-            $properties['seats_used'] = $value;
+            $properties['seatsUsed'] = $value;
 
-            after_seats_used:
+            after_seatsUsed:
 
             $value = $payload['seats_available'] ?? null;
 
             if ($value === null) {
-                $properties['seats_available'] = null;
-                goto after_seats_available;
+                $properties['seatsAvailable'] = null;
+                goto after_seatsAvailable;
             }
 
-            $properties['seats_available'] = $value;
+            $properties['seatsAvailable'] = $value;
 
-            after_seats_available:
+            after_seatsAvailable:
 
             $value = $payload['kind'] ?? null;
 
@@ -81,24 +81,24 @@ class License implements ObjectMapper
             $value = $payload['days_until_expiration'] ?? null;
 
             if ($value === null) {
-                $properties['days_until_expiration'] = null;
-                goto after_days_until_expiration;
+                $properties['daysUntilExpiration'] = null;
+                goto after_daysUntilExpiration;
             }
 
-            $properties['days_until_expiration'] = $value;
+            $properties['daysUntilExpiration'] = $value;
 
-            after_days_until_expiration:
+            after_daysUntilExpiration:
 
             $value = $payload['expire_at'] ?? null;
 
             if ($value === null) {
-                $properties['expire_at'] = null;
-                goto after_expire_at;
+                $properties['expireAt'] = null;
+                goto after_expireAt;
             }
 
-            $properties['expire_at'] = $value;
+            $properties['expireAt'] = $value;
 
-            after_expire_at:
+            after_expireAt:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\LicenseInfo', $exception, stack: $this->hydrationStack);
@@ -233,20 +233,20 @@ class License implements ObjectMapper
         after_seats:        $result['seats'] = $seats;
 
         
-        $seats_used = $object->seats_used;
+        $seatsUsed = $object->seatsUsed;
 
-        if ($seats_used === null) {
-            goto after_seats_used;
+        if ($seatsUsed === null) {
+            goto after_seatsUsed;
         }
-        after_seats_used:        $result['seats_used'] = $seats_used;
+        after_seatsUsed:        $result['seats_used'] = $seatsUsed;
 
         
-        $seats_available = $object->seats_available;
+        $seatsAvailable = $object->seatsAvailable;
 
-        if ($seats_available === null) {
-            goto after_seats_available;
+        if ($seatsAvailable === null) {
+            goto after_seatsAvailable;
         }
-        after_seats_available:        $result['seats_available'] = $seats_available;
+        after_seatsAvailable:        $result['seats_available'] = $seatsAvailable;
 
         
         $kind = $object->kind;
@@ -257,20 +257,20 @@ class License implements ObjectMapper
         after_kind:        $result['kind'] = $kind;
 
         
-        $days_until_expiration = $object->days_until_expiration;
+        $daysUntilExpiration = $object->daysUntilExpiration;
 
-        if ($days_until_expiration === null) {
-            goto after_days_until_expiration;
+        if ($daysUntilExpiration === null) {
+            goto after_daysUntilExpiration;
         }
-        after_days_until_expiration:        $result['days_until_expiration'] = $days_until_expiration;
+        after_daysUntilExpiration:        $result['days_until_expiration'] = $daysUntilExpiration;
 
         
-        $expire_at = $object->expire_at;
+        $expireAt = $object->expireAt;
 
-        if ($expire_at === null) {
-            goto after_expire_at;
+        if ($expireAt === null) {
+            goto after_expireAt;
         }
-        after_expire_at:        $result['expire_at'] = $expire_at;
+        after_expireAt:        $result['expire_at'] = $expireAt;
 
 
         return $result;

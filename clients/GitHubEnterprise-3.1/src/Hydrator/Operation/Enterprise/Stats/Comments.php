@@ -38,45 +38,45 @@ class Comments implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_commit_comments';
-                goto after_total_commit_comments;
+                goto after_totalCommitComments;
             }
 
-            $properties['total_commit_comments'] = $value;
+            $properties['totalCommitComments'] = $value;
 
-            after_total_commit_comments:
+            after_totalCommitComments:
 
             $value = $payload['total_gist_comments'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'total_gist_comments';
-                goto after_total_gist_comments;
+                goto after_totalGistComments;
             }
 
-            $properties['total_gist_comments'] = $value;
+            $properties['totalGistComments'] = $value;
 
-            after_total_gist_comments:
+            after_totalGistComments:
 
             $value = $payload['total_issue_comments'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'total_issue_comments';
-                goto after_total_issue_comments;
+                goto after_totalIssueComments;
             }
 
-            $properties['total_issue_comments'] = $value;
+            $properties['totalIssueComments'] = $value;
 
-            after_total_issue_comments:
+            after_totalIssueComments:
 
             $value = $payload['total_pull_request_comments'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'total_pull_request_comments';
-                goto after_total_pull_request_comments;
+                goto after_totalPullRequestComments;
             }
 
-            $properties['total_pull_request_comments'] = $value;
+            $properties['totalPullRequestComments'] = $value;
 
-            after_total_pull_request_comments:
+            after_totalPullRequestComments:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseCommentOverview', $exception, stack: $this->hydrationStack);
@@ -203,20 +203,20 @@ class Comments implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseCommentOverview);
         $result = [];
 
-        $total_commit_comments = $object->total_commit_comments;
-        after_total_commit_comments:        $result['total_commit_comments'] = $total_commit_comments;
+        $totalCommitComments = $object->totalCommitComments;
+        after_totalCommitComments:        $result['total_commit_comments'] = $totalCommitComments;
 
         
-        $total_gist_comments = $object->total_gist_comments;
-        after_total_gist_comments:        $result['total_gist_comments'] = $total_gist_comments;
+        $totalGistComments = $object->totalGistComments;
+        after_totalGistComments:        $result['total_gist_comments'] = $totalGistComments;
 
         
-        $total_issue_comments = $object->total_issue_comments;
-        after_total_issue_comments:        $result['total_issue_comments'] = $total_issue_comments;
+        $totalIssueComments = $object->totalIssueComments;
+        after_totalIssueComments:        $result['total_issue_comments'] = $totalIssueComments;
 
         
-        $total_pull_request_comments = $object->total_pull_request_comments;
-        after_total_pull_request_comments:        $result['total_pull_request_comments'] = $total_pull_request_comments;
+        $totalPullRequestComments = $object->totalPullRequestComments;
+        after_totalPullRequestComments:        $result['total_pull_request_comments'] = $totalPullRequestComments;
 
 
         return $result;

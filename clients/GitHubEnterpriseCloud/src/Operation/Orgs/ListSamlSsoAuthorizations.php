@@ -21,21 +21,21 @@ final class ListSamlSsoAuthorizations
     /**Limits the list of credentials authorizations for an organization to a specific login**/
     private string $login;
     /**The number of results per page (max 100).**/
-    private int $per_page;
+    private int $perPage;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\CredentialAuthorizations $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\CredentialAuthorizations $hydrator, string $org, int $page, string $login, int $per_page = 30)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\CredentialAuthorizations $hydrator, string $org, int $page, string $login, int $perPage = 30)
     {
         $this->org = $org;
         $this->page = $page;
         $this->login = $login;
-        $this->per_page = $per_page;
+        $this->perPage = $perPage;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{page}', '{login}', '{per_page}'), array($this->org, $this->page, $this->login, $this->per_page), self::PATH . '?page={page}&login={login}&per_page={per_page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{page}', '{login}', '{per_page}'), array($this->org, $this->page, $this->login, $this->perPage), self::PATH . '?page={page}&login={login}&perPage={per_page}'));
     }
     /**
      * @return \Rx\Observable<Schema\CredentialAuthorization>

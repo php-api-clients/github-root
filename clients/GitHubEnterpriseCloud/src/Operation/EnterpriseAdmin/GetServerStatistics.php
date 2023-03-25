@@ -15,24 +15,24 @@ final class GetServerStatistics
     private const METHOD = 'GET';
     private const PATH = '/enterprise-installation/{enterprise_or_org}/server-statistics';
     /**The slug version of the enterprise name or the login of an organization.**/
-    private string $enterprise_or_org;
+    private string $enterpriseOrOrg;
     /**A cursor, as given in the [Link header](https://docs.github.com/enterprise-cloud@latest//rest/overview/resources-in-the-rest-api#link-header). If specified, the query only searches for events after this cursor.**/
-    private string $date_start;
+    private string $dateStart;
     /**A cursor, as given in the [Link header](https://docs.github.com/enterprise-cloud@latest//rest/overview/resources-in-the-rest-api#link-header). If specified, the query only searches for events before this cursor.**/
-    private string $date_end;
+    private string $dateEnd;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\EnterpriseDashInstallation\CbEnterpriseOrOrgRcb\ServerDashStatistics $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\EnterpriseDashInstallation\CbEnterpriseOrOrgRcb\ServerDashStatistics $hydrator, string $enterprise_or_org, string $date_start, string $date_end)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\EnterpriseDashInstallation\CbEnterpriseOrOrgRcb\ServerDashStatistics $hydrator, string $enterpriseOrOrg, string $dateStart, string $dateEnd)
     {
-        $this->enterprise_or_org = $enterprise_or_org;
-        $this->date_start = $date_start;
-        $this->date_end = $date_end;
+        $this->enterpriseOrOrg = $enterpriseOrOrg;
+        $this->dateStart = $dateStart;
+        $this->dateEnd = $dateEnd;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise_or_org}', '{date_start}', '{date_end}'), array($this->enterprise_or_org, $this->date_start, $this->date_end), self::PATH . '?date_start={date_start}&date_end={date_end}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise_or_org}', '{date_start}', '{date_end}'), array($this->enterpriseOrOrg, $this->dateStart, $this->dateEnd), self::PATH . '?dateStart={date_start}&dateEnd={date_end}'));
     }
     /**
      * @return \Rx\Observable<Schema\ServerStatistics>

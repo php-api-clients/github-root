@@ -16,7 +16,7 @@ final class ListPreReceiveHooksForOrg
     private const PATH = '/orgs/{org}/pre-receive-hooks';
     private string $org;
     /**Results per page (max 100)**/
-    private int $per_page;
+    private int $perPage;
     /**Page number of the results to fetch.**/
     private int $page;
     /**One of `asc` (ascending) or `desc` (descending).**/
@@ -25,10 +25,10 @@ final class ListPreReceiveHooksForOrg
     private string $sort;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\PreReceiveHooks $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\PreReceiveHooks $hydrator, string $org, int $per_page = 30, int $page = 1, string $direction = 'desc', string $sort = 'created')
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\PreReceiveHooks $hydrator, string $org, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created')
     {
         $this->org = $org;
-        $this->per_page = $per_page;
+        $this->perPage = $perPage;
         $this->page = $page;
         $this->direction = $direction;
         $this->sort = $sort;
@@ -37,7 +37,7 @@ final class ListPreReceiveHooksForOrg
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{per_page}', '{page}', '{direction}', '{sort}'), array($this->org, $this->per_page, $this->page, $this->direction, $this->sort), self::PATH . '?per_page={per_page}&page={page}&direction={direction}&sort={sort}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{per_page}', '{page}', '{direction}', '{sort}'), array($this->org, $this->perPage, $this->page, $this->direction, $this->sort), self::PATH . '?perPage={per_page}&page={page}&direction={direction}&sort={sort}'));
     }
     /**
      * @return \Rx\Observable<Schema\OrgPreReceiveHook>

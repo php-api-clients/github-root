@@ -14,18 +14,18 @@ final class RemoveRepoLegacy
     public const OPERATION_MATCH = 'DELETE /teams/{team_id}/repos/{owner}/{repo}';
     private const METHOD = 'DELETE';
     private const PATH = '/teams/{team_id}/repos/{owner}/{repo}';
-    private int $team_id;
+    private int $teamId;
     private string $owner;
     private string $repo;
-    public function __construct(int $team_id, string $owner, string $repo)
+    public function __construct(int $teamId, string $owner, string $repo)
     {
-        $this->team_id = $team_id;
+        $this->teamId = $teamId;
         $this->owner = $owner;
         $this->repo = $repo;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{team_id}', '{owner}', '{repo}'), array($this->team_id, $this->owner, $this->repo), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{team_id}', '{owner}', '{repo}'), array($this->teamId, $this->owner, $this->repo), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

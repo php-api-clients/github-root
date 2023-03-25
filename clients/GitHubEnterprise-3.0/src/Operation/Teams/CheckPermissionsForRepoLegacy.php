@@ -14,14 +14,14 @@ final class CheckPermissionsForRepoLegacy
     public const OPERATION_MATCH = 'GET /teams/{team_id}/repos/{owner}/{repo}';
     private const METHOD = 'GET';
     private const PATH = '/teams/{team_id}/repos/{owner}/{repo}';
-    private int $team_id;
+    private int $teamId;
     private string $owner;
     private string $repo;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb $hydrator, int $team_id, string $owner, string $repo)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb $hydrator, int $teamId, string $owner, string $repo)
     {
-        $this->team_id = $team_id;
+        $this->teamId = $teamId;
         $this->owner = $owner;
         $this->repo = $repo;
         $this->responseSchemaValidator = $responseSchemaValidator;
@@ -29,7 +29,7 @@ final class CheckPermissionsForRepoLegacy
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{team_id}', '{owner}', '{repo}'), array($this->team_id, $this->owner, $this->repo), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{team_id}', '{owner}', '{repo}'), array($this->teamId, $this->owner, $this->repo), self::PATH));
     }
     /**
      * @return Schema\TeamRepository

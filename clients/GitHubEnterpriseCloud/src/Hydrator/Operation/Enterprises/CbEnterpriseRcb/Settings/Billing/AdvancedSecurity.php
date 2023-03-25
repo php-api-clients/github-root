@@ -40,24 +40,24 @@ class AdvancedSecurity implements ObjectMapper
             $value = $payload['total_advanced_security_committers'] ?? null;
 
             if ($value === null) {
-                $properties['total_advanced_security_committers'] = null;
-                goto after_total_advanced_security_committers;
+                $properties['totalAdvancedSecurityCommitters'] = null;
+                goto after_totalAdvancedSecurityCommitters;
             }
 
-            $properties['total_advanced_security_committers'] = $value;
+            $properties['totalAdvancedSecurityCommitters'] = $value;
 
-            after_total_advanced_security_committers:
+            after_totalAdvancedSecurityCommitters:
 
             $value = $payload['total_count'] ?? null;
 
             if ($value === null) {
-                $properties['total_count'] = null;
-                goto after_total_count;
+                $properties['totalCount'] = null;
+                goto after_totalCount;
             }
 
-            $properties['total_count'] = $value;
+            $properties['totalCount'] = $value;
 
-            after_total_count:
+            after_totalCount:
 
             $value = $payload['repositories'] ?? null;
 
@@ -116,33 +116,33 @@ class AdvancedSecurity implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'advanced_security_committers';
-                goto after_advanced_security_committers;
+                goto after_advancedSecurityCommitters;
             }
 
-            $properties['advanced_security_committers'] = $value;
+            $properties['advancedSecurityCommitters'] = $value;
 
-            after_advanced_security_committers:
+            after_advancedSecurityCommitters:
 
             $value = $payload['advanced_security_committers_breakdown'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'advanced_security_committers_breakdown';
-                goto after_advanced_security_committers_breakdown;
+                goto after_advancedSecurityCommittersBreakdown;
             }
 
-            static $advanced_security_committers_breakdownCaster1;
+            static $advancedSecurityCommittersBreakdownCaster1;
 
-            if ($advanced_security_committers_breakdownCaster1 === null) {
-                $advanced_security_committers_breakdownCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($advancedSecurityCommittersBreakdownCaster1 === null) {
+                $advancedSecurityCommittersBreakdownCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AdvancedSecurityActiveCommittersUser',
 ));
             }
 
-            $value = $advanced_security_committers_breakdownCaster1->cast($value, $this);
+            $value = $advancedSecurityCommittersBreakdownCaster1->cast($value, $this);
 
-            $properties['advanced_security_committers_breakdown'] = $value;
+            $properties['advancedSecurityCommittersBreakdown'] = $value;
 
-            after_advanced_security_committers_breakdown:
+            after_advancedSecurityCommittersBreakdown:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersRepository', $exception, stack: $this->hydrationStack);
@@ -169,23 +169,23 @@ class AdvancedSecurity implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'user_login';
-                goto after_user_login;
+                goto after_userLogin;
             }
 
-            $properties['user_login'] = $value;
+            $properties['userLogin'] = $value;
 
-            after_user_login:
+            after_userLogin:
 
             $value = $payload['last_pushed_date'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'last_pushed_date';
-                goto after_last_pushed_date;
+                goto after_lastPushedDate;
             }
 
-            $properties['last_pushed_date'] = $value;
+            $properties['lastPushedDate'] = $value;
 
-            after_last_pushed_date:
+            after_lastPushedDate:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser', $exception, stack: $this->hydrationStack);
@@ -222,13 +222,13 @@ class AdvancedSecurity implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['url'] ?? null;
 
@@ -380,20 +380,20 @@ class AdvancedSecurity implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters);
         $result = [];
 
-        $total_advanced_security_committers = $object->total_advanced_security_committers;
+        $totalAdvancedSecurityCommitters = $object->totalAdvancedSecurityCommitters;
 
-        if ($total_advanced_security_committers === null) {
-            goto after_total_advanced_security_committers;
+        if ($totalAdvancedSecurityCommitters === null) {
+            goto after_totalAdvancedSecurityCommitters;
         }
-        after_total_advanced_security_committers:        $result['total_advanced_security_committers'] = $total_advanced_security_committers;
+        after_totalAdvancedSecurityCommitters:        $result['total_advanced_security_committers'] = $totalAdvancedSecurityCommitters;
 
         
-        $total_count = $object->total_count;
+        $totalCount = $object->totalCount;
 
-        if ($total_count === null) {
-            goto after_total_count;
+        if ($totalCount === null) {
+            goto after_totalCount;
         }
-        after_total_count:        $result['total_count'] = $total_count;
+        after_totalCount:        $result['total_count'] = $totalCount;
 
         
         $repositories = $object->repositories;
@@ -422,21 +422,21 @@ class AdvancedSecurity implements ObjectMapper
         after_name:        $result['name'] = $name;
 
         
-        $advanced_security_committers = $object->advanced_security_committers;
-        after_advanced_security_committers:        $result['advanced_security_committers'] = $advanced_security_committers;
+        $advancedSecurityCommitters = $object->advancedSecurityCommitters;
+        after_advancedSecurityCommitters:        $result['advanced_security_committers'] = $advancedSecurityCommitters;
 
         
-        $advanced_security_committers_breakdown = $object->advanced_security_committers_breakdown;
-        static $advanced_security_committers_breakdownSerializer0;
+        $advancedSecurityCommittersBreakdown = $object->advancedSecurityCommittersBreakdown;
+        static $advancedSecurityCommittersBreakdownSerializer0;
 
-        if ($advanced_security_committers_breakdownSerializer0 === null) {
-            $advanced_security_committers_breakdownSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+        if ($advancedSecurityCommittersBreakdownSerializer0 === null) {
+            $advancedSecurityCommittersBreakdownSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AdvancedSecurityActiveCommittersUser',
 ));
         }
         
-        $advanced_security_committers_breakdown = $advanced_security_committers_breakdownSerializer0->serialize($advanced_security_committers_breakdown, $this);
-        after_advanced_security_committers_breakdown:        $result['advanced_security_committers_breakdown'] = $advanced_security_committers_breakdown;
+        $advancedSecurityCommittersBreakdown = $advancedSecurityCommittersBreakdownSerializer0->serialize($advancedSecurityCommittersBreakdown, $this);
+        after_advancedSecurityCommittersBreakdown:        $result['advanced_security_committers_breakdown'] = $advancedSecurityCommittersBreakdown;
 
 
         return $result;
@@ -448,12 +448,12 @@ class AdvancedSecurity implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommittersUser);
         $result = [];
 
-        $user_login = $object->user_login;
-        after_user_login:        $result['user_login'] = $user_login;
+        $userLogin = $object->userLogin;
+        after_userLogin:        $result['user_login'] = $userLogin;
 
         
-        $last_pushed_date = $object->last_pushed_date;
-        after_last_pushed_date:        $result['last_pushed_date'] = $last_pushed_date;
+        $lastPushedDate = $object->lastPushedDate;
+        after_lastPushedDate:        $result['last_pushed_date'] = $lastPushedDate;
 
 
         return $result;
@@ -473,12 +473,12 @@ class AdvancedSecurity implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $url = $object->url;

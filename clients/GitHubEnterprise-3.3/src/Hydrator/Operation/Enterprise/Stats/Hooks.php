@@ -38,34 +38,34 @@ class Hooks implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_hooks';
-                goto after_total_hooks;
+                goto after_totalHooks;
             }
 
-            $properties['total_hooks'] = $value;
+            $properties['totalHooks'] = $value;
 
-            after_total_hooks:
+            after_totalHooks:
 
             $value = $payload['active_hooks'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'active_hooks';
-                goto after_active_hooks;
+                goto after_activeHooks;
             }
 
-            $properties['active_hooks'] = $value;
+            $properties['activeHooks'] = $value;
 
-            after_active_hooks:
+            after_activeHooks:
 
             $value = $payload['inactive_hooks'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'inactive_hooks';
-                goto after_inactive_hooks;
+                goto after_inactiveHooks;
             }
 
-            $properties['inactive_hooks'] = $value;
+            $properties['inactiveHooks'] = $value;
 
-            after_inactive_hooks:
+            after_inactiveHooks:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseHookOverview', $exception, stack: $this->hydrationStack);
@@ -192,16 +192,16 @@ class Hooks implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseHookOverview);
         $result = [];
 
-        $total_hooks = $object->total_hooks;
-        after_total_hooks:        $result['total_hooks'] = $total_hooks;
+        $totalHooks = $object->totalHooks;
+        after_totalHooks:        $result['total_hooks'] = $totalHooks;
 
         
-        $active_hooks = $object->active_hooks;
-        after_active_hooks:        $result['active_hooks'] = $active_hooks;
+        $activeHooks = $object->activeHooks;
+        after_activeHooks:        $result['active_hooks'] = $activeHooks;
 
         
-        $inactive_hooks = $object->inactive_hooks;
-        after_inactive_hooks:        $result['inactive_hooks'] = $inactive_hooks;
+        $inactiveHooks = $object->inactiveHooks;
+        after_inactiveHooks:        $result['inactive_hooks'] = $inactiveHooks;
 
 
         return $result;

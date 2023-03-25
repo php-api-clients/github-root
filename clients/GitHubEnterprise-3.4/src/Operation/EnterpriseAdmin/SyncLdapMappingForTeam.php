@@ -15,18 +15,18 @@ final class SyncLdapMappingForTeam
     private const METHOD = 'POST';
     private const PATH = '/admin/ldap/teams/{team_id}/sync';
     /**The unique identifier of the team.**/
-    private int $team_id;
+    private int $teamId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb\Sync $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb\Sync $hydrator, int $team_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb\Sync $hydrator, int $teamId)
     {
-        $this->team_id = $team_id;
+        $this->teamId = $teamId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{team_id}'), array($this->team_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{team_id}'), array($this->teamId), self::PATH));
     }
     /**
      * @return Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201

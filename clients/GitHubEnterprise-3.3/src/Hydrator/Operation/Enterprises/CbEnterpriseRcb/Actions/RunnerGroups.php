@@ -39,33 +39,33 @@ class RunnerGroups implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_count';
-                goto after_total_count;
+                goto after_totalCount;
             }
 
-            $properties['total_count'] = $value;
+            $properties['totalCount'] = $value;
 
-            after_total_count:
+            after_totalCount:
 
             $value = $payload['runner_groups'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'runner_groups';
-                goto after_runner_groups;
+                goto after_runnerGroups;
             }
 
-            static $runner_groupsCaster1;
+            static $runnerGroupsCaster1;
 
-            if ($runner_groupsCaster1 === null) {
-                $runner_groupsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($runnerGroupsCaster1 === null) {
+                $runnerGroupsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RunnerGroupsEnterprise',
 ));
             }
 
-            $value = $runner_groupsCaster1->cast($value, $this);
+            $value = $runnerGroupsCaster1->cast($value, $this);
 
-            $properties['runner_groups'] = $value;
+            $properties['runnerGroups'] = $value;
 
-            after_runner_groups:
+            after_runnerGroups:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
@@ -135,35 +135,35 @@ class RunnerGroups implements ObjectMapper
             $value = $payload['selected_organizations_url'] ?? null;
 
             if ($value === null) {
-                $properties['selected_organizations_url'] = null;
-                goto after_selected_organizations_url;
+                $properties['selectedOrganizationsUrl'] = null;
+                goto after_selectedOrganizationsUrl;
             }
 
-            $properties['selected_organizations_url'] = $value;
+            $properties['selectedOrganizationsUrl'] = $value;
 
-            after_selected_organizations_url:
+            after_selectedOrganizationsUrl:
 
             $value = $payload['runners_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'runners_url';
-                goto after_runners_url;
+                goto after_runnersUrl;
             }
 
-            $properties['runners_url'] = $value;
+            $properties['runnersUrl'] = $value;
 
-            after_runners_url:
+            after_runnersUrl:
 
             $value = $payload['allows_public_repositories'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'allows_public_repositories';
-                goto after_allows_public_repositories;
+                goto after_allowsPublicRepositories;
             }
 
-            $properties['allows_public_repositories'] = $value;
+            $properties['allowsPublicRepositories'] = $value;
 
-            after_allows_public_repositories:
+            after_allowsPublicRepositories:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise', $exception, stack: $this->hydrationStack);
@@ -291,21 +291,21 @@ class RunnerGroups implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\Applicationjson\H200);
         $result = [];
 
-        $total_count = $object->total_count;
-        after_total_count:        $result['total_count'] = $total_count;
+        $totalCount = $object->totalCount;
+        after_totalCount:        $result['total_count'] = $totalCount;
 
         
-        $runner_groups = $object->runner_groups;
-        static $runner_groupsSerializer0;
+        $runnerGroups = $object->runnerGroups;
+        static $runnerGroupsSerializer0;
 
-        if ($runner_groupsSerializer0 === null) {
-            $runner_groupsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+        if ($runnerGroupsSerializer0 === null) {
+            $runnerGroupsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RunnerGroupsEnterprise',
 ));
         }
         
-        $runner_groups = $runner_groupsSerializer0->serialize($runner_groups, $this);
-        after_runner_groups:        $result['runner_groups'] = $runner_groups;
+        $runnerGroups = $runnerGroupsSerializer0->serialize($runnerGroups, $this);
+        after_runnerGroups:        $result['runner_groups'] = $runnerGroups;
 
 
         return $result;
@@ -333,20 +333,20 @@ class RunnerGroups implements ObjectMapper
         after_default:        $result['default'] = $default;
 
         
-        $selected_organizations_url = $object->selected_organizations_url;
+        $selectedOrganizationsUrl = $object->selectedOrganizationsUrl;
 
-        if ($selected_organizations_url === null) {
-            goto after_selected_organizations_url;
+        if ($selectedOrganizationsUrl === null) {
+            goto after_selectedOrganizationsUrl;
         }
-        after_selected_organizations_url:        $result['selected_organizations_url'] = $selected_organizations_url;
+        after_selectedOrganizationsUrl:        $result['selected_organizations_url'] = $selectedOrganizationsUrl;
 
         
-        $runners_url = $object->runners_url;
-        after_runners_url:        $result['runners_url'] = $runners_url;
+        $runnersUrl = $object->runnersUrl;
+        after_runnersUrl:        $result['runners_url'] = $runnersUrl;
 
         
-        $allows_public_repositories = $object->allows_public_repositories;
-        after_allows_public_repositories:        $result['allows_public_repositories'] = $allows_public_repositories;
+        $allowsPublicRepositories = $object->allowsPublicRepositories;
+        after_allowsPublicRepositories:        $result['allows_public_repositories'] = $allowsPublicRepositories;
 
 
         return $result;

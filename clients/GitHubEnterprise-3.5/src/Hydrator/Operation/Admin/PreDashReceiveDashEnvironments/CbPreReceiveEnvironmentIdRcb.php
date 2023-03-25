@@ -62,13 +62,13 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
             $value = $payload['image_url'] ?? null;
 
             if ($value === null) {
-                $properties['image_url'] = null;
-                goto after_image_url;
+                $properties['imageUrl'] = null;
+                goto after_imageUrl;
             }
 
-            $properties['image_url'] = $value;
+            $properties['imageUrl'] = $value;
 
-            after_image_url:
+            after_imageUrl:
 
             $value = $payload['url'] ?? null;
 
@@ -84,46 +84,46 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
             $value = $payload['html_url'] ?? null;
 
             if ($value === null) {
-                $properties['html_url'] = null;
-                goto after_html_url;
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
             }
 
-            $properties['html_url'] = $value;
+            $properties['htmlUrl'] = $value;
 
-            after_html_url:
+            after_htmlUrl:
 
             $value = $payload['default_environment'] ?? null;
 
             if ($value === null) {
-                $properties['default_environment'] = null;
-                goto after_default_environment;
+                $properties['defaultEnvironment'] = null;
+                goto after_defaultEnvironment;
             }
 
-            $properties['default_environment'] = $value;
+            $properties['defaultEnvironment'] = $value;
 
-            after_default_environment:
+            after_defaultEnvironment:
 
             $value = $payload['created_at'] ?? null;
 
             if ($value === null) {
-                $properties['created_at'] = null;
-                goto after_created_at;
+                $properties['createdAt'] = null;
+                goto after_createdAt;
             }
 
-            $properties['created_at'] = $value;
+            $properties['createdAt'] = $value;
 
-            after_created_at:
+            after_createdAt:
 
             $value = $payload['hooks_count'] ?? null;
 
             if ($value === null) {
-                $properties['hooks_count'] = null;
-                goto after_hooks_count;
+                $properties['hooksCount'] = null;
+                goto after_hooksCount;
             }
 
-            $properties['hooks_count'] = $value;
+            $properties['hooksCount'] = $value;
 
-            after_hooks_count:
+            after_hooksCount:
 
             $value = $payload['download'] ?? null;
 
@@ -191,13 +191,13 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
             $value = $payload['downloaded_at'] ?? null;
 
             if ($value === null) {
-                $properties['downloaded_at'] = null;
-                goto after_downloaded_at;
+                $properties['downloadedAt'] = null;
+                goto after_downloadedAt;
             }
 
-            $properties['downloaded_at'] = $value;
+            $properties['downloadedAt'] = $value;
 
-            after_downloaded_at:
+            after_downloadedAt:
 
             $value = $payload['message'] ?? null;
 
@@ -461,12 +461,12 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
         after_name:        $result['name'] = $name;
 
         
-        $image_url = $object->image_url;
+        $imageUrl = $object->imageUrl;
 
-        if ($image_url === null) {
-            goto after_image_url;
+        if ($imageUrl === null) {
+            goto after_imageUrl;
         }
-        after_image_url:        $result['image_url'] = $image_url;
+        after_imageUrl:        $result['image_url'] = $imageUrl;
 
         
         $url = $object->url;
@@ -477,36 +477,36 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
         after_url:        $result['url'] = $url;
 
         
-        $html_url = $object->html_url;
+        $htmlUrl = $object->htmlUrl;
 
-        if ($html_url === null) {
-            goto after_html_url;
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
         }
-        after_html_url:        $result['html_url'] = $html_url;
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
 
         
-        $default_environment = $object->default_environment;
+        $defaultEnvironment = $object->defaultEnvironment;
 
-        if ($default_environment === null) {
-            goto after_default_environment;
+        if ($defaultEnvironment === null) {
+            goto after_defaultEnvironment;
         }
-        after_default_environment:        $result['default_environment'] = $default_environment;
+        after_defaultEnvironment:        $result['default_environment'] = $defaultEnvironment;
 
         
-        $created_at = $object->created_at;
+        $createdAt = $object->createdAt;
 
-        if ($created_at === null) {
-            goto after_created_at;
+        if ($createdAt === null) {
+            goto after_createdAt;
         }
-        after_created_at:        $result['created_at'] = $created_at;
+        after_createdAt:        $result['created_at'] = $createdAt;
 
         
-        $hooks_count = $object->hooks_count;
+        $hooksCount = $object->hooksCount;
 
-        if ($hooks_count === null) {
-            goto after_hooks_count;
+        if ($hooksCount === null) {
+            goto after_hooksCount;
         }
-        after_hooks_count:        $result['hooks_count'] = $hooks_count;
+        after_hooksCount:        $result['hooks_count'] = $hooksCount;
 
         
         $download = $object->download;
@@ -543,12 +543,12 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
         after_state:        $result['state'] = $state;
 
         
-        $downloaded_at = $object->downloaded_at;
+        $downloadedAt = $object->downloadedAt;
 
-        if ($downloaded_at === null) {
-            goto after_downloaded_at;
+        if ($downloadedAt === null) {
+            goto after_downloadedAt;
         }
-        after_downloaded_at:        $result['downloaded_at'] = $downloaded_at;
+        after_downloadedAt:        $result['downloaded_at'] = $downloadedAt;
 
         
         $message = $object->message;

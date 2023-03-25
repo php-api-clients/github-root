@@ -17,25 +17,25 @@ final class ListSelfHostedRunnerGroupsForOrg
     /**The organization name. The name is not case sensitive.**/
     private string $org;
     /**Only return runner groups that are allowed to be used by this repository.**/
-    private string $visible_to_repository;
+    private string $visibleToRepository;
     /**The number of results per page (max 100).**/
-    private int $per_page;
+    private int $perPage;
     /**Page number of the results to fetch.**/
     private int $page;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups $hydrator, string $org, string $visible_to_repository, int $per_page = 30, int $page = 1)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups $hydrator, string $org, string $visibleToRepository, int $perPage = 30, int $page = 1)
     {
         $this->org = $org;
-        $this->visible_to_repository = $visible_to_repository;
-        $this->per_page = $per_page;
+        $this->visibleToRepository = $visibleToRepository;
+        $this->perPage = $perPage;
         $this->page = $page;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{visible_to_repository}', '{per_page}', '{page}'), array($this->org, $this->visible_to_repository, $this->per_page, $this->page), self::PATH . '?visible_to_repository={visible_to_repository}&per_page={per_page}&page={page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{visible_to_repository}', '{per_page}', '{page}'), array($this->org, $this->visibleToRepository, $this->perPage, $this->page), self::PATH . '?visibleToRepository={visible_to_repository}&perPage={per_page}&page={page}'));
     }
     /**
      * @return Schema\Operation\Actions\ListSelfHostedRunnerGroupsForOrg\Response\Applicationjson\H200

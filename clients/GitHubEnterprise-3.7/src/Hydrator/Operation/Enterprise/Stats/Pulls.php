@@ -38,45 +38,45 @@ class Pulls implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_pulls';
-                goto after_total_pulls;
+                goto after_totalPulls;
             }
 
-            $properties['total_pulls'] = $value;
+            $properties['totalPulls'] = $value;
 
-            after_total_pulls:
+            after_totalPulls:
 
             $value = $payload['merged_pulls'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'merged_pulls';
-                goto after_merged_pulls;
+                goto after_mergedPulls;
             }
 
-            $properties['merged_pulls'] = $value;
+            $properties['mergedPulls'] = $value;
 
-            after_merged_pulls:
+            after_mergedPulls:
 
             $value = $payload['mergeable_pulls'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'mergeable_pulls';
-                goto after_mergeable_pulls;
+                goto after_mergeablePulls;
             }
 
-            $properties['mergeable_pulls'] = $value;
+            $properties['mergeablePulls'] = $value;
 
-            after_mergeable_pulls:
+            after_mergeablePulls:
 
             $value = $payload['unmergeable_pulls'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'unmergeable_pulls';
-                goto after_unmergeable_pulls;
+                goto after_unmergeablePulls;
             }
 
-            $properties['unmergeable_pulls'] = $value;
+            $properties['unmergeablePulls'] = $value;
 
-            after_unmergeable_pulls:
+            after_unmergeablePulls:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview', $exception, stack: $this->hydrationStack);
@@ -203,20 +203,20 @@ class Pulls implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview);
         $result = [];
 
-        $total_pulls = $object->total_pulls;
-        after_total_pulls:        $result['total_pulls'] = $total_pulls;
+        $totalPulls = $object->totalPulls;
+        after_totalPulls:        $result['total_pulls'] = $totalPulls;
 
         
-        $merged_pulls = $object->merged_pulls;
-        after_merged_pulls:        $result['merged_pulls'] = $merged_pulls;
+        $mergedPulls = $object->mergedPulls;
+        after_mergedPulls:        $result['merged_pulls'] = $mergedPulls;
 
         
-        $mergeable_pulls = $object->mergeable_pulls;
-        after_mergeable_pulls:        $result['mergeable_pulls'] = $mergeable_pulls;
+        $mergeablePulls = $object->mergeablePulls;
+        after_mergeablePulls:        $result['mergeable_pulls'] = $mergeablePulls;
 
         
-        $unmergeable_pulls = $object->unmergeable_pulls;
-        after_unmergeable_pulls:        $result['unmergeable_pulls'] = $unmergeable_pulls;
+        $unmergeablePulls = $object->unmergeablePulls;
+        after_unmergeablePulls:        $result['unmergeable_pulls'] = $unmergeablePulls;
 
 
         return $result;

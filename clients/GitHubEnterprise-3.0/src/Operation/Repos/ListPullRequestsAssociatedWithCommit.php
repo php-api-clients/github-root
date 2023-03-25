@@ -17,26 +17,26 @@ final class ListPullRequestsAssociatedWithCommit
     private string $owner;
     private string $repo;
     /**commit_sha parameter**/
-    private string $commit_sha;
+    private string $commitSha;
     /**Results per page (max 100)**/
-    private int $per_page;
+    private int $perPage;
     /**Page number of the results to fetch.**/
     private int $page;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Pulls $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Pulls $hydrator, string $owner, string $repo, string $commit_sha, int $per_page = 30, int $page = 1)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Pulls $hydrator, string $owner, string $repo, string $commitSha, int $perPage = 30, int $page = 1)
     {
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->commit_sha = $commit_sha;
-        $this->per_page = $per_page;
+        $this->commitSha = $commitSha;
+        $this->perPage = $perPage;
         $this->page = $page;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{commit_sha}', '{per_page}', '{page}'), array($this->owner, $this->repo, $this->commit_sha, $this->per_page, $this->page), self::PATH . '?per_page={per_page}&page={page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{commit_sha}', '{per_page}', '{page}'), array($this->owner, $this->repo, $this->commitSha, $this->perPage, $this->page), self::PATH . '?perPage={per_page}&page={page}'));
     }
     /**
      * @return \Rx\Observable<Schema\PullRequestSimple>

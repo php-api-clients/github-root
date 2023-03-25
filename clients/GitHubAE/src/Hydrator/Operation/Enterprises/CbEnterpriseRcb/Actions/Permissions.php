@@ -38,45 +38,45 @@ class Permissions implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'enabled_organizations';
-                goto after_enabled_organizations;
+                goto after_enabledOrganizations;
             }
 
-            $properties['enabled_organizations'] = $value;
+            $properties['enabledOrganizations'] = $value;
 
-            after_enabled_organizations:
+            after_enabledOrganizations:
 
             $value = $payload['selected_organizations_url'] ?? null;
 
             if ($value === null) {
-                $properties['selected_organizations_url'] = null;
-                goto after_selected_organizations_url;
+                $properties['selectedOrganizationsUrl'] = null;
+                goto after_selectedOrganizationsUrl;
             }
 
-            $properties['selected_organizations_url'] = $value;
+            $properties['selectedOrganizationsUrl'] = $value;
 
-            after_selected_organizations_url:
+            after_selectedOrganizationsUrl:
 
             $value = $payload['allowed_actions'] ?? null;
 
             if ($value === null) {
-                $properties['allowed_actions'] = null;
-                goto after_allowed_actions;
+                $properties['allowedActions'] = null;
+                goto after_allowedActions;
             }
 
-            $properties['allowed_actions'] = $value;
+            $properties['allowedActions'] = $value;
 
-            after_allowed_actions:
+            after_allowedActions:
 
             $value = $payload['selected_actions_url'] ?? null;
 
             if ($value === null) {
-                $properties['selected_actions_url'] = null;
-                goto after_selected_actions_url;
+                $properties['selectedActionsUrl'] = null;
+                goto after_selectedActionsUrl;
             }
 
-            $properties['selected_actions_url'] = $value;
+            $properties['selectedActionsUrl'] = $value;
 
-            after_selected_actions_url:
+            after_selectedActionsUrl:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ActionsEnterprisePermissions', $exception, stack: $this->hydrationStack);
@@ -203,32 +203,32 @@ class Permissions implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ActionsEnterprisePermissions);
         $result = [];
 
-        $enabled_organizations = $object->enabled_organizations;
-        after_enabled_organizations:        $result['enabled_organizations'] = $enabled_organizations;
+        $enabledOrganizations = $object->enabledOrganizations;
+        after_enabledOrganizations:        $result['enabled_organizations'] = $enabledOrganizations;
 
         
-        $selected_organizations_url = $object->selected_organizations_url;
+        $selectedOrganizationsUrl = $object->selectedOrganizationsUrl;
 
-        if ($selected_organizations_url === null) {
-            goto after_selected_organizations_url;
+        if ($selectedOrganizationsUrl === null) {
+            goto after_selectedOrganizationsUrl;
         }
-        after_selected_organizations_url:        $result['selected_organizations_url'] = $selected_organizations_url;
+        after_selectedOrganizationsUrl:        $result['selected_organizations_url'] = $selectedOrganizationsUrl;
 
         
-        $allowed_actions = $object->allowed_actions;
+        $allowedActions = $object->allowedActions;
 
-        if ($allowed_actions === null) {
-            goto after_allowed_actions;
+        if ($allowedActions === null) {
+            goto after_allowedActions;
         }
-        after_allowed_actions:        $result['allowed_actions'] = $allowed_actions;
+        after_allowedActions:        $result['allowed_actions'] = $allowedActions;
 
         
-        $selected_actions_url = $object->selected_actions_url;
+        $selectedActionsUrl = $object->selectedActionsUrl;
 
-        if ($selected_actions_url === null) {
-            goto after_selected_actions_url;
+        if ($selectedActionsUrl === null) {
+            goto after_selectedActionsUrl;
         }
-        after_selected_actions_url:        $result['selected_actions_url'] = $selected_actions_url;
+        after_selectedActionsUrl:        $result['selected_actions_url'] = $selectedActionsUrl;
 
 
         return $result;

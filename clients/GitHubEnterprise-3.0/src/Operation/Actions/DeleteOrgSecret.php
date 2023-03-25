@@ -16,15 +16,15 @@ final class DeleteOrgSecret
     private const PATH = '/orgs/{org}/actions/secrets/{secret_name}';
     private string $org;
     /**secret_name parameter**/
-    private string $secret_name;
-    public function __construct(string $org, string $secret_name)
+    private string $secretName;
+    public function __construct(string $org, string $secretName)
     {
         $this->org = $org;
-        $this->secret_name = $secret_name;
+        $this->secretName = $secretName;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{secret_name}'), array($this->org, $this->secret_name), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{secret_name}'), array($this->org, $this->secretName), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

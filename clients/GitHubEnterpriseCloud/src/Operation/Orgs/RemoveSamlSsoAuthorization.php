@@ -16,19 +16,19 @@ final class RemoveSamlSsoAuthorization
     private const PATH = '/orgs/{org}/credential-authorizations/{credential_id}';
     /**The organization name. The name is not case sensitive.**/
     private string $org;
-    private int $credential_id;
+    private int $credentialId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\CredentialDashAuthorizations\CbCredentialIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\CredentialDashAuthorizations\CbCredentialIdRcb $hydrator, string $org, int $credential_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\CredentialDashAuthorizations\CbCredentialIdRcb $hydrator, string $org, int $credentialId)
     {
         $this->org = $org;
-        $this->credential_id = $credential_id;
+        $this->credentialId = $credentialId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{credential_id}'), array($this->org, $this->credential_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{credential_id}'), array($this->org, $this->credentialId), self::PATH));
     }
     function createResponse(\Psr\Http\Message\ResponseInterface $response) : void
     {

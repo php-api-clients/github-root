@@ -75,13 +75,13 @@ class Settings implements ObjectMapper
             $value = $payload['run_list'] ?? null;
 
             if ($value === null) {
-                $properties['run_list'] = null;
-                goto after_run_list;
+                $properties['runList'] = null;
+                goto after_runList;
             }
 
-            $properties['run_list'] = $value;
+            $properties['runList'] = $value;
 
-            after_run_list:
+            after_runList:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings', $exception, stack: $this->hydrationStack);
@@ -107,134 +107,134 @@ class Settings implements ObjectMapper
             $value = $payload['private_mode'] ?? null;
 
             if ($value === null) {
-                $properties['private_mode'] = null;
-                goto after_private_mode;
+                $properties['privateMode'] = null;
+                goto after_privateMode;
             }
 
-            $properties['private_mode'] = $value;
+            $properties['privateMode'] = $value;
 
-            after_private_mode:
+            after_privateMode:
 
             $value = $payload['public_pages'] ?? null;
 
             if ($value === null) {
-                $properties['public_pages'] = null;
-                goto after_public_pages;
+                $properties['publicPages'] = null;
+                goto after_publicPages;
             }
 
-            $properties['public_pages'] = $value;
+            $properties['publicPages'] = $value;
 
-            after_public_pages:
+            after_publicPages:
 
             $value = $payload['subdomain_isolation'] ?? null;
 
             if ($value === null) {
-                $properties['subdomain_isolation'] = null;
-                goto after_subdomain_isolation;
+                $properties['subdomainIsolation'] = null;
+                goto after_subdomainIsolation;
             }
 
-            $properties['subdomain_isolation'] = $value;
+            $properties['subdomainIsolation'] = $value;
 
-            after_subdomain_isolation:
+            after_subdomainIsolation:
 
             $value = $payload['signup_enabled'] ?? null;
 
             if ($value === null) {
-                $properties['signup_enabled'] = null;
-                goto after_signup_enabled;
+                $properties['signupEnabled'] = null;
+                goto after_signupEnabled;
             }
 
-            $properties['signup_enabled'] = $value;
+            $properties['signupEnabled'] = $value;
 
-            after_signup_enabled:
+            after_signupEnabled:
 
             $value = $payload['github_hostname'] ?? null;
 
             if ($value === null) {
-                $properties['github_hostname'] = null;
-                goto after_github_hostname;
+                $properties['githubHostname'] = null;
+                goto after_githubHostname;
             }
 
-            $properties['github_hostname'] = $value;
+            $properties['githubHostname'] = $value;
 
-            after_github_hostname:
+            after_githubHostname:
 
             $value = $payload['identicons_host'] ?? null;
 
             if ($value === null) {
-                $properties['identicons_host'] = null;
-                goto after_identicons_host;
+                $properties['identiconsHost'] = null;
+                goto after_identiconsHost;
             }
 
-            $properties['identicons_host'] = $value;
+            $properties['identiconsHost'] = $value;
 
-            after_identicons_host:
+            after_identiconsHost:
 
             $value = $payload['http_proxy'] ?? null;
 
             if ($value === null) {
-                $properties['http_proxy'] = null;
-                goto after_http_proxy;
+                $properties['httpProxy'] = null;
+                goto after_httpProxy;
             }
 
-            $properties['http_proxy'] = $value;
+            $properties['httpProxy'] = $value;
 
-            after_http_proxy:
+            after_httpProxy:
 
             $value = $payload['auth_mode'] ?? null;
 
             if ($value === null) {
-                $properties['auth_mode'] = null;
-                goto after_auth_mode;
+                $properties['authMode'] = null;
+                goto after_authMode;
             }
 
-            $properties['auth_mode'] = $value;
+            $properties['authMode'] = $value;
 
-            after_auth_mode:
+            after_authMode:
 
             $value = $payload['expire_sessions'] ?? null;
 
             if ($value === null) {
-                $properties['expire_sessions'] = null;
-                goto after_expire_sessions;
+                $properties['expireSessions'] = null;
+                goto after_expireSessions;
             }
 
-            $properties['expire_sessions'] = $value;
+            $properties['expireSessions'] = $value;
 
-            after_expire_sessions:
+            after_expireSessions:
 
             $value = $payload['admin_password'] ?? null;
 
             if ($value === null) {
-                $properties['admin_password'] = null;
-                goto after_admin_password;
+                $properties['adminPassword'] = null;
+                goto after_adminPassword;
             }
 
-            $properties['admin_password'] = $value;
+            $properties['adminPassword'] = $value;
 
-            after_admin_password:
+            after_adminPassword:
 
             $value = $payload['configuration_id'] ?? null;
 
             if ($value === null) {
-                $properties['configuration_id'] = null;
-                goto after_configuration_id;
+                $properties['configurationId'] = null;
+                goto after_configurationId;
             }
 
-            $properties['configuration_id'] = $value;
+            $properties['configurationId'] = $value;
 
-            after_configuration_id:
+            after_configurationId:
 
             $value = $payload['configuration_run_count'] ?? null;
 
             if ($value === null) {
-                $properties['configuration_run_count'] = null;
-                goto after_configuration_run_count;
+                $properties['configurationRunCount'] = null;
+                goto after_configurationRunCount;
             }
 
-            $properties['configuration_run_count'] = $value;
+            $properties['configurationRunCount'] = $value;
 
-            after_configuration_run_count:
+            after_configurationRunCount:
 
             $value = $payload['avatar'] ?? null;
 
@@ -299,22 +299,22 @@ class Settings implements ObjectMapper
             $value = $payload['github_ssl'] ?? null;
 
             if ($value === null) {
-                $properties['github_ssl'] = null;
-                goto after_github_ssl;
+                $properties['githubSsl'] = null;
+                goto after_githubSsl;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'github_ssl';
+                    $this->hydrationStack[] = 'githubSsl';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['github_ssl'] = $value;
+            $properties['githubSsl'] = $value;
 
-            after_github_ssl:
+            after_githubSsl:
 
             $value = $payload['ldap'] ?? null;
 
@@ -379,22 +379,22 @@ class Settings implements ObjectMapper
             $value = $payload['github_oauth'] ?? null;
 
             if ($value === null) {
-                $properties['github_oauth'] = null;
-                goto after_github_oauth;
+                $properties['githubOauth'] = null;
+                goto after_githubOauth;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'github_oauth';
+                    $this->hydrationStack[] = 'githubOauth';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['github_oauth'] = $value;
+            $properties['githubOauth'] = $value;
 
-            after_github_oauth:
+            after_githubOauth:
 
             $value = $payload['smtp'] ?? null;
 
@@ -561,13 +561,13 @@ class Settings implements ObjectMapper
             $value = $payload['load_balancer'] ?? null;
 
             if ($value === null) {
-                $properties['load_balancer'] = null;
-                goto after_load_balancer;
+                $properties['loadBalancer'] = null;
+                goto after_loadBalancer;
             }
 
-            $properties['load_balancer'] = $value;
+            $properties['loadBalancer'] = $value;
 
-            after_load_balancer:
+            after_loadBalancer:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise', $exception, stack: $this->hydrationStack);
@@ -669,24 +669,24 @@ class Settings implements ObjectMapper
             $value = $payload['secret_key_data'] ?? null;
 
             if ($value === null) {
-                $properties['secret_key_data'] = null;
-                goto after_secret_key_data;
+                $properties['secretKeyData'] = null;
+                goto after_secretKeyData;
             }
 
-            $properties['secret_key_data'] = $value;
+            $properties['secretKeyData'] = $value;
 
-            after_secret_key_data:
+            after_secretKeyData:
 
             $value = $payload['public_key_data'] ?? null;
 
             if ($value === null) {
-                $properties['public_key_data'] = null;
-                goto after_public_key_data;
+                $properties['publicKeyData'] = null;
+                goto after_publicKeyData;
             }
 
-            $properties['public_key_data'] = $value;
+            $properties['publicKeyData'] = $value;
 
-            after_public_key_data:
+            after_publicKeyData:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Customer', $exception, stack: $this->hydrationStack);
@@ -745,57 +745,57 @@ class Settings implements ObjectMapper
             $value = $payload['unlimited_seating'] ?? null;
 
             if ($value === null) {
-                $properties['unlimited_seating'] = null;
-                goto after_unlimited_seating;
+                $properties['unlimitedSeating'] = null;
+                goto after_unlimitedSeating;
             }
 
-            $properties['unlimited_seating'] = $value;
+            $properties['unlimitedSeating'] = $value;
 
-            after_unlimited_seating:
+            after_unlimitedSeating:
 
             $value = $payload['support_key'] ?? null;
 
             if ($value === null) {
-                $properties['support_key'] = null;
-                goto after_support_key;
+                $properties['supportKey'] = null;
+                goto after_supportKey;
             }
 
-            $properties['support_key'] = $value;
+            $properties['supportKey'] = $value;
 
-            after_support_key:
+            after_supportKey:
 
             $value = $payload['ssh_allowed'] ?? null;
 
             if ($value === null) {
-                $properties['ssh_allowed'] = null;
-                goto after_ssh_allowed;
+                $properties['sshAllowed'] = null;
+                goto after_sshAllowed;
             }
 
-            $properties['ssh_allowed'] = $value;
+            $properties['sshAllowed'] = $value;
 
-            after_ssh_allowed:
+            after_sshAllowed:
 
             $value = $payload['cluster_support'] ?? null;
 
             if ($value === null) {
-                $properties['cluster_support'] = null;
-                goto after_cluster_support;
+                $properties['clusterSupport'] = null;
+                goto after_clusterSupport;
             }
 
-            $properties['cluster_support'] = $value;
+            $properties['clusterSupport'] = $value;
 
-            after_cluster_support:
+            after_clusterSupport:
 
             $value = $payload['expire_at'] ?? null;
 
             if ($value === null) {
-                $properties['expire_at'] = null;
-                goto after_expire_at;
+                $properties['expireAt'] = null;
+                goto after_expireAt;
             }
 
-            $properties['expire_at'] = $value;
+            $properties['expireAt'] = $value;
 
-            after_expire_at:
+            after_expireAt:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\License', $exception, stack: $this->hydrationStack);
@@ -919,13 +919,13 @@ class Settings implements ObjectMapper
             $value = $payload['bind_dn'] ?? null;
 
             if ($value === null) {
-                $properties['bind_dn'] = null;
-                goto after_bind_dn;
+                $properties['bindDn'] = null;
+                goto after_bindDn;
             }
 
-            $properties['bind_dn'] = $value;
+            $properties['bindDn'] = $value;
 
-            after_bind_dn:
+            after_bindDn:
 
             $value = $payload['password'] ?? null;
 
@@ -952,123 +952,123 @@ class Settings implements ObjectMapper
             $value = $payload['search_strategy'] ?? null;
 
             if ($value === null) {
-                $properties['search_strategy'] = null;
-                goto after_search_strategy;
+                $properties['searchStrategy'] = null;
+                goto after_searchStrategy;
             }
 
-            $properties['search_strategy'] = $value;
+            $properties['searchStrategy'] = $value;
 
-            after_search_strategy:
+            after_searchStrategy:
 
             $value = $payload['user_groups'] ?? null;
 
             if ($value === null) {
-                $properties['user_groups'] = null;
-                goto after_user_groups;
+                $properties['userGroups'] = null;
+                goto after_userGroups;
             }
 
-            $properties['user_groups'] = $value;
+            $properties['userGroups'] = $value;
 
-            after_user_groups:
+            after_userGroups:
 
             $value = $payload['admin_group'] ?? null;
 
             if ($value === null) {
-                $properties['admin_group'] = null;
-                goto after_admin_group;
+                $properties['adminGroup'] = null;
+                goto after_adminGroup;
             }
 
-            $properties['admin_group'] = $value;
+            $properties['adminGroup'] = $value;
 
-            after_admin_group:
+            after_adminGroup:
 
             $value = $payload['virtual_attribute_enabled'] ?? null;
 
             if ($value === null) {
-                $properties['virtual_attribute_enabled'] = null;
-                goto after_virtual_attribute_enabled;
+                $properties['virtualAttributeEnabled'] = null;
+                goto after_virtualAttributeEnabled;
             }
 
-            $properties['virtual_attribute_enabled'] = $value;
+            $properties['virtualAttributeEnabled'] = $value;
 
-            after_virtual_attribute_enabled:
+            after_virtualAttributeEnabled:
 
             $value = $payload['recursive_group_search'] ?? null;
 
             if ($value === null) {
-                $properties['recursive_group_search'] = null;
-                goto after_recursive_group_search;
+                $properties['recursiveGroupSearch'] = null;
+                goto after_recursiveGroupSearch;
             }
 
-            $properties['recursive_group_search'] = $value;
+            $properties['recursiveGroupSearch'] = $value;
 
-            after_recursive_group_search:
+            after_recursiveGroupSearch:
 
             $value = $payload['posix_support'] ?? null;
 
             if ($value === null) {
-                $properties['posix_support'] = null;
-                goto after_posix_support;
+                $properties['posixSupport'] = null;
+                goto after_posixSupport;
             }
 
-            $properties['posix_support'] = $value;
+            $properties['posixSupport'] = $value;
 
-            after_posix_support:
+            after_posixSupport:
 
             $value = $payload['user_sync_emails'] ?? null;
 
             if ($value === null) {
-                $properties['user_sync_emails'] = null;
-                goto after_user_sync_emails;
+                $properties['userSyncEmails'] = null;
+                goto after_userSyncEmails;
             }
 
-            $properties['user_sync_emails'] = $value;
+            $properties['userSyncEmails'] = $value;
 
-            after_user_sync_emails:
+            after_userSyncEmails:
 
             $value = $payload['user_sync_keys'] ?? null;
 
             if ($value === null) {
-                $properties['user_sync_keys'] = null;
-                goto after_user_sync_keys;
+                $properties['userSyncKeys'] = null;
+                goto after_userSyncKeys;
             }
 
-            $properties['user_sync_keys'] = $value;
+            $properties['userSyncKeys'] = $value;
 
-            after_user_sync_keys:
+            after_userSyncKeys:
 
             $value = $payload['user_sync_interval'] ?? null;
 
             if ($value === null) {
-                $properties['user_sync_interval'] = null;
-                goto after_user_sync_interval;
+                $properties['userSyncInterval'] = null;
+                goto after_userSyncInterval;
             }
 
-            $properties['user_sync_interval'] = $value;
+            $properties['userSyncInterval'] = $value;
 
-            after_user_sync_interval:
+            after_userSyncInterval:
 
             $value = $payload['team_sync_interval'] ?? null;
 
             if ($value === null) {
-                $properties['team_sync_interval'] = null;
-                goto after_team_sync_interval;
+                $properties['teamSyncInterval'] = null;
+                goto after_teamSyncInterval;
             }
 
-            $properties['team_sync_interval'] = $value;
+            $properties['teamSyncInterval'] = $value;
 
-            after_team_sync_interval:
+            after_teamSyncInterval:
 
             $value = $payload['sync_enabled'] ?? null;
 
             if ($value === null) {
-                $properties['sync_enabled'] = null;
-                goto after_sync_enabled;
+                $properties['syncEnabled'] = null;
+                goto after_syncEnabled;
             }
 
-            $properties['sync_enabled'] = $value;
+            $properties['syncEnabled'] = $value;
 
-            after_sync_enabled:
+            after_syncEnabled:
 
             $value = $payload['reconciliation'] ?? null;
 
@@ -1274,13 +1274,13 @@ class Settings implements ObjectMapper
             $value = $payload['sso_url'] ?? null;
 
             if ($value === null) {
-                $properties['sso_url'] = null;
-                goto after_sso_url;
+                $properties['ssoUrl'] = null;
+                goto after_ssoUrl;
             }
 
-            $properties['sso_url'] = $value;
+            $properties['ssoUrl'] = $value;
 
-            after_sso_url:
+            after_ssoUrl:
 
             $value = $payload['certificate'] ?? null;
 
@@ -1296,13 +1296,13 @@ class Settings implements ObjectMapper
             $value = $payload['certificate_path'] ?? null;
 
             if ($value === null) {
-                $properties['certificate_path'] = null;
-                goto after_certificate_path;
+                $properties['certificatePath'] = null;
+                goto after_certificatePath;
             }
 
-            $properties['certificate_path'] = $value;
+            $properties['certificatePath'] = $value;
 
-            after_certificate_path:
+            after_certificatePath:
 
             $value = $payload['issuer'] ?? null;
 
@@ -1318,24 +1318,24 @@ class Settings implements ObjectMapper
             $value = $payload['idp_initiated_sso'] ?? null;
 
             if ($value === null) {
-                $properties['idp_initiated_sso'] = null;
-                goto after_idp_initiated_sso;
+                $properties['idpInitiatedSso'] = null;
+                goto after_idpInitiatedSso;
             }
 
-            $properties['idp_initiated_sso'] = $value;
+            $properties['idpInitiatedSso'] = $value;
 
-            after_idp_initiated_sso:
+            after_idpInitiatedSso:
 
             $value = $payload['disable_admin_demote'] ?? null;
 
             if ($value === null) {
-                $properties['disable_admin_demote'] = null;
-                goto after_disable_admin_demote;
+                $properties['disableAdminDemote'] = null;
+                goto after_disableAdminDemote;
             }
 
-            $properties['disable_admin_demote'] = $value;
+            $properties['disableAdminDemote'] = $value;
 
-            after_disable_admin_demote:
+            after_disableAdminDemote:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Saml', $exception, stack: $this->hydrationStack);
@@ -1361,46 +1361,46 @@ class Settings implements ObjectMapper
             $value = $payload['client_id'] ?? null;
 
             if ($value === null) {
-                $properties['client_id'] = null;
-                goto after_client_id;
+                $properties['clientId'] = null;
+                goto after_clientId;
             }
 
-            $properties['client_id'] = $value;
+            $properties['clientId'] = $value;
 
-            after_client_id:
+            after_clientId:
 
             $value = $payload['client_secret'] ?? null;
 
             if ($value === null) {
-                $properties['client_secret'] = null;
-                goto after_client_secret;
+                $properties['clientSecret'] = null;
+                goto after_clientSecret;
             }
 
-            $properties['client_secret'] = $value;
+            $properties['clientSecret'] = $value;
 
-            after_client_secret:
+            after_clientSecret:
 
             $value = $payload['organization_name'] ?? null;
 
             if ($value === null) {
-                $properties['organization_name'] = null;
-                goto after_organization_name;
+                $properties['organizationName'] = null;
+                goto after_organizationName;
             }
 
-            $properties['organization_name'] = $value;
+            $properties['organizationName'] = $value;
 
-            after_organization_name:
+            after_organizationName:
 
             $value = $payload['organization_team'] ?? null;
 
             if ($value === null) {
-                $properties['organization_team'] = null;
-                goto after_organization_team;
+                $properties['organizationTeam'] = null;
+                goto after_organizationTeam;
             }
 
-            $properties['organization_team'] = $value;
+            $properties['organizationTeam'] = $value;
 
-            after_organization_team:
+            after_organizationTeam:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubOauth', $exception, stack: $this->hydrationStack);
@@ -1492,24 +1492,24 @@ class Settings implements ObjectMapper
             $value = $payload['user_name'] ?? null;
 
             if ($value === null) {
-                $properties['user_name'] = null;
-                goto after_user_name;
+                $properties['userName'] = null;
+                goto after_userName;
             }
 
-            $properties['user_name'] = $value;
+            $properties['userName'] = $value;
 
-            after_user_name:
+            after_userName:
 
             $value = $payload['enable_starttls_auto'] ?? null;
 
             if ($value === null) {
-                $properties['enable_starttls_auto'] = null;
-                goto after_enable_starttls_auto;
+                $properties['enableStarttlsAuto'] = null;
+                goto after_enableStarttlsAuto;
             }
 
-            $properties['enable_starttls_auto'] = $value;
+            $properties['enableStarttlsAuto'] = $value;
 
-            after_enable_starttls_auto:
+            after_enableStarttlsAuto:
 
             $value = $payload['password'] ?? null;
 
@@ -1522,49 +1522,49 @@ class Settings implements ObjectMapper
 
             after_password:
 
-            $value = $payload['discard__m_i_n_u_s_to__m_i_n_u_s_noreply__m_i_n_u_s_address'] ?? null;
+            $value = $payload['discard_MINUS_to_MINUS_noreply_MINUS_address'] ?? null;
 
             if ($value === null) {
-                $properties['discard_MINUS_to_MINUS_noreply_MINUS_address'] = null;
-                goto after_discard_MINUS_to_MINUS_noreply_MINUS_address;
+                $properties['discardMinusToMinusNoreplyMinusAddress'] = null;
+                goto after_discardMinusToMinusNoreplyMinusAddress;
             }
 
-            $properties['discard_MINUS_to_MINUS_noreply_MINUS_address'] = $value;
+            $properties['discardMinusToMinusNoreplyMinusAddress'] = $value;
 
-            after_discard_MINUS_to_MINUS_noreply_MINUS_address:
+            after_discardMinusToMinusNoreplyMinusAddress:
 
             $value = $payload['support_address'] ?? null;
 
             if ($value === null) {
-                $properties['support_address'] = null;
-                goto after_support_address;
+                $properties['supportAddress'] = null;
+                goto after_supportAddress;
             }
 
-            $properties['support_address'] = $value;
+            $properties['supportAddress'] = $value;
 
-            after_support_address:
+            after_supportAddress:
 
             $value = $payload['support_address_type'] ?? null;
 
             if ($value === null) {
-                $properties['support_address_type'] = null;
-                goto after_support_address_type;
+                $properties['supportAddressType'] = null;
+                goto after_supportAddressType;
             }
 
-            $properties['support_address_type'] = $value;
+            $properties['supportAddressType'] = $value;
 
-            after_support_address_type:
+            after_supportAddressType:
 
             $value = $payload['noreply_address'] ?? null;
 
             if ($value === null) {
-                $properties['noreply_address'] = null;
-                goto after_noreply_address;
+                $properties['noreplyAddress'] = null;
+                goto after_noreplyAddress;
             }
 
-            $properties['noreply_address'] = $value;
+            $properties['noreplyAddress'] = $value;
 
-            after_noreply_address:
+            after_noreplyAddress:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Smtp', $exception, stack: $this->hydrationStack);
@@ -1590,24 +1590,24 @@ class Settings implements ObjectMapper
             $value = $payload['primary_server'] ?? null;
 
             if ($value === null) {
-                $properties['primary_server'] = null;
-                goto after_primary_server;
+                $properties['primaryServer'] = null;
+                goto after_primaryServer;
             }
 
-            $properties['primary_server'] = $value;
+            $properties['primaryServer'] = $value;
 
-            after_primary_server:
+            after_primaryServer:
 
             $value = $payload['secondary_server'] ?? null;
 
             if ($value === null) {
-                $properties['secondary_server'] = null;
-                goto after_secondary_server;
+                $properties['secondaryServer'] = null;
+                goto after_secondaryServer;
             }
 
-            $properties['secondary_server'] = $value;
+            $properties['secondaryServer'] = $value;
 
-            after_secondary_server:
+            after_secondaryServer:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ntp', $exception, stack: $this->hydrationStack);
@@ -1698,13 +1698,13 @@ class Settings implements ObjectMapper
             $value = $payload['protocol_name'] ?? null;
 
             if ($value === null) {
-                $properties['protocol_name'] = null;
-                goto after_protocol_name;
+                $properties['protocolName'] = null;
+                goto after_protocolName;
             }
 
-            $properties['protocol_name'] = $value;
+            $properties['protocolName'] = $value;
 
-            after_protocol_name:
+            after_protocolName:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Syslog', $exception, stack: $this->hydrationStack);
@@ -2042,20 +2042,20 @@ class Settings implements ObjectMapper
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
-        $run_list = $object->run_list;
+        $runList = $object->runList;
 
-        if ($run_list === null) {
-            goto after_run_list;
+        if ($runList === null) {
+            goto after_runList;
         }
-        static $run_listSerializer0;
+        static $runListSerializer0;
 
-        if ($run_listSerializer0 === null) {
-            $run_listSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+        if ($runListSerializer0 === null) {
+            $runListSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
-        $run_list = $run_listSerializer0->serialize($run_list, $this);
-        after_run_list:        $result['run_list'] = $run_list;
+        $runList = $runListSerializer0->serialize($runList, $this);
+        after_runList:        $result['run_list'] = $runList;
 
 
         return $result;
@@ -2067,100 +2067,100 @@ class Settings implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise);
         $result = [];
 
-        $private_mode = $object->private_mode;
+        $privateMode = $object->privateMode;
 
-        if ($private_mode === null) {
-            goto after_private_mode;
+        if ($privateMode === null) {
+            goto after_privateMode;
         }
-        after_private_mode:        $result['private_mode'] = $private_mode;
+        after_privateMode:        $result['private_mode'] = $privateMode;
 
         
-        $public_pages = $object->public_pages;
+        $publicPages = $object->publicPages;
 
-        if ($public_pages === null) {
-            goto after_public_pages;
+        if ($publicPages === null) {
+            goto after_publicPages;
         }
-        after_public_pages:        $result['public_pages'] = $public_pages;
+        after_publicPages:        $result['public_pages'] = $publicPages;
 
         
-        $subdomain_isolation = $object->subdomain_isolation;
+        $subdomainIsolation = $object->subdomainIsolation;
 
-        if ($subdomain_isolation === null) {
-            goto after_subdomain_isolation;
+        if ($subdomainIsolation === null) {
+            goto after_subdomainIsolation;
         }
-        after_subdomain_isolation:        $result['subdomain_isolation'] = $subdomain_isolation;
+        after_subdomainIsolation:        $result['subdomain_isolation'] = $subdomainIsolation;
 
         
-        $signup_enabled = $object->signup_enabled;
+        $signupEnabled = $object->signupEnabled;
 
-        if ($signup_enabled === null) {
-            goto after_signup_enabled;
+        if ($signupEnabled === null) {
+            goto after_signupEnabled;
         }
-        after_signup_enabled:        $result['signup_enabled'] = $signup_enabled;
+        after_signupEnabled:        $result['signup_enabled'] = $signupEnabled;
 
         
-        $github_hostname = $object->github_hostname;
+        $githubHostname = $object->githubHostname;
 
-        if ($github_hostname === null) {
-            goto after_github_hostname;
+        if ($githubHostname === null) {
+            goto after_githubHostname;
         }
-        after_github_hostname:        $result['github_hostname'] = $github_hostname;
+        after_githubHostname:        $result['github_hostname'] = $githubHostname;
 
         
-        $identicons_host = $object->identicons_host;
+        $identiconsHost = $object->identiconsHost;
 
-        if ($identicons_host === null) {
-            goto after_identicons_host;
+        if ($identiconsHost === null) {
+            goto after_identiconsHost;
         }
-        after_identicons_host:        $result['identicons_host'] = $identicons_host;
+        after_identiconsHost:        $result['identicons_host'] = $identiconsHost;
 
         
-        $http_proxy = $object->http_proxy;
+        $httpProxy = $object->httpProxy;
 
-        if ($http_proxy === null) {
-            goto after_http_proxy;
+        if ($httpProxy === null) {
+            goto after_httpProxy;
         }
-        after_http_proxy:        $result['http_proxy'] = $http_proxy;
+        after_httpProxy:        $result['http_proxy'] = $httpProxy;
 
         
-        $auth_mode = $object->auth_mode;
+        $authMode = $object->authMode;
 
-        if ($auth_mode === null) {
-            goto after_auth_mode;
+        if ($authMode === null) {
+            goto after_authMode;
         }
-        after_auth_mode:        $result['auth_mode'] = $auth_mode;
+        after_authMode:        $result['auth_mode'] = $authMode;
 
         
-        $expire_sessions = $object->expire_sessions;
+        $expireSessions = $object->expireSessions;
 
-        if ($expire_sessions === null) {
-            goto after_expire_sessions;
+        if ($expireSessions === null) {
+            goto after_expireSessions;
         }
-        after_expire_sessions:        $result['expire_sessions'] = $expire_sessions;
+        after_expireSessions:        $result['expire_sessions'] = $expireSessions;
 
         
-        $admin_password = $object->admin_password;
+        $adminPassword = $object->adminPassword;
 
-        if ($admin_password === null) {
-            goto after_admin_password;
+        if ($adminPassword === null) {
+            goto after_adminPassword;
         }
-        after_admin_password:        $result['admin_password'] = $admin_password;
+        after_adminPassword:        $result['admin_password'] = $adminPassword;
 
         
-        $configuration_id = $object->configuration_id;
+        $configurationId = $object->configurationId;
 
-        if ($configuration_id === null) {
-            goto after_configuration_id;
+        if ($configurationId === null) {
+            goto after_configurationId;
         }
-        after_configuration_id:        $result['configuration_id'] = $configuration_id;
+        after_configurationId:        $result['configuration_id'] = $configurationId;
 
         
-        $configuration_run_count = $object->configuration_run_count;
+        $configurationRunCount = $object->configurationRunCount;
 
-        if ($configuration_run_count === null) {
-            goto after_configuration_run_count;
+        if ($configurationRunCount === null) {
+            goto after_configurationRunCount;
         }
-        after_configuration_run_count:        $result['configuration_run_count'] = $configuration_run_count;
+        after_configurationRunCount:        $result['configuration_run_count'] = $configurationRunCount;
 
         
         $avatar = $object->avatar;
@@ -2190,13 +2190,13 @@ class Settings implements ObjectMapper
         after_license:        $result['license'] = $license;
 
         
-        $github_ssl = $object->github_ssl;
+        $githubSsl = $object->githubSsl;
 
-        if ($github_ssl === null) {
-            goto after_github_ssl;
+        if ($githubSsl === null) {
+            goto after_githubSsl;
         }
-        $github_ssl = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl($github_ssl);
-        after_github_ssl:        $result['github_ssl'] = $github_ssl;
+        $githubSsl = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl($githubSsl);
+        after_githubSsl:        $result['github_ssl'] = $githubSsl;
 
         
         $ldap = $object->ldap;
@@ -2226,13 +2226,13 @@ class Settings implements ObjectMapper
         after_saml:        $result['saml'] = $saml;
 
         
-        $github_oauth = $object->github_oauth;
+        $githubOauth = $object->githubOauth;
 
-        if ($github_oauth === null) {
-            goto after_github_oauth;
+        if ($githubOauth === null) {
+            goto after_githubOauth;
         }
-        $github_oauth = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth($github_oauth);
-        after_github_oauth:        $result['github_oauth'] = $github_oauth;
+        $githubOauth = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth($githubOauth);
+        after_githubOauth:        $result['github_oauth'] = $githubOauth;
 
         
         $smtp = $object->smtp;
@@ -2314,12 +2314,12 @@ class Settings implements ObjectMapper
         after_mapping:        $result['mapping'] = $mapping;
 
         
-        $load_balancer = $object->load_balancer;
+        $loadBalancer = $object->loadBalancer;
 
-        if ($load_balancer === null) {
-            goto after_load_balancer;
+        if ($loadBalancer === null) {
+            goto after_loadBalancer;
         }
-        after_load_balancer:        $result['load_balancer'] = $load_balancer;
+        after_loadBalancer:        $result['load_balancer'] = $loadBalancer;
 
 
         return $result;
@@ -2380,20 +2380,20 @@ class Settings implements ObjectMapper
         after_uuid:        $result['uuid'] = $uuid;
 
         
-        $secret_key_data = $object->secret_key_data;
+        $secretKeyData = $object->secretKeyData;
 
-        if ($secret_key_data === null) {
-            goto after_secret_key_data;
+        if ($secretKeyData === null) {
+            goto after_secretKeyData;
         }
-        after_secret_key_data:        $result['secret_key_data'] = $secret_key_data;
+        after_secretKeyData:        $result['secret_key_data'] = $secretKeyData;
 
         
-        $public_key_data = $object->public_key_data;
+        $publicKeyData = $object->publicKeyData;
 
-        if ($public_key_data === null) {
-            goto after_public_key_data;
+        if ($publicKeyData === null) {
+            goto after_publicKeyData;
         }
-        after_public_key_data:        $result['public_key_data'] = $public_key_data;
+        after_publicKeyData:        $result['public_key_data'] = $publicKeyData;
 
 
         return $result;
@@ -2429,44 +2429,44 @@ class Settings implements ObjectMapper
         after_perpetual:        $result['perpetual'] = $perpetual;
 
         
-        $unlimited_seating = $object->unlimited_seating;
+        $unlimitedSeating = $object->unlimitedSeating;
 
-        if ($unlimited_seating === null) {
-            goto after_unlimited_seating;
+        if ($unlimitedSeating === null) {
+            goto after_unlimitedSeating;
         }
-        after_unlimited_seating:        $result['unlimited_seating'] = $unlimited_seating;
+        after_unlimitedSeating:        $result['unlimited_seating'] = $unlimitedSeating;
 
         
-        $support_key = $object->support_key;
+        $supportKey = $object->supportKey;
 
-        if ($support_key === null) {
-            goto after_support_key;
+        if ($supportKey === null) {
+            goto after_supportKey;
         }
-        after_support_key:        $result['support_key'] = $support_key;
+        after_supportKey:        $result['support_key'] = $supportKey;
 
         
-        $ssh_allowed = $object->ssh_allowed;
+        $sshAllowed = $object->sshAllowed;
 
-        if ($ssh_allowed === null) {
-            goto after_ssh_allowed;
+        if ($sshAllowed === null) {
+            goto after_sshAllowed;
         }
-        after_ssh_allowed:        $result['ssh_allowed'] = $ssh_allowed;
+        after_sshAllowed:        $result['ssh_allowed'] = $sshAllowed;
 
         
-        $cluster_support = $object->cluster_support;
+        $clusterSupport = $object->clusterSupport;
 
-        if ($cluster_support === null) {
-            goto after_cluster_support;
+        if ($clusterSupport === null) {
+            goto after_clusterSupport;
         }
-        after_cluster_support:        $result['cluster_support'] = $cluster_support;
+        after_clusterSupport:        $result['cluster_support'] = $clusterSupport;
 
         
-        $expire_at = $object->expire_at;
+        $expireAt = $object->expireAt;
 
-        if ($expire_at === null) {
-            goto after_expire_at;
+        if ($expireAt === null) {
+            goto after_expireAt;
         }
-        after_expire_at:        $result['expire_at'] = $expire_at;
+        after_expireAt:        $result['expire_at'] = $expireAt;
 
 
         return $result;
@@ -2551,12 +2551,12 @@ class Settings implements ObjectMapper
         after_uid:        $result['uid'] = $uid;
 
         
-        $bind_dn = $object->bind_dn;
+        $bindDn = $object->bindDn;
 
-        if ($bind_dn === null) {
-            goto after_bind_dn;
+        if ($bindDn === null) {
+            goto after_bindDn;
         }
-        after_bind_dn:        $result['bind_dn'] = $bind_dn;
+        after_bindDn:        $result['bind_dn'] = $bindDn;
 
         
         $password = $object->password;
@@ -2575,100 +2575,100 @@ class Settings implements ObjectMapper
         after_method:        $result['method'] = $method;
 
         
-        $search_strategy = $object->search_strategy;
+        $searchStrategy = $object->searchStrategy;
 
-        if ($search_strategy === null) {
-            goto after_search_strategy;
+        if ($searchStrategy === null) {
+            goto after_searchStrategy;
         }
-        after_search_strategy:        $result['search_strategy'] = $search_strategy;
+        after_searchStrategy:        $result['search_strategy'] = $searchStrategy;
 
         
-        $user_groups = $object->user_groups;
+        $userGroups = $object->userGroups;
 
-        if ($user_groups === null) {
-            goto after_user_groups;
+        if ($userGroups === null) {
+            goto after_userGroups;
         }
-        static $user_groupsSerializer0;
+        static $userGroupsSerializer0;
 
-        if ($user_groupsSerializer0 === null) {
-            $user_groupsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+        if ($userGroupsSerializer0 === null) {
+            $userGroupsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
-        $user_groups = $user_groupsSerializer0->serialize($user_groups, $this);
-        after_user_groups:        $result['user_groups'] = $user_groups;
+        $userGroups = $userGroupsSerializer0->serialize($userGroups, $this);
+        after_userGroups:        $result['user_groups'] = $userGroups;
 
         
-        $admin_group = $object->admin_group;
+        $adminGroup = $object->adminGroup;
 
-        if ($admin_group === null) {
-            goto after_admin_group;
+        if ($adminGroup === null) {
+            goto after_adminGroup;
         }
-        after_admin_group:        $result['admin_group'] = $admin_group;
+        after_adminGroup:        $result['admin_group'] = $adminGroup;
 
         
-        $virtual_attribute_enabled = $object->virtual_attribute_enabled;
+        $virtualAttributeEnabled = $object->virtualAttributeEnabled;
 
-        if ($virtual_attribute_enabled === null) {
-            goto after_virtual_attribute_enabled;
+        if ($virtualAttributeEnabled === null) {
+            goto after_virtualAttributeEnabled;
         }
-        after_virtual_attribute_enabled:        $result['virtual_attribute_enabled'] = $virtual_attribute_enabled;
+        after_virtualAttributeEnabled:        $result['virtual_attribute_enabled'] = $virtualAttributeEnabled;
 
         
-        $recursive_group_search = $object->recursive_group_search;
+        $recursiveGroupSearch = $object->recursiveGroupSearch;
 
-        if ($recursive_group_search === null) {
-            goto after_recursive_group_search;
+        if ($recursiveGroupSearch === null) {
+            goto after_recursiveGroupSearch;
         }
-        after_recursive_group_search:        $result['recursive_group_search'] = $recursive_group_search;
+        after_recursiveGroupSearch:        $result['recursive_group_search'] = $recursiveGroupSearch;
 
         
-        $posix_support = $object->posix_support;
+        $posixSupport = $object->posixSupport;
 
-        if ($posix_support === null) {
-            goto after_posix_support;
+        if ($posixSupport === null) {
+            goto after_posixSupport;
         }
-        after_posix_support:        $result['posix_support'] = $posix_support;
+        after_posixSupport:        $result['posix_support'] = $posixSupport;
 
         
-        $user_sync_emails = $object->user_sync_emails;
+        $userSyncEmails = $object->userSyncEmails;
 
-        if ($user_sync_emails === null) {
-            goto after_user_sync_emails;
+        if ($userSyncEmails === null) {
+            goto after_userSyncEmails;
         }
-        after_user_sync_emails:        $result['user_sync_emails'] = $user_sync_emails;
+        after_userSyncEmails:        $result['user_sync_emails'] = $userSyncEmails;
 
         
-        $user_sync_keys = $object->user_sync_keys;
+        $userSyncKeys = $object->userSyncKeys;
 
-        if ($user_sync_keys === null) {
-            goto after_user_sync_keys;
+        if ($userSyncKeys === null) {
+            goto after_userSyncKeys;
         }
-        after_user_sync_keys:        $result['user_sync_keys'] = $user_sync_keys;
+        after_userSyncKeys:        $result['user_sync_keys'] = $userSyncKeys;
 
         
-        $user_sync_interval = $object->user_sync_interval;
+        $userSyncInterval = $object->userSyncInterval;
 
-        if ($user_sync_interval === null) {
-            goto after_user_sync_interval;
+        if ($userSyncInterval === null) {
+            goto after_userSyncInterval;
         }
-        after_user_sync_interval:        $result['user_sync_interval'] = $user_sync_interval;
+        after_userSyncInterval:        $result['user_sync_interval'] = $userSyncInterval;
 
         
-        $team_sync_interval = $object->team_sync_interval;
+        $teamSyncInterval = $object->teamSyncInterval;
 
-        if ($team_sync_interval === null) {
-            goto after_team_sync_interval;
+        if ($teamSyncInterval === null) {
+            goto after_teamSyncInterval;
         }
-        after_team_sync_interval:        $result['team_sync_interval'] = $team_sync_interval;
+        after_teamSyncInterval:        $result['team_sync_interval'] = $teamSyncInterval;
 
         
-        $sync_enabled = $object->sync_enabled;
+        $syncEnabled = $object->syncEnabled;
 
-        if ($sync_enabled === null) {
-            goto after_sync_enabled;
+        if ($syncEnabled === null) {
+            goto after_syncEnabled;
         }
-        after_sync_enabled:        $result['sync_enabled'] = $sync_enabled;
+        after_syncEnabled:        $result['sync_enabled'] = $syncEnabled;
 
         
         $reconciliation = $object->reconciliation;
@@ -2781,12 +2781,12 @@ class Settings implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Saml);
         $result = [];
 
-        $sso_url = $object->sso_url;
+        $ssoUrl = $object->ssoUrl;
 
-        if ($sso_url === null) {
-            goto after_sso_url;
+        if ($ssoUrl === null) {
+            goto after_ssoUrl;
         }
-        after_sso_url:        $result['sso_url'] = $sso_url;
+        after_ssoUrl:        $result['sso_url'] = $ssoUrl;
 
         
         $certificate = $object->certificate;
@@ -2797,12 +2797,12 @@ class Settings implements ObjectMapper
         after_certificate:        $result['certificate'] = $certificate;
 
         
-        $certificate_path = $object->certificate_path;
+        $certificatePath = $object->certificatePath;
 
-        if ($certificate_path === null) {
-            goto after_certificate_path;
+        if ($certificatePath === null) {
+            goto after_certificatePath;
         }
-        after_certificate_path:        $result['certificate_path'] = $certificate_path;
+        after_certificatePath:        $result['certificate_path'] = $certificatePath;
 
         
         $issuer = $object->issuer;
@@ -2813,20 +2813,20 @@ class Settings implements ObjectMapper
         after_issuer:        $result['issuer'] = $issuer;
 
         
-        $idp_initiated_sso = $object->idp_initiated_sso;
+        $idpInitiatedSso = $object->idpInitiatedSso;
 
-        if ($idp_initiated_sso === null) {
-            goto after_idp_initiated_sso;
+        if ($idpInitiatedSso === null) {
+            goto after_idpInitiatedSso;
         }
-        after_idp_initiated_sso:        $result['idp_initiated_sso'] = $idp_initiated_sso;
+        after_idpInitiatedSso:        $result['idp_initiated_sso'] = $idpInitiatedSso;
 
         
-        $disable_admin_demote = $object->disable_admin_demote;
+        $disableAdminDemote = $object->disableAdminDemote;
 
-        if ($disable_admin_demote === null) {
-            goto after_disable_admin_demote;
+        if ($disableAdminDemote === null) {
+            goto after_disableAdminDemote;
         }
-        after_disable_admin_demote:        $result['disable_admin_demote'] = $disable_admin_demote;
+        after_disableAdminDemote:        $result['disable_admin_demote'] = $disableAdminDemote;
 
 
         return $result;
@@ -2838,36 +2838,36 @@ class Settings implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubOauth);
         $result = [];
 
-        $client_id = $object->client_id;
+        $clientId = $object->clientId;
 
-        if ($client_id === null) {
-            goto after_client_id;
+        if ($clientId === null) {
+            goto after_clientId;
         }
-        after_client_id:        $result['client_id'] = $client_id;
+        after_clientId:        $result['client_id'] = $clientId;
 
         
-        $client_secret = $object->client_secret;
+        $clientSecret = $object->clientSecret;
 
-        if ($client_secret === null) {
-            goto after_client_secret;
+        if ($clientSecret === null) {
+            goto after_clientSecret;
         }
-        after_client_secret:        $result['client_secret'] = $client_secret;
+        after_clientSecret:        $result['client_secret'] = $clientSecret;
 
         
-        $organization_name = $object->organization_name;
+        $organizationName = $object->organizationName;
 
-        if ($organization_name === null) {
-            goto after_organization_name;
+        if ($organizationName === null) {
+            goto after_organizationName;
         }
-        after_organization_name:        $result['organization_name'] = $organization_name;
+        after_organizationName:        $result['organization_name'] = $organizationName;
 
         
-        $organization_team = $object->organization_team;
+        $organizationTeam = $object->organizationTeam;
 
-        if ($organization_team === null) {
-            goto after_organization_team;
+        if ($organizationTeam === null) {
+            goto after_organizationTeam;
         }
-        after_organization_team:        $result['organization_team'] = $organization_team;
+        after_organizationTeam:        $result['organization_team'] = $organizationTeam;
 
 
         return $result;
@@ -2927,20 +2927,20 @@ class Settings implements ObjectMapper
         after_username:        $result['username'] = $username;
 
         
-        $user_name = $object->user_name;
+        $userName = $object->userName;
 
-        if ($user_name === null) {
-            goto after_user_name;
+        if ($userName === null) {
+            goto after_userName;
         }
-        after_user_name:        $result['user_name'] = $user_name;
+        after_userName:        $result['user_name'] = $userName;
 
         
-        $enable_starttls_auto = $object->enable_starttls_auto;
+        $enableStarttlsAuto = $object->enableStarttlsAuto;
 
-        if ($enable_starttls_auto === null) {
-            goto after_enable_starttls_auto;
+        if ($enableStarttlsAuto === null) {
+            goto after_enableStarttlsAuto;
         }
-        after_enable_starttls_auto:        $result['enable_starttls_auto'] = $enable_starttls_auto;
+        after_enableStarttlsAuto:        $result['enable_starttls_auto'] = $enableStarttlsAuto;
 
         
         $password = $object->password;
@@ -2951,36 +2951,36 @@ class Settings implements ObjectMapper
         after_password:        $result['password'] = $password;
 
         
-        $discard_MINUS_to_MINUS_noreply_MINUS_address = $object->discard_MINUS_to_MINUS_noreply_MINUS_address;
+        $discardMinusToMinusNoreplyMinusAddress = $object->discardMinusToMinusNoreplyMinusAddress;
 
-        if ($discard_MINUS_to_MINUS_noreply_MINUS_address === null) {
-            goto after_discard_MINUS_to_MINUS_noreply_MINUS_address;
+        if ($discardMinusToMinusNoreplyMinusAddress === null) {
+            goto after_discardMinusToMinusNoreplyMinusAddress;
         }
-        after_discard_MINUS_to_MINUS_noreply_MINUS_address:        $result['discard__m_i_n_u_s_to__m_i_n_u_s_noreply__m_i_n_u_s_address'] = $discard_MINUS_to_MINUS_noreply_MINUS_address;
+        after_discardMinusToMinusNoreplyMinusAddress:        $result['discard_MINUS_to_MINUS_noreply_MINUS_address'] = $discardMinusToMinusNoreplyMinusAddress;
 
         
-        $support_address = $object->support_address;
+        $supportAddress = $object->supportAddress;
 
-        if ($support_address === null) {
-            goto after_support_address;
+        if ($supportAddress === null) {
+            goto after_supportAddress;
         }
-        after_support_address:        $result['support_address'] = $support_address;
+        after_supportAddress:        $result['support_address'] = $supportAddress;
 
         
-        $support_address_type = $object->support_address_type;
+        $supportAddressType = $object->supportAddressType;
 
-        if ($support_address_type === null) {
-            goto after_support_address_type;
+        if ($supportAddressType === null) {
+            goto after_supportAddressType;
         }
-        after_support_address_type:        $result['support_address_type'] = $support_address_type;
+        after_supportAddressType:        $result['support_address_type'] = $supportAddressType;
 
         
-        $noreply_address = $object->noreply_address;
+        $noreplyAddress = $object->noreplyAddress;
 
-        if ($noreply_address === null) {
-            goto after_noreply_address;
+        if ($noreplyAddress === null) {
+            goto after_noreplyAddress;
         }
-        after_noreply_address:        $result['noreply_address'] = $noreply_address;
+        after_noreplyAddress:        $result['noreply_address'] = $noreplyAddress;
 
 
         return $result;
@@ -2992,20 +2992,20 @@ class Settings implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ntp);
         $result = [];
 
-        $primary_server = $object->primary_server;
+        $primaryServer = $object->primaryServer;
 
-        if ($primary_server === null) {
-            goto after_primary_server;
+        if ($primaryServer === null) {
+            goto after_primaryServer;
         }
-        after_primary_server:        $result['primary_server'] = $primary_server;
+        after_primaryServer:        $result['primary_server'] = $primaryServer;
 
         
-        $secondary_server = $object->secondary_server;
+        $secondaryServer = $object->secondaryServer;
 
-        if ($secondary_server === null) {
-            goto after_secondary_server;
+        if ($secondaryServer === null) {
+            goto after_secondaryServer;
         }
-        after_secondary_server:        $result['secondary_server'] = $secondary_server;
+        after_secondaryServer:        $result['secondary_server'] = $secondaryServer;
 
 
         return $result;
@@ -3058,12 +3058,12 @@ class Settings implements ObjectMapper
         after_server:        $result['server'] = $server;
 
         
-        $protocol_name = $object->protocol_name;
+        $protocolName = $object->protocolName;
 
-        if ($protocol_name === null) {
-            goto after_protocol_name;
+        if ($protocolName === null) {
+            goto after_protocolName;
         }
-        after_protocol_name:        $result['protocol_name'] = $protocol_name;
+        after_protocolName:        $result['protocol_name'] = $protocolName;
 
 
         return $result;

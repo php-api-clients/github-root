@@ -17,20 +17,20 @@ final class DownloadArtifactStreaming
     private string $owner;
     private string $repo;
     /**artifact_id parameter**/
-    private int $artifact_id;
-    private string $archive_format;
+    private int $artifactId;
+    private string $archiveFormat;
     private readonly \React\Http\Browser $browser;
-    public function __construct(\React\Http\Browser $browser, string $owner, string $repo, int $artifact_id, string $archive_format)
+    public function __construct(\React\Http\Browser $browser, string $owner, string $repo, int $artifactId, string $archiveFormat)
     {
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->artifact_id = $artifact_id;
-        $this->archive_format = $archive_format;
+        $this->artifactId = $artifactId;
+        $this->archiveFormat = $archiveFormat;
         $this->browser = $browser;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{artifact_id}', '{archive_format}'), array($this->owner, $this->repo, $this->artifact_id, $this->archive_format), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{artifact_id}', '{archive_format}'), array($this->owner, $this->repo, $this->artifactId, $this->archiveFormat), self::PATH));
     }
     /**
      * @return \Rx\Observable<string>

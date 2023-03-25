@@ -45,16 +45,16 @@ class AuthorizedKeys implements ObjectMapper
 
             after_key:
 
-            $value = $payload['pretty__m_i_n_u_s_print'] ?? null;
+            $value = $payload['pretty_MINUS_print'] ?? null;
 
             if ($value === null) {
-                $properties['pretty_MINUS_print'] = null;
-                goto after_pretty_MINUS_print;
+                $properties['prettyMinusPrint'] = null;
+                goto after_prettyMinusPrint;
             }
 
-            $properties['pretty_MINUS_print'] = $value;
+            $properties['prettyMinusPrint'] = $value;
 
-            after_pretty_MINUS_print:
+            after_prettyMinusPrint:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SshKey', $exception, stack: $this->hydrationStack);
@@ -189,12 +189,12 @@ class AuthorizedKeys implements ObjectMapper
         after_key:        $result['key'] = $key;
 
         
-        $pretty_MINUS_print = $object->pretty_MINUS_print;
+        $prettyMinusPrint = $object->prettyMinusPrint;
 
-        if ($pretty_MINUS_print === null) {
-            goto after_pretty_MINUS_print;
+        if ($prettyMinusPrint === null) {
+            goto after_prettyMinusPrint;
         }
-        after_pretty_MINUS_print:        $result['pretty__m_i_n_u_s_print'] = $pretty_MINUS_print;
+        after_prettyMinusPrint:        $result['pretty_MINUS_print'] = $prettyMinusPrint;
 
 
         return $result;

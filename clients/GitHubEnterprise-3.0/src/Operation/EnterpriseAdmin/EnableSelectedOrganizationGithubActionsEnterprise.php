@@ -17,15 +17,15 @@ final class EnableSelectedOrganizationGithubActionsEnterprise
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
     private string $enterprise;
     /**Unique identifier of an organization.**/
-    private int $org_id;
-    public function __construct(string $enterprise, int $org_id)
+    private int $orgId;
+    public function __construct(string $enterprise, int $orgId)
     {
         $this->enterprise = $enterprise;
-        $this->org_id = $org_id;
+        $this->orgId = $orgId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{org_id}'), array($this->enterprise, $this->org_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{org_id}'), array($this->enterprise, $this->orgId), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

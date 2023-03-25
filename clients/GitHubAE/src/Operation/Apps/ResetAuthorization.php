@@ -15,20 +15,20 @@ final class ResetAuthorization
     private const METHOD = 'POST';
     private const PATH = '/applications/{client_id}/tokens/{access_token}';
     /**The client ID of the GitHub app.**/
-    private string $client_id;
-    private string $access_token;
+    private string $clientId;
+    private string $accessToken;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Applications\CbClientIdRcb\Tokens\CbAccessTokenRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Applications\CbClientIdRcb\Tokens\CbAccessTokenRcb $hydrator, string $client_id, string $access_token)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Applications\CbClientIdRcb\Tokens\CbAccessTokenRcb $hydrator, string $clientId, string $accessToken)
     {
-        $this->client_id = $client_id;
-        $this->access_token = $access_token;
+        $this->clientId = $clientId;
+        $this->accessToken = $accessToken;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{client_id}', '{access_token}'), array($this->client_id, $this->access_token), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{client_id}', '{access_token}'), array($this->clientId, $this->accessToken), self::PATH));
     }
     /**
      * @return Schema\Authorization

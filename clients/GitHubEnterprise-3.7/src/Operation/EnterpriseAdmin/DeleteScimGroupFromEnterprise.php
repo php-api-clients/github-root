@@ -15,18 +15,18 @@ final class DeleteScimGroupFromEnterprise
     private const METHOD = 'DELETE';
     private const PATH = '/scim/v2/Groups/{scim_group_id}';
     /**A unique identifier of the SCIM group.**/
-    private string $scim_group_id;
+    private string $scimGroupId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Scim\V2\Groups\CbScimGroupIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Groups\CbScimGroupIdRcb $hydrator, string $scim_group_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Groups\CbScimGroupIdRcb $hydrator, string $scimGroupId)
     {
-        $this->scim_group_id = $scim_group_id;
+        $this->scimGroupId = $scimGroupId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{scim_group_id}'), array($this->scim_group_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{scim_group_id}'), array($this->scimGroupId), self::PATH));
     }
     function createResponse(\Psr\Http\Message\ResponseInterface $response) : void
     {

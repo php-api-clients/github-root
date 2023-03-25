@@ -16,25 +16,25 @@ final class ListSelectedReposForOrgSecret
     private const PATH = '/orgs/{org}/actions/secrets/{secret_name}/repositories';
     private string $org;
     /**secret_name parameter**/
-    private string $secret_name;
+    private string $secretName;
     /**Page number of the results to fetch.**/
     private int $page;
     /**Results per page (max 100)**/
-    private int $per_page;
+    private int $perPage;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb\Repositories $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb\Repositories $hydrator, string $org, string $secret_name, int $page = 1, int $per_page = 30)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb\Repositories $hydrator, string $org, string $secretName, int $page = 1, int $perPage = 30)
     {
         $this->org = $org;
-        $this->secret_name = $secret_name;
+        $this->secretName = $secretName;
         $this->page = $page;
-        $this->per_page = $per_page;
+        $this->perPage = $perPage;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{secret_name}', '{page}', '{per_page}'), array($this->org, $this->secret_name, $this->page, $this->per_page), self::PATH . '?page={page}&per_page={per_page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{secret_name}', '{page}', '{per_page}'), array($this->org, $this->secretName, $this->page, $this->perPage), self::PATH . '?page={page}&perPage={per_page}'));
     }
     /**
      * @return Schema\Operation\Actions\ListSelectedReposForOrgSecret\Response\Applicationjson\H200

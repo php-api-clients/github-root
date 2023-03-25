@@ -15,15 +15,15 @@ final class DisableSelectedRepositoryGithubActionsOrganization
     private const METHOD = 'DELETE';
     private const PATH = '/orgs/{org}/actions/permissions/repositories/{repository_id}';
     private string $org;
-    private int $repository_id;
-    public function __construct(string $org, int $repository_id)
+    private int $repositoryId;
+    public function __construct(string $org, int $repositoryId)
     {
         $this->org = $org;
-        $this->repository_id = $repository_id;
+        $this->repositoryId = $repositoryId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{repository_id}'), array($this->org, $this->repository_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{repository_id}'), array($this->org, $this->repositoryId), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

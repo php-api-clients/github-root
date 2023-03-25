@@ -17,19 +17,19 @@ final class GetSelfHostedRunnerGroupForEnterprise
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
     private string $enterprise;
     /**Unique identifier of the self-hosted runner group.**/
-    private int $runner_group_id;
+    private int $runnerGroupId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb $hydrator, string $enterprise, int $runner_group_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb $hydrator, string $enterprise, int $runnerGroupId)
     {
         $this->enterprise = $enterprise;
-        $this->runner_group_id = $runner_group_id;
+        $this->runnerGroupId = $runnerGroupId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{runner_group_id}'), array($this->enterprise, $this->runner_group_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{runner_group_id}'), array($this->enterprise, $this->runnerGroupId), self::PATH));
     }
     /**
      * @return Schema\RunnerGroupsEnterprise

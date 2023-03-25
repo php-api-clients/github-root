@@ -21,7 +21,7 @@ final class ListAlertsForOrg
     /**A comma-separated list of secret types to return. By default all secret types are returned.
     See "[Secret scanning patterns](https://docs.github.com/enterprise-server@3.6/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security)"
     for a complete list of secret types.**/
-    private string $secret_type;
+    private string $secretType;
     /**A comma-separated list of resolutions. Only secret scanning alerts with one of these resolutions are listed. Valid resolutions are `false_positive`, `wont_fix`, `revoked`, `pattern_edited`, `pattern_deleted` or `used_in_tests`.**/
     private string $resolution;
     /**The property to sort the results by. `created` means when the alert was created. `updated` means when the alert was updated or resolved.**/
@@ -31,25 +31,25 @@ final class ListAlertsForOrg
     /**Page number of the results to fetch.**/
     private int $page;
     /**The number of results per page (max 100).**/
-    private int $per_page;
+    private int $perPage;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\SecretScanning\Alerts $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\SecretScanning\Alerts $hydrator, string $org, string $state, string $secret_type, string $resolution, string $sort = 'created', string $direction = 'desc', int $page = 1, int $per_page = 30)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\SecretScanning\Alerts $hydrator, string $org, string $state, string $secretType, string $resolution, string $sort = 'created', string $direction = 'desc', int $page = 1, int $perPage = 30)
     {
         $this->org = $org;
         $this->state = $state;
-        $this->secret_type = $secret_type;
+        $this->secretType = $secretType;
         $this->resolution = $resolution;
         $this->sort = $sort;
         $this->direction = $direction;
         $this->page = $page;
-        $this->per_page = $per_page;
+        $this->perPage = $perPage;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{state}', '{secret_type}', '{resolution}', '{sort}', '{direction}', '{page}', '{per_page}'), array($this->org, $this->state, $this->secret_type, $this->resolution, $this->sort, $this->direction, $this->page, $this->per_page), self::PATH . '?state={state}&secret_type={secret_type}&resolution={resolution}&sort={sort}&direction={direction}&page={page}&per_page={per_page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{state}', '{secret_type}', '{resolution}', '{sort}', '{direction}', '{page}', '{per_page}'), array($this->org, $this->state, $this->secretType, $this->resolution, $this->sort, $this->direction, $this->page, $this->perPage), self::PATH . '?state={state}&secretType={secret_type}&resolution={resolution}&sort={sort}&direction={direction}&page={page}&perPage={per_page}'));
     }
     /**
      * @return \Rx\Observable<Schema\OrganizationSecretScanningAlert>

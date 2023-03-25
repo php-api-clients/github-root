@@ -16,19 +16,19 @@ final class RemovePreReceiveHookEnforcementForOrg
     private const PATH = '/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
     private string $org;
     /**pre_receive_hook_id parameter**/
-    private int $pre_receive_hook_id;
+    private int $preReceiveHookId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb $hydrator, string $org, int $pre_receive_hook_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb $hydrator, string $org, int $preReceiveHookId)
     {
         $this->org = $org;
-        $this->pre_receive_hook_id = $pre_receive_hook_id;
+        $this->preReceiveHookId = $preReceiveHookId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{pre_receive_hook_id}'), array($this->org, $this->pre_receive_hook_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{pre_receive_hook_id}'), array($this->org, $this->preReceiveHookId), self::PATH));
     }
     /**
      * @return Schema\OrgPreReceiveHook

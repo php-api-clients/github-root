@@ -53,12 +53,12 @@ class Reactions implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'node_id';
-                goto after_node_id;
+                goto after_nodeId;
             }
 
-            $properties['node_id'] = $value;
+            $properties['nodeId'] = $value;
 
-            after_node_id:
+            after_nodeId:
 
             $value = $payload['user'] ?? null;
 
@@ -86,12 +86,12 @@ class Reactions implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'created_at';
-                goto after_created_at;
+                goto after_createdAt;
             }
 
-            $properties['created_at'] = $value;
+            $properties['createdAt'] = $value;
 
-            after_created_at:
+            after_createdAt:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Reaction', $exception, stack: $this->hydrationStack);
@@ -128,13 +128,13 @@ class Reactions implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['url'] ?? null;
 
@@ -194,12 +194,12 @@ class Reactions implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'documentation_url';
-                goto after_documentation_url;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['errors'] ?? null;
 
@@ -345,12 +345,12 @@ class Reactions implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'documentation_url';
-                goto after_documentation_url;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415', $exception, stack: $this->hydrationStack);
@@ -485,8 +485,8 @@ class Reactions implements ObjectMapper
         after_id:        $result['id'] = $id;
 
         
-        $node_id = $object->node_id;
-        after_node_id:        $result['node_id'] = $node_id;
+        $nodeId = $object->nodeId;
+        after_nodeId:        $result['node_id'] = $nodeId;
 
         
         $user = $object->user;
@@ -501,8 +501,8 @@ class Reactions implements ObjectMapper
         after_content:        $result['content'] = $content;
 
         
-        $created_at = $object->created_at;
-        after_created_at:        $result['created_at'] = $created_at;
+        $createdAt = $object->createdAt;
+        after_createdAt:        $result['created_at'] = $createdAt;
 
 
         return $result;
@@ -522,12 +522,12 @@ class Reactions implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $url = $object->url;
@@ -559,8 +559,8 @@ class Reactions implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        $documentationUrl = $object->documentationUrl;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $errors = $object->errors;
@@ -646,8 +646,8 @@ class Reactions implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        $documentationUrl = $object->documentationUrl;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
 
         return $result;

@@ -38,13 +38,13 @@ class CodeSecurityAndAnalysis implements ObjectMapper
             $value = $payload['dependabot_alerts_enabled_for_new_repositories'] ?? null;
 
             if ($value === null) {
-                $properties['dependabot_alerts_enabled_for_new_repositories'] = null;
-                goto after_dependabot_alerts_enabled_for_new_repositories;
+                $properties['dependabotAlertsEnabledForNewRepositories'] = null;
+                goto after_dependabotAlertsEnabledForNewRepositories;
             }
 
-            $properties['dependabot_alerts_enabled_for_new_repositories'] = $value;
+            $properties['dependabotAlertsEnabledForNewRepositories'] = $value;
 
-            after_dependabot_alerts_enabled_for_new_repositories:
+            after_dependabotAlertsEnabledForNewRepositories:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSecurityAnalysisSettings', $exception, stack: $this->hydrationStack);
@@ -81,13 +81,13 @@ class CodeSecurityAndAnalysis implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['url'] ?? null;
 
@@ -237,12 +237,12 @@ class CodeSecurityAndAnalysis implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSecurityAnalysisSettings);
         $result = [];
 
-        $dependabot_alerts_enabled_for_new_repositories = $object->dependabot_alerts_enabled_for_new_repositories;
+        $dependabotAlertsEnabledForNewRepositories = $object->dependabotAlertsEnabledForNewRepositories;
 
-        if ($dependabot_alerts_enabled_for_new_repositories === null) {
-            goto after_dependabot_alerts_enabled_for_new_repositories;
+        if ($dependabotAlertsEnabledForNewRepositories === null) {
+            goto after_dependabotAlertsEnabledForNewRepositories;
         }
-        after_dependabot_alerts_enabled_for_new_repositories:        $result['dependabot_alerts_enabled_for_new_repositories'] = $dependabot_alerts_enabled_for_new_repositories;
+        after_dependabotAlertsEnabledForNewRepositories:        $result['dependabot_alerts_enabled_for_new_repositories'] = $dependabotAlertsEnabledForNewRepositories;
 
 
         return $result;
@@ -262,12 +262,12 @@ class CodeSecurityAndAnalysis implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $url = $object->url;

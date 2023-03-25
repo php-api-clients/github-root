@@ -13,11 +13,11 @@ final readonly class GithubConnect
     public const SCHEMA_JSON = '{"type":"object","properties":{"features_enabled":{"type":"array","items":{"type":"string"}}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"features_enabled":["generated_features_enabled_null"]}';
+    public const SCHEMA_EXAMPLE_DATA = '{"featuresEnabled":["generated_features_enabled_null"]}';
     /**
-     * @param ?array<string> $features_enabled
+     * @param ?array<string> $featuresEnabled
      */
-    public function __construct(public ?array $features_enabled)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('features_enabled')] public ?array $featuresEnabled)
     {
     }
 }

@@ -13,8 +13,8 @@ final readonly class Ntp
     public const SCHEMA_JSON = '{"type":"object","properties":{"primary_server":{"type":"string"},"secondary_server":{"type":"string"}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"primary_server":"generated_primary_server_null","secondary_server":"generated_secondary_server_null"}';
-    public function __construct(public ?string $primary_server, public ?string $secondary_server)
+    public const SCHEMA_EXAMPLE_DATA = '{"primaryServer":"generated_primary_server_null","secondaryServer":"generated_secondary_server_null"}';
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('primary_server')] public ?string $primaryServer, #[\EventSauce\ObjectHydrator\MapFrom('secondary_server')] public ?string $secondaryServer)
     {
     }
 }

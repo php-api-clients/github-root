@@ -15,22 +15,22 @@ final class CreateDiscussionCommentLegacy
     private const METHOD = 'POST';
     private const PATH = '/teams/{team_id}/discussions/{discussion_number}/comments';
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator;
-    private int $team_id;
-    private int $discussion_number;
+    private int $teamId;
+    private int $discussionNumber;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments $hydrator, int $team_id, int $discussion_number)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments $hydrator, int $teamId, int $discussionNumber)
     {
         $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->team_id = $team_id;
-        $this->discussion_number = $discussion_number;
+        $this->teamId = $teamId;
+        $this->discussionNumber = $discussionNumber;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\Teams\CreateDiscussionCommentInOrg\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{team_id}', '{discussion_number}'), array($this->team_id, $this->discussion_number), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{team_id}', '{discussion_number}'), array($this->teamId, $this->discussionNumber), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     /**
      * @return Schema\TeamDiscussionComment

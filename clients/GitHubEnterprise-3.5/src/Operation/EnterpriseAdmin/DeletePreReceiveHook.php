@@ -15,14 +15,14 @@ final class DeletePreReceiveHook
     private const METHOD = 'DELETE';
     private const PATH = '/admin/pre-receive-hooks/{pre_receive_hook_id}';
     /**The unique identifier of the pre-receive hook.**/
-    private int $pre_receive_hook_id;
-    public function __construct(int $pre_receive_hook_id)
+    private int $preReceiveHookId;
+    public function __construct(int $preReceiveHookId)
     {
-        $this->pre_receive_hook_id = $pre_receive_hook_id;
+        $this->preReceiveHookId = $preReceiveHookId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{pre_receive_hook_id}'), array($this->pre_receive_hook_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{pre_receive_hook_id}'), array($this->preReceiveHookId), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

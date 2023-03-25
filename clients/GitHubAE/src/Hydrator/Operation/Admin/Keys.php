@@ -59,24 +59,24 @@ class Keys implements ObjectMapper
             $value = $payload['user_id'] ?? null;
 
             if ($value === null) {
-                $properties['user_id'] = null;
-                goto after_user_id;
+                $properties['userId'] = null;
+                goto after_userId;
             }
 
-            $properties['user_id'] = $value;
+            $properties['userId'] = $value;
 
-            after_user_id:
+            after_userId:
 
             $value = $payload['repository_id'] ?? null;
 
             if ($value === null) {
-                $properties['repository_id'] = null;
-                goto after_repository_id;
+                $properties['repositoryId'] = null;
+                goto after_repositoryId;
             }
 
-            $properties['repository_id'] = $value;
+            $properties['repositoryId'] = $value;
 
-            after_repository_id:
+            after_repositoryId:
 
             $value = $payload['url'] ?? null;
 
@@ -104,12 +104,12 @@ class Keys implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'read_only';
-                goto after_read_only;
+                goto after_readOnly;
             }
 
-            $properties['read_only'] = $value;
+            $properties['readOnly'] = $value;
 
-            after_read_only:
+            after_readOnly:
 
             $value = $payload['verified'] ?? null;
 
@@ -126,12 +126,12 @@ class Keys implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'created_at';
-                goto after_created_at;
+                goto after_createdAt;
             }
 
-            $properties['created_at'] = $value;
+            $properties['createdAt'] = $value;
 
-            after_created_at:
+            after_createdAt:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PublicKeyFull', $exception, stack: $this->hydrationStack);
@@ -266,20 +266,20 @@ class Keys implements ObjectMapper
         after_key:        $result['key'] = $key;
 
         
-        $user_id = $object->user_id;
+        $userId = $object->userId;
 
-        if ($user_id === null) {
-            goto after_user_id;
+        if ($userId === null) {
+            goto after_userId;
         }
-        after_user_id:        $result['user_id'] = $user_id;
+        after_userId:        $result['user_id'] = $userId;
 
         
-        $repository_id = $object->repository_id;
+        $repositoryId = $object->repositoryId;
 
-        if ($repository_id === null) {
-            goto after_repository_id;
+        if ($repositoryId === null) {
+            goto after_repositoryId;
         }
-        after_repository_id:        $result['repository_id'] = $repository_id;
+        after_repositoryId:        $result['repository_id'] = $repositoryId;
 
         
         $url = $object->url;
@@ -290,16 +290,16 @@ class Keys implements ObjectMapper
         after_title:        $result['title'] = $title;
 
         
-        $read_only = $object->read_only;
-        after_read_only:        $result['read_only'] = $read_only;
+        $readOnly = $object->readOnly;
+        after_readOnly:        $result['read_only'] = $readOnly;
 
         
         $verified = $object->verified;
         after_verified:        $result['verified'] = $verified;
 
         
-        $created_at = $object->created_at;
-        after_created_at:        $result['created_at'] = $created_at;
+        $createdAt = $object->createdAt;
+        after_createdAt:        $result['created_at'] = $createdAt;
 
 
         return $result;

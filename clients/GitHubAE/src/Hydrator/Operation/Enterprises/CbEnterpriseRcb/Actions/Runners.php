@@ -39,13 +39,13 @@ class Runners implements ObjectMapper
             $value = $payload['total_count'] ?? null;
 
             if ($value === null) {
-                $properties['total_count'] = null;
-                goto after_total_count;
+                $properties['totalCount'] = null;
+                goto after_totalCount;
             }
 
-            $properties['total_count'] = $value;
+            $properties['totalCount'] = $value;
 
-            after_total_count:
+            after_totalCount:
 
             $value = $payload['runners'] ?? null;
 
@@ -346,12 +346,12 @@ class Runners implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200);
         $result = [];
 
-        $total_count = $object->total_count;
+        $totalCount = $object->totalCount;
 
-        if ($total_count === null) {
-            goto after_total_count;
+        if ($totalCount === null) {
+            goto after_totalCount;
         }
-        after_total_count:        $result['total_count'] = $total_count;
+        after_totalCount:        $result['total_count'] = $totalCount;
 
         
         $runners = $object->runners;

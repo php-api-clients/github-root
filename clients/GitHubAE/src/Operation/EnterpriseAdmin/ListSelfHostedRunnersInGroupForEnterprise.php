@@ -17,25 +17,25 @@ final class ListSelfHostedRunnersInGroupForEnterprise
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
     private string $enterprise;
     /**Unique identifier of the self-hosted runner group.**/
-    private int $runner_group_id;
+    private int $runnerGroupId;
     /**The number of results per page (max 100).**/
-    private int $per_page;
+    private int $perPage;
     /**Page number of the results to fetch.**/
     private int $page;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners $hydrator, string $enterprise, int $runner_group_id, int $per_page = 30, int $page = 1)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners $hydrator, string $enterprise, int $runnerGroupId, int $perPage = 30, int $page = 1)
     {
         $this->enterprise = $enterprise;
-        $this->runner_group_id = $runner_group_id;
-        $this->per_page = $per_page;
+        $this->runnerGroupId = $runnerGroupId;
+        $this->perPage = $perPage;
         $this->page = $page;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{runner_group_id}', '{per_page}', '{page}'), array($this->enterprise, $this->runner_group_id, $this->per_page, $this->page), self::PATH . '?per_page={per_page}&page={page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{runner_group_id}', '{per_page}', '{page}'), array($this->enterprise, $this->runnerGroupId, $this->perPage, $this->page), self::PATH . '?perPage={per_page}&page={page}'));
     }
     /**
      * @return Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\Applicationjson\H200

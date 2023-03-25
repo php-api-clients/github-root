@@ -39,32 +39,32 @@ class Meta implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'verifiable_password_authentication';
-                goto after_verifiable_password_authentication;
+                goto after_verifiablePasswordAuthentication;
             }
 
-            $properties['verifiable_password_authentication'] = $value;
+            $properties['verifiablePasswordAuthentication'] = $value;
 
-            after_verifiable_password_authentication:
+            after_verifiablePasswordAuthentication:
 
             $value = $payload['ssh_key_fingerprints'] ?? null;
 
             if ($value === null) {
-                $properties['ssh_key_fingerprints'] = null;
-                goto after_ssh_key_fingerprints;
+                $properties['sshKeyFingerprints'] = null;
+                goto after_sshKeyFingerprints;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'ssh_key_fingerprints';
+                    $this->hydrationStack[] = 'sshKeyFingerprints';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ApiOverview⚡️SshKeyFingerprints($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['ssh_key_fingerprints'] = $value;
+            $properties['sshKeyFingerprints'] = $value;
 
-            after_ssh_key_fingerprints:
+            after_sshKeyFingerprints:
 
             $value = $payload['hooks'] ?? null;
 
@@ -186,49 +186,49 @@ class Meta implements ObjectMapper
         $properties = []; 
         $missingFields = [];
         try {
-            $value = $payload['s_h_a256__r_s_a'] ?? null;
+            $value = $payload['SHA256_RSA'] ?? null;
 
             if ($value === null) {
-                $properties['SHA256_RSA'] = null;
-                goto after_SHA256_RSA;
+                $properties['sha256Rsa'] = null;
+                goto after_sha256Rsa;
             }
 
-            $properties['SHA256_RSA'] = $value;
+            $properties['sha256Rsa'] = $value;
 
-            after_SHA256_RSA:
+            after_sha256Rsa:
 
-            $value = $payload['s_h_a256__d_s_a'] ?? null;
+            $value = $payload['SHA256_DSA'] ?? null;
 
             if ($value === null) {
-                $properties['SHA256_DSA'] = null;
-                goto after_SHA256_DSA;
+                $properties['sha256Dsa'] = null;
+                goto after_sha256Dsa;
             }
 
-            $properties['SHA256_DSA'] = $value;
+            $properties['sha256Dsa'] = $value;
 
-            after_SHA256_DSA:
+            after_sha256Dsa:
 
-            $value = $payload['s_h_a256__e_c_d_s_a'] ?? null;
+            $value = $payload['SHA256_ECDSA'] ?? null;
 
             if ($value === null) {
-                $properties['SHA256_ECDSA'] = null;
-                goto after_SHA256_ECDSA;
+                $properties['sha256Ecdsa'] = null;
+                goto after_sha256Ecdsa;
             }
 
-            $properties['SHA256_ECDSA'] = $value;
+            $properties['sha256Ecdsa'] = $value;
 
-            after_SHA256_ECDSA:
+            after_sha256Ecdsa:
 
-            $value = $payload['s_h_a256__e_d25519'] ?? null;
+            $value = $payload['SHA256_ED25519'] ?? null;
 
             if ($value === null) {
-                $properties['SHA256_ED25519'] = null;
-                goto after_SHA256_ED25519;
+                $properties['sha256Ed25519'] = null;
+                goto after_sha256Ed25519;
             }
 
-            $properties['SHA256_ED25519'] = $value;
+            $properties['sha256Ed25519'] = $value;
 
-            after_SHA256_ED25519:
+            after_sha256Ed25519:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ApiOverview\SshKeyFingerprints', $exception, stack: $this->hydrationStack);
@@ -356,17 +356,17 @@ class Meta implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ApiOverview);
         $result = [];
 
-        $verifiable_password_authentication = $object->verifiable_password_authentication;
-        after_verifiable_password_authentication:        $result['verifiable_password_authentication'] = $verifiable_password_authentication;
+        $verifiablePasswordAuthentication = $object->verifiablePasswordAuthentication;
+        after_verifiablePasswordAuthentication:        $result['verifiable_password_authentication'] = $verifiablePasswordAuthentication;
 
         
-        $ssh_key_fingerprints = $object->ssh_key_fingerprints;
+        $sshKeyFingerprints = $object->sshKeyFingerprints;
 
-        if ($ssh_key_fingerprints === null) {
-            goto after_ssh_key_fingerprints;
+        if ($sshKeyFingerprints === null) {
+            goto after_sshKeyFingerprints;
         }
-        $ssh_key_fingerprints = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ApiOverview⚡️SshKeyFingerprints($ssh_key_fingerprints);
-        after_ssh_key_fingerprints:        $result['ssh_key_fingerprints'] = $ssh_key_fingerprints;
+        $sshKeyFingerprints = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ApiOverview⚡️SshKeyFingerprints($sshKeyFingerprints);
+        after_sshKeyFingerprints:        $result['ssh_key_fingerprints'] = $sshKeyFingerprints;
 
         
         $hooks = $object->hooks;
@@ -522,36 +522,36 @@ class Meta implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ApiOverview\SshKeyFingerprints);
         $result = [];
 
-        $SHA256_RSA = $object->SHA256_RSA;
+        $sha256Rsa = $object->sha256Rsa;
 
-        if ($SHA256_RSA === null) {
-            goto after_SHA256_RSA;
+        if ($sha256Rsa === null) {
+            goto after_sha256Rsa;
         }
-        after_SHA256_RSA:        $result['s_h_a256__r_s_a'] = $SHA256_RSA;
+        after_sha256Rsa:        $result['SHA256_RSA'] = $sha256Rsa;
 
         
-        $SHA256_DSA = $object->SHA256_DSA;
+        $sha256Dsa = $object->sha256Dsa;
 
-        if ($SHA256_DSA === null) {
-            goto after_SHA256_DSA;
+        if ($sha256Dsa === null) {
+            goto after_sha256Dsa;
         }
-        after_SHA256_DSA:        $result['s_h_a256__d_s_a'] = $SHA256_DSA;
+        after_sha256Dsa:        $result['SHA256_DSA'] = $sha256Dsa;
 
         
-        $SHA256_ECDSA = $object->SHA256_ECDSA;
+        $sha256Ecdsa = $object->sha256Ecdsa;
 
-        if ($SHA256_ECDSA === null) {
-            goto after_SHA256_ECDSA;
+        if ($sha256Ecdsa === null) {
+            goto after_sha256Ecdsa;
         }
-        after_SHA256_ECDSA:        $result['s_h_a256__e_c_d_s_a'] = $SHA256_ECDSA;
+        after_sha256Ecdsa:        $result['SHA256_ECDSA'] = $sha256Ecdsa;
 
         
-        $SHA256_ED25519 = $object->SHA256_ED25519;
+        $sha256Ed25519 = $object->sha256Ed25519;
 
-        if ($SHA256_ED25519 === null) {
-            goto after_SHA256_ED25519;
+        if ($sha256Ed25519 === null) {
+            goto after_sha256Ed25519;
         }
-        after_SHA256_ED25519:        $result['s_h_a256__e_d25519'] = $SHA256_ED25519;
+        after_sha256Ed25519:        $result['SHA256_ED25519'] = $sha256Ed25519;
 
 
         return $result;

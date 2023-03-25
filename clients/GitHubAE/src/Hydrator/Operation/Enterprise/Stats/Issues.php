@@ -38,34 +38,34 @@ class Issues implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_issues';
-                goto after_total_issues;
+                goto after_totalIssues;
             }
 
-            $properties['total_issues'] = $value;
+            $properties['totalIssues'] = $value;
 
-            after_total_issues:
+            after_totalIssues:
 
             $value = $payload['open_issues'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'open_issues';
-                goto after_open_issues;
+                goto after_openIssues;
             }
 
-            $properties['open_issues'] = $value;
+            $properties['openIssues'] = $value;
 
-            after_open_issues:
+            after_openIssues:
 
             $value = $payload['closed_issues'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'closed_issues';
-                goto after_closed_issues;
+                goto after_closedIssues;
             }
 
-            $properties['closed_issues'] = $value;
+            $properties['closedIssues'] = $value;
 
-            after_closed_issues:
+            after_closedIssues:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview', $exception, stack: $this->hydrationStack);
@@ -192,16 +192,16 @@ class Issues implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview);
         $result = [];
 
-        $total_issues = $object->total_issues;
-        after_total_issues:        $result['total_issues'] = $total_issues;
+        $totalIssues = $object->totalIssues;
+        after_totalIssues:        $result['total_issues'] = $totalIssues;
 
         
-        $open_issues = $object->open_issues;
-        after_open_issues:        $result['open_issues'] = $open_issues;
+        $openIssues = $object->openIssues;
+        after_openIssues:        $result['open_issues'] = $openIssues;
 
         
-        $closed_issues = $object->closed_issues;
-        after_closed_issues:        $result['closed_issues'] = $closed_issues;
+        $closedIssues = $object->closedIssues;
+        after_closedIssues:        $result['closed_issues'] = $closedIssues;
 
 
         return $result;

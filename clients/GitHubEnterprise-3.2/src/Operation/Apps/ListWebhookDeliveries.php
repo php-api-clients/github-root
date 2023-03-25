@@ -17,19 +17,19 @@ final class ListWebhookDeliveries
     /**Used for pagination: the starting delivery from which the page of deliveries is fetched. Refer to the `link` header for the next and previous page cursors.**/
     private string $cursor;
     /**The number of results per page (max 100).**/
-    private int $per_page;
+    private int $perPage;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\App\Hook\Deliveries $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\App\Hook\Deliveries $hydrator, string $cursor, int $per_page = 30)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\App\Hook\Deliveries $hydrator, string $cursor, int $perPage = 30)
     {
         $this->cursor = $cursor;
-        $this->per_page = $per_page;
+        $this->perPage = $perPage;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{cursor}', '{per_page}'), array($this->cursor, $this->per_page), self::PATH . '?cursor={cursor}&per_page={per_page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{cursor}', '{per_page}'), array($this->cursor, $this->perPage), self::PATH . '?cursor={cursor}&perPage={per_page}'));
     }
     /**
      * @return \Rx\Observable<Schema\HookDeliveryItem>

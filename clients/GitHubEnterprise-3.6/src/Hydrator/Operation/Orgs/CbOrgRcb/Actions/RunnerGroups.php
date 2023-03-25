@@ -39,33 +39,33 @@ class RunnerGroups implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_count';
-                goto after_total_count;
+                goto after_totalCount;
             }
 
-            $properties['total_count'] = $value;
+            $properties['totalCount'] = $value;
 
-            after_total_count:
+            after_totalCount:
 
             $value = $payload['runner_groups'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'runner_groups';
-                goto after_runner_groups;
+                goto after_runnerGroups;
             }
 
-            static $runner_groupsCaster1;
+            static $runnerGroupsCaster1;
 
-            if ($runner_groupsCaster1 === null) {
-                $runner_groupsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($runnerGroupsCaster1 === null) {
+                $runnerGroupsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RunnerGroupsOrg',
 ));
             }
 
-            $value = $runner_groupsCaster1->cast($value, $this);
+            $value = $runnerGroupsCaster1->cast($value, $this);
 
-            $properties['runner_groups'] = $value;
+            $properties['runnerGroups'] = $value;
 
-            after_runner_groups:
+            after_runnerGroups:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelfHostedRunnerGroupsForOrg\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
@@ -135,24 +135,24 @@ class RunnerGroups implements ObjectMapper
             $value = $payload['selected_repositories_url'] ?? null;
 
             if ($value === null) {
-                $properties['selected_repositories_url'] = null;
-                goto after_selected_repositories_url;
+                $properties['selectedRepositoriesUrl'] = null;
+                goto after_selectedRepositoriesUrl;
             }
 
-            $properties['selected_repositories_url'] = $value;
+            $properties['selectedRepositoriesUrl'] = $value;
 
-            after_selected_repositories_url:
+            after_selectedRepositoriesUrl:
 
             $value = $payload['runners_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'runners_url';
-                goto after_runners_url;
+                goto after_runnersUrl;
             }
 
-            $properties['runners_url'] = $value;
+            $properties['runnersUrl'] = $value;
 
-            after_runners_url:
+            after_runnersUrl:
 
             $value = $payload['inherited'] ?? null;
 
@@ -168,57 +168,57 @@ class RunnerGroups implements ObjectMapper
             $value = $payload['inherited_allows_public_repositories'] ?? null;
 
             if ($value === null) {
-                $properties['inherited_allows_public_repositories'] = null;
-                goto after_inherited_allows_public_repositories;
+                $properties['inheritedAllowsPublicRepositories'] = null;
+                goto after_inheritedAllowsPublicRepositories;
             }
 
-            $properties['inherited_allows_public_repositories'] = $value;
+            $properties['inheritedAllowsPublicRepositories'] = $value;
 
-            after_inherited_allows_public_repositories:
+            after_inheritedAllowsPublicRepositories:
 
             $value = $payload['allows_public_repositories'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'allows_public_repositories';
-                goto after_allows_public_repositories;
+                goto after_allowsPublicRepositories;
             }
 
-            $properties['allows_public_repositories'] = $value;
+            $properties['allowsPublicRepositories'] = $value;
 
-            after_allows_public_repositories:
+            after_allowsPublicRepositories:
 
             $value = $payload['workflow_restrictions_read_only'] ?? null;
 
             if ($value === null) {
-                $properties['workflow_restrictions_read_only'] = null;
-                goto after_workflow_restrictions_read_only;
+                $properties['workflowRestrictionsReadOnly'] = null;
+                goto after_workflowRestrictionsReadOnly;
             }
 
-            $properties['workflow_restrictions_read_only'] = $value;
+            $properties['workflowRestrictionsReadOnly'] = $value;
 
-            after_workflow_restrictions_read_only:
+            after_workflowRestrictionsReadOnly:
 
             $value = $payload['restricted_to_workflows'] ?? null;
 
             if ($value === null) {
-                $properties['restricted_to_workflows'] = null;
-                goto after_restricted_to_workflows;
+                $properties['restrictedToWorkflows'] = null;
+                goto after_restrictedToWorkflows;
             }
 
-            $properties['restricted_to_workflows'] = $value;
+            $properties['restrictedToWorkflows'] = $value;
 
-            after_restricted_to_workflows:
+            after_restrictedToWorkflows:
 
             $value = $payload['selected_workflows'] ?? null;
 
             if ($value === null) {
-                $properties['selected_workflows'] = null;
-                goto after_selected_workflows;
+                $properties['selectedWorkflows'] = null;
+                goto after_selectedWorkflows;
             }
 
-            $properties['selected_workflows'] = $value;
+            $properties['selectedWorkflows'] = $value;
 
-            after_selected_workflows:
+            after_selectedWorkflows:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsOrg', $exception, stack: $this->hydrationStack);
@@ -346,21 +346,21 @@ class RunnerGroups implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelfHostedRunnerGroupsForOrg\Response\Applicationjson\H200);
         $result = [];
 
-        $total_count = $object->total_count;
-        after_total_count:        $result['total_count'] = $total_count;
+        $totalCount = $object->totalCount;
+        after_totalCount:        $result['total_count'] = $totalCount;
 
         
-        $runner_groups = $object->runner_groups;
-        static $runner_groupsSerializer0;
+        $runnerGroups = $object->runnerGroups;
+        static $runnerGroupsSerializer0;
 
-        if ($runner_groupsSerializer0 === null) {
-            $runner_groupsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+        if ($runnerGroupsSerializer0 === null) {
+            $runnerGroupsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\RunnerGroupsOrg',
 ));
         }
         
-        $runner_groups = $runner_groupsSerializer0->serialize($runner_groups, $this);
-        after_runner_groups:        $result['runner_groups'] = $runner_groups;
+        $runnerGroups = $runnerGroupsSerializer0->serialize($runnerGroups, $this);
+        after_runnerGroups:        $result['runner_groups'] = $runnerGroups;
 
 
         return $result;
@@ -388,64 +388,64 @@ class RunnerGroups implements ObjectMapper
         after_default:        $result['default'] = $default;
 
         
-        $selected_repositories_url = $object->selected_repositories_url;
+        $selectedRepositoriesUrl = $object->selectedRepositoriesUrl;
 
-        if ($selected_repositories_url === null) {
-            goto after_selected_repositories_url;
+        if ($selectedRepositoriesUrl === null) {
+            goto after_selectedRepositoriesUrl;
         }
-        after_selected_repositories_url:        $result['selected_repositories_url'] = $selected_repositories_url;
+        after_selectedRepositoriesUrl:        $result['selected_repositories_url'] = $selectedRepositoriesUrl;
 
         
-        $runners_url = $object->runners_url;
-        after_runners_url:        $result['runners_url'] = $runners_url;
+        $runnersUrl = $object->runnersUrl;
+        after_runnersUrl:        $result['runners_url'] = $runnersUrl;
 
         
         $inherited = $object->inherited;
         after_inherited:        $result['inherited'] = $inherited;
 
         
-        $inherited_allows_public_repositories = $object->inherited_allows_public_repositories;
+        $inheritedAllowsPublicRepositories = $object->inheritedAllowsPublicRepositories;
 
-        if ($inherited_allows_public_repositories === null) {
-            goto after_inherited_allows_public_repositories;
+        if ($inheritedAllowsPublicRepositories === null) {
+            goto after_inheritedAllowsPublicRepositories;
         }
-        after_inherited_allows_public_repositories:        $result['inherited_allows_public_repositories'] = $inherited_allows_public_repositories;
+        after_inheritedAllowsPublicRepositories:        $result['inherited_allows_public_repositories'] = $inheritedAllowsPublicRepositories;
 
         
-        $allows_public_repositories = $object->allows_public_repositories;
-        after_allows_public_repositories:        $result['allows_public_repositories'] = $allows_public_repositories;
+        $allowsPublicRepositories = $object->allowsPublicRepositories;
+        after_allowsPublicRepositories:        $result['allows_public_repositories'] = $allowsPublicRepositories;
 
         
-        $workflow_restrictions_read_only = $object->workflow_restrictions_read_only;
+        $workflowRestrictionsReadOnly = $object->workflowRestrictionsReadOnly;
 
-        if ($workflow_restrictions_read_only === null) {
-            goto after_workflow_restrictions_read_only;
+        if ($workflowRestrictionsReadOnly === null) {
+            goto after_workflowRestrictionsReadOnly;
         }
-        after_workflow_restrictions_read_only:        $result['workflow_restrictions_read_only'] = $workflow_restrictions_read_only;
+        after_workflowRestrictionsReadOnly:        $result['workflow_restrictions_read_only'] = $workflowRestrictionsReadOnly;
 
         
-        $restricted_to_workflows = $object->restricted_to_workflows;
+        $restrictedToWorkflows = $object->restrictedToWorkflows;
 
-        if ($restricted_to_workflows === null) {
-            goto after_restricted_to_workflows;
+        if ($restrictedToWorkflows === null) {
+            goto after_restrictedToWorkflows;
         }
-        after_restricted_to_workflows:        $result['restricted_to_workflows'] = $restricted_to_workflows;
+        after_restrictedToWorkflows:        $result['restricted_to_workflows'] = $restrictedToWorkflows;
 
         
-        $selected_workflows = $object->selected_workflows;
+        $selectedWorkflows = $object->selectedWorkflows;
 
-        if ($selected_workflows === null) {
-            goto after_selected_workflows;
+        if ($selectedWorkflows === null) {
+            goto after_selectedWorkflows;
         }
-        static $selected_workflowsSerializer0;
+        static $selectedWorkflowsSerializer0;
 
-        if ($selected_workflowsSerializer0 === null) {
-            $selected_workflowsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+        if ($selectedWorkflowsSerializer0 === null) {
+            $selectedWorkflowsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
-        $selected_workflows = $selected_workflowsSerializer0->serialize($selected_workflows, $this);
-        after_selected_workflows:        $result['selected_workflows'] = $selected_workflows;
+        $selectedWorkflows = $selectedWorkflowsSerializer0->serialize($selectedWorkflows, $this);
+        after_selectedWorkflows:        $result['selected_workflows'] = $selectedWorkflows;
 
 
         return $result;

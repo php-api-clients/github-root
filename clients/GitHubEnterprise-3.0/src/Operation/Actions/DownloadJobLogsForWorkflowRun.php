@@ -17,16 +17,16 @@ final class DownloadJobLogsForWorkflowRun
     private string $owner;
     private string $repo;
     /**job_id parameter**/
-    private int $job_id;
-    public function __construct(string $owner, string $repo, int $job_id)
+    private int $jobId;
+    public function __construct(string $owner, string $repo, int $jobId)
     {
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->job_id = $job_id;
+        $this->jobId = $jobId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{job_id}'), array($this->owner, $this->repo, $this->job_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{job_id}'), array($this->owner, $this->repo, $this->jobId), self::PATH));
     }
     /**
      * @return array{code: int,location: string}

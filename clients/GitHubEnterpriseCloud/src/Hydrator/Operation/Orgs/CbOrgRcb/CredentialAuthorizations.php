@@ -49,45 +49,45 @@ class CredentialAuthorizations implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'credential_id';
-                goto after_credential_id;
+                goto after_credentialId;
             }
 
-            $properties['credential_id'] = $value;
+            $properties['credentialId'] = $value;
 
-            after_credential_id:
+            after_credentialId:
 
             $value = $payload['credential_type'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'credential_type';
-                goto after_credential_type;
+                goto after_credentialType;
             }
 
-            $properties['credential_type'] = $value;
+            $properties['credentialType'] = $value;
 
-            after_credential_type:
+            after_credentialType:
 
             $value = $payload['token_last_eight'] ?? null;
 
             if ($value === null) {
-                $properties['token_last_eight'] = null;
-                goto after_token_last_eight;
+                $properties['tokenLastEight'] = null;
+                goto after_tokenLastEight;
             }
 
-            $properties['token_last_eight'] = $value;
+            $properties['tokenLastEight'] = $value;
 
-            after_token_last_eight:
+            after_tokenLastEight:
 
             $value = $payload['credential_authorized_at'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'credential_authorized_at';
-                goto after_credential_authorized_at;
+                goto after_credentialAuthorizedAt;
             }
 
-            $properties['credential_authorized_at'] = $value;
+            $properties['credentialAuthorizedAt'] = $value;
 
-            after_credential_authorized_at:
+            after_credentialAuthorizedAt:
 
             $value = $payload['scopes'] ?? null;
 
@@ -114,57 +114,57 @@ class CredentialAuthorizations implements ObjectMapper
             $value = $payload['credential_accessed_at'] ?? null;
 
             if ($value === null) {
-                $properties['credential_accessed_at'] = null;
-                goto after_credential_accessed_at;
+                $properties['credentialAccessedAt'] = null;
+                goto after_credentialAccessedAt;
             }
 
-            $properties['credential_accessed_at'] = $value;
+            $properties['credentialAccessedAt'] = $value;
 
-            after_credential_accessed_at:
+            after_credentialAccessedAt:
 
             $value = $payload['authorized_credential_id'] ?? null;
 
             if ($value === null) {
-                $properties['authorized_credential_id'] = null;
-                goto after_authorized_credential_id;
+                $properties['authorizedCredentialId'] = null;
+                goto after_authorizedCredentialId;
             }
 
-            $properties['authorized_credential_id'] = $value;
+            $properties['authorizedCredentialId'] = $value;
 
-            after_authorized_credential_id:
+            after_authorizedCredentialId:
 
             $value = $payload['authorized_credential_title'] ?? null;
 
             if ($value === null) {
-                $properties['authorized_credential_title'] = null;
-                goto after_authorized_credential_title;
+                $properties['authorizedCredentialTitle'] = null;
+                goto after_authorizedCredentialTitle;
             }
 
-            $properties['authorized_credential_title'] = $value;
+            $properties['authorizedCredentialTitle'] = $value;
 
-            after_authorized_credential_title:
+            after_authorizedCredentialTitle:
 
             $value = $payload['authorized_credential_note'] ?? null;
 
             if ($value === null) {
-                $properties['authorized_credential_note'] = null;
-                goto after_authorized_credential_note;
+                $properties['authorizedCredentialNote'] = null;
+                goto after_authorizedCredentialNote;
             }
 
-            $properties['authorized_credential_note'] = $value;
+            $properties['authorizedCredentialNote'] = $value;
 
-            after_authorized_credential_note:
+            after_authorizedCredentialNote:
 
             $value = $payload['authorized_credential_expires_at'] ?? null;
 
             if ($value === null) {
-                $properties['authorized_credential_expires_at'] = null;
-                goto after_authorized_credential_expires_at;
+                $properties['authorizedCredentialExpiresAt'] = null;
+                goto after_authorizedCredentialExpiresAt;
             }
 
-            $properties['authorized_credential_expires_at'] = $value;
+            $properties['authorizedCredentialExpiresAt'] = $value;
 
-            after_authorized_credential_expires_at:
+            after_authorizedCredentialExpiresAt:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization', $exception, stack: $this->hydrationStack);
@@ -295,24 +295,24 @@ class CredentialAuthorizations implements ObjectMapper
         after_login:        $result['login'] = $login;
 
         
-        $credential_id = $object->credential_id;
-        after_credential_id:        $result['credential_id'] = $credential_id;
+        $credentialId = $object->credentialId;
+        after_credentialId:        $result['credential_id'] = $credentialId;
 
         
-        $credential_type = $object->credential_type;
-        after_credential_type:        $result['credential_type'] = $credential_type;
+        $credentialType = $object->credentialType;
+        after_credentialType:        $result['credential_type'] = $credentialType;
 
         
-        $token_last_eight = $object->token_last_eight;
+        $tokenLastEight = $object->tokenLastEight;
 
-        if ($token_last_eight === null) {
-            goto after_token_last_eight;
+        if ($tokenLastEight === null) {
+            goto after_tokenLastEight;
         }
-        after_token_last_eight:        $result['token_last_eight'] = $token_last_eight;
+        after_tokenLastEight:        $result['token_last_eight'] = $tokenLastEight;
 
         
-        $credential_authorized_at = $object->credential_authorized_at;
-        after_credential_authorized_at:        $result['credential_authorized_at'] = $credential_authorized_at;
+        $credentialAuthorizedAt = $object->credentialAuthorizedAt;
+        after_credentialAuthorizedAt:        $result['credential_authorized_at'] = $credentialAuthorizedAt;
 
         
         $scopes = $object->scopes;
@@ -339,44 +339,44 @@ class CredentialAuthorizations implements ObjectMapper
         after_fingerprint:        $result['fingerprint'] = $fingerprint;
 
         
-        $credential_accessed_at = $object->credential_accessed_at;
+        $credentialAccessedAt = $object->credentialAccessedAt;
 
-        if ($credential_accessed_at === null) {
-            goto after_credential_accessed_at;
+        if ($credentialAccessedAt === null) {
+            goto after_credentialAccessedAt;
         }
-        after_credential_accessed_at:        $result['credential_accessed_at'] = $credential_accessed_at;
+        after_credentialAccessedAt:        $result['credential_accessed_at'] = $credentialAccessedAt;
 
         
-        $authorized_credential_id = $object->authorized_credential_id;
+        $authorizedCredentialId = $object->authorizedCredentialId;
 
-        if ($authorized_credential_id === null) {
-            goto after_authorized_credential_id;
+        if ($authorizedCredentialId === null) {
+            goto after_authorizedCredentialId;
         }
-        after_authorized_credential_id:        $result['authorized_credential_id'] = $authorized_credential_id;
+        after_authorizedCredentialId:        $result['authorized_credential_id'] = $authorizedCredentialId;
 
         
-        $authorized_credential_title = $object->authorized_credential_title;
+        $authorizedCredentialTitle = $object->authorizedCredentialTitle;
 
-        if ($authorized_credential_title === null) {
-            goto after_authorized_credential_title;
+        if ($authorizedCredentialTitle === null) {
+            goto after_authorizedCredentialTitle;
         }
-        after_authorized_credential_title:        $result['authorized_credential_title'] = $authorized_credential_title;
+        after_authorizedCredentialTitle:        $result['authorized_credential_title'] = $authorizedCredentialTitle;
 
         
-        $authorized_credential_note = $object->authorized_credential_note;
+        $authorizedCredentialNote = $object->authorizedCredentialNote;
 
-        if ($authorized_credential_note === null) {
-            goto after_authorized_credential_note;
+        if ($authorizedCredentialNote === null) {
+            goto after_authorizedCredentialNote;
         }
-        after_authorized_credential_note:        $result['authorized_credential_note'] = $authorized_credential_note;
+        after_authorizedCredentialNote:        $result['authorized_credential_note'] = $authorizedCredentialNote;
 
         
-        $authorized_credential_expires_at = $object->authorized_credential_expires_at;
+        $authorizedCredentialExpiresAt = $object->authorizedCredentialExpiresAt;
 
-        if ($authorized_credential_expires_at === null) {
-            goto after_authorized_credential_expires_at;
+        if ($authorizedCredentialExpiresAt === null) {
+            goto after_authorizedCredentialExpiresAt;
         }
-        after_authorized_credential_expires_at:        $result['authorized_credential_expires_at'] = $authorized_credential_expires_at;
+        after_authorizedCredentialExpiresAt:        $result['authorized_credential_expires_at'] = $authorizedCredentialExpiresAt;
 
 
         return $result;

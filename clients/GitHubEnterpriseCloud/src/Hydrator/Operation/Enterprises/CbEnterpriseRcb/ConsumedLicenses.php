@@ -38,24 +38,24 @@ class ConsumedLicenses implements ObjectMapper
             $value = $payload['total_seats_consumed'] ?? null;
 
             if ($value === null) {
-                $properties['total_seats_consumed'] = null;
-                goto after_total_seats_consumed;
+                $properties['totalSeatsConsumed'] = null;
+                goto after_totalSeatsConsumed;
             }
 
-            $properties['total_seats_consumed'] = $value;
+            $properties['totalSeatsConsumed'] = $value;
 
-            after_total_seats_consumed:
+            after_totalSeatsConsumed:
 
             $value = $payload['total_seats_purchased'] ?? null;
 
             if ($value === null) {
-                $properties['total_seats_purchased'] = null;
-                goto after_total_seats_purchased;
+                $properties['totalSeatsPurchased'] = null;
+                goto after_totalSeatsPurchased;
             }
 
-            $properties['total_seats_purchased'] = $value;
+            $properties['totalSeatsPurchased'] = $value;
 
-            after_total_seats_purchased:
+            after_totalSeatsPurchased:
 
             $value = $payload['users'] ?? null;
 
@@ -102,200 +102,200 @@ class ConsumedLicenses implements ObjectMapper
             $value = $payload['github_com_login'] ?? null;
 
             if ($value === null) {
-                $properties['github_com_login'] = null;
-                goto after_github_com_login;
+                $properties['githubComLogin'] = null;
+                goto after_githubComLogin;
             }
 
-            $properties['github_com_login'] = $value;
+            $properties['githubComLogin'] = $value;
 
-            after_github_com_login:
+            after_githubComLogin:
 
             $value = $payload['github_com_name'] ?? null;
 
             if ($value === null) {
-                $properties['github_com_name'] = null;
-                goto after_github_com_name;
+                $properties['githubComName'] = null;
+                goto after_githubComName;
             }
 
-            $properties['github_com_name'] = $value;
+            $properties['githubComName'] = $value;
 
-            after_github_com_name:
+            after_githubComName:
 
             $value = $payload['enterprise_server_user_ids'] ?? null;
 
             if ($value === null) {
-                $properties['enterprise_server_user_ids'] = null;
-                goto after_enterprise_server_user_ids;
+                $properties['enterpriseServerUserIds'] = null;
+                goto after_enterpriseServerUserIds;
             }
 
-            $properties['enterprise_server_user_ids'] = $value;
+            $properties['enterpriseServerUserIds'] = $value;
 
-            after_enterprise_server_user_ids:
+            after_enterpriseServerUserIds:
 
             $value = $payload['github_com_user'] ?? null;
 
             if ($value === null) {
-                $properties['github_com_user'] = null;
-                goto after_github_com_user;
+                $properties['githubComUser'] = null;
+                goto after_githubComUser;
             }
 
-            $properties['github_com_user'] = $value;
+            $properties['githubComUser'] = $value;
 
-            after_github_com_user:
+            after_githubComUser:
 
             $value = $payload['enterprise_server_user'] ?? null;
 
             if ($value === null) {
-                $properties['enterprise_server_user'] = null;
-                goto after_enterprise_server_user;
+                $properties['enterpriseServerUser'] = null;
+                goto after_enterpriseServerUser;
             }
 
-            $properties['enterprise_server_user'] = $value;
+            $properties['enterpriseServerUser'] = $value;
 
-            after_enterprise_server_user:
+            after_enterpriseServerUser:
 
             $value = $payload['visual_studio_subscription_user'] ?? null;
 
             if ($value === null) {
-                $properties['visual_studio_subscription_user'] = null;
-                goto after_visual_studio_subscription_user;
+                $properties['visualStudioSubscriptionUser'] = null;
+                goto after_visualStudioSubscriptionUser;
             }
 
-            $properties['visual_studio_subscription_user'] = $value;
+            $properties['visualStudioSubscriptionUser'] = $value;
 
-            after_visual_studio_subscription_user:
+            after_visualStudioSubscriptionUser:
 
             $value = $payload['license_type'] ?? null;
 
             if ($value === null) {
-                $properties['license_type'] = null;
-                goto after_license_type;
+                $properties['licenseType'] = null;
+                goto after_licenseType;
             }
 
-            $properties['license_type'] = $value;
+            $properties['licenseType'] = $value;
 
-            after_license_type:
+            after_licenseType:
 
             $value = $payload['github_com_profile'] ?? null;
 
             if ($value === null) {
-                $properties['github_com_profile'] = null;
-                goto after_github_com_profile;
+                $properties['githubComProfile'] = null;
+                goto after_githubComProfile;
             }
 
-            $properties['github_com_profile'] = $value;
+            $properties['githubComProfile'] = $value;
 
-            after_github_com_profile:
+            after_githubComProfile:
 
             $value = $payload['github_com_member_roles'] ?? null;
 
             if ($value === null) {
-                $properties['github_com_member_roles'] = null;
-                goto after_github_com_member_roles;
+                $properties['githubComMemberRoles'] = null;
+                goto after_githubComMemberRoles;
             }
 
-            $properties['github_com_member_roles'] = $value;
+            $properties['githubComMemberRoles'] = $value;
 
-            after_github_com_member_roles:
+            after_githubComMemberRoles:
 
             $value = $payload['github_com_enterprise_roles'] ?? null;
 
             if ($value === null) {
-                $properties['github_com_enterprise_roles'] = null;
-                goto after_github_com_enterprise_roles;
+                $properties['githubComEnterpriseRoles'] = null;
+                goto after_githubComEnterpriseRoles;
             }
 
-            $properties['github_com_enterprise_roles'] = $value;
+            $properties['githubComEnterpriseRoles'] = $value;
 
-            after_github_com_enterprise_roles:
+            after_githubComEnterpriseRoles:
 
             $value = $payload['github_com_verified_domain_emails'] ?? null;
 
             if ($value === null) {
-                $properties['github_com_verified_domain_emails'] = null;
-                goto after_github_com_verified_domain_emails;
+                $properties['githubComVerifiedDomainEmails'] = null;
+                goto after_githubComVerifiedDomainEmails;
             }
 
-            $properties['github_com_verified_domain_emails'] = $value;
+            $properties['githubComVerifiedDomainEmails'] = $value;
 
-            after_github_com_verified_domain_emails:
+            after_githubComVerifiedDomainEmails:
 
             $value = $payload['github_com_saml_name_id'] ?? null;
 
             if ($value === null) {
-                $properties['github_com_saml_name_id'] = null;
-                goto after_github_com_saml_name_id;
+                $properties['githubComSamlNameId'] = null;
+                goto after_githubComSamlNameId;
             }
 
-            $properties['github_com_saml_name_id'] = $value;
+            $properties['githubComSamlNameId'] = $value;
 
-            after_github_com_saml_name_id:
+            after_githubComSamlNameId:
 
             $value = $payload['github_com_orgs_with_pending_invites'] ?? null;
 
             if ($value === null) {
-                $properties['github_com_orgs_with_pending_invites'] = null;
-                goto after_github_com_orgs_with_pending_invites;
+                $properties['githubComOrgsWithPendingInvites'] = null;
+                goto after_githubComOrgsWithPendingInvites;
             }
 
-            $properties['github_com_orgs_with_pending_invites'] = $value;
+            $properties['githubComOrgsWithPendingInvites'] = $value;
 
-            after_github_com_orgs_with_pending_invites:
+            after_githubComOrgsWithPendingInvites:
 
             $value = $payload['github_com_two_factor_auth'] ?? null;
 
             if ($value === null) {
-                $properties['github_com_two_factor_auth'] = null;
-                goto after_github_com_two_factor_auth;
+                $properties['githubComTwoFactorAuth'] = null;
+                goto after_githubComTwoFactorAuth;
             }
 
-            $properties['github_com_two_factor_auth'] = $value;
+            $properties['githubComTwoFactorAuth'] = $value;
 
-            after_github_com_two_factor_auth:
+            after_githubComTwoFactorAuth:
 
             $value = $payload['enterprise_server_emails'] ?? null;
 
             if ($value === null) {
-                $properties['enterprise_server_emails'] = null;
-                goto after_enterprise_server_emails;
+                $properties['enterpriseServerEmails'] = null;
+                goto after_enterpriseServerEmails;
             }
 
-            $properties['enterprise_server_emails'] = $value;
+            $properties['enterpriseServerEmails'] = $value;
 
-            after_enterprise_server_emails:
+            after_enterpriseServerEmails:
 
             $value = $payload['visual_studio_license_status'] ?? null;
 
             if ($value === null) {
-                $properties['visual_studio_license_status'] = null;
-                goto after_visual_studio_license_status;
+                $properties['visualStudioLicenseStatus'] = null;
+                goto after_visualStudioLicenseStatus;
             }
 
-            $properties['visual_studio_license_status'] = $value;
+            $properties['visualStudioLicenseStatus'] = $value;
 
-            after_visual_studio_license_status:
+            after_visualStudioLicenseStatus:
 
             $value = $payload['visual_studio_subscription_email'] ?? null;
 
             if ($value === null) {
-                $properties['visual_studio_subscription_email'] = null;
-                goto after_visual_studio_subscription_email;
+                $properties['visualStudioSubscriptionEmail'] = null;
+                goto after_visualStudioSubscriptionEmail;
             }
 
-            $properties['visual_studio_subscription_email'] = $value;
+            $properties['visualStudioSubscriptionEmail'] = $value;
 
-            after_visual_studio_subscription_email:
+            after_visualStudioSubscriptionEmail:
 
             $value = $payload['total_user_accounts'] ?? null;
 
             if ($value === null) {
-                $properties['total_user_accounts'] = null;
-                goto after_total_user_accounts;
+                $properties['totalUserAccounts'] = null;
+                goto after_totalUserAccounts;
             }
 
-            $properties['total_user_accounts'] = $value;
+            $properties['totalUserAccounts'] = $value;
 
-            after_total_user_accounts:
+            after_totalUserAccounts:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users', $exception, stack: $this->hydrationStack);
@@ -423,20 +423,20 @@ class ConsumedLicenses implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses);
         $result = [];
 
-        $total_seats_consumed = $object->total_seats_consumed;
+        $totalSeatsConsumed = $object->totalSeatsConsumed;
 
-        if ($total_seats_consumed === null) {
-            goto after_total_seats_consumed;
+        if ($totalSeatsConsumed === null) {
+            goto after_totalSeatsConsumed;
         }
-        after_total_seats_consumed:        $result['total_seats_consumed'] = $total_seats_consumed;
+        after_totalSeatsConsumed:        $result['total_seats_consumed'] = $totalSeatsConsumed;
 
         
-        $total_seats_purchased = $object->total_seats_purchased;
+        $totalSeatsPurchased = $object->totalSeatsPurchased;
 
-        if ($total_seats_purchased === null) {
-            goto after_total_seats_purchased;
+        if ($totalSeatsPurchased === null) {
+            goto after_totalSeatsPurchased;
         }
-        after_total_seats_purchased:        $result['total_seats_purchased'] = $total_seats_purchased;
+        after_totalSeatsPurchased:        $result['total_seats_purchased'] = $totalSeatsPurchased;
 
         
         $users = $object->users;
@@ -465,196 +465,196 @@ class ConsumedLicenses implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users);
         $result = [];
 
-        $github_com_login = $object->github_com_login;
+        $githubComLogin = $object->githubComLogin;
 
-        if ($github_com_login === null) {
-            goto after_github_com_login;
+        if ($githubComLogin === null) {
+            goto after_githubComLogin;
         }
-        after_github_com_login:        $result['github_com_login'] = $github_com_login;
+        after_githubComLogin:        $result['github_com_login'] = $githubComLogin;
 
         
-        $github_com_name = $object->github_com_name;
+        $githubComName = $object->githubComName;
 
-        if ($github_com_name === null) {
-            goto after_github_com_name;
+        if ($githubComName === null) {
+            goto after_githubComName;
         }
-        after_github_com_name:        $result['github_com_name'] = $github_com_name;
+        after_githubComName:        $result['github_com_name'] = $githubComName;
 
         
-        $enterprise_server_user_ids = $object->enterprise_server_user_ids;
+        $enterpriseServerUserIds = $object->enterpriseServerUserIds;
 
-        if ($enterprise_server_user_ids === null) {
-            goto after_enterprise_server_user_ids;
+        if ($enterpriseServerUserIds === null) {
+            goto after_enterpriseServerUserIds;
         }
-        static $enterprise_server_user_idsSerializer0;
+        static $enterpriseServerUserIdsSerializer0;
 
-        if ($enterprise_server_user_idsSerializer0 === null) {
-            $enterprise_server_user_idsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+        if ($enterpriseServerUserIdsSerializer0 === null) {
+            $enterpriseServerUserIdsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
-        $enterprise_server_user_ids = $enterprise_server_user_idsSerializer0->serialize($enterprise_server_user_ids, $this);
-        after_enterprise_server_user_ids:        $result['enterprise_server_user_ids'] = $enterprise_server_user_ids;
+        $enterpriseServerUserIds = $enterpriseServerUserIdsSerializer0->serialize($enterpriseServerUserIds, $this);
+        after_enterpriseServerUserIds:        $result['enterprise_server_user_ids'] = $enterpriseServerUserIds;
 
         
-        $github_com_user = $object->github_com_user;
+        $githubComUser = $object->githubComUser;
 
-        if ($github_com_user === null) {
-            goto after_github_com_user;
+        if ($githubComUser === null) {
+            goto after_githubComUser;
         }
-        after_github_com_user:        $result['github_com_user'] = $github_com_user;
+        after_githubComUser:        $result['github_com_user'] = $githubComUser;
 
         
-        $enterprise_server_user = $object->enterprise_server_user;
+        $enterpriseServerUser = $object->enterpriseServerUser;
 
-        if ($enterprise_server_user === null) {
-            goto after_enterprise_server_user;
+        if ($enterpriseServerUser === null) {
+            goto after_enterpriseServerUser;
         }
-        after_enterprise_server_user:        $result['enterprise_server_user'] = $enterprise_server_user;
+        after_enterpriseServerUser:        $result['enterprise_server_user'] = $enterpriseServerUser;
 
         
-        $visual_studio_subscription_user = $object->visual_studio_subscription_user;
+        $visualStudioSubscriptionUser = $object->visualStudioSubscriptionUser;
 
-        if ($visual_studio_subscription_user === null) {
-            goto after_visual_studio_subscription_user;
+        if ($visualStudioSubscriptionUser === null) {
+            goto after_visualStudioSubscriptionUser;
         }
-        after_visual_studio_subscription_user:        $result['visual_studio_subscription_user'] = $visual_studio_subscription_user;
+        after_visualStudioSubscriptionUser:        $result['visual_studio_subscription_user'] = $visualStudioSubscriptionUser;
 
         
-        $license_type = $object->license_type;
+        $licenseType = $object->licenseType;
 
-        if ($license_type === null) {
-            goto after_license_type;
+        if ($licenseType === null) {
+            goto after_licenseType;
         }
-        after_license_type:        $result['license_type'] = $license_type;
+        after_licenseType:        $result['license_type'] = $licenseType;
 
         
-        $github_com_profile = $object->github_com_profile;
+        $githubComProfile = $object->githubComProfile;
 
-        if ($github_com_profile === null) {
-            goto after_github_com_profile;
+        if ($githubComProfile === null) {
+            goto after_githubComProfile;
         }
-        after_github_com_profile:        $result['github_com_profile'] = $github_com_profile;
+        after_githubComProfile:        $result['github_com_profile'] = $githubComProfile;
 
         
-        $github_com_member_roles = $object->github_com_member_roles;
+        $githubComMemberRoles = $object->githubComMemberRoles;
 
-        if ($github_com_member_roles === null) {
-            goto after_github_com_member_roles;
+        if ($githubComMemberRoles === null) {
+            goto after_githubComMemberRoles;
         }
-        static $github_com_member_rolesSerializer0;
+        static $githubComMemberRolesSerializer0;
 
-        if ($github_com_member_rolesSerializer0 === null) {
-            $github_com_member_rolesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+        if ($githubComMemberRolesSerializer0 === null) {
+            $githubComMemberRolesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
-        $github_com_member_roles = $github_com_member_rolesSerializer0->serialize($github_com_member_roles, $this);
-        after_github_com_member_roles:        $result['github_com_member_roles'] = $github_com_member_roles;
+        $githubComMemberRoles = $githubComMemberRolesSerializer0->serialize($githubComMemberRoles, $this);
+        after_githubComMemberRoles:        $result['github_com_member_roles'] = $githubComMemberRoles;
 
         
-        $github_com_enterprise_roles = $object->github_com_enterprise_roles;
+        $githubComEnterpriseRoles = $object->githubComEnterpriseRoles;
 
-        if ($github_com_enterprise_roles === null) {
-            goto after_github_com_enterprise_roles;
+        if ($githubComEnterpriseRoles === null) {
+            goto after_githubComEnterpriseRoles;
         }
-        static $github_com_enterprise_rolesSerializer0;
+        static $githubComEnterpriseRolesSerializer0;
 
-        if ($github_com_enterprise_rolesSerializer0 === null) {
-            $github_com_enterprise_rolesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+        if ($githubComEnterpriseRolesSerializer0 === null) {
+            $githubComEnterpriseRolesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
-        $github_com_enterprise_roles = $github_com_enterprise_rolesSerializer0->serialize($github_com_enterprise_roles, $this);
-        after_github_com_enterprise_roles:        $result['github_com_enterprise_roles'] = $github_com_enterprise_roles;
+        $githubComEnterpriseRoles = $githubComEnterpriseRolesSerializer0->serialize($githubComEnterpriseRoles, $this);
+        after_githubComEnterpriseRoles:        $result['github_com_enterprise_roles'] = $githubComEnterpriseRoles;
 
         
-        $github_com_verified_domain_emails = $object->github_com_verified_domain_emails;
+        $githubComVerifiedDomainEmails = $object->githubComVerifiedDomainEmails;
 
-        if ($github_com_verified_domain_emails === null) {
-            goto after_github_com_verified_domain_emails;
+        if ($githubComVerifiedDomainEmails === null) {
+            goto after_githubComVerifiedDomainEmails;
         }
-        static $github_com_verified_domain_emailsSerializer0;
+        static $githubComVerifiedDomainEmailsSerializer0;
 
-        if ($github_com_verified_domain_emailsSerializer0 === null) {
-            $github_com_verified_domain_emailsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+        if ($githubComVerifiedDomainEmailsSerializer0 === null) {
+            $githubComVerifiedDomainEmailsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
-        $github_com_verified_domain_emails = $github_com_verified_domain_emailsSerializer0->serialize($github_com_verified_domain_emails, $this);
-        after_github_com_verified_domain_emails:        $result['github_com_verified_domain_emails'] = $github_com_verified_domain_emails;
+        $githubComVerifiedDomainEmails = $githubComVerifiedDomainEmailsSerializer0->serialize($githubComVerifiedDomainEmails, $this);
+        after_githubComVerifiedDomainEmails:        $result['github_com_verified_domain_emails'] = $githubComVerifiedDomainEmails;
 
         
-        $github_com_saml_name_id = $object->github_com_saml_name_id;
+        $githubComSamlNameId = $object->githubComSamlNameId;
 
-        if ($github_com_saml_name_id === null) {
-            goto after_github_com_saml_name_id;
+        if ($githubComSamlNameId === null) {
+            goto after_githubComSamlNameId;
         }
-        after_github_com_saml_name_id:        $result['github_com_saml_name_id'] = $github_com_saml_name_id;
+        after_githubComSamlNameId:        $result['github_com_saml_name_id'] = $githubComSamlNameId;
 
         
-        $github_com_orgs_with_pending_invites = $object->github_com_orgs_with_pending_invites;
+        $githubComOrgsWithPendingInvites = $object->githubComOrgsWithPendingInvites;
 
-        if ($github_com_orgs_with_pending_invites === null) {
-            goto after_github_com_orgs_with_pending_invites;
+        if ($githubComOrgsWithPendingInvites === null) {
+            goto after_githubComOrgsWithPendingInvites;
         }
-        static $github_com_orgs_with_pending_invitesSerializer0;
+        static $githubComOrgsWithPendingInvitesSerializer0;
 
-        if ($github_com_orgs_with_pending_invitesSerializer0 === null) {
-            $github_com_orgs_with_pending_invitesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+        if ($githubComOrgsWithPendingInvitesSerializer0 === null) {
+            $githubComOrgsWithPendingInvitesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
-        $github_com_orgs_with_pending_invites = $github_com_orgs_with_pending_invitesSerializer0->serialize($github_com_orgs_with_pending_invites, $this);
-        after_github_com_orgs_with_pending_invites:        $result['github_com_orgs_with_pending_invites'] = $github_com_orgs_with_pending_invites;
+        $githubComOrgsWithPendingInvites = $githubComOrgsWithPendingInvitesSerializer0->serialize($githubComOrgsWithPendingInvites, $this);
+        after_githubComOrgsWithPendingInvites:        $result['github_com_orgs_with_pending_invites'] = $githubComOrgsWithPendingInvites;
 
         
-        $github_com_two_factor_auth = $object->github_com_two_factor_auth;
+        $githubComTwoFactorAuth = $object->githubComTwoFactorAuth;
 
-        if ($github_com_two_factor_auth === null) {
-            goto after_github_com_two_factor_auth;
+        if ($githubComTwoFactorAuth === null) {
+            goto after_githubComTwoFactorAuth;
         }
-        after_github_com_two_factor_auth:        $result['github_com_two_factor_auth'] = $github_com_two_factor_auth;
+        after_githubComTwoFactorAuth:        $result['github_com_two_factor_auth'] = $githubComTwoFactorAuth;
 
         
-        $enterprise_server_emails = $object->enterprise_server_emails;
+        $enterpriseServerEmails = $object->enterpriseServerEmails;
 
-        if ($enterprise_server_emails === null) {
-            goto after_enterprise_server_emails;
+        if ($enterpriseServerEmails === null) {
+            goto after_enterpriseServerEmails;
         }
-        static $enterprise_server_emailsSerializer0;
+        static $enterpriseServerEmailsSerializer0;
 
-        if ($enterprise_server_emailsSerializer0 === null) {
-            $enterprise_server_emailsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+        if ($enterpriseServerEmailsSerializer0 === null) {
+            $enterpriseServerEmailsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
-        $enterprise_server_emails = $enterprise_server_emailsSerializer0->serialize($enterprise_server_emails, $this);
-        after_enterprise_server_emails:        $result['enterprise_server_emails'] = $enterprise_server_emails;
+        $enterpriseServerEmails = $enterpriseServerEmailsSerializer0->serialize($enterpriseServerEmails, $this);
+        after_enterpriseServerEmails:        $result['enterprise_server_emails'] = $enterpriseServerEmails;
 
         
-        $visual_studio_license_status = $object->visual_studio_license_status;
+        $visualStudioLicenseStatus = $object->visualStudioLicenseStatus;
 
-        if ($visual_studio_license_status === null) {
-            goto after_visual_studio_license_status;
+        if ($visualStudioLicenseStatus === null) {
+            goto after_visualStudioLicenseStatus;
         }
-        after_visual_studio_license_status:        $result['visual_studio_license_status'] = $visual_studio_license_status;
+        after_visualStudioLicenseStatus:        $result['visual_studio_license_status'] = $visualStudioLicenseStatus;
 
         
-        $visual_studio_subscription_email = $object->visual_studio_subscription_email;
+        $visualStudioSubscriptionEmail = $object->visualStudioSubscriptionEmail;
 
-        if ($visual_studio_subscription_email === null) {
-            goto after_visual_studio_subscription_email;
+        if ($visualStudioSubscriptionEmail === null) {
+            goto after_visualStudioSubscriptionEmail;
         }
-        after_visual_studio_subscription_email:        $result['visual_studio_subscription_email'] = $visual_studio_subscription_email;
+        after_visualStudioSubscriptionEmail:        $result['visual_studio_subscription_email'] = $visualStudioSubscriptionEmail;
 
         
-        $total_user_accounts = $object->total_user_accounts;
+        $totalUserAccounts = $object->totalUserAccounts;
 
-        if ($total_user_accounts === null) {
-            goto after_total_user_accounts;
+        if ($totalUserAccounts === null) {
+            goto after_totalUserAccounts;
         }
-        after_total_user_accounts:        $result['total_user_accounts'] = $total_user_accounts;
+        after_totalUserAccounts:        $result['total_user_accounts'] = $totalUserAccounts;
 
 
         return $result;

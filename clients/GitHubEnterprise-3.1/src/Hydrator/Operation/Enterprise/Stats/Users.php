@@ -38,34 +38,34 @@ class Users implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_users';
-                goto after_total_users;
+                goto after_totalUsers;
             }
 
-            $properties['total_users'] = $value;
+            $properties['totalUsers'] = $value;
 
-            after_total_users:
+            after_totalUsers:
 
             $value = $payload['admin_users'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'admin_users';
-                goto after_admin_users;
+                goto after_adminUsers;
             }
 
-            $properties['admin_users'] = $value;
+            $properties['adminUsers'] = $value;
 
-            after_admin_users:
+            after_adminUsers:
 
             $value = $payload['suspended_users'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'suspended_users';
-                goto after_suspended_users;
+                goto after_suspendedUsers;
             }
 
-            $properties['suspended_users'] = $value;
+            $properties['suspendedUsers'] = $value;
 
-            after_suspended_users:
+            after_suspendedUsers:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
@@ -192,16 +192,16 @@ class Users implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview);
         $result = [];
 
-        $total_users = $object->total_users;
-        after_total_users:        $result['total_users'] = $total_users;
+        $totalUsers = $object->totalUsers;
+        after_totalUsers:        $result['total_users'] = $totalUsers;
 
         
-        $admin_users = $object->admin_users;
-        after_admin_users:        $result['admin_users'] = $admin_users;
+        $adminUsers = $object->adminUsers;
+        after_adminUsers:        $result['admin_users'] = $adminUsers;
 
         
-        $suspended_users = $object->suspended_users;
-        after_suspended_users:        $result['suspended_users'] = $suspended_users;
+        $suspendedUsers = $object->suspendedUsers;
+        after_suspendedUsers:        $result['suspended_users'] = $suspendedUsers;
 
 
         return $result;

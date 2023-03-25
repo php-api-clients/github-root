@@ -37,24 +37,24 @@ class UsagePolicy implements ObjectMapper
             $value = $payload['repo_cache_size_limit_in_gb'] ?? null;
 
             if ($value === null) {
-                $properties['repo_cache_size_limit_in_gb'] = null;
-                goto after_repo_cache_size_limit_in_gb;
+                $properties['repoCacheSizeLimitInGb'] = null;
+                goto after_repoCacheSizeLimitInGb;
             }
 
-            $properties['repo_cache_size_limit_in_gb'] = $value;
+            $properties['repoCacheSizeLimitInGb'] = $value;
 
-            after_repo_cache_size_limit_in_gb:
+            after_repoCacheSizeLimitInGb:
 
             $value = $payload['max_repo_cache_size_limit_in_gb'] ?? null;
 
             if ($value === null) {
-                $properties['max_repo_cache_size_limit_in_gb'] = null;
-                goto after_max_repo_cache_size_limit_in_gb;
+                $properties['maxRepoCacheSizeLimitInGb'] = null;
+                goto after_maxRepoCacheSizeLimitInGb;
             }
 
-            $properties['max_repo_cache_size_limit_in_gb'] = $value;
+            $properties['maxRepoCacheSizeLimitInGb'] = $value;
 
-            after_max_repo_cache_size_limit_in_gb:
+            after_maxRepoCacheSizeLimitInGb:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyEnterprise', $exception, stack: $this->hydrationStack);
@@ -181,20 +181,20 @@ class UsagePolicy implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyEnterprise);
         $result = [];
 
-        $repo_cache_size_limit_in_gb = $object->repo_cache_size_limit_in_gb;
+        $repoCacheSizeLimitInGb = $object->repoCacheSizeLimitInGb;
 
-        if ($repo_cache_size_limit_in_gb === null) {
-            goto after_repo_cache_size_limit_in_gb;
+        if ($repoCacheSizeLimitInGb === null) {
+            goto after_repoCacheSizeLimitInGb;
         }
-        after_repo_cache_size_limit_in_gb:        $result['repo_cache_size_limit_in_gb'] = $repo_cache_size_limit_in_gb;
+        after_repoCacheSizeLimitInGb:        $result['repo_cache_size_limit_in_gb'] = $repoCacheSizeLimitInGb;
 
         
-        $max_repo_cache_size_limit_in_gb = $object->max_repo_cache_size_limit_in_gb;
+        $maxRepoCacheSizeLimitInGb = $object->maxRepoCacheSizeLimitInGb;
 
-        if ($max_repo_cache_size_limit_in_gb === null) {
-            goto after_max_repo_cache_size_limit_in_gb;
+        if ($maxRepoCacheSizeLimitInGb === null) {
+            goto after_maxRepoCacheSizeLimitInGb;
         }
-        after_max_repo_cache_size_limit_in_gb:        $result['max_repo_cache_size_limit_in_gb'] = $max_repo_cache_size_limit_in_gb;
+        after_maxRepoCacheSizeLimitInGb:        $result['max_repo_cache_size_limit_in_gb'] = $maxRepoCacheSizeLimitInGb;
 
 
         return $result;

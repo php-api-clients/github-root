@@ -48,24 +48,24 @@ class Announcement implements ObjectMapper
             $value = $payload['expires_at'] ?? null;
 
             if ($value === null) {
-                $properties['expires_at'] = null;
-                goto after_expires_at;
+                $properties['expiresAt'] = null;
+                goto after_expiresAt;
             }
 
-            $properties['expires_at'] = $value;
+            $properties['expiresAt'] = $value;
 
-            after_expires_at:
+            after_expiresAt:
 
             $value = $payload['user_dismissible'] ?? null;
 
             if ($value === null) {
-                $properties['user_dismissible'] = null;
-                goto after_user_dismissible;
+                $properties['userDismissible'] = null;
+                goto after_userDismissible;
             }
 
-            $properties['user_dismissible'] = $value;
+            $properties['userDismissible'] = $value;
 
-            after_user_dismissible:
+            after_userDismissible:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\AnnouncementBanner', $exception, stack: $this->hydrationStack);
@@ -200,20 +200,20 @@ class Announcement implements ObjectMapper
         after_announcement:        $result['announcement'] = $announcement;
 
         
-        $expires_at = $object->expires_at;
+        $expiresAt = $object->expiresAt;
 
-        if ($expires_at === null) {
-            goto after_expires_at;
+        if ($expiresAt === null) {
+            goto after_expiresAt;
         }
-        after_expires_at:        $result['expires_at'] = $expires_at;
+        after_expiresAt:        $result['expires_at'] = $expiresAt;
 
         
-        $user_dismissible = $object->user_dismissible;
+        $userDismissible = $object->userDismissible;
 
-        if ($user_dismissible === null) {
-            goto after_user_dismissible;
+        if ($userDismissible === null) {
+            goto after_userDismissible;
         }
-        after_user_dismissible:        $result['user_dismissible'] = $user_dismissible;
+        after_userDismissible:        $result['user_dismissible'] = $userDismissible;
 
 
         return $result;

@@ -17,18 +17,18 @@ final class RemoveRepoAccessToSelfHostedRunnerGroupInOrg
     /**The organization name. The name is not case sensitive.**/
     private string $org;
     /**Unique identifier of the self-hosted runner group.**/
-    private int $runner_group_id;
+    private int $runnerGroupId;
     /**The unique identifier of the repository.**/
-    private int $repository_id;
-    public function __construct(string $org, int $runner_group_id, int $repository_id)
+    private int $repositoryId;
+    public function __construct(string $org, int $runnerGroupId, int $repositoryId)
     {
         $this->org = $org;
-        $this->runner_group_id = $runner_group_id;
-        $this->repository_id = $repository_id;
+        $this->runnerGroupId = $runnerGroupId;
+        $this->repositoryId = $repositoryId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{runner_group_id}', '{repository_id}'), array($this->org, $this->runner_group_id, $this->repository_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{runner_group_id}', '{repository_id}'), array($this->org, $this->runnerGroupId, $this->repositoryId), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

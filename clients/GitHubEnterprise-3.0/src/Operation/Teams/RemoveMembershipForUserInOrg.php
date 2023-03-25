@@ -16,17 +16,17 @@ final class RemoveMembershipForUserInOrg
     private const PATH = '/orgs/{org}/teams/{team_slug}/memberships/{username}';
     private string $org;
     /**team_slug parameter**/
-    private string $team_slug;
+    private string $teamSlug;
     private string $username;
-    public function __construct(string $org, string $team_slug, string $username)
+    public function __construct(string $org, string $teamSlug, string $username)
     {
         $this->org = $org;
-        $this->team_slug = $team_slug;
+        $this->teamSlug = $teamSlug;
         $this->username = $username;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{team_slug}', '{username}'), array($this->org, $this->team_slug, $this->username), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{team_slug}', '{username}'), array($this->org, $this->teamSlug, $this->username), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

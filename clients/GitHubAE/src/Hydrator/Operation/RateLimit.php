@@ -161,82 +161,82 @@ class RateLimit implements ObjectMapper
             $value = $payload['source_import'] ?? null;
 
             if ($value === null) {
-                $properties['source_import'] = null;
-                goto after_source_import;
+                $properties['sourceImport'] = null;
+                goto after_sourceImport;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'source_import';
+                    $this->hydrationStack[] = 'sourceImport';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RateLimit($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['source_import'] = $value;
+            $properties['sourceImport'] = $value;
 
-            after_source_import:
+            after_sourceImport:
 
             $value = $payload['integration_manifest'] ?? null;
 
             if ($value === null) {
-                $properties['integration_manifest'] = null;
-                goto after_integration_manifest;
+                $properties['integrationManifest'] = null;
+                goto after_integrationManifest;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'integration_manifest';
+                    $this->hydrationStack[] = 'integrationManifest';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RateLimit($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['integration_manifest'] = $value;
+            $properties['integrationManifest'] = $value;
 
-            after_integration_manifest:
+            after_integrationManifest:
 
             $value = $payload['code_scanning_upload'] ?? null;
 
             if ($value === null) {
-                $properties['code_scanning_upload'] = null;
-                goto after_code_scanning_upload;
+                $properties['codeScanningUpload'] = null;
+                goto after_codeScanningUpload;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'code_scanning_upload';
+                    $this->hydrationStack[] = 'codeScanningUpload';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RateLimit($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['code_scanning_upload'] = $value;
+            $properties['codeScanningUpload'] = $value;
 
-            after_code_scanning_upload:
+            after_codeScanningUpload:
 
             $value = $payload['actions_runner_registration'] ?? null;
 
             if ($value === null) {
-                $properties['actions_runner_registration'] = null;
-                goto after_actions_runner_registration;
+                $properties['actionsRunnerRegistration'] = null;
+                goto after_actionsRunnerRegistration;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'actions_runner_registration';
+                    $this->hydrationStack[] = 'actionsRunnerRegistration';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RateLimit($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['actions_runner_registration'] = $value;
+            $properties['actionsRunnerRegistration'] = $value;
 
-            after_actions_runner_registration:
+            after_actionsRunnerRegistration:
 
             $value = $payload['scim'] ?? null;
 
@@ -358,13 +358,13 @@ class RateLimit implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['url'] ?? null;
 
@@ -554,40 +554,40 @@ class RateLimit implements ObjectMapper
         after_search:        $result['search'] = $search;
 
         
-        $source_import = $object->source_import;
+        $sourceImport = $object->sourceImport;
 
-        if ($source_import === null) {
-            goto after_source_import;
+        if ($sourceImport === null) {
+            goto after_sourceImport;
         }
-        $source_import = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RateLimit($source_import);
-        after_source_import:        $result['source_import'] = $source_import;
+        $sourceImport = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RateLimit($sourceImport);
+        after_sourceImport:        $result['source_import'] = $sourceImport;
 
         
-        $integration_manifest = $object->integration_manifest;
+        $integrationManifest = $object->integrationManifest;
 
-        if ($integration_manifest === null) {
-            goto after_integration_manifest;
+        if ($integrationManifest === null) {
+            goto after_integrationManifest;
         }
-        $integration_manifest = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RateLimit($integration_manifest);
-        after_integration_manifest:        $result['integration_manifest'] = $integration_manifest;
+        $integrationManifest = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RateLimit($integrationManifest);
+        after_integrationManifest:        $result['integration_manifest'] = $integrationManifest;
 
         
-        $code_scanning_upload = $object->code_scanning_upload;
+        $codeScanningUpload = $object->codeScanningUpload;
 
-        if ($code_scanning_upload === null) {
-            goto after_code_scanning_upload;
+        if ($codeScanningUpload === null) {
+            goto after_codeScanningUpload;
         }
-        $code_scanning_upload = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RateLimit($code_scanning_upload);
-        after_code_scanning_upload:        $result['code_scanning_upload'] = $code_scanning_upload;
+        $codeScanningUpload = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RateLimit($codeScanningUpload);
+        after_codeScanningUpload:        $result['code_scanning_upload'] = $codeScanningUpload;
 
         
-        $actions_runner_registration = $object->actions_runner_registration;
+        $actionsRunnerRegistration = $object->actionsRunnerRegistration;
 
-        if ($actions_runner_registration === null) {
-            goto after_actions_runner_registration;
+        if ($actionsRunnerRegistration === null) {
+            goto after_actionsRunnerRegistration;
         }
-        $actions_runner_registration = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RateLimit($actions_runner_registration);
-        after_actions_runner_registration:        $result['actions_runner_registration'] = $actions_runner_registration;
+        $actionsRunnerRegistration = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RateLimit($actionsRunnerRegistration);
+        after_actionsRunnerRegistration:        $result['actions_runner_registration'] = $actionsRunnerRegistration;
 
         
         $scim = $object->scim;
@@ -641,12 +641,12 @@ class RateLimit implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $url = $object->url;

@@ -17,22 +17,22 @@ final class RemoveCustomLabelFromSelfHostedRunnerForEnterprise
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
     private string $enterprise;
     /**Unique identifier of the self-hosted runner.**/
-    private int $runner_id;
+    private int $runnerId;
     /**The name of a self-hosted runner's custom label.**/
     private string $name;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb $hydrator, string $enterprise, int $runner_id, string $name)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb $hydrator, string $enterprise, int $runnerId, string $name)
     {
         $this->enterprise = $enterprise;
-        $this->runner_id = $runner_id;
+        $this->runnerId = $runnerId;
         $this->name = $name;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{runner_id}', '{name}'), array($this->enterprise, $this->runner_id, $this->name), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{runner_id}', '{name}'), array($this->enterprise, $this->runnerId, $this->name), self::PATH));
     }
     /**
      * @return Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200

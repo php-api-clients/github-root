@@ -49,34 +49,34 @@ class Maintenance implements ObjectMapper
             $value = $payload['scheduled_time'] ?? null;
 
             if ($value === null) {
-                $properties['scheduled_time'] = null;
-                goto after_scheduled_time;
+                $properties['scheduledTime'] = null;
+                goto after_scheduledTime;
             }
 
-            $properties['scheduled_time'] = $value;
+            $properties['scheduledTime'] = $value;
 
-            after_scheduled_time:
+            after_scheduledTime:
 
             $value = $payload['connection_services'] ?? null;
 
             if ($value === null) {
-                $properties['connection_services'] = null;
-                goto after_connection_services;
+                $properties['connectionServices'] = null;
+                goto after_connectionServices;
             }
 
-            static $connection_servicesCaster1;
+            static $connectionServicesCaster1;
 
-            if ($connection_servicesCaster1 === null) {
-                $connection_servicesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($connectionServicesCaster1 === null) {
+                $connectionServicesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\MaintenanceStatus\\ConnectionServices',
 ));
             }
 
-            $value = $connection_servicesCaster1->cast($value, $this);
+            $value = $connectionServicesCaster1->cast($value, $this);
 
-            $properties['connection_services'] = $value;
+            $properties['connectionServices'] = $value;
 
-            after_connection_services:
+            after_connectionServices:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus', $exception, stack: $this->hydrationStack);
@@ -255,29 +255,29 @@ class Maintenance implements ObjectMapper
         after_status:        $result['status'] = $status;
 
         
-        $scheduled_time = $object->scheduled_time;
+        $scheduledTime = $object->scheduledTime;
 
-        if ($scheduled_time === null) {
-            goto after_scheduled_time;
+        if ($scheduledTime === null) {
+            goto after_scheduledTime;
         }
-        after_scheduled_time:        $result['scheduled_time'] = $scheduled_time;
+        after_scheduledTime:        $result['scheduled_time'] = $scheduledTime;
 
         
-        $connection_services = $object->connection_services;
+        $connectionServices = $object->connectionServices;
 
-        if ($connection_services === null) {
-            goto after_connection_services;
+        if ($connectionServices === null) {
+            goto after_connectionServices;
         }
-        static $connection_servicesSerializer0;
+        static $connectionServicesSerializer0;
 
-        if ($connection_servicesSerializer0 === null) {
-            $connection_servicesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+        if ($connectionServicesSerializer0 === null) {
+            $connectionServicesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\MaintenanceStatus\\ConnectionServices',
 ));
         }
         
-        $connection_services = $connection_servicesSerializer0->serialize($connection_services, $this);
-        after_connection_services:        $result['connection_services'] = $connection_services;
+        $connectionServices = $connectionServicesSerializer0->serialize($connectionServices, $this);
+        after_connectionServices:        $result['connection_services'] = $connectionServices;
 
 
         return $result;

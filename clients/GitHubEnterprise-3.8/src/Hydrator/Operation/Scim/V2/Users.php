@@ -61,26 +61,26 @@ class Users implements ObjectMapper
 
             after_totalResults:
 
-            $value = $payload['resources'] ?? null;
+            $value = $payload['Resources'] ?? null;
 
             if ($value === null) {
-                $missingFields[] = 'resources';
-                goto after_Resources;
+                $missingFields[] = 'Resources';
+                goto after_resources;
             }
 
-            static $ResourcesCaster1;
+            static $resourcesCaster1;
 
-            if ($ResourcesCaster1 === null) {
-                $ResourcesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($resourcesCaster1 === null) {
+                $resourcesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\UserResponse',
 ));
             }
 
-            $value = $ResourcesCaster1->cast($value, $this);
+            $value = $resourcesCaster1->cast($value, $this);
 
-            $properties['Resources'] = $value;
+            $properties['resources'] = $value;
 
-            after_Resources:
+            after_resources:
 
             $value = $payload['start_index'] ?? null;
 
@@ -461,13 +461,13 @@ class Users implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['detail'] ?? null;
 
@@ -659,17 +659,17 @@ class Users implements ObjectMapper
         after_totalResults:        $result['total_results'] = $totalResults;
 
         
-        $Resources = $object->Resources;
-        static $ResourcesSerializer0;
+        $resources = $object->resources;
+        static $resourcesSerializer0;
 
-        if ($ResourcesSerializer0 === null) {
-            $ResourcesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+        if ($resourcesSerializer0 === null) {
+            $resourcesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\UserResponse',
 ));
         }
         
-        $Resources = $ResourcesSerializer0->serialize($Resources, $this);
-        after_Resources:        $result['resources'] = $Resources;
+        $resources = $resourcesSerializer0->serialize($resources, $this);
+        after_resources:        $result['Resources'] = $resources;
 
         
         $startIndex = $object->startIndex;
@@ -892,12 +892,12 @@ class Users implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $detail = $object->detail;

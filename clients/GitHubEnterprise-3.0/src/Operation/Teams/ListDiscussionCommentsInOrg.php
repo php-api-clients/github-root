@@ -16,30 +16,30 @@ final class ListDiscussionCommentsInOrg
     private const PATH = '/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments';
     private string $org;
     /**team_slug parameter**/
-    private string $team_slug;
-    private int $discussion_number;
+    private string $teamSlug;
+    private int $discussionNumber;
     /**One of `asc` (ascending) or `desc` (descending).**/
     private string $direction;
     /**Results per page (max 100)**/
-    private int $per_page;
+    private int $perPage;
     /**Page number of the results to fetch.**/
     private int $page;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments $hydrator, string $org, string $team_slug, int $discussion_number, string $direction = 'desc', int $per_page = 30, int $page = 1)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments $hydrator, string $org, string $teamSlug, int $discussionNumber, string $direction = 'desc', int $perPage = 30, int $page = 1)
     {
         $this->org = $org;
-        $this->team_slug = $team_slug;
-        $this->discussion_number = $discussion_number;
+        $this->teamSlug = $teamSlug;
+        $this->discussionNumber = $discussionNumber;
         $this->direction = $direction;
-        $this->per_page = $per_page;
+        $this->perPage = $perPage;
         $this->page = $page;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{team_slug}', '{discussion_number}', '{direction}', '{per_page}', '{page}'), array($this->org, $this->team_slug, $this->discussion_number, $this->direction, $this->per_page, $this->page), self::PATH . '?direction={direction}&per_page={per_page}&page={page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{team_slug}', '{discussion_number}', '{direction}', '{per_page}', '{page}'), array($this->org, $this->teamSlug, $this->discussionNumber, $this->direction, $this->perPage, $this->page), self::PATH . '?direction={direction}&perPage={per_page}&page={page}'));
     }
     /**
      * @return \Rx\Observable<Schema\TeamDiscussionComment>

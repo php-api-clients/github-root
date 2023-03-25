@@ -40,98 +40,98 @@ class Feeds implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'timeline_url';
-                goto after_timeline_url;
+                goto after_timelineUrl;
             }
 
-            $properties['timeline_url'] = $value;
+            $properties['timelineUrl'] = $value;
 
-            after_timeline_url:
+            after_timelineUrl:
 
             $value = $payload['user_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'user_url';
-                goto after_user_url;
+                goto after_userUrl;
             }
 
-            $properties['user_url'] = $value;
+            $properties['userUrl'] = $value;
 
-            after_user_url:
+            after_userUrl:
 
             $value = $payload['current_user_public_url'] ?? null;
 
             if ($value === null) {
-                $properties['current_user_public_url'] = null;
-                goto after_current_user_public_url;
+                $properties['currentUserPublicUrl'] = null;
+                goto after_currentUserPublicUrl;
             }
 
-            $properties['current_user_public_url'] = $value;
+            $properties['currentUserPublicUrl'] = $value;
 
-            after_current_user_public_url:
+            after_currentUserPublicUrl:
 
             $value = $payload['current_user_url'] ?? null;
 
             if ($value === null) {
-                $properties['current_user_url'] = null;
-                goto after_current_user_url;
+                $properties['currentUserUrl'] = null;
+                goto after_currentUserUrl;
             }
 
-            $properties['current_user_url'] = $value;
+            $properties['currentUserUrl'] = $value;
 
-            after_current_user_url:
+            after_currentUserUrl:
 
             $value = $payload['current_user_actor_url'] ?? null;
 
             if ($value === null) {
-                $properties['current_user_actor_url'] = null;
-                goto after_current_user_actor_url;
+                $properties['currentUserActorUrl'] = null;
+                goto after_currentUserActorUrl;
             }
 
-            $properties['current_user_actor_url'] = $value;
+            $properties['currentUserActorUrl'] = $value;
 
-            after_current_user_actor_url:
+            after_currentUserActorUrl:
 
             $value = $payload['current_user_organization_url'] ?? null;
 
             if ($value === null) {
-                $properties['current_user_organization_url'] = null;
-                goto after_current_user_organization_url;
+                $properties['currentUserOrganizationUrl'] = null;
+                goto after_currentUserOrganizationUrl;
             }
 
-            $properties['current_user_organization_url'] = $value;
+            $properties['currentUserOrganizationUrl'] = $value;
 
-            after_current_user_organization_url:
+            after_currentUserOrganizationUrl:
 
             $value = $payload['current_user_organization_urls'] ?? null;
 
             if ($value === null) {
-                $properties['current_user_organization_urls'] = null;
-                goto after_current_user_organization_urls;
+                $properties['currentUserOrganizationUrls'] = null;
+                goto after_currentUserOrganizationUrls;
             }
 
-            $properties['current_user_organization_urls'] = $value;
+            $properties['currentUserOrganizationUrls'] = $value;
 
-            after_current_user_organization_urls:
+            after_currentUserOrganizationUrls:
 
             $value = $payload['_links'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = '_links';
-                goto after__links;
+                goto after_links;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = '_links';
+                    $this->hydrationStack[] = 'links';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Feed⚡️Links($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['_links'] = $value;
+            $properties['links'] = $value;
 
-            after__links:
+            after_links:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Feed', $exception, stack: $this->hydrationStack);
@@ -197,123 +197,123 @@ class Feeds implements ObjectMapper
             $value = $payload['security_advisories'] ?? null;
 
             if ($value === null) {
-                $properties['security_advisories'] = null;
-                goto after_security_advisories;
+                $properties['securityAdvisories'] = null;
+                goto after_securityAdvisories;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'security_advisories';
+                    $this->hydrationStack[] = 'securityAdvisories';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['security_advisories'] = $value;
+            $properties['securityAdvisories'] = $value;
 
-            after_security_advisories:
+            after_securityAdvisories:
 
             $value = $payload['current_user'] ?? null;
 
             if ($value === null) {
-                $properties['current_user'] = null;
-                goto after_current_user;
+                $properties['currentUser'] = null;
+                goto after_currentUser;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'current_user';
+                    $this->hydrationStack[] = 'currentUser';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['current_user'] = $value;
+            $properties['currentUser'] = $value;
 
-            after_current_user:
+            after_currentUser:
 
             $value = $payload['current_user_public'] ?? null;
 
             if ($value === null) {
-                $properties['current_user_public'] = null;
-                goto after_current_user_public;
+                $properties['currentUserPublic'] = null;
+                goto after_currentUserPublic;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'current_user_public';
+                    $this->hydrationStack[] = 'currentUserPublic';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['current_user_public'] = $value;
+            $properties['currentUserPublic'] = $value;
 
-            after_current_user_public:
+            after_currentUserPublic:
 
             $value = $payload['current_user_actor'] ?? null;
 
             if ($value === null) {
-                $properties['current_user_actor'] = null;
-                goto after_current_user_actor;
+                $properties['currentUserActor'] = null;
+                goto after_currentUserActor;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'current_user_actor';
+                    $this->hydrationStack[] = 'currentUserActor';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['current_user_actor'] = $value;
+            $properties['currentUserActor'] = $value;
 
-            after_current_user_actor:
+            after_currentUserActor:
 
             $value = $payload['current_user_organization'] ?? null;
 
             if ($value === null) {
-                $properties['current_user_organization'] = null;
-                goto after_current_user_organization;
+                $properties['currentUserOrganization'] = null;
+                goto after_currentUserOrganization;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'current_user_organization';
+                    $this->hydrationStack[] = 'currentUserOrganization';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['current_user_organization'] = $value;
+            $properties['currentUserOrganization'] = $value;
 
-            after_current_user_organization:
+            after_currentUserOrganization:
 
             $value = $payload['current_user_organizations'] ?? null;
 
             if ($value === null) {
-                $properties['current_user_organizations'] = null;
-                goto after_current_user_organizations;
+                $properties['currentUserOrganizations'] = null;
+                goto after_currentUserOrganizations;
             }
 
-            static $current_user_organizationsCaster1;
+            static $currentUserOrganizationsCaster1;
 
-            if ($current_user_organizationsCaster1 === null) {
-                $current_user_organizationsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($currentUserOrganizationsCaster1 === null) {
+                $currentUserOrganizationsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\LinkWithType',
 ));
             }
 
-            $value = $current_user_organizationsCaster1->cast($value, $this);
+            $value = $currentUserOrganizationsCaster1->cast($value, $this);
 
-            $properties['current_user_organizations'] = $value;
+            $properties['currentUserOrganizations'] = $value;
 
-            after_current_user_organizations:
+            after_currentUserOrganizations:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Feed\Links', $exception, stack: $this->hydrationStack);
@@ -485,65 +485,65 @@ class Feeds implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Feed);
         $result = [];
 
-        $timeline_url = $object->timeline_url;
-        after_timeline_url:        $result['timeline_url'] = $timeline_url;
+        $timelineUrl = $object->timelineUrl;
+        after_timelineUrl:        $result['timeline_url'] = $timelineUrl;
 
         
-        $user_url = $object->user_url;
-        after_user_url:        $result['user_url'] = $user_url;
+        $userUrl = $object->userUrl;
+        after_userUrl:        $result['user_url'] = $userUrl;
 
         
-        $current_user_public_url = $object->current_user_public_url;
+        $currentUserPublicUrl = $object->currentUserPublicUrl;
 
-        if ($current_user_public_url === null) {
-            goto after_current_user_public_url;
+        if ($currentUserPublicUrl === null) {
+            goto after_currentUserPublicUrl;
         }
-        after_current_user_public_url:        $result['current_user_public_url'] = $current_user_public_url;
+        after_currentUserPublicUrl:        $result['current_user_public_url'] = $currentUserPublicUrl;
 
         
-        $current_user_url = $object->current_user_url;
+        $currentUserUrl = $object->currentUserUrl;
 
-        if ($current_user_url === null) {
-            goto after_current_user_url;
+        if ($currentUserUrl === null) {
+            goto after_currentUserUrl;
         }
-        after_current_user_url:        $result['current_user_url'] = $current_user_url;
+        after_currentUserUrl:        $result['current_user_url'] = $currentUserUrl;
 
         
-        $current_user_actor_url = $object->current_user_actor_url;
+        $currentUserActorUrl = $object->currentUserActorUrl;
 
-        if ($current_user_actor_url === null) {
-            goto after_current_user_actor_url;
+        if ($currentUserActorUrl === null) {
+            goto after_currentUserActorUrl;
         }
-        after_current_user_actor_url:        $result['current_user_actor_url'] = $current_user_actor_url;
+        after_currentUserActorUrl:        $result['current_user_actor_url'] = $currentUserActorUrl;
 
         
-        $current_user_organization_url = $object->current_user_organization_url;
+        $currentUserOrganizationUrl = $object->currentUserOrganizationUrl;
 
-        if ($current_user_organization_url === null) {
-            goto after_current_user_organization_url;
+        if ($currentUserOrganizationUrl === null) {
+            goto after_currentUserOrganizationUrl;
         }
-        after_current_user_organization_url:        $result['current_user_organization_url'] = $current_user_organization_url;
+        after_currentUserOrganizationUrl:        $result['current_user_organization_url'] = $currentUserOrganizationUrl;
 
         
-        $current_user_organization_urls = $object->current_user_organization_urls;
+        $currentUserOrganizationUrls = $object->currentUserOrganizationUrls;
 
-        if ($current_user_organization_urls === null) {
-            goto after_current_user_organization_urls;
+        if ($currentUserOrganizationUrls === null) {
+            goto after_currentUserOrganizationUrls;
         }
-        static $current_user_organization_urlsSerializer0;
+        static $currentUserOrganizationUrlsSerializer0;
 
-        if ($current_user_organization_urlsSerializer0 === null) {
-            $current_user_organization_urlsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+        if ($currentUserOrganizationUrlsSerializer0 === null) {
+            $currentUserOrganizationUrlsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
-        $current_user_organization_urls = $current_user_organization_urlsSerializer0->serialize($current_user_organization_urls, $this);
-        after_current_user_organization_urls:        $result['current_user_organization_urls'] = $current_user_organization_urls;
+        $currentUserOrganizationUrls = $currentUserOrganizationUrlsSerializer0->serialize($currentUserOrganizationUrls, $this);
+        after_currentUserOrganizationUrls:        $result['current_user_organization_urls'] = $currentUserOrganizationUrls;
 
         
-        $_links = $object->_links;
-        $_links = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Feed⚡️Links($_links);
-        after__links:        $result['_links'] = $_links;
+        $links = $object->links;
+        $links = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Feed⚡️Links($links);
+        after_links:        $result['_links'] = $links;
 
 
         return $result;
@@ -565,66 +565,66 @@ class Feeds implements ObjectMapper
         after_user:        $result['user'] = $user;
 
         
-        $security_advisories = $object->security_advisories;
+        $securityAdvisories = $object->securityAdvisories;
 
-        if ($security_advisories === null) {
-            goto after_security_advisories;
+        if ($securityAdvisories === null) {
+            goto after_securityAdvisories;
         }
-        $security_advisories = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($security_advisories);
-        after_security_advisories:        $result['security_advisories'] = $security_advisories;
+        $securityAdvisories = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($securityAdvisories);
+        after_securityAdvisories:        $result['security_advisories'] = $securityAdvisories;
 
         
-        $current_user = $object->current_user;
+        $currentUser = $object->currentUser;
 
-        if ($current_user === null) {
-            goto after_current_user;
+        if ($currentUser === null) {
+            goto after_currentUser;
         }
-        $current_user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($current_user);
-        after_current_user:        $result['current_user'] = $current_user;
+        $currentUser = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($currentUser);
+        after_currentUser:        $result['current_user'] = $currentUser;
 
         
-        $current_user_public = $object->current_user_public;
+        $currentUserPublic = $object->currentUserPublic;
 
-        if ($current_user_public === null) {
-            goto after_current_user_public;
+        if ($currentUserPublic === null) {
+            goto after_currentUserPublic;
         }
-        $current_user_public = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($current_user_public);
-        after_current_user_public:        $result['current_user_public'] = $current_user_public;
+        $currentUserPublic = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($currentUserPublic);
+        after_currentUserPublic:        $result['current_user_public'] = $currentUserPublic;
 
         
-        $current_user_actor = $object->current_user_actor;
+        $currentUserActor = $object->currentUserActor;
 
-        if ($current_user_actor === null) {
-            goto after_current_user_actor;
+        if ($currentUserActor === null) {
+            goto after_currentUserActor;
         }
-        $current_user_actor = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($current_user_actor);
-        after_current_user_actor:        $result['current_user_actor'] = $current_user_actor;
+        $currentUserActor = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($currentUserActor);
+        after_currentUserActor:        $result['current_user_actor'] = $currentUserActor;
 
         
-        $current_user_organization = $object->current_user_organization;
+        $currentUserOrganization = $object->currentUserOrganization;
 
-        if ($current_user_organization === null) {
-            goto after_current_user_organization;
+        if ($currentUserOrganization === null) {
+            goto after_currentUserOrganization;
         }
-        $current_user_organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($current_user_organization);
-        after_current_user_organization:        $result['current_user_organization'] = $current_user_organization;
+        $currentUserOrganization = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LinkWithType($currentUserOrganization);
+        after_currentUserOrganization:        $result['current_user_organization'] = $currentUserOrganization;
 
         
-        $current_user_organizations = $object->current_user_organizations;
+        $currentUserOrganizations = $object->currentUserOrganizations;
 
-        if ($current_user_organizations === null) {
-            goto after_current_user_organizations;
+        if ($currentUserOrganizations === null) {
+            goto after_currentUserOrganizations;
         }
-        static $current_user_organizationsSerializer0;
+        static $currentUserOrganizationsSerializer0;
 
-        if ($current_user_organizationsSerializer0 === null) {
-            $current_user_organizationsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+        if ($currentUserOrganizationsSerializer0 === null) {
+            $currentUserOrganizationsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\LinkWithType',
 ));
         }
         
-        $current_user_organizations = $current_user_organizationsSerializer0->serialize($current_user_organizations, $this);
-        after_current_user_organizations:        $result['current_user_organizations'] = $current_user_organizations;
+        $currentUserOrganizations = $currentUserOrganizationsSerializer0->serialize($currentUserOrganizations, $this);
+        after_currentUserOrganizations:        $result['current_user_organizations'] = $currentUserOrganizations;
 
 
         return $result;

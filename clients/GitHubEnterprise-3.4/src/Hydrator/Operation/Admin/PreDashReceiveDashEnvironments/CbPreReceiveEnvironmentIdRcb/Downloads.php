@@ -61,13 +61,13 @@ class Downloads implements ObjectMapper
             $value = $payload['downloaded_at'] ?? null;
 
             if ($value === null) {
-                $properties['downloaded_at'] = null;
-                goto after_downloaded_at;
+                $properties['downloadedAt'] = null;
+                goto after_downloadedAt;
             }
 
-            $properties['downloaded_at'] = $value;
+            $properties['downloadedAt'] = $value;
 
-            after_downloaded_at:
+            after_downloadedAt:
 
             $value = $payload['message'] ?? null;
 
@@ -330,12 +330,12 @@ class Downloads implements ObjectMapper
         after_state:        $result['state'] = $state;
 
         
-        $downloaded_at = $object->downloaded_at;
+        $downloadedAt = $object->downloadedAt;
 
-        if ($downloaded_at === null) {
-            goto after_downloaded_at;
+        if ($downloadedAt === null) {
+            goto after_downloadedAt;
         }
-        after_downloaded_at:        $result['downloaded_at'] = $downloaded_at;
+        after_downloadedAt:        $result['downloaded_at'] = $downloadedAt;
 
         
         $message = $object->message;

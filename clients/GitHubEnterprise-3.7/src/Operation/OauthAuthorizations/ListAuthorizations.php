@@ -15,24 +15,24 @@ final class ListAuthorizations
     private const METHOD = 'GET';
     private const PATH = '/authorizations';
     /**The client ID of your GitHub app.**/
-    private string $client_id;
+    private string $clientId;
     /**The number of results per page (max 100).**/
-    private int $per_page;
+    private int $perPage;
     /**Page number of the results to fetch.**/
     private int $page;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Authorizations $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations $hydrator, string $client_id, int $per_page = 30, int $page = 1)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations $hydrator, string $clientId, int $perPage = 30, int $page = 1)
     {
-        $this->client_id = $client_id;
-        $this->per_page = $per_page;
+        $this->clientId = $clientId;
+        $this->perPage = $perPage;
         $this->page = $page;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{client_id}', '{per_page}', '{page}'), array($this->client_id, $this->per_page, $this->page), self::PATH . '?client_id={client_id}&per_page={per_page}&page={page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{client_id}', '{per_page}', '{page}'), array($this->clientId, $this->perPage, $this->page), self::PATH . '?clientId={client_id}&perPage={per_page}&page={page}'));
     }
     /**
      * @return \Rx\Observable<Schema\Authorization>

@@ -15,14 +15,14 @@ final class DeletePersonalAccessToken
     private const METHOD = 'DELETE';
     private const PATH = '/admin/tokens/{token_id}';
     /**The unique identifier of the token.**/
-    private int $token_id;
-    public function __construct(int $token_id)
+    private int $tokenId;
+    public function __construct(int $tokenId)
     {
-        $this->token_id = $token_id;
+        $this->tokenId = $tokenId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{token_id}'), array($this->token_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{token_id}'), array($this->tokenId), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

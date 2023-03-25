@@ -16,14 +16,14 @@ final class GetOrCreateAuthorizationForAppAndFingerprint
     private const PATH = '/authorizations/clients/{client_id}/{fingerprint}';
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator;
     /**The client ID of the GitHub app.**/
-    private string $client_id;
+    private string $clientId;
     private string $fingerprint;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb $hydrator, string $client_id, string $fingerprint)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb $hydrator, string $clientId, string $fingerprint)
     {
         $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->client_id = $client_id;
+        $this->clientId = $clientId;
         $this->fingerprint = $fingerprint;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
@@ -31,7 +31,7 @@ final class GetOrCreateAuthorizationForAppAndFingerprint
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{client_id}', '{fingerprint}'), array($this->client_id, $this->fingerprint), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{client_id}', '{fingerprint}'), array($this->clientId, $this->fingerprint), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     /**
      * @return Schema\Authorization

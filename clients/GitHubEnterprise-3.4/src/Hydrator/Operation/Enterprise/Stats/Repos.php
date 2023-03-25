@@ -38,67 +38,67 @@ class Repos implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_repos';
-                goto after_total_repos;
+                goto after_totalRepos;
             }
 
-            $properties['total_repos'] = $value;
+            $properties['totalRepos'] = $value;
 
-            after_total_repos:
+            after_totalRepos:
 
             $value = $payload['root_repos'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'root_repos';
-                goto after_root_repos;
+                goto after_rootRepos;
             }
 
-            $properties['root_repos'] = $value;
+            $properties['rootRepos'] = $value;
 
-            after_root_repos:
+            after_rootRepos:
 
             $value = $payload['fork_repos'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'fork_repos';
-                goto after_fork_repos;
+                goto after_forkRepos;
             }
 
-            $properties['fork_repos'] = $value;
+            $properties['forkRepos'] = $value;
 
-            after_fork_repos:
+            after_forkRepos:
 
             $value = $payload['org_repos'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'org_repos';
-                goto after_org_repos;
+                goto after_orgRepos;
             }
 
-            $properties['org_repos'] = $value;
+            $properties['orgRepos'] = $value;
 
-            after_org_repos:
+            after_orgRepos:
 
             $value = $payload['total_pushes'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'total_pushes';
-                goto after_total_pushes;
+                goto after_totalPushes;
             }
 
-            $properties['total_pushes'] = $value;
+            $properties['totalPushes'] = $value;
 
-            after_total_pushes:
+            after_totalPushes:
 
             $value = $payload['total_wikis'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'total_wikis';
-                goto after_total_wikis;
+                goto after_totalWikis;
             }
 
-            $properties['total_wikis'] = $value;
+            $properties['totalWikis'] = $value;
 
-            after_total_wikis:
+            after_totalWikis:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseRepositoryOverview', $exception, stack: $this->hydrationStack);
@@ -225,28 +225,28 @@ class Repos implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseRepositoryOverview);
         $result = [];
 
-        $total_repos = $object->total_repos;
-        after_total_repos:        $result['total_repos'] = $total_repos;
+        $totalRepos = $object->totalRepos;
+        after_totalRepos:        $result['total_repos'] = $totalRepos;
 
         
-        $root_repos = $object->root_repos;
-        after_root_repos:        $result['root_repos'] = $root_repos;
+        $rootRepos = $object->rootRepos;
+        after_rootRepos:        $result['root_repos'] = $rootRepos;
 
         
-        $fork_repos = $object->fork_repos;
-        after_fork_repos:        $result['fork_repos'] = $fork_repos;
+        $forkRepos = $object->forkRepos;
+        after_forkRepos:        $result['fork_repos'] = $forkRepos;
 
         
-        $org_repos = $object->org_repos;
-        after_org_repos:        $result['org_repos'] = $org_repos;
+        $orgRepos = $object->orgRepos;
+        after_orgRepos:        $result['org_repos'] = $orgRepos;
 
         
-        $total_pushes = $object->total_pushes;
-        after_total_pushes:        $result['total_pushes'] = $total_pushes;
+        $totalPushes = $object->totalPushes;
+        after_totalPushes:        $result['total_pushes'] = $totalPushes;
 
         
-        $total_wikis = $object->total_wikis;
-        after_total_wikis:        $result['total_wikis'] = $total_wikis;
+        $totalWikis = $object->totalWikis;
+        after_totalWikis:        $result['total_wikis'] = $totalWikis;
 
 
         return $result;

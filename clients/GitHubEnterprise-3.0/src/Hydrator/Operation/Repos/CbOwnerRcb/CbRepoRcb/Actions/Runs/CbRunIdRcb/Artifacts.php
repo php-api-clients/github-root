@@ -39,12 +39,12 @@ class Artifacts implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_count';
-                goto after_total_count;
+                goto after_totalCount;
             }
 
-            $properties['total_count'] = $value;
+            $properties['totalCount'] = $value;
 
-            after_total_count:
+            after_totalCount:
 
             $value = $payload['artifacts'] ?? null;
 
@@ -103,12 +103,12 @@ class Artifacts implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'node_id';
-                goto after_node_id;
+                goto after_nodeId;
             }
 
-            $properties['node_id'] = $value;
+            $properties['nodeId'] = $value;
 
-            after_node_id:
+            after_nodeId:
 
             $value = $payload['name'] ?? null;
 
@@ -125,12 +125,12 @@ class Artifacts implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'size_in_bytes';
-                goto after_size_in_bytes;
+                goto after_sizeInBytes;
             }
 
-            $properties['size_in_bytes'] = $value;
+            $properties['sizeInBytes'] = $value;
 
-            after_size_in_bytes:
+            after_sizeInBytes:
 
             $value = $payload['url'] ?? null;
 
@@ -147,12 +147,12 @@ class Artifacts implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'archive_download_url';
-                goto after_archive_download_url;
+                goto after_archiveDownloadUrl;
             }
 
-            $properties['archive_download_url'] = $value;
+            $properties['archiveDownloadUrl'] = $value;
 
-            after_archive_download_url:
+            after_archiveDownloadUrl:
 
             $value = $payload['expired'] ?? null;
 
@@ -168,35 +168,35 @@ class Artifacts implements ObjectMapper
             $value = $payload['created_at'] ?? null;
 
             if ($value === null) {
-                $properties['created_at'] = null;
-                goto after_created_at;
+                $properties['createdAt'] = null;
+                goto after_createdAt;
             }
 
-            $properties['created_at'] = $value;
+            $properties['createdAt'] = $value;
 
-            after_created_at:
+            after_createdAt:
 
             $value = $payload['expires_at'] ?? null;
 
             if ($value === null) {
-                $properties['expires_at'] = null;
-                goto after_expires_at;
+                $properties['expiresAt'] = null;
+                goto after_expiresAt;
             }
 
-            $properties['expires_at'] = $value;
+            $properties['expiresAt'] = $value;
 
-            after_expires_at:
+            after_expiresAt:
 
             $value = $payload['updated_at'] ?? null;
 
             if ($value === null) {
-                $properties['updated_at'] = null;
-                goto after_updated_at;
+                $properties['updatedAt'] = null;
+                goto after_updatedAt;
             }
 
-            $properties['updated_at'] = $value;
+            $properties['updatedAt'] = $value;
 
-            after_updated_at:
+            after_updatedAt:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Artifact', $exception, stack: $this->hydrationStack);
@@ -324,8 +324,8 @@ class Artifacts implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListArtifactsForRepo\Response\Applicationjson\H200);
         $result = [];
 
-        $total_count = $object->total_count;
-        after_total_count:        $result['total_count'] = $total_count;
+        $totalCount = $object->totalCount;
+        after_totalCount:        $result['total_count'] = $totalCount;
 
         
         $artifacts = $object->artifacts;
@@ -354,52 +354,52 @@ class Artifacts implements ObjectMapper
         after_id:        $result['id'] = $id;
 
         
-        $node_id = $object->node_id;
-        after_node_id:        $result['node_id'] = $node_id;
+        $nodeId = $object->nodeId;
+        after_nodeId:        $result['node_id'] = $nodeId;
 
         
         $name = $object->name;
         after_name:        $result['name'] = $name;
 
         
-        $size_in_bytes = $object->size_in_bytes;
-        after_size_in_bytes:        $result['size_in_bytes'] = $size_in_bytes;
+        $sizeInBytes = $object->sizeInBytes;
+        after_sizeInBytes:        $result['size_in_bytes'] = $sizeInBytes;
 
         
         $url = $object->url;
         after_url:        $result['url'] = $url;
 
         
-        $archive_download_url = $object->archive_download_url;
-        after_archive_download_url:        $result['archive_download_url'] = $archive_download_url;
+        $archiveDownloadUrl = $object->archiveDownloadUrl;
+        after_archiveDownloadUrl:        $result['archive_download_url'] = $archiveDownloadUrl;
 
         
         $expired = $object->expired;
         after_expired:        $result['expired'] = $expired;
 
         
-        $created_at = $object->created_at;
+        $createdAt = $object->createdAt;
 
-        if ($created_at === null) {
-            goto after_created_at;
+        if ($createdAt === null) {
+            goto after_createdAt;
         }
-        after_created_at:        $result['created_at'] = $created_at;
+        after_createdAt:        $result['created_at'] = $createdAt;
 
         
-        $expires_at = $object->expires_at;
+        $expiresAt = $object->expiresAt;
 
-        if ($expires_at === null) {
-            goto after_expires_at;
+        if ($expiresAt === null) {
+            goto after_expiresAt;
         }
-        after_expires_at:        $result['expires_at'] = $expires_at;
+        after_expiresAt:        $result['expires_at'] = $expiresAt;
 
         
-        $updated_at = $object->updated_at;
+        $updatedAt = $object->updatedAt;
 
-        if ($updated_at === null) {
-            goto after_updated_at;
+        if ($updatedAt === null) {
+            goto after_updatedAt;
         }
-        after_updated_at:        $result['updated_at'] = $updated_at;
+        after_updatedAt:        $result['updated_at'] = $updatedAt;
 
 
         return $result;

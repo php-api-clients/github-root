@@ -14,18 +14,18 @@ final class GetPreReceiveEnvironment
     public const OPERATION_MATCH = 'GET /admin/pre-receive-environments/{pre_receive_environment_id}';
     private const METHOD = 'GET';
     private const PATH = '/admin/pre-receive-environments/{pre_receive_environment_id}';
-    private int $pre_receive_environment_id;
+    private int $preReceiveEnvironmentId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb $hydrator, int $pre_receive_environment_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb $hydrator, int $preReceiveEnvironmentId)
     {
-        $this->pre_receive_environment_id = $pre_receive_environment_id;
+        $this->preReceiveEnvironmentId = $preReceiveEnvironmentId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{pre_receive_environment_id}'), array($this->pre_receive_environment_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{pre_receive_environment_id}'), array($this->preReceiveEnvironmentId), self::PATH));
     }
     /**
      * @return Schema\PreReceiveEnvironment

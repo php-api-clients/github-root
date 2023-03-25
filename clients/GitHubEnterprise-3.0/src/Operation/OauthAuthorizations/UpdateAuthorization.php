@@ -16,20 +16,20 @@ final class UpdateAuthorization
     private const PATH = '/authorizations/{authorization_id}';
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator;
     /**authorization_id parameter**/
-    private int $authorization_id;
+    private int $authorizationId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Authorizations\CbAuthorizationIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations\CbAuthorizationIdRcb $hydrator, int $authorization_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations\CbAuthorizationIdRcb $hydrator, int $authorizationId)
     {
         $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->authorization_id = $authorization_id;
+        $this->authorizationId = $authorizationId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\OauthAuthorizations\UpdateAuthorization\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{authorization_id}'), array($this->authorization_id), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{authorization_id}'), array($this->authorizationId), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     /**
      * @return Schema\Authorization

@@ -15,18 +15,18 @@ final class DeleteAuthorization
     private const METHOD = 'DELETE';
     private const PATH = '/authorizations/{authorization_id}';
     /**The unique identifier of the authorization.**/
-    private int $authorization_id;
+    private int $authorizationId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Authorizations\CbAuthorizationIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations\CbAuthorizationIdRcb $hydrator, int $authorization_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations\CbAuthorizationIdRcb $hydrator, int $authorizationId)
     {
-        $this->authorization_id = $authorization_id;
+        $this->authorizationId = $authorizationId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{authorization_id}'), array($this->authorization_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{authorization_id}'), array($this->authorizationId), self::PATH));
     }
     function createResponse(\Psr\Http\Message\ResponseInterface $response) : void
     {

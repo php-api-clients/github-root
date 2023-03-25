@@ -15,14 +15,14 @@ final class AddCollaborator
     private const METHOD = 'PUT';
     private const PATH = '/projects/{project_id}/collaborators/{username}';
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator;
-    private int $project_id;
+    private int $projectId;
     private string $username;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators\CbUsernameRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators\CbUsernameRcb $hydrator, int $project_id, string $username)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators\CbUsernameRcb $hydrator, int $projectId, string $username)
     {
         $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->project_id = $project_id;
+        $this->projectId = $projectId;
         $this->username = $username;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
@@ -30,7 +30,7 @@ final class AddCollaborator
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\Projects\AddCollaborator\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{project_id}', '{username}'), array($this->project_id, $this->username), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{project_id}', '{username}'), array($this->projectId, $this->username), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     function createResponse(\Psr\Http\Message\ResponseInterface $response) : void
     {

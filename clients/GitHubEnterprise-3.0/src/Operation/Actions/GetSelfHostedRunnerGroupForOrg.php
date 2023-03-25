@@ -16,19 +16,19 @@ final class GetSelfHostedRunnerGroupForOrg
     private const PATH = '/orgs/{org}/actions/runner-groups/{runner_group_id}';
     private string $org;
     /**Unique identifier of the self-hosted runner group.**/
-    private int $runner_group_id;
+    private int $runnerGroupId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb $hydrator, string $org, int $runner_group_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb $hydrator, string $org, int $runnerGroupId)
     {
         $this->org = $org;
-        $this->runner_group_id = $runner_group_id;
+        $this->runnerGroupId = $runnerGroupId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{runner_group_id}'), array($this->org, $this->runner_group_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{runner_group_id}'), array($this->org, $this->runnerGroupId), self::PATH));
     }
     /**
      * @return Schema\RunnerGroupsOrg

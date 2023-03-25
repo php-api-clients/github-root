@@ -35,10 +35,10 @@ final class GetAuditLog
     The default is `desc`.**/
     private string $order;
     /**The number of results per page (max 100).**/
-    private int $per_page;
+    private int $perPage;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\AuditLog $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\AuditLog $hydrator, string $org, string $phrase, string $include, string $after, string $before, string $order, int $per_page = 30)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\AuditLog $hydrator, string $org, string $phrase, string $include, string $after, string $before, string $order, int $perPage = 30)
     {
         $this->org = $org;
         $this->phrase = $phrase;
@@ -46,13 +46,13 @@ final class GetAuditLog
         $this->after = $after;
         $this->before = $before;
         $this->order = $order;
-        $this->per_page = $per_page;
+        $this->perPage = $perPage;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{phrase}', '{include}', '{after}', '{before}', '{order}', '{per_page}'), array($this->org, $this->phrase, $this->include, $this->after, $this->before, $this->order, $this->per_page), self::PATH . '?phrase={phrase}&include={include}&after={after}&before={before}&order={order}&per_page={per_page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{phrase}', '{include}', '{after}', '{before}', '{order}', '{per_page}'), array($this->org, $this->phrase, $this->include, $this->after, $this->before, $this->order, $this->perPage), self::PATH . '?phrase={phrase}&include={include}&after={after}&before={before}&order={order}&perPage={per_page}'));
     }
     /**
      * @return \Rx\Observable<Schema\AuditLogEvent>

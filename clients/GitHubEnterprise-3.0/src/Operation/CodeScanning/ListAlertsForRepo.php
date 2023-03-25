@@ -17,9 +17,9 @@ final class ListAlertsForRepo
     private string $owner;
     private string $repo;
     /**The name of a code scanning tool. Only results by this tool will be listed. You can specify the tool by using either `tool_name` or `tool_guid`, but not both.**/
-    private string $tool_name;
+    private string $toolName;
     /**The GUID of a code scanning tool. Only results by this tool will be listed. Note that some code scanning tools may not include a GUID in their analysis data. You can specify the tool by using either `tool_guid` or `tool_name`, but not both.**/
-    private string|null $tool_guid;
+    private string|null $toolGuid;
     /**The Git reference for the results you want to list. The `ref` for a branch can be formatted either as `refs/heads/<branch name>` or simply `<branch name>`. To reference a pull request use `refs/pull/<number>/merge`.**/
     private string $ref;
     /**Set to `open`, `fixed`, or `dismissed` to list code scanning alerts in a specific state.**/
@@ -27,25 +27,25 @@ final class ListAlertsForRepo
     /**Page number of the results to fetch.**/
     private int $page;
     /**Results per page (max 100)**/
-    private int $per_page;
+    private int $perPage;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Alerts $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Alerts $hydrator, string $owner, string $repo, string $tool_name, string|null $tool_guid, string $ref, string $state, int $page = 1, int $per_page = 30)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Alerts $hydrator, string $owner, string $repo, string $toolName, string|null $toolGuid, string $ref, string $state, int $page = 1, int $perPage = 30)
     {
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->tool_name = $tool_name;
-        $this->tool_guid = $tool_guid;
+        $this->toolName = $toolName;
+        $this->toolGuid = $toolGuid;
         $this->ref = $ref;
         $this->state = $state;
         $this->page = $page;
-        $this->per_page = $per_page;
+        $this->perPage = $perPage;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{tool_name}', '{tool_guid}', '{ref}', '{state}', '{page}', '{per_page}'), array($this->owner, $this->repo, $this->tool_name, $this->tool_guid, $this->ref, $this->state, $this->page, $this->per_page), self::PATH . '?tool_name={tool_name}&tool_guid={tool_guid}&ref={ref}&state={state}&page={page}&per_page={per_page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{tool_name}', '{tool_guid}', '{ref}', '{state}', '{page}', '{per_page}'), array($this->owner, $this->repo, $this->toolName, $this->toolGuid, $this->ref, $this->state, $this->page, $this->perPage), self::PATH . '?toolName={tool_name}&toolGuid={tool_guid}&ref={ref}&state={state}&page={page}&perPage={per_page}'));
     }
     /**
      * @return \Rx\Observable<Schema\CodeScanningAlertItems>

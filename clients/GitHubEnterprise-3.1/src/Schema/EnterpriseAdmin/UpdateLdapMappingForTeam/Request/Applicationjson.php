@@ -13,11 +13,11 @@ final readonly class Applicationjson
     public const SCHEMA_JSON = '{"required":["ldap_dn"],"type":"object","properties":{"ldap_dn":{"type":"string","description":"The [distinguished name](https:\\/\\/www.ldap.com\\/ldap-dns-and-rdns) (DN) of the LDAP entry to map to a team."}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"ldap_dn":"generated_ldap_dn_null"}';
+    public const SCHEMA_EXAMPLE_DATA = '{"ldapDn":"generated_ldap_dn_null"}';
     /**
-     * ldap_dn: The [distinguished name](https://www.ldap.com/ldap-dns-and-rdns) (DN) of the LDAP entry to map to a team.
+     * ldapDn: The [distinguished name](https://www.ldap.com/ldap-dns-and-rdns) (DN) of the LDAP entry to map to a team.
      */
-    public function __construct(public string $ldap_dn)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('ldap_dn')] public string $ldapDn)
     {
     }
 }

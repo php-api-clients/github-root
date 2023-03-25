@@ -17,20 +17,20 @@ final class RerequestSuite
     private string $owner;
     private string $repo;
     /**check_suite_id parameter**/
-    private int $check_suite_id;
+    private int $checkSuiteId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\Rerequest $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\Rerequest $hydrator, string $owner, string $repo, int $check_suite_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\Rerequest $hydrator, string $owner, string $repo, int $checkSuiteId)
     {
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->check_suite_id = $check_suite_id;
+        $this->checkSuiteId = $checkSuiteId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{check_suite_id}'), array($this->owner, $this->repo, $this->check_suite_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{check_suite_id}'), array($this->owner, $this->repo, $this->checkSuiteId), self::PATH));
     }
     /**
      * @return Schema\Operation\Gists\CheckIsStarred\Response\Applicationjson\H404

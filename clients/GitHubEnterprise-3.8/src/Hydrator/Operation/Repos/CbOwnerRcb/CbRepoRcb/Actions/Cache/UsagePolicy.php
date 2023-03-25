@@ -38,12 +38,12 @@ class UsagePolicy implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'repo_cache_size_limit_in_gb';
-                goto after_repo_cache_size_limit_in_gb;
+                goto after_repoCacheSizeLimitInGb;
             }
 
-            $properties['repo_cache_size_limit_in_gb'] = $value;
+            $properties['repoCacheSizeLimitInGb'] = $value;
 
-            after_repo_cache_size_limit_in_gb:
+            after_repoCacheSizeLimitInGb:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyForRepository', $exception, stack: $this->hydrationStack);
@@ -170,8 +170,8 @@ class UsagePolicy implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyForRepository);
         $result = [];
 
-        $repo_cache_size_limit_in_gb = $object->repo_cache_size_limit_in_gb;
-        after_repo_cache_size_limit_in_gb:        $result['repo_cache_size_limit_in_gb'] = $repo_cache_size_limit_in_gb;
+        $repoCacheSizeLimitInGb = $object->repoCacheSizeLimitInGb;
+        after_repoCacheSizeLimitInGb:        $result['repo_cache_size_limit_in_gb'] = $repoCacheSizeLimitInGb;
 
 
         return $result;

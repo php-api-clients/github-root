@@ -16,29 +16,29 @@ final class ListCommentsForReview
     private const PATH = '/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments';
     private string $owner;
     private string $repo;
-    private int $pull_number;
+    private int $pullNumber;
     /**review_id parameter**/
-    private int $review_id;
+    private int $reviewId;
     /**Results per page (max 100)**/
-    private int $per_page;
+    private int $perPage;
     /**Page number of the results to fetch.**/
     private int $page;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Comments $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Comments $hydrator, string $owner, string $repo, int $pull_number, int $review_id, int $per_page = 30, int $page = 1)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Comments $hydrator, string $owner, string $repo, int $pullNumber, int $reviewId, int $perPage = 30, int $page = 1)
     {
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->pull_number = $pull_number;
-        $this->review_id = $review_id;
-        $this->per_page = $per_page;
+        $this->pullNumber = $pullNumber;
+        $this->reviewId = $reviewId;
+        $this->perPage = $perPage;
         $this->page = $page;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{pull_number}', '{review_id}', '{per_page}', '{page}'), array($this->owner, $this->repo, $this->pull_number, $this->review_id, $this->per_page, $this->page), self::PATH . '?per_page={per_page}&page={page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{pull_number}', '{review_id}', '{per_page}', '{page}'), array($this->owner, $this->repo, $this->pullNumber, $this->reviewId, $this->perPage, $this->page), self::PATH . '?perPage={per_page}&page={page}'));
     }
     /**
      * @return \Rx\Observable<Schema\ReviewComment>

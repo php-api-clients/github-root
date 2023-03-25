@@ -17,16 +17,16 @@ final class DeleteInvitation
     private string $owner;
     private string $repo;
     /**invitation_id parameter**/
-    private int $invitation_id;
-    public function __construct(string $owner, string $repo, int $invitation_id)
+    private int $invitationId;
+    public function __construct(string $owner, string $repo, int $invitationId)
     {
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->invitation_id = $invitation_id;
+        $this->invitationId = $invitationId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{invitation_id}'), array($this->owner, $this->repo, $this->invitation_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{invitation_id}'), array($this->owner, $this->repo, $this->invitationId), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

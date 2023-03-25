@@ -70,13 +70,13 @@ class PreReceiveHooks implements ObjectMapper
             $value = $payload['configuration_url'] ?? null;
 
             if ($value === null) {
-                $properties['configuration_url'] = null;
-                goto after_configuration_url;
+                $properties['configurationUrl'] = null;
+                goto after_configurationUrl;
             }
 
-            $properties['configuration_url'] = $value;
+            $properties['configurationUrl'] = $value;
 
-            after_configuration_url:
+            after_configurationUrl:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook', $exception, stack: $this->hydrationStack);
@@ -227,12 +227,12 @@ class PreReceiveHooks implements ObjectMapper
         after_enforcement:        $result['enforcement'] = $enforcement;
 
         
-        $configuration_url = $object->configuration_url;
+        $configurationUrl = $object->configurationUrl;
 
-        if ($configuration_url === null) {
-            goto after_configuration_url;
+        if ($configurationUrl === null) {
+            goto after_configurationUrl;
         }
-        after_configuration_url:        $result['configuration_url'] = $configuration_url;
+        after_configurationUrl:        $result['configuration_url'] = $configurationUrl;
 
 
         return $result;

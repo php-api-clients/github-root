@@ -15,18 +15,18 @@ final class DeleteLegacy
     private const METHOD = 'DELETE';
     private const PATH = '/reactions/{reaction_id}';
     /**The unique identifier of the reaction.**/
-    private int $reaction_id;
+    private int $reactionId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Reactions\CbReactionIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Reactions\CbReactionIdRcb $hydrator, int $reaction_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Reactions\CbReactionIdRcb $hydrator, int $reactionId)
     {
-        $this->reaction_id = $reaction_id;
+        $this->reactionId = $reactionId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{reaction_id}'), array($this->reaction_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{reaction_id}'), array($this->reactionId), self::PATH));
     }
     function createResponse(\Psr\Http\Message\ResponseInterface $response) : void
     {

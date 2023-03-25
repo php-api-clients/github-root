@@ -85,22 +85,22 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
             $value = $payload['script_repository'] ?? null;
 
             if ($value === null) {
-                $properties['script_repository'] = null;
-                goto after_script_repository;
+                $properties['scriptRepository'] = null;
+                goto after_scriptRepository;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'script_repository';
+                    $this->hydrationStack[] = 'scriptRepository';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['script_repository'] = $value;
+            $properties['scriptRepository'] = $value;
 
-            after_script_repository:
+            after_scriptRepository:
 
             $value = $payload['environment'] ?? null;
 
@@ -125,13 +125,13 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
             $value = $payload['allow_downstream_configuration'] ?? null;
 
             if ($value === null) {
-                $properties['allow_downstream_configuration'] = null;
-                goto after_allow_downstream_configuration;
+                $properties['allowDownstreamConfiguration'] = null;
+                goto after_allowDownstreamConfiguration;
             }
 
-            $properties['allow_downstream_configuration'] = $value;
+            $properties['allowDownstreamConfiguration'] = $value;
 
-            after_allow_downstream_configuration:
+            after_allowDownstreamConfiguration:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook', $exception, stack: $this->hydrationStack);
@@ -168,13 +168,13 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
             $value = $payload['full_name'] ?? null;
 
             if ($value === null) {
-                $properties['full_name'] = null;
-                goto after_full_name;
+                $properties['fullName'] = null;
+                goto after_fullName;
             }
 
-            $properties['full_name'] = $value;
+            $properties['fullName'] = $value;
 
-            after_full_name:
+            after_fullName:
 
             $value = $payload['url'] ?? null;
 
@@ -190,13 +190,13 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
             $value = $payload['html_url'] ?? null;
 
             if ($value === null) {
-                $properties['html_url'] = null;
-                goto after_html_url;
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
             }
 
-            $properties['html_url'] = $value;
+            $properties['htmlUrl'] = $value;
 
-            after_html_url:
+            after_htmlUrl:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository', $exception, stack: $this->hydrationStack);
@@ -244,13 +244,13 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
             $value = $payload['image_url'] ?? null;
 
             if ($value === null) {
-                $properties['image_url'] = null;
-                goto after_image_url;
+                $properties['imageUrl'] = null;
+                goto after_imageUrl;
             }
 
-            $properties['image_url'] = $value;
+            $properties['imageUrl'] = $value;
 
-            after_image_url:
+            after_imageUrl:
 
             $value = $payload['url'] ?? null;
 
@@ -266,46 +266,46 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
             $value = $payload['html_url'] ?? null;
 
             if ($value === null) {
-                $properties['html_url'] = null;
-                goto after_html_url;
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
             }
 
-            $properties['html_url'] = $value;
+            $properties['htmlUrl'] = $value;
 
-            after_html_url:
+            after_htmlUrl:
 
             $value = $payload['default_environment'] ?? null;
 
             if ($value === null) {
-                $properties['default_environment'] = null;
-                goto after_default_environment;
+                $properties['defaultEnvironment'] = null;
+                goto after_defaultEnvironment;
             }
 
-            $properties['default_environment'] = $value;
+            $properties['defaultEnvironment'] = $value;
 
-            after_default_environment:
+            after_defaultEnvironment:
 
             $value = $payload['created_at'] ?? null;
 
             if ($value === null) {
-                $properties['created_at'] = null;
-                goto after_created_at;
+                $properties['createdAt'] = null;
+                goto after_createdAt;
             }
 
-            $properties['created_at'] = $value;
+            $properties['createdAt'] = $value;
 
-            after_created_at:
+            after_createdAt:
 
             $value = $payload['hooks_count'] ?? null;
 
             if ($value === null) {
-                $properties['hooks_count'] = null;
-                goto after_hooks_count;
+                $properties['hooksCount'] = null;
+                goto after_hooksCount;
             }
 
-            $properties['hooks_count'] = $value;
+            $properties['hooksCount'] = $value;
 
-            after_hooks_count:
+            after_hooksCount:
 
             $value = $payload['download'] ?? null;
 
@@ -373,13 +373,13 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
             $value = $payload['downloaded_at'] ?? null;
 
             if ($value === null) {
-                $properties['downloaded_at'] = null;
-                goto after_downloaded_at;
+                $properties['downloadedAt'] = null;
+                goto after_downloadedAt;
             }
 
-            $properties['downloaded_at'] = $value;
+            $properties['downloadedAt'] = $value;
 
-            after_downloaded_at:
+            after_downloadedAt:
 
             $value = $payload['message'] ?? null;
 
@@ -438,13 +438,13 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
             $value = $payload['downloaded_at'] ?? null;
 
             if ($value === null) {
-                $properties['downloaded_at'] = null;
-                goto after_downloaded_at;
+                $properties['downloadedAt'] = null;
+                goto after_downloadedAt;
             }
 
-            $properties['downloaded_at'] = $value;
+            $properties['downloadedAt'] = $value;
 
-            after_downloaded_at:
+            after_downloadedAt:
 
             $value = $payload['message'] ?? null;
 
@@ -617,13 +617,13 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
         after_script:        $result['script'] = $script;
 
         
-        $script_repository = $object->script_repository;
+        $scriptRepository = $object->scriptRepository;
 
-        if ($script_repository === null) {
-            goto after_script_repository;
+        if ($scriptRepository === null) {
+            goto after_scriptRepository;
         }
-        $script_repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository($script_repository);
-        after_script_repository:        $result['script_repository'] = $script_repository;
+        $scriptRepository = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository($scriptRepository);
+        after_scriptRepository:        $result['script_repository'] = $scriptRepository;
 
         
         $environment = $object->environment;
@@ -635,12 +635,12 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
         after_environment:        $result['environment'] = $environment;
 
         
-        $allow_downstream_configuration = $object->allow_downstream_configuration;
+        $allowDownstreamConfiguration = $object->allowDownstreamConfiguration;
 
-        if ($allow_downstream_configuration === null) {
-            goto after_allow_downstream_configuration;
+        if ($allowDownstreamConfiguration === null) {
+            goto after_allowDownstreamConfiguration;
         }
-        after_allow_downstream_configuration:        $result['allow_downstream_configuration'] = $allow_downstream_configuration;
+        after_allowDownstreamConfiguration:        $result['allow_downstream_configuration'] = $allowDownstreamConfiguration;
 
 
         return $result;
@@ -660,12 +660,12 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
         after_id:        $result['id'] = $id;
 
         
-        $full_name = $object->full_name;
+        $fullName = $object->fullName;
 
-        if ($full_name === null) {
-            goto after_full_name;
+        if ($fullName === null) {
+            goto after_fullName;
         }
-        after_full_name:        $result['full_name'] = $full_name;
+        after_fullName:        $result['full_name'] = $fullName;
 
         
         $url = $object->url;
@@ -676,12 +676,12 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
         after_url:        $result['url'] = $url;
 
         
-        $html_url = $object->html_url;
+        $htmlUrl = $object->htmlUrl;
 
-        if ($html_url === null) {
-            goto after_html_url;
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
         }
-        after_html_url:        $result['html_url'] = $html_url;
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
 
 
         return $result;
@@ -709,12 +709,12 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
         after_name:        $result['name'] = $name;
 
         
-        $image_url = $object->image_url;
+        $imageUrl = $object->imageUrl;
 
-        if ($image_url === null) {
-            goto after_image_url;
+        if ($imageUrl === null) {
+            goto after_imageUrl;
         }
-        after_image_url:        $result['image_url'] = $image_url;
+        after_imageUrl:        $result['image_url'] = $imageUrl;
 
         
         $url = $object->url;
@@ -725,36 +725,36 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
         after_url:        $result['url'] = $url;
 
         
-        $html_url = $object->html_url;
+        $htmlUrl = $object->htmlUrl;
 
-        if ($html_url === null) {
-            goto after_html_url;
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
         }
-        after_html_url:        $result['html_url'] = $html_url;
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
 
         
-        $default_environment = $object->default_environment;
+        $defaultEnvironment = $object->defaultEnvironment;
 
-        if ($default_environment === null) {
-            goto after_default_environment;
+        if ($defaultEnvironment === null) {
+            goto after_defaultEnvironment;
         }
-        after_default_environment:        $result['default_environment'] = $default_environment;
+        after_defaultEnvironment:        $result['default_environment'] = $defaultEnvironment;
 
         
-        $created_at = $object->created_at;
+        $createdAt = $object->createdAt;
 
-        if ($created_at === null) {
-            goto after_created_at;
+        if ($createdAt === null) {
+            goto after_createdAt;
         }
-        after_created_at:        $result['created_at'] = $created_at;
+        after_createdAt:        $result['created_at'] = $createdAt;
 
         
-        $hooks_count = $object->hooks_count;
+        $hooksCount = $object->hooksCount;
 
-        if ($hooks_count === null) {
-            goto after_hooks_count;
+        if ($hooksCount === null) {
+            goto after_hooksCount;
         }
-        after_hooks_count:        $result['hooks_count'] = $hooks_count;
+        after_hooksCount:        $result['hooks_count'] = $hooksCount;
 
         
         $download = $object->download;
@@ -791,12 +791,12 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
         after_state:        $result['state'] = $state;
 
         
-        $downloaded_at = $object->downloaded_at;
+        $downloadedAt = $object->downloadedAt;
 
-        if ($downloaded_at === null) {
-            goto after_downloaded_at;
+        if ($downloadedAt === null) {
+            goto after_downloadedAt;
         }
-        after_downloaded_at:        $result['downloaded_at'] = $downloaded_at;
+        after_downloadedAt:        $result['downloaded_at'] = $downloadedAt;
 
         
         $message = $object->message;

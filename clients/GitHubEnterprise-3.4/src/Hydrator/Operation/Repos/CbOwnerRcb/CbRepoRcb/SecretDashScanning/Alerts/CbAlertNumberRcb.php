@@ -49,24 +49,24 @@ class CbAlertNumberRcb implements ObjectMapper
             $value = $payload['created_at'] ?? null;
 
             if ($value === null) {
-                $properties['created_at'] = null;
-                goto after_created_at;
+                $properties['createdAt'] = null;
+                goto after_createdAt;
             }
 
-            $properties['created_at'] = $value;
+            $properties['createdAt'] = $value;
 
-            after_created_at:
+            after_createdAt:
 
             $value = $payload['updated_at'] ?? null;
 
             if ($value === null) {
-                $properties['updated_at'] = null;
-                goto after_updated_at;
+                $properties['updatedAt'] = null;
+                goto after_updatedAt;
             }
 
-            $properties['updated_at'] = $value;
+            $properties['updatedAt'] = $value;
 
-            after_updated_at:
+            after_updatedAt:
 
             $value = $payload['url'] ?? null;
 
@@ -82,24 +82,24 @@ class CbAlertNumberRcb implements ObjectMapper
             $value = $payload['html_url'] ?? null;
 
             if ($value === null) {
-                $properties['html_url'] = null;
-                goto after_html_url;
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
             }
 
-            $properties['html_url'] = $value;
+            $properties['htmlUrl'] = $value;
 
-            after_html_url:
+            after_htmlUrl:
 
             $value = $payload['locations_url'] ?? null;
 
             if ($value === null) {
-                $properties['locations_url'] = null;
-                goto after_locations_url;
+                $properties['locationsUrl'] = null;
+                goto after_locationsUrl;
             }
 
-            $properties['locations_url'] = $value;
+            $properties['locationsUrl'] = $value;
 
-            after_locations_url:
+            after_locationsUrl:
 
             $value = $payload['state'] ?? null;
 
@@ -126,35 +126,35 @@ class CbAlertNumberRcb implements ObjectMapper
             $value = $payload['resolved_at'] ?? null;
 
             if ($value === null) {
-                $properties['resolved_at'] = null;
-                goto after_resolved_at;
+                $properties['resolvedAt'] = null;
+                goto after_resolvedAt;
             }
 
-            $properties['resolved_at'] = $value;
+            $properties['resolvedAt'] = $value;
 
-            after_resolved_at:
+            after_resolvedAt:
 
             $value = $payload['resolved_by'] ?? null;
 
             if ($value === null) {
-                $properties['resolved_by'] = null;
-                goto after_resolved_by;
+                $properties['resolvedBy'] = null;
+                goto after_resolvedBy;
             }
 
-            $properties['resolved_by'] = $value;
+            $properties['resolvedBy'] = $value;
 
-            after_resolved_by:
+            after_resolvedBy:
 
             $value = $payload['secret_type'] ?? null;
 
             if ($value === null) {
-                $properties['secret_type'] = null;
-                goto after_secret_type;
+                $properties['secretType'] = null;
+                goto after_secretType;
             }
 
-            $properties['secret_type'] = $value;
+            $properties['secretType'] = $value;
 
-            after_secret_type:
+            after_secretType:
 
             $value = $payload['secret'] ?? null;
 
@@ -213,13 +213,13 @@ class CbAlertNumberRcb implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
@@ -355,20 +355,20 @@ class CbAlertNumberRcb implements ObjectMapper
         after_number:        $result['number'] = $number;
 
         
-        $created_at = $object->created_at;
+        $createdAt = $object->createdAt;
 
-        if ($created_at === null) {
-            goto after_created_at;
+        if ($createdAt === null) {
+            goto after_createdAt;
         }
-        after_created_at:        $result['created_at'] = $created_at;
+        after_createdAt:        $result['created_at'] = $createdAt;
 
         
-        $updated_at = $object->updated_at;
+        $updatedAt = $object->updatedAt;
 
-        if ($updated_at === null) {
-            goto after_updated_at;
+        if ($updatedAt === null) {
+            goto after_updatedAt;
         }
-        after_updated_at:        $result['updated_at'] = $updated_at;
+        after_updatedAt:        $result['updated_at'] = $updatedAt;
 
         
         $url = $object->url;
@@ -379,20 +379,20 @@ class CbAlertNumberRcb implements ObjectMapper
         after_url:        $result['url'] = $url;
 
         
-        $html_url = $object->html_url;
+        $htmlUrl = $object->htmlUrl;
 
-        if ($html_url === null) {
-            goto after_html_url;
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
         }
-        after_html_url:        $result['html_url'] = $html_url;
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
 
         
-        $locations_url = $object->locations_url;
+        $locationsUrl = $object->locationsUrl;
 
-        if ($locations_url === null) {
-            goto after_locations_url;
+        if ($locationsUrl === null) {
+            goto after_locationsUrl;
         }
-        after_locations_url:        $result['locations_url'] = $locations_url;
+        after_locationsUrl:        $result['locations_url'] = $locationsUrl;
 
         
         $state = $object->state;
@@ -411,28 +411,28 @@ class CbAlertNumberRcb implements ObjectMapper
         after_resolution:        $result['resolution'] = $resolution;
 
         
-        $resolved_at = $object->resolved_at;
+        $resolvedAt = $object->resolvedAt;
 
-        if ($resolved_at === null) {
-            goto after_resolved_at;
+        if ($resolvedAt === null) {
+            goto after_resolvedAt;
         }
-        after_resolved_at:        $result['resolved_at'] = $resolved_at;
+        after_resolvedAt:        $result['resolved_at'] = $resolvedAt;
 
         
-        $resolved_by = $object->resolved_by;
+        $resolvedBy = $object->resolvedBy;
 
-        if ($resolved_by === null) {
-            goto after_resolved_by;
+        if ($resolvedBy === null) {
+            goto after_resolvedBy;
         }
-        after_resolved_by:        $result['resolved_by'] = $resolved_by;
+        after_resolvedBy:        $result['resolved_by'] = $resolvedBy;
 
         
-        $secret_type = $object->secret_type;
+        $secretType = $object->secretType;
 
-        if ($secret_type === null) {
-            goto after_secret_type;
+        if ($secretType === null) {
+            goto after_secretType;
         }
-        after_secret_type:        $result['secret_type'] = $secret_type;
+        after_secretType:        $result['secret_type'] = $secretType;
 
         
         $secret = $object->secret;
@@ -468,12 +468,12 @@ class CbAlertNumberRcb implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
 
         return $result;

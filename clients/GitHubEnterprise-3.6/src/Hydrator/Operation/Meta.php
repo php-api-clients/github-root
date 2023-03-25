@@ -38,12 +38,12 @@ class Meta implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'verifiable_password_authentication';
-                goto after_verifiable_password_authentication;
+                goto after_verifiablePasswordAuthentication;
             }
 
-            $properties['verifiable_password_authentication'] = $value;
+            $properties['verifiablePasswordAuthentication'] = $value;
 
-            after_verifiable_password_authentication:
+            after_verifiablePasswordAuthentication:
 
             $value = $payload['packages'] ?? null;
 
@@ -70,13 +70,13 @@ class Meta implements ObjectMapper
             $value = $payload['installed_version'] ?? null;
 
             if ($value === null) {
-                $properties['installed_version'] = null;
-                goto after_installed_version;
+                $properties['installedVersion'] = null;
+                goto after_installedVersion;
             }
 
-            $properties['installed_version'] = $value;
+            $properties['installedVersion'] = $value;
 
-            after_installed_version:
+            after_installedVersion:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApiOverview', $exception, stack: $this->hydrationStack);
@@ -203,8 +203,8 @@ class Meta implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ApiOverview);
         $result = [];
 
-        $verifiable_password_authentication = $object->verifiable_password_authentication;
-        after_verifiable_password_authentication:        $result['verifiable_password_authentication'] = $verifiable_password_authentication;
+        $verifiablePasswordAuthentication = $object->verifiablePasswordAuthentication;
+        after_verifiablePasswordAuthentication:        $result['verifiable_password_authentication'] = $verifiablePasswordAuthentication;
 
         
         $packages = $object->packages;
@@ -239,12 +239,12 @@ class Meta implements ObjectMapper
         after_dependabot:        $result['dependabot'] = $dependabot;
 
         
-        $installed_version = $object->installed_version;
+        $installedVersion = $object->installedVersion;
 
-        if ($installed_version === null) {
-            goto after_installed_version;
+        if ($installedVersion === null) {
+            goto after_installedVersion;
         }
-        after_installed_version:        $result['installed_version'] = $installed_version;
+        after_installedVersion:        $result['installed_version'] = $installedVersion;
 
 
         return $result;

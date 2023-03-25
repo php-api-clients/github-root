@@ -14,20 +14,20 @@ final class StartPreReceiveEnvironmentDownloadStreaming
     public const OPERATION_MATCH = 'STREAM /admin/pre-receive-environments/{pre_receive_environment_id}/downloads';
     private const METHOD = 'POST';
     private const PATH = '/admin/pre-receive-environments/{pre_receive_environment_id}/downloads';
-    private int $pre_receive_environment_id;
+    private int $preReceiveEnvironmentId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads $hydrator;
     private readonly \React\Http\Browser $browser;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads $hydrator, \React\Http\Browser $browser, int $pre_receive_environment_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads $hydrator, \React\Http\Browser $browser, int $preReceiveEnvironmentId)
     {
-        $this->pre_receive_environment_id = $pre_receive_environment_id;
+        $this->preReceiveEnvironmentId = $preReceiveEnvironmentId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
         $this->browser = $browser;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{pre_receive_environment_id}'), array($this->pre_receive_environment_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{pre_receive_environment_id}'), array($this->preReceiveEnvironmentId), self::PATH));
     }
     /**
      * @return Schema\PreReceiveEnvironmentDownloadStatus

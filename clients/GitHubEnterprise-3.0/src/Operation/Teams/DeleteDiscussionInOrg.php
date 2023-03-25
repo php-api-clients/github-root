@@ -16,17 +16,17 @@ final class DeleteDiscussionInOrg
     private const PATH = '/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}';
     private string $org;
     /**team_slug parameter**/
-    private string $team_slug;
-    private int $discussion_number;
-    public function __construct(string $org, string $team_slug, int $discussion_number)
+    private string $teamSlug;
+    private int $discussionNumber;
+    public function __construct(string $org, string $teamSlug, int $discussionNumber)
     {
         $this->org = $org;
-        $this->team_slug = $team_slug;
-        $this->discussion_number = $discussion_number;
+        $this->teamSlug = $teamSlug;
+        $this->discussionNumber = $discussionNumber;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{team_slug}', '{discussion_number}'), array($this->org, $this->team_slug, $this->discussion_number), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{team_slug}', '{discussion_number}'), array($this->org, $this->teamSlug, $this->discussionNumber), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

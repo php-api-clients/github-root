@@ -16,18 +16,18 @@ final class RemoveSelfHostedRunnerFromGroupForOrg
     private const PATH = '/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}';
     private string $org;
     /**Unique identifier of the self-hosted runner group.**/
-    private int $runner_group_id;
+    private int $runnerGroupId;
     /**Unique identifier of the self-hosted runner.**/
-    private int $runner_id;
-    public function __construct(string $org, int $runner_group_id, int $runner_id)
+    private int $runnerId;
+    public function __construct(string $org, int $runnerGroupId, int $runnerId)
     {
         $this->org = $org;
-        $this->runner_group_id = $runner_group_id;
-        $this->runner_id = $runner_id;
+        $this->runnerGroupId = $runnerGroupId;
+        $this->runnerId = $runnerId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{runner_group_id}', '{runner_id}'), array($this->org, $this->runner_group_id, $this->runner_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{runner_group_id}', '{runner_id}'), array($this->org, $this->runnerGroupId, $this->runnerId), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

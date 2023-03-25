@@ -172,13 +172,13 @@ class CbScimUserIdRcb implements ObjectMapper
             $value = $payload['organization_id'] ?? null;
 
             if ($value === null) {
-                $properties['organization_id'] = null;
-                goto after_organization_id;
+                $properties['organizationId'] = null;
+                goto after_organizationId;
             }
 
-            $properties['organization_id'] = $value;
+            $properties['organizationId'] = $value;
 
-            after_organization_id:
+            after_organizationId:
 
             $value = $payload['operations'] ?? null;
 
@@ -613,13 +613,13 @@ class CbScimUserIdRcb implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['detail'] ?? null;
 
@@ -700,13 +700,13 @@ class CbScimUserIdRcb implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['url'] ?? null;
 
@@ -934,12 +934,12 @@ class CbScimUserIdRcb implements ObjectMapper
         after_meta:        $result['meta'] = $meta;
 
         
-        $organization_id = $object->organization_id;
+        $organizationId = $object->organizationId;
 
-        if ($organization_id === null) {
-            goto after_organization_id;
+        if ($organizationId === null) {
+            goto after_organizationId;
         }
-        after_organization_id:        $result['organization_id'] = $organization_id;
+        after_organizationId:        $result['organization_id'] = $organizationId;
 
         
         $operations = $object->operations;
@@ -1208,12 +1208,12 @@ class CbScimUserIdRcb implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $detail = $object->detail;
@@ -1273,12 +1273,12 @@ class CbScimUserIdRcb implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $url = $object->url;

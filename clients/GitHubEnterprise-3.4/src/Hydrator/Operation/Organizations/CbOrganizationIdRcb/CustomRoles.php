@@ -38,34 +38,34 @@ class CustomRoles implements ObjectMapper
             $value = $payload['total_count'] ?? null;
 
             if ($value === null) {
-                $properties['total_count'] = null;
-                goto after_total_count;
+                $properties['totalCount'] = null;
+                goto after_totalCount;
             }
 
-            $properties['total_count'] = $value;
+            $properties['totalCount'] = $value;
 
-            after_total_count:
+            after_totalCount:
 
             $value = $payload['custom_roles'] ?? null;
 
             if ($value === null) {
-                $properties['custom_roles'] = null;
-                goto after_custom_roles;
+                $properties['customRoles'] = null;
+                goto after_customRoles;
             }
 
-            static $custom_rolesCaster1;
+            static $customRolesCaster1;
 
-            if ($custom_rolesCaster1 === null) {
-                $custom_rolesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($customRolesCaster1 === null) {
+                $customRolesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationCustomRepositoryRole',
 ));
             }
 
-            $value = $custom_rolesCaster1->cast($value, $this);
+            $value = $customRolesCaster1->cast($value, $this);
 
-            $properties['custom_roles'] = $value;
+            $properties['customRoles'] = $value;
 
-            after_custom_roles:
+            after_customRoles:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Orgs\ListCustomRoles\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
@@ -236,29 +236,29 @@ class CustomRoles implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\Orgs\ListCustomRoles\Response\Applicationjson\H200);
         $result = [];
 
-        $total_count = $object->total_count;
+        $totalCount = $object->totalCount;
 
-        if ($total_count === null) {
-            goto after_total_count;
+        if ($totalCount === null) {
+            goto after_totalCount;
         }
-        after_total_count:        $result['total_count'] = $total_count;
+        after_totalCount:        $result['total_count'] = $totalCount;
 
         
-        $custom_roles = $object->custom_roles;
+        $customRoles = $object->customRoles;
 
-        if ($custom_roles === null) {
-            goto after_custom_roles;
+        if ($customRoles === null) {
+            goto after_customRoles;
         }
-        static $custom_rolesSerializer0;
+        static $customRolesSerializer0;
 
-        if ($custom_rolesSerializer0 === null) {
-            $custom_rolesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+        if ($customRolesSerializer0 === null) {
+            $customRolesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\OrganizationCustomRepositoryRole',
 ));
         }
         
-        $custom_roles = $custom_rolesSerializer0->serialize($custom_roles, $this);
-        after_custom_roles:        $result['custom_roles'] = $custom_roles;
+        $customRoles = $customRolesSerializer0->serialize($customRoles, $this);
+        after_customRoles:        $result['custom_roles'] = $customRoles;
 
 
         return $result;

@@ -82,23 +82,23 @@ class CbGrantIdRcb implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'created_at';
-                goto after_created_at;
+                goto after_createdAt;
             }
 
-            $properties['created_at'] = $value;
+            $properties['createdAt'] = $value;
 
-            after_created_at:
+            after_createdAt:
 
             $value = $payload['updated_at'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'updated_at';
-                goto after_updated_at;
+                goto after_updatedAt;
             }
 
-            $properties['updated_at'] = $value;
+            $properties['updatedAt'] = $value;
 
-            after_updated_at:
+            after_updatedAt:
 
             $value = $payload['scopes'] ?? null;
 
@@ -147,12 +147,12 @@ class CbGrantIdRcb implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'client_id';
-                goto after_client_id;
+                goto after_clientId;
             }
 
-            $properties['client_id'] = $value;
+            $properties['clientId'] = $value;
 
-            after_client_id:
+            after_clientId:
 
             $value = $payload['name'] ?? null;
 
@@ -211,13 +211,13 @@ class CbGrantIdRcb implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['url'] ?? null;
 
@@ -381,12 +381,12 @@ class CbGrantIdRcb implements ObjectMapper
         after_app:        $result['app'] = $app;
 
         
-        $created_at = $object->created_at;
-        after_created_at:        $result['created_at'] = $created_at;
+        $createdAt = $object->createdAt;
+        after_createdAt:        $result['created_at'] = $createdAt;
 
         
-        $updated_at = $object->updated_at;
-        after_updated_at:        $result['updated_at'] = $updated_at;
+        $updatedAt = $object->updatedAt;
+        after_updatedAt:        $result['updated_at'] = $updatedAt;
 
         
         $scopes = $object->scopes;
@@ -418,8 +418,8 @@ class CbGrantIdRcb implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Authorization\App);
         $result = [];
 
-        $client_id = $object->client_id;
-        after_client_id:        $result['client_id'] = $client_id;
+        $clientId = $object->clientId;
+        after_clientId:        $result['client_id'] = $clientId;
 
         
         $name = $object->name;
@@ -447,12 +447,12 @@ class CbGrantIdRcb implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $url = $object->url;

@@ -18,17 +18,17 @@ final class SetSelfHostedRunnersInGroupForEnterprise
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
     private string $enterprise;
     /**Unique identifier of the self-hosted runner group.**/
-    private int $runner_group_id;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, string $enterprise, int $runner_group_id)
+    private int $runnerGroupId;
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, string $enterprise, int $runnerGroupId)
     {
         $this->requestSchemaValidator = $requestSchemaValidator;
         $this->enterprise = $enterprise;
-        $this->runner_group_id = $runner_group_id;
+        $this->runnerGroupId = $runnerGroupId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\EnterpriseAdmin\SetSelfHostedRunnersInGroupForEnterprise\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{runner_group_id}'), array($this->enterprise, $this->runner_group_id), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{runner_group_id}'), array($this->enterprise, $this->runnerGroupId), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

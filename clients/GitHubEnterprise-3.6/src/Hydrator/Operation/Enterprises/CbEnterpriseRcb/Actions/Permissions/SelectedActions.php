@@ -38,23 +38,23 @@ class SelectedActions implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'github_owned_allowed';
-                goto after_github_owned_allowed;
+                goto after_githubOwnedAllowed;
             }
 
-            $properties['github_owned_allowed'] = $value;
+            $properties['githubOwnedAllowed'] = $value;
 
-            after_github_owned_allowed:
+            after_githubOwnedAllowed:
 
             $value = $payload['patterns_allowed'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'patterns_allowed';
-                goto after_patterns_allowed;
+                goto after_patternsAllowed;
             }
 
-            $properties['patterns_allowed'] = $value;
+            $properties['patternsAllowed'] = $value;
 
-            after_patterns_allowed:
+            after_patternsAllowed:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SelectedActions', $exception, stack: $this->hydrationStack);
@@ -181,20 +181,20 @@ class SelectedActions implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SelectedActions);
         $result = [];
 
-        $github_owned_allowed = $object->github_owned_allowed;
-        after_github_owned_allowed:        $result['github_owned_allowed'] = $github_owned_allowed;
+        $githubOwnedAllowed = $object->githubOwnedAllowed;
+        after_githubOwnedAllowed:        $result['github_owned_allowed'] = $githubOwnedAllowed;
 
         
-        $patterns_allowed = $object->patterns_allowed;
-        static $patterns_allowedSerializer0;
+        $patternsAllowed = $object->patternsAllowed;
+        static $patternsAllowedSerializer0;
 
-        if ($patterns_allowedSerializer0 === null) {
-            $patterns_allowedSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+        if ($patternsAllowedSerializer0 === null) {
+            $patternsAllowedSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
-        $patterns_allowed = $patterns_allowedSerializer0->serialize($patterns_allowed, $this);
-        after_patterns_allowed:        $result['patterns_allowed'] = $patterns_allowed;
+        $patternsAllowed = $patternsAllowedSerializer0->serialize($patternsAllowed, $this);
+        after_patternsAllowed:        $result['patterns_allowed'] = $patternsAllowed;
 
 
         return $result;

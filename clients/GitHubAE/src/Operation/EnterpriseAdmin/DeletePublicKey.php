@@ -15,14 +15,14 @@ final class DeletePublicKey
     private const METHOD = 'DELETE';
     private const PATH = '/admin/keys/{key_ids}';
     /**The unique identifier of the key.**/
-    private string $key_ids;
-    public function __construct(string $key_ids)
+    private string $keyIds;
+    public function __construct(string $keyIds)
     {
-        $this->key_ids = $key_ids;
+        $this->keyIds = $keyIds;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{key_ids}'), array($this->key_ids), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{key_ids}'), array($this->keyIds), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

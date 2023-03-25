@@ -15,7 +15,7 @@ final class ListPreReceiveHooks
     private const METHOD = 'GET';
     private const PATH = '/admin/pre-receive-hooks';
     /**The number of results per page (max 100).**/
-    private int $per_page;
+    private int $perPage;
     /**Page number of the results to fetch.**/
     private int $page;
     /**The direction to sort the results by.**/
@@ -24,9 +24,9 @@ final class ListPreReceiveHooks
     private string $sort;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Admin\PreReceiveHooks $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreReceiveHooks $hydrator, int $per_page = 30, int $page = 1, string $direction = 'desc', string $sort = 'created')
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreReceiveHooks $hydrator, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created')
     {
-        $this->per_page = $per_page;
+        $this->perPage = $perPage;
         $this->page = $page;
         $this->direction = $direction;
         $this->sort = $sort;
@@ -35,7 +35,7 @@ final class ListPreReceiveHooks
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{per_page}', '{page}', '{direction}', '{sort}'), array($this->per_page, $this->page, $this->direction, $this->sort), self::PATH . '?per_page={per_page}&page={page}&direction={direction}&sort={sort}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{per_page}', '{page}', '{direction}', '{sort}'), array($this->perPage, $this->page, $this->direction, $this->sort), self::PATH . '?perPage={per_page}&page={page}&direction={direction}&sort={sort}'));
     }
     /**
      * @return \Rx\Observable<Schema\PreReceiveHook>

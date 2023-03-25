@@ -70,24 +70,24 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
             $value = $payload['configuration_url'] ?? null;
 
             if ($value === null) {
-                $properties['configuration_url'] = null;
-                goto after_configuration_url;
+                $properties['configurationUrl'] = null;
+                goto after_configurationUrl;
             }
 
-            $properties['configuration_url'] = $value;
+            $properties['configurationUrl'] = $value;
 
-            after_configuration_url:
+            after_configurationUrl:
 
             $value = $payload['allow_downstream_configuration'] ?? null;
 
             if ($value === null) {
-                $properties['allow_downstream_configuration'] = null;
-                goto after_allow_downstream_configuration;
+                $properties['allowDownstreamConfiguration'] = null;
+                goto after_allowDownstreamConfiguration;
             }
 
-            $properties['allow_downstream_configuration'] = $value;
+            $properties['allowDownstreamConfiguration'] = $value;
 
-            after_allow_downstream_configuration:
+            after_allowDownstreamConfiguration:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook', $exception, stack: $this->hydrationStack);
@@ -238,20 +238,20 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
         after_enforcement:        $result['enforcement'] = $enforcement;
 
         
-        $configuration_url = $object->configuration_url;
+        $configurationUrl = $object->configurationUrl;
 
-        if ($configuration_url === null) {
-            goto after_configuration_url;
+        if ($configurationUrl === null) {
+            goto after_configurationUrl;
         }
-        after_configuration_url:        $result['configuration_url'] = $configuration_url;
+        after_configurationUrl:        $result['configuration_url'] = $configurationUrl;
 
         
-        $allow_downstream_configuration = $object->allow_downstream_configuration;
+        $allowDownstreamConfiguration = $object->allowDownstreamConfiguration;
 
-        if ($allow_downstream_configuration === null) {
-            goto after_allow_downstream_configuration;
+        if ($allowDownstreamConfiguration === null) {
+            goto after_allowDownstreamConfiguration;
         }
-        after_allow_downstream_configuration:        $result['allow_downstream_configuration'] = $allow_downstream_configuration;
+        after_allowDownstreamConfiguration:        $result['allow_downstream_configuration'] = $allowDownstreamConfiguration;
 
 
         return $result;

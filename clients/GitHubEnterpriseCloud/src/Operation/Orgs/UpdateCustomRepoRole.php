@@ -18,21 +18,21 @@ final class UpdateCustomRepoRole
     /**The organization name. The name is not case sensitive.**/
     private string $org;
     /**The unique identifier of the role.**/
-    private int $role_id;
+    private int $roleId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\CustomDashRepositoryDashRoles\CbRoleIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\CustomDashRepositoryDashRoles\CbRoleIdRcb $hydrator, string $org, int $role_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\CustomDashRepositoryDashRoles\CbRoleIdRcb $hydrator, string $org, int $roleId)
     {
         $this->requestSchemaValidator = $requestSchemaValidator;
         $this->org = $org;
-        $this->role_id = $role_id;
+        $this->roleId = $roleId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\OrganizationCustomRepositoryRoleUpdateSchema::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{role_id}'), array($this->org, $this->role_id), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{role_id}'), array($this->org, $this->roleId), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     /**
      * @return Schema\OrganizationCustomRepositoryRole

@@ -17,7 +17,7 @@ final class ListPublicKeys
     /**Only show public keys accessed after the given time.**/
     private string $since;
     /**Results per page (max 100)**/
-    private int $per_page;
+    private int $perPage;
     /**Page number of the results to fetch.**/
     private int $page;
     /**One of `asc` (ascending) or `desc` (descending).**/
@@ -25,10 +25,10 @@ final class ListPublicKeys
     private string $sort;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Admin\Keys $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Keys $hydrator, string $since, int $per_page = 30, int $page = 1, string $direction = 'desc', string $sort = 'created')
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Keys $hydrator, string $since, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created')
     {
         $this->since = $since;
-        $this->per_page = $per_page;
+        $this->perPage = $perPage;
         $this->page = $page;
         $this->direction = $direction;
         $this->sort = $sort;
@@ -37,7 +37,7 @@ final class ListPublicKeys
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{since}', '{per_page}', '{page}', '{direction}', '{sort}'), array($this->since, $this->per_page, $this->page, $this->direction, $this->sort), self::PATH . '?since={since}&per_page={per_page}&page={page}&direction={direction}&sort={sort}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{since}', '{per_page}', '{page}', '{direction}', '{sort}'), array($this->since, $this->perPage, $this->page, $this->direction, $this->sort), self::PATH . '?since={since}&perPage={per_page}&page={page}&direction={direction}&sort={sort}'));
     }
     /**
      * @return \Rx\Observable<Schema\PublicKeyFull>

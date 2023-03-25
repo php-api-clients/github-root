@@ -81,35 +81,35 @@ class CbRunnerGroupIdRcb implements ObjectMapper
             $value = $payload['selected_organizations_url'] ?? null;
 
             if ($value === null) {
-                $properties['selected_organizations_url'] = null;
-                goto after_selected_organizations_url;
+                $properties['selectedOrganizationsUrl'] = null;
+                goto after_selectedOrganizationsUrl;
             }
 
-            $properties['selected_organizations_url'] = $value;
+            $properties['selectedOrganizationsUrl'] = $value;
 
-            after_selected_organizations_url:
+            after_selectedOrganizationsUrl:
 
             $value = $payload['runners_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'runners_url';
-                goto after_runners_url;
+                goto after_runnersUrl;
             }
 
-            $properties['runners_url'] = $value;
+            $properties['runnersUrl'] = $value;
 
-            after_runners_url:
+            after_runnersUrl:
 
             $value = $payload['allows_public_repositories'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'allows_public_repositories';
-                goto after_allows_public_repositories;
+                goto after_allowsPublicRepositories;
             }
 
-            $properties['allows_public_repositories'] = $value;
+            $properties['allowsPublicRepositories'] = $value;
 
-            after_allows_public_repositories:
+            after_allowsPublicRepositories:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise', $exception, stack: $this->hydrationStack);
@@ -252,20 +252,20 @@ class CbRunnerGroupIdRcb implements ObjectMapper
         after_default:        $result['default'] = $default;
 
         
-        $selected_organizations_url = $object->selected_organizations_url;
+        $selectedOrganizationsUrl = $object->selectedOrganizationsUrl;
 
-        if ($selected_organizations_url === null) {
-            goto after_selected_organizations_url;
+        if ($selectedOrganizationsUrl === null) {
+            goto after_selectedOrganizationsUrl;
         }
-        after_selected_organizations_url:        $result['selected_organizations_url'] = $selected_organizations_url;
+        after_selectedOrganizationsUrl:        $result['selected_organizations_url'] = $selectedOrganizationsUrl;
 
         
-        $runners_url = $object->runners_url;
-        after_runners_url:        $result['runners_url'] = $runners_url;
+        $runnersUrl = $object->runnersUrl;
+        after_runnersUrl:        $result['runners_url'] = $runnersUrl;
 
         
-        $allows_public_repositories = $object->allows_public_repositories;
-        after_allows_public_repositories:        $result['allows_public_repositories'] = $allows_public_repositories;
+        $allowsPublicRepositories = $object->allowsPublicRepositories;
+        after_allowsPublicRepositories:        $result['allows_public_repositories'] = $allowsPublicRepositories;
 
 
         return $result;

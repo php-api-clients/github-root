@@ -81,34 +81,34 @@ class ExternalGroups implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'group_id';
-                goto after_group_id;
+                goto after_groupId;
             }
 
-            $properties['group_id'] = $value;
+            $properties['groupId'] = $value;
 
-            after_group_id:
+            after_groupId:
 
             $value = $payload['group_name'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'group_name';
-                goto after_group_name;
+                goto after_groupName;
             }
 
-            $properties['group_name'] = $value;
+            $properties['groupName'] = $value;
 
-            after_group_name:
+            after_groupName:
 
             $value = $payload['updated_at'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'updated_at';
-                goto after_updated_at;
+                goto after_updatedAt;
             }
 
-            $properties['updated_at'] = $value;
+            $properties['updatedAt'] = $value;
 
-            after_updated_at:
+            after_updatedAt:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ExternalGroups\Groups', $exception, stack: $this->hydrationStack);
@@ -262,16 +262,16 @@ class ExternalGroups implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ExternalGroups\Groups);
         $result = [];
 
-        $group_id = $object->group_id;
-        after_group_id:        $result['group_id'] = $group_id;
+        $groupId = $object->groupId;
+        after_groupId:        $result['group_id'] = $groupId;
 
         
-        $group_name = $object->group_name;
-        after_group_name:        $result['group_name'] = $group_name;
+        $groupName = $object->groupName;
+        after_groupName:        $result['group_name'] = $groupName;
 
         
-        $updated_at = $object->updated_at;
-        after_updated_at:        $result['updated_at'] = $updated_at;
+        $updatedAt = $object->updatedAt;
+        after_updatedAt:        $result['updated_at'] = $updatedAt;
 
 
         return $result;

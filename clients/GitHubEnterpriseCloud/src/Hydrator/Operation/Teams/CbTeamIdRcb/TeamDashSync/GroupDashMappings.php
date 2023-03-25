@@ -84,34 +84,34 @@ class GroupDashMappings implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'group_id';
-                goto after_group_id;
+                goto after_groupId;
             }
 
-            $properties['group_id'] = $value;
+            $properties['groupId'] = $value;
 
-            after_group_id:
+            after_groupId:
 
             $value = $payload['group_name'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'group_name';
-                goto after_group_name;
+                goto after_groupName;
             }
 
-            $properties['group_name'] = $value;
+            $properties['groupName'] = $value;
 
-            after_group_name:
+            after_groupName:
 
             $value = $payload['group_description'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'group_description';
-                goto after_group_description;
+                goto after_groupDescription;
             }
 
-            $properties['group_description'] = $value;
+            $properties['groupDescription'] = $value;
 
-            after_group_description:
+            after_groupDescription:
 
             $value = $payload['status'] ?? null;
 
@@ -127,13 +127,13 @@ class GroupDashMappings implements ObjectMapper
             $value = $payload['synced_at'] ?? null;
 
             if ($value === null) {
-                $properties['synced_at'] = null;
-                goto after_synced_at;
+                $properties['syncedAt'] = null;
+                goto after_syncedAt;
             }
 
-            $properties['synced_at'] = $value;
+            $properties['syncedAt'] = $value;
 
-            after_synced_at:
+            after_syncedAt:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups', $exception, stack: $this->hydrationStack);
@@ -170,13 +170,13 @@ class GroupDashMappings implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['url'] ?? null;
 
@@ -236,12 +236,12 @@ class GroupDashMappings implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'documentation_url';
-                goto after_documentation_url;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['errors'] ?? null;
 
@@ -506,16 +506,16 @@ class GroupDashMappings implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping\Groups);
         $result = [];
 
-        $group_id = $object->group_id;
-        after_group_id:        $result['group_id'] = $group_id;
+        $groupId = $object->groupId;
+        after_groupId:        $result['group_id'] = $groupId;
 
         
-        $group_name = $object->group_name;
-        after_group_name:        $result['group_name'] = $group_name;
+        $groupName = $object->groupName;
+        after_groupName:        $result['group_name'] = $groupName;
 
         
-        $group_description = $object->group_description;
-        after_group_description:        $result['group_description'] = $group_description;
+        $groupDescription = $object->groupDescription;
+        after_groupDescription:        $result['group_description'] = $groupDescription;
 
         
         $status = $object->status;
@@ -526,12 +526,12 @@ class GroupDashMappings implements ObjectMapper
         after_status:        $result['status'] = $status;
 
         
-        $synced_at = $object->synced_at;
+        $syncedAt = $object->syncedAt;
 
-        if ($synced_at === null) {
-            goto after_synced_at;
+        if ($syncedAt === null) {
+            goto after_syncedAt;
         }
-        after_synced_at:        $result['synced_at'] = $synced_at;
+        after_syncedAt:        $result['synced_at'] = $syncedAt;
 
 
         return $result;
@@ -551,12 +551,12 @@ class GroupDashMappings implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $url = $object->url;
@@ -588,8 +588,8 @@ class GroupDashMappings implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        $documentationUrl = $object->documentationUrl;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $errors = $object->errors;

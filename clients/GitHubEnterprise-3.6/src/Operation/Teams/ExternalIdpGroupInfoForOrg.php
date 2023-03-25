@@ -17,19 +17,19 @@ final class ExternalIdpGroupInfoForOrg
     /**The organization name. The name is not case sensitive.**/
     private string $org;
     /**The unique identifier of the group.**/
-    private int $group_id;
+    private int $groupId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\ExternalDashGroup\CbGroupIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\ExternalDashGroup\CbGroupIdRcb $hydrator, string $org, int $group_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\ExternalDashGroup\CbGroupIdRcb $hydrator, string $org, int $groupId)
     {
         $this->org = $org;
-        $this->group_id = $group_id;
+        $this->groupId = $groupId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{group_id}'), array($this->org, $this->group_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{group_id}'), array($this->org, $this->groupId), self::PATH));
     }
     /**
      * @return Schema\ExternalGroup

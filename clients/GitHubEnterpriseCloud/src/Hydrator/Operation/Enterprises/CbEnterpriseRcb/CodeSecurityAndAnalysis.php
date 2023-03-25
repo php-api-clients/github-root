@@ -39,56 +39,56 @@ class CodeSecurityAndAnalysis implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'advanced_security_enabled_for_new_repositories';
-                goto after_advanced_security_enabled_for_new_repositories;
+                goto after_advancedSecurityEnabledForNewRepositories;
             }
 
-            $properties['advanced_security_enabled_for_new_repositories'] = $value;
+            $properties['advancedSecurityEnabledForNewRepositories'] = $value;
 
-            after_advanced_security_enabled_for_new_repositories:
+            after_advancedSecurityEnabledForNewRepositories:
 
             $value = $payload['dependabot_alerts_enabled_for_new_repositories'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'dependabot_alerts_enabled_for_new_repositories';
-                goto after_dependabot_alerts_enabled_for_new_repositories;
+                goto after_dependabotAlertsEnabledForNewRepositories;
             }
 
-            $properties['dependabot_alerts_enabled_for_new_repositories'] = $value;
+            $properties['dependabotAlertsEnabledForNewRepositories'] = $value;
 
-            after_dependabot_alerts_enabled_for_new_repositories:
+            after_dependabotAlertsEnabledForNewRepositories:
 
             $value = $payload['secret_scanning_enabled_for_new_repositories'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'secret_scanning_enabled_for_new_repositories';
-                goto after_secret_scanning_enabled_for_new_repositories;
+                goto after_secretScanningEnabledForNewRepositories;
             }
 
-            $properties['secret_scanning_enabled_for_new_repositories'] = $value;
+            $properties['secretScanningEnabledForNewRepositories'] = $value;
 
-            after_secret_scanning_enabled_for_new_repositories:
+            after_secretScanningEnabledForNewRepositories:
 
             $value = $payload['secret_scanning_push_protection_enabled_for_new_repositories'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'secret_scanning_push_protection_enabled_for_new_repositories';
-                goto after_secret_scanning_push_protection_enabled_for_new_repositories;
+                goto after_secretScanningPushProtectionEnabledForNewRepositories;
             }
 
-            $properties['secret_scanning_push_protection_enabled_for_new_repositories'] = $value;
+            $properties['secretScanningPushProtectionEnabledForNewRepositories'] = $value;
 
-            after_secret_scanning_push_protection_enabled_for_new_repositories:
+            after_secretScanningPushProtectionEnabledForNewRepositories:
 
             $value = $payload['secret_scanning_push_protection_custom_link'] ?? null;
 
             if ($value === null) {
-                $properties['secret_scanning_push_protection_custom_link'] = null;
-                goto after_secret_scanning_push_protection_custom_link;
+                $properties['secretScanningPushProtectionCustomLink'] = null;
+                goto after_secretScanningPushProtectionCustomLink;
             }
 
-            $properties['secret_scanning_push_protection_custom_link'] = $value;
+            $properties['secretScanningPushProtectionCustomLink'] = $value;
 
-            after_secret_scanning_push_protection_custom_link:
+            after_secretScanningPushProtectionCustomLink:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings', $exception, stack: $this->hydrationStack);
@@ -125,13 +125,13 @@ class CodeSecurityAndAnalysis implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['url'] ?? null;
 
@@ -281,28 +281,28 @@ class CodeSecurityAndAnalysis implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings);
         $result = [];
 
-        $advanced_security_enabled_for_new_repositories = $object->advanced_security_enabled_for_new_repositories;
-        after_advanced_security_enabled_for_new_repositories:        $result['advanced_security_enabled_for_new_repositories'] = $advanced_security_enabled_for_new_repositories;
+        $advancedSecurityEnabledForNewRepositories = $object->advancedSecurityEnabledForNewRepositories;
+        after_advancedSecurityEnabledForNewRepositories:        $result['advanced_security_enabled_for_new_repositories'] = $advancedSecurityEnabledForNewRepositories;
 
         
-        $dependabot_alerts_enabled_for_new_repositories = $object->dependabot_alerts_enabled_for_new_repositories;
-        after_dependabot_alerts_enabled_for_new_repositories:        $result['dependabot_alerts_enabled_for_new_repositories'] = $dependabot_alerts_enabled_for_new_repositories;
+        $dependabotAlertsEnabledForNewRepositories = $object->dependabotAlertsEnabledForNewRepositories;
+        after_dependabotAlertsEnabledForNewRepositories:        $result['dependabot_alerts_enabled_for_new_repositories'] = $dependabotAlertsEnabledForNewRepositories;
 
         
-        $secret_scanning_enabled_for_new_repositories = $object->secret_scanning_enabled_for_new_repositories;
-        after_secret_scanning_enabled_for_new_repositories:        $result['secret_scanning_enabled_for_new_repositories'] = $secret_scanning_enabled_for_new_repositories;
+        $secretScanningEnabledForNewRepositories = $object->secretScanningEnabledForNewRepositories;
+        after_secretScanningEnabledForNewRepositories:        $result['secret_scanning_enabled_for_new_repositories'] = $secretScanningEnabledForNewRepositories;
 
         
-        $secret_scanning_push_protection_enabled_for_new_repositories = $object->secret_scanning_push_protection_enabled_for_new_repositories;
-        after_secret_scanning_push_protection_enabled_for_new_repositories:        $result['secret_scanning_push_protection_enabled_for_new_repositories'] = $secret_scanning_push_protection_enabled_for_new_repositories;
+        $secretScanningPushProtectionEnabledForNewRepositories = $object->secretScanningPushProtectionEnabledForNewRepositories;
+        after_secretScanningPushProtectionEnabledForNewRepositories:        $result['secret_scanning_push_protection_enabled_for_new_repositories'] = $secretScanningPushProtectionEnabledForNewRepositories;
 
         
-        $secret_scanning_push_protection_custom_link = $object->secret_scanning_push_protection_custom_link;
+        $secretScanningPushProtectionCustomLink = $object->secretScanningPushProtectionCustomLink;
 
-        if ($secret_scanning_push_protection_custom_link === null) {
-            goto after_secret_scanning_push_protection_custom_link;
+        if ($secretScanningPushProtectionCustomLink === null) {
+            goto after_secretScanningPushProtectionCustomLink;
         }
-        after_secret_scanning_push_protection_custom_link:        $result['secret_scanning_push_protection_custom_link'] = $secret_scanning_push_protection_custom_link;
+        after_secretScanningPushProtectionCustomLink:        $result['secret_scanning_push_protection_custom_link'] = $secretScanningPushProtectionCustomLink;
 
 
         return $result;
@@ -322,12 +322,12 @@ class CodeSecurityAndAnalysis implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $url = $object->url;

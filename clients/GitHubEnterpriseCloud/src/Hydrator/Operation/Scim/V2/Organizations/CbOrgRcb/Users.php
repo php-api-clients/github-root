@@ -86,26 +86,26 @@ class Users implements ObjectMapper
 
             after_startIndex:
 
-            $value = $payload['resources'] ?? null;
+            $value = $payload['Resources'] ?? null;
 
             if ($value === null) {
-                $missingFields[] = 'resources';
-                goto after_Resources;
+                $missingFields[] = 'Resources';
+                goto after_resources;
             }
 
-            static $ResourcesCaster1;
+            static $resourcesCaster1;
 
-            if ($ResourcesCaster1 === null) {
-                $ResourcesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($resourcesCaster1 === null) {
+                $resourcesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser',
 ));
             }
 
-            $value = $ResourcesCaster1->cast($value, $this);
+            $value = $resourcesCaster1->cast($value, $this);
 
-            $properties['Resources'] = $value;
+            $properties['resources'] = $value;
 
-            after_Resources:
+            after_resources:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUserList', $exception, stack: $this->hydrationStack);
@@ -258,13 +258,13 @@ class Users implements ObjectMapper
             $value = $payload['organization_id'] ?? null;
 
             if ($value === null) {
-                $properties['organization_id'] = null;
-                goto after_organization_id;
+                $properties['organizationId'] = null;
+                goto after_organizationId;
             }
 
-            $properties['organization_id'] = $value;
+            $properties['organizationId'] = $value;
 
-            after_organization_id:
+            after_organizationId:
 
             $value = $payload['operations'] ?? null;
 
@@ -699,13 +699,13 @@ class Users implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['detail'] ?? null;
 
@@ -908,17 +908,17 @@ class Users implements ObjectMapper
         after_startIndex:        $result['start_index'] = $startIndex;
 
         
-        $Resources = $object->Resources;
-        static $ResourcesSerializer0;
+        $resources = $object->resources;
+        static $resourcesSerializer0;
 
-        if ($ResourcesSerializer0 === null) {
-            $ResourcesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+        if ($resourcesSerializer0 === null) {
+            $resourcesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser',
 ));
         }
         
-        $Resources = $ResourcesSerializer0->serialize($Resources, $this);
-        after_Resources:        $result['resources'] = $Resources;
+        $resources = $resourcesSerializer0->serialize($resources, $this);
+        after_resources:        $result['Resources'] = $resources;
 
 
         return $result;
@@ -1001,12 +1001,12 @@ class Users implements ObjectMapper
         after_meta:        $result['meta'] = $meta;
 
         
-        $organization_id = $object->organization_id;
+        $organizationId = $object->organizationId;
 
-        if ($organization_id === null) {
-            goto after_organization_id;
+        if ($organizationId === null) {
+            goto after_organizationId;
         }
-        after_organization_id:        $result['organization_id'] = $organization_id;
+        after_organizationId:        $result['organization_id'] = $organizationId;
 
         
         $operations = $object->operations;
@@ -1275,12 +1275,12 @@ class Users implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $detail = $object->detail;

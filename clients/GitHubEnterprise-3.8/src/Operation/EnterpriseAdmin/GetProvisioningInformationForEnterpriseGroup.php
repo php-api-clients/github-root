@@ -15,21 +15,21 @@ final class GetProvisioningInformationForEnterpriseGroup
     private const METHOD = 'GET';
     private const PATH = '/scim/v2/Groups/{scim_group_id}';
     /**A unique identifier of the SCIM group.**/
-    private string $scim_group_id;
+    private string $scimGroupId;
     /**Excludes the specified attribute from being returned in the results. Using this parameter can speed up response time.**/
     private string $excludedAttributes;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Scim\V2\Groups\CbScimGroupIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Groups\CbScimGroupIdRcb $hydrator, string $scim_group_id, string $excludedAttributes)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Groups\CbScimGroupIdRcb $hydrator, string $scimGroupId, string $excludedAttributes)
     {
-        $this->scim_group_id = $scim_group_id;
+        $this->scimGroupId = $scimGroupId;
         $this->excludedAttributes = $excludedAttributes;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{scim_group_id}', '{excludedAttributes}'), array($this->scim_group_id, $this->excludedAttributes), self::PATH . '?excludedAttributes={excludedAttributes}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{scim_group_id}', '{excludedAttributes}'), array($this->scimGroupId, $this->excludedAttributes), self::PATH . '?excludedAttributes={excludedAttributes}'));
     }
     /**
      * @return Schema\ScimEnterpriseGroupResponse

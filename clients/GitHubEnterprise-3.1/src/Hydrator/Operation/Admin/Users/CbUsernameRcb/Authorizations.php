@@ -82,24 +82,24 @@ class Authorizations implements ObjectMapper
             $value = $payload['token_last_eight'] ?? null;
 
             if ($value === null) {
-                $properties['token_last_eight'] = null;
-                goto after_token_last_eight;
+                $properties['tokenLastEight'] = null;
+                goto after_tokenLastEight;
             }
 
-            $properties['token_last_eight'] = $value;
+            $properties['tokenLastEight'] = $value;
 
-            after_token_last_eight:
+            after_tokenLastEight:
 
             $value = $payload['hashed_token'] ?? null;
 
             if ($value === null) {
-                $properties['hashed_token'] = null;
-                goto after_hashed_token;
+                $properties['hashedToken'] = null;
+                goto after_hashedToken;
             }
 
-            $properties['hashed_token'] = $value;
+            $properties['hashedToken'] = $value;
 
-            after_hashed_token:
+            after_hashedToken:
 
             $value = $payload['app'] ?? null;
 
@@ -135,35 +135,35 @@ class Authorizations implements ObjectMapper
             $value = $payload['note_url'] ?? null;
 
             if ($value === null) {
-                $properties['note_url'] = null;
-                goto after_note_url;
+                $properties['noteUrl'] = null;
+                goto after_noteUrl;
             }
 
-            $properties['note_url'] = $value;
+            $properties['noteUrl'] = $value;
 
-            after_note_url:
+            after_noteUrl:
 
             $value = $payload['updated_at'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'updated_at';
-                goto after_updated_at;
+                goto after_updatedAt;
             }
 
-            $properties['updated_at'] = $value;
+            $properties['updatedAt'] = $value;
 
-            after_updated_at:
+            after_updatedAt:
 
             $value = $payload['created_at'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'created_at';
-                goto after_created_at;
+                goto after_createdAt;
             }
 
-            $properties['created_at'] = $value;
+            $properties['createdAt'] = $value;
 
-            after_created_at:
+            after_createdAt:
 
             $value = $payload['fingerprint'] ?? null;
 
@@ -223,12 +223,12 @@ class Authorizations implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'client_id';
-                goto after_client_id;
+                goto after_clientId;
             }
 
-            $properties['client_id'] = $value;
+            $properties['clientId'] = $value;
 
-            after_client_id:
+            after_clientId:
 
             $value = $payload['name'] ?? null;
 
@@ -406,20 +406,20 @@ class Authorizations implements ObjectMapper
         after_token:        $result['token'] = $token;
 
         
-        $token_last_eight = $object->token_last_eight;
+        $tokenLastEight = $object->tokenLastEight;
 
-        if ($token_last_eight === null) {
-            goto after_token_last_eight;
+        if ($tokenLastEight === null) {
+            goto after_tokenLastEight;
         }
-        after_token_last_eight:        $result['token_last_eight'] = $token_last_eight;
+        after_tokenLastEight:        $result['token_last_eight'] = $tokenLastEight;
 
         
-        $hashed_token = $object->hashed_token;
+        $hashedToken = $object->hashedToken;
 
-        if ($hashed_token === null) {
-            goto after_hashed_token;
+        if ($hashedToken === null) {
+            goto after_hashedToken;
         }
-        after_hashed_token:        $result['hashed_token'] = $hashed_token;
+        after_hashedToken:        $result['hashed_token'] = $hashedToken;
 
         
         $app = $object->app;
@@ -435,20 +435,20 @@ class Authorizations implements ObjectMapper
         after_note:        $result['note'] = $note;
 
         
-        $note_url = $object->note_url;
+        $noteUrl = $object->noteUrl;
 
-        if ($note_url === null) {
-            goto after_note_url;
+        if ($noteUrl === null) {
+            goto after_noteUrl;
         }
-        after_note_url:        $result['note_url'] = $note_url;
+        after_noteUrl:        $result['note_url'] = $noteUrl;
 
         
-        $updated_at = $object->updated_at;
-        after_updated_at:        $result['updated_at'] = $updated_at;
+        $updatedAt = $object->updatedAt;
+        after_updatedAt:        $result['updated_at'] = $updatedAt;
 
         
-        $created_at = $object->created_at;
-        after_created_at:        $result['created_at'] = $created_at;
+        $createdAt = $object->createdAt;
+        after_createdAt:        $result['created_at'] = $createdAt;
 
         
         $fingerprint = $object->fingerprint;
@@ -484,8 +484,8 @@ class Authorizations implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Authorization\App);
         $result = [];
 
-        $client_id = $object->client_id;
-        after_client_id:        $result['client_id'] = $client_id;
+        $clientId = $object->clientId;
+        after_clientId:        $result['client_id'] = $clientId;
 
         
         $name = $object->name;

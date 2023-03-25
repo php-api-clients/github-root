@@ -50,117 +50,117 @@ class ServerDashStatistics implements ObjectMapper
             $value = $payload['server_id'] ?? null;
 
             if ($value === null) {
-                $properties['server_id'] = null;
-                goto after_server_id;
+                $properties['serverId'] = null;
+                goto after_serverId;
             }
 
-            $properties['server_id'] = $value;
+            $properties['serverId'] = $value;
 
-            after_server_id:
+            after_serverId:
 
             $value = $payload['collection_date'] ?? null;
 
             if ($value === null) {
-                $properties['collection_date'] = null;
-                goto after_collection_date;
+                $properties['collectionDate'] = null;
+                goto after_collectionDate;
             }
 
-            $properties['collection_date'] = $value;
+            $properties['collectionDate'] = $value;
 
-            after_collection_date:
+            after_collectionDate:
 
             $value = $payload['schema_version'] ?? null;
 
             if ($value === null) {
-                $properties['schema_version'] = null;
-                goto after_schema_version;
+                $properties['schemaVersion'] = null;
+                goto after_schemaVersion;
             }
 
-            $properties['schema_version'] = $value;
+            $properties['schemaVersion'] = $value;
 
-            after_schema_version:
+            after_schemaVersion:
 
             $value = $payload['ghes_version'] ?? null;
 
             if ($value === null) {
-                $properties['ghes_version'] = null;
-                goto after_ghes_version;
+                $properties['ghesVersion'] = null;
+                goto after_ghesVersion;
             }
 
-            $properties['ghes_version'] = $value;
+            $properties['ghesVersion'] = $value;
 
-            after_ghes_version:
+            after_ghesVersion:
 
             $value = $payload['host_name'] ?? null;
 
             if ($value === null) {
-                $properties['host_name'] = null;
-                goto after_host_name;
+                $properties['hostName'] = null;
+                goto after_hostName;
             }
 
-            $properties['host_name'] = $value;
+            $properties['hostName'] = $value;
 
-            after_host_name:
+            after_hostName:
 
             $value = $payload['github_connect'] ?? null;
 
             if ($value === null) {
-                $properties['github_connect'] = null;
-                goto after_github_connect;
+                $properties['githubConnect'] = null;
+                goto after_githubConnect;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'github_connect';
+                    $this->hydrationStack[] = 'githubConnect';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GithubConnect($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['github_connect'] = $value;
+            $properties['githubConnect'] = $value;
 
-            after_github_connect:
+            after_githubConnect:
 
             $value = $payload['ghe_stats'] ?? null;
 
             if ($value === null) {
-                $properties['ghe_stats'] = null;
-                goto after_ghe_stats;
+                $properties['gheStats'] = null;
+                goto after_gheStats;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'ghe_stats';
+                    $this->hydrationStack[] = 'gheStats';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['ghe_stats'] = $value;
+            $properties['gheStats'] = $value;
 
-            after_ghe_stats:
+            after_gheStats:
 
             $value = $payload['dormant_users'] ?? null;
 
             if ($value === null) {
-                $properties['dormant_users'] = null;
-                goto after_dormant_users;
+                $properties['dormantUsers'] = null;
+                goto after_dormantUsers;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'dormant_users';
+                    $this->hydrationStack[] = 'dormantUsers';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['dormant_users'] = $value;
+            $properties['dormantUsers'] = $value;
 
-            after_dormant_users:
+            after_dormantUsers:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics', $exception, stack: $this->hydrationStack);
@@ -186,13 +186,13 @@ class ServerDashStatistics implements ObjectMapper
             $value = $payload['features_enabled'] ?? null;
 
             if ($value === null) {
-                $properties['features_enabled'] = null;
-                goto after_features_enabled;
+                $properties['featuresEnabled'] = null;
+                goto after_featuresEnabled;
             }
 
-            $properties['features_enabled'] = $value;
+            $properties['featuresEnabled'] = $value;
 
-            after_features_enabled:
+            after_featuresEnabled:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GithubConnect', $exception, stack: $this->hydrationStack);
@@ -439,46 +439,46 @@ class ServerDashStatistics implements ObjectMapper
             $value = $payload['total_commit_comments'] ?? null;
 
             if ($value === null) {
-                $properties['total_commit_comments'] = null;
-                goto after_total_commit_comments;
+                $properties['totalCommitComments'] = null;
+                goto after_totalCommitComments;
             }
 
-            $properties['total_commit_comments'] = $value;
+            $properties['totalCommitComments'] = $value;
 
-            after_total_commit_comments:
+            after_totalCommitComments:
 
             $value = $payload['total_gist_comments'] ?? null;
 
             if ($value === null) {
-                $properties['total_gist_comments'] = null;
-                goto after_total_gist_comments;
+                $properties['totalGistComments'] = null;
+                goto after_totalGistComments;
             }
 
-            $properties['total_gist_comments'] = $value;
+            $properties['totalGistComments'] = $value;
 
-            after_total_gist_comments:
+            after_totalGistComments:
 
             $value = $payload['total_issue_comments'] ?? null;
 
             if ($value === null) {
-                $properties['total_issue_comments'] = null;
-                goto after_total_issue_comments;
+                $properties['totalIssueComments'] = null;
+                goto after_totalIssueComments;
             }
 
-            $properties['total_issue_comments'] = $value;
+            $properties['totalIssueComments'] = $value;
 
-            after_total_issue_comments:
+            after_totalIssueComments:
 
             $value = $payload['total_pull_request_comments'] ?? null;
 
             if ($value === null) {
-                $properties['total_pull_request_comments'] = null;
-                goto after_total_pull_request_comments;
+                $properties['totalPullRequestComments'] = null;
+                goto after_totalPullRequestComments;
             }
 
-            $properties['total_pull_request_comments'] = $value;
+            $properties['totalPullRequestComments'] = $value;
 
-            after_total_pull_request_comments:
+            after_totalPullRequestComments:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Comments', $exception, stack: $this->hydrationStack);
@@ -504,35 +504,35 @@ class ServerDashStatistics implements ObjectMapper
             $value = $payload['total_gists'] ?? null;
 
             if ($value === null) {
-                $properties['total_gists'] = null;
-                goto after_total_gists;
+                $properties['totalGists'] = null;
+                goto after_totalGists;
             }
 
-            $properties['total_gists'] = $value;
+            $properties['totalGists'] = $value;
 
-            after_total_gists:
+            after_totalGists:
 
             $value = $payload['private_gists'] ?? null;
 
             if ($value === null) {
-                $properties['private_gists'] = null;
-                goto after_private_gists;
+                $properties['privateGists'] = null;
+                goto after_privateGists;
             }
 
-            $properties['private_gists'] = $value;
+            $properties['privateGists'] = $value;
 
-            after_private_gists:
+            after_privateGists:
 
             $value = $payload['public_gists'] ?? null;
 
             if ($value === null) {
-                $properties['public_gists'] = null;
-                goto after_public_gists;
+                $properties['publicGists'] = null;
+                goto after_publicGists;
             }
 
-            $properties['public_gists'] = $value;
+            $properties['publicGists'] = $value;
 
-            after_public_gists:
+            after_publicGists:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Gists', $exception, stack: $this->hydrationStack);
@@ -558,35 +558,35 @@ class ServerDashStatistics implements ObjectMapper
             $value = $payload['total_hooks'] ?? null;
 
             if ($value === null) {
-                $properties['total_hooks'] = null;
-                goto after_total_hooks;
+                $properties['totalHooks'] = null;
+                goto after_totalHooks;
             }
 
-            $properties['total_hooks'] = $value;
+            $properties['totalHooks'] = $value;
 
-            after_total_hooks:
+            after_totalHooks:
 
             $value = $payload['active_hooks'] ?? null;
 
             if ($value === null) {
-                $properties['active_hooks'] = null;
-                goto after_active_hooks;
+                $properties['activeHooks'] = null;
+                goto after_activeHooks;
             }
 
-            $properties['active_hooks'] = $value;
+            $properties['activeHooks'] = $value;
 
-            after_active_hooks:
+            after_activeHooks:
 
             $value = $payload['inactive_hooks'] ?? null;
 
             if ($value === null) {
-                $properties['inactive_hooks'] = null;
-                goto after_inactive_hooks;
+                $properties['inactiveHooks'] = null;
+                goto after_inactiveHooks;
             }
 
-            $properties['inactive_hooks'] = $value;
+            $properties['inactiveHooks'] = $value;
 
-            after_inactive_hooks:
+            after_inactiveHooks:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Hooks', $exception, stack: $this->hydrationStack);
@@ -612,35 +612,35 @@ class ServerDashStatistics implements ObjectMapper
             $value = $payload['total_issues'] ?? null;
 
             if ($value === null) {
-                $properties['total_issues'] = null;
-                goto after_total_issues;
+                $properties['totalIssues'] = null;
+                goto after_totalIssues;
             }
 
-            $properties['total_issues'] = $value;
+            $properties['totalIssues'] = $value;
 
-            after_total_issues:
+            after_totalIssues:
 
             $value = $payload['open_issues'] ?? null;
 
             if ($value === null) {
-                $properties['open_issues'] = null;
-                goto after_open_issues;
+                $properties['openIssues'] = null;
+                goto after_openIssues;
             }
 
-            $properties['open_issues'] = $value;
+            $properties['openIssues'] = $value;
 
-            after_open_issues:
+            after_openIssues:
 
             $value = $payload['closed_issues'] ?? null;
 
             if ($value === null) {
-                $properties['closed_issues'] = null;
-                goto after_closed_issues;
+                $properties['closedIssues'] = null;
+                goto after_closedIssues;
             }
 
-            $properties['closed_issues'] = $value;
+            $properties['closedIssues'] = $value;
 
-            after_closed_issues:
+            after_closedIssues:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Issues', $exception, stack: $this->hydrationStack);
@@ -666,35 +666,35 @@ class ServerDashStatistics implements ObjectMapper
             $value = $payload['total_milestones'] ?? null;
 
             if ($value === null) {
-                $properties['total_milestones'] = null;
-                goto after_total_milestones;
+                $properties['totalMilestones'] = null;
+                goto after_totalMilestones;
             }
 
-            $properties['total_milestones'] = $value;
+            $properties['totalMilestones'] = $value;
 
-            after_total_milestones:
+            after_totalMilestones:
 
             $value = $payload['open_milestones'] ?? null;
 
             if ($value === null) {
-                $properties['open_milestones'] = null;
-                goto after_open_milestones;
+                $properties['openMilestones'] = null;
+                goto after_openMilestones;
             }
 
-            $properties['open_milestones'] = $value;
+            $properties['openMilestones'] = $value;
 
-            after_open_milestones:
+            after_openMilestones:
 
             $value = $payload['closed_milestones'] ?? null;
 
             if ($value === null) {
-                $properties['closed_milestones'] = null;
-                goto after_closed_milestones;
+                $properties['closedMilestones'] = null;
+                goto after_closedMilestones;
             }
 
-            $properties['closed_milestones'] = $value;
+            $properties['closedMilestones'] = $value;
 
-            after_closed_milestones:
+            after_closedMilestones:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Milestones', $exception, stack: $this->hydrationStack);
@@ -720,46 +720,46 @@ class ServerDashStatistics implements ObjectMapper
             $value = $payload['total_orgs'] ?? null;
 
             if ($value === null) {
-                $properties['total_orgs'] = null;
-                goto after_total_orgs;
+                $properties['totalOrgs'] = null;
+                goto after_totalOrgs;
             }
 
-            $properties['total_orgs'] = $value;
+            $properties['totalOrgs'] = $value;
 
-            after_total_orgs:
+            after_totalOrgs:
 
             $value = $payload['disabled_orgs'] ?? null;
 
             if ($value === null) {
-                $properties['disabled_orgs'] = null;
-                goto after_disabled_orgs;
+                $properties['disabledOrgs'] = null;
+                goto after_disabledOrgs;
             }
 
-            $properties['disabled_orgs'] = $value;
+            $properties['disabledOrgs'] = $value;
 
-            after_disabled_orgs:
+            after_disabledOrgs:
 
             $value = $payload['total_teams'] ?? null;
 
             if ($value === null) {
-                $properties['total_teams'] = null;
-                goto after_total_teams;
+                $properties['totalTeams'] = null;
+                goto after_totalTeams;
             }
 
-            $properties['total_teams'] = $value;
+            $properties['totalTeams'] = $value;
 
-            after_total_teams:
+            after_totalTeams:
 
             $value = $payload['total_team_members'] ?? null;
 
             if ($value === null) {
-                $properties['total_team_members'] = null;
-                goto after_total_team_members;
+                $properties['totalTeamMembers'] = null;
+                goto after_totalTeamMembers;
             }
 
-            $properties['total_team_members'] = $value;
+            $properties['totalTeamMembers'] = $value;
 
-            after_total_team_members:
+            after_totalTeamMembers:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Orgs', $exception, stack: $this->hydrationStack);
@@ -785,13 +785,13 @@ class ServerDashStatistics implements ObjectMapper
             $value = $payload['total_pages'] ?? null;
 
             if ($value === null) {
-                $properties['total_pages'] = null;
-                goto after_total_pages;
+                $properties['totalPages'] = null;
+                goto after_totalPages;
             }
 
-            $properties['total_pages'] = $value;
+            $properties['totalPages'] = $value;
 
-            after_total_pages:
+            after_totalPages:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pages', $exception, stack: $this->hydrationStack);
@@ -817,46 +817,46 @@ class ServerDashStatistics implements ObjectMapper
             $value = $payload['total_pulls'] ?? null;
 
             if ($value === null) {
-                $properties['total_pulls'] = null;
-                goto after_total_pulls;
+                $properties['totalPulls'] = null;
+                goto after_totalPulls;
             }
 
-            $properties['total_pulls'] = $value;
+            $properties['totalPulls'] = $value;
 
-            after_total_pulls:
+            after_totalPulls:
 
             $value = $payload['merged_pulls'] ?? null;
 
             if ($value === null) {
-                $properties['merged_pulls'] = null;
-                goto after_merged_pulls;
+                $properties['mergedPulls'] = null;
+                goto after_mergedPulls;
             }
 
-            $properties['merged_pulls'] = $value;
+            $properties['mergedPulls'] = $value;
 
-            after_merged_pulls:
+            after_mergedPulls:
 
             $value = $payload['mergeable_pulls'] ?? null;
 
             if ($value === null) {
-                $properties['mergeable_pulls'] = null;
-                goto after_mergeable_pulls;
+                $properties['mergeablePulls'] = null;
+                goto after_mergeablePulls;
             }
 
-            $properties['mergeable_pulls'] = $value;
+            $properties['mergeablePulls'] = $value;
 
-            after_mergeable_pulls:
+            after_mergeablePulls:
 
             $value = $payload['unmergeable_pulls'] ?? null;
 
             if ($value === null) {
-                $properties['unmergeable_pulls'] = null;
-                goto after_unmergeable_pulls;
+                $properties['unmergeablePulls'] = null;
+                goto after_unmergeablePulls;
             }
 
-            $properties['unmergeable_pulls'] = $value;
+            $properties['unmergeablePulls'] = $value;
 
-            after_unmergeable_pulls:
+            after_unmergeablePulls:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pulls', $exception, stack: $this->hydrationStack);
@@ -882,68 +882,68 @@ class ServerDashStatistics implements ObjectMapper
             $value = $payload['total_repos'] ?? null;
 
             if ($value === null) {
-                $properties['total_repos'] = null;
-                goto after_total_repos;
+                $properties['totalRepos'] = null;
+                goto after_totalRepos;
             }
 
-            $properties['total_repos'] = $value;
+            $properties['totalRepos'] = $value;
 
-            after_total_repos:
+            after_totalRepos:
 
             $value = $payload['root_repos'] ?? null;
 
             if ($value === null) {
-                $properties['root_repos'] = null;
-                goto after_root_repos;
+                $properties['rootRepos'] = null;
+                goto after_rootRepos;
             }
 
-            $properties['root_repos'] = $value;
+            $properties['rootRepos'] = $value;
 
-            after_root_repos:
+            after_rootRepos:
 
             $value = $payload['fork_repos'] ?? null;
 
             if ($value === null) {
-                $properties['fork_repos'] = null;
-                goto after_fork_repos;
+                $properties['forkRepos'] = null;
+                goto after_forkRepos;
             }
 
-            $properties['fork_repos'] = $value;
+            $properties['forkRepos'] = $value;
 
-            after_fork_repos:
+            after_forkRepos:
 
             $value = $payload['org_repos'] ?? null;
 
             if ($value === null) {
-                $properties['org_repos'] = null;
-                goto after_org_repos;
+                $properties['orgRepos'] = null;
+                goto after_orgRepos;
             }
 
-            $properties['org_repos'] = $value;
+            $properties['orgRepos'] = $value;
 
-            after_org_repos:
+            after_orgRepos:
 
             $value = $payload['total_pushes'] ?? null;
 
             if ($value === null) {
-                $properties['total_pushes'] = null;
-                goto after_total_pushes;
+                $properties['totalPushes'] = null;
+                goto after_totalPushes;
             }
 
-            $properties['total_pushes'] = $value;
+            $properties['totalPushes'] = $value;
 
-            after_total_pushes:
+            after_totalPushes:
 
             $value = $payload['total_wikis'] ?? null;
 
             if ($value === null) {
-                $properties['total_wikis'] = null;
-                goto after_total_wikis;
+                $properties['totalWikis'] = null;
+                goto after_totalWikis;
             }
 
-            $properties['total_wikis'] = $value;
+            $properties['totalWikis'] = $value;
 
-            after_total_wikis:
+            after_totalWikis:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Repos', $exception, stack: $this->hydrationStack);
@@ -969,35 +969,35 @@ class ServerDashStatistics implements ObjectMapper
             $value = $payload['total_users'] ?? null;
 
             if ($value === null) {
-                $properties['total_users'] = null;
-                goto after_total_users;
+                $properties['totalUsers'] = null;
+                goto after_totalUsers;
             }
 
-            $properties['total_users'] = $value;
+            $properties['totalUsers'] = $value;
 
-            after_total_users:
+            after_totalUsers:
 
             $value = $payload['admin_users'] ?? null;
 
             if ($value === null) {
-                $properties['admin_users'] = null;
-                goto after_admin_users;
+                $properties['adminUsers'] = null;
+                goto after_adminUsers;
             }
 
-            $properties['admin_users'] = $value;
+            $properties['adminUsers'] = $value;
 
-            after_admin_users:
+            after_adminUsers:
 
             $value = $payload['suspended_users'] ?? null;
 
             if ($value === null) {
-                $properties['suspended_users'] = null;
-                goto after_suspended_users;
+                $properties['suspendedUsers'] = null;
+                goto after_suspendedUsers;
             }
 
-            $properties['suspended_users'] = $value;
+            $properties['suspendedUsers'] = $value;
 
-            after_suspended_users:
+            after_suspendedUsers:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Users', $exception, stack: $this->hydrationStack);
@@ -1023,24 +1023,24 @@ class ServerDashStatistics implements ObjectMapper
             $value = $payload['total_dormant_users'] ?? null;
 
             if ($value === null) {
-                $properties['total_dormant_users'] = null;
-                goto after_total_dormant_users;
+                $properties['totalDormantUsers'] = null;
+                goto after_totalDormantUsers;
             }
 
-            $properties['total_dormant_users'] = $value;
+            $properties['totalDormantUsers'] = $value;
 
-            after_total_dormant_users:
+            after_totalDormantUsers:
 
             $value = $payload['dormancy_threshold'] ?? null;
 
             if ($value === null) {
-                $properties['dormancy_threshold'] = null;
-                goto after_dormancy_threshold;
+                $properties['dormancyThreshold'] = null;
+                goto after_dormancyThreshold;
             }
 
-            $properties['dormancy_threshold'] = $value;
+            $properties['dormancyThreshold'] = $value;
 
-            after_dormancy_threshold:
+            after_dormancyThreshold:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers', $exception, stack: $this->hydrationStack);
@@ -1180,71 +1180,71 @@ class ServerDashStatistics implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics);
         $result = [];
 
-        $server_id = $object->server_id;
+        $serverId = $object->serverId;
 
-        if ($server_id === null) {
-            goto after_server_id;
+        if ($serverId === null) {
+            goto after_serverId;
         }
-        after_server_id:        $result['server_id'] = $server_id;
+        after_serverId:        $result['server_id'] = $serverId;
 
         
-        $collection_date = $object->collection_date;
+        $collectionDate = $object->collectionDate;
 
-        if ($collection_date === null) {
-            goto after_collection_date;
+        if ($collectionDate === null) {
+            goto after_collectionDate;
         }
-        after_collection_date:        $result['collection_date'] = $collection_date;
+        after_collectionDate:        $result['collection_date'] = $collectionDate;
 
         
-        $schema_version = $object->schema_version;
+        $schemaVersion = $object->schemaVersion;
 
-        if ($schema_version === null) {
-            goto after_schema_version;
+        if ($schemaVersion === null) {
+            goto after_schemaVersion;
         }
-        after_schema_version:        $result['schema_version'] = $schema_version;
+        after_schemaVersion:        $result['schema_version'] = $schemaVersion;
 
         
-        $ghes_version = $object->ghes_version;
+        $ghesVersion = $object->ghesVersion;
 
-        if ($ghes_version === null) {
-            goto after_ghes_version;
+        if ($ghesVersion === null) {
+            goto after_ghesVersion;
         }
-        after_ghes_version:        $result['ghes_version'] = $ghes_version;
+        after_ghesVersion:        $result['ghes_version'] = $ghesVersion;
 
         
-        $host_name = $object->host_name;
+        $hostName = $object->hostName;
 
-        if ($host_name === null) {
-            goto after_host_name;
+        if ($hostName === null) {
+            goto after_hostName;
         }
-        after_host_name:        $result['host_name'] = $host_name;
+        after_hostName:        $result['host_name'] = $hostName;
 
         
-        $github_connect = $object->github_connect;
+        $githubConnect = $object->githubConnect;
 
-        if ($github_connect === null) {
-            goto after_github_connect;
+        if ($githubConnect === null) {
+            goto after_githubConnect;
         }
-        $github_connect = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GithubConnect($github_connect);
-        after_github_connect:        $result['github_connect'] = $github_connect;
+        $githubConnect = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GithubConnect($githubConnect);
+        after_githubConnect:        $result['github_connect'] = $githubConnect;
 
         
-        $ghe_stats = $object->ghe_stats;
+        $gheStats = $object->gheStats;
 
-        if ($ghe_stats === null) {
-            goto after_ghe_stats;
+        if ($gheStats === null) {
+            goto after_gheStats;
         }
-        $ghe_stats = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats($ghe_stats);
-        after_ghe_stats:        $result['ghe_stats'] = $ghe_stats;
+        $gheStats = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats($gheStats);
+        after_gheStats:        $result['ghe_stats'] = $gheStats;
 
         
-        $dormant_users = $object->dormant_users;
+        $dormantUsers = $object->dormantUsers;
 
-        if ($dormant_users === null) {
-            goto after_dormant_users;
+        if ($dormantUsers === null) {
+            goto after_dormantUsers;
         }
-        $dormant_users = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers($dormant_users);
-        after_dormant_users:        $result['dormant_users'] = $dormant_users;
+        $dormantUsers = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers($dormantUsers);
+        after_dormantUsers:        $result['dormant_users'] = $dormantUsers;
 
 
         return $result;
@@ -1256,20 +1256,20 @@ class ServerDashStatistics implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GithubConnect);
         $result = [];
 
-        $features_enabled = $object->features_enabled;
+        $featuresEnabled = $object->featuresEnabled;
 
-        if ($features_enabled === null) {
-            goto after_features_enabled;
+        if ($featuresEnabled === null) {
+            goto after_featuresEnabled;
         }
-        static $features_enabledSerializer0;
+        static $featuresEnabledSerializer0;
 
-        if ($features_enabledSerializer0 === null) {
-            $features_enabledSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+        if ($featuresEnabledSerializer0 === null) {
+            $featuresEnabledSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
-        $features_enabled = $features_enabledSerializer0->serialize($features_enabled, $this);
-        after_features_enabled:        $result['features_enabled'] = $features_enabled;
+        $featuresEnabled = $featuresEnabledSerializer0->serialize($featuresEnabled, $this);
+        after_featuresEnabled:        $result['features_enabled'] = $featuresEnabled;
 
 
         return $result;
@@ -1380,36 +1380,36 @@ class ServerDashStatistics implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Comments);
         $result = [];
 
-        $total_commit_comments = $object->total_commit_comments;
+        $totalCommitComments = $object->totalCommitComments;
 
-        if ($total_commit_comments === null) {
-            goto after_total_commit_comments;
+        if ($totalCommitComments === null) {
+            goto after_totalCommitComments;
         }
-        after_total_commit_comments:        $result['total_commit_comments'] = $total_commit_comments;
+        after_totalCommitComments:        $result['total_commit_comments'] = $totalCommitComments;
 
         
-        $total_gist_comments = $object->total_gist_comments;
+        $totalGistComments = $object->totalGistComments;
 
-        if ($total_gist_comments === null) {
-            goto after_total_gist_comments;
+        if ($totalGistComments === null) {
+            goto after_totalGistComments;
         }
-        after_total_gist_comments:        $result['total_gist_comments'] = $total_gist_comments;
+        after_totalGistComments:        $result['total_gist_comments'] = $totalGistComments;
 
         
-        $total_issue_comments = $object->total_issue_comments;
+        $totalIssueComments = $object->totalIssueComments;
 
-        if ($total_issue_comments === null) {
-            goto after_total_issue_comments;
+        if ($totalIssueComments === null) {
+            goto after_totalIssueComments;
         }
-        after_total_issue_comments:        $result['total_issue_comments'] = $total_issue_comments;
+        after_totalIssueComments:        $result['total_issue_comments'] = $totalIssueComments;
 
         
-        $total_pull_request_comments = $object->total_pull_request_comments;
+        $totalPullRequestComments = $object->totalPullRequestComments;
 
-        if ($total_pull_request_comments === null) {
-            goto after_total_pull_request_comments;
+        if ($totalPullRequestComments === null) {
+            goto after_totalPullRequestComments;
         }
-        after_total_pull_request_comments:        $result['total_pull_request_comments'] = $total_pull_request_comments;
+        after_totalPullRequestComments:        $result['total_pull_request_comments'] = $totalPullRequestComments;
 
 
         return $result;
@@ -1421,28 +1421,28 @@ class ServerDashStatistics implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Gists);
         $result = [];
 
-        $total_gists = $object->total_gists;
+        $totalGists = $object->totalGists;
 
-        if ($total_gists === null) {
-            goto after_total_gists;
+        if ($totalGists === null) {
+            goto after_totalGists;
         }
-        after_total_gists:        $result['total_gists'] = $total_gists;
+        after_totalGists:        $result['total_gists'] = $totalGists;
 
         
-        $private_gists = $object->private_gists;
+        $privateGists = $object->privateGists;
 
-        if ($private_gists === null) {
-            goto after_private_gists;
+        if ($privateGists === null) {
+            goto after_privateGists;
         }
-        after_private_gists:        $result['private_gists'] = $private_gists;
+        after_privateGists:        $result['private_gists'] = $privateGists;
 
         
-        $public_gists = $object->public_gists;
+        $publicGists = $object->publicGists;
 
-        if ($public_gists === null) {
-            goto after_public_gists;
+        if ($publicGists === null) {
+            goto after_publicGists;
         }
-        after_public_gists:        $result['public_gists'] = $public_gists;
+        after_publicGists:        $result['public_gists'] = $publicGists;
 
 
         return $result;
@@ -1454,28 +1454,28 @@ class ServerDashStatistics implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Hooks);
         $result = [];
 
-        $total_hooks = $object->total_hooks;
+        $totalHooks = $object->totalHooks;
 
-        if ($total_hooks === null) {
-            goto after_total_hooks;
+        if ($totalHooks === null) {
+            goto after_totalHooks;
         }
-        after_total_hooks:        $result['total_hooks'] = $total_hooks;
+        after_totalHooks:        $result['total_hooks'] = $totalHooks;
 
         
-        $active_hooks = $object->active_hooks;
+        $activeHooks = $object->activeHooks;
 
-        if ($active_hooks === null) {
-            goto after_active_hooks;
+        if ($activeHooks === null) {
+            goto after_activeHooks;
         }
-        after_active_hooks:        $result['active_hooks'] = $active_hooks;
+        after_activeHooks:        $result['active_hooks'] = $activeHooks;
 
         
-        $inactive_hooks = $object->inactive_hooks;
+        $inactiveHooks = $object->inactiveHooks;
 
-        if ($inactive_hooks === null) {
-            goto after_inactive_hooks;
+        if ($inactiveHooks === null) {
+            goto after_inactiveHooks;
         }
-        after_inactive_hooks:        $result['inactive_hooks'] = $inactive_hooks;
+        after_inactiveHooks:        $result['inactive_hooks'] = $inactiveHooks;
 
 
         return $result;
@@ -1487,28 +1487,28 @@ class ServerDashStatistics implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Issues);
         $result = [];
 
-        $total_issues = $object->total_issues;
+        $totalIssues = $object->totalIssues;
 
-        if ($total_issues === null) {
-            goto after_total_issues;
+        if ($totalIssues === null) {
+            goto after_totalIssues;
         }
-        after_total_issues:        $result['total_issues'] = $total_issues;
+        after_totalIssues:        $result['total_issues'] = $totalIssues;
 
         
-        $open_issues = $object->open_issues;
+        $openIssues = $object->openIssues;
 
-        if ($open_issues === null) {
-            goto after_open_issues;
+        if ($openIssues === null) {
+            goto after_openIssues;
         }
-        after_open_issues:        $result['open_issues'] = $open_issues;
+        after_openIssues:        $result['open_issues'] = $openIssues;
 
         
-        $closed_issues = $object->closed_issues;
+        $closedIssues = $object->closedIssues;
 
-        if ($closed_issues === null) {
-            goto after_closed_issues;
+        if ($closedIssues === null) {
+            goto after_closedIssues;
         }
-        after_closed_issues:        $result['closed_issues'] = $closed_issues;
+        after_closedIssues:        $result['closed_issues'] = $closedIssues;
 
 
         return $result;
@@ -1520,28 +1520,28 @@ class ServerDashStatistics implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Milestones);
         $result = [];
 
-        $total_milestones = $object->total_milestones;
+        $totalMilestones = $object->totalMilestones;
 
-        if ($total_milestones === null) {
-            goto after_total_milestones;
+        if ($totalMilestones === null) {
+            goto after_totalMilestones;
         }
-        after_total_milestones:        $result['total_milestones'] = $total_milestones;
+        after_totalMilestones:        $result['total_milestones'] = $totalMilestones;
 
         
-        $open_milestones = $object->open_milestones;
+        $openMilestones = $object->openMilestones;
 
-        if ($open_milestones === null) {
-            goto after_open_milestones;
+        if ($openMilestones === null) {
+            goto after_openMilestones;
         }
-        after_open_milestones:        $result['open_milestones'] = $open_milestones;
+        after_openMilestones:        $result['open_milestones'] = $openMilestones;
 
         
-        $closed_milestones = $object->closed_milestones;
+        $closedMilestones = $object->closedMilestones;
 
-        if ($closed_milestones === null) {
-            goto after_closed_milestones;
+        if ($closedMilestones === null) {
+            goto after_closedMilestones;
         }
-        after_closed_milestones:        $result['closed_milestones'] = $closed_milestones;
+        after_closedMilestones:        $result['closed_milestones'] = $closedMilestones;
 
 
         return $result;
@@ -1553,36 +1553,36 @@ class ServerDashStatistics implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Orgs);
         $result = [];
 
-        $total_orgs = $object->total_orgs;
+        $totalOrgs = $object->totalOrgs;
 
-        if ($total_orgs === null) {
-            goto after_total_orgs;
+        if ($totalOrgs === null) {
+            goto after_totalOrgs;
         }
-        after_total_orgs:        $result['total_orgs'] = $total_orgs;
+        after_totalOrgs:        $result['total_orgs'] = $totalOrgs;
 
         
-        $disabled_orgs = $object->disabled_orgs;
+        $disabledOrgs = $object->disabledOrgs;
 
-        if ($disabled_orgs === null) {
-            goto after_disabled_orgs;
+        if ($disabledOrgs === null) {
+            goto after_disabledOrgs;
         }
-        after_disabled_orgs:        $result['disabled_orgs'] = $disabled_orgs;
+        after_disabledOrgs:        $result['disabled_orgs'] = $disabledOrgs;
 
         
-        $total_teams = $object->total_teams;
+        $totalTeams = $object->totalTeams;
 
-        if ($total_teams === null) {
-            goto after_total_teams;
+        if ($totalTeams === null) {
+            goto after_totalTeams;
         }
-        after_total_teams:        $result['total_teams'] = $total_teams;
+        after_totalTeams:        $result['total_teams'] = $totalTeams;
 
         
-        $total_team_members = $object->total_team_members;
+        $totalTeamMembers = $object->totalTeamMembers;
 
-        if ($total_team_members === null) {
-            goto after_total_team_members;
+        if ($totalTeamMembers === null) {
+            goto after_totalTeamMembers;
         }
-        after_total_team_members:        $result['total_team_members'] = $total_team_members;
+        after_totalTeamMembers:        $result['total_team_members'] = $totalTeamMembers;
 
 
         return $result;
@@ -1594,12 +1594,12 @@ class ServerDashStatistics implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pages);
         $result = [];
 
-        $total_pages = $object->total_pages;
+        $totalPages = $object->totalPages;
 
-        if ($total_pages === null) {
-            goto after_total_pages;
+        if ($totalPages === null) {
+            goto after_totalPages;
         }
-        after_total_pages:        $result['total_pages'] = $total_pages;
+        after_totalPages:        $result['total_pages'] = $totalPages;
 
 
         return $result;
@@ -1611,36 +1611,36 @@ class ServerDashStatistics implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pulls);
         $result = [];
 
-        $total_pulls = $object->total_pulls;
+        $totalPulls = $object->totalPulls;
 
-        if ($total_pulls === null) {
-            goto after_total_pulls;
+        if ($totalPulls === null) {
+            goto after_totalPulls;
         }
-        after_total_pulls:        $result['total_pulls'] = $total_pulls;
+        after_totalPulls:        $result['total_pulls'] = $totalPulls;
 
         
-        $merged_pulls = $object->merged_pulls;
+        $mergedPulls = $object->mergedPulls;
 
-        if ($merged_pulls === null) {
-            goto after_merged_pulls;
+        if ($mergedPulls === null) {
+            goto after_mergedPulls;
         }
-        after_merged_pulls:        $result['merged_pulls'] = $merged_pulls;
+        after_mergedPulls:        $result['merged_pulls'] = $mergedPulls;
 
         
-        $mergeable_pulls = $object->mergeable_pulls;
+        $mergeablePulls = $object->mergeablePulls;
 
-        if ($mergeable_pulls === null) {
-            goto after_mergeable_pulls;
+        if ($mergeablePulls === null) {
+            goto after_mergeablePulls;
         }
-        after_mergeable_pulls:        $result['mergeable_pulls'] = $mergeable_pulls;
+        after_mergeablePulls:        $result['mergeable_pulls'] = $mergeablePulls;
 
         
-        $unmergeable_pulls = $object->unmergeable_pulls;
+        $unmergeablePulls = $object->unmergeablePulls;
 
-        if ($unmergeable_pulls === null) {
-            goto after_unmergeable_pulls;
+        if ($unmergeablePulls === null) {
+            goto after_unmergeablePulls;
         }
-        after_unmergeable_pulls:        $result['unmergeable_pulls'] = $unmergeable_pulls;
+        after_unmergeablePulls:        $result['unmergeable_pulls'] = $unmergeablePulls;
 
 
         return $result;
@@ -1652,52 +1652,52 @@ class ServerDashStatistics implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Repos);
         $result = [];
 
-        $total_repos = $object->total_repos;
+        $totalRepos = $object->totalRepos;
 
-        if ($total_repos === null) {
-            goto after_total_repos;
+        if ($totalRepos === null) {
+            goto after_totalRepos;
         }
-        after_total_repos:        $result['total_repos'] = $total_repos;
+        after_totalRepos:        $result['total_repos'] = $totalRepos;
 
         
-        $root_repos = $object->root_repos;
+        $rootRepos = $object->rootRepos;
 
-        if ($root_repos === null) {
-            goto after_root_repos;
+        if ($rootRepos === null) {
+            goto after_rootRepos;
         }
-        after_root_repos:        $result['root_repos'] = $root_repos;
+        after_rootRepos:        $result['root_repos'] = $rootRepos;
 
         
-        $fork_repos = $object->fork_repos;
+        $forkRepos = $object->forkRepos;
 
-        if ($fork_repos === null) {
-            goto after_fork_repos;
+        if ($forkRepos === null) {
+            goto after_forkRepos;
         }
-        after_fork_repos:        $result['fork_repos'] = $fork_repos;
+        after_forkRepos:        $result['fork_repos'] = $forkRepos;
 
         
-        $org_repos = $object->org_repos;
+        $orgRepos = $object->orgRepos;
 
-        if ($org_repos === null) {
-            goto after_org_repos;
+        if ($orgRepos === null) {
+            goto after_orgRepos;
         }
-        after_org_repos:        $result['org_repos'] = $org_repos;
+        after_orgRepos:        $result['org_repos'] = $orgRepos;
 
         
-        $total_pushes = $object->total_pushes;
+        $totalPushes = $object->totalPushes;
 
-        if ($total_pushes === null) {
-            goto after_total_pushes;
+        if ($totalPushes === null) {
+            goto after_totalPushes;
         }
-        after_total_pushes:        $result['total_pushes'] = $total_pushes;
+        after_totalPushes:        $result['total_pushes'] = $totalPushes;
 
         
-        $total_wikis = $object->total_wikis;
+        $totalWikis = $object->totalWikis;
 
-        if ($total_wikis === null) {
-            goto after_total_wikis;
+        if ($totalWikis === null) {
+            goto after_totalWikis;
         }
-        after_total_wikis:        $result['total_wikis'] = $total_wikis;
+        after_totalWikis:        $result['total_wikis'] = $totalWikis;
 
 
         return $result;
@@ -1709,28 +1709,28 @@ class ServerDashStatistics implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Users);
         $result = [];
 
-        $total_users = $object->total_users;
+        $totalUsers = $object->totalUsers;
 
-        if ($total_users === null) {
-            goto after_total_users;
+        if ($totalUsers === null) {
+            goto after_totalUsers;
         }
-        after_total_users:        $result['total_users'] = $total_users;
+        after_totalUsers:        $result['total_users'] = $totalUsers;
 
         
-        $admin_users = $object->admin_users;
+        $adminUsers = $object->adminUsers;
 
-        if ($admin_users === null) {
-            goto after_admin_users;
+        if ($adminUsers === null) {
+            goto after_adminUsers;
         }
-        after_admin_users:        $result['admin_users'] = $admin_users;
+        after_adminUsers:        $result['admin_users'] = $adminUsers;
 
         
-        $suspended_users = $object->suspended_users;
+        $suspendedUsers = $object->suspendedUsers;
 
-        if ($suspended_users === null) {
-            goto after_suspended_users;
+        if ($suspendedUsers === null) {
+            goto after_suspendedUsers;
         }
-        after_suspended_users:        $result['suspended_users'] = $suspended_users;
+        after_suspendedUsers:        $result['suspended_users'] = $suspendedUsers;
 
 
         return $result;
@@ -1742,20 +1742,20 @@ class ServerDashStatistics implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers);
         $result = [];
 
-        $total_dormant_users = $object->total_dormant_users;
+        $totalDormantUsers = $object->totalDormantUsers;
 
-        if ($total_dormant_users === null) {
-            goto after_total_dormant_users;
+        if ($totalDormantUsers === null) {
+            goto after_totalDormantUsers;
         }
-        after_total_dormant_users:        $result['total_dormant_users'] = $total_dormant_users;
+        after_totalDormantUsers:        $result['total_dormant_users'] = $totalDormantUsers;
 
         
-        $dormancy_threshold = $object->dormancy_threshold;
+        $dormancyThreshold = $object->dormancyThreshold;
 
-        if ($dormancy_threshold === null) {
-            goto after_dormancy_threshold;
+        if ($dormancyThreshold === null) {
+            goto after_dormancyThreshold;
         }
-        after_dormancy_threshold:        $result['dormancy_threshold'] = $dormancy_threshold;
+        after_dormancyThreshold:        $result['dormancy_threshold'] = $dormancyThreshold;
 
 
         return $result;

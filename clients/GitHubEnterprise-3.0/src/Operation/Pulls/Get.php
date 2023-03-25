@@ -16,20 +16,20 @@ final class Get
     private const PATH = '/repos/{owner}/{repo}/pulls/{pull_number}';
     private string $owner;
     private string $repo;
-    private int $pull_number;
+    private int $pullNumber;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb $hydrator, string $owner, string $repo, int $pull_number)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb $hydrator, string $owner, string $repo, int $pullNumber)
     {
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->pull_number = $pull_number;
+        $this->pullNumber = $pullNumber;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{pull_number}'), array($this->owner, $this->repo, $this->pull_number), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{pull_number}'), array($this->owner, $this->repo, $this->pullNumber), self::PATH));
     }
     /**
      * @return Schema\PullRequest

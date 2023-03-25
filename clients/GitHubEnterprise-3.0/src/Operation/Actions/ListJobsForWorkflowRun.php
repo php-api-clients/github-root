@@ -17,31 +17,31 @@ final class ListJobsForWorkflowRun
     private string $owner;
     private string $repo;
     /**The id of the workflow run.**/
-    private int $run_id;
+    private int $runId;
     /**Filters jobs by their `completed_at` timestamp. Can be one of:  
     \* `latest`: Returns jobs from the most recent execution of the workflow run.  
     \* `all`: Returns all jobs for a workflow run, including from old executions of the workflow run.**/
     private string $filter;
     /**Results per page (max 100)**/
-    private int $per_page;
+    private int $perPage;
     /**Page number of the results to fetch.**/
     private int $page;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Jobs $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Jobs $hydrator, string $owner, string $repo, int $run_id, string $filter = 'latest', int $per_page = 30, int $page = 1)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Jobs $hydrator, string $owner, string $repo, int $runId, string $filter = 'latest', int $perPage = 30, int $page = 1)
     {
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->run_id = $run_id;
+        $this->runId = $runId;
         $this->filter = $filter;
-        $this->per_page = $per_page;
+        $this->perPage = $perPage;
         $this->page = $page;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{run_id}', '{filter}', '{per_page}', '{page}'), array($this->owner, $this->repo, $this->run_id, $this->filter, $this->per_page, $this->page), self::PATH . '?filter={filter}&per_page={per_page}&page={page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{run_id}', '{filter}', '{per_page}', '{page}'), array($this->owner, $this->repo, $this->runId, $this->filter, $this->perPage, $this->page), self::PATH . '?filter={filter}&perPage={per_page}&page={page}'));
     }
     /**
      * @return Schema\Operation\Actions\ListJobsForWorkflowRun\Response\Applicationjson\H200

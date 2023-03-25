@@ -38,34 +38,34 @@ class Gists implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_gists';
-                goto after_total_gists;
+                goto after_totalGists;
             }
 
-            $properties['total_gists'] = $value;
+            $properties['totalGists'] = $value;
 
-            after_total_gists:
+            after_totalGists:
 
             $value = $payload['private_gists'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'private_gists';
-                goto after_private_gists;
+                goto after_privateGists;
             }
 
-            $properties['private_gists'] = $value;
+            $properties['privateGists'] = $value;
 
-            after_private_gists:
+            after_privateGists:
 
             $value = $payload['public_gists'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'public_gists';
-                goto after_public_gists;
+                goto after_publicGists;
             }
 
-            $properties['public_gists'] = $value;
+            $properties['publicGists'] = $value;
 
-            after_public_gists:
+            after_publicGists:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview', $exception, stack: $this->hydrationStack);
@@ -192,16 +192,16 @@ class Gists implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview);
         $result = [];
 
-        $total_gists = $object->total_gists;
-        after_total_gists:        $result['total_gists'] = $total_gists;
+        $totalGists = $object->totalGists;
+        after_totalGists:        $result['total_gists'] = $totalGists;
 
         
-        $private_gists = $object->private_gists;
-        after_private_gists:        $result['private_gists'] = $private_gists;
+        $privateGists = $object->privateGists;
+        after_privateGists:        $result['private_gists'] = $privateGists;
 
         
-        $public_gists = $object->public_gists;
-        after_public_gists:        $result['public_gists'] = $public_gists;
+        $publicGists = $object->publicGists;
+        after_publicGists:        $result['public_gists'] = $publicGists;
 
 
         return $result;

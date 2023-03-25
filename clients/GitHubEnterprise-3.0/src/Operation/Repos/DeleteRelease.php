@@ -17,16 +17,16 @@ final class DeleteRelease
     private string $owner;
     private string $repo;
     /**release_id parameter**/
-    private int $release_id;
-    public function __construct(string $owner, string $repo, int $release_id)
+    private int $releaseId;
+    public function __construct(string $owner, string $repo, int $releaseId)
     {
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->release_id = $release_id;
+        $this->releaseId = $releaseId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{release_id}'), array($this->owner, $this->repo, $this->release_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{release_id}'), array($this->owner, $this->repo, $this->releaseId), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

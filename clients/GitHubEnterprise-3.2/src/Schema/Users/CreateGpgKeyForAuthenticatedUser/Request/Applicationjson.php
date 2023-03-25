@@ -13,11 +13,11 @@ final readonly class Applicationjson
     public const SCHEMA_JSON = '{"required":["armored_public_key"],"type":"object","properties":{"armored_public_key":{"type":"string","description":"A GPG key in ASCII-armored format."}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"armored_public_key":"generated_armored_public_key_null"}';
+    public const SCHEMA_EXAMPLE_DATA = '{"armoredPublicKey":"generated_armored_public_key_null"}';
     /**
-     * armored_public_key: A GPG key in ASCII-armored format.
+     * armoredPublicKey: A GPG key in ASCII-armored format.
      */
-    public function __construct(public string $armored_public_key)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('armored_public_key')] public string $armoredPublicKey)
     {
     }
 }

@@ -38,45 +38,45 @@ class Orgs implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_orgs';
-                goto after_total_orgs;
+                goto after_totalOrgs;
             }
 
-            $properties['total_orgs'] = $value;
+            $properties['totalOrgs'] = $value;
 
-            after_total_orgs:
+            after_totalOrgs:
 
             $value = $payload['disabled_orgs'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'disabled_orgs';
-                goto after_disabled_orgs;
+                goto after_disabledOrgs;
             }
 
-            $properties['disabled_orgs'] = $value;
+            $properties['disabledOrgs'] = $value;
 
-            after_disabled_orgs:
+            after_disabledOrgs:
 
             $value = $payload['total_teams'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'total_teams';
-                goto after_total_teams;
+                goto after_totalTeams;
             }
 
-            $properties['total_teams'] = $value;
+            $properties['totalTeams'] = $value;
 
-            after_total_teams:
+            after_totalTeams:
 
             $value = $payload['total_team_members'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'total_team_members';
-                goto after_total_team_members;
+                goto after_totalTeamMembers;
             }
 
-            $properties['total_team_members'] = $value;
+            $properties['totalTeamMembers'] = $value;
 
-            after_total_team_members:
+            after_totalTeamMembers:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview', $exception, stack: $this->hydrationStack);
@@ -203,20 +203,20 @@ class Orgs implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview);
         $result = [];
 
-        $total_orgs = $object->total_orgs;
-        after_total_orgs:        $result['total_orgs'] = $total_orgs;
+        $totalOrgs = $object->totalOrgs;
+        after_totalOrgs:        $result['total_orgs'] = $totalOrgs;
 
         
-        $disabled_orgs = $object->disabled_orgs;
-        after_disabled_orgs:        $result['disabled_orgs'] = $disabled_orgs;
+        $disabledOrgs = $object->disabledOrgs;
+        after_disabledOrgs:        $result['disabled_orgs'] = $disabledOrgs;
 
         
-        $total_teams = $object->total_teams;
-        after_total_teams:        $result['total_teams'] = $total_teams;
+        $totalTeams = $object->totalTeams;
+        after_totalTeams:        $result['total_teams'] = $totalTeams;
 
         
-        $total_team_members = $object->total_team_members;
-        after_total_team_members:        $result['total_team_members'] = $total_team_members;
+        $totalTeamMembers = $object->totalTeamMembers;
+        after_totalTeamMembers:        $result['total_team_members'] = $totalTeamMembers;
 
 
         return $result;

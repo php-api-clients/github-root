@@ -52,23 +52,23 @@ class Analyses implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'commit_sha';
-                goto after_commit_sha;
+                goto after_commitSha;
             }
 
-            $properties['commit_sha'] = $value;
+            $properties['commitSha'] = $value;
 
-            after_commit_sha:
+            after_commitSha:
 
             $value = $payload['analysis_key'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'analysis_key';
-                goto after_analysis_key;
+                goto after_analysisKey;
             }
 
-            $properties['analysis_key'] = $value;
+            $properties['analysisKey'] = $value;
 
-            after_analysis_key:
+            after_analysisKey:
 
             $value = $payload['environment'] ?? null;
 
@@ -107,34 +107,34 @@ class Analyses implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'created_at';
-                goto after_created_at;
+                goto after_createdAt;
             }
 
-            $properties['created_at'] = $value;
+            $properties['createdAt'] = $value;
 
-            after_created_at:
+            after_createdAt:
 
             $value = $payload['results_count'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'results_count';
-                goto after_results_count;
+                goto after_resultsCount;
             }
 
-            $properties['results_count'] = $value;
+            $properties['resultsCount'] = $value;
 
-            after_results_count:
+            after_resultsCount:
 
             $value = $payload['rules_count'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'rules_count';
-                goto after_rules_count;
+                goto after_rulesCount;
             }
 
-            $properties['rules_count'] = $value;
+            $properties['rulesCount'] = $value;
 
-            after_rules_count:
+            after_rulesCount:
 
             $value = $payload['id'] ?? null;
 
@@ -162,12 +162,12 @@ class Analyses implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'sarif_id';
-                goto after_sarif_id;
+                goto after_sarifId;
             }
 
-            $properties['sarif_id'] = $value;
+            $properties['sarifId'] = $value;
 
-            after_sarif_id:
+            after_sarifId:
 
             $value = $payload['tool'] ?? null;
 
@@ -214,13 +214,13 @@ class Analyses implements ObjectMapper
             $value = $payload['tool_name'] ?? null;
 
             if ($value === null) {
-                $properties['tool_name'] = null;
-                goto after_tool_name;
+                $properties['toolName'] = null;
+                goto after_toolName;
             }
 
-            $properties['tool_name'] = $value;
+            $properties['toolName'] = $value;
 
-            after_tool_name:
+            after_toolName:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\CodeScanningAnalysis', $exception, stack: $this->hydrationStack);
@@ -311,13 +311,13 @@ class Analyses implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['url'] ?? null;
 
@@ -387,13 +387,13 @@ class Analyses implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
@@ -527,12 +527,12 @@ class Analyses implements ObjectMapper
         after_ref:        $result['ref'] = $ref;
 
         
-        $commit_sha = $object->commit_sha;
-        after_commit_sha:        $result['commit_sha'] = $commit_sha;
+        $commitSha = $object->commitSha;
+        after_commitSha:        $result['commit_sha'] = $commitSha;
 
         
-        $analysis_key = $object->analysis_key;
-        after_analysis_key:        $result['analysis_key'] = $analysis_key;
+        $analysisKey = $object->analysisKey;
+        after_analysisKey:        $result['analysis_key'] = $analysisKey;
 
         
         $environment = $object->environment;
@@ -551,16 +551,16 @@ class Analyses implements ObjectMapper
         after_error:        $result['error'] = $error;
 
         
-        $created_at = $object->created_at;
-        after_created_at:        $result['created_at'] = $created_at;
+        $createdAt = $object->createdAt;
+        after_createdAt:        $result['created_at'] = $createdAt;
 
         
-        $results_count = $object->results_count;
-        after_results_count:        $result['results_count'] = $results_count;
+        $resultsCount = $object->resultsCount;
+        after_resultsCount:        $result['results_count'] = $resultsCount;
 
         
-        $rules_count = $object->rules_count;
-        after_rules_count:        $result['rules_count'] = $rules_count;
+        $rulesCount = $object->rulesCount;
+        after_rulesCount:        $result['rules_count'] = $rulesCount;
 
         
         $id = $object->id;
@@ -571,8 +571,8 @@ class Analyses implements ObjectMapper
         after_url:        $result['url'] = $url;
 
         
-        $sarif_id = $object->sarif_id;
-        after_sarif_id:        $result['sarif_id'] = $sarif_id;
+        $sarifId = $object->sarifId;
+        after_sarifId:        $result['sarif_id'] = $sarifId;
 
         
         $tool = $object->tool;
@@ -588,12 +588,12 @@ class Analyses implements ObjectMapper
         after_warning:        $result['warning'] = $warning;
 
         
-        $tool_name = $object->tool_name;
+        $toolName = $object->toolName;
 
-        if ($tool_name === null) {
-            goto after_tool_name;
+        if ($toolName === null) {
+            goto after_toolName;
         }
-        after_tool_name:        $result['tool_name'] = $tool_name;
+        after_toolName:        $result['tool_name'] = $toolName;
 
 
         return $result;
@@ -646,12 +646,12 @@ class Analyses implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $url = $object->url;
@@ -695,12 +695,12 @@ class Analyses implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
 
         return $result;

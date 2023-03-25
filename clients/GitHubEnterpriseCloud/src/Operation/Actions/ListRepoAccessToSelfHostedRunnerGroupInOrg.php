@@ -17,25 +17,25 @@ final class ListRepoAccessToSelfHostedRunnerGroupInOrg
     /**The organization name. The name is not case sensitive.**/
     private string $org;
     /**Unique identifier of the self-hosted runner group.**/
-    private int $runner_group_id;
+    private int $runnerGroupId;
     /**Page number of the results to fetch.**/
     private int $page;
     /**The number of results per page (max 100).**/
-    private int $per_page;
+    private int $perPage;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories $hydrator, string $org, int $runner_group_id, int $page = 1, int $per_page = 30)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories $hydrator, string $org, int $runnerGroupId, int $page = 1, int $perPage = 30)
     {
         $this->org = $org;
-        $this->runner_group_id = $runner_group_id;
+        $this->runnerGroupId = $runnerGroupId;
         $this->page = $page;
-        $this->per_page = $per_page;
+        $this->perPage = $perPage;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{runner_group_id}', '{page}', '{per_page}'), array($this->org, $this->runner_group_id, $this->page, $this->per_page), self::PATH . '?page={page}&per_page={per_page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{runner_group_id}', '{page}', '{per_page}'), array($this->org, $this->runnerGroupId, $this->page, $this->perPage), self::PATH . '?page={page}&perPage={per_page}'));
     }
     /**
      * @return Schema\Operation\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\Applicationjson\H200

@@ -15,18 +15,18 @@ final class DeleteGrant
     private const METHOD = 'DELETE';
     private const PATH = '/applications/grants/{grant_id}';
     /**The unique identifier of the grant.**/
-    private int $grant_id;
+    private int $grantId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Applications\Grants\CbGrantIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Applications\Grants\CbGrantIdRcb $hydrator, int $grant_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Applications\Grants\CbGrantIdRcb $hydrator, int $grantId)
     {
-        $this->grant_id = $grant_id;
+        $this->grantId = $grantId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{grant_id}'), array($this->grant_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{grant_id}'), array($this->grantId), self::PATH));
     }
     function createResponse(\Psr\Http\Message\ResponseInterface $response) : void
     {

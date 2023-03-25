@@ -17,16 +17,16 @@ final class DeleteSelfHostedRunnerFromRepo
     private string $owner;
     private string $repo;
     /**Unique identifier of the self-hosted runner.**/
-    private int $runner_id;
-    public function __construct(string $owner, string $repo, int $runner_id)
+    private int $runnerId;
+    public function __construct(string $owner, string $repo, int $runnerId)
     {
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->runner_id = $runner_id;
+        $this->runnerId = $runnerId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{runner_id}'), array($this->owner, $this->repo, $this->runner_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{runner_id}'), array($this->owner, $this->repo, $this->runnerId), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

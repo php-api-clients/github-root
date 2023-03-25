@@ -55,55 +55,55 @@ class RequiredPullRequestReviews implements ObjectMapper
             $value = $payload['dismissal_restrictions'] ?? null;
 
             if ($value === null) {
-                $properties['dismissal_restrictions'] = null;
-                goto after_dismissal_restrictions;
+                $properties['dismissalRestrictions'] = null;
+                goto after_dismissalRestrictions;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'dismissal_restrictions';
+                    $this->hydrationStack[] = 'dismissalRestrictions';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['dismissal_restrictions'] = $value;
+            $properties['dismissalRestrictions'] = $value;
 
-            after_dismissal_restrictions:
+            after_dismissalRestrictions:
 
             $value = $payload['dismiss_stale_reviews'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'dismiss_stale_reviews';
-                goto after_dismiss_stale_reviews;
+                goto after_dismissStaleReviews;
             }
 
-            $properties['dismiss_stale_reviews'] = $value;
+            $properties['dismissStaleReviews'] = $value;
 
-            after_dismiss_stale_reviews:
+            after_dismissStaleReviews:
 
             $value = $payload['require_code_owner_reviews'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'require_code_owner_reviews';
-                goto after_require_code_owner_reviews;
+                goto after_requireCodeOwnerReviews;
             }
 
-            $properties['require_code_owner_reviews'] = $value;
+            $properties['requireCodeOwnerReviews'] = $value;
 
-            after_require_code_owner_reviews:
+            after_requireCodeOwnerReviews:
 
             $value = $payload['required_approving_review_count'] ?? null;
 
             if ($value === null) {
-                $properties['required_approving_review_count'] = null;
-                goto after_required_approving_review_count;
+                $properties['requiredApprovingReviewCount'] = null;
+                goto after_requiredApprovingReviewCount;
             }
 
-            $properties['required_approving_review_count'] = $value;
+            $properties['requiredApprovingReviewCount'] = $value;
 
-            after_required_approving_review_count:
+            after_requiredApprovingReviewCount:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchPullRequestReview', $exception, stack: $this->hydrationStack);
@@ -182,24 +182,24 @@ class RequiredPullRequestReviews implements ObjectMapper
             $value = $payload['users_url'] ?? null;
 
             if ($value === null) {
-                $properties['users_url'] = null;
-                goto after_users_url;
+                $properties['usersUrl'] = null;
+                goto after_usersUrl;
             }
 
-            $properties['users_url'] = $value;
+            $properties['usersUrl'] = $value;
 
-            after_users_url:
+            after_usersUrl:
 
             $value = $payload['teams_url'] ?? null;
 
             if ($value === null) {
-                $properties['teams_url'] = null;
-                goto after_teams_url;
+                $properties['teamsUrl'] = null;
+                goto after_teamsUrl;
             }
 
-            $properties['teams_url'] = $value;
+            $properties['teamsUrl'] = $value;
 
-            after_teams_url:
+            after_teamsUrl:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions', $exception, stack: $this->hydrationStack);
@@ -270,34 +270,34 @@ class RequiredPullRequestReviews implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'node_id';
-                goto after_node_id;
+                goto after_nodeId;
             }
 
-            $properties['node_id'] = $value;
+            $properties['nodeId'] = $value;
 
-            after_node_id:
+            after_nodeId:
 
             $value = $payload['avatar_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'avatar_url';
-                goto after_avatar_url;
+                goto after_avatarUrl;
             }
 
-            $properties['avatar_url'] = $value;
+            $properties['avatarUrl'] = $value;
 
-            after_avatar_url:
+            after_avatarUrl:
 
             $value = $payload['gravatar_id'] ?? null;
 
             if ($value === null) {
-                $properties['gravatar_id'] = null;
-                goto after_gravatar_id;
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
             }
 
-            $properties['gravatar_id'] = $value;
+            $properties['gravatarId'] = $value;
 
-            after_gravatar_id:
+            after_gravatarId:
 
             $value = $payload['url'] ?? null;
 
@@ -314,111 +314,111 @@ class RequiredPullRequestReviews implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'html_url';
-                goto after_html_url;
+                goto after_htmlUrl;
             }
 
-            $properties['html_url'] = $value;
+            $properties['htmlUrl'] = $value;
 
-            after_html_url:
+            after_htmlUrl:
 
             $value = $payload['followers_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'followers_url';
-                goto after_followers_url;
+                goto after_followersUrl;
             }
 
-            $properties['followers_url'] = $value;
+            $properties['followersUrl'] = $value;
 
-            after_followers_url:
+            after_followersUrl:
 
             $value = $payload['following_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'following_url';
-                goto after_following_url;
+                goto after_followingUrl;
             }
 
-            $properties['following_url'] = $value;
+            $properties['followingUrl'] = $value;
 
-            after_following_url:
+            after_followingUrl:
 
             $value = $payload['gists_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'gists_url';
-                goto after_gists_url;
+                goto after_gistsUrl;
             }
 
-            $properties['gists_url'] = $value;
+            $properties['gistsUrl'] = $value;
 
-            after_gists_url:
+            after_gistsUrl:
 
             $value = $payload['starred_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'starred_url';
-                goto after_starred_url;
+                goto after_starredUrl;
             }
 
-            $properties['starred_url'] = $value;
+            $properties['starredUrl'] = $value;
 
-            after_starred_url:
+            after_starredUrl:
 
             $value = $payload['subscriptions_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'subscriptions_url';
-                goto after_subscriptions_url;
+                goto after_subscriptionsUrl;
             }
 
-            $properties['subscriptions_url'] = $value;
+            $properties['subscriptionsUrl'] = $value;
 
-            after_subscriptions_url:
+            after_subscriptionsUrl:
 
             $value = $payload['organizations_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'organizations_url';
-                goto after_organizations_url;
+                goto after_organizationsUrl;
             }
 
-            $properties['organizations_url'] = $value;
+            $properties['organizationsUrl'] = $value;
 
-            after_organizations_url:
+            after_organizationsUrl:
 
             $value = $payload['repos_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'repos_url';
-                goto after_repos_url;
+                goto after_reposUrl;
             }
 
-            $properties['repos_url'] = $value;
+            $properties['reposUrl'] = $value;
 
-            after_repos_url:
+            after_reposUrl:
 
             $value = $payload['events_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'events_url';
-                goto after_events_url;
+                goto after_eventsUrl;
             }
 
-            $properties['events_url'] = $value;
+            $properties['eventsUrl'] = $value;
 
-            after_events_url:
+            after_eventsUrl:
 
             $value = $payload['received_events_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'received_events_url';
-                goto after_received_events_url;
+                goto after_receivedEventsUrl;
             }
 
-            $properties['received_events_url'] = $value;
+            $properties['receivedEventsUrl'] = $value;
 
-            after_received_events_url:
+            after_receivedEventsUrl:
 
             $value = $payload['type'] ?? null;
 
@@ -435,23 +435,23 @@ class RequiredPullRequestReviews implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'site_admin';
-                goto after_site_admin;
+                goto after_siteAdmin;
             }
 
-            $properties['site_admin'] = $value;
+            $properties['siteAdmin'] = $value;
 
-            after_site_admin:
+            after_siteAdmin:
 
             $value = $payload['starred_at'] ?? null;
 
             if ($value === null) {
-                $properties['starred_at'] = null;
-                goto after_starred_at;
+                $properties['starredAt'] = null;
+                goto after_starredAt;
             }
 
-            $properties['starred_at'] = $value;
+            $properties['starredAt'] = $value;
 
-            after_starred_at:
+            after_starredAt:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
@@ -489,12 +489,12 @@ class RequiredPullRequestReviews implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'node_id';
-                goto after_node_id;
+                goto after_nodeId;
             }
 
-            $properties['node_id'] = $value;
+            $properties['nodeId'] = $value;
 
-            after_node_id:
+            after_nodeId:
 
             $value = $payload['name'] ?? null;
 
@@ -586,34 +586,34 @@ class RequiredPullRequestReviews implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'html_url';
-                goto after_html_url;
+                goto after_htmlUrl;
             }
 
-            $properties['html_url'] = $value;
+            $properties['htmlUrl'] = $value;
 
-            after_html_url:
+            after_htmlUrl:
 
             $value = $payload['members_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'members_url';
-                goto after_members_url;
+                goto after_membersUrl;
             }
 
-            $properties['members_url'] = $value;
+            $properties['membersUrl'] = $value;
 
-            after_members_url:
+            after_membersUrl:
 
             $value = $payload['repositories_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'repositories_url';
-                goto after_repositories_url;
+                goto after_repositoriesUrl;
             }
 
-            $properties['repositories_url'] = $value;
+            $properties['repositoriesUrl'] = $value;
 
-            after_repositories_url:
+            after_repositoriesUrl:
 
             $value = $payload['parent'] ?? null;
 
@@ -737,13 +737,13 @@ class RequiredPullRequestReviews implements ObjectMapper
             $value = $payload['documentation_url'] ?? null;
 
             if ($value === null) {
-                $properties['documentation_url'] = null;
-                goto after_documentation_url;
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['url'] ?? null;
 
@@ -803,12 +803,12 @@ class RequiredPullRequestReviews implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'documentation_url';
-                goto after_documentation_url;
+                goto after_documentationUrl;
             }
 
-            $properties['documentation_url'] = $value;
+            $properties['documentationUrl'] = $value;
 
-            after_documentation_url:
+            after_documentationUrl:
 
             $value = $payload['errors'] ?? null;
 
@@ -1058,29 +1058,29 @@ class RequiredPullRequestReviews implements ObjectMapper
         after_url:        $result['url'] = $url;
 
         
-        $dismissal_restrictions = $object->dismissal_restrictions;
+        $dismissalRestrictions = $object->dismissalRestrictions;
 
-        if ($dismissal_restrictions === null) {
-            goto after_dismissal_restrictions;
+        if ($dismissalRestrictions === null) {
+            goto after_dismissalRestrictions;
         }
-        $dismissal_restrictions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions($dismissal_restrictions);
-        after_dismissal_restrictions:        $result['dismissal_restrictions'] = $dismissal_restrictions;
+        $dismissalRestrictions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions($dismissalRestrictions);
+        after_dismissalRestrictions:        $result['dismissal_restrictions'] = $dismissalRestrictions;
 
         
-        $dismiss_stale_reviews = $object->dismiss_stale_reviews;
-        after_dismiss_stale_reviews:        $result['dismiss_stale_reviews'] = $dismiss_stale_reviews;
+        $dismissStaleReviews = $object->dismissStaleReviews;
+        after_dismissStaleReviews:        $result['dismiss_stale_reviews'] = $dismissStaleReviews;
 
         
-        $require_code_owner_reviews = $object->require_code_owner_reviews;
-        after_require_code_owner_reviews:        $result['require_code_owner_reviews'] = $require_code_owner_reviews;
+        $requireCodeOwnerReviews = $object->requireCodeOwnerReviews;
+        after_requireCodeOwnerReviews:        $result['require_code_owner_reviews'] = $requireCodeOwnerReviews;
 
         
-        $required_approving_review_count = $object->required_approving_review_count;
+        $requiredApprovingReviewCount = $object->requiredApprovingReviewCount;
 
-        if ($required_approving_review_count === null) {
-            goto after_required_approving_review_count;
+        if ($requiredApprovingReviewCount === null) {
+            goto after_requiredApprovingReviewCount;
         }
-        after_required_approving_review_count:        $result['required_approving_review_count'] = $required_approving_review_count;
+        after_requiredApprovingReviewCount:        $result['required_approving_review_count'] = $requiredApprovingReviewCount;
 
 
         return $result;
@@ -1134,20 +1134,20 @@ class RequiredPullRequestReviews implements ObjectMapper
         after_url:        $result['url'] = $url;
 
         
-        $users_url = $object->users_url;
+        $usersUrl = $object->usersUrl;
 
-        if ($users_url === null) {
-            goto after_users_url;
+        if ($usersUrl === null) {
+            goto after_usersUrl;
         }
-        after_users_url:        $result['users_url'] = $users_url;
+        after_usersUrl:        $result['users_url'] = $usersUrl;
 
         
-        $teams_url = $object->teams_url;
+        $teamsUrl = $object->teamsUrl;
 
-        if ($teams_url === null) {
-            goto after_teams_url;
+        if ($teamsUrl === null) {
+            goto after_teamsUrl;
         }
-        after_teams_url:        $result['teams_url'] = $teams_url;
+        after_teamsUrl:        $result['teams_url'] = $teamsUrl;
 
 
         return $result;
@@ -1183,80 +1183,80 @@ class RequiredPullRequestReviews implements ObjectMapper
         after_id:        $result['id'] = $id;
 
         
-        $node_id = $object->node_id;
-        after_node_id:        $result['node_id'] = $node_id;
+        $nodeId = $object->nodeId;
+        after_nodeId:        $result['node_id'] = $nodeId;
 
         
-        $avatar_url = $object->avatar_url;
-        after_avatar_url:        $result['avatar_url'] = $avatar_url;
+        $avatarUrl = $object->avatarUrl;
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
 
         
-        $gravatar_id = $object->gravatar_id;
+        $gravatarId = $object->gravatarId;
 
-        if ($gravatar_id === null) {
-            goto after_gravatar_id;
+        if ($gravatarId === null) {
+            goto after_gravatarId;
         }
-        after_gravatar_id:        $result['gravatar_id'] = $gravatar_id;
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
 
         
         $url = $object->url;
         after_url:        $result['url'] = $url;
 
         
-        $html_url = $object->html_url;
-        after_html_url:        $result['html_url'] = $html_url;
+        $htmlUrl = $object->htmlUrl;
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
 
         
-        $followers_url = $object->followers_url;
-        after_followers_url:        $result['followers_url'] = $followers_url;
+        $followersUrl = $object->followersUrl;
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
 
         
-        $following_url = $object->following_url;
-        after_following_url:        $result['following_url'] = $following_url;
+        $followingUrl = $object->followingUrl;
+        after_followingUrl:        $result['following_url'] = $followingUrl;
 
         
-        $gists_url = $object->gists_url;
-        after_gists_url:        $result['gists_url'] = $gists_url;
+        $gistsUrl = $object->gistsUrl;
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
 
         
-        $starred_url = $object->starred_url;
-        after_starred_url:        $result['starred_url'] = $starred_url;
+        $starredUrl = $object->starredUrl;
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
 
         
-        $subscriptions_url = $object->subscriptions_url;
-        after_subscriptions_url:        $result['subscriptions_url'] = $subscriptions_url;
+        $subscriptionsUrl = $object->subscriptionsUrl;
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
 
         
-        $organizations_url = $object->organizations_url;
-        after_organizations_url:        $result['organizations_url'] = $organizations_url;
+        $organizationsUrl = $object->organizationsUrl;
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
 
         
-        $repos_url = $object->repos_url;
-        after_repos_url:        $result['repos_url'] = $repos_url;
+        $reposUrl = $object->reposUrl;
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
 
         
-        $events_url = $object->events_url;
-        after_events_url:        $result['events_url'] = $events_url;
+        $eventsUrl = $object->eventsUrl;
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
 
         
-        $received_events_url = $object->received_events_url;
-        after_received_events_url:        $result['received_events_url'] = $received_events_url;
+        $receivedEventsUrl = $object->receivedEventsUrl;
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
 
         
         $type = $object->type;
         after_type:        $result['type'] = $type;
 
         
-        $site_admin = $object->site_admin;
-        after_site_admin:        $result['site_admin'] = $site_admin;
+        $siteAdmin = $object->siteAdmin;
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
 
         
-        $starred_at = $object->starred_at;
+        $starredAt = $object->starredAt;
 
-        if ($starred_at === null) {
-            goto after_starred_at;
+        if ($starredAt === null) {
+            goto after_starredAt;
         }
-        after_starred_at:        $result['starred_at'] = $starred_at;
+        after_starredAt:        $result['starred_at'] = $starredAt;
 
 
         return $result;
@@ -1272,8 +1272,8 @@ class RequiredPullRequestReviews implements ObjectMapper
         after_id:        $result['id'] = $id;
 
         
-        $node_id = $object->node_id;
-        after_node_id:        $result['node_id'] = $node_id;
+        $nodeId = $object->nodeId;
+        after_nodeId:        $result['node_id'] = $nodeId;
 
         
         $name = $object->name;
@@ -1317,16 +1317,16 @@ class RequiredPullRequestReviews implements ObjectMapper
         after_url:        $result['url'] = $url;
 
         
-        $html_url = $object->html_url;
-        after_html_url:        $result['html_url'] = $html_url;
+        $htmlUrl = $object->htmlUrl;
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
 
         
-        $members_url = $object->members_url;
-        after_members_url:        $result['members_url'] = $members_url;
+        $membersUrl = $object->membersUrl;
+        after_membersUrl:        $result['members_url'] = $membersUrl;
 
         
-        $repositories_url = $object->repositories_url;
-        after_repositories_url:        $result['repositories_url'] = $repositories_url;
+        $repositoriesUrl = $object->repositoriesUrl;
+        after_repositoriesUrl:        $result['repositories_url'] = $repositoriesUrl;
 
         
         $parent = $object->parent;
@@ -1383,12 +1383,12 @@ class RequiredPullRequestReviews implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
+        $documentationUrl = $object->documentationUrl;
 
-        if ($documentation_url === null) {
-            goto after_documentation_url;
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
         }
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $url = $object->url;
@@ -1420,8 +1420,8 @@ class RequiredPullRequestReviews implements ObjectMapper
         after_message:        $result['message'] = $message;
 
         
-        $documentation_url = $object->documentation_url;
-        after_documentation_url:        $result['documentation_url'] = $documentation_url;
+        $documentationUrl = $object->documentationUrl;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
 
         
         $errors = $object->errors;

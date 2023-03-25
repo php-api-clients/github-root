@@ -16,19 +16,19 @@ final class DeleteForTeamDiscussion
     private const PATH = '/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}';
     private string $org;
     /**team_slug parameter**/
-    private string $team_slug;
-    private int $discussion_number;
-    private int $reaction_id;
-    public function __construct(string $org, string $team_slug, int $discussion_number, int $reaction_id)
+    private string $teamSlug;
+    private int $discussionNumber;
+    private int $reactionId;
+    public function __construct(string $org, string $teamSlug, int $discussionNumber, int $reactionId)
     {
         $this->org = $org;
-        $this->team_slug = $team_slug;
-        $this->discussion_number = $discussion_number;
-        $this->reaction_id = $reaction_id;
+        $this->teamSlug = $teamSlug;
+        $this->discussionNumber = $discussionNumber;
+        $this->reactionId = $reactionId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{team_slug}', '{discussion_number}', '{reaction_id}'), array($this->org, $this->team_slug, $this->discussion_number, $this->reaction_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{team_slug}', '{discussion_number}', '{reaction_id}'), array($this->org, $this->teamSlug, $this->discussionNumber, $this->reactionId), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

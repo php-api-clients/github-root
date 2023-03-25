@@ -16,20 +16,20 @@ final class SetInformationForProvisionedEnterpriseUser
     private const PATH = '/scim/v2/Users/{scim_user_id}';
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator;
     /**The unique identifier of the SCIM user.**/
-    private string $scim_user_id;
+    private string $scimUserId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Scim\V2\Users\CbScimUserIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Users\CbScimUserIdRcb $hydrator, string $scim_user_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Users\CbScimUserIdRcb $hydrator, string $scimUserId)
     {
         $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->scim_user_id = $scim_user_id;
+        $this->scimUserId = $scimUserId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\User::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{scim_user_id}'), array($this->scim_user_id), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{scim_user_id}'), array($this->scimUserId), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     /**
      * @return Schema\ScimEnterpriseUserResponse

@@ -15,18 +15,18 @@ final class ListCustomRoles
     private const METHOD = 'GET';
     private const PATH = '/organizations/{organization_id}/custom_roles';
     /**The unique identifier of the organization.**/
-    private string $organization_id;
+    private string $organizationId;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Organizations\CbOrganizationIdRcb\CustomRoles $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Organizations\CbOrganizationIdRcb\CustomRoles $hydrator, string $organization_id)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Organizations\CbOrganizationIdRcb\CustomRoles $hydrator, string $organizationId)
     {
-        $this->organization_id = $organization_id;
+        $this->organizationId = $organizationId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{organization_id}'), array($this->organization_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{organization_id}'), array($this->organizationId), self::PATH));
     }
     /**
      * @return Schema\Operation\Orgs\ListCustomRoles\Response\Applicationjson\H200

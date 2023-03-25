@@ -39,23 +39,23 @@ class LicenseSyncStatus implements ObjectMapper
             $value = $payload['server_instances'] ?? null;
 
             if ($value === null) {
-                $properties['server_instances'] = null;
-                goto after_server_instances;
+                $properties['serverInstances'] = null;
+                goto after_serverInstances;
             }
 
-            static $server_instancesCaster1;
+            static $serverInstancesCaster1;
 
-            if ($server_instancesCaster1 === null) {
-                $server_instancesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+            if ($serverInstancesCaster1 === null) {
+                $serverInstancesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GetLicenseSyncStatus\\ServerInstances',
 ));
             }
 
-            $value = $server_instancesCaster1->cast($value, $this);
+            $value = $serverInstancesCaster1->cast($value, $this);
 
-            $properties['server_instances'] = $value;
+            $properties['serverInstances'] = $value;
 
-            after_server_instances:
+            after_serverInstances:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus', $exception, stack: $this->hydrationStack);
@@ -81,13 +81,13 @@ class LicenseSyncStatus implements ObjectMapper
             $value = $payload['server_id'] ?? null;
 
             if ($value === null) {
-                $properties['server_id'] = null;
-                goto after_server_id;
+                $properties['serverId'] = null;
+                goto after_serverId;
             }
 
-            $properties['server_id'] = $value;
+            $properties['serverId'] = $value;
 
-            after_server_id:
+            after_serverId:
 
             $value = $payload['hostname'] ?? null;
 
@@ -103,22 +103,22 @@ class LicenseSyncStatus implements ObjectMapper
             $value = $payload['last_sync'] ?? null;
 
             if ($value === null) {
-                $properties['last_sync'] = null;
-                goto after_last_sync;
+                $properties['lastSync'] = null;
+                goto after_lastSync;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'last_sync';
+                    $this->hydrationStack[] = 'lastSync';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['last_sync'] = $value;
+            $properties['lastSync'] = $value;
 
-            after_last_sync:
+            after_lastSync:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances', $exception, stack: $this->hydrationStack);
@@ -301,21 +301,21 @@ class LicenseSyncStatus implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus);
         $result = [];
 
-        $server_instances = $object->server_instances;
+        $serverInstances = $object->serverInstances;
 
-        if ($server_instances === null) {
-            goto after_server_instances;
+        if ($serverInstances === null) {
+            goto after_serverInstances;
         }
-        static $server_instancesSerializer0;
+        static $serverInstancesSerializer0;
 
-        if ($server_instancesSerializer0 === null) {
-            $server_instancesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+        if ($serverInstancesSerializer0 === null) {
+            $serverInstancesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
   0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GetLicenseSyncStatus\\ServerInstances',
 ));
         }
         
-        $server_instances = $server_instancesSerializer0->serialize($server_instances, $this);
-        after_server_instances:        $result['server_instances'] = $server_instances;
+        $serverInstances = $serverInstancesSerializer0->serialize($serverInstances, $this);
+        after_serverInstances:        $result['server_instances'] = $serverInstances;
 
 
         return $result;
@@ -327,12 +327,12 @@ class LicenseSyncStatus implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances);
         $result = [];
 
-        $server_id = $object->server_id;
+        $serverId = $object->serverId;
 
-        if ($server_id === null) {
-            goto after_server_id;
+        if ($serverId === null) {
+            goto after_serverId;
         }
-        after_server_id:        $result['server_id'] = $server_id;
+        after_serverId:        $result['server_id'] = $serverId;
 
         
         $hostname = $object->hostname;
@@ -343,13 +343,13 @@ class LicenseSyncStatus implements ObjectMapper
         after_hostname:        $result['hostname'] = $hostname;
 
         
-        $last_sync = $object->last_sync;
+        $lastSync = $object->lastSync;
 
-        if ($last_sync === null) {
-            goto after_last_sync;
+        if ($lastSync === null) {
+            goto after_lastSync;
         }
-        $last_sync = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($last_sync);
-        after_last_sync:        $result['last_sync'] = $last_sync;
+        $lastSync = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($lastSync);
+        after_lastSync:        $result['last_sync'] = $lastSync;
 
 
         return $result;

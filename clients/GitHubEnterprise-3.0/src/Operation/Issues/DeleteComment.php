@@ -17,16 +17,16 @@ final class DeleteComment
     private string $owner;
     private string $repo;
     /**comment_id parameter**/
-    private int $comment_id;
-    public function __construct(string $owner, string $repo, int $comment_id)
+    private int $commentId;
+    public function __construct(string $owner, string $repo, int $commentId)
     {
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->comment_id = $comment_id;
+        $this->commentId = $commentId;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{comment_id}'), array($this->owner, $this->repo, $this->comment_id), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{comment_id}'), array($this->owner, $this->repo, $this->commentId), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

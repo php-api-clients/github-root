@@ -15,16 +15,16 @@ final class RevokeAuthorizationForApplication
     private const METHOD = 'DELETE';
     private const PATH = '/applications/{client_id}/tokens/{access_token}';
     /**The client ID of your GitHub app.**/
-    private string $client_id;
-    private string $access_token;
-    public function __construct(string $client_id, string $access_token)
+    private string $clientId;
+    private string $accessToken;
+    public function __construct(string $clientId, string $accessToken)
     {
-        $this->client_id = $client_id;
-        $this->access_token = $access_token;
+        $this->clientId = $clientId;
+        $this->accessToken = $accessToken;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{client_id}', '{access_token}'), array($this->client_id, $this->access_token), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{client_id}', '{access_token}'), array($this->clientId, $this->accessToken), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface

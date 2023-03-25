@@ -269,67 +269,67 @@ class All implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_repos';
-                goto after_total_repos;
+                goto after_totalRepos;
             }
 
-            $properties['total_repos'] = $value;
+            $properties['totalRepos'] = $value;
 
-            after_total_repos:
+            after_totalRepos:
 
             $value = $payload['root_repos'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'root_repos';
-                goto after_root_repos;
+                goto after_rootRepos;
             }
 
-            $properties['root_repos'] = $value;
+            $properties['rootRepos'] = $value;
 
-            after_root_repos:
+            after_rootRepos:
 
             $value = $payload['fork_repos'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'fork_repos';
-                goto after_fork_repos;
+                goto after_forkRepos;
             }
 
-            $properties['fork_repos'] = $value;
+            $properties['forkRepos'] = $value;
 
-            after_fork_repos:
+            after_forkRepos:
 
             $value = $payload['org_repos'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'org_repos';
-                goto after_org_repos;
+                goto after_orgRepos;
             }
 
-            $properties['org_repos'] = $value;
+            $properties['orgRepos'] = $value;
 
-            after_org_repos:
+            after_orgRepos:
 
             $value = $payload['total_pushes'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'total_pushes';
-                goto after_total_pushes;
+                goto after_totalPushes;
             }
 
-            $properties['total_pushes'] = $value;
+            $properties['totalPushes'] = $value;
 
-            after_total_pushes:
+            after_totalPushes:
 
             $value = $payload['total_wikis'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'total_wikis';
-                goto after_total_wikis;
+                goto after_totalWikis;
             }
 
-            $properties['total_wikis'] = $value;
+            $properties['totalWikis'] = $value;
 
-            after_total_wikis:
+            after_totalWikis:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseRepositoryOverview', $exception, stack: $this->hydrationStack);
@@ -356,34 +356,34 @@ class All implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_hooks';
-                goto after_total_hooks;
+                goto after_totalHooks;
             }
 
-            $properties['total_hooks'] = $value;
+            $properties['totalHooks'] = $value;
 
-            after_total_hooks:
+            after_totalHooks:
 
             $value = $payload['active_hooks'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'active_hooks';
-                goto after_active_hooks;
+                goto after_activeHooks;
             }
 
-            $properties['active_hooks'] = $value;
+            $properties['activeHooks'] = $value;
 
-            after_active_hooks:
+            after_activeHooks:
 
             $value = $payload['inactive_hooks'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'inactive_hooks';
-                goto after_inactive_hooks;
+                goto after_inactiveHooks;
             }
 
-            $properties['inactive_hooks'] = $value;
+            $properties['inactiveHooks'] = $value;
 
-            after_inactive_hooks:
+            after_inactiveHooks:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseHookOverview', $exception, stack: $this->hydrationStack);
@@ -410,12 +410,12 @@ class All implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_pages';
-                goto after_total_pages;
+                goto after_totalPages;
             }
 
-            $properties['total_pages'] = $value;
+            $properties['totalPages'] = $value;
 
-            after_total_pages:
+            after_totalPages:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterprisePageOverview', $exception, stack: $this->hydrationStack);
@@ -442,45 +442,45 @@ class All implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_orgs';
-                goto after_total_orgs;
+                goto after_totalOrgs;
             }
 
-            $properties['total_orgs'] = $value;
+            $properties['totalOrgs'] = $value;
 
-            after_total_orgs:
+            after_totalOrgs:
 
             $value = $payload['disabled_orgs'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'disabled_orgs';
-                goto after_disabled_orgs;
+                goto after_disabledOrgs;
             }
 
-            $properties['disabled_orgs'] = $value;
+            $properties['disabledOrgs'] = $value;
 
-            after_disabled_orgs:
+            after_disabledOrgs:
 
             $value = $payload['total_teams'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'total_teams';
-                goto after_total_teams;
+                goto after_totalTeams;
             }
 
-            $properties['total_teams'] = $value;
+            $properties['totalTeams'] = $value;
 
-            after_total_teams:
+            after_totalTeams:
 
             $value = $payload['total_team_members'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'total_team_members';
-                goto after_total_team_members;
+                goto after_totalTeamMembers;
             }
 
-            $properties['total_team_members'] = $value;
+            $properties['totalTeamMembers'] = $value;
 
-            after_total_team_members:
+            after_totalTeamMembers:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview', $exception, stack: $this->hydrationStack);
@@ -507,34 +507,34 @@ class All implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_users';
-                goto after_total_users;
+                goto after_totalUsers;
             }
 
-            $properties['total_users'] = $value;
+            $properties['totalUsers'] = $value;
 
-            after_total_users:
+            after_totalUsers:
 
             $value = $payload['admin_users'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'admin_users';
-                goto after_admin_users;
+                goto after_adminUsers;
             }
 
-            $properties['admin_users'] = $value;
+            $properties['adminUsers'] = $value;
 
-            after_admin_users:
+            after_adminUsers:
 
             $value = $payload['suspended_users'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'suspended_users';
-                goto after_suspended_users;
+                goto after_suspendedUsers;
             }
 
-            $properties['suspended_users'] = $value;
+            $properties['suspendedUsers'] = $value;
 
-            after_suspended_users:
+            after_suspendedUsers:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
@@ -561,45 +561,45 @@ class All implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_pulls';
-                goto after_total_pulls;
+                goto after_totalPulls;
             }
 
-            $properties['total_pulls'] = $value;
+            $properties['totalPulls'] = $value;
 
-            after_total_pulls:
+            after_totalPulls:
 
             $value = $payload['merged_pulls'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'merged_pulls';
-                goto after_merged_pulls;
+                goto after_mergedPulls;
             }
 
-            $properties['merged_pulls'] = $value;
+            $properties['mergedPulls'] = $value;
 
-            after_merged_pulls:
+            after_mergedPulls:
 
             $value = $payload['mergeable_pulls'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'mergeable_pulls';
-                goto after_mergeable_pulls;
+                goto after_mergeablePulls;
             }
 
-            $properties['mergeable_pulls'] = $value;
+            $properties['mergeablePulls'] = $value;
 
-            after_mergeable_pulls:
+            after_mergeablePulls:
 
             $value = $payload['unmergeable_pulls'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'unmergeable_pulls';
-                goto after_unmergeable_pulls;
+                goto after_unmergeablePulls;
             }
 
-            $properties['unmergeable_pulls'] = $value;
+            $properties['unmergeablePulls'] = $value;
 
-            after_unmergeable_pulls:
+            after_unmergeablePulls:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview', $exception, stack: $this->hydrationStack);
@@ -626,34 +626,34 @@ class All implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_issues';
-                goto after_total_issues;
+                goto after_totalIssues;
             }
 
-            $properties['total_issues'] = $value;
+            $properties['totalIssues'] = $value;
 
-            after_total_issues:
+            after_totalIssues:
 
             $value = $payload['open_issues'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'open_issues';
-                goto after_open_issues;
+                goto after_openIssues;
             }
 
-            $properties['open_issues'] = $value;
+            $properties['openIssues'] = $value;
 
-            after_open_issues:
+            after_openIssues:
 
             $value = $payload['closed_issues'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'closed_issues';
-                goto after_closed_issues;
+                goto after_closedIssues;
             }
 
-            $properties['closed_issues'] = $value;
+            $properties['closedIssues'] = $value;
 
-            after_closed_issues:
+            after_closedIssues:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseIssueOverview', $exception, stack: $this->hydrationStack);
@@ -680,34 +680,34 @@ class All implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_milestones';
-                goto after_total_milestones;
+                goto after_totalMilestones;
             }
 
-            $properties['total_milestones'] = $value;
+            $properties['totalMilestones'] = $value;
 
-            after_total_milestones:
+            after_totalMilestones:
 
             $value = $payload['open_milestones'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'open_milestones';
-                goto after_open_milestones;
+                goto after_openMilestones;
             }
 
-            $properties['open_milestones'] = $value;
+            $properties['openMilestones'] = $value;
 
-            after_open_milestones:
+            after_openMilestones:
 
             $value = $payload['closed_milestones'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'closed_milestones';
-                goto after_closed_milestones;
+                goto after_closedMilestones;
             }
 
-            $properties['closed_milestones'] = $value;
+            $properties['closedMilestones'] = $value;
 
-            after_closed_milestones:
+            after_closedMilestones:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseMilestoneOverview', $exception, stack: $this->hydrationStack);
@@ -734,34 +734,34 @@ class All implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_gists';
-                goto after_total_gists;
+                goto after_totalGists;
             }
 
-            $properties['total_gists'] = $value;
+            $properties['totalGists'] = $value;
 
-            after_total_gists:
+            after_totalGists:
 
             $value = $payload['private_gists'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'private_gists';
-                goto after_private_gists;
+                goto after_privateGists;
             }
 
-            $properties['private_gists'] = $value;
+            $properties['privateGists'] = $value;
 
-            after_private_gists:
+            after_privateGists:
 
             $value = $payload['public_gists'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'public_gists';
-                goto after_public_gists;
+                goto after_publicGists;
             }
 
-            $properties['public_gists'] = $value;
+            $properties['publicGists'] = $value;
 
-            after_public_gists:
+            after_publicGists:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseGistOverview', $exception, stack: $this->hydrationStack);
@@ -788,45 +788,45 @@ class All implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'total_commit_comments';
-                goto after_total_commit_comments;
+                goto after_totalCommitComments;
             }
 
-            $properties['total_commit_comments'] = $value;
+            $properties['totalCommitComments'] = $value;
 
-            after_total_commit_comments:
+            after_totalCommitComments:
 
             $value = $payload['total_gist_comments'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'total_gist_comments';
-                goto after_total_gist_comments;
+                goto after_totalGistComments;
             }
 
-            $properties['total_gist_comments'] = $value;
+            $properties['totalGistComments'] = $value;
 
-            after_total_gist_comments:
+            after_totalGistComments:
 
             $value = $payload['total_issue_comments'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'total_issue_comments';
-                goto after_total_issue_comments;
+                goto after_totalIssueComments;
             }
 
-            $properties['total_issue_comments'] = $value;
+            $properties['totalIssueComments'] = $value;
 
-            after_total_issue_comments:
+            after_totalIssueComments:
 
             $value = $payload['total_pull_request_comments'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'total_pull_request_comments';
-                goto after_total_pull_request_comments;
+                goto after_totalPullRequestComments;
             }
 
-            $properties['total_pull_request_comments'] = $value;
+            $properties['totalPullRequestComments'] = $value;
 
-            after_total_pull_request_comments:
+            after_totalPullRequestComments:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseCommentOverview', $exception, stack: $this->hydrationStack);
@@ -1062,28 +1062,28 @@ class All implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseRepositoryOverview);
         $result = [];
 
-        $total_repos = $object->total_repos;
-        after_total_repos:        $result['total_repos'] = $total_repos;
+        $totalRepos = $object->totalRepos;
+        after_totalRepos:        $result['total_repos'] = $totalRepos;
 
         
-        $root_repos = $object->root_repos;
-        after_root_repos:        $result['root_repos'] = $root_repos;
+        $rootRepos = $object->rootRepos;
+        after_rootRepos:        $result['root_repos'] = $rootRepos;
 
         
-        $fork_repos = $object->fork_repos;
-        after_fork_repos:        $result['fork_repos'] = $fork_repos;
+        $forkRepos = $object->forkRepos;
+        after_forkRepos:        $result['fork_repos'] = $forkRepos;
 
         
-        $org_repos = $object->org_repos;
-        after_org_repos:        $result['org_repos'] = $org_repos;
+        $orgRepos = $object->orgRepos;
+        after_orgRepos:        $result['org_repos'] = $orgRepos;
 
         
-        $total_pushes = $object->total_pushes;
-        after_total_pushes:        $result['total_pushes'] = $total_pushes;
+        $totalPushes = $object->totalPushes;
+        after_totalPushes:        $result['total_pushes'] = $totalPushes;
 
         
-        $total_wikis = $object->total_wikis;
-        after_total_wikis:        $result['total_wikis'] = $total_wikis;
+        $totalWikis = $object->totalWikis;
+        after_totalWikis:        $result['total_wikis'] = $totalWikis;
 
 
         return $result;
@@ -1095,16 +1095,16 @@ class All implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseHookOverview);
         $result = [];
 
-        $total_hooks = $object->total_hooks;
-        after_total_hooks:        $result['total_hooks'] = $total_hooks;
+        $totalHooks = $object->totalHooks;
+        after_totalHooks:        $result['total_hooks'] = $totalHooks;
 
         
-        $active_hooks = $object->active_hooks;
-        after_active_hooks:        $result['active_hooks'] = $active_hooks;
+        $activeHooks = $object->activeHooks;
+        after_activeHooks:        $result['active_hooks'] = $activeHooks;
 
         
-        $inactive_hooks = $object->inactive_hooks;
-        after_inactive_hooks:        $result['inactive_hooks'] = $inactive_hooks;
+        $inactiveHooks = $object->inactiveHooks;
+        after_inactiveHooks:        $result['inactive_hooks'] = $inactiveHooks;
 
 
         return $result;
@@ -1116,8 +1116,8 @@ class All implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterprisePageOverview);
         $result = [];
 
-        $total_pages = $object->total_pages;
-        after_total_pages:        $result['total_pages'] = $total_pages;
+        $totalPages = $object->totalPages;
+        after_totalPages:        $result['total_pages'] = $totalPages;
 
 
         return $result;
@@ -1129,20 +1129,20 @@ class All implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview);
         $result = [];
 
-        $total_orgs = $object->total_orgs;
-        after_total_orgs:        $result['total_orgs'] = $total_orgs;
+        $totalOrgs = $object->totalOrgs;
+        after_totalOrgs:        $result['total_orgs'] = $totalOrgs;
 
         
-        $disabled_orgs = $object->disabled_orgs;
-        after_disabled_orgs:        $result['disabled_orgs'] = $disabled_orgs;
+        $disabledOrgs = $object->disabledOrgs;
+        after_disabledOrgs:        $result['disabled_orgs'] = $disabledOrgs;
 
         
-        $total_teams = $object->total_teams;
-        after_total_teams:        $result['total_teams'] = $total_teams;
+        $totalTeams = $object->totalTeams;
+        after_totalTeams:        $result['total_teams'] = $totalTeams;
 
         
-        $total_team_members = $object->total_team_members;
-        after_total_team_members:        $result['total_team_members'] = $total_team_members;
+        $totalTeamMembers = $object->totalTeamMembers;
+        after_totalTeamMembers:        $result['total_team_members'] = $totalTeamMembers;
 
 
         return $result;
@@ -1154,16 +1154,16 @@ class All implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview);
         $result = [];
 
-        $total_users = $object->total_users;
-        after_total_users:        $result['total_users'] = $total_users;
+        $totalUsers = $object->totalUsers;
+        after_totalUsers:        $result['total_users'] = $totalUsers;
 
         
-        $admin_users = $object->admin_users;
-        after_admin_users:        $result['admin_users'] = $admin_users;
+        $adminUsers = $object->adminUsers;
+        after_adminUsers:        $result['admin_users'] = $adminUsers;
 
         
-        $suspended_users = $object->suspended_users;
-        after_suspended_users:        $result['suspended_users'] = $suspended_users;
+        $suspendedUsers = $object->suspendedUsers;
+        after_suspendedUsers:        $result['suspended_users'] = $suspendedUsers;
 
 
         return $result;
@@ -1175,20 +1175,20 @@ class All implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview);
         $result = [];
 
-        $total_pulls = $object->total_pulls;
-        after_total_pulls:        $result['total_pulls'] = $total_pulls;
+        $totalPulls = $object->totalPulls;
+        after_totalPulls:        $result['total_pulls'] = $totalPulls;
 
         
-        $merged_pulls = $object->merged_pulls;
-        after_merged_pulls:        $result['merged_pulls'] = $merged_pulls;
+        $mergedPulls = $object->mergedPulls;
+        after_mergedPulls:        $result['merged_pulls'] = $mergedPulls;
 
         
-        $mergeable_pulls = $object->mergeable_pulls;
-        after_mergeable_pulls:        $result['mergeable_pulls'] = $mergeable_pulls;
+        $mergeablePulls = $object->mergeablePulls;
+        after_mergeablePulls:        $result['mergeable_pulls'] = $mergeablePulls;
 
         
-        $unmergeable_pulls = $object->unmergeable_pulls;
-        after_unmergeable_pulls:        $result['unmergeable_pulls'] = $unmergeable_pulls;
+        $unmergeablePulls = $object->unmergeablePulls;
+        after_unmergeablePulls:        $result['unmergeable_pulls'] = $unmergeablePulls;
 
 
         return $result;
@@ -1200,16 +1200,16 @@ class All implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseIssueOverview);
         $result = [];
 
-        $total_issues = $object->total_issues;
-        after_total_issues:        $result['total_issues'] = $total_issues;
+        $totalIssues = $object->totalIssues;
+        after_totalIssues:        $result['total_issues'] = $totalIssues;
 
         
-        $open_issues = $object->open_issues;
-        after_open_issues:        $result['open_issues'] = $open_issues;
+        $openIssues = $object->openIssues;
+        after_openIssues:        $result['open_issues'] = $openIssues;
 
         
-        $closed_issues = $object->closed_issues;
-        after_closed_issues:        $result['closed_issues'] = $closed_issues;
+        $closedIssues = $object->closedIssues;
+        after_closedIssues:        $result['closed_issues'] = $closedIssues;
 
 
         return $result;
@@ -1221,16 +1221,16 @@ class All implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseMilestoneOverview);
         $result = [];
 
-        $total_milestones = $object->total_milestones;
-        after_total_milestones:        $result['total_milestones'] = $total_milestones;
+        $totalMilestones = $object->totalMilestones;
+        after_totalMilestones:        $result['total_milestones'] = $totalMilestones;
 
         
-        $open_milestones = $object->open_milestones;
-        after_open_milestones:        $result['open_milestones'] = $open_milestones;
+        $openMilestones = $object->openMilestones;
+        after_openMilestones:        $result['open_milestones'] = $openMilestones;
 
         
-        $closed_milestones = $object->closed_milestones;
-        after_closed_milestones:        $result['closed_milestones'] = $closed_milestones;
+        $closedMilestones = $object->closedMilestones;
+        after_closedMilestones:        $result['closed_milestones'] = $closedMilestones;
 
 
         return $result;
@@ -1242,16 +1242,16 @@ class All implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseGistOverview);
         $result = [];
 
-        $total_gists = $object->total_gists;
-        after_total_gists:        $result['total_gists'] = $total_gists;
+        $totalGists = $object->totalGists;
+        after_totalGists:        $result['total_gists'] = $totalGists;
 
         
-        $private_gists = $object->private_gists;
-        after_private_gists:        $result['private_gists'] = $private_gists;
+        $privateGists = $object->privateGists;
+        after_privateGists:        $result['private_gists'] = $privateGists;
 
         
-        $public_gists = $object->public_gists;
-        after_public_gists:        $result['public_gists'] = $public_gists;
+        $publicGists = $object->publicGists;
+        after_publicGists:        $result['public_gists'] = $publicGists;
 
 
         return $result;
@@ -1263,20 +1263,20 @@ class All implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseCommentOverview);
         $result = [];
 
-        $total_commit_comments = $object->total_commit_comments;
-        after_total_commit_comments:        $result['total_commit_comments'] = $total_commit_comments;
+        $totalCommitComments = $object->totalCommitComments;
+        after_totalCommitComments:        $result['total_commit_comments'] = $totalCommitComments;
 
         
-        $total_gist_comments = $object->total_gist_comments;
-        after_total_gist_comments:        $result['total_gist_comments'] = $total_gist_comments;
+        $totalGistComments = $object->totalGistComments;
+        after_totalGistComments:        $result['total_gist_comments'] = $totalGistComments;
 
         
-        $total_issue_comments = $object->total_issue_comments;
-        after_total_issue_comments:        $result['total_issue_comments'] = $total_issue_comments;
+        $totalIssueComments = $object->totalIssueComments;
+        after_totalIssueComments:        $result['total_issue_comments'] = $totalIssueComments;
 
         
-        $total_pull_request_comments = $object->total_pull_request_comments;
-        after_total_pull_request_comments:        $result['total_pull_request_comments'] = $total_pull_request_comments;
+        $totalPullRequestComments = $object->totalPullRequestComments;
+        after_totalPullRequestComments:        $result['total_pull_request_comments'] = $totalPullRequestComments;
 
 
         return $result;

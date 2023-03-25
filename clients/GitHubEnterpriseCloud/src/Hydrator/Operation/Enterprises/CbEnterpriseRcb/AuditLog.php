@@ -35,16 +35,16 @@ class AuditLog implements ObjectMapper
         $properties = []; 
         $missingFields = [];
         try {
-            $value = $payload['__a_t_timestamp'] ?? null;
+            $value = $payload['_AT_timestamp'] ?? null;
 
             if ($value === null) {
-                $properties['_AT_timestamp'] = null;
-                goto after__AT_timestamp;
+                $properties['atTimestamp'] = null;
+                goto after_atTimestamp;
             }
 
-            $properties['_AT_timestamp'] = $value;
+            $properties['atTimestamp'] = $value;
 
-            after__AT_timestamp:
+            after_atTimestamp:
 
             $value = $payload['action'] ?? null;
 
@@ -71,13 +71,13 @@ class AuditLog implements ObjectMapper
             $value = $payload['active_was'] ?? null;
 
             if ($value === null) {
-                $properties['active_was'] = null;
-                goto after_active_was;
+                $properties['activeWas'] = null;
+                goto after_activeWas;
             }
 
-            $properties['active_was'] = $value;
+            $properties['activeWas'] = $value;
 
-            after_active_was:
+            after_activeWas:
 
             $value = $payload['actor'] ?? null;
 
@@ -93,33 +93,33 @@ class AuditLog implements ObjectMapper
             $value = $payload['actor_id'] ?? null;
 
             if ($value === null) {
-                $properties['actor_id'] = null;
-                goto after_actor_id;
+                $properties['actorId'] = null;
+                goto after_actorId;
             }
 
-            $properties['actor_id'] = $value;
+            $properties['actorId'] = $value;
 
-            after_actor_id:
+            after_actorId:
 
             $value = $payload['actor_location'] ?? null;
 
             if ($value === null) {
-                $properties['actor_location'] = null;
-                goto after_actor_location;
+                $properties['actorLocation'] = null;
+                goto after_actorLocation;
             }
 
             if (is_array($value)) {
                 try {
-                    $this->hydrationStack[] = 'actor_location';
+                    $this->hydrationStack[] = 'actorLocation';
                     $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AuditLogEvent⚡️ActorLocation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
             }
 
-            $properties['actor_location'] = $value;
+            $properties['actorLocation'] = $value;
 
-            after_actor_location:
+            after_actorLocation:
 
             $value = $payload['data'] ?? null;
 
@@ -135,46 +135,46 @@ class AuditLog implements ObjectMapper
             $value = $payload['org_id'] ?? null;
 
             if ($value === null) {
-                $properties['org_id'] = null;
-                goto after_org_id;
+                $properties['orgId'] = null;
+                goto after_orgId;
             }
 
-            $properties['org_id'] = $value;
+            $properties['orgId'] = $value;
 
-            after_org_id:
+            after_orgId:
 
             $value = $payload['user_id'] ?? null;
 
             if ($value === null) {
-                $properties['user_id'] = null;
-                goto after_user_id;
+                $properties['userId'] = null;
+                goto after_userId;
             }
 
-            $properties['user_id'] = $value;
+            $properties['userId'] = $value;
 
-            after_user_id:
+            after_userId:
 
             $value = $payload['business_id'] ?? null;
 
             if ($value === null) {
-                $properties['business_id'] = null;
-                goto after_business_id;
+                $properties['businessId'] = null;
+                goto after_businessId;
             }
 
-            $properties['business_id'] = $value;
+            $properties['businessId'] = $value;
 
-            after_business_id:
+            after_businessId:
 
             $value = $payload['blocked_user'] ?? null;
 
             if ($value === null) {
-                $properties['blocked_user'] = null;
-                goto after_blocked_user;
+                $properties['blockedUser'] = null;
+                goto after_blockedUser;
             }
 
-            $properties['blocked_user'] = $value;
+            $properties['blockedUser'] = $value;
 
-            after_blocked_user:
+            after_blockedUser:
 
             $value = $payload['business'] ?? null;
 
@@ -201,68 +201,68 @@ class AuditLog implements ObjectMapper
             $value = $payload['config_was'] ?? null;
 
             if ($value === null) {
-                $properties['config_was'] = null;
-                goto after_config_was;
+                $properties['configWas'] = null;
+                goto after_configWas;
             }
 
-            $properties['config_was'] = $value;
+            $properties['configWas'] = $value;
 
-            after_config_was:
+            after_configWas:
 
             $value = $payload['content_type'] ?? null;
 
             if ($value === null) {
-                $properties['content_type'] = null;
-                goto after_content_type;
+                $properties['contentType'] = null;
+                goto after_contentType;
             }
 
-            $properties['content_type'] = $value;
+            $properties['contentType'] = $value;
 
-            after_content_type:
+            after_contentType:
 
             $value = $payload['operation_type'] ?? null;
 
             if ($value === null) {
-                $properties['operation_type'] = null;
-                goto after_operation_type;
+                $properties['operationType'] = null;
+                goto after_operationType;
             }
 
-            $properties['operation_type'] = $value;
+            $properties['operationType'] = $value;
 
-            after_operation_type:
+            after_operationType:
 
             $value = $payload['created_at'] ?? null;
 
             if ($value === null) {
-                $properties['created_at'] = null;
-                goto after_created_at;
+                $properties['createdAt'] = null;
+                goto after_createdAt;
             }
 
-            $properties['created_at'] = $value;
+            $properties['createdAt'] = $value;
 
-            after_created_at:
+            after_createdAt:
 
             $value = $payload['deploy_key_fingerprint'] ?? null;
 
             if ($value === null) {
-                $properties['deploy_key_fingerprint'] = null;
-                goto after_deploy_key_fingerprint;
+                $properties['deployKeyFingerprint'] = null;
+                goto after_deployKeyFingerprint;
             }
 
-            $properties['deploy_key_fingerprint'] = $value;
+            $properties['deployKeyFingerprint'] = $value;
 
-            after_deploy_key_fingerprint:
+            after_deployKeyFingerprint:
 
             $value = $payload['_document_id'] ?? null;
 
             if ($value === null) {
-                $properties['_document_id'] = null;
-                goto after__document_id;
+                $properties['documentId'] = null;
+                goto after_documentId;
             }
 
-            $properties['_document_id'] = $value;
+            $properties['documentId'] = $value;
 
-            after__document_id:
+            after_documentId:
 
             $value = $payload['emoji'] ?? null;
 
@@ -289,13 +289,13 @@ class AuditLog implements ObjectMapper
             $value = $payload['events_were'] ?? null;
 
             if ($value === null) {
-                $properties['events_were'] = null;
-                goto after_events_were;
+                $properties['eventsWere'] = null;
+                goto after_eventsWere;
             }
 
-            $properties['events_were'] = $value;
+            $properties['eventsWere'] = $value;
 
-            after_events_were:
+            after_eventsWere:
 
             $value = $payload['explanation'] ?? null;
 
@@ -322,24 +322,24 @@ class AuditLog implements ObjectMapper
             $value = $payload['hook_id'] ?? null;
 
             if ($value === null) {
-                $properties['hook_id'] = null;
-                goto after_hook_id;
+                $properties['hookId'] = null;
+                goto after_hookId;
             }
 
-            $properties['hook_id'] = $value;
+            $properties['hookId'] = $value;
 
-            after_hook_id:
+            after_hookId:
 
             $value = $payload['limited_availability'] ?? null;
 
             if ($value === null) {
-                $properties['limited_availability'] = null;
-                goto after_limited_availability;
+                $properties['limitedAvailability'] = null;
+                goto after_limitedAvailability;
             }
 
-            $properties['limited_availability'] = $value;
+            $properties['limitedAvailability'] = $value;
 
-            after_limited_availability:
+            after_limitedAvailability:
 
             $value = $payload['message'] ?? null;
 
@@ -366,24 +366,24 @@ class AuditLog implements ObjectMapper
             $value = $payload['old_user'] ?? null;
 
             if ($value === null) {
-                $properties['old_user'] = null;
-                goto after_old_user;
+                $properties['oldUser'] = null;
+                goto after_oldUser;
             }
 
-            $properties['old_user'] = $value;
+            $properties['oldUser'] = $value;
 
-            after_old_user:
+            after_oldUser:
 
             $value = $payload['openssh_public_key'] ?? null;
 
             if ($value === null) {
-                $properties['openssh_public_key'] = null;
-                goto after_openssh_public_key;
+                $properties['opensshPublicKey'] = null;
+                goto after_opensshPublicKey;
             }
 
-            $properties['openssh_public_key'] = $value;
+            $properties['opensshPublicKey'] = $value;
 
-            after_openssh_public_key:
+            after_opensshPublicKey:
 
             $value = $payload['org'] ?? null;
 
@@ -399,24 +399,24 @@ class AuditLog implements ObjectMapper
             $value = $payload['previous_visibility'] ?? null;
 
             if ($value === null) {
-                $properties['previous_visibility'] = null;
-                goto after_previous_visibility;
+                $properties['previousVisibility'] = null;
+                goto after_previousVisibility;
             }
 
-            $properties['previous_visibility'] = $value;
+            $properties['previousVisibility'] = $value;
 
-            after_previous_visibility:
+            after_previousVisibility:
 
             $value = $payload['read_only'] ?? null;
 
             if ($value === null) {
-                $properties['read_only'] = null;
-                goto after_read_only;
+                $properties['readOnly'] = null;
+                goto after_readOnly;
             }
 
-            $properties['read_only'] = $value;
+            $properties['readOnly'] = $value;
 
-            after_read_only:
+            after_readOnly:
 
             $value = $payload['repo'] ?? null;
 
@@ -443,24 +443,24 @@ class AuditLog implements ObjectMapper
             $value = $payload['repository_public'] ?? null;
 
             if ($value === null) {
-                $properties['repository_public'] = null;
-                goto after_repository_public;
+                $properties['repositoryPublic'] = null;
+                goto after_repositoryPublic;
             }
 
-            $properties['repository_public'] = $value;
+            $properties['repositoryPublic'] = $value;
 
-            after_repository_public:
+            after_repositoryPublic:
 
             $value = $payload['target_login'] ?? null;
 
             if ($value === null) {
-                $properties['target_login'] = null;
-                goto after_target_login;
+                $properties['targetLogin'] = null;
+                goto after_targetLogin;
             }
 
-            $properties['target_login'] = $value;
+            $properties['targetLogin'] = $value;
 
-            after_target_login:
+            after_targetLogin:
 
             $value = $payload['team'] ?? null;
 
@@ -476,24 +476,24 @@ class AuditLog implements ObjectMapper
             $value = $payload['transport_protocol'] ?? null;
 
             if ($value === null) {
-                $properties['transport_protocol'] = null;
-                goto after_transport_protocol;
+                $properties['transportProtocol'] = null;
+                goto after_transportProtocol;
             }
 
-            $properties['transport_protocol'] = $value;
+            $properties['transportProtocol'] = $value;
 
-            after_transport_protocol:
+            after_transportProtocol:
 
             $value = $payload['transport_protocol_name'] ?? null;
 
             if ($value === null) {
-                $properties['transport_protocol_name'] = null;
-                goto after_transport_protocol_name;
+                $properties['transportProtocolName'] = null;
+                goto after_transportProtocolName;
             }
 
-            $properties['transport_protocol_name'] = $value;
+            $properties['transportProtocolName'] = $value;
 
-            after_transport_protocol_name:
+            after_transportProtocolName:
 
             $value = $payload['user'] ?? null;
 
@@ -541,13 +541,13 @@ class AuditLog implements ObjectMapper
             $value = $payload['country_name'] ?? null;
 
             if ($value === null) {
-                $properties['country_name'] = null;
-                goto after_country_name;
+                $properties['countryName'] = null;
+                goto after_countryName;
             }
 
-            $properties['country_name'] = $value;
+            $properties['countryName'] = $value;
 
-            after_country_name:
+            after_countryName:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogEvent\ActorLocation', $exception, stack: $this->hydrationStack);
@@ -675,12 +675,12 @@ class AuditLog implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogEvent);
         $result = [];
 
-        $_AT_timestamp = $object->_AT_timestamp;
+        $atTimestamp = $object->atTimestamp;
 
-        if ($_AT_timestamp === null) {
-            goto after__AT_timestamp;
+        if ($atTimestamp === null) {
+            goto after_atTimestamp;
         }
-        after__AT_timestamp:        $result['__a_t_timestamp'] = $_AT_timestamp;
+        after_atTimestamp:        $result['_AT_timestamp'] = $atTimestamp;
 
         
         $action = $object->action;
@@ -699,12 +699,12 @@ class AuditLog implements ObjectMapper
         after_active:        $result['active'] = $active;
 
         
-        $active_was = $object->active_was;
+        $activeWas = $object->activeWas;
 
-        if ($active_was === null) {
-            goto after_active_was;
+        if ($activeWas === null) {
+            goto after_activeWas;
         }
-        after_active_was:        $result['active_was'] = $active_was;
+        after_activeWas:        $result['active_was'] = $activeWas;
 
         
         $actor = $object->actor;
@@ -715,21 +715,21 @@ class AuditLog implements ObjectMapper
         after_actor:        $result['actor'] = $actor;
 
         
-        $actor_id = $object->actor_id;
+        $actorId = $object->actorId;
 
-        if ($actor_id === null) {
-            goto after_actor_id;
+        if ($actorId === null) {
+            goto after_actorId;
         }
-        after_actor_id:        $result['actor_id'] = $actor_id;
+        after_actorId:        $result['actor_id'] = $actorId;
 
         
-        $actor_location = $object->actor_location;
+        $actorLocation = $object->actorLocation;
 
-        if ($actor_location === null) {
-            goto after_actor_location;
+        if ($actorLocation === null) {
+            goto after_actorLocation;
         }
-        $actor_location = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AuditLogEvent⚡️ActorLocation($actor_location);
-        after_actor_location:        $result['actor_location'] = $actor_location;
+        $actorLocation = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AuditLogEvent⚡️ActorLocation($actorLocation);
+        after_actorLocation:        $result['actor_location'] = $actorLocation;
 
         
         $data = $object->data;
@@ -740,36 +740,36 @@ class AuditLog implements ObjectMapper
         after_data:        $result['data'] = $data;
 
         
-        $org_id = $object->org_id;
+        $orgId = $object->orgId;
 
-        if ($org_id === null) {
-            goto after_org_id;
+        if ($orgId === null) {
+            goto after_orgId;
         }
-        after_org_id:        $result['org_id'] = $org_id;
+        after_orgId:        $result['org_id'] = $orgId;
 
         
-        $user_id = $object->user_id;
+        $userId = $object->userId;
 
-        if ($user_id === null) {
-            goto after_user_id;
+        if ($userId === null) {
+            goto after_userId;
         }
-        after_user_id:        $result['user_id'] = $user_id;
+        after_userId:        $result['user_id'] = $userId;
 
         
-        $business_id = $object->business_id;
+        $businessId = $object->businessId;
 
-        if ($business_id === null) {
-            goto after_business_id;
+        if ($businessId === null) {
+            goto after_businessId;
         }
-        after_business_id:        $result['business_id'] = $business_id;
+        after_businessId:        $result['business_id'] = $businessId;
 
         
-        $blocked_user = $object->blocked_user;
+        $blockedUser = $object->blockedUser;
 
-        if ($blocked_user === null) {
-            goto after_blocked_user;
+        if ($blockedUser === null) {
+            goto after_blockedUser;
         }
-        after_blocked_user:        $result['blocked_user'] = $blocked_user;
+        after_blockedUser:        $result['blocked_user'] = $blockedUser;
 
         
         $business = $object->business;
@@ -788,52 +788,52 @@ class AuditLog implements ObjectMapper
         after_config:        $result['config'] = $config;
 
         
-        $config_was = $object->config_was;
+        $configWas = $object->configWas;
 
-        if ($config_was === null) {
-            goto after_config_was;
+        if ($configWas === null) {
+            goto after_configWas;
         }
-        after_config_was:        $result['config_was'] = $config_was;
+        after_configWas:        $result['config_was'] = $configWas;
 
         
-        $content_type = $object->content_type;
+        $contentType = $object->contentType;
 
-        if ($content_type === null) {
-            goto after_content_type;
+        if ($contentType === null) {
+            goto after_contentType;
         }
-        after_content_type:        $result['content_type'] = $content_type;
+        after_contentType:        $result['content_type'] = $contentType;
 
         
-        $operation_type = $object->operation_type;
+        $operationType = $object->operationType;
 
-        if ($operation_type === null) {
-            goto after_operation_type;
+        if ($operationType === null) {
+            goto after_operationType;
         }
-        after_operation_type:        $result['operation_type'] = $operation_type;
+        after_operationType:        $result['operation_type'] = $operationType;
 
         
-        $created_at = $object->created_at;
+        $createdAt = $object->createdAt;
 
-        if ($created_at === null) {
-            goto after_created_at;
+        if ($createdAt === null) {
+            goto after_createdAt;
         }
-        after_created_at:        $result['created_at'] = $created_at;
+        after_createdAt:        $result['created_at'] = $createdAt;
 
         
-        $deploy_key_fingerprint = $object->deploy_key_fingerprint;
+        $deployKeyFingerprint = $object->deployKeyFingerprint;
 
-        if ($deploy_key_fingerprint === null) {
-            goto after_deploy_key_fingerprint;
+        if ($deployKeyFingerprint === null) {
+            goto after_deployKeyFingerprint;
         }
-        after_deploy_key_fingerprint:        $result['deploy_key_fingerprint'] = $deploy_key_fingerprint;
+        after_deployKeyFingerprint:        $result['deploy_key_fingerprint'] = $deployKeyFingerprint;
 
         
-        $_document_id = $object->_document_id;
+        $documentId = $object->documentId;
 
-        if ($_document_id === null) {
-            goto after__document_id;
+        if ($documentId === null) {
+            goto after_documentId;
         }
-        after__document_id:        $result['_document_id'] = $_document_id;
+        after_documentId:        $result['_document_id'] = $documentId;
 
         
         $emoji = $object->emoji;
@@ -852,12 +852,12 @@ class AuditLog implements ObjectMapper
         after_events:        $result['events'] = $events;
 
         
-        $events_were = $object->events_were;
+        $eventsWere = $object->eventsWere;
 
-        if ($events_were === null) {
-            goto after_events_were;
+        if ($eventsWere === null) {
+            goto after_eventsWere;
         }
-        after_events_were:        $result['events_were'] = $events_were;
+        after_eventsWere:        $result['events_were'] = $eventsWere;
 
         
         $explanation = $object->explanation;
@@ -876,20 +876,20 @@ class AuditLog implements ObjectMapper
         after_fingerprint:        $result['fingerprint'] = $fingerprint;
 
         
-        $hook_id = $object->hook_id;
+        $hookId = $object->hookId;
 
-        if ($hook_id === null) {
-            goto after_hook_id;
+        if ($hookId === null) {
+            goto after_hookId;
         }
-        after_hook_id:        $result['hook_id'] = $hook_id;
+        after_hookId:        $result['hook_id'] = $hookId;
 
         
-        $limited_availability = $object->limited_availability;
+        $limitedAvailability = $object->limitedAvailability;
 
-        if ($limited_availability === null) {
-            goto after_limited_availability;
+        if ($limitedAvailability === null) {
+            goto after_limitedAvailability;
         }
-        after_limited_availability:        $result['limited_availability'] = $limited_availability;
+        after_limitedAvailability:        $result['limited_availability'] = $limitedAvailability;
 
         
         $message = $object->message;
@@ -908,20 +908,20 @@ class AuditLog implements ObjectMapper
         after_name:        $result['name'] = $name;
 
         
-        $old_user = $object->old_user;
+        $oldUser = $object->oldUser;
 
-        if ($old_user === null) {
-            goto after_old_user;
+        if ($oldUser === null) {
+            goto after_oldUser;
         }
-        after_old_user:        $result['old_user'] = $old_user;
+        after_oldUser:        $result['old_user'] = $oldUser;
 
         
-        $openssh_public_key = $object->openssh_public_key;
+        $opensshPublicKey = $object->opensshPublicKey;
 
-        if ($openssh_public_key === null) {
-            goto after_openssh_public_key;
+        if ($opensshPublicKey === null) {
+            goto after_opensshPublicKey;
         }
-        after_openssh_public_key:        $result['openssh_public_key'] = $openssh_public_key;
+        after_opensshPublicKey:        $result['openssh_public_key'] = $opensshPublicKey;
 
         
         $org = $object->org;
@@ -932,20 +932,20 @@ class AuditLog implements ObjectMapper
         after_org:        $result['org'] = $org;
 
         
-        $previous_visibility = $object->previous_visibility;
+        $previousVisibility = $object->previousVisibility;
 
-        if ($previous_visibility === null) {
-            goto after_previous_visibility;
+        if ($previousVisibility === null) {
+            goto after_previousVisibility;
         }
-        after_previous_visibility:        $result['previous_visibility'] = $previous_visibility;
+        after_previousVisibility:        $result['previous_visibility'] = $previousVisibility;
 
         
-        $read_only = $object->read_only;
+        $readOnly = $object->readOnly;
 
-        if ($read_only === null) {
-            goto after_read_only;
+        if ($readOnly === null) {
+            goto after_readOnly;
         }
-        after_read_only:        $result['read_only'] = $read_only;
+        after_readOnly:        $result['read_only'] = $readOnly;
 
         
         $repo = $object->repo;
@@ -964,20 +964,20 @@ class AuditLog implements ObjectMapper
         after_repository:        $result['repository'] = $repository;
 
         
-        $repository_public = $object->repository_public;
+        $repositoryPublic = $object->repositoryPublic;
 
-        if ($repository_public === null) {
-            goto after_repository_public;
+        if ($repositoryPublic === null) {
+            goto after_repositoryPublic;
         }
-        after_repository_public:        $result['repository_public'] = $repository_public;
+        after_repositoryPublic:        $result['repository_public'] = $repositoryPublic;
 
         
-        $target_login = $object->target_login;
+        $targetLogin = $object->targetLogin;
 
-        if ($target_login === null) {
-            goto after_target_login;
+        if ($targetLogin === null) {
+            goto after_targetLogin;
         }
-        after_target_login:        $result['target_login'] = $target_login;
+        after_targetLogin:        $result['target_login'] = $targetLogin;
 
         
         $team = $object->team;
@@ -988,20 +988,20 @@ class AuditLog implements ObjectMapper
         after_team:        $result['team'] = $team;
 
         
-        $transport_protocol = $object->transport_protocol;
+        $transportProtocol = $object->transportProtocol;
 
-        if ($transport_protocol === null) {
-            goto after_transport_protocol;
+        if ($transportProtocol === null) {
+            goto after_transportProtocol;
         }
-        after_transport_protocol:        $result['transport_protocol'] = $transport_protocol;
+        after_transportProtocol:        $result['transport_protocol'] = $transportProtocol;
 
         
-        $transport_protocol_name = $object->transport_protocol_name;
+        $transportProtocolName = $object->transportProtocolName;
 
-        if ($transport_protocol_name === null) {
-            goto after_transport_protocol_name;
+        if ($transportProtocolName === null) {
+            goto after_transportProtocolName;
         }
-        after_transport_protocol_name:        $result['transport_protocol_name'] = $transport_protocol_name;
+        after_transportProtocolName:        $result['transport_protocol_name'] = $transportProtocolName;
 
         
         $user = $object->user;
@@ -1029,12 +1029,12 @@ class AuditLog implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogEvent\ActorLocation);
         $result = [];
 
-        $country_name = $object->country_name;
+        $countryName = $object->countryName;
 
-        if ($country_name === null) {
-            goto after_country_name;
+        if ($countryName === null) {
+            goto after_countryName;
         }
-        after_country_name:        $result['country_name'] = $country_name;
+        after_countryName:        $result['country_name'] = $countryName;
 
 
         return $result;

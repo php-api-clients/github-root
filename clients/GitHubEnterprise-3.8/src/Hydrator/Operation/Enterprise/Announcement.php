@@ -48,13 +48,13 @@ class Announcement implements ObjectMapper
             $value = $payload['expires_at'] ?? null;
 
             if ($value === null) {
-                $properties['expires_at'] = null;
-                goto after_expires_at;
+                $properties['expiresAt'] = null;
+                goto after_expiresAt;
             }
 
-            $properties['expires_at'] = $value;
+            $properties['expiresAt'] = $value;
 
-            after_expires_at:
+            after_expiresAt:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Announcement', $exception, stack: $this->hydrationStack);
@@ -189,12 +189,12 @@ class Announcement implements ObjectMapper
         after_announcement:        $result['announcement'] = $announcement;
 
         
-        $expires_at = $object->expires_at;
+        $expiresAt = $object->expiresAt;
 
-        if ($expires_at === null) {
-            goto after_expires_at;
+        if ($expiresAt === null) {
+            goto after_expiresAt;
         }
-        after_expires_at:        $result['expires_at'] = $expires_at;
+        after_expiresAt:        $result['expires_at'] = $expiresAt;
 
 
         return $result;

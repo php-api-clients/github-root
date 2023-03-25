@@ -81,24 +81,24 @@ class CbRunnerGroupIdRcb implements ObjectMapper
             $value = $payload['selected_repositories_url'] ?? null;
 
             if ($value === null) {
-                $properties['selected_repositories_url'] = null;
-                goto after_selected_repositories_url;
+                $properties['selectedRepositoriesUrl'] = null;
+                goto after_selectedRepositoriesUrl;
             }
 
-            $properties['selected_repositories_url'] = $value;
+            $properties['selectedRepositoriesUrl'] = $value;
 
-            after_selected_repositories_url:
+            after_selectedRepositoriesUrl:
 
             $value = $payload['runners_url'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'runners_url';
-                goto after_runners_url;
+                goto after_runnersUrl;
             }
 
-            $properties['runners_url'] = $value;
+            $properties['runnersUrl'] = $value;
 
-            after_runners_url:
+            after_runnersUrl:
 
             $value = $payload['inherited'] ?? null;
 
@@ -114,24 +114,24 @@ class CbRunnerGroupIdRcb implements ObjectMapper
             $value = $payload['inherited_allows_public_repositories'] ?? null;
 
             if ($value === null) {
-                $properties['inherited_allows_public_repositories'] = null;
-                goto after_inherited_allows_public_repositories;
+                $properties['inheritedAllowsPublicRepositories'] = null;
+                goto after_inheritedAllowsPublicRepositories;
             }
 
-            $properties['inherited_allows_public_repositories'] = $value;
+            $properties['inheritedAllowsPublicRepositories'] = $value;
 
-            after_inherited_allows_public_repositories:
+            after_inheritedAllowsPublicRepositories:
 
             $value = $payload['allows_public_repositories'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'allows_public_repositories';
-                goto after_allows_public_repositories;
+                goto after_allowsPublicRepositories;
             }
 
-            $properties['allows_public_repositories'] = $value;
+            $properties['allowsPublicRepositories'] = $value;
 
-            after_allows_public_repositories:
+            after_allowsPublicRepositories:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsOrg', $exception, stack: $this->hydrationStack);
@@ -274,32 +274,32 @@ class CbRunnerGroupIdRcb implements ObjectMapper
         after_default:        $result['default'] = $default;
 
         
-        $selected_repositories_url = $object->selected_repositories_url;
+        $selectedRepositoriesUrl = $object->selectedRepositoriesUrl;
 
-        if ($selected_repositories_url === null) {
-            goto after_selected_repositories_url;
+        if ($selectedRepositoriesUrl === null) {
+            goto after_selectedRepositoriesUrl;
         }
-        after_selected_repositories_url:        $result['selected_repositories_url'] = $selected_repositories_url;
+        after_selectedRepositoriesUrl:        $result['selected_repositories_url'] = $selectedRepositoriesUrl;
 
         
-        $runners_url = $object->runners_url;
-        after_runners_url:        $result['runners_url'] = $runners_url;
+        $runnersUrl = $object->runnersUrl;
+        after_runnersUrl:        $result['runners_url'] = $runnersUrl;
 
         
         $inherited = $object->inherited;
         after_inherited:        $result['inherited'] = $inherited;
 
         
-        $inherited_allows_public_repositories = $object->inherited_allows_public_repositories;
+        $inheritedAllowsPublicRepositories = $object->inheritedAllowsPublicRepositories;
 
-        if ($inherited_allows_public_repositories === null) {
-            goto after_inherited_allows_public_repositories;
+        if ($inheritedAllowsPublicRepositories === null) {
+            goto after_inheritedAllowsPublicRepositories;
         }
-        after_inherited_allows_public_repositories:        $result['inherited_allows_public_repositories'] = $inherited_allows_public_repositories;
+        after_inheritedAllowsPublicRepositories:        $result['inherited_allows_public_repositories'] = $inheritedAllowsPublicRepositories;
 
         
-        $allows_public_repositories = $object->allows_public_repositories;
-        after_allows_public_repositories:        $result['allows_public_repositories'] = $allows_public_repositories;
+        $allowsPublicRepositories = $object->allowsPublicRepositories;
+        after_allowsPublicRepositories:        $result['allows_public_repositories'] = $allowsPublicRepositories;
 
 
         return $result;

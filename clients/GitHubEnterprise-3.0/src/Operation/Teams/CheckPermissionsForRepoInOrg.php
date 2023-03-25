@@ -16,15 +16,15 @@ final class CheckPermissionsForRepoInOrg
     private const PATH = '/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}';
     private string $org;
     /**team_slug parameter**/
-    private string $team_slug;
+    private string $teamSlug;
     private string $owner;
     private string $repo;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos\CbOwnerRcb\CbRepoRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos\CbOwnerRcb\CbRepoRcb $hydrator, string $org, string $team_slug, string $owner, string $repo)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos\CbOwnerRcb\CbRepoRcb $hydrator, string $org, string $teamSlug, string $owner, string $repo)
     {
         $this->org = $org;
-        $this->team_slug = $team_slug;
+        $this->teamSlug = $teamSlug;
         $this->owner = $owner;
         $this->repo = $repo;
         $this->responseSchemaValidator = $responseSchemaValidator;
@@ -32,7 +32,7 @@ final class CheckPermissionsForRepoInOrg
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{team_slug}', '{owner}', '{repo}'), array($this->org, $this->team_slug, $this->owner, $this->repo), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{team_slug}', '{owner}', '{repo}'), array($this->org, $this->teamSlug, $this->owner, $this->repo), self::PATH));
     }
     /**
      * @return Schema\TeamRepository

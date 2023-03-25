@@ -84,34 +84,34 @@ class ExternalDashGroups implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'group_id';
-                goto after_group_id;
+                goto after_groupId;
             }
 
-            $properties['group_id'] = $value;
+            $properties['groupId'] = $value;
 
-            after_group_id:
+            after_groupId:
 
             $value = $payload['group_name'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'group_name';
-                goto after_group_name;
+                goto after_groupName;
             }
 
-            $properties['group_name'] = $value;
+            $properties['groupName'] = $value;
 
-            after_group_name:
+            after_groupName:
 
             $value = $payload['updated_at'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'updated_at';
-                goto after_updated_at;
+                goto after_updatedAt;
             }
 
-            $properties['updated_at'] = $value;
+            $properties['updatedAt'] = $value;
 
-            after_updated_at:
+            after_updatedAt:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups\Groups', $exception, stack: $this->hydrationStack);
@@ -138,34 +138,34 @@ class ExternalDashGroups implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'group_id';
-                goto after_group_id;
+                goto after_groupId;
             }
 
-            $properties['group_id'] = $value;
+            $properties['groupId'] = $value;
 
-            after_group_id:
+            after_groupId:
 
             $value = $payload['group_name'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'group_name';
-                goto after_group_name;
+                goto after_groupName;
             }
 
-            $properties['group_name'] = $value;
+            $properties['groupName'] = $value;
 
-            after_group_name:
+            after_groupName:
 
             $value = $payload['updated_at'] ?? null;
 
             if ($value === null) {
-                $properties['updated_at'] = null;
-                goto after_updated_at;
+                $properties['updatedAt'] = null;
+                goto after_updatedAt;
             }
 
-            $properties['updated_at'] = $value;
+            $properties['updatedAt'] = $value;
 
-            after_updated_at:
+            after_updatedAt:
 
             $value = $payload['teams'] ?? null;
 
@@ -234,23 +234,23 @@ class ExternalDashGroups implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'team_id';
-                goto after_team_id;
+                goto after_teamId;
             }
 
-            $properties['team_id'] = $value;
+            $properties['teamId'] = $value;
 
-            after_team_id:
+            after_teamId:
 
             $value = $payload['team_name'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'team_name';
-                goto after_team_name;
+                goto after_teamName;
             }
 
-            $properties['team_name'] = $value;
+            $properties['teamName'] = $value;
 
-            after_team_name:
+            after_teamName:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Teams', $exception, stack: $this->hydrationStack);
@@ -277,45 +277,45 @@ class ExternalDashGroups implements ObjectMapper
 
             if ($value === null) {
                 $missingFields[] = 'member_id';
-                goto after_member_id;
+                goto after_memberId;
             }
 
-            $properties['member_id'] = $value;
+            $properties['memberId'] = $value;
 
-            after_member_id:
+            after_memberId:
 
             $value = $payload['member_login'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'member_login';
-                goto after_member_login;
+                goto after_memberLogin;
             }
 
-            $properties['member_login'] = $value;
+            $properties['memberLogin'] = $value;
 
-            after_member_login:
+            after_memberLogin:
 
             $value = $payload['member_name'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'member_name';
-                goto after_member_name;
+                goto after_memberName;
             }
 
-            $properties['member_name'] = $value;
+            $properties['memberName'] = $value;
 
-            after_member_name:
+            after_memberName:
 
             $value = $payload['member_email'] ?? null;
 
             if ($value === null) {
                 $missingFields[] = 'member_email';
-                goto after_member_email;
+                goto after_memberEmail;
             }
 
-            $properties['member_email'] = $value;
+            $properties['memberEmail'] = $value;
 
-            after_member_email:
+            after_memberEmail:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Members', $exception, stack: $this->hydrationStack);
@@ -472,16 +472,16 @@ class ExternalDashGroups implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups\Groups);
         $result = [];
 
-        $group_id = $object->group_id;
-        after_group_id:        $result['group_id'] = $group_id;
+        $groupId = $object->groupId;
+        after_groupId:        $result['group_id'] = $groupId;
 
         
-        $group_name = $object->group_name;
-        after_group_name:        $result['group_name'] = $group_name;
+        $groupName = $object->groupName;
+        after_groupName:        $result['group_name'] = $groupName;
 
         
-        $updated_at = $object->updated_at;
-        after_updated_at:        $result['updated_at'] = $updated_at;
+        $updatedAt = $object->updatedAt;
+        after_updatedAt:        $result['updated_at'] = $updatedAt;
 
 
         return $result;
@@ -493,20 +493,20 @@ class ExternalDashGroups implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup);
         $result = [];
 
-        $group_id = $object->group_id;
-        after_group_id:        $result['group_id'] = $group_id;
+        $groupId = $object->groupId;
+        after_groupId:        $result['group_id'] = $groupId;
 
         
-        $group_name = $object->group_name;
-        after_group_name:        $result['group_name'] = $group_name;
+        $groupName = $object->groupName;
+        after_groupName:        $result['group_name'] = $groupName;
 
         
-        $updated_at = $object->updated_at;
+        $updatedAt = $object->updatedAt;
 
-        if ($updated_at === null) {
-            goto after_updated_at;
+        if ($updatedAt === null) {
+            goto after_updatedAt;
         }
-        after_updated_at:        $result['updated_at'] = $updated_at;
+        after_updatedAt:        $result['updated_at'] = $updatedAt;
 
         
         $teams = $object->teams;
@@ -544,12 +544,12 @@ class ExternalDashGroups implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Teams);
         $result = [];
 
-        $team_id = $object->team_id;
-        after_team_id:        $result['team_id'] = $team_id;
+        $teamId = $object->teamId;
+        after_teamId:        $result['team_id'] = $teamId;
 
         
-        $team_name = $object->team_name;
-        after_team_name:        $result['team_name'] = $team_name;
+        $teamName = $object->teamName;
+        after_teamName:        $result['team_name'] = $teamName;
 
 
         return $result;
@@ -561,20 +561,20 @@ class ExternalDashGroups implements ObjectMapper
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup\Members);
         $result = [];
 
-        $member_id = $object->member_id;
-        after_member_id:        $result['member_id'] = $member_id;
+        $memberId = $object->memberId;
+        after_memberId:        $result['member_id'] = $memberId;
 
         
-        $member_login = $object->member_login;
-        after_member_login:        $result['member_login'] = $member_login;
+        $memberLogin = $object->memberLogin;
+        after_memberLogin:        $result['member_login'] = $memberLogin;
 
         
-        $member_name = $object->member_name;
-        after_member_name:        $result['member_name'] = $member_name;
+        $memberName = $object->memberName;
+        after_memberName:        $result['member_name'] = $memberName;
 
         
-        $member_email = $object->member_email;
-        after_member_email:        $result['member_email'] = $member_email;
+        $memberEmail = $object->memberEmail;
+        after_memberEmail:        $result['member_email'] = $memberEmail;
 
 
         return $result;

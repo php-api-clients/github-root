@@ -17,22 +17,22 @@ final class RemoveLabel
     private string $owner;
     private string $repo;
     /**issue_number parameter**/
-    private int $issue_number;
+    private int $issueNumber;
     private string $name;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels\CbNameRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels\CbNameRcb $hydrator, string $owner, string $repo, int $issue_number, string $name)
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels\CbNameRcb $hydrator, string $owner, string $repo, int $issueNumber, string $name)
     {
         $this->owner = $owner;
         $this->repo = $repo;
-        $this->issue_number = $issue_number;
+        $this->issueNumber = $issueNumber;
         $this->name = $name;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{issue_number}', '{name}'), array($this->owner, $this->repo, $this->issue_number, $this->name), self::PATH));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{issue_number}', '{name}'), array($this->owner, $this->repo, $this->issueNumber, $this->name), self::PATH));
     }
     /**
      * @return \Rx\Observable<Schema\Label>
