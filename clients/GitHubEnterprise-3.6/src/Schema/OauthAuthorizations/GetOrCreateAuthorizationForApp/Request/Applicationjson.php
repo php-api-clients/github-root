@@ -13,7 +13,7 @@ final readonly class Applicationjson
     public const SCHEMA_JSON = '{"required":["client_secret"],"type":"object","properties":{"client_secret":{"maxLength":40,"type":"string","description":"The OAuth app client secret for which to create the token."},"scopes":{"type":["array","null"],"items":{"type":"string"},"description":"A list of scopes that this authorization is in.","examples":["public_repo","user"]},"note":{"type":"string","description":"A note to remind you what the OAuth token is for.","examples":["Update all gems"]},"note_url":{"type":"string","description":"A URL to remind you what app the OAuth token is for."},"fingerprint":{"type":"string","description":"A unique string to distinguish an authorization from others created for the same client ID and user."}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"clientSecret":"generated_client_secret_null","scopes":["public_repo"],"note":"Update all gems","noteUrl":"generated_note_url_null","fingerprint":"generated_fingerprint_null"}';
+    public const SCHEMA_EXAMPLE_DATA = '{"client_secret":"generated_client_secret_null","scopes":["public_repo"],"note":"Update all gems","note_url":"generated_note_url_null","fingerprint":"generated_fingerprint_null"}';
     /**
      * clientSecret: The OAuth app client secret for which to create the token.
      * scopes: A list of scopes that this authorization is in.

@@ -13,7 +13,7 @@ final readonly class PatchSchema
     public const SCHEMA_JSON = '{"required":["Operations","schemas"],"type":"object","properties":{"Operations":{"type":"array","items":{"required":["op"],"type":"object","properties":{"op":{"enum":["add","replace","remove"],"type":"string"},"path":{"type":"string"},"value":{"type":"string","description":"Corresponding \'value\' of that field specified by \'path\'"}}},"description":"patch operations list"},"schemas":{"type":"array","items":{"enum":["urn:ietf:params:scim:api:messages:2.0:PatchOp"],"type":"string"}}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"operations":[{"op":"add","path":"generated_path_null","value":"generated_value_null"}],"schemas":["generated_schemas_null"]}';
+    public const SCHEMA_EXAMPLE_DATA = '{"Operations":[{"op":"add","path":"generated_path_null","value":"generated_value_null"}],"schemas":["generated_schemas_null"]}';
     /**
      * operations: patch operations list
      * @param array<\ApiClients\Client\GitHubEnterprise\Schema\PatchSchema\Operations> $operations

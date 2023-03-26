@@ -13,7 +13,7 @@ final readonly class Issues
     public const SCHEMA_JSON = '{"type":"object","properties":{"total_issues":{"type":"integer"},"open_issues":{"type":"integer"},"closed_issues":{"type":"integer"}}}';
     public const SCHEMA_TITLE = '';
     public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"totalIssues":13,"openIssues":13,"closedIssues":13}';
+    public const SCHEMA_EXAMPLE_DATA = '{"total_issues":13,"open_issues":13,"closed_issues":13}';
     public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_issues')] public ?int $totalIssues, #[\EventSauce\ObjectHydrator\MapFrom('open_issues')] public ?int $openIssues, #[\EventSauce\ObjectHydrator\MapFrom('closed_issues')] public ?int $closedIssues)
     {
     }

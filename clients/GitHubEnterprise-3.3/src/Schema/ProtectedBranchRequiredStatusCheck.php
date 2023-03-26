@@ -13,7 +13,7 @@ final readonly class ProtectedBranchRequiredStatusCheck
     public const SCHEMA_JSON = '{"title":"Protected Branch Required Status Check","required":["contexts"],"type":"object","properties":{"url":{"type":"string"},"enforcement_level":{"type":"string"},"contexts":{"type":"array","items":{"type":"string"}},"contexts_url":{"type":"string"},"strict":{"type":"boolean"}},"description":"Protected Branch Required Status Check"}';
     public const SCHEMA_TITLE = 'Protected Branch Required Status Check';
     public const SCHEMA_DESCRIPTION = 'Protected Branch Required Status Check';
-    public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url_null","enforcementLevel":"generated_enforcement_level_null","contexts":["generated_contexts_null"],"contextsUrl":"generated_contexts_url_null","strict":false}';
+    public const SCHEMA_EXAMPLE_DATA = '{"url":"generated_url_null","enforcement_level":"generated_enforcement_level_null","contexts":["generated_contexts_null"],"contexts_url":"generated_contexts_url_null","strict":false}';
     /**
      * @param array<string> $contexts
      */
