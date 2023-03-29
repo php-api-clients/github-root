@@ -1,6 +1,8 @@
 spec: {{ specUrl }}
 namespace: ApiClients\Client\{{ namespace }}
 destination: ../src
+schemas:
+  allowDuplication: true
 voter:
   listOperation:
     - ApiClients\Tools\OpenApiClientGenerator\Voter\ListOperation\PageAndPerPageInQuery
