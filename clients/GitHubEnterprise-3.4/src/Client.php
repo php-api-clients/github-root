@@ -62,7 +62,7 @@ final class Client implements ClientInterface
                             $this->hydrator[Hydrator\Operation\Root::class] = $this->hydrators->getObjectMapperOperation🌀Root();
                         }
                         $operation = new Operation\Meta\Root($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Root::class]);
-                        $request = $operation->createRequest($requestBodyData);
+                        $request = $operation->createRequest($params);
                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Root {
                             return $operation->createResponse($response);
                         });
@@ -83,7 +83,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Admin\Hooks::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Hooks();
                                 }
                                 $operation = new Operation\EnterpriseAdmin\ListGlobalWebhooks($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Hooks::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GlobalHook {
                                     return $operation->createResponse($response);
                                 });
@@ -100,7 +100,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Admin\Keys::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Keys();
                                 }
                                 $operation = new Operation\EnterpriseAdmin\ListPublicKeys($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Keys::class], $requestBodyData['since'], $requestBodyData['perPage'], $requestBodyData['page'], $requestBodyData['direction'], $requestBodyData['sort']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PublicKeyFull {
                                     return $operation->createResponse($response);
                                 });
@@ -117,7 +117,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments();
                                 }
                                 $operation = new Operation\EnterpriseAdmin\ListPreReceiveEnvironments($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments::class], $requestBodyData['perPage'], $requestBodyData['page'], $requestBodyData['direction'], $requestBodyData['sort']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PreReceiveEnvironment {
                                     return $operation->createResponse($response);
                                 });
@@ -134,7 +134,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Admin\PreReceiveHooks::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveHooks();
                                 }
                                 $operation = new Operation\EnterpriseAdmin\ListPreReceiveHooks($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreReceiveHooks::class], $requestBodyData['perPage'], $requestBodyData['page'], $requestBodyData['direction'], $requestBodyData['sort']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PreReceiveHook {
                                     return $operation->createResponse($response);
                                 });
@@ -151,7 +151,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Admin\Tokens::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Tokens();
                                 }
                                 $operation = new Operation\EnterpriseAdmin\ListPersonalAccessTokens($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Tokens::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Authorization {
                                     return $operation->createResponse($response);
                                 });
@@ -170,7 +170,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\App\InstallationRequests::class] = $this->hydrators->getObjectMapperOperation🌀App🌀InstallationRequests();
                                 }
                                 $operation = new Operation\Apps\ListInstallationRequestsForAuthenticatedApp($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\InstallationRequests::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\IntegrationInstallationRequest {
                                     return $operation->createResponse($response);
                                 });
@@ -187,7 +187,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\App\Installations::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Installations();
                                 }
                                 $operation = new Operation\Apps\ListInstallations($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Installations::class], $requestBodyData['since'], $requestBodyData['outdated'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Installation {
                                     return $operation->createResponse($response);
                                 });
@@ -206,7 +206,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Applications\Grants::class] = $this->hydrators->getObjectMapperOperation🌀Applications🌀Grants();
                                 }
                                 $operation = new Operation\OauthAuthorizations\ListGrants($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\Grants::class], $requestBodyData['clientId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ApplicationGrant {
                                     return $operation->createResponse($response);
                                 });
@@ -225,7 +225,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Apps\CbAppSlugRcb::class] = $this->hydrators->getObjectMapperOperation🌀Apps🌀CbAppSlugRcb();
                                 }
                                 $operation = new Operation\Apps\GetBySlug($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Apps\CbAppSlugRcb::class], $requestBodyData['appSlug']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Integration {
                                     return $operation->createResponse($response);
                                 });
@@ -244,7 +244,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Authorizations\CbAuthorizationIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations🌀CbAuthorizationIdRcb();
                                 }
                                 $operation = new Operation\OauthAuthorizations\GetAuthorization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations\CbAuthorizationIdRcb::class], $requestBodyData['authorizationId']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Authorization {
                                     return $operation->createResponse($response);
                                 });
@@ -263,7 +263,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\CodesOfConduct\CbKeyRcb::class] = $this->hydrators->getObjectMapperOperation🌀CodesOfConduct🌀CbKeyRcb();
                                 }
                                 $operation = new Operation\CodesOfConduct\GetConductCode($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\CodesOfConduct\CbKeyRcb::class], $requestBodyData['key']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CodeOfConduct {
                                     return $operation->createResponse($response);
                                 });
@@ -282,7 +282,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Enterprise\Announcement::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Announcement();
                                 }
                                 $operation = new Operation\EnterpriseAdmin\GetAnnouncement($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Announcement::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Announcement {
                                     return $operation->createResponse($response);
                                 });
@@ -301,7 +301,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Gists\Public_::class] = $this->hydrators->getObjectMapperOperation🌀Gists🌀Public_();
                                 }
                                 $operation = new Operation\Gists\ListPublic($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\Public_::class], $requestBodyData['since'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\BaseGist {
                                     return $operation->createResponse($response);
                                 });
@@ -318,7 +318,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Gists\Starred::class] = $this->hydrators->getObjectMapperOperation🌀Gists🌀Starred();
                                 }
                                 $operation = new Operation\Gists\ListStarred($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\Starred::class], $requestBodyData['since'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\BaseGist {
                                     return $operation->createResponse($response);
                                 });
@@ -335,7 +335,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Gists🌀CbGistIdRcb();
                                 }
                                 $operation = new Operation\Gists\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb::class], $requestBodyData['gistId']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GistSimple {
                                     return $operation->createResponse($response);
                                 });
@@ -354,7 +354,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Gitignore\Templates::class] = $this->hydrators->getObjectMapperOperation🌀Gitignore🌀Templates();
                                 }
                                 $operation = new Operation\Gitignore\GetAllTemplates($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gitignore\Templates::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Gitignore\GetAllTemplates\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
@@ -373,7 +373,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Installation\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Installation🌀Repositories();
                                 }
                                 $operation = new Operation\Apps\ListReposAccessibleToInstallation($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Installation\Repositories::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Apps\ListReposAccessibleToInstallation\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
@@ -392,7 +392,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Licenses\CbLicenseRcb::class] = $this->hydrators->getObjectMapperOperation🌀Licenses🌀CbLicenseRcb();
                                 }
                                 $operation = new Operation\Licenses\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Licenses\CbLicenseRcb::class], $requestBodyData['license']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\License {
                                     return $operation->createResponse($response);
                                 });
@@ -411,7 +411,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb();
                                 }
                                 $operation = new Operation\Orgs\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb::class], $requestBodyData['org']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrganizationFull {
                                     return $operation->createResponse($response);
                                 });
@@ -430,7 +430,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Projects🌀CbProjectIdRcb();
                                 }
                                 $operation = new Operation\Projects\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb::class], $requestBodyData['projectId']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Project {
                                     return $operation->createResponse($response);
                                 });
@@ -449,7 +449,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Search\Code::class] = $this->hydrators->getObjectMapperOperation🌀Search🌀Code();
                                 }
                                 $operation = new Operation\Search\Code($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Search\Code::class], $requestBodyData['q'], $requestBodyData['sort'], $requestBodyData['order'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Search\Code\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
@@ -466,7 +466,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Search\Commits::class] = $this->hydrators->getObjectMapperOperation🌀Search🌀Commits();
                                 }
                                 $operation = new Operation\Search\Commits($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Search\Commits::class], $requestBodyData['q'], $requestBodyData['sort'], $requestBodyData['order'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Search\Commits\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
@@ -483,7 +483,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Search\Issues::class] = $this->hydrators->getObjectMapperOperation🌀Search🌀Issues();
                                 }
                                 $operation = new Operation\Search\IssuesAndPullRequests($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Search\Issues::class], $requestBodyData['q'], $requestBodyData['sort'], $requestBodyData['order'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Search\IssuesAndPullRequests\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
@@ -500,7 +500,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Search\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Search🌀Labels();
                                 }
                                 $operation = new Operation\Search\Labels($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Search\Labels::class], $requestBodyData['repositoryId'], $requestBodyData['q'], $requestBodyData['sort'], $requestBodyData['order'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Search\Labels\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
@@ -517,7 +517,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Search\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Search🌀Repositories();
                                 }
                                 $operation = new Operation\Search\Repos($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Search\Repositories::class], $requestBodyData['q'], $requestBodyData['sort'], $requestBodyData['order'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Search\Repos\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
@@ -534,7 +534,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Search\Topics::class] = $this->hydrators->getObjectMapperOperation🌀Search🌀Topics();
                                 }
                                 $operation = new Operation\Search\Topics($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Search\Topics::class], $requestBodyData['q'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Search\Topics\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
@@ -551,7 +551,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Search\Users::class] = $this->hydrators->getObjectMapperOperation🌀Search🌀Users();
                                 }
                                 $operation = new Operation\Search\Users($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Search\Users::class], $requestBodyData['q'], $requestBodyData['sort'], $requestBodyData['order'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Search\Users\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
@@ -570,7 +570,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb();
                                 }
                                 $operation = new Operation\Teams\GetLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb::class], $requestBodyData['teamId']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamFull {
                                     return $operation->createResponse($response);
                                 });
@@ -589,7 +589,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Emails::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Emails();
                                 }
                                 $operation = new Operation\Users\ListEmailsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Emails::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Email {
                                     return $operation->createResponse($response);
                                 });
@@ -606,7 +606,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Followers::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Followers();
                                 }
                                 $operation = new Operation\Users\ListFollowersForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Followers::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                     return $operation->createResponse($response);
                                 });
@@ -623,7 +623,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Following::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Following();
                                 }
                                 $operation = new Operation\Users\ListFollowedByAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Following::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                     return $operation->createResponse($response);
                                 });
@@ -640,7 +640,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\GpgKeys::class] = $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys();
                                 }
                                 $operation = new Operation\Users\ListGpgKeysForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\GpgKeys::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GpgKey {
                                     return $operation->createResponse($response);
                                 });
@@ -657,7 +657,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Installations::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Installations();
                                 }
                                 $operation = new Operation\Apps\ListInstallationsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Installations::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
@@ -674,7 +674,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Issues::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Issues();
                                 }
                                 $operation = new Operation\Issues\ListForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Issues::class], $requestBodyData['labels'], $requestBodyData['since'], $requestBodyData['filter'], $requestBodyData['state'], $requestBodyData['sort'], $requestBodyData['direction'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Issue {
                                     return $operation->createResponse($response);
                                 });
@@ -691,7 +691,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Keys::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Keys();
                                 }
                                 $operation = new Operation\Users\ListPublicSshKeysForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Keys::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Key {
                                     return $operation->createResponse($response);
                                 });
@@ -708,7 +708,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Migrations::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Migrations();
                                 }
                                 $operation = new Operation\Migrations\ListForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Migrations::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Migration {
                                     return $operation->createResponse($response);
                                 });
@@ -725,7 +725,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Orgs::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Orgs();
                                 }
                                 $operation = new Operation\Orgs\ListForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Orgs::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrganizationSimple {
                                     return $operation->createResponse($response);
                                 });
@@ -742,7 +742,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\PublicEmails::class] = $this->hydrators->getObjectMapperOperation🌀User🌀PublicEmails();
                                 }
                                 $operation = new Operation\Users\ListPublicEmailsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\PublicEmails::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Email {
                                     return $operation->createResponse($response);
                                 });
@@ -759,7 +759,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Repos::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Repos();
                                 }
                                 $operation = new Operation\Repos\ListForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Repos::class], $requestBodyData['direction'], $requestBodyData['since'], $requestBodyData['before'], $requestBodyData['visibility'], $requestBodyData['affiliation'], $requestBodyData['type'], $requestBodyData['sort'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Repository {
                                     return $operation->createResponse($response);
                                 });
@@ -776,7 +776,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\RepositoryInvitations::class] = $this->hydrators->getObjectMapperOperation🌀User🌀RepositoryInvitations();
                                 }
                                 $operation = new Operation\Repos\ListInvitationsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\RepositoryInvitations::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RepositoryInvitation {
                                     return $operation->createResponse($response);
                                 });
@@ -793,7 +793,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Starred::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Starred();
                                 }
                                 $operation = new Operation\Activity\ListReposStarredByAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Starred::class], $requestBodyData['sort'], $requestBodyData['direction'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Repository|Schema\StarredRepository {
                                     return $operation->createResponse($response);
                                 });
@@ -810,7 +810,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Subscriptions::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Subscriptions();
                                 }
                                 $operation = new Operation\Activity\ListWatchedReposForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Subscriptions::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\MinimalRepository {
                                     return $operation->createResponse($response);
                                 });
@@ -827,7 +827,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Teams::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Teams();
                                 }
                                 $operation = new Operation\Teams\ListForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Teams::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamFull {
                                     return $operation->createResponse($response);
                                 });
@@ -846,7 +846,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb();
                                 }
                                 $operation = new Operation\Users\GetByUsername($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb::class], $requestBodyData['username']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Users\GetAuthenticated\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
@@ -870,7 +870,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Admin\Hooks\CbHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Hooks🌀CbHookIdRcb();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetGlobalWebhook($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Hooks\CbHookIdRcb::class], $requestBodyData['hookId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GlobalHook {
                                         return $operation->createResponse($response);
                                     });
@@ -889,7 +889,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetPreReceiveEnvironment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb::class], $requestBodyData['preReceiveEnvironmentId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PreReceiveEnvironment {
                                         return $operation->createResponse($response);
                                     });
@@ -908,7 +908,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetPreReceiveHook($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $requestBodyData['preReceiveHookId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PreReceiveHook {
                                         return $operation->createResponse($response);
                                     });
@@ -929,7 +929,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\App\Hook\Config::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Config();
                                     }
                                     $operation = new Operation\Apps\GetWebhookConfigForApp($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Hook\Config::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\WebhookConfig {
                                         return $operation->createResponse($response);
                                     });
@@ -946,7 +946,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\App\Hook\Deliveries::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Deliveries();
                                     }
                                     $operation = new Operation\Apps\ListWebhookDeliveries($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Hook\Deliveries::class], $requestBodyData['cursor'], $requestBodyData['redelivery'], $requestBodyData['perPage']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\HookDeliveryItem {
                                         return $operation->createResponse($response);
                                     });
@@ -965,7 +965,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\App\Installations\CbInstallationIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Installations🌀CbInstallationIdRcb();
                                     }
                                     $operation = new Operation\Apps\GetInstallation($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Installations\CbInstallationIdRcb::class], $requestBodyData['installationId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Installation {
                                         return $operation->createResponse($response);
                                     });
@@ -986,7 +986,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Applications\Grants\CbGrantIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Applications🌀Grants🌀CbGrantIdRcb();
                                     }
                                     $operation = new Operation\OauthAuthorizations\GetGrant($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\Grants\CbGrantIdRcb::class], $requestBodyData['grantId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ApplicationGrant {
                                         return $operation->createResponse($response);
                                     });
@@ -1007,7 +1007,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Enterprise\Settings\License::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Settings🌀License();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetLicenseInformation($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Settings\License::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\LicenseInfo {
                                         return $operation->createResponse($response);
                                     });
@@ -1026,7 +1026,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Enterprise\Stats\All::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀All();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetAllStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\All::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EnterpriseOverview {
                                         return $operation->createResponse($response);
                                     });
@@ -1043,7 +1043,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Enterprise\Stats\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Comments();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetCommentStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Comments::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EnterpriseCommentOverview {
                                         return $operation->createResponse($response);
                                     });
@@ -1060,7 +1060,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Enterprise\Stats\Gists::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Gists();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetGistStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Gists::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EnterpriseGistOverview {
                                         return $operation->createResponse($response);
                                     });
@@ -1077,7 +1077,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Enterprise\Stats\Hooks::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Hooks();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetHooksStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Hooks::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EnterpriseHookOverview {
                                         return $operation->createResponse($response);
                                     });
@@ -1094,7 +1094,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Enterprise\Stats\Issues::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Issues();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetIssueStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Issues::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EnterpriseIssueOverview {
                                         return $operation->createResponse($response);
                                     });
@@ -1111,7 +1111,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Enterprise\Stats\Milestones::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Milestones();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetMilestoneStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Milestones::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EnterpriseMilestoneOverview {
                                         return $operation->createResponse($response);
                                     });
@@ -1128,7 +1128,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Enterprise\Stats\Orgs::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Orgs();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetOrgStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Orgs::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EnterpriseOrganizationOverview {
                                         return $operation->createResponse($response);
                                     });
@@ -1145,7 +1145,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Enterprise\Stats\Pages::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Pages();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetPagesStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Pages::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EnterprisePageOverview {
                                         return $operation->createResponse($response);
                                     });
@@ -1162,7 +1162,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Enterprise\Stats\Pulls::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Pulls();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetPullRequestStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Pulls::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EnterprisePullRequestOverview {
                                         return $operation->createResponse($response);
                                     });
@@ -1179,7 +1179,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Enterprise\Stats\Repos::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Repos();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetRepoStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Repos::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EnterpriseRepositoryOverview {
                                         return $operation->createResponse($response);
                                     });
@@ -1196,7 +1196,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Enterprise\Stats\Users::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Users();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetUserStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Users::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EnterpriseUserOverview {
                                         return $operation->createResponse($response);
                                     });
@@ -1217,7 +1217,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\AuditLog::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀AuditLog();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetAuditLog($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\AuditLog::class], $requestBodyData['enterprise'], $requestBodyData['phrase'], $requestBodyData['include'], $requestBodyData['after'], $requestBodyData['before'], $requestBodyData['order'], $requestBodyData['page'], $requestBodyData['perPage']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\AuditLogEvent {
                                         return $operation->createResponse($response);
                                     });
@@ -1238,7 +1238,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Comments();
                                     }
                                     $operation = new Operation\Gists\ListComments($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Comments::class], $requestBodyData['gistId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GistComment {
                                         return $operation->createResponse($response);
                                     });
@@ -1255,7 +1255,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Commits::class] = $this->hydrators->getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Commits();
                                     }
                                     $operation = new Operation\Gists\ListCommits($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Commits::class], $requestBodyData['gistId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GistCommit {
                                         return $operation->createResponse($response);
                                     });
@@ -1272,7 +1272,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Forks::class] = $this->hydrators->getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Forks();
                                     }
                                     $operation = new Operation\Gists\ListForks($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Forks::class], $requestBodyData['gistId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GistSimple {
                                         return $operation->createResponse($response);
                                     });
@@ -1286,7 +1286,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Gists\CheckIsStarred($requestBodyData['gistId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -1303,7 +1303,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\CbShaRcb::class] = $this->hydrators->getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀CbShaRcb();
                                     }
                                     $operation = new Operation\Gists\GetRevision($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\CbShaRcb::class], $requestBodyData['gistId'], $requestBodyData['sha']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GistSimple {
                                         return $operation->createResponse($response);
                                     });
@@ -1324,7 +1324,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Gitignore\Templates\CbNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Gitignore🌀Templates🌀CbNameRcb();
                                     }
                                     $operation = new Operation\Gitignore\GetTemplate($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gitignore\Templates\CbNameRcb::class], $requestBodyData['name']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GitignoreTemplate {
                                         return $operation->createResponse($response);
                                     });
@@ -1345,7 +1345,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Notifications\Threads\CbThreadIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Notifications🌀Threads🌀CbThreadIdRcb();
                                     }
                                     $operation = new Operation\Activity\GetThread($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Notifications\Threads\CbThreadIdRcb::class], $requestBodyData['threadId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Thread {
                                         return $operation->createResponse($response);
                                     });
@@ -1366,7 +1366,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Organizations\CbOrganizationIdRcb\CustomRoles::class] = $this->hydrators->getObjectMapperOperation🌀Organizations🌀CbOrganizationIdRcb🌀CustomRoles();
                                     }
                                     $operation = new Operation\Orgs\ListCustomRoles($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Organizations\CbOrganizationIdRcb\CustomRoles::class], $requestBodyData['organizationId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Orgs\ListCustomRoles\Response\Applicationjson\H200 {
                                         return $operation->createResponse($response);
                                     });
@@ -1387,7 +1387,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\AuditLog::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀AuditLog();
                                     }
                                     $operation = new Operation\Orgs\GetAuditLog($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\AuditLog::class], $requestBodyData['org'], $requestBodyData['phrase'], $requestBodyData['include'], $requestBodyData['after'], $requestBodyData['before'], $requestBodyData['order'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\AuditLogEvent {
                                         return $operation->createResponse($response);
                                     });
@@ -1404,7 +1404,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Events::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Events();
                                     }
                                     $operation = new Operation\Activity\ListPublicOrgEvents($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Events::class], $requestBodyData['org'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Event {
                                         return $operation->createResponse($response);
                                     });
@@ -1421,7 +1421,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks();
                                     }
                                     $operation = new Operation\Orgs\ListWebhooks($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks::class], $requestBodyData['org'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrgHook {
                                         return $operation->createResponse($response);
                                     });
@@ -1438,7 +1438,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Installation::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Installation();
                                     }
                                     $operation = new Operation\Apps\GetOrgInstallation($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Installation::class], $requestBodyData['org']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Installation {
                                         return $operation->createResponse($response);
                                     });
@@ -1455,7 +1455,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Installations::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Installations();
                                     }
                                     $operation = new Operation\Orgs\ListAppInstallations($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Installations::class], $requestBodyData['org'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200 {
                                         return $operation->createResponse($response);
                                     });
@@ -1472,7 +1472,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Issues::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Issues();
                                     }
                                     $operation = new Operation\Issues\ListForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Issues::class], $requestBodyData['org'], $requestBodyData['labels'], $requestBodyData['since'], $requestBodyData['filter'], $requestBodyData['state'], $requestBodyData['sort'], $requestBodyData['direction'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Issue {
                                         return $operation->createResponse($response);
                                     });
@@ -1489,7 +1489,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Members::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Members();
                                     }
                                     $operation = new Operation\Orgs\ListMembers($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Members::class], $requestBodyData['org'], $requestBodyData['filter'], $requestBodyData['role'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                         return $operation->createResponse($response);
                                     });
@@ -1506,7 +1506,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Migrations::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Migrations();
                                     }
                                     $operation = new Operation\Migrations\ListForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Migrations::class], $requestBodyData['org'], $requestBodyData['exclude'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Migration {
                                         return $operation->createResponse($response);
                                     });
@@ -1523,7 +1523,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\OutsideCollaborators::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀OutsideCollaborators();
                                     }
                                     $operation = new Operation\Orgs\ListOutsideCollaborators($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\OutsideCollaborators::class], $requestBodyData['org'], $requestBodyData['filter'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                         return $operation->createResponse($response);
                                     });
@@ -1540,7 +1540,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\PreReceiveHooks::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀PreReceiveHooks();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\ListPreReceiveHooksForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\PreReceiveHooks::class], $requestBodyData['org'], $requestBodyData['perPage'], $requestBodyData['page'], $requestBodyData['direction'], $requestBodyData['sort']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrgPreReceiveHook {
                                         return $operation->createResponse($response);
                                     });
@@ -1557,7 +1557,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Projects::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Projects();
                                     }
                                     $operation = new Operation\Projects\ListForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Projects::class], $requestBodyData['org'], $requestBodyData['state'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Project {
                                         return $operation->createResponse($response);
                                     });
@@ -1574,7 +1574,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\PublicMembers::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀PublicMembers();
                                     }
                                     $operation = new Operation\Orgs\ListPublicMembers($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\PublicMembers::class], $requestBodyData['org'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                         return $operation->createResponse($response);
                                     });
@@ -1591,7 +1591,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Repos::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Repos();
                                     }
                                     $operation = new Operation\Repos\ListForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Repos::class], $requestBodyData['org'], $requestBodyData['type'], $requestBodyData['direction'], $requestBodyData['sort'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\MinimalRepository {
                                         return $operation->createResponse($response);
                                     });
@@ -1608,7 +1608,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams();
                                     }
                                     $operation = new Operation\Teams\List_($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams::class], $requestBodyData['org'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Team {
                                         return $operation->createResponse($response);
                                     });
@@ -1629,7 +1629,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Projects\Columns\CbColumnIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀CbColumnIdRcb();
                                     }
                                     $operation = new Operation\Projects\GetColumn($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\CbColumnIdRcb::class], $requestBodyData['columnId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProjectColumn {
                                         return $operation->createResponse($response);
                                     });
@@ -1648,7 +1648,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators::class] = $this->hydrators->getObjectMapperOperation🌀Projects🌀CbProjectIdRcb🌀Collaborators();
                                     }
                                     $operation = new Operation\Projects\ListCollaborators($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators::class], $requestBodyData['projectId'], $requestBodyData['affiliation'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                         return $operation->createResponse($response);
                                     });
@@ -1665,7 +1665,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb\Columns::class] = $this->hydrators->getObjectMapperOperation🌀Projects🌀CbProjectIdRcb🌀Columns();
                                     }
                                     $operation = new Operation\Projects\ListColumns($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb\Columns::class], $requestBodyData['projectId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProjectColumn {
                                         return $operation->createResponse($response);
                                     });
@@ -1686,7 +1686,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb();
                                     }
                                     $operation = new Operation\Repos\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\FullRepository|Schema\BasicError {
                                         return $operation->createResponse($response);
                                     });
@@ -1707,7 +1707,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Setup\Api\Configcheck::class] = $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Configcheck();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetConfigurationStatus($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Setup\Api\Configcheck::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ConfigurationStatus {
                                         return $operation->createResponse($response);
                                     });
@@ -1724,7 +1724,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Setup\Api\Maintenance::class] = $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Maintenance();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetMaintenanceStatus($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Setup\Api\Maintenance::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\MaintenanceStatus {
                                         return $operation->createResponse($response);
                                     });
@@ -1741,7 +1741,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Setup\Api\Settings::class] = $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetSettings($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Setup\Api\Settings::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EnterpriseSettings {
                                         return $operation->createResponse($response);
                                     });
@@ -1762,7 +1762,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions();
                                     }
                                     $operation = new Operation\Teams\ListDiscussionsLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions::class], $requestBodyData['teamId'], $requestBodyData['direction'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussion {
                                         return $operation->createResponse($response);
                                     });
@@ -1779,7 +1779,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Members::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Members();
                                     }
                                     $operation = new Operation\Teams\ListMembersLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Members::class], $requestBodyData['teamId'], $requestBodyData['role'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                         return $operation->createResponse($response);
                                     });
@@ -1796,7 +1796,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Projects::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Projects();
                                     }
                                     $operation = new Operation\Teams\ListProjectsLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Projects::class], $requestBodyData['teamId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamProject {
                                         return $operation->createResponse($response);
                                     });
@@ -1813,7 +1813,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Repos::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Repos();
                                     }
                                     $operation = new Operation\Teams\ListReposLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Repos::class], $requestBodyData['teamId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\MinimalRepository {
                                         return $operation->createResponse($response);
                                     });
@@ -1830,7 +1830,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Teams();
                                     }
                                     $operation = new Operation\Teams\ListChildLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Teams::class], $requestBodyData['teamId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Team {
                                         return $operation->createResponse($response);
                                     });
@@ -1848,7 +1848,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Users\CheckPersonIsFollowedByAuthenticated($requestBodyData['username']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -1867,7 +1867,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\User\GpgKeys\CbGpgKeyIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys🌀CbGpgKeyIdRcb();
                                     }
                                     $operation = new Operation\Users\GetGpgKeyForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\GpgKeys\CbGpgKeyIdRcb::class], $requestBodyData['gpgKeyId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GpgKey {
                                         return $operation->createResponse($response);
                                     });
@@ -1886,7 +1886,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\User\Keys\CbKeyIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Keys🌀CbKeyIdRcb();
                                     }
                                     $operation = new Operation\Users\GetPublicSshKeyForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Keys\CbKeyIdRcb::class], $requestBodyData['keyId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Key {
                                         return $operation->createResponse($response);
                                     });
@@ -1905,7 +1905,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\User\Memberships\Orgs::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Memberships🌀Orgs();
                                     }
                                     $operation = new Operation\Orgs\ListMembershipsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Memberships\Orgs::class], $requestBodyData['state'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrgMembership {
                                         return $operation->createResponse($response);
                                     });
@@ -1926,7 +1926,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Events::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Events();
                                     }
                                     $operation = new Operation\Activity\ListEventsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Events::class], $requestBodyData['username'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Event {
                                         return $operation->createResponse($response);
                                     });
@@ -1943,7 +1943,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Followers::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Followers();
                                     }
                                     $operation = new Operation\Users\ListFollowersForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Followers::class], $requestBodyData['username'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                         return $operation->createResponse($response);
                                     });
@@ -1960,7 +1960,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Following::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Following();
                                     }
                                     $operation = new Operation\Users\ListFollowingForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Following::class], $requestBodyData['username'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                         return $operation->createResponse($response);
                                     });
@@ -1977,7 +1977,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Gists::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Gists();
                                     }
                                     $operation = new Operation\Gists\ListForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Gists::class], $requestBodyData['username'], $requestBodyData['since'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\BaseGist {
                                         return $operation->createResponse($response);
                                     });
@@ -1994,7 +1994,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\GpgKeys::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀GpgKeys();
                                     }
                                     $operation = new Operation\Users\ListGpgKeysForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\GpgKeys::class], $requestBodyData['username'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GpgKey {
                                         return $operation->createResponse($response);
                                     });
@@ -2011,7 +2011,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Hovercard::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Hovercard();
                                     }
                                     $operation = new Operation\Users\GetContextForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Hovercard::class], $requestBodyData['username'], $requestBodyData['subjectType'], $requestBodyData['subjectId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Hovercard {
                                         return $operation->createResponse($response);
                                     });
@@ -2028,7 +2028,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Installation::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Installation();
                                     }
                                     $operation = new Operation\Apps\GetUserInstallation($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Installation::class], $requestBodyData['username']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Installation {
                                         return $operation->createResponse($response);
                                     });
@@ -2045,7 +2045,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Keys::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Keys();
                                     }
                                     $operation = new Operation\Users\ListPublicKeysForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Keys::class], $requestBodyData['username'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\KeySimple {
                                         return $operation->createResponse($response);
                                     });
@@ -2062,7 +2062,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Orgs::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Orgs();
                                     }
                                     $operation = new Operation\Orgs\ListForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Orgs::class], $requestBodyData['username'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrganizationSimple {
                                         return $operation->createResponse($response);
                                     });
@@ -2079,7 +2079,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Projects::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Projects();
                                     }
                                     $operation = new Operation\Projects\ListForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Projects::class], $requestBodyData['username'], $requestBodyData['state'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Project {
                                         return $operation->createResponse($response);
                                     });
@@ -2096,7 +2096,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\ReceivedEvents::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀ReceivedEvents();
                                     }
                                     $operation = new Operation\Activity\ListReceivedEventsForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\ReceivedEvents::class], $requestBodyData['username'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Event {
                                         return $operation->createResponse($response);
                                     });
@@ -2113,7 +2113,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Repos::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Repos();
                                     }
                                     $operation = new Operation\Repos\ListForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Repos::class], $requestBodyData['username'], $requestBodyData['direction'], $requestBodyData['type'], $requestBodyData['sort'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\MinimalRepository {
                                         return $operation->createResponse($response);
                                     });
@@ -2130,7 +2130,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Starred::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Starred();
                                     }
                                     $operation = new Operation\Activity\ListReposStarredByUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Starred::class], $requestBodyData['username'], $requestBodyData['sort'], $requestBodyData['direction'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Activity\ListReposStarredByUser\Response\Applicationjson\H200 {
                                         return $operation->createResponse($response);
                                     });
@@ -2147,7 +2147,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Subscriptions::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Subscriptions();
                                     }
                                     $operation = new Operation\Activity\ListReposWatchedByUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Subscriptions::class], $requestBodyData['username'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\MinimalRepository {
                                         return $operation->createResponse($response);
                                     });
@@ -2174,7 +2174,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads\Latest::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb🌀Downloads🌀Latest();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\GetDownloadStatusForPreReceiveEnvironment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads\Latest::class], $requestBodyData['preReceiveEnvironmentId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PreReceiveEnvironmentDownloadStatus {
                                                 return $operation->createResponse($response);
                                             });
@@ -2199,7 +2199,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\Organizations::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀Organizations();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\Organizations::class], $requestBodyData['enterprise'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
@@ -2216,7 +2216,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\SelectedActions::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions🌀SelectedActions();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\GetAllowedActionsEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\SelectedActions::class], $requestBodyData['enterprise']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SelectedActions {
                                                 return $operation->createResponse($response);
                                             });
@@ -2235,7 +2235,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\GetSelfHostedRunnerGroupForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class], $requestBodyData['enterprise'], $requestBodyData['runnerGroupId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RunnerGroupsEnterprise {
                                                 return $operation->createResponse($response);
                                             });
@@ -2254,7 +2254,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\Downloads::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀Downloads();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\ListRunnerApplicationsForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\Downloads::class], $requestBodyData['enterprise']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RunnerApplication {
                                                 return $operation->createResponse($response);
                                             });
@@ -2271,7 +2271,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\GetSelfHostedRunnerForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb::class], $requestBodyData['enterprise'], $requestBodyData['runnerId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Runner {
                                                 return $operation->createResponse($response);
                                             });
@@ -2292,7 +2292,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\AdvancedSecurity::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Settings🌀Billing🌀AdvancedSecurity();
                                             }
                                             $operation = new Operation\Billing\GetGithubAdvancedSecurityBillingGhe($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\AdvancedSecurity::class], $requestBodyData['enterprise'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\AdvancedSecurityActiveCommitters {
                                                 return $operation->createResponse($response);
                                             });
@@ -2317,7 +2317,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀Repositories();
                                             }
                                             $operation = new Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\Repositories::class], $requestBodyData['org'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
@@ -2334,7 +2334,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\SelectedActions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀SelectedActions();
                                             }
                                             $operation = new Operation\Actions\GetAllowedActionsOrganization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\SelectedActions::class], $requestBodyData['org']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SelectedActions {
                                                 return $operation->createResponse($response);
                                             });
@@ -2353,7 +2353,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb();
                                             }
                                             $operation = new Operation\Actions\GetSelfHostedRunnerGroupForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class], $requestBodyData['org'], $requestBodyData['runnerGroupId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RunnerGroupsOrg {
                                                 return $operation->createResponse($response);
                                             });
@@ -2372,7 +2372,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\Downloads::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀Downloads();
                                             }
                                             $operation = new Operation\Actions\ListRunnerApplicationsForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\Downloads::class], $requestBodyData['org']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RunnerApplication {
                                                 return $operation->createResponse($response);
                                             });
@@ -2389,7 +2389,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀CbRunnerIdRcb();
                                             }
                                             $operation = new Operation\Actions\GetSelfHostedRunnerForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb::class], $requestBodyData['org'], $requestBodyData['runnerId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Runner {
                                                 return $operation->createResponse($response);
                                             });
@@ -2408,7 +2408,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\PublicKey::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀PublicKey();
                                             }
                                             $operation = new Operation\Actions\GetOrgPublicKey($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\PublicKey::class], $requestBodyData['org']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ActionsPublicKey {
                                                 return $operation->createResponse($response);
                                             });
@@ -2425,7 +2425,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb();
                                             }
                                             $operation = new Operation\Actions\GetOrgSecret($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb::class], $requestBodyData['org'], $requestBodyData['secretName']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrganizationActionsSecret {
                                                 return $operation->createResponse($response);
                                             });
@@ -2446,7 +2446,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Dependabot\Secrets\PublicKey::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Dependabot🌀Secrets🌀PublicKey();
                                             }
                                             $operation = new Operation\Dependabot\GetOrgPublicKey($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Dependabot\Secrets\PublicKey::class], $requestBodyData['org']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\DependabotPublicKey {
                                                 return $operation->createResponse($response);
                                             });
@@ -2463,7 +2463,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Dependabot\Secrets\CbSecretNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Dependabot🌀Secrets🌀CbSecretNameRcb();
                                             }
                                             $operation = new Operation\Dependabot\GetOrgSecret($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Dependabot\Secrets\CbSecretNameRcb::class], $requestBodyData['org'], $requestBodyData['secretName']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrganizationDependabotSecret {
                                                 return $operation->createResponse($response);
                                             });
@@ -2484,7 +2484,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Config::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Config();
                                             }
                                             $operation = new Operation\Orgs\GetWebhookConfigForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Config::class], $requestBodyData['org'], $requestBodyData['hookId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\WebhookConfig {
                                                 return $operation->createResponse($response);
                                             });
@@ -2501,7 +2501,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Deliveries::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Deliveries();
                                             }
                                             $operation = new Operation\Orgs\ListWebhookDeliveries($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Deliveries::class], $requestBodyData['org'], $requestBodyData['hookId'], $requestBodyData['cursor'], $requestBodyData['redelivery'], $requestBodyData['perPage']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\HookDeliveryItem {
                                                 return $operation->createResponse($response);
                                             });
@@ -2519,7 +2519,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Migrations\DownloadArchiveForOrg($requestBodyData['org'], $requestBodyData['migrationId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -2536,7 +2536,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Migrations\CbMigrationIdRcb\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Migrations🌀CbMigrationIdRcb🌀Repositories();
                                             }
                                             $operation = new Operation\Migrations\ListReposForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Migrations\CbMigrationIdRcb\Repositories::class], $requestBodyData['org'], $requestBodyData['migrationId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\MinimalRepository {
                                                 return $operation->createResponse($response);
                                             });
@@ -2557,7 +2557,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\AdvancedSecurity::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Settings🌀Billing🌀AdvancedSecurity();
                                             }
                                             $operation = new Operation\Billing\GetGithubAdvancedSecurityBillingOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\AdvancedSecurity::class], $requestBodyData['org'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\AdvancedSecurityActiveCommitters {
                                                 return $operation->createResponse($response);
                                             });
@@ -2578,7 +2578,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions();
                                             }
                                             $operation = new Operation\Teams\ListDiscussionsInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['pinned'], $requestBodyData['direction'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussion {
                                                 return $operation->createResponse($response);
                                             });
@@ -2595,7 +2595,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Members::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Members();
                                             }
                                             $operation = new Operation\Teams\ListMembersInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Members::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['role'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                                 return $operation->createResponse($response);
                                             });
@@ -2612,7 +2612,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects();
                                             }
                                             $operation = new Operation\Teams\ListProjectsInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamProject {
                                                 return $operation->createResponse($response);
                                             });
@@ -2629,7 +2629,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos();
                                             }
                                             $operation = new Operation\Teams\ListReposInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\MinimalRepository {
                                                 return $operation->createResponse($response);
                                             });
@@ -2646,7 +2646,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Teams();
                                             }
                                             $operation = new Operation\Teams\ListChildInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Teams::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Team {
                                                 return $operation->createResponse($response);
                                             });
@@ -2671,7 +2671,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators\CbUsernameRcb\Permission::class] = $this->hydrators->getObjectMapperOperation🌀Projects🌀CbProjectIdRcb🌀Collaborators🌀CbUsernameRcb🌀Permission();
                                             }
                                             $operation = new Operation\Projects\GetPermissionForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators\CbUsernameRcb\Permission::class], $requestBodyData['projectId'], $requestBodyData['username']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProjectCollaboratorPermission {
                                                 return $operation->createResponse($response);
                                             });
@@ -2696,7 +2696,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts();
                                             }
                                             $operation = new Operation\Actions\ListArtifactsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListArtifactsForRepo\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
@@ -2713,7 +2713,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions();
                                             }
                                             $operation = new Operation\Actions\GetGithubActionsPermissionsRepository($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ActionsRepositoryPermissions {
                                                 return $operation->createResponse($response);
                                             });
@@ -2730,7 +2730,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners();
                                             }
                                             $operation = new Operation\Actions\ListSelfHostedRunnersForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListSelfHostedRunnersForOrg\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
@@ -2747,7 +2747,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs();
                                             }
                                             $operation = new Operation\Actions\ListWorkflowRunsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['actor'], $requestBodyData['branch'], $requestBodyData['event'], $requestBodyData['status'], $requestBodyData['created'], $requestBodyData['perPage'], $requestBodyData['page'], $requestBodyData['excludePullRequests']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListWorkflowRunsForRepo\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
@@ -2764,7 +2764,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets();
                                             }
                                             $operation = new Operation\Actions\ListRepoSecrets($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListRepoSecrets\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
@@ -2781,7 +2781,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows();
                                             }
                                             $operation = new Operation\Actions\ListRepoWorkflows($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListRepoWorkflows\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
@@ -2797,7 +2797,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Issues\CheckUserCanBeAssigned($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['assignee']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -2816,7 +2816,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Autolinks\CbAutolinkIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Autolinks🌀CbAutolinkIdRcb();
                                             }
                                             $operation = new Operation\Repos\GetAutolink($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Autolinks\CbAutolinkIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['autolinkId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Autolink {
                                                 return $operation->createResponse($response);
                                             });
@@ -2835,7 +2835,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb();
                                             }
                                             $operation = new Operation\Repos\GetBranch($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\BranchWithProtection|Schema\BasicError {
                                                 return $operation->createResponse($response);
                                             });
@@ -2854,7 +2854,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashRuns🌀CbCheckRunIdRcb();
                                             }
                                             $operation = new Operation\Checks\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['checkRunId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CheckRun {
                                                 return $operation->createResponse($response);
                                             });
@@ -2873,7 +2873,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb();
                                             }
                                             $operation = new Operation\Checks\GetSuite($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['checkSuiteId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CheckSuite {
                                                 return $operation->createResponse($response);
                                             });
@@ -2892,7 +2892,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Alerts::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Alerts();
                                             }
                                             $operation = new Operation\CodeScanning\ListAlertsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Alerts::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['toolName'], $requestBodyData['toolGuid'], $requestBodyData['ref'], $requestBodyData['state'], $requestBodyData['page'], $requestBodyData['perPage'], $requestBodyData['direction'], $requestBodyData['sort']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CodeScanningAlertItems {
                                                 return $operation->createResponse($response);
                                             });
@@ -2909,7 +2909,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Analyses::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Analyses();
                                             }
                                             $operation = new Operation\CodeScanning\ListRecentAnalyses($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Analyses::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['toolName'], $requestBodyData['toolGuid'], $requestBodyData['ref'], $requestBodyData['sarifId'], $requestBodyData['page'], $requestBodyData['perPage']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CodeScanningAnalysis {
                                                 return $operation->createResponse($response);
                                             });
@@ -2925,7 +2925,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Repos\CheckCollaborator($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['username']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -2944,7 +2944,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb();
                                             }
                                             $operation = new Operation\Repos\GetCommitComment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CommitComment {
                                                 return $operation->createResponse($response);
                                             });
@@ -2963,7 +2963,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb();
                                             }
                                             $operation = new Operation\Repos\GetCommit($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['ref'], $requestBodyData['page'], $requestBodyData['perPage']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Commit {
                                                 return $operation->createResponse($response);
                                             });
@@ -2982,7 +2982,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Compare\CbBaseheadRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Compare🌀CbBaseheadRcb();
                                             }
                                             $operation = new Operation\Repos\CompareCommits($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Compare\CbBaseheadRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['basehead'], $requestBodyData['page'], $requestBodyData['perPage']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CommitComparison {
                                                 return $operation->createResponse($response);
                                             });
@@ -3001,7 +3001,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contents\CbPathRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Contents🌀CbPathRcb();
                                             }
                                             $operation = new Operation\Repos\GetContent($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contents\CbPathRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['path'], $requestBodyData['ref']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ContentTree|Schema\Operation\Repos\GetContent\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
@@ -3020,7 +3020,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Dependabot\Secrets::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Dependabot🌀Secrets();
                                             }
                                             $operation = new Operation\Dependabot\ListRepoSecrets($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Dependabot\Secrets::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Dependabot\ListRepoSecrets\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
@@ -3039,7 +3039,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb();
                                             }
                                             $operation = new Operation\Repos\GetDeployment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['deploymentId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Deployment {
                                                 return $operation->createResponse($response);
                                             });
@@ -3058,7 +3058,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb();
                                             }
                                             $operation = new Operation\Repos\GetEnvironment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['environmentName']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Environment {
                                                 return $operation->createResponse($response);
                                             });
@@ -3077,7 +3077,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb();
                                             }
                                             $operation = new Operation\Repos\GetWebhook($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['hookId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Hook {
                                                 return $operation->createResponse($response);
                                             });
@@ -3096,7 +3096,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments();
                                             }
                                             $operation = new Operation\Issues\ListCommentsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['direction'], $requestBodyData['since'], $requestBodyData['sort'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\IssueComment {
                                                 return $operation->createResponse($response);
                                             });
@@ -3113,7 +3113,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events();
                                             }
                                             $operation = new Operation\Issues\ListEventsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\IssueEvent {
                                                 return $operation->createResponse($response);
                                             });
@@ -3130,7 +3130,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb();
                                             }
                                             $operation = new Operation\Issues\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Issue|Schema\BasicError {
                                                 return $operation->createResponse($response);
                                             });
@@ -3149,7 +3149,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys\CbKeyIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Keys🌀CbKeyIdRcb();
                                             }
                                             $operation = new Operation\Repos\GetDeployKey($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys\CbKeyIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['keyId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\DeployKey {
                                                 return $operation->createResponse($response);
                                             });
@@ -3168,7 +3168,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels\CbNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Labels🌀CbNameRcb();
                                             }
                                             $operation = new Operation\Issues\GetLabel($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels\CbNameRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['name']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Label {
                                                 return $operation->createResponse($response);
                                             });
@@ -3187,7 +3187,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones🌀CbMilestoneNumberRcb();
                                             }
                                             $operation = new Operation\Issues\GetMilestone($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['milestoneNumber']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Milestone {
                                                 return $operation->createResponse($response);
                                             });
@@ -3206,7 +3206,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds();
                                             }
                                             $operation = new Operation\Repos\ListPagesBuilds($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PageBuild {
                                                 return $operation->createResponse($response);
                                             });
@@ -3225,7 +3225,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\GetPreReceiveHookForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['preReceiveHookId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RepositoryPreReceiveHook {
                                                 return $operation->createResponse($response);
                                             });
@@ -3244,7 +3244,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments();
                                             }
                                             $operation = new Operation\Pulls\ListReviewCommentsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['sort'], $requestBodyData['direction'], $requestBodyData['since'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestReviewComment {
                                                 return $operation->createResponse($response);
                                             });
@@ -3261,7 +3261,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb();
                                             }
                                             $operation = new Operation\Pulls\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequest {
                                                 return $operation->createResponse($response);
                                             });
@@ -3280,7 +3280,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme\CbDirRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme🌀CbDirRcb();
                                             }
                                             $operation = new Operation\Repos\GetReadmeInDirectory($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme\CbDirRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['dir'], $requestBodyData['ref']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ContentFile {
                                                 return $operation->createResponse($response);
                                             });
@@ -3299,7 +3299,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Latest::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Latest();
                                             }
                                             $operation = new Operation\Repos\GetLatestRelease($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Latest::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Release {
                                                 return $operation->createResponse($response);
                                             });
@@ -3316,7 +3316,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb();
                                             }
                                             $operation = new Operation\Repos\GetRelease($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['releaseId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Release {
                                                 return $operation->createResponse($response);
                                             });
@@ -3335,7 +3335,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Replicas\Caches::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Replicas🌀Caches();
                                             }
                                             $operation = new Operation\Repos\ListCacheInfo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Replicas\Caches::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Repos\ListCacheInfo\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
@@ -3354,7 +3354,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\SecretScanning\Alerts::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretScanning🌀Alerts();
                                             }
                                             $operation = new Operation\SecretScanning\ListAlertsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\SecretScanning\Alerts::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['state'], $requestBodyData['secretType'], $requestBodyData['resolution'], $requestBodyData['page'], $requestBodyData['perPage']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SecretScanningAlert {
                                                 return $operation->createResponse($response);
                                             });
@@ -3373,7 +3373,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\CodeFrequency::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀CodeFrequency();
                                             }
                                             $operation = new Operation\Repos\GetCodeFrequencyStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\CodeFrequency::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H200|Schema\AuditLogEvent\Config {
                                                 return $operation->createResponse($response);
                                             });
@@ -3390,7 +3390,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\CommitActivity::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀CommitActivity();
                                             }
                                             $operation = new Operation\Repos\GetCommitActivityStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\CommitActivity::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CommitActivity|Schema\AuditLogEvent\Config {
                                                 return $operation->createResponse($response);
                                             });
@@ -3407,7 +3407,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\Contributors::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀Contributors();
                                             }
                                             $operation = new Operation\Repos\GetContributorsStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\Contributors::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ContributorActivity|Schema\AuditLogEvent\Config {
                                                 return $operation->createResponse($response);
                                             });
@@ -3424,7 +3424,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\Participation::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀Participation();
                                             }
                                             $operation = new Operation\Repos\GetParticipationStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\Participation::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ParticipationStats {
                                                 return $operation->createResponse($response);
                                             });
@@ -3441,7 +3441,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\PunchCard::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stats🌀PunchCard();
                                             }
                                             $operation = new Operation\Repos\GetPunchCardStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\PunchCard::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
@@ -3457,7 +3457,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Repos\DownloadTarballArchive($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['ref']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -3473,7 +3473,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Repos\DownloadZipballArchive($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['ref']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -3498,7 +3498,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repositories\CbRepositoryIdRcb\Environments\CbEnvironmentNameRcb\Secrets::class] = $this->hydrators->getObjectMapperOperation🌀Repositories🌀CbRepositoryIdRcb🌀Environments🌀CbEnvironmentNameRcb🌀Secrets();
                                             }
                                             $operation = new Operation\Actions\ListEnvironmentSecrets($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repositories\CbRepositoryIdRcb\Environments\CbEnvironmentNameRcb\Secrets::class], $requestBodyData['repositoryId'], $requestBodyData['environmentName'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListRepoSecrets\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
@@ -3523,7 +3523,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments();
                                             }
                                             $operation = new Operation\Teams\ListDiscussionCommentsLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments::class], $requestBodyData['teamId'], $requestBodyData['discussionNumber'], $requestBodyData['direction'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussionComment {
                                                 return $operation->createResponse($response);
                                             });
@@ -3540,7 +3540,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions();
                                             }
                                             $operation = new Operation\Reactions\ListForTeamDiscussionLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Reactions::class], $requestBodyData['teamId'], $requestBodyData['discussionNumber'], $requestBodyData['content'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                 return $operation->createResponse($response);
                                             });
@@ -3561,7 +3561,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb();
                                             }
                                             $operation = new Operation\Teams\CheckPermissionsForRepoLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb::class], $requestBodyData['teamId'], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamRepository {
                                                 return $operation->createResponse($response);
                                             });
@@ -3586,7 +3586,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Events\Orgs\CbOrgRcb::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Events🌀Orgs🌀CbOrgRcb();
                                             }
                                             $operation = new Operation\Activity\ListOrgEventsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Events\Orgs\CbOrgRcb::class], $requestBodyData['username'], $requestBodyData['org'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Event {
                                                 return $operation->createResponse($response);
                                             });
@@ -3611,7 +3611,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\App::class] = $this->hydrators->getObjectMapperOperation🌀App();
                             }
                             $operation = new Operation\Apps\GetAuthenticated($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App::class]);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Integration {
                                 return $operation->createResponse($response);
                             });
@@ -3628,7 +3628,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Authorizations::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations();
                             }
                             $operation = new Operation\OauthAuthorizations\ListAuthorizations($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations::class], $requestBodyData['clientId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Authorization {
                                 return $operation->createResponse($response);
                             });
@@ -3645,7 +3645,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\CodesOfConduct::class] = $this->hydrators->getObjectMapperOperation🌀CodesOfConduct();
                             }
                             $operation = new Operation\CodesOfConduct\GetAllCodesOfConduct($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\CodesOfConduct::class]);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CodeOfConduct {
                                 return $operation->createResponse($response);
                             });
@@ -3662,7 +3662,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Emojis::class] = $this->hydrators->getObjectMapperOperation🌀Emojis();
                             }
                             $operation = new Operation\Emojis\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Emojis::class]);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Emojis\Get\Response\Applicationjson\H200 {
                                 return $operation->createResponse($response);
                             });
@@ -3679,7 +3679,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Events::class] = $this->hydrators->getObjectMapperOperation🌀Events();
                             }
                             $operation = new Operation\Activity\ListPublicEvents($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Events::class], $requestBodyData['perPage'], $requestBodyData['page']);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Event {
                                 return $operation->createResponse($response);
                             });
@@ -3696,7 +3696,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Feeds::class] = $this->hydrators->getObjectMapperOperation🌀Feeds();
                             }
                             $operation = new Operation\Activity\GetFeeds($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Feeds::class]);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Feed {
                                 return $operation->createResponse($response);
                             });
@@ -3713,7 +3713,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Gists::class] = $this->hydrators->getObjectMapperOperation🌀Gists();
                             }
                             $operation = new Operation\Gists\List_($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists::class], $requestBodyData['since'], $requestBodyData['perPage'], $requestBodyData['page']);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\BaseGist {
                                 return $operation->createResponse($response);
                             });
@@ -3730,7 +3730,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Issues::class] = $this->hydrators->getObjectMapperOperation🌀Issues();
                             }
                             $operation = new Operation\Issues\List_($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Issues::class], $requestBodyData['labels'], $requestBodyData['since'], $requestBodyData['collab'], $requestBodyData['orgs'], $requestBodyData['owned'], $requestBodyData['pulls'], $requestBodyData['filter'], $requestBodyData['state'], $requestBodyData['sort'], $requestBodyData['direction'], $requestBodyData['perPage'], $requestBodyData['page']);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Issue {
                                 return $operation->createResponse($response);
                             });
@@ -3747,7 +3747,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Licenses::class] = $this->hydrators->getObjectMapperOperation🌀Licenses();
                             }
                             $operation = new Operation\Licenses\GetAllCommonlyUsed($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Licenses::class], $requestBodyData['featured'], $requestBodyData['perPage'], $requestBodyData['page']);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\LicenseSimple {
                                 return $operation->createResponse($response);
                             });
@@ -3764,7 +3764,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Meta::class] = $this->hydrators->getObjectMapperOperation🌀Meta();
                             }
                             $operation = new Operation\Meta\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Meta::class]);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ApiOverview {
                                 return $operation->createResponse($response);
                             });
@@ -3781,7 +3781,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Notifications::class] = $this->hydrators->getObjectMapperOperation🌀Notifications();
                             }
                             $operation = new Operation\Activity\ListNotificationsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Notifications::class], $requestBodyData['since'], $requestBodyData['before'], $requestBodyData['all'], $requestBodyData['participating'], $requestBodyData['page'], $requestBodyData['perPage']);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Thread {
                                 return $operation->createResponse($response);
                             });
@@ -3798,7 +3798,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Octocat::class] = $this->hydrators->getObjectMapperOperation🌀Octocat();
                             }
                             $operation = new Operation\Meta\GetOctocat($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Octocat::class], $requestBodyData['s']);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Gitignore\GetAllTemplates\Response\Applicationjson\H200 {
                                 return $operation->createResponse($response);
                             });
@@ -3815,7 +3815,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Organizations::class] = $this->hydrators->getObjectMapperOperation🌀Organizations();
                             }
                             $operation = new Operation\Orgs\List_($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Organizations::class], $requestBodyData['since'], $requestBodyData['perPage']);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrganizationSimple {
                                 return $operation->createResponse($response);
                             });
@@ -3832,7 +3832,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\RateLimit::class] = $this->hydrators->getObjectMapperOperation🌀RateLimit();
                             }
                             $operation = new Operation\RateLimit\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\RateLimit::class]);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RateLimitOverview {
                                 return $operation->createResponse($response);
                             });
@@ -3849,7 +3849,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Repositories();
                             }
                             $operation = new Operation\Repos\ListPublic($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repositories::class], $requestBodyData['since'], $requestBodyData['visibility']);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\MinimalRepository {
                                 return $operation->createResponse($response);
                             });
@@ -3866,7 +3866,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\User::class] = $this->hydrators->getObjectMapperOperation🌀User();
                             }
                             $operation = new Operation\Users\GetAuthenticated($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User::class]);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Users\GetAuthenticated\Response\Applicationjson\H200 {
                                 return $operation->createResponse($response);
                             });
@@ -3883,7 +3883,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Users::class] = $this->hydrators->getObjectMapperOperation🌀Users();
                             }
                             $operation = new Operation\Users\List_($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users::class], $requestBodyData['since'], $requestBodyData['perPage']);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                 return $operation->createResponse($response);
                             });
@@ -3900,7 +3900,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Zen::class] = $this->hydrators->getObjectMapperOperation🌀Zen();
                             }
                             $operation = new Operation\Meta\GetZen($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Zen::class]);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Gitignore\GetAllTemplates\Response\Applicationjson\H200 {
                                 return $operation->createResponse($response);
                             });
@@ -3924,7 +3924,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\App\Hook\Deliveries\CbDeliveryIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Deliveries🌀CbDeliveryIdRcb();
                                         }
                                         $operation = new Operation\Apps\GetWebhookDelivery($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Hook\Deliveries\CbDeliveryIdRcb::class], $requestBodyData['deliveryId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\HookDelivery {
                                             return $operation->createResponse($response);
                                         });
@@ -3947,7 +3947,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Permissions();
                                         }
                                         $operation = new Operation\EnterpriseAdmin\GetGithubActionsPermissionsEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions::class], $requestBodyData['enterprise']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ActionsEnterprisePermissions {
                                             return $operation->createResponse($response);
                                         });
@@ -3964,7 +3964,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerGroups::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerGroups();
                                         }
                                         $operation = new Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerGroups::class], $requestBodyData['enterprise'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
@@ -3981,7 +3981,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners();
                                         }
                                         $operation = new Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners::class], $requestBodyData['enterprise'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
@@ -4000,7 +4000,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\SecretScanning\Alerts::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀SecretScanning🌀Alerts();
                                         }
                                         $operation = new Operation\SecretScanning\ListAlertsForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\SecretScanning\Alerts::class], $requestBodyData['enterprise'], $requestBodyData['state'], $requestBodyData['secretType'], $requestBodyData['resolution'], $requestBodyData['before'], $requestBodyData['after'], $requestBodyData['perPage']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrganizationSecretScanningAlert {
                                             return $operation->createResponse($response);
                                         });
@@ -4023,7 +4023,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Comments\CbCommentIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Comments🌀CbCommentIdRcb();
                                         }
                                         $operation = new Operation\Gists\GetComment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Comments\CbCommentIdRcb::class], $requestBodyData['gistId'], $requestBodyData['commentId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GistComment {
                                             return $operation->createResponse($response);
                                         });
@@ -4046,7 +4046,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Networks\CbOwnerRcb\CbRepoRcb\Events::class] = $this->hydrators->getObjectMapperOperation🌀Networks🌀CbOwnerRcb🌀CbRepoRcb🌀Events();
                                         }
                                         $operation = new Operation\Activity\ListPublicEventsForRepoNetwork($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Networks\CbOwnerRcb\CbRepoRcb\Events::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Event|Schema\BasicError {
                                             return $operation->createResponse($response);
                                         });
@@ -4069,7 +4069,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Notifications\Threads\CbThreadIdRcb\Subscription::class] = $this->hydrators->getObjectMapperOperation🌀Notifications🌀Threads🌀CbThreadIdRcb🌀Subscription();
                                         }
                                         $operation = new Operation\Activity\GetThreadSubscriptionForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Notifications\Threads\CbThreadIdRcb\Subscription::class], $requestBodyData['threadId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ThreadSubscription {
                                             return $operation->createResponse($response);
                                         });
@@ -4092,7 +4092,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions();
                                         }
                                         $operation = new Operation\Actions\GetGithubActionsPermissionsOrganization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions::class], $requestBodyData['org']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ActionsOrganizationPermissions {
                                             return $operation->createResponse($response);
                                         });
@@ -4109,7 +4109,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerGroups();
                                         }
                                         $operation = new Operation\Actions\ListSelfHostedRunnerGroupsForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups::class], $requestBodyData['org'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListSelfHostedRunnerGroupsForOrg\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
@@ -4126,7 +4126,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners();
                                         }
                                         $operation = new Operation\Actions\ListSelfHostedRunnersForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners::class], $requestBodyData['org'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListSelfHostedRunnersForOrg\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
@@ -4143,7 +4143,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets();
                                         }
                                         $operation = new Operation\Actions\ListOrgSecrets($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets::class], $requestBodyData['org'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListOrgSecrets\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
@@ -4162,7 +4162,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Dependabot\Secrets::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Dependabot🌀Secrets();
                                         }
                                         $operation = new Operation\Dependabot\ListOrgSecrets($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Dependabot\Secrets::class], $requestBodyData['org'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Dependabot\ListOrgSecrets\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
@@ -4181,7 +4181,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb();
                                         }
                                         $operation = new Operation\Orgs\GetWebhook($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb::class], $requestBodyData['org'], $requestBodyData['hookId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrgHook {
                                             return $operation->createResponse($response);
                                         });
@@ -4197,7 +4197,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Orgs\CheckMembershipForUser($requestBodyData['org'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -4216,7 +4216,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Memberships\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Memberships🌀CbUsernameRcb();
                                         }
                                         $operation = new Operation\Orgs\GetMembershipForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Memberships\CbUsernameRcb::class], $requestBodyData['org'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrgMembership {
                                             return $operation->createResponse($response);
                                         });
@@ -4235,7 +4235,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Migrations\CbMigrationIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Migrations🌀CbMigrationIdRcb();
                                         }
                                         $operation = new Operation\Migrations\GetStatusForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Migrations\CbMigrationIdRcb::class], $requestBodyData['org'], $requestBodyData['migrationId'], $requestBodyData['exclude']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Migration {
                                             return $operation->createResponse($response);
                                         });
@@ -4254,7 +4254,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb();
                                         }
                                         $operation = new Operation\EnterpriseAdmin\GetPreReceiveHookForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $requestBodyData['org'], $requestBodyData['preReceiveHookId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrgPreReceiveHook {
                                             return $operation->createResponse($response);
                                         });
@@ -4270,7 +4270,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Orgs\CheckPublicMembershipForUser($requestBodyData['org'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -4289,7 +4289,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\SecretScanning\Alerts::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀SecretScanning🌀Alerts();
                                         }
                                         $operation = new Operation\SecretScanning\ListAlertsForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\SecretScanning\Alerts::class], $requestBodyData['org'], $requestBodyData['state'], $requestBodyData['secretType'], $requestBodyData['resolution'], $requestBodyData['page'], $requestBodyData['perPage']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrganizationSecretScanningAlert {
                                             return $operation->createResponse($response);
                                         });
@@ -4308,7 +4308,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb();
                                         }
                                         $operation = new Operation\Teams\GetByName($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb::class], $requestBodyData['org'], $requestBodyData['teamSlug']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamFull {
                                             return $operation->createResponse($response);
                                         });
@@ -4331,7 +4331,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Projects\Columns\Cards\CbCardIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CbCardIdRcb();
                                         }
                                         $operation = new Operation\Projects\GetCard($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\Cards\CbCardIdRcb::class], $requestBodyData['cardId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProjectCard {
                                             return $operation->createResponse($response);
                                         });
@@ -4350,7 +4350,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Cards::class] = $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀CbColumnIdRcb🌀Cards();
                                         }
                                         $operation = new Operation\Projects\ListCards($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Cards::class], $requestBodyData['columnId'], $requestBodyData['archivedState'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProjectCard {
                                             return $operation->createResponse($response);
                                         });
@@ -4373,7 +4373,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Assignees::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Assignees();
                                         }
                                         $operation = new Operation\Issues\ListAssignees($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Assignees::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                             return $operation->createResponse($response);
                                         });
@@ -4390,7 +4390,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Autolinks::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Autolinks();
                                         }
                                         $operation = new Operation\Repos\ListAutolinks($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Autolinks::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Autolink {
                                             return $operation->createResponse($response);
                                         });
@@ -4407,7 +4407,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches();
                                         }
                                         $operation = new Operation\Repos\ListBranches($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['protected'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ShortBranch {
                                             return $operation->createResponse($response);
                                         });
@@ -4424,7 +4424,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Collaborators::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Collaborators();
                                         }
                                         $operation = new Operation\Repos\ListCollaborators($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Collaborators::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['affiliation'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Collaborator {
                                             return $operation->createResponse($response);
                                         });
@@ -4441,7 +4441,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments();
                                         }
                                         $operation = new Operation\Repos\ListCommitCommentsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CommitComment {
                                             return $operation->createResponse($response);
                                         });
@@ -4458,7 +4458,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits();
                                         }
                                         $operation = new Operation\Repos\ListCommits($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['sha'], $requestBodyData['path'], $requestBodyData['author'], $requestBodyData['committer'], $requestBodyData['since'], $requestBodyData['until'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Commit {
                                             return $operation->createResponse($response);
                                         });
@@ -4475,7 +4475,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contributors::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Contributors();
                                         }
                                         $operation = new Operation\Repos\ListContributors($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contributors::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['anon'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Contributor {
                                             return $operation->createResponse($response);
                                         });
@@ -4492,7 +4492,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments();
                                         }
                                         $operation = new Operation\Repos\ListDeployments($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['sha'], $requestBodyData['ref'], $requestBodyData['task'], $requestBodyData['environment'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Deployment {
                                             return $operation->createResponse($response);
                                         });
@@ -4509,7 +4509,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments();
                                         }
                                         $operation = new Operation\Repos\GetAllEnvironments($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Repos\GetAllEnvironments\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
@@ -4526,7 +4526,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Events::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Events();
                                         }
                                         $operation = new Operation\Activity\ListRepoEvents($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Events::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Event {
                                             return $operation->createResponse($response);
                                         });
@@ -4543,7 +4543,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Forks::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Forks();
                                         }
                                         $operation = new Operation\Repos\ListForks($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Forks::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['sort'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\MinimalRepository {
                                             return $operation->createResponse($response);
                                         });
@@ -4560,7 +4560,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks();
                                         }
                                         $operation = new Operation\Repos\ListWebhooks($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Hook {
                                             return $operation->createResponse($response);
                                         });
@@ -4577,7 +4577,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Installation::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Installation();
                                         }
                                         $operation = new Operation\Apps\GetRepoInstallation($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Installation::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Installation|Schema\BasicError {
                                             return $operation->createResponse($response);
                                         });
@@ -4594,7 +4594,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Invitations::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Invitations();
                                         }
                                         $operation = new Operation\Repos\ListInvitations($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Invitations::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RepositoryInvitation {
                                             return $operation->createResponse($response);
                                         });
@@ -4611,7 +4611,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues();
                                         }
                                         $operation = new Operation\Issues\ListForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['milestone'], $requestBodyData['assignee'], $requestBodyData['creator'], $requestBodyData['mentioned'], $requestBodyData['labels'], $requestBodyData['since'], $requestBodyData['state'], $requestBodyData['sort'], $requestBodyData['direction'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Issue|Schema\BasicError {
                                             return $operation->createResponse($response);
                                         });
@@ -4628,7 +4628,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Keys();
                                         }
                                         $operation = new Operation\Repos\ListDeployKeys($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\DeployKey {
                                             return $operation->createResponse($response);
                                         });
@@ -4645,7 +4645,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Labels();
                                         }
                                         $operation = new Operation\Issues\ListLabelsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Label {
                                             return $operation->createResponse($response);
                                         });
@@ -4662,7 +4662,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Languages::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Languages();
                                         }
                                         $operation = new Operation\Repos\ListLanguages($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Languages::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Language {
                                             return $operation->createResponse($response);
                                         });
@@ -4679,7 +4679,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\License::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀License();
                                         }
                                         $operation = new Operation\Licenses\GetForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\License::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\LicenseContent {
                                             return $operation->createResponse($response);
                                         });
@@ -4696,7 +4696,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones();
                                         }
                                         $operation = new Operation\Issues\ListMilestones($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['state'], $requestBodyData['sort'], $requestBodyData['direction'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Milestone {
                                             return $operation->createResponse($response);
                                         });
@@ -4713,7 +4713,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Notifications::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Notifications();
                                         }
                                         $operation = new Operation\Activity\ListRepoNotificationsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Notifications::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['since'], $requestBodyData['before'], $requestBodyData['all'], $requestBodyData['participating'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Thread {
                                             return $operation->createResponse($response);
                                         });
@@ -4730,7 +4730,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages();
                                         }
                                         $operation = new Operation\Repos\GetPages($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Page {
                                             return $operation->createResponse($response);
                                         });
@@ -4747,7 +4747,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreReceiveHooks::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreReceiveHooks();
                                         }
                                         $operation = new Operation\EnterpriseAdmin\ListPreReceiveHooksForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreReceiveHooks::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page'], $requestBodyData['direction'], $requestBodyData['sort']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RepositoryPreReceiveHook {
                                             return $operation->createResponse($response);
                                         });
@@ -4764,7 +4764,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Projects::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Projects();
                                         }
                                         $operation = new Operation\Projects\ListForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Projects::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['state'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Project {
                                             return $operation->createResponse($response);
                                         });
@@ -4781,7 +4781,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls();
                                         }
                                         $operation = new Operation\Pulls\List_($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['head'], $requestBodyData['base'], $requestBodyData['direction'], $requestBodyData['state'], $requestBodyData['sort'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestSimple {
                                             return $operation->createResponse($response);
                                         });
@@ -4798,7 +4798,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme();
                                         }
                                         $operation = new Operation\Repos\GetReadme($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['ref']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ContentFile {
                                             return $operation->createResponse($response);
                                         });
@@ -4815,7 +4815,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases();
                                         }
                                         $operation = new Operation\Repos\ListReleases($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Release {
                                             return $operation->createResponse($response);
                                         });
@@ -4832,7 +4832,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stargazers::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stargazers();
                                         }
                                         $operation = new Operation\Activity\ListStargazersForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stargazers::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Activity\ListStargazersForRepo\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
@@ -4849,7 +4849,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscribers::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscribers();
                                         }
                                         $operation = new Operation\Activity\ListWatchersForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscribers::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                             return $operation->createResponse($response);
                                         });
@@ -4866,7 +4866,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscription::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscription();
                                         }
                                         $operation = new Operation\Activity\GetRepoSubscription($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscription::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RepositorySubscription {
                                             return $operation->createResponse($response);
                                         });
@@ -4883,7 +4883,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Tags::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Tags();
                                         }
                                         $operation = new Operation\Repos\ListTags($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Tags::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Tag {
                                             return $operation->createResponse($response);
                                         });
@@ -4900,7 +4900,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Teams();
                                         }
                                         $operation = new Operation\Repos\ListTeams($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Teams::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Team {
                                             return $operation->createResponse($response);
                                         });
@@ -4917,7 +4917,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Topics::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Topics();
                                         }
                                         $operation = new Operation\Repos\GetAllTopics($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Topics::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['page'], $requestBodyData['perPage']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Topic {
                                             return $operation->createResponse($response);
                                         });
@@ -4940,7 +4940,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys::class] = $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys();
                                         }
                                         $operation = new Operation\EnterpriseAdmin\GetAllAuthorizedSshKeys($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys::class]);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SshKey {
                                             return $operation->createResponse($response);
                                         });
@@ -4963,7 +4963,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb();
                                         }
                                         $operation = new Operation\Teams\GetDiscussionLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb::class], $requestBodyData['teamId'], $requestBodyData['discussionNumber']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussion {
                                             return $operation->createResponse($response);
                                         });
@@ -4979,7 +4979,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Teams\GetMemberLegacy($requestBodyData['teamId'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -4998,7 +4998,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Memberships\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Memberships🌀CbUsernameRcb();
                                         }
                                         $operation = new Operation\Teams\GetMembershipForUserLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Memberships\CbUsernameRcb::class], $requestBodyData['teamId'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamMembership {
                                             return $operation->createResponse($response);
                                         });
@@ -5017,7 +5017,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Projects🌀CbProjectIdRcb();
                                         }
                                         $operation = new Operation\Teams\CheckPermissionsForProjectLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb::class], $requestBodyData['teamId'], $requestBodyData['projectId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamProject {
                                             return $operation->createResponse($response);
                                         });
@@ -5040,7 +5040,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\User\Installations\CbInstallationIdRcb\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Installations🌀CbInstallationIdRcb🌀Repositories();
                                         }
                                         $operation = new Operation\Apps\ListInstallationReposForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Installations\CbInstallationIdRcb\Repositories::class], $requestBodyData['installationId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Apps\ListInstallationReposForAuthenticatedUser\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
@@ -5061,7 +5061,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\User\Memberships\Orgs\CbOrgRcb::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Memberships🌀Orgs🌀CbOrgRcb();
                                         }
                                         $operation = new Operation\Orgs\GetMembershipForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Memberships\Orgs\CbOrgRcb::class], $requestBodyData['org']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrgMembership {
                                             return $operation->createResponse($response);
                                         });
@@ -5079,7 +5079,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Migrations\GetArchiveForAuthenticatedUser($requestBodyData['migrationId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -5096,7 +5096,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\User\Migrations\CbMigrationIdRcb\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Migrations🌀CbMigrationIdRcb🌀Repositories();
                                         }
                                         $operation = new Operation\Migrations\ListReposForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Migrations\CbMigrationIdRcb\Repositories::class], $requestBodyData['migrationId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\MinimalRepository {
                                             return $operation->createResponse($response);
                                         });
@@ -5114,7 +5114,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Activity\CheckRepoIsStarredByAuthenticatedUser($requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -5137,7 +5137,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Events\Public_::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Events🌀Public_();
                                         }
                                         $operation = new Operation\Activity\ListPublicEventsForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Events\Public_::class], $requestBodyData['username'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Event {
                                             return $operation->createResponse($response);
                                         });
@@ -5153,7 +5153,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Users\CheckFollowingForUser($requestBodyData['username'], $requestBodyData['targetUser']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -5172,7 +5172,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\ReceivedEvents\Public_::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀ReceivedEvents🌀Public_();
                                         }
                                         $operation = new Operation\Activity\ListReceivedPublicEventsForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\ReceivedEvents\Public_::class], $requestBodyData['username'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Event {
                                             return $operation->createResponse($response);
                                         });
@@ -5201,7 +5201,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Organizations::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Organizations();
                                                 }
                                                 $operation = new Operation\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Organizations::class], $requestBodyData['enterprise'], $requestBodyData['runnerGroupId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5218,7 +5218,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners();
                                                 }
                                                 $operation = new Operation\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners::class], $requestBodyData['enterprise'], $requestBodyData['runnerGroupId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5239,7 +5239,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
                                                 }
                                                 $operation = new Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $requestBodyData['enterprise'], $requestBodyData['runnerId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5266,7 +5266,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Repositories();
                                                 }
                                                 $operation = new Operation\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories::class], $requestBodyData['org'], $requestBodyData['runnerGroupId'], $requestBodyData['page'], $requestBodyData['perPage']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5283,7 +5283,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners();
                                                 }
                                                 $operation = new Operation\Actions\ListSelfHostedRunnersInGroupForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners::class], $requestBodyData['org'], $requestBodyData['runnerGroupId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5304,7 +5304,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
                                                 }
                                                 $operation = new Operation\Actions\ListLabelsForSelfHostedRunnerForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $requestBodyData['org'], $requestBodyData['runnerId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5325,7 +5325,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb🌀Repositories();
                                                 }
                                                 $operation = new Operation\Actions\ListSelectedReposForOrgSecret($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb\Repositories::class], $requestBodyData['org'], $requestBodyData['secretName'], $requestBodyData['page'], $requestBodyData['perPage']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListSelectedReposForOrgSecret\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5348,7 +5348,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Dependabot\Secrets\CbSecretNameRcb\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Dependabot🌀Secrets🌀CbSecretNameRcb🌀Repositories();
                                                 }
                                                 $operation = new Operation\Dependabot\ListSelectedReposForOrgSecret($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Dependabot\Secrets\CbSecretNameRcb\Repositories::class], $requestBodyData['org'], $requestBodyData['secretName'], $requestBodyData['page'], $requestBodyData['perPage']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListSelectedReposForOrgSecret\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5371,7 +5371,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Deliveries\CbDeliveryIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Deliveries🌀CbDeliveryIdRcb();
                                                 }
                                                 $operation = new Operation\Orgs\GetWebhookDelivery($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Deliveries\CbDeliveryIdRcb::class], $requestBodyData['org'], $requestBodyData['hookId'], $requestBodyData['deliveryId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\HookDelivery {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5394,7 +5394,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb();
                                                 }
                                                 $operation = new Operation\Teams\GetDiscussionInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['discussionNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussion {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5413,7 +5413,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Memberships🌀CbUsernameRcb();
                                                 }
                                                 $operation = new Operation\Teams\GetMembershipForUserInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['username']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamMembership {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5432,7 +5432,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects\CbProjectIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects🌀CbProjectIdRcb();
                                                 }
                                                 $operation = new Operation\Teams\CheckPermissionsForProjectInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects\CbProjectIdRcb::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['projectId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamProject {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5459,7 +5459,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb();
                                                 }
                                                 $operation = new Operation\Actions\GetArtifact($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['artifactId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Artifact {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5478,7 +5478,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb();
                                                 }
                                                 $operation = new Operation\Actions\GetJobForWorkflowRun($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['jobId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Job {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5497,7 +5497,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions\SelectedActions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions🌀SelectedActions();
                                                 }
                                                 $operation = new Operation\Actions\GetAllowedActionsRepository($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions\SelectedActions::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SelectedActions {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5516,7 +5516,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\Downloads::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀Downloads();
                                                 }
                                                 $operation = new Operation\Actions\ListRunnerApplicationsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\Downloads::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RunnerApplication {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5533,7 +5533,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀CbRunnerIdRcb();
                                                 }
                                                 $operation = new Operation\Actions\GetSelfHostedRunnerForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runnerId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Runner {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5552,7 +5552,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb();
                                                 }
                                                 $operation = new Operation\Actions\GetWorkflowRun($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runId'], $requestBodyData['excludePullRequests']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\WorkflowRun {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5571,7 +5571,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\PublicKey::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀PublicKey();
                                                 }
                                                 $operation = new Operation\Actions\GetRepoPublicKey($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\PublicKey::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ActionsPublicKey {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5588,7 +5588,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb();
                                                 }
                                                 $operation = new Operation\Actions\GetRepoSecret($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['secretName']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ActionsSecret {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5607,7 +5607,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb();
                                                 }
                                                 $operation = new Operation\Actions\GetWorkflow($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['workflowId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Workflow {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5628,7 +5628,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection();
                                                 }
                                                 $operation = new Operation\Repos\GetBranchProtection($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\BranchProtection {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5649,7 +5649,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb\Annotations::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashRuns🌀CbCheckRunIdRcb🌀Annotations();
                                                 }
                                                 $operation = new Operation\Checks\ListAnnotations($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb\Annotations::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['checkRunId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CheckAnnotation {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5670,7 +5670,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\CheckDashRuns::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀CheckDashRuns();
                                                 }
                                                 $operation = new Operation\Checks\ListForSuite($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\CheckDashRuns::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['checkSuiteId'], $requestBodyData['checkName'], $requestBodyData['status'], $requestBodyData['filter'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Checks\ListForSuite\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5691,7 +5691,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb();
                                                 }
                                                 $operation = new Operation\CodeScanning\GetAlert($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['alertNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CodeScanningAlert {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5710,7 +5710,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Analyses\CbAnalysisIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Analyses🌀CbAnalysisIdRcb();
                                                 }
                                                 $operation = new Operation\CodeScanning\GetAnalysis($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Analyses\CbAnalysisIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['analysisId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CodeScanningAnalysis|Schema\AuditLogEvent\Data {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5729,7 +5729,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Sarifs\CbSarifIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Sarifs🌀CbSarifIdRcb();
                                                 }
                                                 $operation = new Operation\CodeScanning\GetSarif($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Sarifs\CbSarifIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['sarifId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CodeScanningSarifsStatus {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5750,7 +5750,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Collaborators\CbUsernameRcb\Permission::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Collaborators🌀CbUsernameRcb🌀Permission();
                                                 }
                                                 $operation = new Operation\Repos\GetCollaboratorPermissionLevel($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Collaborators\CbUsernameRcb\Permission::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['username']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RepositoryCollaboratorPermission {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5771,7 +5771,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions();
                                                 }
                                                 $operation = new Operation\Reactions\ListForCommitComment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId'], $requestBodyData['content'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5792,7 +5792,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\BranchesDashWhereDashHead::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀BranchesDashWhereDashHead();
                                                 }
                                                 $operation = new Operation\Repos\ListBranchesForHeadCommit($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\BranchesDashWhereDashHead::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commitSha']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\BranchShort {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5809,7 +5809,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Comments();
                                                 }
                                                 $operation = new Operation\Repos\ListCommentsForCommit($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Comments::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commitSha'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CommitComment {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5826,7 +5826,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Pulls::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Pulls();
                                                 }
                                                 $operation = new Operation\Repos\ListPullRequestsAssociatedWithCommit($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Pulls::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commitSha'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestSimple {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5845,7 +5845,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\CheckRuns::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀CheckRuns();
                                                 }
                                                 $operation = new Operation\Checks\ListForRef($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\CheckRuns::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['ref'], $requestBodyData['checkName'], $requestBodyData['status'], $requestBodyData['appId'], $requestBodyData['filter'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Checks\ListForSuite\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5862,7 +5862,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\CheckSuites::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀CheckSuites();
                                                 }
                                                 $operation = new Operation\Checks\ListSuitesForRef($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\CheckSuites::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['ref'], $requestBodyData['appId'], $requestBodyData['checkName'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5879,7 +5879,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\Status::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀Status();
                                                 }
                                                 $operation = new Operation\Repos\GetCombinedStatusForRef($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\Status::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['ref'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CombinedCommitStatus {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5896,7 +5896,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\Statuses::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbRefRcb🌀Statuses();
                                                 }
                                                 $operation = new Operation\Repos\ListCommitStatusesForRef($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\Statuses::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['ref'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Status|Schema\BasicError {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5917,7 +5917,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Dependabot\Secrets\PublicKey::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Dependabot🌀Secrets🌀PublicKey();
                                                 }
                                                 $operation = new Operation\Dependabot\GetRepoPublicKey($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Dependabot\Secrets\PublicKey::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\DependabotPublicKey {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5934,7 +5934,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Dependabot\Secrets\CbSecretNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Dependabot🌀Secrets🌀CbSecretNameRcb();
                                                 }
                                                 $operation = new Operation\Dependabot\GetRepoSecret($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Dependabot\Secrets\CbSecretNameRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['secretName']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\DependabotSecret {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5955,7 +5955,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses();
                                                 }
                                                 $operation = new Operation\Repos\ListDeploymentStatuses($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['deploymentId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\DeploymentStatus {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5976,7 +5976,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb\DeploymentDashBranchDashPolicies::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb🌀DeploymentDashBranchDashPolicies();
                                                 }
                                                 $operation = new Operation\Repos\ListDeploymentBranchPolicies($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb\DeploymentDashBranchDashPolicies::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['environmentName'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Repos\ListDeploymentBranchPolicies\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -5997,7 +5997,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Blobs\CbFileShaRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Blobs🌀CbFileShaRcb();
                                                 }
                                                 $operation = new Operation\Git\GetBlob($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Blobs\CbFileShaRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['fileSha']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Blob {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6016,7 +6016,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Commits\CbCommitShaRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Commits🌀CbCommitShaRcb();
                                                 }
                                                 $operation = new Operation\Git\GetCommit($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Commits\CbCommitShaRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commitSha']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GitCommit {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6035,7 +6035,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\MatchingRefs\CbRefRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀MatchingRefs🌀CbRefRcb();
                                                 }
                                                 $operation = new Operation\Git\ListMatchingRefs($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\MatchingRefs\CbRefRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['ref']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GitRef {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6054,7 +6054,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Ref\CbRefRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Ref🌀CbRefRcb();
                                                 }
                                                 $operation = new Operation\Git\GetRef($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Ref\CbRefRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['ref']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GitRef {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6073,7 +6073,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Tags\CbTagShaRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags🌀CbTagShaRcb();
                                                 }
                                                 $operation = new Operation\Git\GetTag($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Tags\CbTagShaRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['tagSha']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GitTag {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6092,7 +6092,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees\CbTreeShaRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees🌀CbTreeShaRcb();
                                                 }
                                                 $operation = new Operation\Git\GetTree($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees\CbTreeShaRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['treeSha'], $requestBodyData['recursive']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GitTree {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6113,7 +6113,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Config::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Config();
                                                 }
                                                 $operation = new Operation\Repos\GetWebhookConfigForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Config::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['hookId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\WebhookConfig {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6130,7 +6130,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Deliveries::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Deliveries();
                                                 }
                                                 $operation = new Operation\Repos\ListWebhookDeliveries($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Deliveries::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['hookId'], $requestBodyData['cursor'], $requestBodyData['redelivery'], $requestBodyData['perPage']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\HookDeliveryItem {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6151,7 +6151,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb();
                                                 }
                                                 $operation = new Operation\Issues\GetComment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\IssueComment {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6170,7 +6170,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events\CbEventIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Events🌀CbEventIdRcb();
                                                 }
                                                 $operation = new Operation\Issues\GetEvent($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events\CbEventIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['eventId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\IssueEvent {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6189,7 +6189,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Comments();
                                                 }
                                                 $operation = new Operation\Issues\ListComments($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Comments::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber'], $requestBodyData['since'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\IssueComment {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6206,7 +6206,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Events::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Events();
                                                 }
                                                 $operation = new Operation\Issues\ListEvents($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Events::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\IssueEventForIssue {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6223,7 +6223,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels();
                                                 }
                                                 $operation = new Operation\Issues\ListLabelsOnIssue($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Label|Schema\BasicError {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6240,7 +6240,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Reactions();
                                                 }
                                                 $operation = new Operation\Reactions\ListForIssue($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber'], $requestBodyData['content'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6257,7 +6257,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Timeline::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Timeline();
                                                 }
                                                 $operation = new Operation\Issues\ListEventsForTimeline($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Timeline::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TimelineIssueEvents {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6278,7 +6278,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones🌀CbMilestoneNumberRcb🌀Labels();
                                                 }
                                                 $operation = new Operation\Issues\ListLabelsForMilestone($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb\Labels::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['milestoneNumber'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Label {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6299,7 +6299,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\Latest::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds🌀Latest();
                                                 }
                                                 $operation = new Operation\Repos\GetLatestPagesBuild($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\Latest::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PageBuild {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6316,7 +6316,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\CbBuildIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds🌀CbBuildIdRcb();
                                                 }
                                                 $operation = new Operation\Repos\GetPagesBuild($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\CbBuildIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['buildId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PageBuild {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6337,7 +6337,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb();
                                                 }
                                                 $operation = new Operation\Pulls\GetReviewComment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestReviewComment {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6356,7 +6356,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Comments();
                                                 }
                                                 $operation = new Operation\Pulls\ListReviewComments($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber'], $requestBodyData['direction'], $requestBodyData['since'], $requestBodyData['sort'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestReviewComment {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6373,7 +6373,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Commits::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Commits();
                                                 }
                                                 $operation = new Operation\Pulls\ListCommits($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Commits::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Commit {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6390,7 +6390,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Files::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Files();
                                                 }
                                                 $operation = new Operation\Pulls\ListFiles($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Files::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\DiffEntry {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6404,7 +6404,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Pulls\CheckIfMerged($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6421,7 +6421,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\RequestedReviewers::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀RequestedReviewers();
                                                 }
                                                 $operation = new Operation\Pulls\ListRequestedReviewers($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\RequestedReviewers::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestReviewRequest {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6438,7 +6438,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews();
                                                 }
                                                 $operation = new Operation\Pulls\ListReviews($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestReview {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6459,7 +6459,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Assets\CbAssetIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Assets🌀CbAssetIdRcb();
                                                 }
                                                 $operation = new Operation\Repos\GetReleaseAsset($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Assets\CbAssetIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['assetId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ReleaseAsset {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6478,7 +6478,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Tags\CbTagRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Tags🌀CbTagRcb();
                                                 }
                                                 $operation = new Operation\Repos\GetReleaseByTag($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Tags\CbTagRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['tag']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Release {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6497,7 +6497,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Assets::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb🌀Assets();
                                                 }
                                                 $operation = new Operation\Repos\ListReleaseAssets($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Assets::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['releaseId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ReleaseAsset {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6514,7 +6514,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb🌀Reactions();
                                                 }
                                                 $operation = new Operation\Reactions\ListForRelease($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Reactions::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['releaseId'], $requestBodyData['content'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6535,7 +6535,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\SecretDashScanning\Alerts\CbAlertNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretDashScanning🌀Alerts🌀CbAlertNumberRcb();
                                                 }
                                                 $operation = new Operation\SecretScanning\GetAlert($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\SecretDashScanning\Alerts\CbAlertNumberRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['alertNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SecretScanningAlert {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6562,7 +6562,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repositories\CbRepositoryIdRcb\Environments\CbEnvironmentNameRcb\Secrets\PublicDashKey::class] = $this->hydrators->getObjectMapperOperation🌀Repositories🌀CbRepositoryIdRcb🌀Environments🌀CbEnvironmentNameRcb🌀Secrets🌀PublicDashKey();
                                                 }
                                                 $operation = new Operation\Actions\GetEnvironmentPublicKey($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repositories\CbRepositoryIdRcb\Environments\CbEnvironmentNameRcb\Secrets\PublicDashKey::class], $requestBodyData['repositoryId'], $requestBodyData['environmentName']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ActionsPublicKey {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6579,7 +6579,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repositories\CbRepositoryIdRcb\Environments\CbEnvironmentNameRcb\Secrets\CbSecretNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repositories🌀CbRepositoryIdRcb🌀Environments🌀CbEnvironmentNameRcb🌀Secrets🌀CbSecretNameRcb();
                                                 }
                                                 $operation = new Operation\Actions\GetEnvironmentSecret($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repositories\CbRepositoryIdRcb\Environments\CbEnvironmentNameRcb\Secrets\CbSecretNameRcb::class], $requestBodyData['repositoryId'], $requestBodyData['environmentName'], $requestBodyData['secretName']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ActionsSecret {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6606,7 +6606,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb();
                                                 }
                                                 $operation = new Operation\Teams\GetDiscussionCommentLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class], $requestBodyData['teamId'], $requestBodyData['discussionNumber'], $requestBodyData['commentNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussionComment {
                                                     return $operation->createResponse($response);
                                                 });
@@ -6638,7 +6638,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments();
                                                     }
                                                     $operation = new Operation\Teams\ListDiscussionCommentsInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['discussionNumber'], $requestBodyData['direction'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussionComment {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6655,7 +6655,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions();
                                                     }
                                                     $operation = new Operation\Reactions\ListForTeamDiscussionInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['discussionNumber'], $requestBodyData['content'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6676,7 +6676,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos\CbOwnerRcb\CbRepoRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb();
                                                     }
                                                     $operation = new Operation\Teams\CheckPermissionsForRepoInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos\CbOwnerRcb\CbRepoRcb::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['owner'], $requestBodyData['repo']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamRepository {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6702,7 +6702,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\DownloadArtifact($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['artifactId'], $requestBodyData['archiveFormat']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6720,7 +6720,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\DownloadJobLogsForWorkflowRun($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['jobId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6741,7 +6741,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
                                                     }
                                                     $operation = new Operation\Actions\ListLabelsForSelfHostedRunnerForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runnerId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6762,7 +6762,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Approvals::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Approvals();
                                                     }
                                                     $operation = new Operation\Actions\GetReviewsForRun($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Approvals::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EnvironmentApprovals {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6779,7 +6779,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Artifacts::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Artifacts();
                                                     }
                                                     $operation = new Operation\Actions\ListWorkflowRunArtifacts($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Artifacts::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListArtifactsForRepo\Response\Applicationjson\H200 {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6796,7 +6796,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Jobs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Jobs();
                                                     }
                                                     $operation = new Operation\Actions\ListJobsForWorkflowRun($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Jobs::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runId'], $requestBodyData['filter'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListJobsForWorkflowRun\Response\Applicationjson\H200 {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6810,7 +6810,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\DownloadWorkflowRunLogs($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6827,7 +6827,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\PendingDeployments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀PendingDeployments();
                                                     }
                                                     $operation = new Operation\Actions\GetPendingDeploymentsForRun($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\PendingDeployments::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PendingDeployment {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6848,7 +6848,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Runs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Runs();
                                                     }
                                                     $operation = new Operation\Actions\ListWorkflowRuns($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Runs::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['workflowId'], $requestBodyData['actor'], $requestBodyData['branch'], $requestBodyData['event'], $requestBodyData['status'], $requestBodyData['created'], $requestBodyData['perPage'], $requestBodyData['page'], $requestBodyData['excludePullRequests']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Actions\ListWorkflowRunsForRepo\Response\Applicationjson\H200 {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6871,7 +6871,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\EnforceAdmins::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀EnforceAdmins();
                                                     }
                                                     $operation = new Operation\Repos\GetAdminBranchProtection($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\EnforceAdmins::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProtectedBranchAdminEnforced {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6888,7 +6888,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredPullRequestReviews::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredPullRequestReviews();
                                                     }
                                                     $operation = new Operation\Repos\GetPullRequestReviewProtection($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredPullRequestReviews::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProtectedBranchPullRequestReview {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6905,7 +6905,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredSignatures::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredSignatures();
                                                     }
                                                     $operation = new Operation\Repos\GetCommitSignatureProtection($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredSignatures::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProtectedBranchAdminEnforced {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6922,7 +6922,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks();
                                                     }
                                                     $operation = new Operation\Repos\GetStatusChecksProtection($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\StatusCheckPolicy {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6939,7 +6939,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions();
                                                     }
                                                     $operation = new Operation\Repos\GetAccessRestrictions($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\BranchRestrictionPolicy {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6962,7 +6962,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb\Instances::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb🌀Instances();
                                                     }
                                                     $operation = new Operation\CodeScanning\ListAlertInstances($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb\Instances::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['alertNumber'], $requestBodyData['ref'], $requestBodyData['page'], $requestBodyData['perPage']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CodeScanningAlertInstance {
                                                         return $operation->createResponse($response);
                                                     });
@@ -6985,7 +6985,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses\CbStatusIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses🌀CbStatusIdRcb();
                                                     }
                                                     $operation = new Operation\Repos\GetDeploymentStatus($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses\CbStatusIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['deploymentId'], $requestBodyData['statusId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\DeploymentStatus {
                                                         return $operation->createResponse($response);
                                                     });
@@ -7008,7 +7008,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb\DeploymentDashBranchDashPolicies\CbBranchPolicyIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb🌀DeploymentDashBranchDashPolicies🌀CbBranchPolicyIdRcb();
                                                     }
                                                     $operation = new Operation\Repos\GetDeploymentBranchPolicy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb\DeploymentDashBranchDashPolicies\CbBranchPolicyIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['environmentName'], $requestBodyData['branchPolicyId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\DeploymentBranchPolicy {
                                                         return $operation->createResponse($response);
                                                     });
@@ -7031,7 +7031,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Deliveries\CbDeliveryIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Deliveries🌀CbDeliveryIdRcb();
                                                     }
                                                     $operation = new Operation\Repos\GetWebhookDelivery($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Deliveries\CbDeliveryIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['hookId'], $requestBodyData['deliveryId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\HookDelivery {
                                                         return $operation->createResponse($response);
                                                     });
@@ -7054,7 +7054,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb🌀Reactions();
                                                     }
                                                     $operation = new Operation\Reactions\ListForIssueComment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId'], $requestBodyData['content'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                         return $operation->createResponse($response);
                                                     });
@@ -7072,7 +7072,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Issues\CheckUserCanBeAssignedToIssue($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber'], $requestBodyData['assignee']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -7095,7 +7095,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb🌀Reactions();
                                                     }
                                                     $operation = new Operation\Reactions\ListForPullRequestReviewComment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId'], $requestBodyData['content'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                         return $operation->createResponse($response);
                                                     });
@@ -7116,7 +7116,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb();
                                                     }
                                                     $operation = new Operation\Pulls\GetReview($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber'], $requestBodyData['reviewId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestReview {
                                                         return $operation->createResponse($response);
                                                     });
@@ -7139,7 +7139,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\SecretDashScanning\Alerts\CbAlertNumberRcb\Locations::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretDashScanning🌀Alerts🌀CbAlertNumberRcb🌀Locations();
                                                     }
                                                     $operation = new Operation\SecretScanning\ListLocationsForAlert($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\SecretDashScanning\Alerts\CbAlertNumberRcb\Locations::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['alertNumber'], $requestBodyData['page'], $requestBodyData['perPage']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SecretScanningLocation {
                                                         return $operation->createResponse($response);
                                                     });
@@ -7168,7 +7168,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions();
                                                     }
                                                     $operation = new Operation\Reactions\ListForTeamDiscussionCommentLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions::class], $requestBodyData['teamId'], $requestBodyData['discussionNumber'], $requestBodyData['commentNumber'], $requestBodyData['content'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                         return $operation->createResponse($response);
                                                     });
@@ -7202,7 +7202,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb();
                                                         }
                                                         $operation = new Operation\Teams\GetDiscussionCommentInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['discussionNumber'], $requestBodyData['commentNumber']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussionComment {
                                                             return $operation->createResponse($response);
                                                         });
@@ -7233,7 +7233,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks\Contexts::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks🌀Contexts();
                                                         }
                                                         $operation = new Operation\Repos\GetAllStatusCheckContexts($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks\Contexts::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Gitignore\GetAllTemplates\Response\Applicationjson\H200 {
                                                             return $operation->createResponse($response);
                                                         });
@@ -7252,7 +7252,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Apps::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Apps();
                                                         }
                                                         $operation = new Operation\Repos\GetAppsWithAccessToProtectedBranch($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Apps::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Integration {
                                                             return $operation->createResponse($response);
                                                         });
@@ -7269,7 +7269,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Teams();
                                                         }
                                                         $operation = new Operation\Repos\GetTeamsWithAccessToProtectedBranch($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Teams::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Team {
                                                             return $operation->createResponse($response);
                                                         });
@@ -7286,7 +7286,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Users::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Users();
                                                         }
                                                         $operation = new Operation\Repos\GetUsersWithAccessToProtectedBranch($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Users::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                                             return $operation->createResponse($response);
                                                         });
@@ -7311,7 +7311,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Comments();
                                                         }
                                                         $operation = new Operation\Pulls\ListCommentsForReview($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Comments::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber'], $requestBodyData['reviewId'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ReviewComment {
                                                             return $operation->createResponse($response);
                                                         });
@@ -7347,7 +7347,7 @@ final class Client implements ClientInterface
                                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions();
                                                             }
                                                             $operation = new Operation\Reactions\ListForTeamDiscussionCommentInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['discussionNumber'], $requestBodyData['commentNumber'], $requestBodyData['content'], $requestBodyData['perPage'], $requestBodyData['page']);
-                                                            $request = $operation->createRequest($requestBodyData);
+                                                            $request = $operation->createRequest($params);
                                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                                 return $operation->createResponse($response);
                                                             });
@@ -7379,7 +7379,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Admin\Hooks::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Hooks();
                                 }
                                 $operation = new Operation\EnterpriseAdmin\CreateGlobalWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Hooks::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GlobalHook {
                                     return $operation->createResponse($response);
                                 });
@@ -7396,7 +7396,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Admin\Organizations::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Organizations();
                                 }
                                 $operation = new Operation\EnterpriseAdmin\CreateOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Organizations::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrganizationSimple {
                                     return $operation->createResponse($response);
                                 });
@@ -7413,7 +7413,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments();
                                 }
                                 $operation = new Operation\EnterpriseAdmin\CreatePreReceiveEnvironment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PreReceiveEnvironment {
                                     return $operation->createResponse($response);
                                 });
@@ -7430,7 +7430,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Admin\PreReceiveHooks::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveHooks();
                                 }
                                 $operation = new Operation\EnterpriseAdmin\CreatePreReceiveHook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreReceiveHooks::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PreReceiveHook {
                                     return $operation->createResponse($response);
                                 });
@@ -7447,7 +7447,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Admin\Users::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Users();
                                 }
                                 $operation = new Operation\EnterpriseAdmin\CreateUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Users::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                     return $operation->createResponse($response);
                                 });
@@ -7466,7 +7466,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Markdown\Raw::class] = $this->hydrators->getObjectMapperOperation🌀Markdown🌀Raw();
                                 }
                                 $operation = new Operation\Markdown\RenderRaw($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Markdown\Raw::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Gitignore\GetAllTemplates\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
@@ -7485,7 +7485,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Emails::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Emails();
                                 }
                                 $operation = new Operation\Users\AddEmailForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Emails::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Email {
                                     return $operation->createResponse($response);
                                 });
@@ -7502,7 +7502,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\GpgKeys::class] = $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys();
                                 }
                                 $operation = new Operation\Users\CreateGpgKeyForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\GpgKeys::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GpgKey {
                                     return $operation->createResponse($response);
                                 });
@@ -7519,7 +7519,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Keys::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Keys();
                                 }
                                 $operation = new Operation\Users\CreatePublicSshKeyForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Keys::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Key {
                                     return $operation->createResponse($response);
                                 });
@@ -7536,7 +7536,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Migrations::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Migrations();
                                 }
                                 $operation = new Operation\Migrations\StartForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Migrations::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Migration {
                                     return $operation->createResponse($response);
                                 });
@@ -7553,7 +7553,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Projects::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Projects();
                                 }
                                 $operation = new Operation\Projects\CreateForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Projects::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Project {
                                     return $operation->createResponse($response);
                                 });
@@ -7570,7 +7570,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\User\Repos::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Repos();
                                 }
                                 $operation = new Operation\Repos\CreateForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Repos::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Repository {
                                     return $operation->createResponse($response);
                                 });
@@ -7592,7 +7592,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\EnterpriseAdmin\PingGlobalWebhook($requestBodyData['hookId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -7613,7 +7613,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb🌀Downloads();
                                         }
                                         $operation = new Operation\EnterpriseAdmin\StartPreReceiveEnvironmentDownload($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads::class], $requestBodyData['preReceiveEnvironmentId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PreReceiveEnvironmentDownloadStatus {
                                             return $operation->createResponse($response);
                                         });
@@ -7634,7 +7634,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Admin\Users\CbUsernameRcb\Authorizations::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Users🌀CbUsernameRcb🌀Authorizations();
                                         }
                                         $operation = new Operation\EnterpriseAdmin\CreateImpersonationOAuthToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Users\CbUsernameRcb\Authorizations::class], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Authorization {
                                             return $operation->createResponse($response);
                                         });
@@ -7657,7 +7657,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\App\Installations\CbInstallationIdRcb\AccessTokens::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Installations🌀CbInstallationIdRcb🌀AccessTokens();
                                         }
                                         $operation = new Operation\Apps\CreateInstallationAccessToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Installations\CbInstallationIdRcb\AccessTokens::class], $requestBodyData['installationId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\InstallationToken {
                                             return $operation->createResponse($response);
                                         });
@@ -7680,7 +7680,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Token\Scoped::class] = $this->hydrators->getObjectMapperOperation🌀Applications🌀CbClientIdRcb🌀Token🌀Scoped();
                                         }
                                         $operation = new Operation\Apps\ScopeToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Token\Scoped::class], $requestBodyData['clientId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Authorization {
                                             return $operation->createResponse($response);
                                         });
@@ -7703,7 +7703,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerGroups::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerGroups();
                                         }
                                         $operation = new Operation\EnterpriseAdmin\CreateSelfHostedRunnerGroupForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerGroups::class], $requestBodyData['enterprise']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RunnerGroupsEnterprise {
                                             return $operation->createResponse($response);
                                         });
@@ -7726,7 +7726,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerGroups();
                                         }
                                         $operation = new Operation\Actions\CreateSelfHostedRunnerGroupForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups::class], $requestBodyData['org']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RunnerGroupsOrg {
                                             return $operation->createResponse($response);
                                         });
@@ -7749,7 +7749,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Cards::class] = $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀CbColumnIdRcb🌀Cards();
                                         }
                                         $operation = new Operation\Projects\CreateCard($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Cards::class], $requestBodyData['columnId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProjectCard {
                                             return $operation->createResponse($response);
                                         });
@@ -7766,7 +7766,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Moves::class] = $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀CbColumnIdRcb🌀Moves();
                                         }
                                         $operation = new Operation\Projects\MoveColumn($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Moves::class], $requestBodyData['columnId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Gists\CheckIsStarred\Response\Applicationjson\H404 {
                                             return $operation->createResponse($response);
                                         });
@@ -7789,7 +7789,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Autolinks::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Autolinks();
                                         }
                                         $operation = new Operation\Repos\CreateAutolink($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Autolinks::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Autolink {
                                             return $operation->createResponse($response);
                                         });
@@ -7806,7 +7806,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckRuns::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckRuns();
                                         }
                                         $operation = new Operation\Checks\Create($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckRuns::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CheckRun {
                                             return $operation->createResponse($response);
                                         });
@@ -7823,7 +7823,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckSuites::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckSuites();
                                         }
                                         $operation = new Operation\Checks\CreateSuite($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckSuites::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CheckSuite {
                                             return $operation->createResponse($response);
                                         });
@@ -7840,7 +7840,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments();
                                         }
                                         $operation = new Operation\Repos\CreateDeployment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Deployment|Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202 {
                                             return $operation->createResponse($response);
                                         });
@@ -7854,7 +7854,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Repos\CreateDispatchEvent($this->requestSchemaValidator, $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -7871,7 +7871,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Forks::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Forks();
                                         }
                                         $operation = new Operation\Repos\CreateFork($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Forks::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\FullRepository {
                                             return $operation->createResponse($response);
                                         });
@@ -7888,7 +7888,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks();
                                         }
                                         $operation = new Operation\Repos\CreateWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Hook {
                                             return $operation->createResponse($response);
                                         });
@@ -7905,7 +7905,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues();
                                         }
                                         $operation = new Operation\Issues\Create($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Issue {
                                             return $operation->createResponse($response);
                                         });
@@ -7922,7 +7922,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Keys();
                                         }
                                         $operation = new Operation\Repos\CreateDeployKey($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\DeployKey {
                                             return $operation->createResponse($response);
                                         });
@@ -7939,7 +7939,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Labels();
                                         }
                                         $operation = new Operation\Issues\CreateLabel($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Label {
                                             return $operation->createResponse($response);
                                         });
@@ -7956,7 +7956,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\MergeUpstream::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀MergeUpstream();
                                         }
                                         $operation = new Operation\Repos\MergeUpstream($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\MergeUpstream::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\MergedUpstream {
                                             return $operation->createResponse($response);
                                         });
@@ -7973,7 +7973,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Merges::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Merges();
                                         }
                                         $operation = new Operation\Repos\Merge($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Merges::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Commit {
                                             return $operation->createResponse($response);
                                         });
@@ -7990,7 +7990,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones();
                                         }
                                         $operation = new Operation\Issues\CreateMilestone($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Milestone {
                                             return $operation->createResponse($response);
                                         });
@@ -8007,7 +8007,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages();
                                         }
                                         $operation = new Operation\Repos\CreatePagesSite($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Page {
                                             return $operation->createResponse($response);
                                         });
@@ -8024,7 +8024,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Projects::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Projects();
                                         }
                                         $operation = new Operation\Projects\CreateForRepo($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Projects::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Project {
                                             return $operation->createResponse($response);
                                         });
@@ -8041,7 +8041,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls();
                                         }
                                         $operation = new Operation\Pulls\Create($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequest {
                                             return $operation->createResponse($response);
                                         });
@@ -8058,7 +8058,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases();
                                         }
                                         $operation = new Operation\Repos\CreateRelease($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Release {
                                             return $operation->createResponse($response);
                                         });
@@ -8075,7 +8075,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Transfer::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Transfer();
                                         }
                                         $operation = new Operation\Repos\Transfer($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Transfer::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\MinimalRepository {
                                             return $operation->createResponse($response);
                                         });
@@ -8096,7 +8096,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbTemplateOwnerRcb\CbTemplateRepoRcb\Generate::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbTemplateOwnerRcb🌀CbTemplateRepoRcb🌀Generate();
                                         }
                                         $operation = new Operation\Repos\CreateUsingTemplate($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbTemplateOwnerRcb\CbTemplateRepoRcb\Generate::class], $requestBodyData['templateOwner'], $requestBodyData['templateRepo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Repository {
                                             return $operation->createResponse($response);
                                         });
@@ -8119,7 +8119,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys::class] = $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys();
                                         }
                                         $operation = new Operation\EnterpriseAdmin\AddAuthorizedSshKey($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys::class]);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SshKey {
                                             return $operation->createResponse($response);
                                         });
@@ -8147,7 +8147,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb\Sync::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Ldap🌀Teams🌀CbTeamIdRcb🌀Sync();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\SyncLdapMappingForTeam($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb\Sync::class], $requestBodyData['teamId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201 {
                                                 return $operation->createResponse($response);
                                             });
@@ -8168,7 +8168,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Sync::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Ldap🌀Users🌀CbUsernameRcb🌀Sync();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\SyncLdapMappingForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Sync::class], $requestBodyData['username']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201 {
                                                 return $operation->createResponse($response);
                                             });
@@ -8193,7 +8193,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\App\Hook\Deliveries\CbDeliveryIdRcb\Attempts::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Deliveries🌀CbDeliveryIdRcb🌀Attempts();
                                             }
                                             $operation = new Operation\Apps\RedeliverWebhookDelivery($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Hook\Deliveries\CbDeliveryIdRcb\Attempts::class], $requestBodyData['deliveryId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\AuditLogEvent\Config {
                                                 return $operation->createResponse($response);
                                             });
@@ -8218,7 +8218,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RegistrationToken::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀RegistrationToken();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\CreateRegistrationTokenForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RegistrationToken::class], $requestBodyData['enterprise']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\AuthenticationToken {
                                                 return $operation->createResponse($response);
                                             });
@@ -8235,7 +8235,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RemoveToken::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀RemoveToken();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\CreateRemoveTokenForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RemoveToken::class], $requestBodyData['enterprise']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\AuthenticationToken {
                                                 return $operation->createResponse($response);
                                             });
@@ -8260,7 +8260,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\RegistrationToken::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀RegistrationToken();
                                             }
                                             $operation = new Operation\Actions\CreateRegistrationTokenForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\RegistrationToken::class], $requestBodyData['org']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\AuthenticationToken {
                                                 return $operation->createResponse($response);
                                             });
@@ -8277,7 +8277,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\RemoveToken::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀RemoveToken();
                                             }
                                             $operation = new Operation\Actions\CreateRemoveTokenForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\RemoveToken::class], $requestBodyData['org']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\AuthenticationToken {
                                                 return $operation->createResponse($response);
                                             });
@@ -8295,7 +8295,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Orgs\PingWebhook($requestBodyData['org'], $requestBodyData['hookId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -8316,7 +8316,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions();
                                             }
                                             $operation = new Operation\Teams\CreateDiscussionInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions::class], $requestBodyData['org'], $requestBodyData['teamSlug']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussion {
                                                 return $operation->createResponse($response);
                                             });
@@ -8341,7 +8341,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Projects\Columns\Cards\CbCardIdRcb\Moves::class] = $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CbCardIdRcb🌀Moves();
                                             }
                                             $operation = new Operation\Projects\MoveCard($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\Cards\CbCardIdRcb\Moves::class], $requestBodyData['cardId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Gists\CheckIsStarred\Response\Applicationjson\H404 {
                                                 return $operation->createResponse($response);
                                             });
@@ -8366,7 +8366,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Sarifs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeScanning🌀Sarifs();
                                             }
                                             $operation = new Operation\CodeScanning\UploadSarif($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Sarifs::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CodeScanningSarifsReceipt {
                                                 return $operation->createResponse($response);
                                             });
@@ -8385,7 +8385,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Blobs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Blobs();
                                             }
                                             $operation = new Operation\Git\CreateBlob($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Blobs::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ShortBlob {
                                                 return $operation->createResponse($response);
                                             });
@@ -8402,7 +8402,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Commits::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Commits();
                                             }
                                             $operation = new Operation\Git\CreateCommit($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Commits::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GitCommit {
                                                 return $operation->createResponse($response);
                                             });
@@ -8419,7 +8419,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Refs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Refs();
                                             }
                                             $operation = new Operation\Git\CreateRef($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Refs::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GitRef {
                                                 return $operation->createResponse($response);
                                             });
@@ -8436,7 +8436,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Tags::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Tags();
                                             }
                                             $operation = new Operation\Git\CreateTag($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Tags::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GitTag {
                                                 return $operation->createResponse($response);
                                             });
@@ -8453,7 +8453,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Trees();
                                             }
                                             $operation = new Operation\Git\CreateTree($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GitTree {
                                                 return $operation->createResponse($response);
                                             });
@@ -8472,7 +8472,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pages🌀Builds();
                                             }
                                             $operation = new Operation\Repos\RequestPagesBuild($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PageBuildStatus {
                                                 return $operation->createResponse($response);
                                             });
@@ -8491,7 +8491,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\GenerateNotes::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀GenerateNotes();
                                             }
                                             $operation = new Operation\Repos\GenerateReleaseNotes($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\GenerateNotes::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ReleaseNotesContent {
                                                 return $operation->createResponse($response);
                                             });
@@ -8510,7 +8510,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Statuses\CbShaRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Statuses🌀CbShaRcb();
                                             }
                                             $operation = new Operation\Repos\CreateCommitStatus($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Statuses\CbShaRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['sha']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Status {
                                                 return $operation->createResponse($response);
                                             });
@@ -8535,7 +8535,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments();
                                             }
                                             $operation = new Operation\Teams\CreateDiscussionCommentLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments::class], $requestBodyData['teamId'], $requestBodyData['discussionNumber']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussionComment {
                                                 return $operation->createResponse($response);
                                             });
@@ -8552,7 +8552,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions();
                                             }
                                             $operation = new Operation\Reactions\CreateForTeamDiscussionLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Reactions::class], $requestBodyData['teamId'], $requestBodyData['discussionNumber']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                 return $operation->createResponse($response);
                                             });
@@ -8579,7 +8579,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\AppManifests\CbCodeRcb\Conversions::class] = $this->hydrators->getObjectMapperOperation🌀AppManifests🌀CbCodeRcb🌀Conversions();
                                     }
                                     $operation = new Operation\Apps\CreateFromManifest($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\AppManifests\CbCodeRcb\Conversions::class], $requestBodyData['code']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Apps\CreateFromManifest\Response\Applicationjson\H201 {
                                         return $operation->createResponse($response);
                                     });
@@ -8600,7 +8600,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Token::class] = $this->hydrators->getObjectMapperOperation🌀Applications🌀CbClientIdRcb🌀Token();
                                     }
                                     $operation = new Operation\Apps\CheckToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Token::class], $requestBodyData['clientId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Authorization {
                                         return $operation->createResponse($response);
                                     });
@@ -8621,7 +8621,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Comments();
                                     }
                                     $operation = new Operation\Gists\CreateComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Comments::class], $requestBodyData['gistId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GistComment {
                                         return $operation->createResponse($response);
                                     });
@@ -8638,7 +8638,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Forks::class] = $this->hydrators->getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Forks();
                                     }
                                     $operation = new Operation\Gists\Fork($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Forks::class], $requestBodyData['gistId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\BaseGist {
                                         return $operation->createResponse($response);
                                     });
@@ -8659,7 +8659,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks();
                                     }
                                     $operation = new Operation\Orgs\CreateWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks::class], $requestBodyData['org']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrgHook {
                                         return $operation->createResponse($response);
                                     });
@@ -8676,7 +8676,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Migrations::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Migrations();
                                     }
                                     $operation = new Operation\Migrations\StartForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Migrations::class], $requestBodyData['org']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Migration {
                                         return $operation->createResponse($response);
                                     });
@@ -8693,7 +8693,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Projects::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Projects();
                                     }
                                     $operation = new Operation\Projects\CreateForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Projects::class], $requestBodyData['org']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Project {
                                         return $operation->createResponse($response);
                                     });
@@ -8710,7 +8710,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Repos::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Repos();
                                     }
                                     $operation = new Operation\Repos\CreateInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Repos::class], $requestBodyData['org']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Repository {
                                         return $operation->createResponse($response);
                                     });
@@ -8727,7 +8727,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams();
                                     }
                                     $operation = new Operation\Teams\Create($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams::class], $requestBodyData['org']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamFull {
                                         return $operation->createResponse($response);
                                     });
@@ -8748,7 +8748,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb\Columns::class] = $this->hydrators->getObjectMapperOperation🌀Projects🌀CbProjectIdRcb🌀Columns();
                                     }
                                     $operation = new Operation\Projects\CreateColumn($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb\Columns::class], $requestBodyData['projectId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProjectColumn {
                                         return $operation->createResponse($response);
                                     });
@@ -8766,7 +8766,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\EnterpriseAdmin\StartConfigurationProcess();
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -8783,7 +8783,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Setup\Api\Maintenance::class] = $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Maintenance();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\EnableOrDisableMaintenanceMode($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Setup\Api\Maintenance::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\MaintenanceStatus {
                                         return $operation->createResponse($response);
                                     });
@@ -8797,7 +8797,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\EnterpriseAdmin\CreateEnterpriseServerLicense($this->requestSchemaValidator);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -8811,7 +8811,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\EnterpriseAdmin\UpgradeLicense($this->requestSchemaValidator);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -8832,7 +8832,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions();
                                     }
                                     $operation = new Operation\Teams\CreateDiscussionLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions::class], $requestBodyData['teamId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussion {
                                         return $operation->createResponse($response);
                                     });
@@ -8855,7 +8855,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Authorizations::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations();
                             }
                             $operation = new Operation\OauthAuthorizations\CreateAuthorization($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations::class]);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Authorization {
                                 return $operation->createResponse($response);
                             });
@@ -8872,7 +8872,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Gists::class] = $this->hydrators->getObjectMapperOperation🌀Gists();
                             }
                             $operation = new Operation\Gists\Create($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists::class]);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GistSimple {
                                 return $operation->createResponse($response);
                             });
@@ -8889,7 +8889,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Markdown::class] = $this->hydrators->getObjectMapperOperation🌀Markdown();
                             }
                             $operation = new Operation\Markdown\Render($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Markdown::class]);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Gitignore\GetAllTemplates\Response\Applicationjson\H200 {
                                 return $operation->createResponse($response);
                             });
@@ -8915,7 +8915,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
                                                 }
                                                 $operation = new Operation\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $requestBodyData['enterprise'], $requestBodyData['runnerId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -8942,7 +8942,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
                                                 }
                                                 $operation = new Operation\Actions\AddCustomLabelsToSelfHostedRunnerForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $requestBodyData['org'], $requestBodyData['runnerId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -8969,7 +8969,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\RegistrationToken::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀RegistrationToken();
                                                 }
                                                 $operation = new Operation\Actions\CreateRegistrationTokenForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\RegistrationToken::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\AuthenticationToken {
                                                     return $operation->createResponse($response);
                                                 });
@@ -8986,7 +8986,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\RemoveToken::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀RemoveToken();
                                                 }
                                                 $operation = new Operation\Actions\CreateRemoveTokenForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\RemoveToken::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\AuthenticationToken {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9007,7 +9007,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Rename::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Rename();
                                                 }
                                                 $operation = new Operation\Repos\RenameBranch($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Rename::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\BranchWithProtection {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9028,7 +9028,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb\Rerequest::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashRuns🌀CbCheckRunIdRcb🌀Rerequest();
                                                 }
                                                 $operation = new Operation\Checks\RerequestRun($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb\Rerequest::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['checkRunId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EmptyObject {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9049,7 +9049,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\Rerequest::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashSuites🌀CbCheckSuiteIdRcb🌀Rerequest();
                                                 }
                                                 $operation = new Operation\Checks\RerequestSuite($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\Rerequest::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['checkSuiteId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EmptyObject {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9070,7 +9070,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions();
                                                 }
                                                 $operation = new Operation\Reactions\CreateForCommitComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9091,7 +9091,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Commits🌀CbCommitShaRcb🌀Comments();
                                                 }
                                                 $operation = new Operation\Repos\CreateCommitComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Comments::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commitSha']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CommitComment {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9112,7 +9112,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Deployments🌀CbDeploymentIdRcb🌀Statuses();
                                                 }
                                                 $operation = new Operation\Repos\CreateDeploymentStatus($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['deploymentId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\DeploymentStatus {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9133,7 +9133,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb\DeploymentDashBranchDashPolicies::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb🌀DeploymentDashBranchDashPolicies();
                                                 }
                                                 $operation = new Operation\Repos\CreateDeploymentBranchPolicy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb\DeploymentDashBranchDashPolicies::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['environmentName']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\DeploymentBranchPolicy {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9151,7 +9151,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Repos\PingWebhook($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['hookId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9165,7 +9165,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Repos\TestPushWebhook($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['hookId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9186,7 +9186,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Assignees::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Assignees();
                                                 }
                                                 $operation = new Operation\Issues\AddAssignees($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Assignees::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Issue {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9203,7 +9203,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Comments();
                                                 }
                                                 $operation = new Operation\Issues\CreateComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Comments::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\IssueComment {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9220,7 +9220,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels();
                                                 }
                                                 $operation = new Operation\Issues\AddLabels($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Label|Schema\BasicError {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9237,7 +9237,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Reactions();
                                                 }
                                                 $operation = new Operation\Reactions\CreateForIssue($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9258,7 +9258,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Comments();
                                                 }
                                                 $operation = new Operation\Pulls\CreateReviewComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestReviewComment {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9275,7 +9275,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\RequestedReviewers::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀RequestedReviewers();
                                                 }
                                                 $operation = new Operation\Pulls\RequestReviewers($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\RequestedReviewers::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestSimple {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9292,7 +9292,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews();
                                                 }
                                                 $operation = new Operation\Pulls\CreateReview($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestReview {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9313,7 +9313,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Assets::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb🌀Assets();
                                                 }
                                                 $operation = new Operation\Repos\UploadReleaseAsset($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Assets::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['releaseId'], $requestBodyData['name'], $requestBodyData['label']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ReleaseAsset {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9330,7 +9330,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb🌀Reactions();
                                                 }
                                                 $operation = new Operation\Reactions\CreateForRelease($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Reactions::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['releaseId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                     return $operation->createResponse($response);
                                                 });
@@ -9362,7 +9362,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Deliveries\CbDeliveryIdRcb\Attempts::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Deliveries🌀CbDeliveryIdRcb🌀Attempts();
                                                     }
                                                     $operation = new Operation\Orgs\RedeliverWebhookDelivery($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Deliveries\CbDeliveryIdRcb\Attempts::class], $requestBodyData['org'], $requestBodyData['hookId'], $requestBodyData['deliveryId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\AuditLogEvent\Config {
                                                         return $operation->createResponse($response);
                                                     });
@@ -9387,7 +9387,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments();
                                                     }
                                                     $operation = new Operation\Teams\CreateDiscussionCommentInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['discussionNumber']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussionComment {
                                                         return $operation->createResponse($response);
                                                     });
@@ -9404,7 +9404,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions();
                                                     }
                                                     $operation = new Operation\Reactions\CreateForTeamDiscussionInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['discussionNumber']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                         return $operation->createResponse($response);
                                                     });
@@ -9433,7 +9433,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
                                                     }
                                                     $operation = new Operation\Actions\AddCustomLabelsToSelfHostedRunnerForRepo($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runnerId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                         return $operation->createResponse($response);
                                                     });
@@ -9454,7 +9454,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Cancel::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Cancel();
                                                     }
                                                     $operation = new Operation\Actions\CancelWorkflowRun($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Cancel::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EmptyObject {
                                                         return $operation->createResponse($response);
                                                     });
@@ -9471,7 +9471,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\PendingDeployments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀PendingDeployments();
                                                     }
                                                     $operation = new Operation\Actions\ReviewPendingDeploymentsForRun($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\PendingDeployments::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Deployment {
                                                         return $operation->createResponse($response);
                                                     });
@@ -9488,7 +9488,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Rerun::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Rerun();
                                                     }
                                                     $operation = new Operation\Actions\ReRunWorkflow($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Rerun::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EmptyObject {
                                                         return $operation->createResponse($response);
                                                     });
@@ -9506,7 +9506,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\CreateWorkflowDispatch($this->requestSchemaValidator, $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['workflowId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -9529,7 +9529,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\EnforceAdmins::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀EnforceAdmins();
                                                     }
                                                     $operation = new Operation\Repos\SetAdminBranchProtection($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\EnforceAdmins::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProtectedBranchAdminEnforced {
                                                         return $operation->createResponse($response);
                                                     });
@@ -9546,7 +9546,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredSignatures::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredSignatures();
                                                     }
                                                     $operation = new Operation\Repos\CreateCommitSignatureProtection($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredSignatures::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProtectedBranchAdminEnforced {
                                                         return $operation->createResponse($response);
                                                     });
@@ -9569,7 +9569,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb🌀Reactions();
                                                     }
                                                     $operation = new Operation\Reactions\CreateForIssueComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                         return $operation->createResponse($response);
                                                     });
@@ -9592,7 +9592,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb🌀Reactions();
                                                     }
                                                     $operation = new Operation\Reactions\CreateForPullRequestReviewComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                         return $operation->createResponse($response);
                                                     });
@@ -9621,7 +9621,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions();
                                                     }
                                                     $operation = new Operation\Reactions\CreateForTeamDiscussionCommentLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions::class], $requestBodyData['teamId'], $requestBodyData['discussionNumber'], $requestBodyData['commentNumber']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                         return $operation->createResponse($response);
                                                     });
@@ -9656,7 +9656,7 @@ final class Client implements ClientInterface
                                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions();
                                                             }
                                                             $operation = new Operation\Reactions\CreateForTeamDiscussionCommentInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['discussionNumber'], $requestBodyData['commentNumber']);
-                                                            $request = $operation->createRequest($requestBodyData);
+                                                            $request = $operation->createRequest($params);
                                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Reaction {
                                                                 return $operation->createResponse($response);
                                                             });
@@ -9692,7 +9692,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks\Contexts::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks🌀Contexts();
                                                         }
                                                         $operation = new Operation\Repos\AddStatusCheckContexts($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks\Contexts::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Gitignore\GetAllTemplates\Response\Applicationjson\H200 {
                                                             return $operation->createResponse($response);
                                                         });
@@ -9711,7 +9711,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Apps::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Apps();
                                                         }
                                                         $operation = new Operation\Repos\AddAppAccessRestrictions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Apps::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Integration {
                                                             return $operation->createResponse($response);
                                                         });
@@ -9728,7 +9728,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Teams();
                                                         }
                                                         $operation = new Operation\Repos\AddTeamAccessRestrictions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Teams::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Team {
                                                             return $operation->createResponse($response);
                                                         });
@@ -9745,7 +9745,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Users::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Users();
                                                         }
                                                         $operation = new Operation\Repos\AddUserAccessRestrictions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Users::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                                             return $operation->createResponse($response);
                                                         });
@@ -9770,7 +9770,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Deliveries\CbDeliveryIdRcb\Attempts::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Deliveries🌀CbDeliveryIdRcb🌀Attempts();
                                                         }
                                                         $operation = new Operation\Repos\RedeliverWebhookDelivery($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Deliveries\CbDeliveryIdRcb\Attempts::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['hookId'], $requestBodyData['deliveryId']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\AuditLogEvent\Config {
                                                             return $operation->createResponse($response);
                                                         });
@@ -9795,7 +9795,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments\CbCommentIdRcb\Replies::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Comments🌀CbCommentIdRcb🌀Replies();
                                                         }
                                                         $operation = new Operation\Pulls\CreateReplyForReviewComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments\CbCommentIdRcb\Replies::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber'], $requestBodyData['commentId']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestReviewComment {
                                                             return $operation->createResponse($response);
                                                         });
@@ -9816,7 +9816,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Events::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Events();
                                                         }
                                                         $operation = new Operation\Pulls\SubmitReview($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Events::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber'], $requestBodyData['reviewId']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestReview {
                                                             return $operation->createResponse($response);
                                                         });
@@ -9845,7 +9845,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\EnterpriseAdmin\DeleteGlobalWebhook($requestBodyData['hookId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -9861,7 +9861,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\EnterpriseAdmin\DeletePublicKey($requestBodyData['keyIds']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -9877,7 +9877,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\EnterpriseAdmin\DeletePreReceiveEnvironment($requestBodyData['preReceiveEnvironmentId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -9893,7 +9893,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\EnterpriseAdmin\DeletePreReceiveHook($requestBodyData['preReceiveHookId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -9909,7 +9909,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\EnterpriseAdmin\DeletePersonalAccessToken($requestBodyData['tokenId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -9925,7 +9925,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\EnterpriseAdmin\DeleteUser($requestBodyData['username']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -9943,7 +9943,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Apps\DeleteInstallation($requestBodyData['installationId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -9961,7 +9961,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\OauthAuthorizations\DeleteGrant($requestBodyData['grantId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -9977,7 +9977,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Apps\DeleteAuthorization($this->requestSchemaValidator, $requestBodyData['clientId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -9991,7 +9991,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Apps\DeleteToken($this->requestSchemaValidator, $requestBodyData['clientId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -10009,7 +10009,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Gists\Unstar($requestBodyData['gistId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -10027,7 +10027,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Projects\DeleteColumn($requestBodyData['columnId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -10048,7 +10048,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb();
                                     }
                                     $operation = new Operation\Repos\Delete($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\BasicError {
                                         return $operation->createResponse($response);
                                     });
@@ -10066,7 +10066,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Users\Unfollow($requestBodyData['username']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -10082,7 +10082,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Users\DeleteGpgKeyForAuthenticatedUser($requestBodyData['gpgKeyId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -10098,7 +10098,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Users\DeletePublicSshKeyForAuthenticatedUser($requestBodyData['keyId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -10114,7 +10114,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Repos\DeclineInvitationForAuthenticatedUser($requestBodyData['invitationId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -10132,7 +10132,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\EnterpriseAdmin\DemoteSiteAdministrator($requestBodyData['username']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -10146,7 +10146,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\EnterpriseAdmin\UnsuspendUser($this->requestSchemaValidator, $requestBodyData['username']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -10169,7 +10169,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\EnterpriseAdmin\DeleteImpersonationOAuthToken($requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10189,7 +10189,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Apps\UnsuspendInstallation($requestBodyData['installationId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10209,7 +10209,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Gists\DeleteComment($requestBodyData['gistId'], $requestBodyData['commentId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10229,7 +10229,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Activity\DeleteThreadSubscription($requestBodyData['threadId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10249,7 +10249,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Orgs\DeleteWebhook($requestBodyData['org'], $requestBodyData['hookId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10265,7 +10265,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Orgs\RemoveMember($requestBodyData['org'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10281,7 +10281,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Orgs\RemoveMembershipForUser($requestBodyData['org'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10297,7 +10297,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Orgs\RemoveOutsideCollaborator($requestBodyData['org'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10316,7 +10316,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb();
                                         }
                                         $operation = new Operation\EnterpriseAdmin\RemovePreReceiveHookEnforcementForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $requestBodyData['org'], $requestBodyData['preReceiveHookId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrgPreReceiveHook {
                                             return $operation->createResponse($response);
                                         });
@@ -10332,7 +10332,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Orgs\RemovePublicMembershipForAuthenticatedUser($requestBodyData['org'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10348,7 +10348,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Teams\DeleteInOrg($requestBodyData['org'], $requestBodyData['teamSlug']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10368,7 +10368,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Projects\DeleteCard($requestBodyData['cardId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10386,7 +10386,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Projects\RemoveCollaborator($requestBodyData['projectId'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10406,7 +10406,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Repos\DisableLfsForRepo($requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10420,7 +10420,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Repos\DeletePagesSite($requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10434,7 +10434,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Activity\DeleteRepoSubscription($requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10457,7 +10457,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys::class] = $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys();
                                         }
                                         $operation = new Operation\EnterpriseAdmin\RemoveAuthorizedSshKey($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys::class]);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SshKey {
                                             return $operation->createResponse($response);
                                         });
@@ -10477,7 +10477,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Teams\DeleteDiscussionLegacy($requestBodyData['teamId'], $requestBodyData['discussionNumber']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10493,7 +10493,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Teams\RemoveMemberLegacy($requestBodyData['teamId'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10509,7 +10509,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Teams\RemoveMembershipForUserLegacy($requestBodyData['teamId'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10525,7 +10525,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Teams\RemoveProjectLegacy($requestBodyData['teamId'], $requestBodyData['projectId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10545,7 +10545,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Activity\UnstarRepoForAuthenticatedUser($requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -10567,7 +10567,7 @@ final class Client implements ClientInterface
                                     }
                                 }
                                 $operation = new Operation\OauthAuthorizations\DeleteAuthorization($requestBodyData['authorizationId']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                     return $operation->createResponse($response);
                                 });
@@ -10583,7 +10583,7 @@ final class Client implements ClientInterface
                                     }
                                 }
                                 $operation = new Operation\EnterpriseAdmin\RemoveAnnouncement();
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                     return $operation->createResponse($response);
                                 });
@@ -10599,7 +10599,7 @@ final class Client implements ClientInterface
                                     }
                                 }
                                 $operation = new Operation\Gists\Delete($requestBodyData['gistId']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                     return $operation->createResponse($response);
                                 });
@@ -10615,7 +10615,7 @@ final class Client implements ClientInterface
                                     }
                                 }
                                 $operation = new Operation\Apps\RevokeInstallationAccessToken();
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                     return $operation->createResponse($response);
                                 });
@@ -10631,7 +10631,7 @@ final class Client implements ClientInterface
                                     }
                                 }
                                 $operation = new Operation\Projects\Delete($requestBodyData['projectId']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                     return $operation->createResponse($response);
                                 });
@@ -10647,7 +10647,7 @@ final class Client implements ClientInterface
                                     }
                                 }
                                 $operation = new Operation\Reactions\DeleteLegacy($requestBodyData['reactionId']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                     return $operation->createResponse($response);
                                 });
@@ -10663,7 +10663,7 @@ final class Client implements ClientInterface
                                     }
                                 }
                                 $operation = new Operation\Teams\DeleteLegacy($requestBodyData['teamId']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                     return $operation->createResponse($response);
                                 });
@@ -10679,7 +10679,7 @@ final class Client implements ClientInterface
                                     }
                                 }
                                 $operation = new Operation\Users\DeleteEmailForAuthenticatedUser($this->requestSchemaValidator);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                     return $operation->createResponse($response);
                                 });
@@ -10703,7 +10703,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\EnterpriseAdmin\DisableSelectedOrganizationGithubActionsEnterprise($requestBodyData['enterprise'], $requestBodyData['orgId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10724,7 +10724,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
                                                 }
                                                 $operation = new Operation\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $requestBodyData['enterprise'], $requestBodyData['runnerId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10748,7 +10748,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Actions\DisableSelectedRepositoryGithubActionsOrganization($requestBodyData['org'], $requestBodyData['repositoryId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10769,7 +10769,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
                                                 }
                                                 $operation = new Operation\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $requestBodyData['org'], $requestBodyData['runnerId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10789,7 +10789,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Teams\DeleteDiscussionInOrg($requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['discussionNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10805,7 +10805,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Teams\RemoveMembershipForUserInOrg($requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['username']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10821,7 +10821,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Teams\RemoveProjectInOrg($requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['projectId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10845,7 +10845,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Actions\DeleteArtifact($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['artifactId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10861,7 +10861,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Actions\DeleteSelfHostedRunnerFromRepo($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runnerId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10877,7 +10877,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Actions\DeleteWorkflowRun($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10893,7 +10893,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Actions\DeleteRepoSecret($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['secretName']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10911,7 +10911,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Repos\DeleteBranchProtection($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10932,7 +10932,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Analyses\CbAnalysisIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Analyses🌀CbAnalysisIdRcb();
                                                 }
                                                 $operation = new Operation\CodeScanning\DeleteAnalysis($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Analyses\CbAnalysisIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['analysisId'], $requestBodyData['confirmDelete']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CodeScanningAnalysisDeletion {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10950,7 +10950,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Dependabot\DeleteRepoSecret($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['secretName']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10968,7 +10968,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Git\DeleteRef($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['ref']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -10986,7 +10986,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Issues\DeleteComment($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -11005,7 +11005,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Assignees::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Assignees();
                                                 }
                                                 $operation = new Operation\Issues\RemoveAssignees($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Assignees::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Issue {
                                                     return $operation->createResponse($response);
                                                 });
@@ -11022,7 +11022,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels();
                                                 }
                                                 $operation = new Operation\Issues\RemoveAllLabels($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\BasicError {
                                                     return $operation->createResponse($response);
                                                 });
@@ -11036,7 +11036,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Issues\Unlock($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -11054,7 +11054,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Pulls\DeleteReviewComment($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -11073,7 +11073,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\RequestedReviewers::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀RequestedReviewers();
                                                 }
                                                 $operation = new Operation\Pulls\RemoveRequestedReviewers($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\RequestedReviewers::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestSimple {
                                                     return $operation->createResponse($response);
                                                 });
@@ -11091,7 +11091,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Repos\DeleteReleaseAsset($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['assetId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -11115,7 +11115,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Actions\DeleteEnvironmentSecret($requestBodyData['repositoryId'], $requestBodyData['environmentName'], $requestBodyData['secretName']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -11139,7 +11139,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Teams\DeleteDiscussionCommentLegacy($requestBodyData['teamId'], $requestBodyData['discussionNumber'], $requestBodyData['commentNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -11166,7 +11166,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\EnterpriseAdmin\DeleteSelfHostedRunnerGroupFromEnterprise($requestBodyData['enterprise'], $requestBodyData['runnerGroupId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11182,7 +11182,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\EnterpriseAdmin\DeleteSelfHostedRunnerFromEnterprise($requestBodyData['enterprise'], $requestBodyData['runnerId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11204,7 +11204,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Actions\DeleteSelfHostedRunnerGroupFromOrg($requestBodyData['org'], $requestBodyData['runnerGroupId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11220,7 +11220,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Actions\DeleteSelfHostedRunnerFromOrg($requestBodyData['org'], $requestBodyData['runnerId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11236,7 +11236,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Actions\DeleteOrgSecret($requestBodyData['org'], $requestBodyData['secretName']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11254,7 +11254,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Dependabot\DeleteOrgSecret($requestBodyData['org'], $requestBodyData['secretName']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11272,7 +11272,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Migrations\DeleteArchiveForOrg($requestBodyData['org'], $requestBodyData['migrationId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11294,7 +11294,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Repos\DeleteAutolink($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['autolinkId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11310,7 +11310,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Repos\RemoveCollaborator($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['username']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11326,7 +11326,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Repos\DeleteCommitComment($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11345,7 +11345,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contents\CbPathRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Contents🌀CbPathRcb();
                                             }
                                             $operation = new Operation\Repos\DeleteFile($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contents\CbPathRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['path']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\FileCommit {
                                                 return $operation->createResponse($response);
                                             });
@@ -11361,7 +11361,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Repos\DeleteDeployment($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['deploymentId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11377,7 +11377,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Repos\DeleteAnEnvironment($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['environmentName']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11393,7 +11393,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Repos\DeleteWebhook($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['hookId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11409,7 +11409,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Repos\DeleteInvitation($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['invitationId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11425,7 +11425,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Repos\DeleteDeployKey($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['keyId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11441,7 +11441,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Issues\DeleteLabel($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['name']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11457,7 +11457,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Issues\DeleteMilestone($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['milestoneNumber']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11476,7 +11476,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\RemovePreReceiveHookEnforcementForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['preReceiveHookId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RepositoryPreReceiveHook {
                                                 return $operation->createResponse($response);
                                             });
@@ -11492,7 +11492,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Repos\DeleteRelease($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['releaseId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11514,7 +11514,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Teams\RemoveRepoLegacy($requestBodyData['teamId'], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11536,7 +11536,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Apps\RemoveRepoFromInstallationForAuthenticatedUser($requestBodyData['installationId'], $requestBodyData['repositoryId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -11564,7 +11564,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\EnterpriseAdmin\RemoveOrgAccessToSelfHostedRunnerGroupInEnterprise($requestBodyData['enterprise'], $requestBodyData['runnerGroupId'], $requestBodyData['orgId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11580,7 +11580,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\EnterpriseAdmin\RemoveSelfHostedRunnerFromGroupForEnterprise($requestBodyData['enterprise'], $requestBodyData['runnerGroupId'], $requestBodyData['runnerId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11603,7 +11603,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels🌀CbNameRcb();
                                                     }
                                                     $operation = new Operation\EnterpriseAdmin\RemoveCustomLabelFromSelfHostedRunnerForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class], $requestBodyData['enterprise'], $requestBodyData['runnerId'], $requestBodyData['name']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11629,7 +11629,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\RemoveRepoAccessToSelfHostedRunnerGroupInOrg($requestBodyData['org'], $requestBodyData['runnerGroupId'], $requestBodyData['repositoryId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11645,7 +11645,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\RemoveSelfHostedRunnerFromGroupForOrg($requestBodyData['org'], $requestBodyData['runnerGroupId'], $requestBodyData['runnerId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11668,7 +11668,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels🌀CbNameRcb();
                                                     }
                                                     $operation = new Operation\Actions\RemoveCustomLabelFromSelfHostedRunnerForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class], $requestBodyData['org'], $requestBodyData['runnerId'], $requestBodyData['name']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11688,7 +11688,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\RemoveSelectedRepoFromOrgSecret($requestBodyData['org'], $requestBodyData['secretName'], $requestBodyData['repositoryId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11710,7 +11710,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Dependabot\RemoveSelectedRepoFromOrgSecret($requestBodyData['org'], $requestBodyData['secretName'], $requestBodyData['repositoryId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11732,7 +11732,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Migrations\UnlockRepoForOrg($requestBodyData['org'], $requestBodyData['migrationId'], $requestBodyData['repoName']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11754,7 +11754,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Teams\RemoveRepoInOrg($requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['owner'], $requestBodyData['repo']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11783,7 +11783,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
                                                     }
                                                     $operation = new Operation\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runnerId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11801,7 +11801,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\DeleteWorkflowRunLogs($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11821,7 +11821,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Repos\DeleteAdminBranchProtection($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11835,7 +11835,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Repos\DeletePullRequestReviewProtection($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11849,7 +11849,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Repos\DeleteCommitSignatureProtection($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11863,7 +11863,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Repos\RemoveStatusCheckProtection($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11877,7 +11877,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Repos\DeleteAccessRestrictions($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11897,7 +11897,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Reactions\DeleteForCommitComment($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId'], $requestBodyData['reactionId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11917,7 +11917,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Repos\DeleteDeploymentBranchPolicy($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['environmentName'], $requestBodyData['branchPolicyId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11940,7 +11940,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels\CbNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels🌀CbNameRcb();
                                                     }
                                                     $operation = new Operation\Issues\RemoveLabel($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels\CbNameRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber'], $requestBodyData['name']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Label|Schema\BasicError {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11956,7 +11956,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Reactions\DeleteForIssue($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber'], $requestBodyData['reactionId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11979,7 +11979,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb();
                                                     }
                                                     $operation = new Operation\Pulls\DeletePendingReview($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber'], $requestBodyData['reviewId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestReview {
                                                         return $operation->createResponse($response);
                                                     });
@@ -11999,7 +11999,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Reactions\DeleteForRelease($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['releaseId'], $requestBodyData['reactionId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -12030,7 +12030,7 @@ final class Client implements ClientInterface
                                                             }
                                                         }
                                                         $operation = new Operation\Teams\DeleteDiscussionCommentInOrg($requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['discussionNumber'], $requestBodyData['commentNumber']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                             return $operation->createResponse($response);
                                                         });
@@ -12046,7 +12046,7 @@ final class Client implements ClientInterface
                                                             }
                                                         }
                                                         $operation = new Operation\Reactions\DeleteForTeamDiscussion($requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['discussionNumber'], $requestBodyData['reactionId']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                             return $operation->createResponse($response);
                                                         });
@@ -12077,7 +12077,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels🌀CbNameRcb();
                                                         }
                                                         $operation = new Operation\Actions\RemoveCustomLabelFromSelfHostedRunnerForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runnerId'], $requestBodyData['name']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                             return $operation->createResponse($response);
                                                         });
@@ -12102,7 +12102,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks\Contexts::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks🌀Contexts();
                                                         }
                                                         $operation = new Operation\Repos\RemoveStatusCheckContexts($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks\Contexts::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Gitignore\GetAllTemplates\Response\Applicationjson\H200 {
                                                             return $operation->createResponse($response);
                                                         });
@@ -12121,7 +12121,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Apps::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Apps();
                                                         }
                                                         $operation = new Operation\Repos\RemoveAppAccessRestrictions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Apps::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Integration {
                                                             return $operation->createResponse($response);
                                                         });
@@ -12138,7 +12138,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Teams();
                                                         }
                                                         $operation = new Operation\Repos\RemoveTeamAccessRestrictions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Teams::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Team {
                                                             return $operation->createResponse($response);
                                                         });
@@ -12155,7 +12155,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Users::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Users();
                                                         }
                                                         $operation = new Operation\Repos\RemoveUserAccessRestrictions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Users::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                                             return $operation->createResponse($response);
                                                         });
@@ -12177,7 +12177,7 @@ final class Client implements ClientInterface
                                                             }
                                                         }
                                                         $operation = new Operation\Reactions\DeleteForIssueComment($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId'], $requestBodyData['reactionId']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                             return $operation->createResponse($response);
                                                         });
@@ -12199,7 +12199,7 @@ final class Client implements ClientInterface
                                                             }
                                                         }
                                                         $operation = new Operation\Reactions\DeleteForPullRequestComment($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId'], $requestBodyData['reactionId']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                             return $operation->createResponse($response);
                                                         });
@@ -12233,7 +12233,7 @@ final class Client implements ClientInterface
                                                                     }
                                                                 }
                                                                 $operation = new Operation\Reactions\DeleteForTeamDiscussionComment($requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['discussionNumber'], $requestBodyData['commentNumber'], $requestBodyData['reactionId']);
-                                                                $request = $operation->createRequest($requestBodyData);
+                                                                $request = $operation->createRequest($params);
                                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                                     return $operation->createResponse($response);
                                                                 });
@@ -12267,7 +12267,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Admin\Hooks\CbHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Hooks🌀CbHookIdRcb();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\UpdateGlobalWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Hooks\CbHookIdRcb::class], $requestBodyData['hookId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GlobalHook2 {
                                         return $operation->createResponse($response);
                                     });
@@ -12286,7 +12286,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Admin\Organizations\CbOrgRcb::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Organizations🌀CbOrgRcb();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\UpdateOrgName($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Organizations\CbOrgRcb::class], $requestBodyData['org']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\UpdateOrgName\Response\Applicationjson\H202 {
                                         return $operation->createResponse($response);
                                     });
@@ -12305,7 +12305,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb::class], $requestBodyData['preReceiveEnvironmentId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PreReceiveEnvironment {
                                         return $operation->createResponse($response);
                                     });
@@ -12324,7 +12324,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\UpdatePreReceiveHook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $requestBodyData['preReceiveHookId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PreReceiveHook {
                                         return $operation->createResponse($response);
                                     });
@@ -12343,7 +12343,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Admin\Users\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Users🌀CbUsernameRcb();
                                     }
                                     $operation = new Operation\EnterpriseAdmin\UpdateUsernameForUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Users\CbUsernameRcb::class], $requestBodyData['username']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\UpdateOrgName\Response\Applicationjson\H202 {
                                         return $operation->createResponse($response);
                                     });
@@ -12364,7 +12364,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\App\Hook\Config::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Config();
                                     }
                                     $operation = new Operation\Apps\UpdateWebhookConfigForApp($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Hook\Config::class]);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\WebhookConfig {
                                         return $operation->createResponse($response);
                                     });
@@ -12385,7 +12385,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Token::class] = $this->hydrators->getObjectMapperOperation🌀Applications🌀CbClientIdRcb🌀Token();
                                     }
                                     $operation = new Operation\Apps\ResetToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Token::class], $requestBodyData['clientId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Authorization {
                                         return $operation->createResponse($response);
                                     });
@@ -12403,7 +12403,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Activity\MarkThreadAsRead($requestBodyData['threadId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -12424,7 +12424,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Projects\Columns\CbColumnIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀CbColumnIdRcb();
                                     }
                                     $operation = new Operation\Projects\UpdateColumn($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\CbColumnIdRcb::class], $requestBodyData['columnId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProjectColumn {
                                         return $operation->createResponse($response);
                                     });
@@ -12445,7 +12445,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb();
                                     }
                                     $operation = new Operation\Repos\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\FullRepository|Schema\BasicError {
                                         return $operation->createResponse($response);
                                     });
@@ -12463,7 +12463,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Repos\AcceptInvitationForAuthenticatedUser($requestBodyData['invitationId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -12490,7 +12490,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb\Mapping::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Ldap🌀Teams🌀CbTeamIdRcb🌀Mapping();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\UpdateLdapMappingForTeam($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb\Mapping::class], $requestBodyData['teamId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\LdapMappingTeam {
                                                 return $operation->createResponse($response);
                                             });
@@ -12511,7 +12511,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Mapping::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Ldap🌀Users🌀CbUsernameRcb🌀Mapping();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\UpdateLdapMappingForUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Mapping::class], $requestBodyData['username']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\LdapMappingUser {
                                                 return $operation->createResponse($response);
                                             });
@@ -12536,7 +12536,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\UpdateSelfHostedRunnerGroupForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class], $requestBodyData['enterprise'], $requestBodyData['runnerGroupId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RunnerGroupsEnterprise {
                                                 return $operation->createResponse($response);
                                             });
@@ -12561,7 +12561,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb();
                                             }
                                             $operation = new Operation\Actions\UpdateSelfHostedRunnerGroupForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class], $requestBodyData['org'], $requestBodyData['runnerGroupId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RunnerGroupsOrg {
                                                 return $operation->createResponse($response);
                                             });
@@ -12582,7 +12582,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Config::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb🌀Config();
                                             }
                                             $operation = new Operation\Orgs\UpdateWebhookConfigForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Config::class], $requestBodyData['org'], $requestBodyData['hookId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\WebhookConfig {
                                                 return $operation->createResponse($response);
                                             });
@@ -12607,7 +12607,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckDashRuns🌀CbCheckRunIdRcb();
                                             }
                                             $operation = new Operation\Checks\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['checkRunId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CheckRun {
                                                 return $operation->createResponse($response);
                                             });
@@ -12626,7 +12626,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckSuites\Preferences::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CheckSuites🌀Preferences();
                                             }
                                             $operation = new Operation\Checks\SetSuitesPreferences($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckSuites\Preferences::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CheckSuitePreference {
                                                 return $operation->createResponse($response);
                                             });
@@ -12645,7 +12645,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb();
                                             }
                                             $operation = new Operation\Repos\UpdateCommitComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CommitComment {
                                                 return $operation->createResponse($response);
                                             });
@@ -12664,7 +12664,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb();
                                             }
                                             $operation = new Operation\Repos\UpdateWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['hookId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Hook {
                                                 return $operation->createResponse($response);
                                             });
@@ -12683,7 +12683,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Invitations\CbInvitationIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Invitations🌀CbInvitationIdRcb();
                                             }
                                             $operation = new Operation\Repos\UpdateInvitation($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Invitations\CbInvitationIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['invitationId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RepositoryInvitation {
                                                 return $operation->createResponse($response);
                                             });
@@ -12702,7 +12702,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb();
                                             }
                                             $operation = new Operation\Issues\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Issue|Schema\BasicError {
                                                 return $operation->createResponse($response);
                                             });
@@ -12721,7 +12721,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels\CbNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Labels🌀CbNameRcb();
                                             }
                                             $operation = new Operation\Issues\UpdateLabel($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels\CbNameRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['name']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Label {
                                                 return $operation->createResponse($response);
                                             });
@@ -12740,7 +12740,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Milestones🌀CbMilestoneNumberRcb();
                                             }
                                             $operation = new Operation\Issues\UpdateMilestone($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['milestoneNumber']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Milestone {
                                                 return $operation->createResponse($response);
                                             });
@@ -12759,7 +12759,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\UpdatePreReceiveHookEnforcementForRepo($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['preReceiveHookId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RepositoryPreReceiveHook {
                                                 return $operation->createResponse($response);
                                             });
@@ -12778,7 +12778,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb();
                                             }
                                             $operation = new Operation\Pulls\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequest {
                                                 return $operation->createResponse($response);
                                             });
@@ -12797,7 +12797,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb();
                                             }
                                             $operation = new Operation\Repos\UpdateRelease($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['releaseId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Release {
                                                 return $operation->createResponse($response);
                                             });
@@ -12823,7 +12823,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Authorizations\CbAuthorizationIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations🌀CbAuthorizationIdRcb();
                                 }
                                 $operation = new Operation\OauthAuthorizations\UpdateAuthorization($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations\CbAuthorizationIdRcb::class], $requestBodyData['authorizationId']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Authorization {
                                     return $operation->createResponse($response);
                                 });
@@ -12842,7 +12842,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Enterprise\Announcement::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Announcement();
                                 }
                                 $operation = new Operation\EnterpriseAdmin\SetAnnouncement($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Announcement::class]);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Announcement {
                                     return $operation->createResponse($response);
                                 });
@@ -12861,7 +12861,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Gists🌀CbGistIdRcb();
                                 }
                                 $operation = new Operation\Gists\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb::class], $requestBodyData['gistId']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GistSimple {
                                     return $operation->createResponse($response);
                                 });
@@ -12880,7 +12880,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb();
                                 }
                                 $operation = new Operation\Orgs\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb::class], $requestBodyData['org']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrganizationFull {
                                     return $operation->createResponse($response);
                                 });
@@ -12899,7 +12899,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Projects🌀CbProjectIdRcb();
                                 }
                                 $operation = new Operation\Projects\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb::class], $requestBodyData['projectId']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Project {
                                     return $operation->createResponse($response);
                                 });
@@ -12918,7 +12918,7 @@ final class Client implements ClientInterface
                                     $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb();
                                 }
                                 $operation = new Operation\Teams\UpdateLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb::class], $requestBodyData['teamId']);
-                                $request = $operation->createRequest($requestBodyData);
+                                $request = $operation->createRequest($params);
                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamFull {
                                     return $operation->createResponse($response);
                                 });
@@ -12943,7 +12943,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Comments\CbCommentIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Gists🌀CbGistIdRcb🌀Comments🌀CbCommentIdRcb();
                                         }
                                         $operation = new Operation\Gists\UpdateComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Comments\CbCommentIdRcb::class], $requestBodyData['gistId'], $requestBodyData['commentId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GistComment {
                                             return $operation->createResponse($response);
                                         });
@@ -12966,7 +12966,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Hooks🌀CbHookIdRcb();
                                         }
                                         $operation = new Operation\Orgs\UpdateWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb::class], $requestBodyData['org'], $requestBodyData['hookId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrgHook {
                                             return $operation->createResponse($response);
                                         });
@@ -12985,7 +12985,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀PreDashReceiveDashHooks🌀CbPreReceiveHookIdRcb();
                                         }
                                         $operation = new Operation\EnterpriseAdmin\UpdatePreReceiveHookEnforcementForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $requestBodyData['org'], $requestBodyData['preReceiveHookId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrgPreReceiveHook {
                                             return $operation->createResponse($response);
                                         });
@@ -13004,7 +13004,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb();
                                         }
                                         $operation = new Operation\Teams\UpdateInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb::class], $requestBodyData['org'], $requestBodyData['teamSlug']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamFull {
                                             return $operation->createResponse($response);
                                         });
@@ -13027,7 +13027,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Projects\Columns\Cards\CbCardIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CbCardIdRcb();
                                         }
                                         $operation = new Operation\Projects\UpdateCard($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\Cards\CbCardIdRcb::class], $requestBodyData['cardId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProjectCard {
                                             return $operation->createResponse($response);
                                         });
@@ -13050,7 +13050,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb();
                                         }
                                         $operation = new Operation\Teams\UpdateDiscussionLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb::class], $requestBodyData['teamId'], $requestBodyData['discussionNumber']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussion {
                                             return $operation->createResponse($response);
                                         });
@@ -13073,7 +13073,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\User\Memberships\Orgs\CbOrgRcb::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Memberships🌀Orgs🌀CbOrgRcb();
                                         }
                                         $operation = new Operation\Orgs\UpdateMembershipForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Memberships\Orgs\CbOrgRcb::class], $requestBodyData['org']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrgMembership {
                                             return $operation->createResponse($response);
                                         });
@@ -13102,7 +13102,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb();
                                                 }
                                                 $operation = new Operation\Teams\UpdateDiscussionInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['discussionNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussion {
                                                     return $operation->createResponse($response);
                                                 });
@@ -13129,7 +13129,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀CodeDashScanning🌀Alerts🌀CbAlertNumberRcb();
                                                 }
                                                 $operation = new Operation\CodeScanning\UpdateAlert($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['alertNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\CodeScanningAlert {
                                                     return $operation->createResponse($response);
                                                 });
@@ -13150,7 +13150,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Refs\CbRefRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Git🌀Refs🌀CbRefRcb();
                                                 }
                                                 $operation = new Operation\Git\UpdateRef($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Refs\CbRefRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['ref']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\GitRef {
                                                     return $operation->createResponse($response);
                                                 });
@@ -13171,7 +13171,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Config::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Hooks🌀CbHookIdRcb🌀Config();
                                                 }
                                                 $operation = new Operation\Repos\UpdateWebhookConfigForRepo($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Config::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['hookId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\WebhookConfig {
                                                     return $operation->createResponse($response);
                                                 });
@@ -13192,7 +13192,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb();
                                                 }
                                                 $operation = new Operation\Issues\UpdateComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\IssueComment {
                                                     return $operation->createResponse($response);
                                                 });
@@ -13213,7 +13213,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb();
                                                 }
                                                 $operation = new Operation\Pulls\UpdateReviewComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['commentId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestReviewComment {
                                                     return $operation->createResponse($response);
                                                 });
@@ -13234,7 +13234,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Assets\CbAssetIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀Assets🌀CbAssetIdRcb();
                                                 }
                                                 $operation = new Operation\Repos\UpdateReleaseAsset($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Assets\CbAssetIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['assetId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ReleaseAsset {
                                                     return $operation->createResponse($response);
                                                 });
@@ -13255,7 +13255,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\SecretDashScanning\Alerts\CbAlertNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretDashScanning🌀Alerts🌀CbAlertNumberRcb();
                                                 }
                                                 $operation = new Operation\SecretScanning\UpdateAlert($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\SecretDashScanning\Alerts\CbAlertNumberRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['alertNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SecretScanningAlert {
                                                     return $operation->createResponse($response);
                                                 });
@@ -13282,7 +13282,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb();
                                                 }
                                                 $operation = new Operation\Teams\UpdateDiscussionCommentLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class], $requestBodyData['teamId'], $requestBodyData['discussionNumber'], $requestBodyData['commentNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussionComment {
                                                     return $operation->createResponse($response);
                                                 });
@@ -13315,7 +13315,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb();
                                                         }
                                                         $operation = new Operation\Teams\UpdateDiscussionCommentInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['discussionNumber'], $requestBodyData['commentNumber']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamDiscussionComment {
                                                             return $operation->createResponse($response);
                                                         });
@@ -13349,7 +13349,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredPullRequestReviews::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredPullRequestReviews();
                                                     }
                                                     $operation = new Operation\Repos\UpdatePullRequestReviewProtection($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredPullRequestReviews::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProtectedBranchPullRequestReview {
                                                         return $operation->createResponse($response);
                                                     });
@@ -13366,7 +13366,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks();
                                                     }
                                                     $operation = new Operation\Repos\UpdateStatusCheckProtection($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\StatusCheckPolicy {
                                                         return $operation->createResponse($response);
                                                     });
@@ -13393,7 +13393,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\User::class] = $this->hydrators->getObjectMapperOperation🌀User();
                             }
                             $operation = new Operation\Users\UpdateAuthenticated($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User::class]);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PrivateUser {
                                 return $operation->createResponse($response);
                             });
@@ -13419,7 +13419,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb🌀Downloads();
                                         }
                                         $operation = new Operation\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads::class], $this->browser, $requestBodyData['preReceiveEnvironmentId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|Schema\PreReceiveEnvironmentDownloadStatus {
                                             return $operation->createResponse($response);
                                         });
@@ -13447,7 +13447,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads\Latest::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb🌀Downloads🌀Latest();
                                             }
                                             $operation = new Operation\EnterpriseAdmin\GetDownloadStatusForPreReceiveEnvironmentStreaming($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads\Latest::class], $this->browser, $requestBodyData['preReceiveEnvironmentId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|Schema\PreReceiveEnvironmentDownloadStatus {
                                                 return $operation->createResponse($response);
                                             });
@@ -13469,7 +13469,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Migrations\DownloadArchiveForOrgStreaming($this->browser, $requestBodyData['org'], $requestBodyData['migrationId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -13491,7 +13491,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Repos\DownloadTarballArchiveStreaming($this->browser, $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['ref']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -13507,7 +13507,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Repos\DownloadZipballArchiveStreaming($this->browser, $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['ref']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -13535,7 +13535,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\DownloadArtifactStreaming($this->browser, $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['artifactId'], $requestBodyData['archiveFormat']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -13553,7 +13553,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\DownloadJobLogsForWorkflowRunStreaming($this->browser, $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['jobId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -13571,7 +13571,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\DownloadWorkflowRunLogsStreaming($this->browser, $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -13600,7 +13600,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Apps\SuspendInstallation($requestBodyData['installationId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -13623,7 +13623,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations🌀Clients🌀CbClientIdRcb🌀CbFingerprintRcb();
                                         }
                                         $operation = new Operation\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb::class], $requestBodyData['clientId'], $requestBodyData['fingerprint']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Authorization {
                                             return $operation->createResponse($response);
                                         });
@@ -13643,7 +13643,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\EnterpriseAdmin\SetGithubActionsPermissionsEnterprise($this->requestSchemaValidator, $requestBodyData['enterprise']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -13666,7 +13666,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Notifications\Threads\CbThreadIdRcb\Subscription::class] = $this->hydrators->getObjectMapperOperation🌀Notifications🌀Threads🌀CbThreadIdRcb🌀Subscription();
                                         }
                                         $operation = new Operation\Activity\SetThreadSubscription($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Notifications\Threads\CbThreadIdRcb\Subscription::class], $requestBodyData['threadId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ThreadSubscription {
                                             return $operation->createResponse($response);
                                         });
@@ -13686,7 +13686,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Actions\SetGithubActionsPermissionsOrganization($this->requestSchemaValidator, $requestBodyData['org']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -13705,7 +13705,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Memberships\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Memberships🌀CbUsernameRcb();
                                         }
                                         $operation = new Operation\Orgs\SetMembershipForUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Memberships\CbUsernameRcb::class], $requestBodyData['org'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\OrgMembership {
                                             return $operation->createResponse($response);
                                         });
@@ -13724,7 +13724,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\OutsideCollaborators\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀OutsideCollaborators🌀CbUsernameRcb();
                                         }
                                         $operation = new Operation\Orgs\ConvertMemberToOutsideCollaborator($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\OutsideCollaborators\CbUsernameRcb::class], $requestBodyData['org'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Gists\CheckIsStarred\Response\Applicationjson\H404 {
                                             return $operation->createResponse($response);
                                         });
@@ -13740,7 +13740,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Orgs\SetPublicMembershipForAuthenticatedUser($requestBodyData['org'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -13760,7 +13760,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Projects\AddCollaborator($this->requestSchemaValidator, $requestBodyData['projectId'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -13783,7 +13783,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Lfs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Lfs();
                                         }
                                         $operation = new Operation\Repos\EnableLfsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Lfs::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\AuditLogEvent\Config {
                                             return $operation->createResponse($response);
                                         });
@@ -13800,7 +13800,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Notifications::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Notifications();
                                         }
                                         $operation = new Operation\Activity\MarkRepoNotificationsAsRead($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Notifications::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\UpdateOrgName\Response\Applicationjson\H202 {
                                             return $operation->createResponse($response);
                                         });
@@ -13814,7 +13814,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Repos\UpdateInformationAboutPagesSite($this->requestSchemaValidator, $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -13831,7 +13831,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscription::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscription();
                                         }
                                         $operation = new Operation\Activity\SetRepoSubscription($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscription::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RepositorySubscription {
                                             return $operation->createResponse($response);
                                         });
@@ -13848,7 +13848,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Topics::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Topics();
                                         }
                                         $operation = new Operation\Repos\ReplaceAllTopics($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Topics::class], $requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Topic {
                                             return $operation->createResponse($response);
                                         });
@@ -13868,7 +13868,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Teams\AddMemberLegacy($requestBodyData['teamId'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -13887,7 +13887,7 @@ final class Client implements ClientInterface
                                             $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Memberships\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Memberships🌀CbUsernameRcb();
                                         }
                                         $operation = new Operation\Teams\AddOrUpdateMembershipForUserLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Memberships\CbUsernameRcb::class], $requestBodyData['teamId'], $requestBodyData['username']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamMembership {
                                             return $operation->createResponse($response);
                                         });
@@ -13903,7 +13903,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Teams\AddOrUpdateProjectPermissionsLegacy($this->requestSchemaValidator, $requestBodyData['teamId'], $requestBodyData['projectId']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -13923,7 +13923,7 @@ final class Client implements ClientInterface
                                             }
                                         }
                                         $operation = new Operation\Activity\StarRepoForAuthenticatedUser($requestBodyData['owner'], $requestBodyData['repo']);
-                                        $request = $operation->createRequest($requestBodyData);
+                                        $request = $operation->createRequest($params);
                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                             return $operation->createResponse($response);
                                         });
@@ -13949,7 +13949,7 @@ final class Client implements ClientInterface
                                         $this->hydrator[Hydrator\Operation\Authorizations\Clients\CbClientIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations🌀Clients🌀CbClientIdRcb();
                                     }
                                     $operation = new Operation\OauthAuthorizations\GetOrCreateAuthorizationForApp($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations\Clients\CbClientIdRcb::class], $requestBodyData['clientId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Authorization {
                                         return $operation->createResponse($response);
                                     });
@@ -13967,7 +13967,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Gists\Star($requestBodyData['gistId']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -13985,7 +13985,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\EnterpriseAdmin\SetSettings($this->requestSchemaValidator);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -14003,7 +14003,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\Users\Follow($requestBodyData['username']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -14021,7 +14021,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\EnterpriseAdmin\PromoteUserToBeSiteAdministrator($requestBodyData['username']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -14035,7 +14035,7 @@ final class Client implements ClientInterface
                                         }
                                     }
                                     $operation = new Operation\EnterpriseAdmin\SuspendUser($this->requestSchemaValidator, $requestBodyData['username']);
-                                    $request = $operation->createRequest($requestBodyData);
+                                    $request = $operation->createRequest($params);
                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                         return $operation->createResponse($response);
                                     });
@@ -14059,7 +14059,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\EnterpriseAdmin\SetSelectedOrganizationsEnabledGithubActionsEnterprise($this->requestSchemaValidator, $requestBodyData['enterprise']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -14073,7 +14073,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\EnterpriseAdmin\SetAllowedActionsEnterprise($this->requestSchemaValidator, $requestBodyData['enterprise']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -14095,7 +14095,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Actions\SetSelectedRepositoriesEnabledGithubActionsOrganization($this->requestSchemaValidator, $requestBodyData['org']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -14109,7 +14109,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Actions\SetAllowedActionsOrganization($this->requestSchemaValidator, $requestBodyData['org']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -14128,7 +14128,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb();
                                             }
                                             $operation = new Operation\Actions\CreateOrUpdateOrgSecret($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb::class], $requestBodyData['org'], $requestBodyData['secretName']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EmptyObject {
                                                 return $operation->createResponse($response);
                                             });
@@ -14149,7 +14149,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Dependabot\Secrets\CbSecretNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Dependabot🌀Secrets🌀CbSecretNameRcb();
                                             }
                                             $operation = new Operation\Dependabot\CreateOrUpdateOrgSecret($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Dependabot\Secrets\CbSecretNameRcb::class], $requestBodyData['org'], $requestBodyData['secretName']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EmptyObject {
                                                 return $operation->createResponse($response);
                                             });
@@ -14171,7 +14171,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Actions\SetGithubActionsPermissionsRepository($this->requestSchemaValidator, $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -14190,7 +14190,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Collaborators\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Collaborators🌀CbUsernameRcb();
                                             }
                                             $operation = new Operation\Repos\AddCollaborator($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Collaborators\CbUsernameRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['username']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\RepositoryInvitation {
                                                 return $operation->createResponse($response);
                                             });
@@ -14209,7 +14209,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contents\CbPathRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Contents🌀CbPathRcb();
                                             }
                                             $operation = new Operation\Repos\CreateOrUpdateFileContents($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contents\CbPathRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['path']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\FileCommit {
                                                 return $operation->createResponse($response);
                                             });
@@ -14228,7 +14228,7 @@ final class Client implements ClientInterface
                                                 $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb();
                                             }
                                             $operation = new Operation\Repos\CreateOrUpdateEnvironment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['environmentName']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Environment {
                                                 return $operation->createResponse($response);
                                             });
@@ -14250,7 +14250,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Teams\AddOrUpdateRepoPermissionsLegacy($this->requestSchemaValidator, $requestBodyData['teamId'], $requestBodyData['owner'], $requestBodyData['repo']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -14272,7 +14272,7 @@ final class Client implements ClientInterface
                                                 }
                                             }
                                             $operation = new Operation\Apps\AddRepoToInstallationForAuthenticatedUser($requestBodyData['installationId'], $requestBodyData['repositoryId']);
-                                            $request = $operation->createRequest($requestBodyData);
+                                            $request = $operation->createRequest($params);
                                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                 return $operation->createResponse($response);
                                             });
@@ -14299,7 +14299,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\EnterpriseAdmin\EnableSelectedOrganizationGithubActionsEnterprise($requestBodyData['enterprise'], $requestBodyData['orgId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14317,7 +14317,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\EnterpriseAdmin\SetOrgAccessToSelfHostedRunnerGroupInEnterprise($this->requestSchemaValidator, $requestBodyData['enterprise'], $requestBodyData['runnerGroupId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14331,7 +14331,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\EnterpriseAdmin\SetSelfHostedRunnersInGroupForEnterprise($this->requestSchemaValidator, $requestBodyData['enterprise'], $requestBodyData['runnerGroupId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14352,7 +14352,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
                                                 }
                                                 $operation = new Operation\EnterpriseAdmin\SetCustomLabelsForSelfHostedRunnerForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $requestBodyData['enterprise'], $requestBodyData['runnerId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14376,7 +14376,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Actions\EnableSelectedRepositoryGithubActionsOrganization($requestBodyData['org'], $requestBodyData['repositoryId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14394,7 +14394,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Actions\SetRepoAccessToSelfHostedRunnerGroupInOrg($this->requestSchemaValidator, $requestBodyData['org'], $requestBodyData['runnerGroupId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14408,7 +14408,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Actions\SetSelfHostedRunnersInGroupForOrg($this->requestSchemaValidator, $requestBodyData['org'], $requestBodyData['runnerGroupId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14429,7 +14429,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
                                                 }
                                                 $operation = new Operation\Actions\SetCustomLabelsForSelfHostedRunnerForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $requestBodyData['org'], $requestBodyData['runnerId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14447,7 +14447,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Actions\SetSelectedReposForOrgSecret($this->requestSchemaValidator, $requestBodyData['org'], $requestBodyData['secretName']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14467,7 +14467,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Dependabot\SetSelectedReposForOrgSecret($this->requestSchemaValidator, $requestBodyData['org'], $requestBodyData['secretName']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14490,7 +14490,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Memberships🌀CbUsernameRcb();
                                                 }
                                                 $operation = new Operation\Teams\AddOrUpdateMembershipForUserInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb::class], $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['username']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\TeamMembership {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14506,7 +14506,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Teams\AddOrUpdateProjectPermissionsInOrg($this->requestSchemaValidator, $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['projectId']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14530,7 +14530,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Actions\SetAllowedActionsRepository($this->requestSchemaValidator, $requestBodyData['owner'], $requestBodyData['repo']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14549,7 +14549,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb();
                                                 }
                                                 $operation = new Operation\Actions\CreateOrUpdateRepoSecret($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['secretName']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EmptyObject {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14570,7 +14570,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection();
                                                 }
                                                 $operation = new Operation\Repos\UpdateBranchProtection($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\ProtectedBranch {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14591,7 +14591,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Dependabot\Secrets\CbSecretNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Dependabot🌀Secrets🌀CbSecretNameRcb();
                                                 }
                                                 $operation = new Operation\Dependabot\CreateOrUpdateRepoSecret($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Dependabot\Secrets\CbSecretNameRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['secretName']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EmptyObject {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14612,7 +14612,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Labels();
                                                 }
                                                 $operation = new Operation\Issues\SetLabels($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Label|Schema\BasicError {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14626,7 +14626,7 @@ final class Client implements ClientInterface
                                                     }
                                                 }
                                                 $operation = new Operation\Issues\Lock($this->requestSchemaValidator, $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['issueNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14647,7 +14647,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Merge::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Merge();
                                                 }
                                                 $operation = new Operation\Pulls\Merge($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Merge::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestMergeResult {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14664,7 +14664,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\UpdateDashBranch::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀UpdateDashBranch();
                                                 }
                                                 $operation = new Operation\Pulls\UpdateBranch($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\UpdateDashBranch::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\UpdateOrgName\Response\Applicationjson\H202 {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14691,7 +14691,7 @@ final class Client implements ClientInterface
                                                     $this->hydrator[Hydrator\Operation\Repositories\CbRepositoryIdRcb\Environments\CbEnvironmentNameRcb\Secrets\CbSecretNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repositories🌀CbRepositoryIdRcb🌀Environments🌀CbEnvironmentNameRcb🌀Secrets🌀CbSecretNameRcb();
                                                 }
                                                 $operation = new Operation\Actions\CreateOrUpdateEnvironmentSecret($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repositories\CbRepositoryIdRcb\Environments\CbEnvironmentNameRcb\Secrets\CbSecretNameRcb::class], $requestBodyData['repositoryId'], $requestBodyData['environmentName'], $requestBodyData['secretName']);
-                                                $request = $operation->createRequest($requestBodyData);
+                                                $request = $operation->createRequest($params);
                                                 return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\EmptyObject {
                                                     return $operation->createResponse($response);
                                                 });
@@ -14720,7 +14720,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\EnterpriseAdmin\AddOrgAccessToSelfHostedRunnerGroupInEnterprise($requestBodyData['enterprise'], $requestBodyData['runnerGroupId'], $requestBodyData['orgId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -14736,7 +14736,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\EnterpriseAdmin\AddSelfHostedRunnerToGroupForEnterprise($requestBodyData['enterprise'], $requestBodyData['runnerGroupId'], $requestBodyData['runnerId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -14762,7 +14762,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\AddRepoAccessToSelfHostedRunnerGroupInOrg($requestBodyData['org'], $requestBodyData['runnerGroupId'], $requestBodyData['repositoryId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -14778,7 +14778,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\AddSelfHostedRunnerToGroupForOrg($requestBodyData['org'], $requestBodyData['runnerGroupId'], $requestBodyData['runnerId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -14798,7 +14798,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\AddSelectedRepoToOrgSecret($requestBodyData['org'], $requestBodyData['secretName'], $requestBodyData['repositoryId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -14820,7 +14820,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Dependabot\AddSelectedRepoToOrgSecret($requestBodyData['org'], $requestBodyData['secretName'], $requestBodyData['repositoryId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -14842,7 +14842,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Teams\AddOrUpdateRepoPermissionsInOrg($this->requestSchemaValidator, $requestBodyData['org'], $requestBodyData['teamSlug'], $requestBodyData['owner'], $requestBodyData['repo']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -14871,7 +14871,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
                                                     }
                                                     $operation = new Operation\Actions\SetCustomLabelsForSelfHostedRunnerForRepo($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['runnerId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
                                                         return $operation->createResponse($response);
                                                     });
@@ -14889,7 +14889,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\DisableWorkflow($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['workflowId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -14903,7 +14903,7 @@ final class Client implements ClientInterface
                                                         }
                                                     }
                                                     $operation = new Operation\Actions\EnableWorkflow($requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['workflowId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                                         return $operation->createResponse($response);
                                                     });
@@ -14926,7 +14926,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb\DeploymentDashBranchDashPolicies\CbBranchPolicyIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Environments🌀CbEnvironmentNameRcb🌀DeploymentDashBranchDashPolicies🌀CbBranchPolicyIdRcb();
                                                     }
                                                     $operation = new Operation\Repos\UpdateDeploymentBranchPolicy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Environments\CbEnvironmentNameRcb\DeploymentDashBranchDashPolicies\CbBranchPolicyIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['environmentName'], $requestBodyData['branchPolicyId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\DeploymentBranchPolicy {
                                                         return $operation->createResponse($response);
                                                     });
@@ -14949,7 +14949,7 @@ final class Client implements ClientInterface
                                                         $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb();
                                                     }
                                                     $operation = new Operation\Pulls\UpdateReview($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber'], $requestBodyData['reviewId']);
-                                                    $request = $operation->createRequest($requestBodyData);
+                                                    $request = $operation->createRequest($params);
                                                     return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestReview {
                                                         return $operation->createResponse($response);
                                                     });
@@ -14976,7 +14976,7 @@ final class Client implements ClientInterface
                                 $this->hydrator[Hydrator\Operation\Notifications::class] = $this->hydrators->getObjectMapperOperation🌀Notifications();
                             }
                             $operation = new Operation\Activity\MarkNotificationsAsRead($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Notifications::class]);
-                            $request = $operation->createRequest($requestBodyData);
+                            $request = $operation->createRequest($params);
                             return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202 {
                                 return $operation->createResponse($response);
                             });
@@ -15004,7 +15004,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks\Contexts::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀RequiredStatusChecks🌀Contexts();
                                                         }
                                                         $operation = new Operation\Repos\SetStatusCheckContexts($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks\Contexts::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Operation\Gitignore\GetAllTemplates\Response\Applicationjson\H200 {
                                                             return $operation->createResponse($response);
                                                         });
@@ -15023,7 +15023,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Apps::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Apps();
                                                         }
                                                         $operation = new Operation\Repos\SetAppAccessRestrictions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Apps::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Integration {
                                                             return $operation->createResponse($response);
                                                         });
@@ -15040,7 +15040,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Teams();
                                                         }
                                                         $operation = new Operation\Repos\SetTeamAccessRestrictions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Teams::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\Team {
                                                             return $operation->createResponse($response);
                                                         });
@@ -15057,7 +15057,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Users::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Branches🌀CbBranchRcb🌀Protection🌀Restrictions🌀Users();
                                                         }
                                                         $operation = new Operation\Repos\SetUserAccessRestrictions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions\Users::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['branch']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\SimpleUser {
                                                             return $operation->createResponse($response);
                                                         });
@@ -15082,7 +15082,7 @@ final class Client implements ClientInterface
                                                             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Dismissals::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀CbPullNumberRcb🌀Reviews🌀CbReviewIdRcb🌀Dismissals();
                                                         }
                                                         $operation = new Operation\Pulls\DismissReview($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Dismissals::class], $requestBodyData['owner'], $requestBodyData['repo'], $requestBodyData['pullNumber'], $requestBodyData['reviewId']);
-                                                        $request = $operation->createRequest($requestBodyData);
+                                                        $request = $operation->createRequest($params);
                                                         return $this->browser->request($request->getMethod(), $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : Schema\PullRequestReview {
                                                             return $operation->createResponse($response);
                                                         });

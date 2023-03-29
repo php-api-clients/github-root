@@ -515,6 +515,17 @@ class PullRequestReviewComment implements ObjectMapper
 
             after_startSide:
 
+            $value = $payload['subject_type'] ?? null;
+
+            if ($value === null) {
+                $properties['subjectType'] = null;
+                goto after_subjectType;
+            }
+
+            $properties['subjectType'] = $value;
+
+            after_subjectType:
+
             $value = $payload['updated_at'] ?? null;
 
             if ($value === null) {
@@ -8673,6 +8684,17 @@ class PullRequestReviewComment implements ObjectMapper
 
             after_startSide:
 
+            $value = $payload['subject_type'] ?? null;
+
+            if ($value === null) {
+                $properties['subjectType'] = null;
+                goto after_subjectType;
+            }
+
+            $properties['subjectType'] = $value;
+
+            after_subjectType:
+
             $value = $payload['updated_at'] ?? null;
 
             if ($value === null) {
@@ -11771,6 +11793,14 @@ class PullRequestReviewComment implements ObjectMapper
             goto after_startSide;
         }
         after_startSide:        $result['start_side'] = $startSide;
+
+        
+        $subjectType = $object->subjectType;
+
+        if ($subjectType === null) {
+            goto after_subjectType;
+        }
+        after_subjectType:        $result['subject_type'] = $subjectType;
 
         
         $updatedAt = $object->updatedAt;
@@ -15862,6 +15892,14 @@ class PullRequestReviewComment implements ObjectMapper
             goto after_startSide;
         }
         after_startSide:        $result['start_side'] = $startSide;
+
+        
+        $subjectType = $object->subjectType;
+
+        if ($subjectType === null) {
+            goto after_subjectType;
+        }
+        after_subjectType:        $result['subject_type'] = $subjectType;
 
         
         $updatedAt = $object->updatedAt;
