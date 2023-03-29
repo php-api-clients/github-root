@@ -25,6 +25,7 @@ class Commits implements ObjectMapper
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\GitCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Author($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Committer' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Committer($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Tree' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Tree($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Parents' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Parents($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Verification' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Verification($payload),
@@ -104,7 +105,7 @@ class Commits implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'committer';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Author($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Committer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -263,6 +264,60 @@ class Commits implements ObjectMapper
             return new \ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Author(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Author', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Committer(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Committer
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['date'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'date';
+                goto after_date;
+            }
+
+            $properties['date'] = $value;
+
+            after_date:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'email';
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'name';
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Committer', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Committer::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Committer(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Committer', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -677,6 +732,7 @@ class Commits implements ObjectMapper
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterprise\Schema\GitCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit($object),
             'ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Author($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Committer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Committer($object),
             'ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Tree' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Tree($object),
             'ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Parents' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Parents($object),
             'ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Verification' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Verification($object),
@@ -779,7 +835,7 @@ class Commits implements ObjectMapper
 
         
         $committer = $object->committer;
-        $committer = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Author($committer);
+        $committer = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Committer($committer);
         after_committer:        $result['committer'] = $committer;
 
         
@@ -821,6 +877,27 @@ class Commits implements ObjectMapper
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Author(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Author);
+        $result = [];
+
+        $date = $object->date;
+        after_date:        $result['date'] = $date;
+
+        
+        $email = $object->email;
+        after_email:        $result['email'] = $email;
+
+        
+        $name = $object->name;
+        after_name:        $result['name'] = $name;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitCommit⚡️Committer(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\GitCommit\Committer);
         $result = [];
 
         $date = $object->date;

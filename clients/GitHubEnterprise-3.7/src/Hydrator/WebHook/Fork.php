@@ -27,7 +27,7 @@ class Fork implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Enterprise($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookFork\Forkee' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookFork⚡️Forkee($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookFork\Forkee\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookFork⚡️Forkee⚡️License($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\Discussion\AnswerChosenBy' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookFork\Forkee\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookFork⚡️Forkee⚡️Owner($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookFork\Forkee\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookFork⚡️Forkee⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleInstallation($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrganizationSimple($payload),
@@ -1031,7 +1031,7 @@ class Fork implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookFork⚡️Forkee⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1428,7 +1428,7 @@ class Fork implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Discussion\AnswerChosenBy
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookFork⚡️Forkee⚡️Owner(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookFork\Forkee\Owner
     {
         $properties = []; 
         $missingFields = [];
@@ -1665,17 +1665,17 @@ class Fork implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Discussion\AnswerChosenBy', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookFork\Forkee\Owner', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Discussion\AnswerChosenBy::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookFork\Forkee\Owner::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\Discussion\AnswerChosenBy(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookFork\Forkee\Owner(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Discussion\AnswerChosenBy', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookFork\Forkee\Owner', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -4742,7 +4742,7 @@ class Fork implements ObjectMapper
             'ApiClients\Client\GitHubEnterprise\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Enterprise($object),
             'ApiClients\Client\GitHubEnterprise\Schema\WebhookFork\Forkee' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookFork⚡️Forkee($object),
             'ApiClients\Client\GitHubEnterprise\Schema\WebhookFork\Forkee\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookFork⚡️Forkee⚡️License($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\Discussion\AnswerChosenBy' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\WebhookFork\Forkee\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookFork⚡️Forkee⚡️Owner($object),
             'ApiClients\Client\GitHubEnterprise\Schema\WebhookFork\Forkee\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookFork⚡️Forkee⚡️Permissions($object),
             'ApiClients\Client\GitHubEnterprise\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleInstallation($object),
             'ApiClients\Client\GitHubEnterprise\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrganizationSimple($object),
@@ -5268,7 +5268,7 @@ class Fork implements ObjectMapper
         if ($owner === null) {
             goto after_owner;
         }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookFork⚡️Forkee⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -5442,9 +5442,9 @@ class Fork implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Discussion⚡️AnswerChosenBy(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookFork⚡️Forkee⚡️Owner(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Discussion\AnswerChosenBy);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\WebhookFork\Forkee\Owner);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;

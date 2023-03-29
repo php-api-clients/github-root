@@ -25,15 +25,15 @@ final class RegistryPackage implements \ApiClients\Contracts\OpenAPI\WebHookInte
         $error = new \RuntimeException('No action matching given headers and data');
         if ($headers['content-type'] == 'application/json') {
             try {
-                $this->requestSchemaValidator->validate($headers['user-agent'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-github-hook-id'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-github-event'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-github-hook-installation-target-id'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-github-hook-installation-target-type'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-github-delivery'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-hub-signature-256'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-github-enterprise-version'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-github-enterprise-host'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['user-agent'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgentEU::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-github-hook-id'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XGithubHookIdEU::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-github-event'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XGithubEventEU::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-github-hook-installation-target-id'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XGithubHookInstallationTargetIdEU::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-github-hook-installation-target-type'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XGithubHookInstallationTargetTypeEU::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-github-delivery'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XGitHubDeliveryEU::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-hub-signature-256'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XHubSignatureEU::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-github-enterprise-version'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XGitHubEnterpriseVersionEU::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-github-enterprise-host'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XGitHubEnterpriseHostEU::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                 $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\WebhookRegistryPackagePublished::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                 return $this->hydrator->hydrateObject(Schema\WebhookRegistryPackagePublished::class, $data);
             } catch (\Throwable $error) {
@@ -43,15 +43,15 @@ final class RegistryPackage implements \ApiClients\Contracts\OpenAPI\WebHookInte
         actions_aaaaa:
         if ($headers['content-type'] == 'application/json') {
             try {
-                $this->requestSchemaValidator->validate($headers['user-agent'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-github-hook-id'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-github-event'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-github-hook-installation-target-id'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-github-hook-installation-target-type'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-github-delivery'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-hub-signature-256'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-github-enterprise-version'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                $this->requestSchemaValidator->validate($headers['x-github-enterprise-host'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['user-agent'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\UserAgentEV::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-github-hook-id'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XGithubHookIdEV::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-github-event'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XGithubEventEV::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-github-hook-installation-target-id'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XGithubHookInstallationTargetIdEV::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-github-hook-installation-target-type'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XGithubHookInstallationTargetTypeEV::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-github-delivery'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XGitHubDeliveryEV::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-hub-signature-256'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XHubSignatureEV::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-github-enterprise-version'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XGitHubEnterpriseVersionEV::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                $this->requestSchemaValidator->validate($headers['x-github-enterprise-host'], \cebe\openapi\Reader::readFromJson(Schema\WebHookHeader\XGitHubEnterpriseHostEV::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                 $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\WebhookRegistryPackageUpdated::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                 return $this->hydrator->hydrateObject(Schema\WebhookRegistryPackageUpdated::class, $data);
             } catch (\Throwable $error) {

@@ -29,7 +29,7 @@ class Issues implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueSearchResultItem\Labels' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueSearchResultItem⚡️Labels($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SearchResultTextMatches' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SearchResultTextMatches($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SearchResultTextMatches\Matches' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SearchResultTextMatches⚡️Matches($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue\PullRequest' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Issue⚡️PullRequest($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueSearchResultItem\PullRequest' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueSearchResultItem⚡️PullRequest($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
@@ -418,7 +418,7 @@ class Issues implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'pullRequest';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Issue⚡️PullRequest($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueSearchResultItem⚡️PullRequest($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1051,7 +1051,7 @@ class Issues implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Issue⚡️PullRequest(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue\PullRequest
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueSearchResultItem⚡️PullRequest(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueSearchResultItem\PullRequest
     {
         $properties = []; 
         $missingFields = [];
@@ -1112,17 +1112,17 @@ class Issues implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue\PullRequest', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueSearchResultItem\PullRequest', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue\PullRequest::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueSearchResultItem\PullRequest::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue\PullRequest(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueSearchResultItem\PullRequest(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue\PullRequest', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueSearchResultItem\PullRequest', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -4068,7 +4068,7 @@ class Issues implements ObjectMapper
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueSearchResultItem\Labels' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueSearchResultItem⚡️Labels($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\SearchResultTextMatches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SearchResultTextMatches($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\SearchResultTextMatches\Matches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SearchResultTextMatches⚡️Matches($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Issue⚡️PullRequest($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueSearchResultItem\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueSearchResultItem⚡️PullRequest($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️Permissions($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️TemplateRepository($object),
@@ -4347,7 +4347,7 @@ class Issues implements ObjectMapper
         if ($pullRequest === null) {
             goto after_pullRequest;
         }
-        $pullRequest = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Issue⚡️PullRequest($pullRequest);
+        $pullRequest = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueSearchResultItem⚡️PullRequest($pullRequest);
         after_pullRequest:        $result['pull_request'] = $pullRequest;
 
         
@@ -4694,9 +4694,9 @@ class Issues implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Issue⚡️PullRequest(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueSearchResultItem⚡️PullRequest(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue\PullRequest);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueSearchResultItem\PullRequest);
         $result = [];
 
         $mergedAt = $object->mergedAt;

@@ -25,8 +25,8 @@ class Cards implements ObjectMapper
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ProjectCard' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ProjectCard($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H503($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H503⚡️Errors($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️CreateCard⚡️Response⚡️Applicationjson⚡️H503($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️CreateCard⚡️Response⚡️Applicationjson⚡️H503⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -261,7 +261,7 @@ class Cards implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H503(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️CreateCard⚡️Response⚡️Applicationjson⚡️H503(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503
     {
         $properties = []; 
         $missingFields = [];
@@ -310,7 +310,7 @@ class Cards implements ObjectMapper
 
             if ($errorsCaster1 === null) {
                 $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operation\\Projects\\MoveCard\\Response\\Applicationjson\\H503\\Errors',
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operation\\Projects\\CreateCard\\Response\\Applicationjson\\H503\\Errors',
 ));
             }
 
@@ -321,22 +321,22 @@ class Cards implements ObjectMapper
             after_errors:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H503⚡️Errors(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️CreateCard⚡️Response⚡️Applicationjson⚡️H503⚡️Errors(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503\Errors
     {
         $properties = []; 
         $missingFields = [];
@@ -364,17 +364,17 @@ class Cards implements ObjectMapper
             after_message:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503\Errors', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503\Errors::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503\Errors(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503\Errors', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -411,8 +411,8 @@ class Cards implements ObjectMapper
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ProjectCard($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H503($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H503⚡️Errors($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️CreateCard⚡️Response⚡️Applicationjson⚡️H503($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️CreateCard⚡️Response⚡️Applicationjson⚡️H503⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -612,9 +612,9 @@ class Cards implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H503(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️CreateCard⚡️Response⚡️Applicationjson⚡️H503(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503);
         $result = [];
 
         $code = $object->code;
@@ -650,7 +650,7 @@ class Cards implements ObjectMapper
 
         if ($errorsSerializer0 === null) {
             $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operation\\Projects\\MoveCard\\Response\\Applicationjson\\H503\\Errors',
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operation\\Projects\\CreateCard\\Response\\Applicationjson\\H503\\Errors',
 ));
         }
         
@@ -662,9 +662,9 @@ class Cards implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️MoveCard⚡️Response⚡️Applicationjson⚡️H503⚡️Errors(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Projects⚡️CreateCard⚡️Response⚡️Applicationjson⚡️H503⚡️Errors(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H503\Errors);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Projects\CreateCard\Response\Applicationjson\H503\Errors);
         $result = [];
 
         $code = $object->code;

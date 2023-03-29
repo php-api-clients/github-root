@@ -23,7 +23,7 @@ class Installations implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Orgs⚡️ListAppInstallations⚡️Response⚡️Applicationjson⚡️H200($payload),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Apps\ListInstallationsForAuthenticatedUser\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Apps⚡️ListInstallationsForAuthenticatedUser⚡️Response⚡️Applicationjson⚡️H200($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Installation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Installation($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\AppPermissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AppPermissions($payload),
@@ -33,7 +33,7 @@ class Installations implements ObjectMapper
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Orgs⚡️ListAppInstallations⚡️Response⚡️Applicationjson⚡️H200(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Apps⚡️ListInstallationsForAuthenticatedUser⚡️Response⚡️Applicationjson⚡️H200(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Apps\ListInstallationsForAuthenticatedUser\Response\Applicationjson\H200
     {
         $properties = []; 
         $missingFields = [];
@@ -71,17 +71,17 @@ class Installations implements ObjectMapper
             after_installations:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Apps\ListInstallationsForAuthenticatedUser\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Apps\ListInstallationsForAuthenticatedUser\Response\Applicationjson\H200::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Apps\ListInstallationsForAuthenticatedUser\Response\Applicationjson\H200(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Apps\ListInstallationsForAuthenticatedUser\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -1098,7 +1098,7 @@ class Installations implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Orgs⚡️ListAppInstallations⚡️Response⚡️Applicationjson⚡️H200($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Apps\ListInstallationsForAuthenticatedUser\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Apps⚡️ListInstallationsForAuthenticatedUser⚡️Response⚡️Applicationjson⚡️H200($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\Installation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Installation($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\AppPermissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️AppPermissions($object),
@@ -1176,9 +1176,9 @@ class Installations implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Orgs⚡️ListAppInstallations⚡️Response⚡️Applicationjson⚡️H200(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Apps⚡️ListInstallationsForAuthenticatedUser⚡️Response⚡️Applicationjson⚡️H200(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Apps\ListInstallationsForAuthenticatedUser\Response\Applicationjson\H200);
         $result = [];
 
         $totalCount = $object->totalCount;

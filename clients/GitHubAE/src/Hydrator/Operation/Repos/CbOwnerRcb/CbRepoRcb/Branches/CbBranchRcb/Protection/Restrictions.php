@@ -24,7 +24,7 @@ class Restrictions implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Users($payload),
                 'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Teams' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Teams($payload),
                 'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps($payload),
                 'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner($payload),
@@ -95,7 +95,7 @@ class Restrictions implements ObjectMapper
 
             if ($usersCaster1 === null) {
                 $usersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Repository\\TemplateRepository\\Owner',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\BranchRestrictionPolicy\\Users',
 ));
             }
 
@@ -163,7 +163,7 @@ class Restrictions implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Users(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users
     {
         $properties = []; 
         $missingFields = [];
@@ -367,17 +367,17 @@ class Restrictions implements ObjectMapper
             after_siteAdmin:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -1141,7 +1141,7 @@ class Restrictions implements ObjectMapper
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Users($object),
             'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Teams' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Teams($object),
             'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps($object),
             'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner($object),
@@ -1246,7 +1246,7 @@ class Restrictions implements ObjectMapper
 
         if ($usersSerializer0 === null) {
             $usersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Repository\\TemplateRepository\\Owner',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\BranchRestrictionPolicy\\Users',
 ));
         }
         
@@ -1284,9 +1284,9 @@ class Restrictions implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Users(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users);
         $result = [];
 
         $login = $object->login;

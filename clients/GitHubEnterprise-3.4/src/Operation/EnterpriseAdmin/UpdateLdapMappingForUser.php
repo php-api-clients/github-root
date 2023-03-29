@@ -28,7 +28,7 @@ final class UpdateLdapMappingForUser
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\EnterpriseAdmin\UpdateLdapMappingForTeam\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\EnterpriseAdmin\UpdateLdapMappingForUser\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{username}'), array($this->username), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     /**

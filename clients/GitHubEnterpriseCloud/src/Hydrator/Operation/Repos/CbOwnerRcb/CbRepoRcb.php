@@ -34,8 +34,10 @@ class CbRepoRcb implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeOfConductSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeOfConductSimple($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\AdvancedSecurity' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanning' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️Applicationjson⚡️H422($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\Delete\Response\Applicationjson\H403' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Repos⚡️Delete⚡️Response⚡️Applicationjson⚡️H403($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
@@ -4172,7 +4174,7 @@ class CbRepoRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'secretScanning';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4192,7 +4194,7 @@ class CbRepoRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'secretScanningPushProtection';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4246,6 +4248,70 @@ class CbRepoRcb implements ObjectMapper
             return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\AdvancedSecurity(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\AdvancedSecurity', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanning
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanning', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanning::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanning(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanning', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -4315,7 +4381,7 @@ class CbRepoRcb implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️Applicationjson⚡️H422(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Repos⚡️Delete⚡️Response⚡️Applicationjson⚡️H403(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\Delete\Response\Applicationjson\H403
     {
         $properties = []; 
         $missingFields = [];
@@ -4343,17 +4409,17 @@ class CbRepoRcb implements ObjectMapper
             after_documentationUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\Delete\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\Delete\Response\Applicationjson\H403::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\Delete\Response\Applicationjson\H403(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\Delete\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -4550,8 +4616,10 @@ class CbRepoRcb implements ObjectMapper
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeOfConductSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeOfConductSimple($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\AdvancedSecurity' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanning' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️Applicationjson⚡️H422($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\Delete\Response\Applicationjson\H403' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Repos⚡️Delete⚡️Response⚡️Applicationjson⚡️H403($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
@@ -6882,7 +6950,7 @@ class CbRepoRcb implements ObjectMapper
         if ($secretScanning === null) {
             goto after_secretScanning;
         }
-        $secretScanning = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($secretScanning);
+        $secretScanning = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($secretScanning);
         after_secretScanning:        $result['secret_scanning'] = $secretScanning;
 
         
@@ -6891,7 +6959,7 @@ class CbRepoRcb implements ObjectMapper
         if ($secretScanningPushProtection === null) {
             goto after_secretScanningPushProtection;
         }
-        $secretScanningPushProtection = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($secretScanningPushProtection);
+        $secretScanningPushProtection = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($secretScanningPushProtection);
         after_secretScanningPushProtection:        $result['secret_scanning_push_protection'] = $secretScanningPushProtection;
 
 
@@ -6902,6 +6970,40 @@ class CbRepoRcb implements ObjectMapper
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\AdvancedSecurity);
+        $result = [];
+
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+        after_status:        $result['status'] = $status;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanning);
+        $result = [];
+
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+        after_status:        $result['status'] = $status;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection);
         $result = [];
 
         $status = $object->status;
@@ -6957,9 +7059,9 @@ class CbRepoRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️Applicationjson⚡️H422(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Repos⚡️Delete⚡️Response⚡️Applicationjson⚡️H403(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\Delete\Response\Applicationjson\H403);
         $result = [];
 
         $message = $object->message;

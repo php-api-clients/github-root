@@ -32,9 +32,9 @@ final class UpdateUsernameForUser
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{username}'), array($this->username), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
     }
     /**
-     * @return Schema\Operation\EnterpriseAdmin\UpdateOrgName\Response\Applicationjson\H202
+     * @return Schema\Operation\EnterpriseAdmin\UpdateUsernameForUser\Response\Applicationjson\H202
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Operation\EnterpriseAdmin\UpdateOrgName\Response\Applicationjson\H202
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Operation\EnterpriseAdmin\UpdateUsernameForUser\Response\Applicationjson\H202
     {
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);
@@ -43,8 +43,8 @@ final class UpdateUsernameForUser
             case 202:
                 switch ($contentType) {
                     case 'application/json':
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\EnterpriseAdmin\UpdateOrgName\Response\Applicationjson\H202::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\Operation\EnterpriseAdmin\UpdateOrgName\Response\Applicationjson\H202::class, $body);
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\EnterpriseAdmin\UpdateUsernameForUser\Response\Applicationjson\H202::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject(Schema\Operation\EnterpriseAdmin\UpdateUsernameForUser\Response\Applicationjson\H202::class, $body);
                 }
                 break;
         }

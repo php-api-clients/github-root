@@ -24,7 +24,7 @@ class CbDirRcb implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentFile' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentFile($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentFile\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentFile⚡️Links($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($payload),
@@ -169,7 +169,7 @@ class CbDirRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'links';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentFile⚡️Links($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -217,7 +217,7 @@ class CbDirRcb implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Entries⚡️Links(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentFile⚡️Links(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentFile\Links
     {
         $properties = []; 
         $missingFields = [];
@@ -256,17 +256,17 @@ class CbDirRcb implements ObjectMapper
             after_self:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentFile\Links', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentFile\Links::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentFile\Links(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentFile\Links', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -518,7 +518,7 @@ class CbDirRcb implements ObjectMapper
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentFile' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentFile($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentFile\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentFile⚡️Links($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($object),
@@ -657,7 +657,7 @@ class CbDirRcb implements ObjectMapper
 
         
         $links = $object->links;
-        $links = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($links);
+        $links = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentFile⚡️Links($links);
         after_links:        $result['_links'] = $links;
 
         
@@ -681,9 +681,9 @@ class CbDirRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Entries⚡️Links(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentFile⚡️Links(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentFile\Links);
         $result = [];
 
         $git = $object->git;

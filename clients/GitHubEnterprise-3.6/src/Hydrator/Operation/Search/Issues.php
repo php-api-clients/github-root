@@ -29,7 +29,7 @@ class Issues implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\IssueSearchResultItem\Labels' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️IssueSearchResultItem⚡️Labels($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches⚡️Matches($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\Issue\PullRequest' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Issue⚡️PullRequest($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\IssueSearchResultItem\PullRequest' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️IssueSearchResultItem⚡️PullRequest($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
@@ -418,7 +418,7 @@ class Issues implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'pullRequest';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Issue⚡️PullRequest($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️IssueSearchResultItem⚡️PullRequest($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1051,7 +1051,7 @@ class Issues implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Issue⚡️PullRequest(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Issue\PullRequest
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️IssueSearchResultItem⚡️PullRequest(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\IssueSearchResultItem\PullRequest
     {
         $properties = []; 
         $missingFields = [];
@@ -1112,17 +1112,17 @@ class Issues implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Issue\PullRequest', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\IssueSearchResultItem\PullRequest', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Issue\PullRequest::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\IssueSearchResultItem\PullRequest::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\Issue\PullRequest(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\IssueSearchResultItem\PullRequest(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Issue\PullRequest', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\IssueSearchResultItem\PullRequest', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -4057,7 +4057,7 @@ class Issues implements ObjectMapper
             'ApiClients\Client\GitHubEnterprise\Schema\IssueSearchResultItem\Labels' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️IssueSearchResultItem⚡️Labels($object),
             'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches($object),
             'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches⚡️Matches($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\Issue\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Issue⚡️PullRequest($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\IssueSearchResultItem\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️IssueSearchResultItem⚡️PullRequest($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository($object),
@@ -4336,7 +4336,7 @@ class Issues implements ObjectMapper
         if ($pullRequest === null) {
             goto after_pullRequest;
         }
-        $pullRequest = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Issue⚡️PullRequest($pullRequest);
+        $pullRequest = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️IssueSearchResultItem⚡️PullRequest($pullRequest);
         after_pullRequest:        $result['pull_request'] = $pullRequest;
 
         
@@ -4683,9 +4683,9 @@ class Issues implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Issue⚡️PullRequest(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️IssueSearchResultItem⚡️PullRequest(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Issue\PullRequest);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\IssueSearchResultItem\PullRequest);
         $result = [];
 
         $mergedAt = $object->mergedAt;

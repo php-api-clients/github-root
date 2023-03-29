@@ -24,9 +24,9 @@ final class ListAlertsForEnterprise
     private string $secretType;
     /**A comma-separated list of resolutions. Only secret scanning alerts with one of these resolutions are listed. Valid resolutions are `false_positive`, `wont_fix`, `revoked`, `pattern_edited`, `pattern_deleted` or `used_in_tests`.**/
     private string $resolution;
-    /**A cursor, as given in the [Link header](https://docs.github.com/enterprise-server@3.4/rest/overview/resources-in-the-rest-api#link-header). If specified, the query only searches for results before this cursor.**/
+    /**A cursor, as given in the [Link header](https://docs.github.com/enterprise-server@3.4/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results before this cursor.**/
     private string $before;
-    /**A cursor, as given in the [Link header](https://docs.github.com/enterprise-server@3.4/rest/overview/resources-in-the-rest-api#link-header). If specified, the query only searches for results after this cursor.**/
+    /**A cursor, as given in the [Link header](https://docs.github.com/enterprise-server@3.4/rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for results after this cursor.**/
     private string $after;
     /**The number of results per page (max 100).**/
     private int $perPage;

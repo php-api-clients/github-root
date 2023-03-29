@@ -23,7 +23,7 @@ class UpdateDashBranch implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkRepoNotificationsAsRead\Response\Applicationjson\H202' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Activity⚡️MarkRepoNotificationsAsRead⚡️Response⚡️Applicationjson⚡️H202($payload),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Pulls\UpdateBranch\Response\Applicationjson\H202' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Pulls⚡️UpdateBranch⚡️Response⚡️Applicationjson⚡️H202($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
@@ -32,7 +32,7 @@ class UpdateDashBranch implements ObjectMapper
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Activity⚡️MarkRepoNotificationsAsRead⚡️Response⚡️Applicationjson⚡️H202(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkRepoNotificationsAsRead\Response\Applicationjson\H202
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Pulls⚡️UpdateBranch⚡️Response⚡️Applicationjson⚡️H202(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Pulls\UpdateBranch\Response\Applicationjson\H202
     {
         $properties = []; 
         $missingFields = [];
@@ -60,17 +60,17 @@ class UpdateDashBranch implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkRepoNotificationsAsRead\Response\Applicationjson\H202', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Pulls\UpdateBranch\Response\Applicationjson\H202', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkRepoNotificationsAsRead\Response\Applicationjson\H202::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Pulls\UpdateBranch\Response\Applicationjson\H202::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkRepoNotificationsAsRead\Response\Applicationjson\H202(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Pulls\UpdateBranch\Response\Applicationjson\H202(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkRepoNotificationsAsRead\Response\Applicationjson\H202', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Pulls\UpdateBranch\Response\Applicationjson\H202', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -321,7 +321,7 @@ class UpdateDashBranch implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkRepoNotificationsAsRead\Response\Applicationjson\H202' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Activity⚡️MarkRepoNotificationsAsRead⚡️Response⚡️Applicationjson⚡️H202($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Pulls\UpdateBranch\Response\Applicationjson\H202' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Pulls⚡️UpdateBranch⚡️Response⚡️Applicationjson⚡️H202($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
@@ -398,9 +398,9 @@ class UpdateDashBranch implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Activity⚡️MarkRepoNotificationsAsRead⚡️Response⚡️Applicationjson⚡️H202(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Pulls⚡️UpdateBranch⚡️Response⚡️Applicationjson⚡️H202(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkRepoNotificationsAsRead\Response\Applicationjson\H202);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Pulls\UpdateBranch\Response\Applicationjson\H202);
         $result = [];
 
         $message = $object->message;

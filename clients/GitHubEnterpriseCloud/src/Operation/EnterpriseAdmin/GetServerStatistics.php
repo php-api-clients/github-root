@@ -16,9 +16,9 @@ final class GetServerStatistics
     private const PATH = '/enterprise-installation/{enterprise_or_org}/server-statistics';
     /**The slug version of the enterprise name or the login of an organization.**/
     private string $enterpriseOrOrg;
-    /**A cursor, as given in the [Link header](https://docs.github.com/enterprise-cloud@latest//rest/overview/resources-in-the-rest-api#link-header). If specified, the query only searches for events after this cursor.**/
+    /**A cursor, as given in the [Link header](https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for events after this cursor.**/
     private string $dateStart;
-    /**A cursor, as given in the [Link header](https://docs.github.com/enterprise-cloud@latest//rest/overview/resources-in-the-rest-api#link-header). If specified, the query only searches for events before this cursor.**/
+    /**A cursor, as given in the [Link header](https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for events before this cursor.**/
     private string $dateEnd;
     private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\EnterpriseDashInstallation\CbEnterpriseOrOrgRcb\ServerDashStatistics $hydrator;

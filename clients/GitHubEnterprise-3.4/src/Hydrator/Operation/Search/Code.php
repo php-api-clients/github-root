@@ -27,7 +27,7 @@ class Code implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\CodeSearchResultItem' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeSearchResultItem($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️License($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches($payload),
@@ -1104,7 +1104,7 @@ class Code implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1510,7 +1510,7 @@ class Code implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -1571,17 +1571,17 @@ class Code implements ObjectMapper
             after_pull:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -2171,7 +2171,7 @@ class Code implements ObjectMapper
             'ApiClients\Client\GitHubEnterprise\Schema\CodeSearchResultItem' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeSearchResultItem($object),
             'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository($object),
             'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions($object),
             'ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct($object),
             'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️License($object),
             'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches($object),
@@ -2797,7 +2797,7 @@ class Code implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -2996,9 +2996,9 @@ class Code implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions);
         $result = [];
 
         $admin = $object->admin;

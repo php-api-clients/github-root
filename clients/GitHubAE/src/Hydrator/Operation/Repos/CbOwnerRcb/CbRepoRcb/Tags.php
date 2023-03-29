@@ -24,7 +24,7 @@ class Tags implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubAE\Schema\Tag' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Tag($payload),
-                'ApiClients\Client\GitHubAE\Schema\ShortBranch\Commit' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ShortBranch⚡️Commit($payload),
+                'ApiClients\Client\GitHubAE\Schema\Tag\Commit' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Tag⚡️Commit($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -56,7 +56,7 @@ class Tags implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'commit';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ShortBranch⚡️Commit($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Tag⚡️Commit($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -115,7 +115,7 @@ class Tags implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ShortBranch⚡️Commit(array $payload): \ApiClients\Client\GitHubAE\Schema\ShortBranch\Commit
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Tag⚡️Commit(array $payload): \ApiClients\Client\GitHubAE\Schema\Tag\Commit
     {
         $properties = []; 
         $missingFields = [];
@@ -143,17 +143,17 @@ class Tags implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ShortBranch\Commit', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Tag\Commit', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ShortBranch\Commit::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Tag\Commit::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\ShortBranch\Commit(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Tag\Commit(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ShortBranch\Commit', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Tag\Commit', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -189,7 +189,7 @@ class Tags implements ObjectMapper
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubAE\Schema\Tag' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Tag($object),
-            'ApiClients\Client\GitHubAE\Schema\ShortBranch\Commit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ShortBranch⚡️Commit($object),
+            'ApiClients\Client\GitHubAE\Schema\Tag\Commit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Tag⚡️Commit($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -273,7 +273,7 @@ class Tags implements ObjectMapper
 
         
         $commit = $object->commit;
-        $commit = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ShortBranch⚡️Commit($commit);
+        $commit = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Tag⚡️Commit($commit);
         after_commit:        $result['commit'] = $commit;
 
         
@@ -293,9 +293,9 @@ class Tags implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ShortBranch⚡️Commit(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Tag⚡️Commit(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ShortBranch\Commit);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Tag\Commit);
         $result = [];
 
         $sha = $object->sha;

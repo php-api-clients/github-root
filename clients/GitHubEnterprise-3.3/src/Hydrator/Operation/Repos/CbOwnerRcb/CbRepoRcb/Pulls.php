@@ -34,6 +34,7 @@ class Pulls implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple\Base' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestSimple⚡️Base($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestSimple⚡️Links($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Link' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\AutoMerge' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AutoMerge($payload),
@@ -45,10 +46,15 @@ class Pulls implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️License($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️User($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️User($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Links($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -460,7 +466,7 @@ class Pulls implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'base';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestSimple⚡️Head($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestSimple⚡️Base($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3604,6 +3610,91 @@ class Pulls implements ObjectMapper
     }
 
         
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestSimple⚡️Base(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple\Base
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['label'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'label';
+                goto after_label;
+            }
+
+            $properties['label'] = $value;
+
+            after_label:
+
+            $value = $payload['ref'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'ref';
+                goto after_ref;
+            }
+
+            $properties['ref'] = $value;
+
+            after_ref:
+
+            $value = $payload['repo'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'repo';
+                goto after_repo;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'repo';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['repo'] = $value;
+
+            after_repo:
+
+            $value = $payload['sha'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'sha';
+                goto after_sha;
+            }
+
+            $properties['sha'] = $value;
+
+            after_sha:
+
+            $value = $payload['user'] ?? null;
+
+            if ($value === null) {
+                $properties['user'] = null;
+                goto after_user;
+            }
+
+            $properties['user'] = $value;
+
+            after_user:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple\Base', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple\Base::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple\Base(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple\Base', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
     private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestSimple⚡️Links(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple\Links
     {
         $properties = []; 
@@ -4467,7 +4558,7 @@ class Pulls implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'links';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestSimple⚡️Links($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Links($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4986,7 +5077,7 @@ class Pulls implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5762,7 +5853,7 @@ class Pulls implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6203,7 +6294,7 @@ class Pulls implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -6264,17 +6355,17 @@ class Pulls implements ObjectMapper
             after_pull:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -6355,6 +6446,225 @@ class Pulls implements ObjectMapper
     }
 
         
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️User(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'avatar_url';
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'events_url';
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'followers_url';
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'following_url';
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'gists_url';
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'html_url';
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'node_id';
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'organizations_url';
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'received_events_url';
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'repos_url';
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'site_admin';
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'starred_url';
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'subscriptions_url';
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'type';
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
     private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base
     {
         $properties = []; 
@@ -6423,7 +6733,7 @@ class Pulls implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6849,7 +7159,7 @@ class Pulls implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7210,7 +7520,7 @@ class Pulls implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7412,6 +7722,701 @@ class Pulls implements ObjectMapper
     }
 
         
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'avatar_url';
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'events_url';
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'followers_url';
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'following_url';
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'gists_url';
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'html_url';
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'node_id';
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'organizations_url';
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'received_events_url';
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'repos_url';
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'site_admin';
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'starred_url';
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'subscriptions_url';
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'type';
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['admin'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'admin';
+                goto after_admin;
+            }
+
+            $properties['admin'] = $value;
+
+            after_admin:
+
+            $value = $payload['maintain'] ?? null;
+
+            if ($value === null) {
+                $properties['maintain'] = null;
+                goto after_maintain;
+            }
+
+            $properties['maintain'] = $value;
+
+            after_maintain:
+
+            $value = $payload['push'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'push';
+                goto after_push;
+            }
+
+            $properties['push'] = $value;
+
+            after_push:
+
+            $value = $payload['triage'] ?? null;
+
+            if ($value === null) {
+                $properties['triage'] = null;
+                goto after_triage;
+            }
+
+            $properties['triage'] = $value;
+
+            after_triage:
+
+            $value = $payload['pull'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'pull';
+                goto after_pull;
+            }
+
+            $properties['pull'] = $value;
+
+            after_pull:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️User(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'avatar_url';
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'events_url';
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'followers_url';
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'following_url';
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'gists_url';
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'html_url';
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'node_id';
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'organizations_url';
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'received_events_url';
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'repos_url';
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'site_admin';
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'starred_url';
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'subscriptions_url';
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'type';
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Links(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['comments'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'comments';
+                goto after_comments;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'comments';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['comments'] = $value;
+
+            after_comments:
+
+            $value = $payload['commits'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'commits';
+                goto after_commits;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'commits';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['commits'] = $value;
+
+            after_commits:
+
+            $value = $payload['statuses'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'statuses';
+                goto after_statuses;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'statuses';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['statuses'] = $value;
+
+            after_statuses:
+
+            $value = $payload['html'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'html';
+                goto after_html;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'html';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['html'] = $value;
+
+            after_html:
+
+            $value = $payload['issue'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'issue';
+                goto after_issue;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'issue';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['issue'] = $value;
+
+            after_issue:
+
+            $value = $payload['review_comments'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'review_comments';
+                goto after_reviewComments;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'reviewComments';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['reviewComments'] = $value;
+
+            after_reviewComments:
+
+            $value = $payload['review_comment'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'review_comment';
+                goto after_reviewComment;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'reviewComment';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['reviewComment'] = $value;
+
+            after_reviewComment:
+
+            $value = $payload['self'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'self';
+                goto after_self;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'self';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['self'] = $value;
+
+            after_self:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
     private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\BasicError
     {
         $properties = []; 
@@ -7518,6 +8523,7 @@ class Pulls implements ObjectMapper
             'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple\Base' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestSimple⚡️Base($object),
             'ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestSimple⚡️Links($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Link' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($object),
             'ApiClients\Client\GitHubEnterprise\Schema\AutoMerge' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AutoMerge($object),
@@ -7529,10 +8535,15 @@ class Pulls implements ObjectMapper
             'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head($object),
             'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo($object),
             'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions($object),
             'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️License($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️User($object),
             'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base($object),
             'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️User($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Links($object),
             'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -7818,7 +8829,7 @@ class Pulls implements ObjectMapper
 
         
         $base = $object->base;
-        $base = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestSimple⚡️Head($base);
+        $base = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestSimple⚡️Base($base);
         after_base:        $result['base'] = $base;
 
         
@@ -9549,6 +10560,40 @@ class Pulls implements ObjectMapper
     }
 
 
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestSimple⚡️Base(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple\Base);
+        $result = [];
+
+        $label = $object->label;
+        after_label:        $result['label'] = $label;
+
+        
+        $ref = $object->ref;
+        after_ref:        $result['ref'] = $ref;
+
+        
+        $repo = $object->repo;
+        $repo = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($repo);
+        after_repo:        $result['repo'] = $repo;
+
+        
+        $sha = $object->sha;
+        after_sha:        $result['sha'] = $sha;
+
+        
+        $user = $object->user;
+
+        if ($user === null) {
+            goto after_user;
+        }
+        after_user:        $result['user'] = $user;
+
+
+        return $result;
+    }
+
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestSimple⚡️Links(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple\Links);
@@ -9940,7 +10985,7 @@ class Pulls implements ObjectMapper
 
         
         $links = $object->links;
-        $links = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequestSimple⚡️Links($links);
+        $links = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Links($links);
         after_links:        $result['_links'] = $links;
 
         
@@ -10166,7 +11211,7 @@ class Pulls implements ObjectMapper
 
         
         $user = $object->user;
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️User($user);
         after_user:        $result['user'] = $user;
 
 
@@ -10473,7 +11518,7 @@ class Pulls implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -10675,9 +11720,9 @@ class Pulls implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -10749,6 +11794,91 @@ class Pulls implements ObjectMapper
     }
 
 
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️User(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $eventsUrl = $object->eventsUrl;
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $nodeId = $object->nodeId;
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base);
@@ -10772,7 +11902,7 @@ class Pulls implements ObjectMapper
 
         
         $user = $object->user;
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️User($user);
         after_user:        $result['user'] = $user;
 
 
@@ -10934,7 +12064,7 @@ class Pulls implements ObjectMapper
 
         
         $owner = $object->owner;
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -11087,7 +12217,7 @@ class Pulls implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -11189,6 +12319,262 @@ class Pulls implements ObjectMapper
             goto after_allowForking;
         }
         after_allowForking:        $result['allow_forking'] = $allowForking;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $eventsUrl = $object->eventsUrl;
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $nodeId = $object->nodeId;
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions);
+        $result = [];
+
+        $admin = $object->admin;
+        after_admin:        $result['admin'] = $admin;
+
+        
+        $maintain = $object->maintain;
+
+        if ($maintain === null) {
+            goto after_maintain;
+        }
+        after_maintain:        $result['maintain'] = $maintain;
+
+        
+        $push = $object->push;
+        after_push:        $result['push'] = $push;
+
+        
+        $triage = $object->triage;
+
+        if ($triage === null) {
+            goto after_triage;
+        }
+        after_triage:        $result['triage'] = $triage;
+
+        
+        $pull = $object->pull;
+        after_pull:        $result['pull'] = $pull;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️User(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $eventsUrl = $object->eventsUrl;
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $nodeId = $object->nodeId;
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Links(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links);
+        $result = [];
+
+        $comments = $object->comments;
+        $comments = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($comments);
+        after_comments:        $result['comments'] = $comments;
+
+        
+        $commits = $object->commits;
+        $commits = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($commits);
+        after_commits:        $result['commits'] = $commits;
+
+        
+        $statuses = $object->statuses;
+        $statuses = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($statuses);
+        after_statuses:        $result['statuses'] = $statuses;
+
+        
+        $html = $object->html;
+        $html = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($html);
+        after_html:        $result['html'] = $html;
+
+        
+        $issue = $object->issue;
+        $issue = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($issue);
+        after_issue:        $result['issue'] = $issue;
+
+        
+        $reviewComments = $object->reviewComments;
+        $reviewComments = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($reviewComments);
+        after_reviewComments:        $result['review_comments'] = $reviewComments;
+
+        
+        $reviewComment = $object->reviewComment;
+        $reviewComment = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($reviewComment);
+        after_reviewComment:        $result['review_comment'] = $reviewComment;
+
+        
+        $self = $object->self;
+        $self = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($self);
+        after_self:        $result['self'] = $self;
 
 
         return $result;

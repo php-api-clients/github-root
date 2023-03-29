@@ -23,7 +23,7 @@ class Runners implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForOrg\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Actions⚡️ListSelfHostedRunnersForOrg⚡️Response⚡️Applicationjson⚡️H200($payload),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForRepo\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Actions⚡️ListSelfHostedRunnersForRepo⚡️Response⚡️Applicationjson⚡️H200($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Runner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Runner($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerLabel' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RunnerLabel($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
@@ -31,7 +31,7 @@ class Runners implements ObjectMapper
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Actions⚡️ListSelfHostedRunnersForOrg⚡️Response⚡️Applicationjson⚡️H200(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForOrg\Response\Applicationjson\H200
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Actions⚡️ListSelfHostedRunnersForRepo⚡️Response⚡️Applicationjson⚡️H200(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForRepo\Response\Applicationjson\H200
     {
         $properties = []; 
         $missingFields = [];
@@ -69,17 +69,17 @@ class Runners implements ObjectMapper
             after_runners:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForOrg\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForRepo\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForOrg\Response\Applicationjson\H200::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForRepo\Response\Applicationjson\H200::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForOrg\Response\Applicationjson\H200(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForRepo\Response\Applicationjson\H200(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForOrg\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForRepo\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -265,7 +265,7 @@ class Runners implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForOrg\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Actions⚡️ListSelfHostedRunnersForOrg⚡️Response⚡️Applicationjson⚡️H200($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForRepo\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Actions⚡️ListSelfHostedRunnersForRepo⚡️Response⚡️Applicationjson⚡️H200($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\Runner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Runner($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerLabel' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RunnerLabel($object),
                 default => throw new \LogicException('No serialization defined for $className'),
@@ -341,9 +341,9 @@ class Runners implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Actions⚡️ListSelfHostedRunnersForOrg⚡️Response⚡️Applicationjson⚡️H200(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Actions⚡️ListSelfHostedRunnersForRepo⚡️Response⚡️Applicationjson⚡️H200(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForOrg\Response\Applicationjson\H200);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Actions\ListSelfHostedRunnersForRepo\Response\Applicationjson\H200);
         $result = [];
 
         $totalCount = $object->totalCount;

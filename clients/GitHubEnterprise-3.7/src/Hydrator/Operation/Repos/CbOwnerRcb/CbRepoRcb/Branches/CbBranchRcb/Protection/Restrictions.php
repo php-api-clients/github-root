@@ -24,7 +24,7 @@ class Restrictions implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchRestrictionPolicy($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy\Users' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchRestrictionPolicy⚡️Users($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy\Teams' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchRestrictionPolicy⚡️Teams($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy\Apps' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy\Apps\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner($payload),
@@ -95,7 +95,7 @@ class Restrictions implements ObjectMapper
 
             if ($usersCaster1 === null) {
                 $usersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository\\TemplateRepository\\Owner',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy\\Users',
 ));
             }
 
@@ -163,7 +163,7 @@ class Restrictions implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchRestrictionPolicy⚡️Users(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy\Users
     {
         $properties = []; 
         $missingFields = [];
@@ -367,17 +367,17 @@ class Restrictions implements ObjectMapper
             after_siteAdmin:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy\Users', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy\Users::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy\Users(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy\Users', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -1141,7 +1141,7 @@ class Restrictions implements ObjectMapper
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchRestrictionPolicy($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy\Users' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchRestrictionPolicy⚡️Users($object),
             'ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy\Teams' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchRestrictionPolicy⚡️Teams($object),
             'ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy\Apps' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps($object),
             'ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy\Apps\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner($object),
@@ -1246,7 +1246,7 @@ class Restrictions implements ObjectMapper
 
         if ($usersSerializer0 === null) {
             $usersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\Repository\\TemplateRepository\\Owner',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\BranchRestrictionPolicy\\Users',
 ));
         }
         
@@ -1284,9 +1284,9 @@ class Restrictions implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchRestrictionPolicy⚡️Users(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy\Users);
         $result = [];
 
         $login = $object->login;

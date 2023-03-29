@@ -28,6 +28,8 @@ class SecurityAndAnalysis implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookSecurityAndAnalysis\Changes\From' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSecurityAndAnalysis⚡️Changes⚡️From($payload),
                 'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis($payload),
                 'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\AdvancedSecurity' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($payload),
+                'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanning' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($payload),
+                'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($payload),
                 'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($payload),
                 'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($payload),
                 'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($payload),
@@ -303,7 +305,7 @@ class SecurityAndAnalysis implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'secretScanning';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -323,7 +325,7 @@ class SecurityAndAnalysis implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'secretScanningPushProtection';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -377,6 +379,70 @@ class SecurityAndAnalysis implements ObjectMapper
             return new \ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\AdvancedSecurity(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\AdvancedSecurity', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning(array $payload): \ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanning
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanning', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanning::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanning(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanning', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection(array $payload): \ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningPushProtection
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningPushProtection', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningPushProtection::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningPushProtection(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningPushProtection', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -4672,6 +4738,8 @@ class SecurityAndAnalysis implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\WebhookSecurityAndAnalysis\Changes\From' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSecurityAndAnalysis⚡️Changes⚡️From($object),
             'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis($object),
             'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\AdvancedSecurity' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($object),
+            'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanning' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($object),
+            'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($object),
             'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($object),
             'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($object),
             'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($object),
@@ -4867,7 +4935,7 @@ class SecurityAndAnalysis implements ObjectMapper
         if ($secretScanning === null) {
             goto after_secretScanning;
         }
-        $secretScanning = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($secretScanning);
+        $secretScanning = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($secretScanning);
         after_secretScanning:        $result['secret_scanning'] = $secretScanning;
 
         
@@ -4876,7 +4944,7 @@ class SecurityAndAnalysis implements ObjectMapper
         if ($secretScanningPushProtection === null) {
             goto after_secretScanningPushProtection;
         }
-        $secretScanningPushProtection = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($secretScanningPushProtection);
+        $secretScanningPushProtection = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($secretScanningPushProtection);
         after_secretScanningPushProtection:        $result['secret_scanning_push_protection'] = $secretScanningPushProtection;
 
 
@@ -4887,6 +4955,40 @@ class SecurityAndAnalysis implements ObjectMapper
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\AdvancedSecurity);
+        $result = [];
+
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+        after_status:        $result['status'] = $status;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanning);
+        $result = [];
+
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+        after_status:        $result['status'] = $status;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningPushProtection);
         $result = [];
 
         $status = $object->status;

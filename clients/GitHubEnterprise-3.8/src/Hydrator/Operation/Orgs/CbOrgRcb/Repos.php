@@ -25,15 +25,18 @@ class Repos implements ObjectMapper
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️License($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\AdvancedSecurity' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors($payload),
@@ -869,7 +872,7 @@ class Repos implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1317,7 +1320,7 @@ class Repos implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -1378,17 +1381,17 @@ class Repos implements ObjectMapper
             after_pull:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -1580,7 +1583,7 @@ class Repos implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'secretScanning';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1600,7 +1603,7 @@ class Repos implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'secretScanningPushProtection';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1654,6 +1657,70 @@ class Repos implements ObjectMapper
             return new \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\AdvancedSecurity(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\AdvancedSecurity', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -4086,6 +4153,82 @@ class Repos implements ObjectMapper
     }
 
         
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['admin'] ?? null;
+
+            if ($value === null) {
+                $properties['admin'] = null;
+                goto after_admin;
+            }
+
+            $properties['admin'] = $value;
+
+            after_admin:
+
+            $value = $payload['maintain'] ?? null;
+
+            if ($value === null) {
+                $properties['maintain'] = null;
+                goto after_maintain;
+            }
+
+            $properties['maintain'] = $value;
+
+            after_maintain:
+
+            $value = $payload['push'] ?? null;
+
+            if ($value === null) {
+                $properties['push'] = null;
+                goto after_push;
+            }
+
+            $properties['push'] = $value;
+
+            after_push:
+
+            $value = $payload['triage'] ?? null;
+
+            if ($value === null) {
+                $properties['triage'] = null;
+                goto after_triage;
+            }
+
+            $properties['triage'] = $value;
+
+            after_triage:
+
+            $value = $payload['pull'] ?? null;
+
+            if ($value === null) {
+                $properties['pull'] = null;
+                goto after_pull;
+            }
+
+            $properties['pull'] = $value;
+
+            after_pull:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
     private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\BasicError
     {
         $properties = []; 
@@ -4334,15 +4477,18 @@ class Repos implements ObjectMapper
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository($object),
             'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions($object),
             'ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct($object),
             'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️License($object),
             'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis($object),
             'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\AdvancedSecurity' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
             'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
             'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($object),
             'ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors($object),
@@ -4842,7 +4988,7 @@ class Repos implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -5066,9 +5212,9 @@ class Repos implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -5220,7 +5366,7 @@ class Repos implements ObjectMapper
         if ($secretScanning === null) {
             goto after_secretScanning;
         }
-        $secretScanning = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($secretScanning);
+        $secretScanning = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($secretScanning);
         after_secretScanning:        $result['secret_scanning'] = $secretScanning;
 
         
@@ -5229,7 +5375,7 @@ class Repos implements ObjectMapper
         if ($secretScanningPushProtection === null) {
             goto after_secretScanningPushProtection;
         }
-        $secretScanningPushProtection = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($secretScanningPushProtection);
+        $secretScanningPushProtection = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($secretScanningPushProtection);
         after_secretScanningPushProtection:        $result['secret_scanning_push_protection'] = $secretScanningPushProtection;
 
 
@@ -5240,6 +5386,40 @@ class Repos implements ObjectMapper
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\AdvancedSecurity);
+        $result = [];
+
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+        after_status:        $result['status'] = $status;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning);
+        $result = [];
+
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+        after_status:        $result['status'] = $status;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection);
         $result = [];
 
         $status = $object->status;
@@ -6705,6 +6885,55 @@ class Repos implements ObjectMapper
             goto after_siteAdmin;
         }
         after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions);
+        $result = [];
+
+        $admin = $object->admin;
+
+        if ($admin === null) {
+            goto after_admin;
+        }
+        after_admin:        $result['admin'] = $admin;
+
+        
+        $maintain = $object->maintain;
+
+        if ($maintain === null) {
+            goto after_maintain;
+        }
+        after_maintain:        $result['maintain'] = $maintain;
+
+        
+        $push = $object->push;
+
+        if ($push === null) {
+            goto after_push;
+        }
+        after_push:        $result['push'] = $push;
+
+        
+        $triage = $object->triage;
+
+        if ($triage === null) {
+            goto after_triage;
+        }
+        after_triage:        $result['triage'] = $triage;
+
+        
+        $pull = $object->pull;
+
+        if ($pull === null) {
+            goto after_pull;
+        }
+        after_pull:        $result['pull'] = $pull;
 
 
         return $result;

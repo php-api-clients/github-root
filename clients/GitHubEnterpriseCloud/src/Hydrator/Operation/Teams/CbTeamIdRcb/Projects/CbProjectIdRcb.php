@@ -26,7 +26,7 @@ class CbProjectIdRcb implements ObjectMapper
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamProject' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️TeamProject($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamProject\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️TeamProject⚡️Permissions($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️Applicationjson⚡️H422($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Teams\AddOrUpdateProjectPermissionsLegacy\Response\Applicationjson\H403' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Teams⚡️AddOrUpdateProjectPermissionsLegacy⚡️Response⚡️Applicationjson⚡️H403($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($payload),
@@ -556,7 +556,7 @@ class CbProjectIdRcb implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️Applicationjson⚡️H422(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Teams⚡️AddOrUpdateProjectPermissionsLegacy⚡️Response⚡️Applicationjson⚡️H403(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Teams\AddOrUpdateProjectPermissionsLegacy\Response\Applicationjson\H403
     {
         $properties = []; 
         $missingFields = [];
@@ -584,17 +584,17 @@ class CbProjectIdRcb implements ObjectMapper
             after_documentationUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Teams\AddOrUpdateProjectPermissionsLegacy\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Teams\AddOrUpdateProjectPermissionsLegacy\Response\Applicationjson\H403::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Teams\AddOrUpdateProjectPermissionsLegacy\Response\Applicationjson\H403(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Teams\AddOrUpdateProjectPermissionsLegacy\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -848,7 +848,7 @@ class CbProjectIdRcb implements ObjectMapper
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamProject' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️TeamProject($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamProject\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️TeamProject⚡️Permissions($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️Applicationjson⚡️H422($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Teams\AddOrUpdateProjectPermissionsLegacy\Response\Applicationjson\H403' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Teams⚡️AddOrUpdateProjectPermissionsLegacy⚡️Response⚡️Applicationjson⚡️H403($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($object),
@@ -1142,9 +1142,9 @@ class CbProjectIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️Applicationjson⚡️H422(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Teams⚡️AddOrUpdateProjectPermissionsLegacy⚡️Response⚡️Applicationjson⚡️H403(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Orgs\RemoveOutsideCollaborator\Response\Applicationjson\H422);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Teams\AddOrUpdateProjectPermissionsLegacy\Response\Applicationjson\H403);
         $result = [];
 
         $message = $object->message;

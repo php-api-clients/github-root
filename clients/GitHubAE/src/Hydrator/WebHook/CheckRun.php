@@ -31,9 +31,11 @@ class CheckRun implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal($payload),
                 'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head($payload),
                 'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head\Repo' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($payload),
+                'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base($payload),
+                'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base⚡️Repo($payload),
                 'ApiClients\Client\GitHubAE\Schema\MinimalRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository($payload),
                 'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubAE\Schema\CodeOfConduct' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeOfConduct($payload),
                 'ApiClients\Client\GitHubAE\Schema\MinimalRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️License($payload),
                 'ApiClients\Client\GitHubAE\Schema\DeploymentSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️DeploymentSimple($payload),
@@ -44,6 +46,7 @@ class CheckRun implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
+                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookCheckRunCompletedFormEncoded' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckRunCompletedFormEncoded($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookCheckRunCreated' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckRunCreated($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookCheckRunCreatedFormEncoded' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckRunCreatedFormEncoded($payload),
@@ -998,7 +1001,7 @@ class CheckRun implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'base';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1137,6 +1140,123 @@ class CheckRun implements ObjectMapper
             return new \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head\Repo(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head\Repo', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base(array $payload): \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['ref'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'ref';
+                goto after_ref;
+            }
+
+            $properties['ref'] = $value;
+
+            after_ref:
+
+            $value = $payload['sha'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'sha';
+                goto after_sha;
+            }
+
+            $properties['sha'] = $value;
+
+            after_sha:
+
+            $value = $payload['repo'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'repo';
+                goto after_repo;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'repo';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base⚡️Repo($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['repo'] = $value;
+
+            after_repo:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base⚡️Repo(array $payload): \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'name';
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -1968,7 +2088,7 @@ class CheckRun implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2396,7 +2516,7 @@ class CheckRun implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -2457,17 +2577,17 @@ class CheckRun implements ObjectMapper
             after_pull:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -5378,6 +5498,82 @@ class CheckRun implements ObjectMapper
     }
 
         
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['admin'] ?? null;
+
+            if ($value === null) {
+                $properties['admin'] = null;
+                goto after_admin;
+            }
+
+            $properties['admin'] = $value;
+
+            after_admin:
+
+            $value = $payload['maintain'] ?? null;
+
+            if ($value === null) {
+                $properties['maintain'] = null;
+                goto after_maintain;
+            }
+
+            $properties['maintain'] = $value;
+
+            after_maintain:
+
+            $value = $payload['push'] ?? null;
+
+            if ($value === null) {
+                $properties['push'] = null;
+                goto after_push;
+            }
+
+            $properties['push'] = $value;
+
+            after_push:
+
+            $value = $payload['triage'] ?? null;
+
+            if ($value === null) {
+                $properties['triage'] = null;
+                goto after_triage;
+            }
+
+            $properties['triage'] = $value;
+
+            after_triage:
+
+            $value = $payload['pull'] ?? null;
+
+            if ($value === null) {
+                $properties['pull'] = null;
+                goto after_pull;
+            }
+
+            $properties['pull'] = $value;
+
+            after_pull:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
     private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckRunCompletedFormEncoded(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookCheckRunCompletedFormEncoded
     {
         $properties = []; 
@@ -5992,9 +6188,11 @@ class CheckRun implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal($object),
             'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head($object),
             'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head\Repo' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($object),
+            'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base($object),
+            'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base⚡️Repo($object),
             'ApiClients\Client\GitHubAE\Schema\MinimalRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository($object),
             'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
+            'ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️Permissions($object),
             'ApiClients\Client\GitHubAE\Schema\CodeOfConduct' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeOfConduct($object),
             'ApiClients\Client\GitHubAE\Schema\MinimalRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️License($object),
             'ApiClients\Client\GitHubAE\Schema\DeploymentSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️DeploymentSimple($object),
@@ -6005,6 +6203,7 @@ class CheckRun implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($object),
             'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($object),
             'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
+            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookCheckRunCompletedFormEncoded' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckRunCompletedFormEncoded($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookCheckRunCreated' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckRunCreated($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookCheckRunCreatedFormEncoded' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckRunCreatedFormEncoded($object),
@@ -6563,7 +6762,7 @@ class CheckRun implements ObjectMapper
 
         
         $base = $object->base;
-        $base = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head($base);
+        $base = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base($base);
         after_base:        $result['base'] = $base;
 
 
@@ -6596,6 +6795,49 @@ class CheckRun implements ObjectMapper
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head\Repo);
+        $result = [];
+
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+        
+        $name = $object->name;
+        after_name:        $result['name'] = $name;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base);
+        $result = [];
+
+        $ref = $object->ref;
+        after_ref:        $result['ref'] = $ref;
+
+        
+        $sha = $object->sha;
+        after_sha:        $result['sha'] = $sha;
+
+        
+        $repo = $object->repo;
+        $repo = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base⚡️Repo($repo);
+        after_repo:        $result['repo'] = $repo;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base⚡️Repo(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo);
         $result = [];
 
         $id = $object->id;
@@ -7037,7 +7279,7 @@ class CheckRun implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -7252,9 +7494,9 @@ class CheckRun implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -8954,6 +9196,55 @@ class CheckRun implements ObjectMapper
             goto after_siteAdmin;
         }
         after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions);
+        $result = [];
+
+        $admin = $object->admin;
+
+        if ($admin === null) {
+            goto after_admin;
+        }
+        after_admin:        $result['admin'] = $admin;
+
+        
+        $maintain = $object->maintain;
+
+        if ($maintain === null) {
+            goto after_maintain;
+        }
+        after_maintain:        $result['maintain'] = $maintain;
+
+        
+        $push = $object->push;
+
+        if ($push === null) {
+            goto after_push;
+        }
+        after_push:        $result['push'] = $push;
+
+        
+        $triage = $object->triage;
+
+        if ($triage === null) {
+            goto after_triage;
+        }
+        after_triage:        $result['triage'] = $triage;
+
+        
+        $pull = $object->pull;
+
+        if ($pull === null) {
+            goto after_pull;
+        }
+        after_pull:        $result['pull'] = $pull;
 
 
         return $result;

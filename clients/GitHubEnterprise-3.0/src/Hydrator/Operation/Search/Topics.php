@@ -29,6 +29,8 @@ class Topics implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches⚡️Matches($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related\TopicRelation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Aliases($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases\TopicRelation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operation\Apps\GetInstallation\Response\Applicationjson\H415' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Apps⚡️GetInstallation⚡️Response⚡️Applicationjson⚡️H415($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -300,7 +302,7 @@ class Topics implements ObjectMapper
 
             if ($aliasesCaster1 === null) {
                 $aliasesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem\\Related',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem\\Aliases',
 ));
             }
 
@@ -561,6 +563,112 @@ class Topics implements ObjectMapper
     }
 
         
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Aliases(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['topic_relation'] ?? null;
+
+            if ($value === null) {
+                $properties['topicRelation'] = null;
+                goto after_topicRelation;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'topicRelation';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['topicRelation'] = $value;
+
+            after_topicRelation:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases\TopicRelation
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $properties['id'] = null;
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['topic_id'] ?? null;
+
+            if ($value === null) {
+                $properties['topicId'] = null;
+                goto after_topicId;
+            }
+
+            $properties['topicId'] = $value;
+
+            after_topicId:
+
+            $value = $payload['relation_type'] ?? null;
+
+            if ($value === null) {
+                $properties['relationType'] = null;
+                goto after_relationType;
+            }
+
+            $properties['relationType'] = $value;
+
+            after_relationType:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases\TopicRelation', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases\TopicRelation::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases\TopicRelation(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases\TopicRelation', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
     private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Apps⚡️GetInstallation⚡️Response⚡️Applicationjson⚡️H415(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Apps\GetInstallation\Response\Applicationjson\H415
     {
         $properties = []; 
@@ -640,6 +748,8 @@ class Topics implements ObjectMapper
             'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches⚡️Matches($object),
             'ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related($object),
             'ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related\TopicRelation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Aliases($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases\TopicRelation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Operation\Apps\GetInstallation\Response\Applicationjson\H415' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Apps⚡️GetInstallation⚡️Response⚡️Applicationjson⚡️H415($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -872,7 +982,7 @@ class Topics implements ObjectMapper
 
         if ($aliasesSerializer0 === null) {
             $aliasesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem\\Related',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TopicSearchResultItem\\Aliases',
 ));
         }
         
@@ -996,6 +1106,65 @@ class Topics implements ObjectMapper
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Related\TopicRelation);
+        $result = [];
+
+        $id = $object->id;
+
+        if ($id === null) {
+            goto after_id;
+        }
+        after_id:        $result['id'] = $id;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $topicId = $object->topicId;
+
+        if ($topicId === null) {
+            goto after_topicId;
+        }
+        after_topicId:        $result['topic_id'] = $topicId;
+
+        
+        $relationType = $object->relationType;
+
+        if ($relationType === null) {
+            goto after_relationType;
+        }
+        after_relationType:        $result['relation_type'] = $relationType;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Aliases(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases);
+        $result = [];
+
+        $topicRelation = $object->topicRelation;
+
+        if ($topicRelation === null) {
+            goto after_topicRelation;
+        }
+        $topicRelation = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation($topicRelation);
+        after_topicRelation:        $result['topic_relation'] = $topicRelation;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\TopicSearchResultItem\Aliases\TopicRelation);
         $result = [];
 
         $id = $object->id;

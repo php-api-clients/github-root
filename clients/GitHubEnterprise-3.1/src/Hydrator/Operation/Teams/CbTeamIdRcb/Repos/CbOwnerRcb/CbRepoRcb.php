@@ -24,7 +24,7 @@ class CbRepoRcb implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\TeamRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamRepository($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\TeamRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors($payload),
@@ -114,7 +114,7 @@ class CbRepoRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamRepository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1020,7 +1020,7 @@ class CbRepoRcb implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\TeamRepository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -1081,17 +1081,17 @@ class CbRepoRcb implements ObjectMapper
             after_maintain:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TeamRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\TeamRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\TeamRepository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TeamRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -1343,7 +1343,7 @@ class CbRepoRcb implements ObjectMapper
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterprise\Schema\TeamRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamRepository($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\TeamRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamRepository⚡️Permissions($object),
             'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
             'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($object),
             'ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors($object),
@@ -1458,7 +1458,7 @@ class CbRepoRcb implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -1878,9 +1878,9 @@ class CbRepoRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamRepository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\TeamRepository\Permissions);
         $result = [];
 
         $admin = $object->admin;

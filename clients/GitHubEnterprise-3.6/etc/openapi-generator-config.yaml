@@ -1,6 +1,8 @@
 spec: https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/ghes-3.6/ghes-3.6.yaml
 namespace: ApiClients\Client\GitHubEnterprise
 destination: ../src
+schemas:
+  allowDuplication: true
 voter:
   listOperation:
     - ApiClients\Tools\OpenApiClientGenerator\Voter\ListOperation\PageAndPerPageInQuery

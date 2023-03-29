@@ -23,7 +23,7 @@ class Repositories implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Actions⚡️ListSelectedRepositoriesEnabledGithubActionsOrganization⚡️Response⚡️Applicationjson⚡️H200($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesRequiredWorkflow\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Actions⚡️ListSelectedRepositoriesRequiredWorkflow⚡️Response⚡️Applicationjson⚡️H200($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($payload),
@@ -35,7 +35,7 @@ class Repositories implements ObjectMapper
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Actions⚡️ListSelectedRepositoriesEnabledGithubActionsOrganization⚡️Response⚡️Applicationjson⚡️H200(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\Applicationjson\H200
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Actions⚡️ListSelectedRepositoriesRequiredWorkflow⚡️Response⚡️Applicationjson⚡️H200(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesRequiredWorkflow\Response\Applicationjson\H200
     {
         $properties = []; 
         $missingFields = [];
@@ -73,17 +73,17 @@ class Repositories implements ObjectMapper
             after_repositories:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesRequiredWorkflow\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\Applicationjson\H200::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesRequiredWorkflow\Response\Applicationjson\H200::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\Applicationjson\H200(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesRequiredWorkflow\Response\Applicationjson\H200(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesRequiredWorkflow\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -2874,7 +2874,7 @@ class Repositories implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Actions⚡️ListSelectedRepositoriesEnabledGithubActionsOrganization⚡️Response⚡️Applicationjson⚡️H200($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesRequiredWorkflow\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Actions⚡️ListSelectedRepositoriesRequiredWorkflow⚡️Response⚡️Applicationjson⚡️H200($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️Permissions($object),
             'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($object),
@@ -2954,9 +2954,9 @@ class Repositories implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Actions⚡️ListSelectedRepositoriesEnabledGithubActionsOrganization⚡️Response⚡️Applicationjson⚡️H200(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Actions⚡️ListSelectedRepositoriesRequiredWorkflow⚡️Response⚡️Applicationjson⚡️H200(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\Applicationjson\H200);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesRequiredWorkflow\Response\Applicationjson\H200);
         $result = [];
 
         $totalCount = $object->totalCount;

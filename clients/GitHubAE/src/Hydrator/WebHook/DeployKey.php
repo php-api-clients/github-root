@@ -35,6 +35,7 @@ class DeployKey implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookDeployKeyDeleted' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeployKeyDeleted($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookDeployKeyDeleted\Key' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeployKeyDeleted⚡️Key($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -3340,7 +3341,7 @@ class DeployKey implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'key';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeployKeyCreated⚡️Key($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeployKeyDeleted⚡️Key($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3424,6 +3425,126 @@ class DeployKey implements ObjectMapper
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDeployKeyDeleted', $exception, stack: $this->hydrationStack);
         }
     }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeployKeyDeleted⚡️Key(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookDeployKeyDeleted\Key
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['added_by'] ?? null;
+
+            if ($value === null) {
+                $properties['addedBy'] = null;
+                goto after_addedBy;
+            }
+
+            $properties['addedBy'] = $value;
+
+            after_addedBy:
+
+            $value = $payload['created_at'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'created_at';
+                goto after_createdAt;
+            }
+
+            $properties['createdAt'] = $value;
+
+            after_createdAt:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['key'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'key';
+                goto after_key;
+            }
+
+            $properties['key'] = $value;
+
+            after_key:
+
+            $value = $payload['last_used'] ?? null;
+
+            if ($value === null) {
+                $properties['lastUsed'] = null;
+                goto after_lastUsed;
+            }
+
+            $properties['lastUsed'] = $value;
+
+            after_lastUsed:
+
+            $value = $payload['read_only'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'read_only';
+                goto after_readOnly;
+            }
+
+            $properties['readOnly'] = $value;
+
+            after_readOnly:
+
+            $value = $payload['title'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'title';
+                goto after_title;
+            }
+
+            $properties['title'] = $value;
+
+            after_title:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+            $value = $payload['verified'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'verified';
+                goto after_verified;
+            }
+
+            $properties['verified'] = $value;
+
+            after_verified:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDeployKeyDeleted\Key', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookDeployKeyDeleted\Key::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookDeployKeyDeleted\Key(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDeployKeyDeleted\Key', $exception, stack: $this->hydrationStack);
+        }
+    }
     
     private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
     {
@@ -3468,6 +3589,7 @@ class DeployKey implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
             'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookDeployKeyDeleted' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeployKeyDeleted($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookDeployKeyDeleted\Key' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeployKeyDeleted⚡️Key($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -5347,7 +5469,7 @@ class DeployKey implements ObjectMapper
 
         
         $key = $object->key;
-        $key = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeployKeyCreated⚡️Key($key);
+        $key = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeployKeyDeleted⚡️Key($key);
         after_key:        $result['key'] = $key;
 
         
@@ -5368,6 +5490,59 @@ class DeployKey implements ObjectMapper
         $sender = $object->sender;
         $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeployKeyDeleted⚡️Key(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookDeployKeyDeleted\Key);
+        $result = [];
+
+        $addedBy = $object->addedBy;
+
+        if ($addedBy === null) {
+            goto after_addedBy;
+        }
+        after_addedBy:        $result['added_by'] = $addedBy;
+
+        
+        $createdAt = $object->createdAt;
+        after_createdAt:        $result['created_at'] = $createdAt;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $key = $object->key;
+        after_key:        $result['key'] = $key;
+
+        
+        $lastUsed = $object->lastUsed;
+
+        if ($lastUsed === null) {
+            goto after_lastUsed;
+        }
+        after_lastUsed:        $result['last_used'] = $lastUsed;
+
+        
+        $readOnly = $object->readOnly;
+        after_readOnly:        $result['read_only'] = $readOnly;
+
+        
+        $title = $object->title;
+        after_title:        $result['title'] = $title;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+        
+        $verified = $object->verified;
+        after_verified:        $result['verified'] = $verified;
 
 
         return $result;

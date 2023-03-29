@@ -20,7 +20,7 @@ final readonly class Applicationjson
      * @param ?array<string> $events
      * active: Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
      */
-    public function __construct(public ?Schema\EnterpriseAdmin\CreateGlobalWebhook\Request\Applicationjson\Config $config, public ?array $events, public ?bool $active)
+    public function __construct(public ?Schema\EnterpriseAdmin\UpdateGlobalWebhook\Request\Applicationjson\Config $config, public ?array $events, public ?bool $active)
     {
     }
 }

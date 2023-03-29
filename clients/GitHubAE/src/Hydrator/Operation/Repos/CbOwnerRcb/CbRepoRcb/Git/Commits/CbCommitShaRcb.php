@@ -25,6 +25,7 @@ class CbCommitShaRcb implements ObjectMapper
         return match($className) {
             'ApiClients\Client\GitHubAE\Schema\GitCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit($payload),
                 'ApiClients\Client\GitHubAE\Schema\GitCommit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Author($payload),
+                'ApiClients\Client\GitHubAE\Schema\GitCommit\Committer' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Committer($payload),
                 'ApiClients\Client\GitHubAE\Schema\GitCommit\Tree' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Tree($payload),
                 'ApiClients\Client\GitHubAE\Schema\GitCommit\Parents' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Parents($payload),
                 'ApiClients\Client\GitHubAE\Schema\GitCommit\Verification' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Verification($payload),
@@ -102,7 +103,7 @@ class CbCommitShaRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'committer';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Author($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Committer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -261,6 +262,60 @@ class CbCommitShaRcb implements ObjectMapper
             return new \ApiClients\Client\GitHubAE\Schema\GitCommit\Author(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GitCommit\Author', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Committer(array $payload): \ApiClients\Client\GitHubAE\Schema\GitCommit\Committer
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['date'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'date';
+                goto after_date;
+            }
+
+            $properties['date'] = $value;
+
+            after_date:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'email';
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'name';
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GitCommit\Committer', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\GitCommit\Committer::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\GitCommit\Committer(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GitCommit\Committer', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -524,6 +579,7 @@ class CbCommitShaRcb implements ObjectMapper
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubAE\Schema\GitCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit($object),
             'ApiClients\Client\GitHubAE\Schema\GitCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Author($object),
+            'ApiClients\Client\GitHubAE\Schema\GitCommit\Committer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Committer($object),
             'ApiClients\Client\GitHubAE\Schema\GitCommit\Tree' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Tree($object),
             'ApiClients\Client\GitHubAE\Schema\GitCommit\Parents' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Parents($object),
             'ApiClients\Client\GitHubAE\Schema\GitCommit\Verification' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Verification($object),
@@ -624,7 +680,7 @@ class CbCommitShaRcb implements ObjectMapper
 
         
         $committer = $object->committer;
-        $committer = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Author($committer);
+        $committer = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Committer($committer);
         after_committer:        $result['committer'] = $committer;
 
         
@@ -666,6 +722,27 @@ class CbCommitShaRcb implements ObjectMapper
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Author(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GitCommit\Author);
+        $result = [];
+
+        $date = $object->date;
+        after_date:        $result['date'] = $date;
+
+        
+        $email = $object->email;
+        after_email:        $result['email'] = $email;
+
+        
+        $name = $object->name;
+        after_name:        $result['name'] = $name;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitCommit⚡️Committer(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GitCommit\Committer);
         $result = [];
 
         $date = $object->date;

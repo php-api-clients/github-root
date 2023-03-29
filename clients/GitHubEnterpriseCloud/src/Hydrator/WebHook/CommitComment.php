@@ -25,8 +25,8 @@ class CommitComment implements ObjectMapper
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated⚡️Comment($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\Reactions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️Reactions($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\AnswerChosenBy' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️AnswerChosenBy($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\Reactions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated⚡️Comment⚡️Reactions($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\User' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated⚡️Comment⚡️User($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Enterprise($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleInstallation($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimple($payload),
@@ -318,7 +318,7 @@ class CommitComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'reactions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️Reactions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated⚡️Comment⚡️Reactions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -360,7 +360,7 @@ class CommitComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️AnswerChosenBy($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated⚡️Comment⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -386,7 +386,7 @@ class CommitComment implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️Reactions(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\Reactions
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated⚡️Comment⚡️Reactions(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\Reactions
     {
         $properties = []; 
         $missingFields = [];
@@ -502,22 +502,22 @@ class CommitComment implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\Reactions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\Reactions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\Reactions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\Reactions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\Reactions(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\Reactions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\Reactions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\Reactions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️AnswerChosenBy(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\AnswerChosenBy
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated⚡️Comment⚡️User(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\User
     {
         $properties = []; 
         $missingFields = [];
@@ -754,17 +754,17 @@ class CommitComment implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\AnswerChosenBy', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\User', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\AnswerChosenBy::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\User::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\AnswerChosenBy(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\User(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\AnswerChosenBy', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\User', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -3884,8 +3884,8 @@ class CommitComment implements ObjectMapper
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated⚡️Comment($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️Reactions($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\AnswerChosenBy' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️AnswerChosenBy($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated⚡️Comment⚡️Reactions($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated⚡️Comment⚡️User($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Enterprise($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleInstallation($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimple($object),
@@ -4085,7 +4085,7 @@ class CommitComment implements ObjectMapper
         if ($reactions === null) {
             goto after_reactions;
         }
-        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️Reactions($reactions);
+        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated⚡️Comment⚡️Reactions($reactions);
         after_reactions:        $result['reactions'] = $reactions;
 
         
@@ -4102,7 +4102,7 @@ class CommitComment implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️AnswerChosenBy($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated⚡️Comment⚡️User($user);
         after_user:        $result['user'] = $user;
 
 
@@ -4110,9 +4110,9 @@ class CommitComment implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️Reactions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated⚡️Comment⚡️Reactions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\Reactions);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\Reactions);
         $result = [];
 
         $pluses1 = $object->pluses1;
@@ -4159,9 +4159,9 @@ class CommitComment implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️AnswerChosenBy(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCommitCommentCreated⚡️Comment⚡️User(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\AnswerChosenBy);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCommitCommentCreated\Comment\User);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;

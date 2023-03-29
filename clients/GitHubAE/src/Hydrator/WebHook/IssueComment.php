@@ -25,17 +25,22 @@ class IssueComment implements ObjectMapper
         return match($className) {
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Comment($payload),
-                'ApiClients\Client\GitHubAE\Schema\Discussion\Reactions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️Reactions($payload),
-                'ApiClients\Client\GitHubAE\Schema\Discussion\AnswerChosenBy' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️AnswerChosenBy($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\Reactions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Comment⚡️Reactions($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\User' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Comment⚡️User($payload),
                 'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($payload),
                 'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Assignee' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Assignees' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignees($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Labels' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Labels($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Milestone' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Milestone($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Milestone⚡️Creator($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\CheckSuite\App\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️App⚡️Permissions($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp⚡️Owner($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PullRequest' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PullRequest($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Reactions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Reactions($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\User' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️User($payload),
                 'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($payload),
@@ -45,15 +50,38 @@ class IssueComment implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\Reactions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment⚡️Reactions($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\User' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment⚡️User($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignee' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Assignee($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignees' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Assignees($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Labels' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Labels($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Milestone($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Milestone⚡️Creator($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeploymentCreated⚡️Deployment⚡️PerformedViaGithubApp⚡️Permissions($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp⚡️Owner($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PullRequest' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PullRequest($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Reactions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Reactions($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\User' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️User($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Changes($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Changes\Body' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Changes⚡️Body($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\Reactions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment⚡️Reactions($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\User' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment⚡️User($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignee' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Assignee($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignees' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Assignees($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Labels' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Labels($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Milestone($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Milestone⚡️Creator($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PerformedViaGithubApp($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PerformedViaGithubApp⚡️Owner($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PullRequest' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PullRequest($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Reactions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Reactions($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\User' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️User($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -334,7 +362,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'reactions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️Reactions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Comment⚡️Reactions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -376,7 +404,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️AnswerChosenBy($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Comment⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -402,7 +430,7 @@ class IssueComment implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️Reactions(array $payload): \ApiClients\Client\GitHubAE\Schema\Discussion\Reactions
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Comment⚡️Reactions(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\Reactions
     {
         $properties = []; 
         $missingFields = [];
@@ -518,22 +546,22 @@ class IssueComment implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Discussion\Reactions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\Reactions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Discussion\Reactions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\Reactions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Discussion\Reactions(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\Reactions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Discussion\Reactions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\Reactions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️AnswerChosenBy(array $payload): \ApiClients\Client\GitHubAE\Schema\Discussion\AnswerChosenBy
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Comment⚡️User(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\User
     {
         $properties = []; 
         $missingFields = [];
@@ -770,17 +798,17 @@ class IssueComment implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Discussion\AnswerChosenBy', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\User', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Discussion\AnswerChosenBy::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\User::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Discussion\AnswerChosenBy(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\User(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Discussion\AnswerChosenBy', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\User', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -1006,7 +1034,7 @@ class IssueComment implements ObjectMapper
 
             if ($assigneesCaster1 === null) {
                 $assigneesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentCreated\\Issue\\Assignee',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentCreated\\Issue\\Assignees',
 ));
             }
 
@@ -1137,7 +1165,7 @@ class IssueComment implements ObjectMapper
 
             if ($labelsCaster1 === null) {
                 $labelsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookDiscussionLabeled\\Label',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentCreated\\Issue\\Labels',
 ));
             }
 
@@ -1261,7 +1289,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'reactions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️Reactions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Reactions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1358,7 +1386,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1636,7 +1664,259 @@ class IssueComment implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignees(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Assignees
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Assignees', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Assignees::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Assignees(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Assignees', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Labels(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Labels
     {
         $properties = []; 
         $missingFields = [];
@@ -1719,17 +1999,17 @@ class IssueComment implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Labels', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Labels::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Labels(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Labels', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -1782,7 +2062,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Milestone⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1940,6 +2220,258 @@ class IssueComment implements ObjectMapper
     }
 
         
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Milestone\Creator
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Milestone\Creator', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Milestone\Creator(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Milestone\Creator', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
     private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp
     {
         $properties = []; 
@@ -2043,7 +2575,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️AnswerChosenBy($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2063,7 +2595,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️App⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2111,7 +2643,259 @@ class IssueComment implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️App⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\CheckSuite\App\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp⚡️Owner(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Owner
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Owner', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Owner::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Owner(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Owner', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -2502,17 +3286,17 @@ class IssueComment implements ObjectMapper
             after_workflows:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\CheckSuite\App\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\CheckSuite\App\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\CheckSuite\App\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\CheckSuite\App\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -2589,6 +3373,389 @@ class IssueComment implements ObjectMapper
             return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PullRequest(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PullRequest', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Reactions(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Reactions
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['_PLUSES_1'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = '_PLUSES_1';
+                goto after_pluses1;
+            }
+
+            $properties['pluses1'] = $value;
+
+            after_pluses1:
+
+            $value = $payload['_MINUS_1'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = '_MINUS_1';
+                goto after_minus1;
+            }
+
+            $properties['minus1'] = $value;
+
+            after_minus1:
+
+            $value = $payload['confused'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'confused';
+                goto after_confused;
+            }
+
+            $properties['confused'] = $value;
+
+            after_confused:
+
+            $value = $payload['eyes'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'eyes';
+                goto after_eyes;
+            }
+
+            $properties['eyes'] = $value;
+
+            after_eyes:
+
+            $value = $payload['heart'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'heart';
+                goto after_heart;
+            }
+
+            $properties['heart'] = $value;
+
+            after_heart:
+
+            $value = $payload['hooray'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'hooray';
+                goto after_hooray;
+            }
+
+            $properties['hooray'] = $value;
+
+            after_hooray:
+
+            $value = $payload['laugh'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'laugh';
+                goto after_laugh;
+            }
+
+            $properties['laugh'] = $value;
+
+            after_laugh:
+
+            $value = $payload['rocket'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'rocket';
+                goto after_rocket;
+            }
+
+            $properties['rocket'] = $value;
+
+            after_rocket:
+
+            $value = $payload['total_count'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total_count';
+                goto after_totalCount;
+            }
+
+            $properties['totalCount'] = $value;
+
+            after_totalCount:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Reactions', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Reactions::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Reactions(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Reactions', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️User(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\User
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\User', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\User::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\User(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\User', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -5656,7 +6823,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'reactions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️Reactions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment⚡️Reactions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5698,7 +6865,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5720,6 +6887,389 @@ class IssueComment implements ObjectMapper
             return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment⚡️Reactions(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\Reactions
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['_PLUSES_1'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = '_PLUSES_1';
+                goto after_pluses1;
+            }
+
+            $properties['pluses1'] = $value;
+
+            after_pluses1:
+
+            $value = $payload['_MINUS_1'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = '_MINUS_1';
+                goto after_minus1;
+            }
+
+            $properties['minus1'] = $value;
+
+            after_minus1:
+
+            $value = $payload['confused'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'confused';
+                goto after_confused;
+            }
+
+            $properties['confused'] = $value;
+
+            after_confused:
+
+            $value = $payload['eyes'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'eyes';
+                goto after_eyes;
+            }
+
+            $properties['eyes'] = $value;
+
+            after_eyes:
+
+            $value = $payload['heart'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'heart';
+                goto after_heart;
+            }
+
+            $properties['heart'] = $value;
+
+            after_heart:
+
+            $value = $payload['hooray'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'hooray';
+                goto after_hooray;
+            }
+
+            $properties['hooray'] = $value;
+
+            after_hooray:
+
+            $value = $payload['laugh'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'laugh';
+                goto after_laugh;
+            }
+
+            $properties['laugh'] = $value;
+
+            after_laugh:
+
+            $value = $payload['rocket'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'rocket';
+                goto after_rocket;
+            }
+
+            $properties['rocket'] = $value;
+
+            after_rocket:
+
+            $value = $payload['total_count'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total_count';
+                goto after_totalCount;
+            }
+
+            $properties['totalCount'] = $value;
+
+            after_totalCount:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\Reactions', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\Reactions::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\Reactions(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\Reactions', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment⚡️User(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\User
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\User', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\User::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\User(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\User', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -5750,7 +7300,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'assignee';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Assignee($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5771,7 +7321,7 @@ class IssueComment implements ObjectMapper
 
             if ($assigneesCaster1 === null) {
                 $assigneesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentCreated\\Issue\\Assignee',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentDeleted\\Issue\\Assignees',
 ));
             }
 
@@ -5902,7 +7452,7 @@ class IssueComment implements ObjectMapper
 
             if ($labelsCaster1 === null) {
                 $labelsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookDiscussionLabeled\\Label',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentDeleted\\Issue\\Labels',
 ));
             }
 
@@ -5944,7 +7494,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'milestone';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Milestone($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Milestone($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6006,7 +7556,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'pullRequest';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PullRequest($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PullRequest($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6026,7 +7576,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'reactions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️Reactions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Reactions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6123,7 +7673,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6145,6 +7695,1066 @@ class IssueComment implements ObjectMapper
             return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Assignee(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignee
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignee', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignee::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignee(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignee', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Assignees(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignees
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignees', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignees::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignees(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignees', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Labels(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Labels
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['color'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'color';
+                goto after_color;
+            }
+
+            $properties['color'] = $value;
+
+            after_color:
+
+            $value = $payload['default'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'default';
+                goto after_default;
+            }
+
+            $properties['default'] = $value;
+
+            after_default:
+
+            $value = $payload['description'] ?? null;
+
+            if ($value === null) {
+                $properties['description'] = null;
+                goto after_description;
+            }
+
+            $properties['description'] = $value;
+
+            after_description:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'name';
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'node_id';
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Labels', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Labels::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Labels(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Labels', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Milestone(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['closed_at'] ?? null;
+
+            if ($value === null) {
+                $properties['closedAt'] = null;
+                goto after_closedAt;
+            }
+
+            $properties['closedAt'] = $value;
+
+            after_closedAt:
+
+            $value = $payload['closed_issues'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'closed_issues';
+                goto after_closedIssues;
+            }
+
+            $properties['closedIssues'] = $value;
+
+            after_closedIssues:
+
+            $value = $payload['created_at'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'created_at';
+                goto after_createdAt;
+            }
+
+            $properties['createdAt'] = $value;
+
+            after_createdAt:
+
+            $value = $payload['creator'] ?? null;
+
+            if ($value === null) {
+                $properties['creator'] = null;
+                goto after_creator;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'creator';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Milestone⚡️Creator($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['creator'] = $value;
+
+            after_creator:
+
+            $value = $payload['description'] ?? null;
+
+            if ($value === null) {
+                $properties['description'] = null;
+                goto after_description;
+            }
+
+            $properties['description'] = $value;
+
+            after_description:
+
+            $value = $payload['due_on'] ?? null;
+
+            if ($value === null) {
+                $properties['dueOn'] = null;
+                goto after_dueOn;
+            }
+
+            $properties['dueOn'] = $value;
+
+            after_dueOn:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'html_url';
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['labels_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'labels_url';
+                goto after_labelsUrl;
+            }
+
+            $properties['labelsUrl'] = $value;
+
+            after_labelsUrl:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'node_id';
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['number'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'number';
+                goto after_number;
+            }
+
+            $properties['number'] = $value;
+
+            after_number:
+
+            $value = $payload['open_issues'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'open_issues';
+                goto after_openIssues;
+            }
+
+            $properties['openIssues'] = $value;
+
+            after_openIssues:
+
+            $value = $payload['state'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'state';
+                goto after_state;
+            }
+
+            $properties['state'] = $value;
+
+            after_state:
+
+            $value = $payload['title'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'title';
+                goto after_title;
+            }
+
+            $properties['title'] = $value;
+
+            after_title:
+
+            $value = $payload['updated_at'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'updated_at';
+                goto after_updatedAt;
+            }
+
+            $properties['updatedAt'] = $value;
+
+            after_updatedAt:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone\Creator
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone\Creator', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone\Creator(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone\Creator', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -6252,7 +8862,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️AnswerChosenBy($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6272,7 +8882,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeploymentCreated⚡️Deployment⚡️PerformedViaGithubApp⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6320,7 +8930,259 @@ class IssueComment implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeploymentCreated⚡️Deployment⚡️PerformedViaGithubApp⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp⚡️Owner(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Owner
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Owner', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Owner::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Owner(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Owner', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -6711,17 +9573,476 @@ class IssueComment implements ObjectMapper
             after_workflows:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Permissions', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PullRequest(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PullRequest
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['diff_url'] ?? null;
+
+            if ($value === null) {
+                $properties['diffUrl'] = null;
+                goto after_diffUrl;
+            }
+
+            $properties['diffUrl'] = $value;
+
+            after_diffUrl:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['merged_at'] ?? null;
+
+            if ($value === null) {
+                $properties['mergedAt'] = null;
+                goto after_mergedAt;
+            }
+
+            $properties['mergedAt'] = $value;
+
+            after_mergedAt:
+
+            $value = $payload['patch_url'] ?? null;
+
+            if ($value === null) {
+                $properties['patchUrl'] = null;
+                goto after_patchUrl;
+            }
+
+            $properties['patchUrl'] = $value;
+
+            after_patchUrl:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PullRequest', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PullRequest::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PullRequest(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PullRequest', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Reactions(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Reactions
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['_PLUSES_1'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = '_PLUSES_1';
+                goto after_pluses1;
+            }
+
+            $properties['pluses1'] = $value;
+
+            after_pluses1:
+
+            $value = $payload['_MINUS_1'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = '_MINUS_1';
+                goto after_minus1;
+            }
+
+            $properties['minus1'] = $value;
+
+            after_minus1:
+
+            $value = $payload['confused'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'confused';
+                goto after_confused;
+            }
+
+            $properties['confused'] = $value;
+
+            after_confused:
+
+            $value = $payload['eyes'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'eyes';
+                goto after_eyes;
+            }
+
+            $properties['eyes'] = $value;
+
+            after_eyes:
+
+            $value = $payload['heart'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'heart';
+                goto after_heart;
+            }
+
+            $properties['heart'] = $value;
+
+            after_heart:
+
+            $value = $payload['hooray'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'hooray';
+                goto after_hooray;
+            }
+
+            $properties['hooray'] = $value;
+
+            after_hooray:
+
+            $value = $payload['laugh'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'laugh';
+                goto after_laugh;
+            }
+
+            $properties['laugh'] = $value;
+
+            after_laugh:
+
+            $value = $payload['rocket'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'rocket';
+                goto after_rocket;
+            }
+
+            $properties['rocket'] = $value;
+
+            after_rocket:
+
+            $value = $payload['total_count'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total_count';
+                goto after_totalCount;
+            }
+
+            $properties['totalCount'] = $value;
+
+            after_totalCount:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Reactions', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Reactions::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Reactions(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Reactions', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️User(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\User
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\User', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\User::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\User(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\User', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -6772,7 +10093,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'comment';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6991,6 +10312,560 @@ class IssueComment implements ObjectMapper
     }
 
         
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['author_association'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'author_association';
+                goto after_authorAssociation;
+            }
+
+            $properties['authorAssociation'] = $value;
+
+            after_authorAssociation:
+
+            $value = $payload['body'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'body';
+                goto after_body;
+            }
+
+            $properties['body'] = $value;
+
+            after_body:
+
+            $value = $payload['created_at'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'created_at';
+                goto after_createdAt;
+            }
+
+            $properties['createdAt'] = $value;
+
+            after_createdAt:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'html_url';
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['issue_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'issue_url';
+                goto after_issueUrl;
+            }
+
+            $properties['issueUrl'] = $value;
+
+            after_issueUrl:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'node_id';
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['performed_via_github_app'] ?? null;
+
+            if ($value === null) {
+                $properties['performedViaGithubApp'] = null;
+                goto after_performedViaGithubApp;
+            }
+
+            $properties['performedViaGithubApp'] = $value;
+
+            after_performedViaGithubApp:
+
+            $value = $payload['reactions'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'reactions';
+                goto after_reactions;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'reactions';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment⚡️Reactions($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['reactions'] = $value;
+
+            after_reactions:
+
+            $value = $payload['updated_at'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'updated_at';
+                goto after_updatedAt;
+            }
+
+            $properties['updatedAt'] = $value;
+
+            after_updatedAt:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+            $value = $payload['user'] ?? null;
+
+            if ($value === null) {
+                $properties['user'] = null;
+                goto after_user;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'user';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment⚡️User($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['user'] = $value;
+
+            after_user:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment⚡️Reactions(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\Reactions
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['_PLUSES_1'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = '_PLUSES_1';
+                goto after_pluses1;
+            }
+
+            $properties['pluses1'] = $value;
+
+            after_pluses1:
+
+            $value = $payload['_MINUS_1'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = '_MINUS_1';
+                goto after_minus1;
+            }
+
+            $properties['minus1'] = $value;
+
+            after_minus1:
+
+            $value = $payload['confused'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'confused';
+                goto after_confused;
+            }
+
+            $properties['confused'] = $value;
+
+            after_confused:
+
+            $value = $payload['eyes'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'eyes';
+                goto after_eyes;
+            }
+
+            $properties['eyes'] = $value;
+
+            after_eyes:
+
+            $value = $payload['heart'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'heart';
+                goto after_heart;
+            }
+
+            $properties['heart'] = $value;
+
+            after_heart:
+
+            $value = $payload['hooray'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'hooray';
+                goto after_hooray;
+            }
+
+            $properties['hooray'] = $value;
+
+            after_hooray:
+
+            $value = $payload['laugh'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'laugh';
+                goto after_laugh;
+            }
+
+            $properties['laugh'] = $value;
+
+            after_laugh:
+
+            $value = $payload['rocket'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'rocket';
+                goto after_rocket;
+            }
+
+            $properties['rocket'] = $value;
+
+            after_rocket:
+
+            $value = $payload['total_count'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total_count';
+                goto after_totalCount;
+            }
+
+            $properties['totalCount'] = $value;
+
+            after_totalCount:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\Reactions', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\Reactions::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\Reactions(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\Reactions', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment⚡️User(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\User
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\User', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\User::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\User(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\User', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
     private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue
     {
         $properties = []; 
@@ -7017,7 +10892,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'assignee';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Assignee($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7038,7 +10913,7 @@ class IssueComment implements ObjectMapper
 
             if ($assigneesCaster1 === null) {
                 $assigneesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentCreated\\Issue\\Assignee',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentEdited\\Issue\\Assignees',
 ));
             }
 
@@ -7169,7 +11044,7 @@ class IssueComment implements ObjectMapper
 
             if ($labelsCaster1 === null) {
                 $labelsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookDiscussionLabeled\\Label',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentEdited\\Issue\\Labels',
 ));
             }
 
@@ -7211,7 +11086,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'milestone';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Milestone($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Milestone($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7273,7 +11148,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'pullRequest';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PullRequest($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PullRequest($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7293,7 +11168,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'reactions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️Reactions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Reactions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7390,7 +11265,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7412,6 +11287,1066 @@ class IssueComment implements ObjectMapper
             return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Assignee(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignee
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignee', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignee::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignee(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignee', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Assignees(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignees
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignees', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignees::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignees(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignees', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Labels(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Labels
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['color'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'color';
+                goto after_color;
+            }
+
+            $properties['color'] = $value;
+
+            after_color:
+
+            $value = $payload['default'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'default';
+                goto after_default;
+            }
+
+            $properties['default'] = $value;
+
+            after_default:
+
+            $value = $payload['description'] ?? null;
+
+            if ($value === null) {
+                $properties['description'] = null;
+                goto after_description;
+            }
+
+            $properties['description'] = $value;
+
+            after_description:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'name';
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'node_id';
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Labels', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Labels::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Labels(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Labels', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Milestone(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['closed_at'] ?? null;
+
+            if ($value === null) {
+                $properties['closedAt'] = null;
+                goto after_closedAt;
+            }
+
+            $properties['closedAt'] = $value;
+
+            after_closedAt:
+
+            $value = $payload['closed_issues'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'closed_issues';
+                goto after_closedIssues;
+            }
+
+            $properties['closedIssues'] = $value;
+
+            after_closedIssues:
+
+            $value = $payload['created_at'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'created_at';
+                goto after_createdAt;
+            }
+
+            $properties['createdAt'] = $value;
+
+            after_createdAt:
+
+            $value = $payload['creator'] ?? null;
+
+            if ($value === null) {
+                $properties['creator'] = null;
+                goto after_creator;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'creator';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Milestone⚡️Creator($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['creator'] = $value;
+
+            after_creator:
+
+            $value = $payload['description'] ?? null;
+
+            if ($value === null) {
+                $properties['description'] = null;
+                goto after_description;
+            }
+
+            $properties['description'] = $value;
+
+            after_description:
+
+            $value = $payload['due_on'] ?? null;
+
+            if ($value === null) {
+                $properties['dueOn'] = null;
+                goto after_dueOn;
+            }
+
+            $properties['dueOn'] = $value;
+
+            after_dueOn:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'html_url';
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['labels_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'labels_url';
+                goto after_labelsUrl;
+            }
+
+            $properties['labelsUrl'] = $value;
+
+            after_labelsUrl:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'node_id';
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['number'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'number';
+                goto after_number;
+            }
+
+            $properties['number'] = $value;
+
+            after_number:
+
+            $value = $payload['open_issues'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'open_issues';
+                goto after_openIssues;
+            }
+
+            $properties['openIssues'] = $value;
+
+            after_openIssues:
+
+            $value = $payload['state'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'state';
+                goto after_state;
+            }
+
+            $properties['state'] = $value;
+
+            after_state:
+
+            $value = $payload['title'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'title';
+                goto after_title;
+            }
+
+            $properties['title'] = $value;
+
+            after_title:
+
+            $value = $payload['updated_at'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'updated_at';
+                goto after_updatedAt;
+            }
+
+            $properties['updatedAt'] = $value;
+
+            after_updatedAt:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone\Creator
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone\Creator', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone\Creator(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone\Creator', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -7519,7 +12454,7 @@ class IssueComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️AnswerChosenBy($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PerformedViaGithubApp⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7583,6 +12518,258 @@ class IssueComment implements ObjectMapper
             return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PerformedViaGithubApp⚡️Owner(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp\Owner
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp\Owner', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp\Owner::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp\Owner(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp\Owner', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -7991,6 +13178,465 @@ class IssueComment implements ObjectMapper
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PullRequest(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PullRequest
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['diff_url'] ?? null;
+
+            if ($value === null) {
+                $properties['diffUrl'] = null;
+                goto after_diffUrl;
+            }
+
+            $properties['diffUrl'] = $value;
+
+            after_diffUrl:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['merged_at'] ?? null;
+
+            if ($value === null) {
+                $properties['mergedAt'] = null;
+                goto after_mergedAt;
+            }
+
+            $properties['mergedAt'] = $value;
+
+            after_mergedAt:
+
+            $value = $payload['patch_url'] ?? null;
+
+            if ($value === null) {
+                $properties['patchUrl'] = null;
+                goto after_patchUrl;
+            }
+
+            $properties['patchUrl'] = $value;
+
+            after_patchUrl:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PullRequest', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PullRequest::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PullRequest(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PullRequest', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Reactions(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Reactions
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['_PLUSES_1'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = '_PLUSES_1';
+                goto after_pluses1;
+            }
+
+            $properties['pluses1'] = $value;
+
+            after_pluses1:
+
+            $value = $payload['_MINUS_1'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = '_MINUS_1';
+                goto after_minus1;
+            }
+
+            $properties['minus1'] = $value;
+
+            after_minus1:
+
+            $value = $payload['confused'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'confused';
+                goto after_confused;
+            }
+
+            $properties['confused'] = $value;
+
+            after_confused:
+
+            $value = $payload['eyes'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'eyes';
+                goto after_eyes;
+            }
+
+            $properties['eyes'] = $value;
+
+            after_eyes:
+
+            $value = $payload['heart'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'heart';
+                goto after_heart;
+            }
+
+            $properties['heart'] = $value;
+
+            after_heart:
+
+            $value = $payload['hooray'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'hooray';
+                goto after_hooray;
+            }
+
+            $properties['hooray'] = $value;
+
+            after_hooray:
+
+            $value = $payload['laugh'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'laugh';
+                goto after_laugh;
+            }
+
+            $properties['laugh'] = $value;
+
+            after_laugh:
+
+            $value = $payload['rocket'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'rocket';
+                goto after_rocket;
+            }
+
+            $properties['rocket'] = $value;
+
+            after_rocket:
+
+            $value = $payload['total_count'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total_count';
+                goto after_totalCount;
+            }
+
+            $properties['totalCount'] = $value;
+
+            after_totalCount:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'url';
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Reactions', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Reactions::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Reactions(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Reactions', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️User(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\User
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\User', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\User::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\User(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\User', $exception, stack: $this->hydrationStack);
+        }
+    }
     
     private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
     {
@@ -8025,17 +13671,22 @@ class IssueComment implements ObjectMapper
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Comment($object),
-            'ApiClients\Client\GitHubAE\Schema\Discussion\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️Reactions($object),
-            'ApiClients\Client\GitHubAE\Schema\Discussion\AnswerChosenBy' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️AnswerChosenBy($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Comment⚡️Reactions($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Comment⚡️User($object),
             'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($object),
             'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Assignee' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Assignees' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignees($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Labels' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Labels($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Milestone($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Milestone⚡️Creator($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\CheckSuite\App\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️App⚡️Permissions($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp⚡️Owner($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PullRequest($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Reactions($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️User($object),
             'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($object),
             'ApiClients\Client\GitHubAE\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($object),
             'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($object),
@@ -8045,15 +13696,38 @@ class IssueComment implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment⚡️Reactions($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment⚡️User($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignee' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Assignee($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignees' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Assignees($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Labels' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Labels($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Milestone($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Milestone⚡️Creator($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeploymentCreated⚡️Deployment⚡️PerformedViaGithubApp⚡️Permissions($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp⚡️Owner($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PullRequest($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Reactions($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️User($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Changes($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Changes\Body' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Changes⚡️Body($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment⚡️Reactions($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment⚡️User($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignee' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Assignee($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignees' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Assignees($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Labels' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Labels($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Milestone($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Milestone⚡️Creator($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PerformedViaGithubApp($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PerformedViaGithubApp⚡️Owner($object),
             'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PullRequest($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Reactions($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️User($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -8229,7 +13903,7 @@ class IssueComment implements ObjectMapper
 
         
         $reactions = $object->reactions;
-        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️Reactions($reactions);
+        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Comment⚡️Reactions($reactions);
         after_reactions:        $result['reactions'] = $reactions;
 
         
@@ -8246,7 +13920,7 @@ class IssueComment implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️AnswerChosenBy($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Comment⚡️User($user);
         after_user:        $result['user'] = $user;
 
 
@@ -8254,9 +13928,9 @@ class IssueComment implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️Reactions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Comment⚡️Reactions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Discussion\Reactions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\Reactions);
         $result = [];
 
         $pluses1 = $object->pluses1;
@@ -8303,9 +13977,9 @@ class IssueComment implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️AnswerChosenBy(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Comment⚡️User(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Discussion\AnswerChosenBy);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Comment\User);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -8581,7 +14255,7 @@ class IssueComment implements ObjectMapper
 
         if ($assigneesSerializer0 === null) {
             $assigneesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentCreated\\Issue\\Assignee',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentCreated\\Issue\\Assignees',
 ));
         }
         
@@ -8650,7 +14324,7 @@ class IssueComment implements ObjectMapper
 
         if ($labelsSerializer0 === null) {
             $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookDiscussionLabeled\\Label',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentCreated\\Issue\\Labels',
 ));
         }
         
@@ -8706,7 +14380,7 @@ class IssueComment implements ObjectMapper
 
         
         $reactions = $object->reactions;
-        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️Reactions($reactions);
+        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Reactions($reactions);
         after_reactions:        $result['reactions'] = $reactions;
 
         
@@ -8755,7 +14429,7 @@ class IssueComment implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️User($user);
         after_user:        $result['user'] = $user;
 
 
@@ -8932,9 +14606,178 @@ class IssueComment implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignees(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookDiscussionLabeled\Label);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Assignees);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Labels(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Labels);
         $result = [];
 
         $color = $object->color;
@@ -8999,7 +14842,7 @@ class IssueComment implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Milestone⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -9056,6 +14899,175 @@ class IssueComment implements ObjectMapper
 
         
         $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Milestone⚡️Creator(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Milestone\Creator);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
         after_url:        $result['url'] = $url;
 
 
@@ -9133,7 +15145,7 @@ class IssueComment implements ObjectMapper
         if ($owner === null) {
             goto after_owner;
         }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️AnswerChosenBy($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -9142,7 +15154,7 @@ class IssueComment implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️App⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -9166,9 +15178,178 @@ class IssueComment implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookCheckSuiteCompleted⚡️CheckSuite⚡️App⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp⚡️Owner(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookCheckSuiteCompleted\CheckSuite\App\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Owner);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\PerformedViaGithubApp\Permissions);
         $result = [];
 
         $actions = $object->actions;
@@ -9490,6 +15671,224 @@ class IssueComment implements ObjectMapper
             goto after_patchUrl;
         }
         after_patchUrl:        $result['patch_url'] = $patchUrl;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Reactions(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Reactions);
+        $result = [];
+
+        $pluses1 = $object->pluses1;
+        after_pluses1:        $result['_PLUSES_1'] = $pluses1;
+
+        
+        $minus1 = $object->minus1;
+        after_minus1:        $result['_MINUS_1'] = $minus1;
+
+        
+        $confused = $object->confused;
+        after_confused:        $result['confused'] = $confused;
+
+        
+        $eyes = $object->eyes;
+        after_eyes:        $result['eyes'] = $eyes;
+
+        
+        $heart = $object->heart;
+        after_heart:        $result['heart'] = $heart;
+
+        
+        $hooray = $object->hooray;
+        after_hooray:        $result['hooray'] = $hooray;
+
+        
+        $laugh = $object->laugh;
+        after_laugh:        $result['laugh'] = $laugh;
+
+        
+        $rocket = $object->rocket;
+        after_rocket:        $result['rocket'] = $rocket;
+
+        
+        $totalCount = $object->totalCount;
+        after_totalCount:        $result['total_count'] = $totalCount;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️User(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\User);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
 
         
         $url = $object->url;
@@ -11194,7 +17593,7 @@ class IssueComment implements ObjectMapper
 
         
         $reactions = $object->reactions;
-        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️Reactions($reactions);
+        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment⚡️Reactions($reactions);
         after_reactions:        $result['reactions'] = $reactions;
 
         
@@ -11211,8 +17610,226 @@ class IssueComment implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment⚡️User($user);
         after_user:        $result['user'] = $user;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment⚡️Reactions(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\Reactions);
+        $result = [];
+
+        $pluses1 = $object->pluses1;
+        after_pluses1:        $result['_PLUSES_1'] = $pluses1;
+
+        
+        $minus1 = $object->minus1;
+        after_minus1:        $result['_MINUS_1'] = $minus1;
+
+        
+        $confused = $object->confused;
+        after_confused:        $result['confused'] = $confused;
+
+        
+        $eyes = $object->eyes;
+        after_eyes:        $result['eyes'] = $eyes;
+
+        
+        $heart = $object->heart;
+        after_heart:        $result['heart'] = $heart;
+
+        
+        $hooray = $object->hooray;
+        after_hooray:        $result['hooray'] = $hooray;
+
+        
+        $laugh = $object->laugh;
+        after_laugh:        $result['laugh'] = $laugh;
+
+        
+        $rocket = $object->rocket;
+        after_rocket:        $result['rocket'] = $rocket;
+
+        
+        $totalCount = $object->totalCount;
+        after_totalCount:        $result['total_count'] = $totalCount;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment⚡️User(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Comment\User);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
 
 
         return $result;
@@ -11237,7 +17854,7 @@ class IssueComment implements ObjectMapper
         if ($assignee === null) {
             goto after_assignee;
         }
-        $assignee = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($assignee);
+        $assignee = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Assignee($assignee);
         after_assignee:        $result['assignee'] = $assignee;
 
         
@@ -11246,7 +17863,7 @@ class IssueComment implements ObjectMapper
 
         if ($assigneesSerializer0 === null) {
             $assigneesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentCreated\\Issue\\Assignee',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentDeleted\\Issue\\Assignees',
 ));
         }
         
@@ -11315,7 +17932,7 @@ class IssueComment implements ObjectMapper
 
         if ($labelsSerializer0 === null) {
             $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookDiscussionLabeled\\Label',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentDeleted\\Issue\\Labels',
 ));
         }
         
@@ -11340,7 +17957,7 @@ class IssueComment implements ObjectMapper
         if ($milestone === null) {
             goto after_milestone;
         }
-        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Milestone($milestone);
+        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Milestone($milestone);
         after_milestone:        $result['milestone'] = $milestone;
 
         
@@ -11366,12 +17983,12 @@ class IssueComment implements ObjectMapper
         if ($pullRequest === null) {
             goto after_pullRequest;
         }
-        $pullRequest = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PullRequest($pullRequest);
+        $pullRequest = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PullRequest($pullRequest);
         after_pullRequest:        $result['pull_request'] = $pullRequest;
 
         
         $reactions = $object->reactions;
-        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️Reactions($reactions);
+        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Reactions($reactions);
         after_reactions:        $result['reactions'] = $reactions;
 
         
@@ -11420,8 +18037,646 @@ class IssueComment implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️User($user);
         after_user:        $result['user'] = $user;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Assignee(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignee);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Assignees(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Assignees);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Labels(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Labels);
+        $result = [];
+
+        $color = $object->color;
+        after_color:        $result['color'] = $color;
+
+        
+        $default = $object->default;
+        after_default:        $result['default'] = $default;
+
+        
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+        after_description:        $result['description'] = $description;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $name = $object->name;
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Milestone(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone);
+        $result = [];
+
+        $closedAt = $object->closedAt;
+
+        if ($closedAt === null) {
+            goto after_closedAt;
+        }
+        after_closedAt:        $result['closed_at'] = $closedAt;
+
+        
+        $closedIssues = $object->closedIssues;
+        after_closedIssues:        $result['closed_issues'] = $closedIssues;
+
+        
+        $createdAt = $object->createdAt;
+        after_createdAt:        $result['created_at'] = $createdAt;
+
+        
+        $creator = $object->creator;
+
+        if ($creator === null) {
+            goto after_creator;
+        }
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Milestone⚡️Creator($creator);
+        after_creator:        $result['creator'] = $creator;
+
+        
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+        after_description:        $result['description'] = $description;
+
+        
+        $dueOn = $object->dueOn;
+
+        if ($dueOn === null) {
+            goto after_dueOn;
+        }
+        after_dueOn:        $result['due_on'] = $dueOn;
+
+        
+        $htmlUrl = $object->htmlUrl;
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $labelsUrl = $object->labelsUrl;
+        after_labelsUrl:        $result['labels_url'] = $labelsUrl;
+
+        
+        $nodeId = $object->nodeId;
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $number = $object->number;
+        after_number:        $result['number'] = $number;
+
+        
+        $openIssues = $object->openIssues;
+        after_openIssues:        $result['open_issues'] = $openIssues;
+
+        
+        $state = $object->state;
+        after_state:        $result['state'] = $state;
+
+        
+        $title = $object->title;
+        after_title:        $result['title'] = $title;
+
+        
+        $updatedAt = $object->updatedAt;
+        after_updatedAt:        $result['updated_at'] = $updatedAt;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Milestone⚡️Creator(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Milestone\Creator);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
 
 
         return $result;
@@ -11498,7 +18753,7 @@ class IssueComment implements ObjectMapper
         if ($owner === null) {
             goto after_owner;
         }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️AnswerChosenBy($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -11507,7 +18762,7 @@ class IssueComment implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeploymentCreated⚡️Deployment⚡️PerformedViaGithubApp⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -11531,9 +18786,178 @@ class IssueComment implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeploymentCreated⚡️Deployment⚡️PerformedViaGithubApp⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp⚡️Owner(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookDeploymentCreated\Deployment\PerformedViaGithubApp\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Owner);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Permissions);
         $result = [];
 
         $actions = $object->actions;
@@ -11820,6 +19244,273 @@ class IssueComment implements ObjectMapper
     }
 
 
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PullRequest(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PullRequest);
+        $result = [];
+
+        $diffUrl = $object->diffUrl;
+
+        if ($diffUrl === null) {
+            goto after_diffUrl;
+        }
+        after_diffUrl:        $result['diff_url'] = $diffUrl;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $mergedAt = $object->mergedAt;
+
+        if ($mergedAt === null) {
+            goto after_mergedAt;
+        }
+        after_mergedAt:        $result['merged_at'] = $mergedAt;
+
+        
+        $patchUrl = $object->patchUrl;
+
+        if ($patchUrl === null) {
+            goto after_patchUrl;
+        }
+        after_patchUrl:        $result['patch_url'] = $patchUrl;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️Reactions(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\Reactions);
+        $result = [];
+
+        $pluses1 = $object->pluses1;
+        after_pluses1:        $result['_PLUSES_1'] = $pluses1;
+
+        
+        $minus1 = $object->minus1;
+        after_minus1:        $result['_MINUS_1'] = $minus1;
+
+        
+        $confused = $object->confused;
+        after_confused:        $result['confused'] = $confused;
+
+        
+        $eyes = $object->eyes;
+        after_eyes:        $result['eyes'] = $eyes;
+
+        
+        $heart = $object->heart;
+        after_heart:        $result['heart'] = $heart;
+
+        
+        $hooray = $object->hooray;
+        after_hooray:        $result['hooray'] = $hooray;
+
+        
+        $laugh = $object->laugh;
+        after_laugh:        $result['laugh'] = $laugh;
+
+        
+        $rocket = $object->rocket;
+        after_rocket:        $result['rocket'] = $rocket;
+
+        
+        $totalCount = $object->totalCount;
+        after_totalCount:        $result['total_count'] = $totalCount;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️User(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\User);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited);
@@ -11835,7 +19526,7 @@ class IssueComment implements ObjectMapper
 
         
         $comment = $object->comment;
-        $comment = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Comment($comment);
+        $comment = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment($comment);
         after_comment:        $result['comment'] = $comment;
 
         
@@ -11916,6 +19607,291 @@ class IssueComment implements ObjectMapper
     }
 
 
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment);
+        $result = [];
+
+        $authorAssociation = $object->authorAssociation;
+        after_authorAssociation:        $result['author_association'] = $authorAssociation;
+
+        
+        $body = $object->body;
+        after_body:        $result['body'] = $body;
+
+        
+        $createdAt = $object->createdAt;
+        after_createdAt:        $result['created_at'] = $createdAt;
+
+        
+        $htmlUrl = $object->htmlUrl;
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $issueUrl = $object->issueUrl;
+        after_issueUrl:        $result['issue_url'] = $issueUrl;
+
+        
+        $nodeId = $object->nodeId;
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $performedViaGithubApp = $object->performedViaGithubApp;
+
+        if ($performedViaGithubApp === null) {
+            goto after_performedViaGithubApp;
+        }
+        after_performedViaGithubApp:        $result['performed_via_github_app'] = $performedViaGithubApp;
+
+        
+        $reactions = $object->reactions;
+        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment⚡️Reactions($reactions);
+        after_reactions:        $result['reactions'] = $reactions;
+
+        
+        $updatedAt = $object->updatedAt;
+        after_updatedAt:        $result['updated_at'] = $updatedAt;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+        
+        $user = $object->user;
+
+        if ($user === null) {
+            goto after_user;
+        }
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment⚡️User($user);
+        after_user:        $result['user'] = $user;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment⚡️Reactions(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\Reactions);
+        $result = [];
+
+        $pluses1 = $object->pluses1;
+        after_pluses1:        $result['_PLUSES_1'] = $pluses1;
+
+        
+        $minus1 = $object->minus1;
+        after_minus1:        $result['_MINUS_1'] = $minus1;
+
+        
+        $confused = $object->confused;
+        after_confused:        $result['confused'] = $confused;
+
+        
+        $eyes = $object->eyes;
+        after_eyes:        $result['eyes'] = $eyes;
+
+        
+        $heart = $object->heart;
+        after_heart:        $result['heart'] = $heart;
+
+        
+        $hooray = $object->hooray;
+        after_hooray:        $result['hooray'] = $hooray;
+
+        
+        $laugh = $object->laugh;
+        after_laugh:        $result['laugh'] = $laugh;
+
+        
+        $rocket = $object->rocket;
+        after_rocket:        $result['rocket'] = $rocket;
+
+        
+        $totalCount = $object->totalCount;
+        after_totalCount:        $result['total_count'] = $totalCount;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Comment⚡️User(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Comment\User);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue);
@@ -11934,7 +19910,7 @@ class IssueComment implements ObjectMapper
         if ($assignee === null) {
             goto after_assignee;
         }
-        $assignee = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($assignee);
+        $assignee = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Assignee($assignee);
         after_assignee:        $result['assignee'] = $assignee;
 
         
@@ -11943,7 +19919,7 @@ class IssueComment implements ObjectMapper
 
         if ($assigneesSerializer0 === null) {
             $assigneesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentCreated\\Issue\\Assignee',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentEdited\\Issue\\Assignees',
 ));
         }
         
@@ -12012,7 +19988,7 @@ class IssueComment implements ObjectMapper
 
         if ($labelsSerializer0 === null) {
             $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookDiscussionLabeled\\Label',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookIssueCommentEdited\\Issue\\Labels',
 ));
         }
         
@@ -12037,7 +20013,7 @@ class IssueComment implements ObjectMapper
         if ($milestone === null) {
             goto after_milestone;
         }
-        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Milestone($milestone);
+        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Milestone($milestone);
         after_milestone:        $result['milestone'] = $milestone;
 
         
@@ -12063,12 +20039,12 @@ class IssueComment implements ObjectMapper
         if ($pullRequest === null) {
             goto after_pullRequest;
         }
-        $pullRequest = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️PullRequest($pullRequest);
+        $pullRequest = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PullRequest($pullRequest);
         after_pullRequest:        $result['pull_request'] = $pullRequest;
 
         
         $reactions = $object->reactions;
-        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️Reactions($reactions);
+        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Reactions($reactions);
         after_reactions:        $result['reactions'] = $reactions;
 
         
@@ -12117,8 +20093,646 @@ class IssueComment implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Assignee($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️User($user);
         after_user:        $result['user'] = $user;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Assignee(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignee);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Assignees(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Assignees);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Labels(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Labels);
+        $result = [];
+
+        $color = $object->color;
+        after_color:        $result['color'] = $color;
+
+        
+        $default = $object->default;
+        after_default:        $result['default'] = $default;
+
+        
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+        after_description:        $result['description'] = $description;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $name = $object->name;
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Milestone(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone);
+        $result = [];
+
+        $closedAt = $object->closedAt;
+
+        if ($closedAt === null) {
+            goto after_closedAt;
+        }
+        after_closedAt:        $result['closed_at'] = $closedAt;
+
+        
+        $closedIssues = $object->closedIssues;
+        after_closedIssues:        $result['closed_issues'] = $closedIssues;
+
+        
+        $createdAt = $object->createdAt;
+        after_createdAt:        $result['created_at'] = $createdAt;
+
+        
+        $creator = $object->creator;
+
+        if ($creator === null) {
+            goto after_creator;
+        }
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Milestone⚡️Creator($creator);
+        after_creator:        $result['creator'] = $creator;
+
+        
+        $description = $object->description;
+
+        if ($description === null) {
+            goto after_description;
+        }
+        after_description:        $result['description'] = $description;
+
+        
+        $dueOn = $object->dueOn;
+
+        if ($dueOn === null) {
+            goto after_dueOn;
+        }
+        after_dueOn:        $result['due_on'] = $dueOn;
+
+        
+        $htmlUrl = $object->htmlUrl;
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $labelsUrl = $object->labelsUrl;
+        after_labelsUrl:        $result['labels_url'] = $labelsUrl;
+
+        
+        $nodeId = $object->nodeId;
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $number = $object->number;
+        after_number:        $result['number'] = $number;
+
+        
+        $openIssues = $object->openIssues;
+        after_openIssues:        $result['open_issues'] = $openIssues;
+
+        
+        $state = $object->state;
+        after_state:        $result['state'] = $state;
+
+        
+        $title = $object->title;
+        after_title:        $result['title'] = $title;
+
+        
+        $updatedAt = $object->updatedAt;
+        after_updatedAt:        $result['updated_at'] = $updatedAt;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Milestone⚡️Creator(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Milestone\Creator);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
 
 
         return $result;
@@ -12195,7 +20809,7 @@ class IssueComment implements ObjectMapper
         if ($owner === null) {
             goto after_owner;
         }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Discussion⚡️AnswerChosenBy($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PerformedViaGithubApp⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -12222,6 +20836,175 @@ class IssueComment implements ObjectMapper
             goto after_updatedAt;
         }
         after_updatedAt:        $result['updated_at'] = $updatedAt;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PerformedViaGithubApp⚡️Owner(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp\Owner);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
 
 
         return $result;
@@ -12511,6 +21294,273 @@ class IssueComment implements ObjectMapper
             goto after_workflows;
         }
         after_workflows:        $result['workflows'] = $workflows;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PullRequest(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PullRequest);
+        $result = [];
+
+        $diffUrl = $object->diffUrl;
+
+        if ($diffUrl === null) {
+            goto after_diffUrl;
+        }
+        after_diffUrl:        $result['diff_url'] = $diffUrl;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $mergedAt = $object->mergedAt;
+
+        if ($mergedAt === null) {
+            goto after_mergedAt;
+        }
+        after_mergedAt:        $result['merged_at'] = $mergedAt;
+
+        
+        $patchUrl = $object->patchUrl;
+
+        if ($patchUrl === null) {
+            goto after_patchUrl;
+        }
+        after_patchUrl:        $result['patch_url'] = $patchUrl;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Reactions(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Reactions);
+        $result = [];
+
+        $pluses1 = $object->pluses1;
+        after_pluses1:        $result['_PLUSES_1'] = $pluses1;
+
+        
+        $minus1 = $object->minus1;
+        after_minus1:        $result['_MINUS_1'] = $minus1;
+
+        
+        $confused = $object->confused;
+        after_confused:        $result['confused'] = $confused;
+
+        
+        $eyes = $object->eyes;
+        after_eyes:        $result['eyes'] = $eyes;
+
+        
+        $heart = $object->heart;
+        after_heart:        $result['heart'] = $heart;
+
+        
+        $hooray = $object->hooray;
+        after_hooray:        $result['hooray'] = $hooray;
+
+        
+        $laugh = $object->laugh;
+        after_laugh:        $result['laugh'] = $laugh;
+
+        
+        $rocket = $object->rocket;
+        after_rocket:        $result['rocket'] = $rocket;
+
+        
+        $totalCount = $object->totalCount;
+        after_totalCount:        $result['total_count'] = $totalCount;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️User(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\User);
+        $result = [];
+
+        $avatarUrl = $object->avatarUrl;
+
+        if ($avatarUrl === null) {
+            goto after_avatarUrl;
+        }
+        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
+
+        
+        $deleted = $object->deleted;
+
+        if ($deleted === null) {
+            goto after_deleted;
+        }
+        after_deleted:        $result['deleted'] = $deleted;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $eventsUrl = $object->eventsUrl;
+
+        if ($eventsUrl === null) {
+            goto after_eventsUrl;
+        }
+        after_eventsUrl:        $result['events_url'] = $eventsUrl;
+
+        
+        $followersUrl = $object->followersUrl;
+
+        if ($followersUrl === null) {
+            goto after_followersUrl;
+        }
+        after_followersUrl:        $result['followers_url'] = $followersUrl;
+
+        
+        $followingUrl = $object->followingUrl;
+
+        if ($followingUrl === null) {
+            goto after_followingUrl;
+        }
+        after_followingUrl:        $result['following_url'] = $followingUrl;
+
+        
+        $gistsUrl = $object->gistsUrl;
+
+        if ($gistsUrl === null) {
+            goto after_gistsUrl;
+        }
+        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
+
+        
+        $gravatarId = $object->gravatarId;
+
+        if ($gravatarId === null) {
+            goto after_gravatarId;
+        }
+        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
+
+        
+        $htmlUrl = $object->htmlUrl;
+
+        if ($htmlUrl === null) {
+            goto after_htmlUrl;
+        }
+        after_htmlUrl:        $result['html_url'] = $htmlUrl;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $login = $object->login;
+        after_login:        $result['login'] = $login;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $nodeId = $object->nodeId;
+
+        if ($nodeId === null) {
+            goto after_nodeId;
+        }
+        after_nodeId:        $result['node_id'] = $nodeId;
+
+        
+        $organizationsUrl = $object->organizationsUrl;
+
+        if ($organizationsUrl === null) {
+            goto after_organizationsUrl;
+        }
+        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
+
+        
+        $receivedEventsUrl = $object->receivedEventsUrl;
+
+        if ($receivedEventsUrl === null) {
+            goto after_receivedEventsUrl;
+        }
+        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
+
+        
+        $reposUrl = $object->reposUrl;
+
+        if ($reposUrl === null) {
+            goto after_reposUrl;
+        }
+        after_reposUrl:        $result['repos_url'] = $reposUrl;
+
+        
+        $siteAdmin = $object->siteAdmin;
+
+        if ($siteAdmin === null) {
+            goto after_siteAdmin;
+        }
+        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
+
+        
+        $starredUrl = $object->starredUrl;
+
+        if ($starredUrl === null) {
+            goto after_starredUrl;
+        }
+        after_starredUrl:        $result['starred_url'] = $starredUrl;
+
+        
+        $subscriptionsUrl = $object->subscriptionsUrl;
+
+        if ($subscriptionsUrl === null) {
+            goto after_subscriptionsUrl;
+        }
+        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
+
+        
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+        after_type:        $result['type'] = $type;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
 
 
         return $result;

@@ -24,7 +24,7 @@ class CbRepoRcb implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubAE\Schema\TeamRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamRepository($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubAE\Schema\TeamRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamRepository⚡️Permissions($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -111,7 +111,7 @@ class CbRepoRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamRepository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1050,7 +1050,7 @@ class CbRepoRcb implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\TeamRepository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -1111,17 +1111,17 @@ class CbRepoRcb implements ObjectMapper
             after_maintain:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TeamRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\TeamRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\TeamRepository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TeamRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -1157,7 +1157,7 @@ class CbRepoRcb implements ObjectMapper
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubAE\Schema\TeamRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamRepository($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($object),
+            'ApiClients\Client\GitHubAE\Schema\TeamRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamRepository⚡️Permissions($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -1269,7 +1269,7 @@ class CbRepoRcb implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -1713,9 +1713,9 @@ class CbRepoRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamRepository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\TeamRepository\Permissions);
         $result = [];
 
         $admin = $object->admin;

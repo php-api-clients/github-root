@@ -24,7 +24,7 @@ class Deployments implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\Deployment' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Deployment($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Activity⚡️MarkNotificationsAsRead⚡️Response⚡️Applicationjson⚡️H202($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\CreateDeployment\Response\Applicationjson\H202' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Repos⚡️CreateDeployment⚡️Response⚡️Applicationjson⚡️H202($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
@@ -251,7 +251,7 @@ class Deployments implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Activity⚡️MarkNotificationsAsRead⚡️Response⚡️Applicationjson⚡️H202(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Repos⚡️CreateDeployment⚡️Response⚡️Applicationjson⚡️H202(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\CreateDeployment\Response\Applicationjson\H202
     {
         $properties = []; 
         $missingFields = [];
@@ -268,17 +268,17 @@ class Deployments implements ObjectMapper
             after_message:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\CreateDeployment\Response\Applicationjson\H202', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\CreateDeployment\Response\Applicationjson\H202::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\CreateDeployment\Response\Applicationjson\H202(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\CreateDeployment\Response\Applicationjson\H202', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -465,7 +465,7 @@ class Deployments implements ObjectMapper
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\Deployment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Deployment($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Activity⚡️MarkNotificationsAsRead⚡️Response⚡️Applicationjson⚡️H202($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\CreateDeployment\Response\Applicationjson\H202' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Repos⚡️CreateDeployment⚡️Response⚡️Applicationjson⚡️H202($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
@@ -650,9 +650,9 @@ class Deployments implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Activity⚡️MarkNotificationsAsRead⚡️Response⚡️Applicationjson⚡️H202(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Repos⚡️CreateDeployment⚡️Response⚡️Applicationjson⚡️H202(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Repos\CreateDeployment\Response\Applicationjson\H202);
         $result = [];
 
         $message = $object->message;

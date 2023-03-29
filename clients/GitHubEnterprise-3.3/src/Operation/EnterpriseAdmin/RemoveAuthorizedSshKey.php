@@ -25,7 +25,7 @@ final class RemoveAuthorizedSshKey
     }
     function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\EnterpriseAdmin\AddAuthorizedSshKey\Request\ApplicationxWwwFormUrlencoded::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\EnterpriseAdmin\RemoveAuthorizedSshKey\Request\ApplicationxWwwFormUrlencoded::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array(), array(), self::PATH), array('Content-Type' => 'application/x-www-form-urlencoded'), json_encode($data));
     }
     /**

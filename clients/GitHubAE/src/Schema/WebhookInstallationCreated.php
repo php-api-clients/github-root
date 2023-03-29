@@ -23,7 +23,7 @@ final readonly class WebhookInstallationCreated
      * repository: A repository on GitHub.
      * sender: A GitHub user.
      */
-    public function __construct(public string $action, public ?Schema\Enterprise $enterprise, public Schema\Installation $installation, public ?Schema\OrganizationSimple $organization, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\WebhookInstallationCreated\Repositories::class)] public ?array $repositories, public ?Schema\Repository $repository, public ?Schema\Discussion\AnswerChosenBy $requester, public Schema\SimpleUser $sender)
+    public function __construct(public string $action, public ?Schema\Enterprise $enterprise, public Schema\Installation $installation, public ?Schema\OrganizationSimple $organization, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\WebhookInstallationCreated\Repositories::class)] public ?array $repositories, public ?Schema\Repository $repository, public ?Schema\WebhookInstallationCreated\Requester $requester, public Schema\SimpleUser $sender)
     {
     }
 }

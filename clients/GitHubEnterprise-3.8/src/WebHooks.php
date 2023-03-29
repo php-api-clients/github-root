@@ -48,7 +48,6 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
     private ?WebHook\ProjectCard $projectCard = null;
     private ?WebHook\Project $project = null;
     private ?WebHook\ProjectColumn $projectColumn = null;
-    private ?WebHook\ProjectsV2 $projectsV2 = null;
     private ?WebHook\ProjectsV2Item $projectsV2Item = null;
     private ?WebHook\Public_ $public = null;
     private ?WebHook\PullRequest $pullRequest = null;
@@ -97,7 +96,7 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         return array('className' => $object::class, 'data' => $this->hydrator->serializeObject($object));
     }
     /**
-     * @return Schema\WebhookBranchProtectionRuleCreated|Schema\WebhookBranchProtectionRuleDeleted|Schema\WebhookBranchProtectionRuleEdited|Schema\WebhookCacheSync|Schema\WebhookCheckRunCompleted|Schema\WebhookCheckRunCompletedFormEncoded|Schema\WebhookCheckRunCreated|Schema\WebhookCheckRunCreatedFormEncoded|Schema\WebhookCheckRunRequestedAction|Schema\WebhookCheckRunRequestedActionFormEncoded|Schema\WebhookCheckRunRerequested|Schema\WebhookCheckRunRerequestedFormEncoded|Schema\WebhookCheckSuiteCompleted|Schema\WebhookCheckSuiteRequested|Schema\WebhookCheckSuiteRerequested|Schema\WebhookCodeScanningAlertAppearedInBranch|Schema\WebhookCodeScanningAlertClosedByUser|Schema\WebhookCodeScanningAlertCreated|Schema\WebhookCodeScanningAlertFixed|Schema\WebhookCodeScanningAlertReopened|Schema\WebhookCodeScanningAlertReopenedByUser|Schema\WebhookCommitCommentCreated|Schema\WebhookCreate|Schema\WebhookDelete|Schema\WebhookDependabotAlertCreated|Schema\WebhookDependabotAlertDismissed|Schema\WebhookDependabotAlertFixed|Schema\WebhookDependabotAlertReintroduced|Schema\WebhookDependabotAlertReopened|Schema\WebhookDeployKeyCreated|Schema\WebhookDeployKeyDeleted|Schema\WebhookDeploymentCreated|Schema\WebhookDeploymentStatusCreated|Schema\WebhookDiscussionAnswered|Schema\WebhookDiscussionCategoryChanged|Schema\WebhookDiscussionCreated|Schema\WebhookDiscussionDeleted|Schema\WebhookDiscussionEdited|Schema\WebhookDiscussionLabeled|Schema\WebhookDiscussionLocked|Schema\WebhookDiscussionPinned|Schema\WebhookDiscussionTransferred|Schema\WebhookDiscussionUnanswered|Schema\WebhookDiscussionUnlabeled|Schema\WebhookDiscussionUnlocked|Schema\WebhookDiscussionUnpinned|Schema\WebhookDiscussionCommentCreated|Schema\WebhookDiscussionCommentDeleted|Schema\WebhookDiscussionCommentEdited|Schema\WebhookEnterpriseAnonymousAccessDisabled|Schema\WebhookEnterpriseAnonymousAccessEnabled|Schema\WebhookFork|Schema\WebhookGithubAppAuthorizationRevoked|Schema\WebhookGollum|Schema\WebhookInstallationCreated|Schema\WebhookInstallationDeleted|Schema\WebhookInstallationNewPermissionsAccepted|Schema\WebhookInstallationSuspend|Schema\WebhookInstallationUnsuspend|Schema\WebhookInstallationRepositoriesAdded|Schema\WebhookInstallationRepositoriesRemoved|Schema\WebhookInstallationTargetRenamed|Schema\WebhookIssueCommentCreated|Schema\WebhookIssueCommentDeleted|Schema\WebhookIssueCommentEdited|Schema\WebhookIssuesAssigned|Schema\WebhookIssuesClosed|Schema\WebhookIssuesDeleted|Schema\WebhookIssuesDemilestoned|Schema\WebhookIssuesEdited|Schema\WebhookIssuesLabeled|Schema\WebhookIssuesLocked|Schema\WebhookIssuesMilestoned|Schema\WebhookIssuesOpened|Schema\WebhookIssuesPinned|Schema\WebhookIssuesReopened|Schema\WebhookIssuesTransferred|Schema\WebhookIssuesUnassigned|Schema\WebhookIssuesUnlabeled|Schema\WebhookIssuesUnlocked|Schema\WebhookIssuesUnpinned|Schema\WebhookLabelCreated|Schema\WebhookLabelDeleted|Schema\WebhookLabelEdited|Schema\WebhookMemberAdded|Schema\WebhookMemberEdited|Schema\WebhookMemberRemoved|Schema\WebhookMembershipAdded|Schema\WebhookMembershipRemoved|Schema\WebhookMergeGroupChecksRequested|Schema\WebhookMetaDeleted|Schema\WebhookMilestoneClosed|Schema\WebhookMilestoneCreated|Schema\WebhookMilestoneDeleted|Schema\WebhookMilestoneEdited|Schema\WebhookMilestoneOpened|Schema\WebhookOrganizationDeleted|Schema\WebhookOrganizationMemberAdded|Schema\WebhookOrganizationMemberInvited|Schema\WebhookOrganizationMemberRemoved|Schema\WebhookOrganizationRenamed|Schema\WebhookPackagePublished|Schema\WebhookPackageUpdated|Schema\WebhookPageBuild|Schema\WebhookPing|Schema\WebhookPingFormEncoded|Schema\WebhookProjectCardConverted|Schema\WebhookProjectCardCreated|Schema\WebhookProjectCardDeleted|Schema\WebhookProjectCardEdited|Schema\WebhookProjectCardMoved|Schema\WebhookProjectClosed|Schema\WebhookProjectCreated|Schema\WebhookProjectDeleted|Schema\WebhookProjectEdited|Schema\WebhookProjectReopened|Schema\WebhookProjectColumnCreated|Schema\WebhookProjectColumnDeleted|Schema\WebhookProjectColumnEdited|Schema\WebhookProjectColumnMoved|Schema\WebhookProjectsV2ProjectClosed|Schema\WebhookProjectsV2ProjectCreated|Schema\WebhookProjectsV2ProjectEdited|Schema\WebhookProjectsV2ProjectReopened|Schema\WebhookProjectsV2ItemArchived|Schema\WebhookProjectsV2ItemConverted|Schema\WebhookProjectsV2ItemCreated|Schema\WebhookProjectsV2ItemDeleted|Schema\WebhookProjectsV2ItemEdited|Schema\WebhookProjectsV2ItemReordered|Schema\WebhookProjectsV2ItemRestored|Schema\WebhookPublic|Schema\WebhookPullRequestAssigned|Schema\WebhookPullRequestAutoMergeDisabled|Schema\WebhookPullRequestAutoMergeEnabled|Schema\WebhookPullRequestClosed|Schema\WebhookPullRequestConvertedToDraft|Schema\WebhookPullRequestDemilestoned|Schema\WebhookPullRequestEdited|Schema\WebhookPullRequestLabeled|Schema\WebhookPullRequestLocked|Schema\WebhookPullRequestMilestoned|Schema\WebhookPullRequestOpened|Schema\WebhookPullRequestReadyForReview|Schema\WebhookPullRequestReopened|Schema\WebhookPullRequestReviewRequestRemoved|Schema\WebhookPullRequestReviewRequested|Schema\WebhookPullRequestSynchronize|Schema\WebhookPullRequestUnassigned|Schema\WebhookPullRequestUnlabeled|Schema\WebhookPullRequestUnlocked|Schema\WebhookPullRequestReviewCommentCreated|Schema\WebhookPullRequestReviewCommentDeleted|Schema\WebhookPullRequestReviewCommentEdited|Schema\WebhookPullRequestReviewDismissed|Schema\WebhookPullRequestReviewEdited|Schema\WebhookPullRequestReviewSubmitted|Schema\WebhookPullRequestReviewThreadResolved|Schema\WebhookPullRequestReviewThreadUnresolved|Schema\WebhookPush|Schema\WebhookRegistryPackagePublished|Schema\WebhookRegistryPackageUpdated|Schema\WebhookReleaseCreated|Schema\WebhookReleaseDeleted|Schema\WebhookReleaseEdited|Schema\WebhookReleasePrereleased|Schema\WebhookReleasePublished|Schema\WebhookReleaseReleased|Schema\WebhookReleaseUnpublished|Schema\WebhookRepositoryAnonymousAccessDisabled|Schema\WebhookRepositoryAnonymousAccessEnabled|Schema\WebhookRepositoryArchived|Schema\WebhookRepositoryCreated|Schema\WebhookRepositoryDeleted|Schema\WebhookRepositoryEdited|Schema\WebhookRepositoryPrivatized|Schema\WebhookRepositoryPublicized|Schema\WebhookRepositoryRenamed|Schema\WebhookRepositoryTransferred|Schema\WebhookRepositoryUnarchived|Schema\WebhookRepositoryDispatchSample|Schema\WebhookRepositoryVulnerabilityAlertCreate|Schema\WebhookRepositoryVulnerabilityAlertDismiss|Schema\WebhookRepositoryVulnerabilityAlertReopen|Schema\WebhookRepositoryVulnerabilityAlertResolve|Schema\WebhookSecretScanningAlertCreated|Schema\WebhookSecretScanningAlertReopened|Schema\WebhookSecretScanningAlertResolved|Schema\WebhookSecretScanningAlertRevoked|Schema\WebhookSecretScanningAlertLocationCreated|Schema\WebhookSecretScanningAlertLocationCreatedFormEncoded|Schema\WebhookSecurityAdvisoryPublished|Schema\WebhookSecurityAdvisoryUpdated|Schema\WebhookSecurityAdvisoryWithdrawn|Schema\WebhookSecurityAndAnalysis|Schema\WebhookSponsorshipCancelled|Schema\WebhookSponsorshipCreated|Schema\WebhookSponsorshipEdited|Schema\WebhookSponsorshipPendingCancellation|Schema\WebhookSponsorshipPendingTierChange|Schema\WebhookSponsorshipTierChanged|Schema\WebhookStarCreated|Schema\WebhookStarDeleted|Schema\WebhookStatus|Schema\WebhookTeamAdd|Schema\WebhookTeamAddedToRepository|Schema\WebhookTeamCreated|Schema\WebhookTeamDeleted|Schema\WebhookTeamEdited|Schema\WebhookTeamRemovedFromRepository|Schema\WebhookUserCreated|Schema\WebhookUserDeleted|Schema\WebhookWatchStarted|Schema\WebhookWorkflowDispatch|Schema\WebhookWorkflowJobCompleted|Schema\WebhookWorkflowJobInProgress|Schema\WebhookWorkflowJobQueued|Schema\WebhookWorkflowJobWaiting|Schema\WebhookWorkflowRunCompleted|Schema\WebhookWorkflowRunInProgress|Schema\WebhookWorkflowRunRequested
+     * @return Schema\WebhookBranchProtectionRuleCreated|Schema\WebhookBranchProtectionRuleDeleted|Schema\WebhookBranchProtectionRuleEdited|Schema\WebhookCacheSync|Schema\WebhookCheckRunCompleted|Schema\WebhookCheckRunCompletedFormEncoded|Schema\WebhookCheckRunCreated|Schema\WebhookCheckRunCreatedFormEncoded|Schema\WebhookCheckRunRequestedAction|Schema\WebhookCheckRunRequestedActionFormEncoded|Schema\WebhookCheckRunRerequested|Schema\WebhookCheckRunRerequestedFormEncoded|Schema\WebhookCheckSuiteCompleted|Schema\WebhookCheckSuiteRequested|Schema\WebhookCheckSuiteRerequested|Schema\WebhookCodeScanningAlertAppearedInBranch|Schema\WebhookCodeScanningAlertClosedByUser|Schema\WebhookCodeScanningAlertCreated|Schema\WebhookCodeScanningAlertFixed|Schema\WebhookCodeScanningAlertReopened|Schema\WebhookCodeScanningAlertReopenedByUser|Schema\WebhookCommitCommentCreated|Schema\WebhookCreate|Schema\WebhookDelete|Schema\WebhookDependabotAlertCreated|Schema\WebhookDependabotAlertDismissed|Schema\WebhookDependabotAlertFixed|Schema\WebhookDependabotAlertReintroduced|Schema\WebhookDependabotAlertReopened|Schema\WebhookDeployKeyCreated|Schema\WebhookDeployKeyDeleted|Schema\WebhookDeploymentCreated|Schema\WebhookDeploymentStatusCreated|Schema\WebhookDiscussionAnswered|Schema\WebhookDiscussionCategoryChanged|Schema\WebhookDiscussionCreated|Schema\WebhookDiscussionDeleted|Schema\WebhookDiscussionEdited|Schema\WebhookDiscussionLabeled|Schema\WebhookDiscussionLocked|Schema\WebhookDiscussionPinned|Schema\WebhookDiscussionTransferred|Schema\WebhookDiscussionUnanswered|Schema\WebhookDiscussionUnlabeled|Schema\WebhookDiscussionUnlocked|Schema\WebhookDiscussionUnpinned|Schema\WebhookDiscussionCommentCreated|Schema\WebhookDiscussionCommentDeleted|Schema\WebhookDiscussionCommentEdited|Schema\WebhookEnterpriseAnonymousAccessDisabled|Schema\WebhookEnterpriseAnonymousAccessEnabled|Schema\WebhookFork|Schema\WebhookGithubAppAuthorizationRevoked|Schema\WebhookGollum|Schema\WebhookInstallationCreated|Schema\WebhookInstallationDeleted|Schema\WebhookInstallationNewPermissionsAccepted|Schema\WebhookInstallationSuspend|Schema\WebhookInstallationUnsuspend|Schema\WebhookInstallationRepositoriesAdded|Schema\WebhookInstallationRepositoriesRemoved|Schema\WebhookInstallationTargetRenamed|Schema\WebhookIssueCommentCreated|Schema\WebhookIssueCommentDeleted|Schema\WebhookIssueCommentEdited|Schema\WebhookIssuesAssigned|Schema\WebhookIssuesClosed|Schema\WebhookIssuesDeleted|Schema\WebhookIssuesDemilestoned|Schema\WebhookIssuesEdited|Schema\WebhookIssuesLabeled|Schema\WebhookIssuesLocked|Schema\WebhookIssuesMilestoned|Schema\WebhookIssuesOpened|Schema\WebhookIssuesPinned|Schema\WebhookIssuesReopened|Schema\WebhookIssuesTransferred|Schema\WebhookIssuesUnassigned|Schema\WebhookIssuesUnlabeled|Schema\WebhookIssuesUnlocked|Schema\WebhookIssuesUnpinned|Schema\WebhookLabelCreated|Schema\WebhookLabelDeleted|Schema\WebhookLabelEdited|Schema\WebhookMemberAdded|Schema\WebhookMemberEdited|Schema\WebhookMemberRemoved|Schema\WebhookMembershipAdded|Schema\WebhookMembershipRemoved|Schema\WebhookMergeGroupChecksRequested|Schema\WebhookMetaDeleted|Schema\WebhookMilestoneClosed|Schema\WebhookMilestoneCreated|Schema\WebhookMilestoneDeleted|Schema\WebhookMilestoneEdited|Schema\WebhookMilestoneOpened|Schema\WebhookOrganizationDeleted|Schema\WebhookOrganizationMemberAdded|Schema\WebhookOrganizationMemberInvited|Schema\WebhookOrganizationMemberRemoved|Schema\WebhookOrganizationRenamed|Schema\WebhookPackagePublished|Schema\WebhookPackageUpdated|Schema\WebhookPageBuild|Schema\WebhookPing|Schema\WebhookPingFormEncoded|Schema\WebhookProjectCardConverted|Schema\WebhookProjectCardCreated|Schema\WebhookProjectCardDeleted|Schema\WebhookProjectCardEdited|Schema\WebhookProjectCardMoved|Schema\WebhookProjectClosed|Schema\WebhookProjectCreated|Schema\WebhookProjectDeleted|Schema\WebhookProjectEdited|Schema\WebhookProjectReopened|Schema\WebhookProjectColumnCreated|Schema\WebhookProjectColumnDeleted|Schema\WebhookProjectColumnEdited|Schema\WebhookProjectColumnMoved|Schema\WebhookProjectsV2ItemArchived|Schema\WebhookProjectsV2ItemConverted|Schema\WebhookProjectsV2ItemCreated|Schema\WebhookProjectsV2ItemDeleted|Schema\WebhookProjectsV2ItemEdited|Schema\WebhookProjectsV2ItemReordered|Schema\WebhookProjectsV2ItemRestored|Schema\WebhookPublic|Schema\WebhookPullRequestAssigned|Schema\WebhookPullRequestAutoMergeDisabled|Schema\WebhookPullRequestAutoMergeEnabled|Schema\WebhookPullRequestClosed|Schema\WebhookPullRequestConvertedToDraft|Schema\WebhookPullRequestDemilestoned|Schema\WebhookPullRequestEdited|Schema\WebhookPullRequestLabeled|Schema\WebhookPullRequestLocked|Schema\WebhookPullRequestMilestoned|Schema\WebhookPullRequestOpened|Schema\WebhookPullRequestReadyForReview|Schema\WebhookPullRequestReopened|Schema\WebhookPullRequestReviewRequestRemoved|Schema\WebhookPullRequestReviewRequested|Schema\WebhookPullRequestSynchronize|Schema\WebhookPullRequestUnassigned|Schema\WebhookPullRequestUnlabeled|Schema\WebhookPullRequestUnlocked|Schema\WebhookPullRequestReviewCommentCreated|Schema\WebhookPullRequestReviewCommentDeleted|Schema\WebhookPullRequestReviewCommentEdited|Schema\WebhookPullRequestReviewDismissed|Schema\WebhookPullRequestReviewEdited|Schema\WebhookPullRequestReviewSubmitted|Schema\WebhookPullRequestReviewThreadResolved|Schema\WebhookPullRequestReviewThreadUnresolved|Schema\WebhookPush|Schema\WebhookRegistryPackagePublished|Schema\WebhookRegistryPackageUpdated|Schema\WebhookReleaseCreated|Schema\WebhookReleaseDeleted|Schema\WebhookReleaseEdited|Schema\WebhookReleasePrereleased|Schema\WebhookReleasePublished|Schema\WebhookReleaseReleased|Schema\WebhookReleaseUnpublished|Schema\WebhookRepositoryAnonymousAccessDisabled|Schema\WebhookRepositoryAnonymousAccessEnabled|Schema\WebhookRepositoryArchived|Schema\WebhookRepositoryCreated|Schema\WebhookRepositoryDeleted|Schema\WebhookRepositoryEdited|Schema\WebhookRepositoryPrivatized|Schema\WebhookRepositoryPublicized|Schema\WebhookRepositoryRenamed|Schema\WebhookRepositoryTransferred|Schema\WebhookRepositoryUnarchived|Schema\WebhookRepositoryDispatchSample|Schema\WebhookRepositoryVulnerabilityAlertCreate|Schema\WebhookRepositoryVulnerabilityAlertDismiss|Schema\WebhookRepositoryVulnerabilityAlertReopen|Schema\WebhookRepositoryVulnerabilityAlertResolve|Schema\WebhookSecretScanningAlertCreated|Schema\WebhookSecretScanningAlertReopened|Schema\WebhookSecretScanningAlertResolved|Schema\WebhookSecretScanningAlertRevoked|Schema\WebhookSecretScanningAlertLocationCreated|Schema\WebhookSecretScanningAlertLocationCreatedFormEncoded|Schema\WebhookSecurityAdvisoryPublished|Schema\WebhookSecurityAdvisoryUpdated|Schema\WebhookSecurityAdvisoryWithdrawn|Schema\WebhookSecurityAndAnalysis|Schema\WebhookSponsorshipCancelled|Schema\WebhookSponsorshipCreated|Schema\WebhookSponsorshipEdited|Schema\WebhookSponsorshipPendingCancellation|Schema\WebhookSponsorshipPendingTierChange|Schema\WebhookSponsorshipTierChanged|Schema\WebhookStarCreated|Schema\WebhookStarDeleted|Schema\WebhookStatus|Schema\WebhookTeamAdd|Schema\WebhookTeamAddedToRepository|Schema\WebhookTeamCreated|Schema\WebhookTeamDeleted|Schema\WebhookTeamEdited|Schema\WebhookTeamRemovedFromRepository|Schema\WebhookUserCreated|Schema\WebhookUserDeleted|Schema\WebhookWatchStarted|Schema\WebhookWorkflowDispatch|Schema\WebhookWorkflowJobCompleted|Schema\WebhookWorkflowJobInProgress|Schema\WebhookWorkflowJobQueued|Schema\WebhookWorkflowJobWaiting|Schema\WebhookWorkflowRunCompleted|Schema\WebhookWorkflowRunInProgress|Schema\WebhookWorkflowRunRequested
      */
     public function resolve(array $headers, array $data) : object
     {
@@ -434,248 +433,239 @@ final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
         }
         webhooks_aaabj:
         try {
-            if ($this->projectsV2 instanceof WebHook\ProjectsV2 === false) {
-                $this->projectsV2 = new WebHook\ProjectsV2($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝ProjectsV2());
-            }
-            return $this->projectsV2->resolve($headers, $data);
-        } catch (\Throwable $error) {
-            goto webhooks_aaabk;
-        }
-        webhooks_aaabk:
-        try {
             if ($this->projectsV2Item instanceof WebHook\ProjectsV2Item === false) {
                 $this->projectsV2Item = new WebHook\ProjectsV2Item($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝ProjectsV2Item());
             }
             return $this->projectsV2Item->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaabl;
+            goto webhooks_aaabk;
         }
-        webhooks_aaabl:
+        webhooks_aaabk:
         try {
             if ($this->public instanceof WebHook\Public_ === false) {
                 $this->public = new WebHook\Public_($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Public_());
             }
             return $this->public->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaabm;
+            goto webhooks_aaabl;
         }
-        webhooks_aaabm:
+        webhooks_aaabl:
         try {
             if ($this->pullRequest instanceof WebHook\PullRequest === false) {
                 $this->pullRequest = new WebHook\PullRequest($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝PullRequest());
             }
             return $this->pullRequest->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaabn;
+            goto webhooks_aaabm;
         }
-        webhooks_aaabn:
+        webhooks_aaabm:
         try {
             if ($this->pullRequestReviewComment instanceof WebHook\PullRequestReviewComment === false) {
                 $this->pullRequestReviewComment = new WebHook\PullRequestReviewComment($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝PullRequestReviewComment());
             }
             return $this->pullRequestReviewComment->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaabo;
+            goto webhooks_aaabn;
         }
-        webhooks_aaabo:
+        webhooks_aaabn:
         try {
             if ($this->pullRequestReview instanceof WebHook\PullRequestReview === false) {
                 $this->pullRequestReview = new WebHook\PullRequestReview($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝PullRequestReview());
             }
             return $this->pullRequestReview->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaabp;
+            goto webhooks_aaabo;
         }
-        webhooks_aaabp:
+        webhooks_aaabo:
         try {
             if ($this->pullRequestReviewThread instanceof WebHook\PullRequestReviewThread === false) {
                 $this->pullRequestReviewThread = new WebHook\PullRequestReviewThread($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝PullRequestReviewThread());
             }
             return $this->pullRequestReviewThread->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaabq;
+            goto webhooks_aaabp;
         }
-        webhooks_aaabq:
+        webhooks_aaabp:
         try {
             if ($this->push instanceof WebHook\Push === false) {
                 $this->push = new WebHook\Push($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Push());
             }
             return $this->push->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaabr;
+            goto webhooks_aaabq;
         }
-        webhooks_aaabr:
+        webhooks_aaabq:
         try {
             if ($this->registryPackage instanceof WebHook\RegistryPackage === false) {
                 $this->registryPackage = new WebHook\RegistryPackage($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝RegistryPackage());
             }
             return $this->registryPackage->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaabs;
+            goto webhooks_aaabr;
         }
-        webhooks_aaabs:
+        webhooks_aaabr:
         try {
             if ($this->release instanceof WebHook\Release === false) {
                 $this->release = new WebHook\Release($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Release());
             }
             return $this->release->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaabt;
+            goto webhooks_aaabs;
         }
-        webhooks_aaabt:
+        webhooks_aaabs:
         try {
             if ($this->repository instanceof WebHook\Repository === false) {
                 $this->repository = new WebHook\Repository($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Repository());
             }
             return $this->repository->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaabu;
+            goto webhooks_aaabt;
         }
-        webhooks_aaabu:
+        webhooks_aaabt:
         try {
             if ($this->repositoryDispatch instanceof WebHook\RepositoryDispatch === false) {
                 $this->repositoryDispatch = new WebHook\RepositoryDispatch($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝RepositoryDispatch());
             }
             return $this->repositoryDispatch->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaabv;
+            goto webhooks_aaabu;
         }
-        webhooks_aaabv:
+        webhooks_aaabu:
         try {
             if ($this->repositoryVulnerabilityAlert instanceof WebHook\RepositoryVulnerabilityAlert === false) {
                 $this->repositoryVulnerabilityAlert = new WebHook\RepositoryVulnerabilityAlert($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝RepositoryVulnerabilityAlert());
             }
             return $this->repositoryVulnerabilityAlert->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaabw;
+            goto webhooks_aaabv;
         }
-        webhooks_aaabw:
+        webhooks_aaabv:
         try {
             if ($this->secretScanningAlert instanceof WebHook\SecretScanningAlert === false) {
                 $this->secretScanningAlert = new WebHook\SecretScanningAlert($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝SecretScanningAlert());
             }
             return $this->secretScanningAlert->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaabx;
+            goto webhooks_aaabw;
         }
-        webhooks_aaabx:
+        webhooks_aaabw:
         try {
             if ($this->secretScanningAlertLocation instanceof WebHook\SecretScanningAlertLocation === false) {
                 $this->secretScanningAlertLocation = new WebHook\SecretScanningAlertLocation($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝SecretScanningAlertLocation());
             }
             return $this->secretScanningAlertLocation->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaaby;
+            goto webhooks_aaabx;
         }
-        webhooks_aaaby:
+        webhooks_aaabx:
         try {
             if ($this->securityAdvisory instanceof WebHook\SecurityAdvisory === false) {
                 $this->securityAdvisory = new WebHook\SecurityAdvisory($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝SecurityAdvisory());
             }
             return $this->securityAdvisory->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaabz;
+            goto webhooks_aaaby;
         }
-        webhooks_aaabz:
+        webhooks_aaaby:
         try {
             if ($this->securityAndAnalysis instanceof WebHook\SecurityAndAnalysis === false) {
                 $this->securityAndAnalysis = new WebHook\SecurityAndAnalysis($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝SecurityAndAnalysis());
             }
             return $this->securityAndAnalysis->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaaca;
+            goto webhooks_aaabz;
         }
-        webhooks_aaaca:
+        webhooks_aaabz:
         try {
             if ($this->sponsorship instanceof WebHook\Sponsorship === false) {
                 $this->sponsorship = new WebHook\Sponsorship($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Sponsorship());
             }
             return $this->sponsorship->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaacb;
+            goto webhooks_aaaca;
         }
-        webhooks_aaacb:
+        webhooks_aaaca:
         try {
             if ($this->star instanceof WebHook\Star === false) {
                 $this->star = new WebHook\Star($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Star());
             }
             return $this->star->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaacc;
+            goto webhooks_aaacb;
         }
-        webhooks_aaacc:
+        webhooks_aaacb:
         try {
             if ($this->status instanceof WebHook\Status === false) {
                 $this->status = new WebHook\Status($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Status());
             }
             return $this->status->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaacd;
+            goto webhooks_aaacc;
         }
-        webhooks_aaacd:
+        webhooks_aaacc:
         try {
             if ($this->teamAdd instanceof WebHook\TeamAdd === false) {
                 $this->teamAdd = new WebHook\TeamAdd($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝TeamAdd());
             }
             return $this->teamAdd->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaace;
+            goto webhooks_aaacd;
         }
-        webhooks_aaace:
+        webhooks_aaacd:
         try {
             if ($this->team instanceof WebHook\Team === false) {
                 $this->team = new WebHook\Team($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Team());
             }
             return $this->team->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaacf;
+            goto webhooks_aaace;
         }
-        webhooks_aaacf:
+        webhooks_aaace:
         try {
             if ($this->user instanceof WebHook\User === false) {
                 $this->user = new WebHook\User($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝User());
             }
             return $this->user->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaacg;
+            goto webhooks_aaacf;
         }
-        webhooks_aaacg:
+        webhooks_aaacf:
         try {
             if ($this->watch instanceof WebHook\Watch === false) {
                 $this->watch = new WebHook\Watch($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝Watch());
             }
             return $this->watch->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaach;
+            goto webhooks_aaacg;
         }
-        webhooks_aaach:
+        webhooks_aaacg:
         try {
             if ($this->workflowDispatch instanceof WebHook\WorkflowDispatch === false) {
                 $this->workflowDispatch = new WebHook\WorkflowDispatch($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝WorkflowDispatch());
             }
             return $this->workflowDispatch->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaaci;
+            goto webhooks_aaach;
         }
-        webhooks_aaaci:
+        webhooks_aaach:
         try {
             if ($this->workflowJob instanceof WebHook\WorkflowJob === false) {
                 $this->workflowJob = new WebHook\WorkflowJob($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝WorkflowJob());
             }
             return $this->workflowJob->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaacj;
+            goto webhooks_aaaci;
         }
-        webhooks_aaacj:
+        webhooks_aaaci:
         try {
             if ($this->workflowRun instanceof WebHook\WorkflowRun === false) {
                 $this->workflowRun = new WebHook\WorkflowRun($this->requestSchemaValidator, $this->hydrator->getObjectMapperWebHook🪝WorkflowRun());
             }
             return $this->workflowRun->resolve($headers, $data);
         } catch (\Throwable $error) {
-            goto webhooks_aaack;
+            goto webhooks_aaacj;
         }
-        webhooks_aaack:
+        webhooks_aaacj:
         throw $error;
     }
 }

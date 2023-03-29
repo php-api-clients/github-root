@@ -25,7 +25,7 @@ class DependabotAlert implements ObjectMapper
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\WebhookDependabotAlertCreated' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDependabotAlertCreated($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\DependabotAlert' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlert($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\DependabotAlertWithRepository\Dependency' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlertWithRepository⚡️Dependency($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\DependabotAlert\Dependency' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlert⚡️Dependency($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\DependabotAlertPackage' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlertPackage($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\DependabotAlertSecurityAdvisory' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlertSecurityAdvisory($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\DependabotAlertSecurityVulnerability' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlertSecurityVulnerability($payload),
@@ -241,7 +241,7 @@ class DependabotAlert implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'dependency';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlertWithRepository⚡️Dependency($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlert⚡️Dependency($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -406,7 +406,7 @@ class DependabotAlert implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlertWithRepository⚡️Dependency(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\DependabotAlertWithRepository\Dependency
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlert⚡️Dependency(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\DependabotAlert\Dependency
     {
         $properties = []; 
         $missingFields = [];
@@ -454,17 +454,17 @@ class DependabotAlert implements ObjectMapper
             after_scope:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\DependabotAlertWithRepository\Dependency', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\DependabotAlert\Dependency', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\DependabotAlertWithRepository\Dependency::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\DependabotAlert\Dependency::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\DependabotAlertWithRepository\Dependency(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\DependabotAlert\Dependency(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\DependabotAlertWithRepository\Dependency', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\DependabotAlert\Dependency', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -4724,7 +4724,7 @@ class DependabotAlert implements ObjectMapper
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterprise\Schema\WebhookDependabotAlertCreated' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDependabotAlertCreated($object),
             'ApiClients\Client\GitHubEnterprise\Schema\DependabotAlert' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlert($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\DependabotAlertWithRepository\Dependency' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlertWithRepository⚡️Dependency($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\DependabotAlert\Dependency' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlert⚡️Dependency($object),
             'ApiClients\Client\GitHubEnterprise\Schema\DependabotAlertPackage' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlertPackage($object),
             'ApiClients\Client\GitHubEnterprise\Schema\DependabotAlertSecurityAdvisory' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlertSecurityAdvisory($object),
             'ApiClients\Client\GitHubEnterprise\Schema\DependabotAlertSecurityVulnerability' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlertSecurityVulnerability($object),
@@ -4888,7 +4888,7 @@ class DependabotAlert implements ObjectMapper
 
         
         $dependency = $object->dependency;
-        $dependency = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlertWithRepository⚡️Dependency($dependency);
+        $dependency = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlert⚡️Dependency($dependency);
         after_dependency:        $result['dependency'] = $dependency;
 
         
@@ -4962,9 +4962,9 @@ class DependabotAlert implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlertWithRepository⚡️Dependency(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️DependabotAlert⚡️Dependency(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\DependabotAlertWithRepository\Dependency);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\DependabotAlert\Dependency);
         $result = [];
 
         $package = $object->package;

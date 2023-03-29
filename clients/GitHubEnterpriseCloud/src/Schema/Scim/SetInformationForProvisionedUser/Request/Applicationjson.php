@@ -22,7 +22,7 @@ final readonly class Applicationjson
      * emails: user emails
      * @param array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\Scim\SetInformationForProvisionedUser\Request\Applicationjson\Emails> $emails
      */
-    public function __construct(public ?array $schemas, public ?string $displayName, public ?string $externalId, public ?array $groups, public ?bool $active, public string $userName, public Schema\Scim\ProvisionAndInviteUser\Request\Applicationjson\Name $name, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Scim\SetInformationForProvisionedUser\Request\Applicationjson\Emails::class)] public array $emails)
+    public function __construct(public ?array $schemas, public ?string $displayName, public ?string $externalId, public ?array $groups, public ?bool $active, public string $userName, public Schema\Scim\SetInformationForProvisionedUser\Request\Applicationjson\Name $name, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Scim\SetInformationForProvisionedUser\Request\Applicationjson\Emails::class)] public array $emails)
     {
     }
 }

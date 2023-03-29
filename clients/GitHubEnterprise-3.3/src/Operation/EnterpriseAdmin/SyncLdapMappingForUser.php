@@ -29,9 +29,9 @@ final class SyncLdapMappingForUser
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{username}'), array($this->username), self::PATH));
     }
     /**
-     * @return Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201
+     * @return Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201
+    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201
     {
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);
@@ -40,8 +40,8 @@ final class SyncLdapMappingForUser
             case 201:
                 switch ($contentType) {
                     case 'application/json':
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        return $this->hydrator->hydrateObject(Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201::class, $body);
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject(Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201::class, $body);
                 }
                 break;
         }

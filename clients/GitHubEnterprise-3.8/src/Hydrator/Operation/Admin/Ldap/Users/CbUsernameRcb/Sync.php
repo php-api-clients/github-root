@@ -23,13 +23,13 @@ class Sync implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️SyncLdapMappingForTeam⚡️Response⚡️Applicationjson⚡️H201($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️SyncLdapMappingForUser⚡️Response⚡️Applicationjson⚡️H201($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️SyncLdapMappingForTeam⚡️Response⚡️Applicationjson⚡️H201(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️SyncLdapMappingForUser⚡️Response⚡️Applicationjson⚡️H201(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201
     {
         $properties = []; 
         $missingFields = [];
@@ -46,17 +46,17 @@ class Sync implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -91,7 +91,7 @@ class Sync implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️SyncLdapMappingForTeam⚡️Response⚡️Applicationjson⚡️H201($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️SyncLdapMappingForUser⚡️Response⚡️Applicationjson⚡️H201($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -165,9 +165,9 @@ class Sync implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️SyncLdapMappingForTeam⚡️Response⚡️Applicationjson⚡️H201(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️SyncLdapMappingForUser⚡️Response⚡️Applicationjson⚡️H201(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201);
         $result = [];
 
         $status = $object->status;

@@ -17,7 +17,7 @@ final readonly class ApplicationGrant
     /**
      * @param array<string> $scopes
      */
-    public function __construct(public int $id, public string $url, public Schema\Authorization\App $app, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public array $scopes, public mixed $user)
+    public function __construct(public int $id, public string $url, public Schema\ApplicationGrant\App $app, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public array $scopes, public mixed $user)
     {
     }
 }

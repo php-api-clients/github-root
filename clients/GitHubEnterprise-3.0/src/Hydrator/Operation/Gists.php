@@ -29,7 +29,7 @@ class Gists implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\GistSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistSimple($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\GistSimple\Forks' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistSimple⚡️Forks($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\PublicUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PublicUser($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\LdapMappingUser\Plan' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LdapMappingUser⚡️Plan($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PublicUser\Plan' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PublicUser⚡️Plan($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\GistHistory' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistHistory($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\GistHistory\ChangeStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistHistory⚡️ChangeStatus($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\GistSimple\ForkOf' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistSimple⚡️ForkOf($payload),
@@ -1338,7 +1338,7 @@ class Gists implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'plan';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LdapMappingUser⚡️Plan($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PublicUser⚡️Plan($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1430,7 +1430,7 @@ class Gists implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LdapMappingUser⚡️Plan(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\LdapMappingUser\Plan
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PublicUser⚡️Plan(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PublicUser\Plan
     {
         $properties = []; 
         $missingFields = [];
@@ -1480,17 +1480,17 @@ class Gists implements ObjectMapper
             after_privateRepos:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\LdapMappingUser\Plan', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PublicUser\Plan', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\LdapMappingUser\Plan::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PublicUser\Plan::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\LdapMappingUser\Plan(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PublicUser\Plan(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\LdapMappingUser\Plan', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PublicUser\Plan', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -2062,7 +2062,7 @@ class Gists implements ObjectMapper
             'ApiClients\Client\GitHubEnterprise\Schema\GistSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistSimple($object),
             'ApiClients\Client\GitHubEnterprise\Schema\GistSimple\Forks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistSimple⚡️Forks($object),
             'ApiClients\Client\GitHubEnterprise\Schema\PublicUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PublicUser($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\LdapMappingUser\Plan' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LdapMappingUser⚡️Plan($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PublicUser\Plan' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PublicUser⚡️Plan($object),
             'ApiClients\Client\GitHubEnterprise\Schema\GistHistory' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistHistory($object),
             'ApiClients\Client\GitHubEnterprise\Schema\GistHistory\ChangeStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistHistory⚡️ChangeStatus($object),
             'ApiClients\Client\GitHubEnterprise\Schema\GistSimple\ForkOf' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistSimple⚡️ForkOf($object),
@@ -2838,7 +2838,7 @@ class Gists implements ObjectMapper
         if ($plan === null) {
             goto after_plan;
         }
-        $plan = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LdapMappingUser⚡️Plan($plan);
+        $plan = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PublicUser⚡️Plan($plan);
         after_plan:        $result['plan'] = $plan;
 
         
@@ -2894,9 +2894,9 @@ class Gists implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LdapMappingUser⚡️Plan(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PublicUser⚡️Plan(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\LdapMappingUser\Plan);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PublicUser\Plan);
         $result = [];
 
         $collaborators = $object->collaborators;

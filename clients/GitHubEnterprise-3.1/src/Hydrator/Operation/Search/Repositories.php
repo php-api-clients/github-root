@@ -25,7 +25,7 @@ class Repositories implements ObjectMapper
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Repos\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Search⚡️Repos⚡️Response⚡️Applicationjson⚡️H200($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\RepoSearchResultItem' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepoSearchResultItem($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\RepoSearchResultItem\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepoSearchResultItem⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches⚡️Matches($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Activity⚡️ListPublicEvents⚡️Response⚡️Applicationjson⚡️H503($payload),
@@ -962,7 +962,7 @@ class Repositories implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepoSearchResultItem⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1086,7 +1086,7 @@ class Repositories implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepoSearchResultItem⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\RepoSearchResultItem\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -1147,17 +1147,17 @@ class Repositories implements ObjectMapper
             after_pull:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RepoSearchResultItem\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\RepoSearchResultItem\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\RepoSearchResultItem\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RepoSearchResultItem\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -1528,7 +1528,7 @@ class Repositories implements ObjectMapper
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Repos\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Search⚡️Repos⚡️Response⚡️Applicationjson⚡️H200($object),
             'ApiClients\Client\GitHubEnterprise\Schema\RepoSearchResultItem' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepoSearchResultItem($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\RepoSearchResultItem\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepoSearchResultItem⚡️Permissions($object),
             'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches($object),
             'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches⚡️Matches($object),
             'ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Activity⚡️ListPublicEvents⚡️Response⚡️Applicationjson⚡️H503($object),
@@ -1999,7 +1999,7 @@ class Repositories implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepoSearchResultItem⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -2080,9 +2080,9 @@ class Repositories implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️FullRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepoSearchResultItem⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\FullRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\RepoSearchResultItem\Permissions);
         $result = [];
 
         $admin = $object->admin;
