@@ -702,6 +702,17 @@ class CodeScanningAlert implements ObjectMapper
 
             after_analysisKey:
 
+            $value = $payload['category'] ?? null;
+
+            if ($value === null) {
+                $properties['category'] = null;
+                goto after_category;
+            }
+
+            $properties['category'] = $value;
+
+            after_category:
+
             $value = $payload['classifications'] ?? null;
 
             if ($value === null) {
@@ -4600,6 +4611,17 @@ class CodeScanningAlert implements ObjectMapper
 
             after_analysisKey:
 
+            $value = $payload['category'] ?? null;
+
+            if ($value === null) {
+                $properties['category'] = null;
+                goto after_category;
+            }
+
+            $properties['category'] = $value;
+
+            after_category:
+
             $value = $payload['classifications'] ?? null;
 
             if ($value === null) {
@@ -5384,6 +5406,17 @@ class CodeScanningAlert implements ObjectMapper
             $properties['analysisKey'] = $value;
 
             after_analysisKey:
+
+            $value = $payload['category'] ?? null;
+
+            if ($value === null) {
+                $properties['category'] = null;
+                goto after_category;
+            }
+
+            $properties['category'] = $value;
+
+            after_category:
 
             $value = $payload['classifications'] ?? null;
 
@@ -6398,6 +6431,17 @@ class CodeScanningAlert implements ObjectMapper
 
             after_analysisKey:
 
+            $value = $payload['category'] ?? null;
+
+            if ($value === null) {
+                $properties['category'] = null;
+                goto after_category;
+            }
+
+            $properties['category'] = $value;
+
+            after_category:
+
             $value = $payload['classifications'] ?? null;
 
             if ($value === null) {
@@ -7139,6 +7183,17 @@ class CodeScanningAlert implements ObjectMapper
 
             after_analysisKey:
 
+            $value = $payload['category'] ?? null;
+
+            if ($value === null) {
+                $properties['category'] = null;
+                goto after_category;
+            }
+
+            $properties['category'] = $value;
+
+            after_category:
+
             $value = $payload['classifications'] ?? null;
 
             if ($value === null) {
@@ -7879,6 +7934,17 @@ class CodeScanningAlert implements ObjectMapper
             $properties['analysisKey'] = $value;
 
             after_analysisKey:
+
+            $value = $payload['category'] ?? null;
+
+            if ($value === null) {
+                $properties['category'] = null;
+                goto after_category;
+            }
+
+            $properties['category'] = $value;
+
+            after_category:
 
             $value = $payload['classifications'] ?? null;
 
@@ -8665,6 +8731,14 @@ class CodeScanningAlert implements ObjectMapper
 
         $analysisKey = $object->analysisKey;
         after_analysisKey:        $result['analysis_key'] = $analysisKey;
+
+        
+        $category = $object->category;
+
+        if ($category === null) {
+            goto after_category;
+        }
+        after_category:        $result['category'] = $category;
 
         
         $classifications = $object->classifications;
@@ -10817,6 +10891,14 @@ class CodeScanningAlert implements ObjectMapper
         after_analysisKey:        $result['analysis_key'] = $analysisKey;
 
         
+        $category = $object->category;
+
+        if ($category === null) {
+            goto after_category;
+        }
+        after_category:        $result['category'] = $category;
+
+        
         $classifications = $object->classifications;
 
         if ($classifications === null) {
@@ -11225,6 +11307,14 @@ class CodeScanningAlert implements ObjectMapper
 
         $analysisKey = $object->analysisKey;
         after_analysisKey:        $result['analysis_key'] = $analysisKey;
+
+        
+        $category = $object->category;
+
+        if ($category === null) {
+            goto after_category;
+        }
+        after_category:        $result['category'] = $category;
 
         
         $classifications = $object->classifications;
@@ -11775,6 +11865,14 @@ class CodeScanningAlert implements ObjectMapper
         after_analysisKey:        $result['analysis_key'] = $analysisKey;
 
         
+        $category = $object->category;
+
+        if ($category === null) {
+            goto after_category;
+        }
+        after_category:        $result['category'] = $category;
+
+        
         $classifications = $object->classifications;
 
         if ($classifications === null) {
@@ -12157,6 +12255,14 @@ class CodeScanningAlert implements ObjectMapper
         after_analysisKey:        $result['analysis_key'] = $analysisKey;
 
         
+        $category = $object->category;
+
+        if ($category === null) {
+            goto after_category;
+        }
+        after_category:        $result['category'] = $category;
+
+        
         $classifications = $object->classifications;
 
         if ($classifications === null) {
@@ -12525,6 +12631,14 @@ class CodeScanningAlert implements ObjectMapper
 
         $analysisKey = $object->analysisKey;
         after_analysisKey:        $result['analysis_key'] = $analysisKey;
+
+        
+        $category = $object->category;
+
+        if ($category === null) {
+            goto after_category;
+        }
+        after_category:        $result['category'] = $category;
 
         
         $classifications = $object->classifications;
