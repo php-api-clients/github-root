@@ -3923,7 +3923,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5161,7 +5161,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -8417,7 +8417,7 @@ class ProjectCard implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -9068,7 +9068,7 @@ class ProjectCard implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         

@@ -8,13 +8,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
-final readonly class Inputs
+final readonly class Inputs extends Schema\AliasAbstract\Abstract76b5d9ad3f1d0b829290f3025ab2627c
 {
-    public const SCHEMA_JSON = '{"type":["object","null"],"additionalProperties":true}';
-    public const SCHEMA_TITLE = '';
-    public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-    public function __construct()
-    {
-    }
 }

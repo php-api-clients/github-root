@@ -8,13 +8,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
-final readonly class H202
+final readonly class H202 extends Schema\AliasAbstract\Abstracta5445a08e16d224f94859ebaf785c18a
 {
-    public const SCHEMA_JSON = '{"type":"object","properties":{"message":{"type":"string"},"url":{"type":"string"}}}';
-    public const SCHEMA_TITLE = '';
-    public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"message":"generated_message_null","url":"generated_url_null"}';
-    public function __construct(public ?string $message, public ?string $url)
-    {
-    }
 }

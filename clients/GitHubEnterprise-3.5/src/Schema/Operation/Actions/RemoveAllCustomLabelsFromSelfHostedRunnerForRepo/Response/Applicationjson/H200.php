@@ -1,0 +1,13 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo\Response\Applicationjson;
+
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
+final readonly class H200 extends Schema\AliasAbstract\Abstract465ffe2283692c35b7e35cd3f31b8c6b
+{
+}

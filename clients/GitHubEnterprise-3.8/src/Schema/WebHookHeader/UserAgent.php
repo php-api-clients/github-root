@@ -8,13 +8,6 @@ use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\WebHook;
-final readonly class UserAgent
+final readonly class UserAgent extends Schema\AliasAbstract\Abstract2809284b6e54d0d34017715ffe5636bd
 {
-    public const SCHEMA_JSON = '{"type":"string"}';
-    public const SCHEMA_TITLE = '';
-    public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-    public function __construct()
-    {
-    }
 }

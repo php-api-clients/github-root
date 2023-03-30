@@ -8,13 +8,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
-final readonly class Statuses
+final readonly class Statuses extends Schema\AliasAbstract\Abstractede9794c5ffd987d7cf57460d159142e
 {
-    public const SCHEMA_JSON = '{"title":"Link","required":["href"],"type":"object","properties":{"href":{"type":"string","format":"uri-template"}}}';
-    public const SCHEMA_TITLE = 'Link';
-    public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"href":"generated_href_uri-template"}';
-    public function __construct(public string $href)
-    {
-    }
 }

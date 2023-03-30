@@ -8,13 +8,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
-final readonly class ReferencedWorkflows
+final readonly class ReferencedWorkflows extends Schema\AliasAbstract\Abstract816635d3c55238babf74f2e824a1eba4
 {
-    public const SCHEMA_JSON = '{"required":["path","sha"],"type":"object","properties":{"path":{"type":"string"},"ref":{"type":"string"},"sha":{"type":"string"}}}';
-    public const SCHEMA_TITLE = '';
-    public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"path":"generated_path_null","ref":"generated_ref_null","sha":"generated_sha_null"}';
-    public function __construct(public string $path, public ?string $ref, public string $sha)
-    {
-    }
 }

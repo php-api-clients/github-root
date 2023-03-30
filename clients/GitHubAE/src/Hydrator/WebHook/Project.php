@@ -3794,7 +3794,7 @@ class Project implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCreated⚡️Project⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectClosed⚡️Project⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4362,7 +4362,7 @@ class Project implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectDeleted⚡️Project⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectClosed⚡️Project⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5084,7 +5084,7 @@ class Project implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectEdited⚡️Project⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectClosed⚡️Project⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5661,7 +5661,7 @@ class Project implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectReopened⚡️Project⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectClosed⚡️Project⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -8221,7 +8221,7 @@ class Project implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCreated⚡️Project⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectClosed⚡️Project⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -8522,7 +8522,7 @@ class Project implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectDeleted⚡️Project⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectClosed⚡️Project⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -8886,7 +8886,7 @@ class Project implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectEdited⚡️Project⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectClosed⚡️Project⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -9184,7 +9184,7 @@ class Project implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectReopened⚡️Project⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectClosed⚡️Project⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         

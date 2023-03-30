@@ -578,7 +578,7 @@ class Topics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'topicRelation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1154,7 +1154,7 @@ class Topics implements ObjectMapper
         if ($topicRelation === null) {
             goto after_topicRelation;
         }
-        $topicRelation = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation($topicRelation);
+        $topicRelation = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($topicRelation);
         after_topicRelation:        $result['topic_relation'] = $topicRelation;
 
 

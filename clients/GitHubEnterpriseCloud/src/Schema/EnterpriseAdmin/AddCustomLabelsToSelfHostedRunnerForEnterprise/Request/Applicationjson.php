@@ -8,17 +8,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
-final readonly class Applicationjson
+final readonly class Applicationjson extends Schema\AliasAbstract\Abstractcd5d02c54e256c1f61acea463e527414
 {
-    public const SCHEMA_JSON = '{"required":["labels"],"type":"object","properties":{"labels":{"maxItems":100,"minItems":1,"type":"array","items":{"type":"string"},"description":"The names of the custom labels to add to the runner."}}}';
-    public const SCHEMA_TITLE = '';
-    public const SCHEMA_DESCRIPTION = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"labels":["generated_labels_null"]}';
-    /**
-     * labels: The names of the custom labels to add to the runner.
-     * @param array<string> $labels
-     */
-    public function __construct(public array $labels)
-    {
-    }
 }
