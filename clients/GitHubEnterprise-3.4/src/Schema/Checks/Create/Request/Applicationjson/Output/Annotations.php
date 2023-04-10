@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\Github\Schema\Checks\Create\Request\Applicationjson\Output;
+namespace ApiClients\Client\GitHubEnterprise\Schema\Checks\Create\Request\Applicationjson\Output;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final readonly class Annotations extends Schema\AliasAbstract\Abstract6af2b3ae1426be2429564a001f9716f8
 {
 }

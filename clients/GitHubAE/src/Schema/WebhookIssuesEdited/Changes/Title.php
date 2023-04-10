@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\Github\Schema\WebhookIssuesEdited\Changes;
+namespace ApiClients\Client\GitHubAE\Schema\WebhookIssuesEdited\Changes;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
+use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Operation;
+use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Client\GitHubAE\WebHook;
 final readonly class Title
 {
     public const SCHEMA_JSON = '{"required":["from"],"type":"object","properties":{"from":{"type":"string","description":"The previous version of the title."}}}';

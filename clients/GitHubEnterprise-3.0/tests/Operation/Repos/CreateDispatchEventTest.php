@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Repos;
+namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\Repos;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final class CreateDispatchEventTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -23,8 +23,8 @@ final class CreateDispatchEventTest extends \WyriHaximus\AsyncTestUtilities\Asyn
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/repos/generated_null/generated_null/dispatches', \Prophecy\Argument::type('array'), Schema\Repos\CreateDispatchEvent\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Repos\CreateDispatchEvent::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Repos\CreateDispatchEvent::OPERATION_MATCH, (static function (array $data) : array {
             $data['owner'] = 'generated_null';
             $data['repo'] = 'generated_null';
             return $data;

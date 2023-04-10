@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Users;
+namespace ApiClients\Tests\Client\GitHubAE\Operation\Users;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
+use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Operation;
+use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Client\GitHubAE\WebHook;
 final class UpdateAuthenticatedTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class UpdateAuthenticatedTest extends \WyriHaximus\AsyncTestUtilities\Asyn
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/user', \Prophecy\Argument::type('array'), Schema\Users\UpdateAuthenticated\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Users\UpdateAuthenticated::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\Users\UpdateAuthenticated::OPERATION_MATCH, (static function (array $data) : array {
             return $data;
         })(json_decode(Schema\Users\UpdateAuthenticated\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
     }
@@ -40,8 +40,8 @@ final class UpdateAuthenticatedTest extends \WyriHaximus\AsyncTestUtilities\Asyn
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/user', \Prophecy\Argument::type('array'), Schema\Users\UpdateAuthenticated\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Users\UpdateAuthenticated::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\Users\UpdateAuthenticated::OPERATION_MATCH, (static function (array $data) : array {
             return $data;
         })(json_decode(Schema\Users\UpdateAuthenticated\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
     }
@@ -58,8 +58,8 @@ final class UpdateAuthenticatedTest extends \WyriHaximus\AsyncTestUtilities\Asyn
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/user', \Prophecy\Argument::type('array'), Schema\Users\UpdateAuthenticated\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Users\UpdateAuthenticated::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\Users\UpdateAuthenticated::OPERATION_MATCH, (static function (array $data) : array {
             return $data;
         })(json_decode(Schema\Users\UpdateAuthenticated\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
     }
@@ -76,8 +76,8 @@ final class UpdateAuthenticatedTest extends \WyriHaximus\AsyncTestUtilities\Asyn
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/user', \Prophecy\Argument::type('array'), Schema\Users\UpdateAuthenticated\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Users\UpdateAuthenticated::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\Users\UpdateAuthenticated::OPERATION_MATCH, (static function (array $data) : array {
             return $data;
         })(json_decode(Schema\Users\UpdateAuthenticated\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
     }
@@ -94,8 +94,8 @@ final class UpdateAuthenticatedTest extends \WyriHaximus\AsyncTestUtilities\Asyn
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/user', \Prophecy\Argument::type('array'), Schema\Users\UpdateAuthenticated\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Users\UpdateAuthenticated::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\Users\UpdateAuthenticated::OPERATION_MATCH, (static function (array $data) : array {
             return $data;
         })(json_decode(Schema\Users\UpdateAuthenticated\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
     }

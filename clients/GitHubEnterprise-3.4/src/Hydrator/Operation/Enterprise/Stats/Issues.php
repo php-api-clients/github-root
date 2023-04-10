@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Enterprise\Stats;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Enterprise\Stats;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class Issues implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\EnterpriseIssueOverview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseIssueOverview($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseIssueOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseIssueOverview($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseIssueOverview(array $payload): \ApiClients\Client\Github\Schema\EnterpriseIssueOverview
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseIssueOverview(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseIssueOverview
     {
         $properties = []; 
         $missingFields = [];
@@ -68,17 +68,17 @@ class Issues implements ObjectMapper
             after_closedIssues:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseIssueOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseIssueOverview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseIssueOverview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseIssueOverview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseIssueOverview(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseIssueOverview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseIssueOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseIssueOverview', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -113,7 +113,7 @@ class Issues implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\EnterpriseIssueOverview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseIssueOverview($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseIssueOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseIssueOverview($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -187,9 +187,9 @@ class Issues implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseIssueOverview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseIssueOverview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseIssueOverview);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseIssueOverview);
         $result = [];
 
         $totalIssues = $object->totalIssues;

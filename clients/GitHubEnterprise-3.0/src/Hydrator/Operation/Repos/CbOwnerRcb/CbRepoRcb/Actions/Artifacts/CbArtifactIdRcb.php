@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class CbArtifactIdRcb implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\Artifact' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Artifact($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\Artifact' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Artifact($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Artifact(array $payload): \ApiClients\Client\Github\Schema\Artifact
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Artifact(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Artifact
     {
         $properties = []; 
         $missingFields = [];
@@ -145,17 +145,17 @@ class CbArtifactIdRcb implements ObjectMapper
             after_updatedAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Artifact', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Artifact', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Artifact::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Artifact::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Artifact(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\Artifact(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Artifact', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Artifact', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -190,7 +190,7 @@ class CbArtifactIdRcb implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\Artifact' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Artifact($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Artifact' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Artifact($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -264,9 +264,9 @@ class CbArtifactIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Artifact(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Artifact(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Artifact);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Artifact);
         $result = [];
 
         $id = $object->id;

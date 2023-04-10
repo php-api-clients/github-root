@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\Github;
+namespace ApiClients\Client\GitHubEnterprise;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final class Client implements ClientInterface
 {
     private readonly \ApiClients\Contracts\HTTP\Headers\AuthenticationInterface $authentication;
@@ -58,7 +58,7 @@ final class Client implements ClientInterface
                         }
                         $operation = new Operation\Meta\Root($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Root::class]);
                         $request = $operation->createRequest($params);
-                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Meta\Root\Response\Applicationjson\H200 {
+                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Meta\Root\Response\Applicationjson\H200 {
                             return $operation->createResponse($response);
                         });
                     }
@@ -294,7 +294,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Apps\GetBySlug($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Apps\CbAppSlugRcb::class], $arguments['app_slug']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Integration {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Integration {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -313,7 +313,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\OauthAuthorizations\GetAuthorization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations\CbAuthorizationIdRcb::class], $arguments['authorization_id']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Authorization {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Authorization {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -332,7 +332,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\CodesOfConduct\GetConductCode($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\CodesOfConduct\CbKeyRcb::class], $arguments['key']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CodeOfConduct {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -346,7 +346,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\EnterpriseAdmin\GetAnnouncement($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Announcement::class]);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Announcement {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Announcement {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -419,7 +419,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Gists\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb::class], $arguments['gist_id']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GistSimple {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GistSimple {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -457,7 +457,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Apps\ListReposAccessibleToInstallation($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Installation\Repositories::class], $arguments['per_page'], $arguments['page']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Apps\ListReposAccessibleToInstallation\Response\Applicationjson\H200 {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Apps\ListReposAccessibleToInstallation\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -476,7 +476,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Licenses\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Licenses\CbLicenseRcb::class], $arguments['license']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\License {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\License {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -495,7 +495,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Orgs\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb::class], $arguments['org']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\OrganizationFull {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -514,7 +514,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Projects\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb::class], $arguments['project_id']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Project {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Project {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -553,7 +553,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Search\Code($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Search\Code::class], $arguments['q'], $arguments['sort'], $arguments['order'], $arguments['per_page'], $arguments['page']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Search\Code\Response\Applicationjson\H200 {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Code\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -590,7 +590,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Search\Commits($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Search\Commits::class], $arguments['q'], $arguments['sort'], $arguments['order'], $arguments['per_page'], $arguments['page']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Search\Commits\Response\Applicationjson\H200 {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Commits\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -627,7 +627,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Search\IssuesAndPullRequests($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Search\Issues::class], $arguments['q'], $arguments['sort'], $arguments['order'], $arguments['per_page'], $arguments['page']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Search\IssuesAndPullRequests\Response\Applicationjson\H200 {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\IssuesAndPullRequests\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -669,7 +669,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Search\Labels($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Search\Labels::class], $arguments['repository_id'], $arguments['q'], $arguments['sort'], $arguments['order'], $arguments['per_page'], $arguments['page']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Search\Labels\Response\Applicationjson\H200 {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Labels\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -706,7 +706,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Search\Repos($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Search\Repositories::class], $arguments['q'], $arguments['sort'], $arguments['order'], $arguments['per_page'], $arguments['page']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Search\Repos\Response\Applicationjson\H200 {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Repos\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -733,7 +733,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Search\Topics($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Search\Topics::class], $arguments['q'], $arguments['per_page'], $arguments['page']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Search\Topics\Response\Applicationjson\H200 {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Topics\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -770,7 +770,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Search\Users($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Search\Users::class], $arguments['q'], $arguments['sort'], $arguments['order'], $arguments['per_page'], $arguments['page']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Search\Users\Response\Applicationjson\H200 {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Users\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -789,7 +789,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Teams\GetLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb::class], $arguments['team_id']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamFull {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamFull {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -901,7 +901,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Apps\ListInstallationsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Installations::class], $arguments['per_page'], $arguments['page']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Apps\ListInstallationsForAuthenticatedUser\Response\Applicationjson\H200 {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Apps\ListInstallationsForAuthenticatedUser\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -1193,7 +1193,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Users\GetByUsername($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb::class], $arguments['username']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Users\GetByUsername\Response\Applicationjson\H200 {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Users\GetByUsername\Response\Applicationjson\H200 {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -1222,7 +1222,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetGlobalWebhook($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Hooks\CbHookIdRcb::class], $arguments['hook_id'], $arguments['accept']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GlobalHook {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GlobalHook {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1241,7 +1241,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetPreReceiveEnvironment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb::class], $arguments['pre_receive_environment_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PreReceiveEnvironment {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1260,7 +1260,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetPreReceiveHook($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $arguments['pre_receive_hook_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PreReceiveHook {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1276,7 +1276,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Apps\GetWebhookConfigForApp($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Hook\Config::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\WebhookConfig {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1295,7 +1295,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Apps\GetInstallation($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Installations\CbInstallationIdRcb::class], $arguments['installation_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Installation {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Installation {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1316,7 +1316,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\OauthAuthorizations\GetGrant($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\Grants\CbGrantIdRcb::class], $arguments['grant_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ApplicationGrant {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1332,7 +1332,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetLicenseInformation($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Settings\License::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\LicenseInfo {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1346,7 +1346,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetAllStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\All::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\EnterpriseOverview {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOverview {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1358,7 +1358,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetCommentStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Comments::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\EnterpriseCommentOverview {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseCommentOverview {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1370,7 +1370,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetGistStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Gists::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\EnterpriseGistOverview {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseGistOverview {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1382,7 +1382,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetHooksStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Hooks::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\EnterpriseHookOverview {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseHookOverview {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1394,7 +1394,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetIssueStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Issues::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\EnterpriseIssueOverview {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseIssueOverview {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1406,7 +1406,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetMilestoneStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Milestones::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\EnterpriseMilestoneOverview {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseMilestoneOverview {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1418,7 +1418,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetOrgStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Orgs::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\EnterpriseOrganizationOverview {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1430,7 +1430,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetPagesStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Pages::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\EnterprisePageOverview {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\EnterprisePageOverview {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1442,7 +1442,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetPullRequestStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Pulls::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\EnterprisePullRequestOverview {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1454,7 +1454,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetRepoStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Repos::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseRepositoryOverview {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1466,7 +1466,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetUserStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Stats\Users::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\EnterpriseUserOverview {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1590,7 +1590,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Gists\GetRevision($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\CbShaRcb::class], $arguments['gist_id'], $arguments['sha']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GistSimple {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GistSimple {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1611,7 +1611,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Gitignore\GetTemplate($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gitignore\Templates\CbNameRcb::class], $arguments['name']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GitignoreTemplate {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GitignoreTemplate {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1632,7 +1632,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Activity\GetThread($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Notifications\Threads\CbThreadIdRcb::class], $arguments['thread_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Thread {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Thread {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1707,7 +1707,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Apps\GetOrgInstallation($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Installation::class], $arguments['org']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Installation {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Installation {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -1734,7 +1734,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Orgs\ListAppInstallations($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Installations::class], $arguments['org'], $arguments['per_page'], $arguments['page']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200 {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Orgs\ListAppInstallations\Response\Applicationjson\H200 {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -2046,7 +2046,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Projects\GetColumn($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\CbColumnIdRcb::class], $arguments['column_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ProjectColumn {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ProjectColumn {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -2133,7 +2133,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Repos\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb::class], $arguments['owner'], $arguments['repo']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\FullRepository|\ApiClients\Client\Github\Schema\BasicError {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\FullRepository|\ApiClients\Client\GitHubEnterprise\Schema\BasicError {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -2149,7 +2149,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetConfigurationStatus($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Setup\Api\Configcheck::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ConfigurationStatus {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -2161,7 +2161,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetMaintenanceStatus($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Setup\Api\Maintenance::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\MaintenanceStatus {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -2173,7 +2173,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\GetSettings($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Setup\Api\Settings::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\EnterpriseSettings {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -2362,7 +2362,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Users\GetGpgKeyForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\GpgKeys\CbGpgKeyIdRcb::class], $arguments['gpg_key_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GpgKey {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GpgKey {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -2381,7 +2381,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Users\GetPublicSshKeyForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Keys\CbKeyIdRcb::class], $arguments['key_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Key {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Key {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -2581,7 +2581,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Users\GetContextForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Hovercard::class], $arguments['username'], $arguments['subject_type'], $arguments['subject_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Hovercard {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Hovercard {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -2598,7 +2598,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Apps\GetUserInstallation($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Installation::class], $arguments['username']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Installation {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Installation {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -2790,7 +2790,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Activity\ListReposStarredByUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Starred::class], $arguments['username'], $arguments['sort'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Activity\ListReposStarredByUser\Response\Applicationjson\H200 {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\ListReposStarredByUser\Response\Applicationjson\H200 {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -2844,7 +2844,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\GetDownloadStatusForPreReceiveEnvironment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads\Latest::class], $arguments['pre_receive_environment_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PreReceiveEnvironmentDownloadStatus {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironmentDownloadStatus {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -2879,7 +2879,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\Organizations::class], $arguments['enterprise'], $arguments['per_page'], $arguments['page']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\Applicationjson\H200 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -2896,7 +2896,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\GetAllowedActionsEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions\SelectedActions::class], $arguments['enterprise']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\SelectedActions {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\SelectedActions {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -2920,7 +2920,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\GetSelfHostedRunnerGroupForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class], $arguments['enterprise'], $arguments['runner_group_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RunnerGroupsEnterprise {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -2961,7 +2961,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\GetSelfHostedRunnerForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb::class], $arguments['enterprise'], $arguments['runner_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Runner {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Runner {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -2996,7 +2996,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\Repositories::class], $arguments['org'], $arguments['per_page'], $arguments['page']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\Applicationjson\H200 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3013,7 +3013,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\GetAllowedActionsOrganization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\SelectedActions::class], $arguments['org']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\SelectedActions {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\SelectedActions {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3037,7 +3037,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\GetSelfHostedRunnerGroupForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class], $arguments['org'], $arguments['runner_group_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RunnerGroupsOrg {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsOrg {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3078,7 +3078,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\GetSelfHostedRunnerForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb::class], $arguments['org'], $arguments['runner_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Runner {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Runner {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3097,7 +3097,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\GetOrgPublicKey($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\PublicKey::class], $arguments['org']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ActionsPublicKey {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ActionsPublicKey {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3119,7 +3119,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\GetOrgSecret($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb::class], $arguments['org'], $arguments['secret_name']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\OrganizationActionsSecret {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\OrganizationActionsSecret {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3145,7 +3145,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Orgs\GetWebhookConfigForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Config::class], $arguments['org'], $arguments['hook_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\WebhookConfig {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3354,7 +3354,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Projects\GetPermissionForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb\Collaborators\CbUsernameRcb\Permission::class], $arguments['project_id'], $arguments['username']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ProjectCollaboratorPermission {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ProjectCollaboratorPermission {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3394,7 +3394,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\ListArtifactsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts::class], $arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListArtifactsForRepo\Response\Applicationjson\H200 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListArtifactsForRepo\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3416,7 +3416,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\GetGithubActionsPermissionsRepository($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions::class], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ActionsRepositoryPermissions {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ActionsRepositoryPermissions {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3448,7 +3448,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\ListSelfHostedRunnersForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners::class], $arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListSelfHostedRunnersForRepo\Response\Applicationjson\H200 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelfHostedRunnersForRepo\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3510,7 +3510,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\ListWorkflowRunsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs::class], $arguments['owner'], $arguments['repo'], $arguments['actor'], $arguments['branch'], $arguments['event'], $arguments['status'], $arguments['created'], $arguments['per_page'], $arguments['page'], $arguments['exclude_pull_requests']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListWorkflowRunsForRepo\Response\Applicationjson\H200 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListWorkflowRunsForRepo\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3542,7 +3542,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\ListRepoSecrets($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets::class], $arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListRepoSecrets\Response\Applicationjson\H200 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListRepoSecrets\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3574,7 +3574,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\ListRepoWorkflows($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows::class], $arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListRepoWorkflows\Response\Applicationjson\H200 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListRepoWorkflows\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3632,7 +3632,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetBranch($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb::class], $arguments['owner'], $arguments['repo'], $arguments['branch']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\BranchWithProtection|\ApiClients\Client\Github\Schema\BasicError {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\BranchWithProtection|\ApiClients\Client\GitHubEnterprise\Schema\BasicError {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3661,7 +3661,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Checks\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['check_run_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CheckRun {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CheckRun {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3690,7 +3690,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Checks\GetSuite($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['check_suite_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CheckSuite {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CheckSuite {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3851,7 +3851,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetCommitComment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['comment_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CommitComment {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CommitComment {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3890,7 +3890,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetCommit($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb::class], $arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['page'], $arguments['per_page']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Commit {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Commit {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3919,7 +3919,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\CompareCommits($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Compare\CbBaseheadRcb::class], $arguments['owner'], $arguments['repo'], $arguments['basehead']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CommitComparison {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CommitComparison {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3953,7 +3953,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetContent($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contents\CbPathRcb::class], $arguments['owner'], $arguments['repo'], $arguments['path'], $arguments['ref']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ContentTree|\ApiClients\Client\Github\Schema\Operation\Repos\GetContent\Response\Applicationjson\H200 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ContentTree|\ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\GetContent\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -3982,7 +3982,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetDeployment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['deployment_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Deployment {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Deployment {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4011,7 +4011,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetWebhook($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['hook_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Hook {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Hook {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4119,7 +4119,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Issues\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb::class], $arguments['owner'], $arguments['repo'], $arguments['issue_number']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Issue|\ApiClients\Client\Github\Schema\BasicError {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Issue|\ApiClients\Client\GitHubEnterprise\Schema\BasicError {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4148,7 +4148,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetDeployKey($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys\CbKeyIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['key_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\DeployKey {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\DeployKey {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4177,7 +4177,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Issues\GetLabel($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels\CbNameRcb::class], $arguments['owner'], $arguments['repo'], $arguments['name']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Label {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Label {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4206,7 +4206,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Issues\GetMilestone($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb::class], $arguments['owner'], $arguments['repo'], $arguments['milestone_number']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Milestone {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Milestone {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4269,7 +4269,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\GetPreReceiveHookForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['pre_receive_hook_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RepositoryPreReceiveHook {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4345,7 +4345,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Pulls\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequest {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequest {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4379,7 +4379,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetReadmeInDirectory($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme\CbDirRcb::class], $arguments['owner'], $arguments['repo'], $arguments['dir'], $arguments['ref']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ContentFile {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ContentFile {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4403,7 +4403,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetLatestRelease($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Latest::class], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Release {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Release {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4430,7 +4430,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetRelease($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['release_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Release {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Release {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4454,7 +4454,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetCodeFrequencyStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\CodeFrequency::class], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\ApiClients\Client\Github\Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4476,7 +4476,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetCommitActivityStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\CommitActivity::class], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\ApiClients\Client\Github\Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4498,7 +4498,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetContributorsStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\Contributors::class], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\ApiClients\Client\Github\Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4520,7 +4520,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetParticipationStats($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\Participation::class], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ParticipationStats {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ParticipationStats {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4707,7 +4707,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Teams\CheckPermissionsForRepoLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb::class], $arguments['team_id'], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamRepository {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamRepository {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -4767,7 +4767,7 @@ final class Client implements ClientInterface
                             }
                             $operation = new Operation\Apps\GetAuthenticated($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App::class]);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Integration {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Integration {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -4818,7 +4818,7 @@ final class Client implements ClientInterface
                             }
                             $operation = new Operation\Emojis\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Emojis::class]);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Emojis\Get\Response\Applicationjson\H200 {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Emojis\Get\Response\Applicationjson\H200 {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -4852,7 +4852,7 @@ final class Client implements ClientInterface
                             }
                             $operation = new Operation\Activity\GetFeeds($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Feeds::class]);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Feed {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Feed {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -4990,7 +4990,7 @@ final class Client implements ClientInterface
                             }
                             $operation = new Operation\Meta\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Meta::class]);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ApiOverview {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ApiOverview {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -5049,7 +5049,7 @@ final class Client implements ClientInterface
                             }
                             $operation = new Operation\Meta\GetOctocat($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Octocat::class], $arguments['s']);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Meta\GetOctocat\Response\ApplicationoctocatStream\H200 {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Meta\GetOctocat\Response\ApplicationoctocatStream\H200 {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -5083,7 +5083,7 @@ final class Client implements ClientInterface
                             }
                             $operation = new Operation\RateLimit\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\RateLimit::class]);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RateLimitOverview {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RateLimitOverview {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -5117,7 +5117,7 @@ final class Client implements ClientInterface
                             }
                             $operation = new Operation\Users\GetAuthenticated($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User::class]);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Users\GetAuthenticated\Response\Applicationjson\H200 {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Users\GetAuthenticated\Response\Applicationjson\H200 {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -5151,7 +5151,7 @@ final class Client implements ClientInterface
                             }
                             $operation = new Operation\Meta\GetZen($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Zen::class]);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Meta\GetZen\Response\Textplain\H200 {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Meta\GetZen\Response\Textplain\H200 {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -5180,7 +5180,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Apps\CheckAuthorization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Tokens\CbAccessTokenRcb::class], $arguments['client_id'], $arguments['access_token']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Apps\CheckAuthorization\Response\Applicationjson\H200 {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Apps\CheckAuthorization\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5203,7 +5203,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\GetGithubActionsPermissionsEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Permissions::class], $arguments['enterprise']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ActionsEnterprisePermissions {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ActionsEnterprisePermissions {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5230,7 +5230,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerGroups::class], $arguments['enterprise'], $arguments['per_page'], $arguments['page']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\Applicationjson\H200 {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5257,7 +5257,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners::class], $arguments['enterprise'], $arguments['per_page'], $arguments['page']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200 {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5285,7 +5285,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Gists\GetComment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Comments\CbCommentIdRcb::class], $arguments['gist_id'], $arguments['comment_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GistComment {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GistComment {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5323,7 +5323,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Activity\ListPublicEventsForRepoNetwork($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Networks\CbOwnerRcb\CbRepoRcb\Events::class], $arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\ApiClients\Client\Github\Schema\BasicError {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\ApiClients\Client\GitHubEnterprise\Schema\BasicError {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5346,7 +5346,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Activity\GetThreadSubscriptionForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Notifications\Threads\CbThreadIdRcb\Subscription::class], $arguments['thread_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ThreadSubscription {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ThreadSubscription {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5369,7 +5369,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Actions\GetGithubActionsPermissionsOrganization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions::class], $arguments['org']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ActionsOrganizationPermissions {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ActionsOrganizationPermissions {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5396,7 +5396,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Actions\ListSelfHostedRunnerGroupsForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups::class], $arguments['org'], $arguments['per_page'], $arguments['page']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListSelfHostedRunnerGroupsForOrg\Response\Applicationjson\H200 {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelfHostedRunnerGroupsForOrg\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5423,7 +5423,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Actions\ListSelfHostedRunnersForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners::class], $arguments['org'], $arguments['per_page'], $arguments['page']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListSelfHostedRunnersForOrg\Response\Applicationjson\H200 {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelfHostedRunnersForOrg\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5450,7 +5450,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Actions\ListOrgSecrets($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets::class], $arguments['org'], $arguments['per_page'], $arguments['page']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListOrgSecrets\Response\Applicationjson\H200 {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListOrgSecrets\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5474,7 +5474,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Orgs\GetWebhook($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb::class], $arguments['org'], $arguments['hook_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\OrgHook {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\OrgHook {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5519,7 +5519,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Orgs\GetMembershipForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Memberships\CbUsernameRcb::class], $arguments['org'], $arguments['username']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\OrgMembership {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\OrgMembership {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5543,7 +5543,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\GetPreReceiveHookForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $arguments['org'], $arguments['pre_receive_hook_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\OrgPreReceiveHook {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5588,7 +5588,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Teams\GetByName($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb::class], $arguments['org'], $arguments['team_slug']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamFull {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamFull {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -5611,7 +5611,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Projects\GetCard($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\Cards\CbCardIdRcb::class], $arguments['card_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ProjectCard {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ProjectCard {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -6058,7 +6058,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Apps\GetRepoInstallation($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Installation::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Installation|\ApiClients\Client\Github\Schema\BasicError {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Installation|\ApiClients\Client\GitHubEnterprise\Schema\BasicError {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -6167,7 +6167,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Issues\ListForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues::class], $arguments['owner'], $arguments['repo'], $arguments['milestone'], $arguments['assignee'], $arguments['creator'], $arguments['mentioned'], $arguments['labels'], $arguments['since'], $arguments['state'], $arguments['sort'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\ApiClients\Client\Github\Schema\BasicError {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\ApiClients\Client\GitHubEnterprise\Schema\BasicError {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -6253,7 +6253,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Repos\ListLanguages($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Languages::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Language {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Language {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -6275,7 +6275,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Licenses\GetForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\License::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\LicenseContent {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\LicenseContent {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -6396,7 +6396,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Repos\GetPages($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Page {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Page {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -6559,7 +6559,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Repos\GetReadme($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Readme::class], $arguments['owner'], $arguments['repo'], $arguments['ref']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ContentFile {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ContentFile {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -6623,7 +6623,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Activity\ListStargazersForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stargazers::class], $arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Activity\ListStargazersForRepo\Response\Applicationjson\H200 {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\ListStargazersForRepo\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -6677,7 +6677,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Activity\GetRepoSubscription($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscription::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RepositorySubscription {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RepositorySubscription {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -6773,7 +6773,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Repos\GetAllTopics($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Topics::class], $arguments['owner'], $arguments['repo'], $arguments['page'], $arguments['per_page']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Topic {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Topic {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -6819,7 +6819,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Teams\GetDiscussionLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb::class], $arguments['team_id'], $arguments['discussion_number']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamDiscussion {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussion {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -6864,7 +6864,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Teams\GetMembershipForUserLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Memberships\CbUsernameRcb::class], $arguments['team_id'], $arguments['username']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamMembership {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamMembership {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -6888,7 +6888,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Teams\CheckPermissionsForProjectLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb::class], $arguments['team_id'], $arguments['project_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamProject {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamProject {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -6921,7 +6921,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Apps\ListInstallationReposForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Installations\CbInstallationIdRcb\Repositories::class], $arguments['installation_id'], $arguments['per_page'], $arguments['page']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Apps\ListInstallationReposForAuthenticatedUser\Response\Applicationjson\H200 {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Apps\ListInstallationReposForAuthenticatedUser\Response\Applicationjson\H200 {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -6942,7 +6942,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Orgs\GetMembershipForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Memberships\Orgs\CbOrgRcb::class], $arguments['org']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\OrgMembership {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\OrgMembership {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -7095,7 +7095,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Organizations::class], $arguments['enterprise'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\Applicationjson\H200 {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7127,7 +7127,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners::class], $arguments['enterprise'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\Applicationjson\H200 {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7169,7 +7169,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories::class], $arguments['org'], $arguments['runner_group_id'], $arguments['page'], $arguments['per_page']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\Applicationjson\H200 {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7201,7 +7201,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Actions\ListSelfHostedRunnersInGroupForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners::class], $arguments['org'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListSelfHostedRunnersInGroupForOrg\Response\Applicationjson\H200 {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelfHostedRunnersInGroupForOrg\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7237,7 +7237,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Actions\ListSelectedReposForOrgSecret($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb\Repositories::class], $arguments['org'], $arguments['secret_name'], $arguments['page'], $arguments['per_page']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListSelectedReposForOrgSecret\Response\Applicationjson\H200 {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedReposForOrgSecret\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7270,7 +7270,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Teams\GetDiscussionInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb::class], $arguments['org'], $arguments['team_slug'], $arguments['discussion_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamDiscussion {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussion {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7299,7 +7299,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Teams\GetMembershipForUserInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb::class], $arguments['org'], $arguments['team_slug'], $arguments['username']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamMembership {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamMembership {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7328,7 +7328,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Teams\CheckPermissionsForProjectInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects\CbProjectIdRcb::class], $arguments['org'], $arguments['team_slug'], $arguments['project_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamProject {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamProject {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7365,7 +7365,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Actions\GetArtifact($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['artifact_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Artifact {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Artifact {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7394,7 +7394,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Actions\GetJobForWorkflowRun($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['job_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Job {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Job {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7418,7 +7418,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Actions\GetAllowedActionsRepository($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions\SelectedActions::class], $arguments['owner'], $arguments['repo']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\SelectedActions {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\SelectedActions {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7469,7 +7469,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Actions\GetSelfHostedRunnerForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['runner_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Runner {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Runner {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7503,7 +7503,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Actions\GetWorkflowRun($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['exclude_pull_requests']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\WorkflowRun {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\WorkflowRun {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7527,7 +7527,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Actions\GetRepoPublicKey($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\PublicKey::class], $arguments['owner'], $arguments['repo']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ActionsPublicKey {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ActionsPublicKey {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7554,7 +7554,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Actions\GetRepoSecret($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb::class], $arguments['owner'], $arguments['repo'], $arguments['secret_name']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ActionsSecret {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ActionsSecret {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7583,7 +7583,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Actions\GetWorkflow($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Workflow {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Workflow {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7614,7 +7614,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\GetBranchProtection($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection::class], $arguments['owner'], $arguments['repo'], $arguments['branch']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\BranchProtection {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\BranchProtection {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7711,7 +7711,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Checks\ListForSuite($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\CheckDashRuns::class], $arguments['owner'], $arguments['repo'], $arguments['check_suite_id'], $arguments['check_name'], $arguments['status'], $arguments['filter'], $arguments['per_page'], $arguments['page']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Checks\ListForSuite\Response\Applicationjson\H200 {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Checks\ListForSuite\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7742,7 +7742,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\CodeScanning\GetAlert($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb::class], $arguments['owner'], $arguments['repo'], $arguments['alert_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CodeScanningAlert {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CodeScanningAlert {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7773,7 +7773,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\GetCollaboratorPermissionLevel($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Collaborators\CbUsernameRcb\Permission::class], $arguments['owner'], $arguments['repo'], $arguments['username']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RepositoryCollaboratorPermission {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RepositoryCollaboratorPermission {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -7983,7 +7983,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Checks\ListForRef($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\CheckRuns::class], $arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['check_name'], $arguments['status'], $arguments['app_id'], $arguments['filter'], $arguments['per_page'], $arguments['page']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Checks\ListForRef\Response\Applicationjson\H200 {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Checks\ListForRef\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8030,7 +8030,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Checks\ListSuitesForRef($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\CheckSuites::class], $arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['app_id'], $arguments['check_name'], $arguments['per_page'], $arguments['page']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200 {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200 {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8067,7 +8067,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\GetCombinedStatusForRef($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\Status::class], $arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['per_page'], $arguments['page']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CombinedCommitStatus {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CombinedCommitStatus {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8104,7 +8104,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\ListCommitStatusesForRef($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb\Statuses::class], $arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['per_page'], $arguments['page']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\ApiClients\Client\Github\Schema\BasicError {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable|\ApiClients\Client\GitHubEnterprise\Schema\BasicError {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8176,7 +8176,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Git\GetBlob($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Blobs\CbFileShaRcb::class], $arguments['owner'], $arguments['repo'], $arguments['file_sha']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Blob {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Blob {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8205,7 +8205,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Git\GetCommit($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Commits\CbCommitShaRcb::class], $arguments['owner'], $arguments['repo'], $arguments['commit_sha']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GitCommit {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GitCommit {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8273,7 +8273,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Git\GetRef($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Ref\CbRefRcb::class], $arguments['owner'], $arguments['repo'], $arguments['ref']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GitRef {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GitRef {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8302,7 +8302,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Git\GetTag($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Tags\CbTagShaRcb::class], $arguments['owner'], $arguments['repo'], $arguments['tag_sha']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GitTag {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GitTag {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8336,7 +8336,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Git\GetTree($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees\CbTreeShaRcb::class], $arguments['owner'], $arguments['repo'], $arguments['tree_sha'], $arguments['recursive']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GitTree {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GitTree {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8367,7 +8367,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\GetWebhookConfigForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Config::class], $arguments['owner'], $arguments['repo'], $arguments['hook_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\WebhookConfig {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8398,7 +8398,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Issues\GetComment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['comment_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\IssueComment {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\IssueComment {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8427,7 +8427,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Issues\GetEvent($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Events\CbEventIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['event_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\IssueEvent {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\IssueEvent {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8691,7 +8691,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\GetLatestPagesBuild($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\Latest::class], $arguments['owner'], $arguments['repo']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PageBuild {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PageBuild {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8718,7 +8718,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\GetPagesBuild($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\CbBuildIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['build_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PageBuild {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PageBuild {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8749,7 +8749,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Pulls\GetReviewComment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['comment_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequestReviewComment {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequestReviewComment {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -8938,7 +8938,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Pulls\ListRequestedReviewers($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\RequestedReviewers::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number'], $arguments['per_page'], $arguments['page']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequestReviewRequest {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequestReviewRequest {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -9006,7 +9006,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\GetReleaseAsset($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Assets\CbAssetIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['asset_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ReleaseAsset {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ReleaseAsset {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -9035,7 +9035,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\GetReleaseByTag($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Tags\CbTagRcb::class], $arguments['owner'], $arguments['repo'], $arguments['tag']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Release {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Release {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -9111,7 +9111,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Teams\GetDiscussionCommentLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class], $arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamDiscussionComment {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussionComment {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -9246,7 +9246,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Teams\CheckPermissionsForRepoInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos\CbOwnerRcb\CbRepoRcb::class], $arguments['org'], $arguments['team_slug'], $arguments['owner'], $arguments['repo']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamRepository {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamRepository {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -9356,7 +9356,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Actions\ListWorkflowRunArtifacts($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Artifacts::class], $arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['per_page'], $arguments['page']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListWorkflowRunArtifacts\Response\Applicationjson\H200 {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListWorkflowRunArtifacts\Response\Applicationjson\H200 {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -9398,7 +9398,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Actions\ListJobsForWorkflowRun($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Jobs::class], $arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['filter'], $arguments['per_page'], $arguments['page']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListJobsForWorkflowRun\Response\Applicationjson\H200 {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListJobsForWorkflowRun\Response\Applicationjson\H200 {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -9493,7 +9493,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Actions\ListWorkflowRuns($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Runs::class], $arguments['owner'], $arguments['repo'], $arguments['workflow_id'], $arguments['actor'], $arguments['branch'], $arguments['event'], $arguments['status'], $arguments['created'], $arguments['per_page'], $arguments['page'], $arguments['exclude_pull_requests']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ListWorkflowRuns\Response\Applicationjson\H200 {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListWorkflowRuns\Response\Applicationjson\H200 {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -9526,7 +9526,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Repos\GetAdminBranchProtection($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\EnforceAdmins::class], $arguments['owner'], $arguments['repo'], $arguments['branch']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ProtectedBranchAdminEnforced {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchAdminEnforced {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -9553,7 +9553,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Repos\GetPullRequestReviewProtection($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredPullRequestReviews::class], $arguments['owner'], $arguments['repo'], $arguments['branch']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchPullRequestReview {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -9580,7 +9580,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Repos\GetCommitSignatureProtection($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredSignatures::class], $arguments['owner'], $arguments['repo'], $arguments['branch']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ProtectedBranchAdminEnforced {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchAdminEnforced {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -9607,7 +9607,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Repos\GetStatusChecksProtection($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks::class], $arguments['owner'], $arguments['repo'], $arguments['branch']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\StatusCheckPolicy {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\StatusCheckPolicy {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -9634,7 +9634,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Repos\GetAccessRestrictions($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\Restrictions::class], $arguments['owner'], $arguments['repo'], $arguments['branch']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\BranchRestrictionPolicy {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -9672,7 +9672,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Repos\GetDeploymentStatus($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses\CbStatusIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['deployment_id'], $arguments['status_id']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\DeploymentStatus {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\DeploymentStatus {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -9804,7 +9804,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Pulls\GetReview($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number'], $arguments['review_id']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequestReview {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequestReview {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -9907,7 +9907,7 @@ final class Client implements ClientInterface
                                                         }
                                                         $operation = new Operation\Teams\GetDiscussionCommentInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class], $arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number']);
                                                         $request = $operation->createRequest($params);
-                                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamDiscussionComment {
+                                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussionComment {
                                                             return $operation->createResponse($response);
                                                         });
                                                     }
@@ -10179,7 +10179,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\EnterpriseAdmin\CreateGlobalWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Hooks::class], $arguments['accept']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GlobalHook {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GlobalHook {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -10191,7 +10191,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\EnterpriseAdmin\CreateOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Organizations::class]);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\OrganizationSimple {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\OrganizationSimple {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -10203,7 +10203,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\EnterpriseAdmin\CreatePreReceiveEnvironment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments::class]);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PreReceiveEnvironment {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -10215,7 +10215,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\EnterpriseAdmin\CreatePreReceiveHook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreReceiveHooks::class]);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PreReceiveHook {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -10227,7 +10227,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\EnterpriseAdmin\CreateUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Users::class]);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\SimpleUser {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\SimpleUser {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -10241,7 +10241,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Markdown\RenderRaw($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Markdown\Raw::class]);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Markdown\RenderRaw\Response\Texthtml\H200 {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Markdown\RenderRaw\Response\Texthtml\H200 {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -10267,7 +10267,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Users\CreateGpgKeyForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\GpgKeys::class]);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GpgKey {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GpgKey {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -10279,7 +10279,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Users\CreatePublicSshKeyForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Keys::class]);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Key {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Key {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -10291,7 +10291,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Projects\CreateForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Projects::class]);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Project {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Project {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -10303,7 +10303,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Repos\CreateForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Repos::class]);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Repository {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Repository {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -10351,7 +10351,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\StartPreReceiveEnvironmentDownload($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads::class], $arguments['pre_receive_environment_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PreReceiveEnvironmentDownloadStatus {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironmentDownloadStatus {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10372,7 +10372,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\CreateImpersonationOAuthToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Users\CbUsernameRcb\Authorizations::class], $arguments['username']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Authorization {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Authorization {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10395,7 +10395,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Apps\CreateInstallationAccessToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Installations\CbInstallationIdRcb\AccessTokens::class], $arguments['installation_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\InstallationToken {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\InstallationToken {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10418,7 +10418,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Apps\ScopeToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Token\Scoped::class], $arguments['client_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Authorization {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Authorization {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10442,7 +10442,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Apps\ResetAuthorization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Tokens\CbAccessTokenRcb::class], $arguments['client_id'], $arguments['access_token']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Authorization {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Authorization {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10465,7 +10465,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\CreateSelfHostedRunnerGroupForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerGroups::class], $arguments['enterprise']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RunnerGroupsEnterprise {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10488,7 +10488,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Actions\CreateSelfHostedRunnerGroupForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups::class], $arguments['org']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RunnerGroupsOrg {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsOrg {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10511,7 +10511,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Projects\CreateCard($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Cards::class], $arguments['column_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ProjectCard {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ProjectCard {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10528,7 +10528,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Projects\MoveColumn($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\CbColumnIdRcb\Moves::class], $arguments['column_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Projects\MoveColumn\Response\Applicationjson\H201 {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveColumn\Response\Applicationjson\H201 {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10556,7 +10556,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Checks\Create($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckRuns::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CheckRun {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CheckRun {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10578,7 +10578,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Checks\CreateSuite($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckSuites::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CheckSuite {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CheckSuite {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10600,7 +10600,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Repos\CreateDeployment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Deployment|\ApiClients\Client\Github\Schema\Operation\Repos\CreateDeployment\Response\Applicationjson\H202 {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Deployment|\ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\CreateDeployment\Response\Applicationjson\H202 {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10644,7 +10644,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Repos\CreateFork($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Forks::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\FullRepository {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\FullRepository {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10666,7 +10666,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Repos\CreateWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Hook {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Hook {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10688,7 +10688,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Issues\Create($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Issue {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Issue {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10710,7 +10710,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Repos\CreateDeployKey($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Keys::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\DeployKey {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\DeployKey {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10732,7 +10732,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Issues\CreateLabel($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Label {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Label {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10754,7 +10754,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Repos\Merge($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Merges::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Commit {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Commit {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10776,7 +10776,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Issues\CreateMilestone($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Milestone {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Milestone {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10798,7 +10798,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Repos\CreatePagesSite($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Page {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Page {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10820,7 +10820,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Projects\CreateForRepo($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Projects::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Project {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Project {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10842,7 +10842,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Pulls\Create($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequest {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequest {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10864,7 +10864,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Repos\CreateRelease($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Release {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Release {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10886,7 +10886,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Repos\Transfer($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Transfer::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\MinimalRepository {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10912,7 +10912,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Repos\CreateUsingTemplate($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbTemplateOwnerRcb\CbTemplateRepoRcb\Generate::class], $arguments['template_owner'], $arguments['template_repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Repository {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Repository {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -10958,7 +10958,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\SyncLdapMappingForTeam($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb\Sync::class], $arguments['team_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForTeam\Response\Applicationjson\H201 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -10979,7 +10979,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\SyncLdapMappingForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Sync::class], $arguments['username']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11004,7 +11004,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\CreateRegistrationTokenForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RegistrationToken::class], $arguments['enterprise']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\AuthenticationToken {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\AuthenticationToken {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11021,7 +11021,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\CreateRemoveTokenForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RemoveToken::class], $arguments['enterprise']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\AuthenticationToken {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\AuthenticationToken {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11046,7 +11046,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\CreateRegistrationTokenForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\RegistrationToken::class], $arguments['org']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\AuthenticationToken {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\AuthenticationToken {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11063,7 +11063,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\CreateRemoveTokenForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\RemoveToken::class], $arguments['org']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\AuthenticationToken {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\AuthenticationToken {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11115,7 +11115,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Teams\CreateDiscussionInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions::class], $arguments['org'], $arguments['team_slug']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamDiscussion {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussion {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11140,7 +11140,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Projects\MoveCard($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\Cards\CbCardIdRcb\Moves::class], $arguments['card_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H201 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Projects\MoveCard\Response\Applicationjson\H201 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11170,7 +11170,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\CodeScanning\UploadSarif($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning\Sarifs::class], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CodeScanningSarifsReceipt {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CodeScanningSarifsReceipt {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11194,7 +11194,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Git\CreateBlob($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Blobs::class], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ShortBlob {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ShortBlob {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11216,7 +11216,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Git\CreateCommit($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Commits::class], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GitCommit {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GitCommit {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11238,7 +11238,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Git\CreateRef($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Refs::class], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GitRef {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GitRef {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11260,7 +11260,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Git\CreateTag($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Tags::class], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GitTag {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GitTag {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11282,7 +11282,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Git\CreateTree($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Trees::class], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GitTree {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GitTree {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11306,7 +11306,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\RequestPagesBuild($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds::class], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PageBuildStatus {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PageBuildStatus {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11335,7 +11335,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\CreateCommitStatus($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Statuses\CbShaRcb::class], $arguments['owner'], $arguments['repo'], $arguments['sha']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Status {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Status {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11365,7 +11365,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Teams\CreateDiscussionCommentLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments::class], $arguments['team_id'], $arguments['discussion_number']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamDiscussionComment {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussionComment {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11387,7 +11387,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Reactions\CreateForTeamDiscussionLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Reactions::class], $arguments['team_id'], $arguments['discussion_number']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Reaction {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Reaction {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -11414,7 +11414,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Apps\CreateFromManifest($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\AppManifests\CbCodeRcb\Conversions::class], $arguments['code']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Apps\CreateFromManifest\Response\Applicationjson\H201 {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Apps\CreateFromManifest\Response\Applicationjson\H201 {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -11435,7 +11435,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Apps\CheckToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Token::class], $arguments['client_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Authorization {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Authorization {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -11456,7 +11456,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Gists\CreateComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Comments::class], $arguments['gist_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GistComment {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GistComment {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -11473,7 +11473,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Gists\Fork($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Forks::class], $arguments['gist_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\BaseGist {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\BaseGist {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -11494,7 +11494,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Orgs\CreateWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks::class], $arguments['org']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\OrgHook {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\OrgHook {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -11511,7 +11511,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Projects\CreateForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Projects::class], $arguments['org']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Project {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Project {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -11528,7 +11528,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Repos\CreateInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Repos::class], $arguments['org']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Repository {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Repository {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -11545,7 +11545,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Teams\Create($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams::class], $arguments['org']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamFull {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamFull {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -11566,7 +11566,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Projects\CreateColumn($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb\Columns::class], $arguments['project_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ProjectColumn {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ProjectColumn {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -11591,7 +11591,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\EnableOrDisableMaintenanceMode($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Setup\Api\Maintenance::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\MaintenanceStatus {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -11630,7 +11630,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Teams\CreateDiscussionLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions::class], $arguments['team_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamDiscussion {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussion {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -11648,7 +11648,7 @@ final class Client implements ClientInterface
                             }
                             $operation = new Operation\OauthAuthorizations\CreateAuthorization($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations::class]);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Authorization {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Authorization {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -11660,7 +11660,7 @@ final class Client implements ClientInterface
                             }
                             $operation = new Operation\Gists\Create($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists::class]);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GistSimple {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GistSimple {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -11672,7 +11672,7 @@ final class Client implements ClientInterface
                             }
                             $operation = new Operation\Markdown\Render($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Markdown::class]);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Markdown\Render\Response\Texthtml\H200 {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Markdown\Render\Response\Texthtml\H200 {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -11709,7 +11709,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Teams\CreateDiscussionCommentInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments::class], $arguments['org'], $arguments['team_slug'], $arguments['discussion_number']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamDiscussionComment {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussionComment {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -11736,7 +11736,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Reactions\CreateForTeamDiscussionInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions::class], $arguments['org'], $arguments['team_slug'], $arguments['discussion_number']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Reaction {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Reaction {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -11775,7 +11775,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Actions\CancelWorkflowRun($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Cancel::class], $arguments['owner'], $arguments['repo'], $arguments['run_id']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\CancelWorkflowRun\Response\Applicationjson\H202 {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\CancelWorkflowRun\Response\Applicationjson\H202 {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -11802,7 +11802,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Actions\ReRunWorkflow($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Rerun::class], $arguments['owner'], $arguments['repo'], $arguments['run_id']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\ReRunWorkflow\Response\Applicationjson\H201 {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ReRunWorkflow\Response\Applicationjson\H201 {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -11863,7 +11863,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Repos\SetAdminBranchProtection($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\EnforceAdmins::class], $arguments['owner'], $arguments['repo'], $arguments['branch']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ProtectedBranchAdminEnforced {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchAdminEnforced {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -11890,7 +11890,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Repos\CreateCommitSignatureProtection($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredSignatures::class], $arguments['owner'], $arguments['repo'], $arguments['branch']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ProtectedBranchAdminEnforced {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchAdminEnforced {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -11923,7 +11923,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Reactions\CreateForIssueComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions::class], $arguments['owner'], $arguments['repo'], $arguments['comment_id']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Reaction {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Reaction {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -11956,7 +11956,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Reactions\CreateForPullRequestReviewComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions::class], $arguments['owner'], $arguments['repo'], $arguments['comment_id']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Reaction {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Reaction {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -11995,7 +11995,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Reactions\CreateForTeamDiscussionCommentLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions::class], $arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Reaction {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Reaction {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -12045,7 +12045,7 @@ final class Client implements ClientInterface
                                                             }
                                                             $operation = new Operation\Reactions\CreateForTeamDiscussionCommentInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions::class], $arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number']);
                                                             $request = $operation->createRequest($params);
-                                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Reaction {
+                                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Reaction {
                                                                 return $operation->createResponse($response);
                                                             });
                                                         }
@@ -12084,7 +12084,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Actions\CreateRegistrationTokenForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\RegistrationToken::class], $arguments['owner'], $arguments['repo']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\AuthenticationToken {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\AuthenticationToken {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -12106,7 +12106,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Actions\CreateRemoveTokenForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\RemoveToken::class], $arguments['owner'], $arguments['repo']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\AuthenticationToken {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\AuthenticationToken {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -12137,7 +12137,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Checks\RerequestSuite($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\Rerequest::class], $arguments['owner'], $arguments['repo'], $arguments['check_suite_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Checks\RerequestSuite\Response\Applicationjson\H201 {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Checks\RerequestSuite\Response\Applicationjson\H201 {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -12168,7 +12168,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Reactions\CreateForCommitComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions::class], $arguments['owner'], $arguments['repo'], $arguments['comment_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Reaction {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Reaction {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -12199,7 +12199,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\CreateCommitComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbCommitShaRcb\Comments::class], $arguments['owner'], $arguments['repo'], $arguments['commit_sha']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CommitComment {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CommitComment {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -12230,7 +12230,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Apps\CreateContentAttachment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\ContentReferences\CbContentReferenceIdRcb\Attachments::class], $arguments['owner'], $arguments['repo'], $arguments['content_reference_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ContentReferenceAttachment {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ContentReferenceAttachment {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -12261,7 +12261,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\CreateDeploymentStatus($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses::class], $arguments['owner'], $arguments['repo'], $arguments['deployment_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\DeploymentStatus {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\DeploymentStatus {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -12350,7 +12350,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Issues\AddAssignees($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Assignees::class], $arguments['owner'], $arguments['repo'], $arguments['issue_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Issue {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Issue {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -12377,7 +12377,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Issues\CreateComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Comments::class], $arguments['owner'], $arguments['repo'], $arguments['issue_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\IssueComment {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\IssueComment {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -12431,7 +12431,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Reactions\CreateForIssue($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions::class], $arguments['owner'], $arguments['repo'], $arguments['issue_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Reaction {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Reaction {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -12462,7 +12462,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Pulls\CreateReviewComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequestReviewComment {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequestReviewComment {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -12489,7 +12489,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Pulls\RequestReviewers($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\RequestedReviewers::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequestSimple {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -12516,7 +12516,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Pulls\CreateReview($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequestReview {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequestReview {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -12557,7 +12557,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\UploadReleaseAsset($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Assets::class], $arguments['owner'], $arguments['repo'], $arguments['release_id'], $arguments['name'], $arguments['label']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ReleaseAsset {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ReleaseAsset {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -12723,7 +12723,7 @@ final class Client implements ClientInterface
                                                         }
                                                         $operation = new Operation\Pulls\CreateReplyForReviewComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments\CbCommentIdRcb\Replies::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number'], $arguments['comment_id']);
                                                         $request = $operation->createRequest($params);
-                                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequestReviewComment {
+                                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequestReviewComment {
                                                             return $operation->createResponse($response);
                                                         });
                                                     }
@@ -12759,7 +12759,7 @@ final class Client implements ClientInterface
                                                         }
                                                         $operation = new Operation\Pulls\SubmitReview($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Events::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number'], $arguments['review_id']);
                                                         $request = $operation->createRequest($params);
-                                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequestReview {
+                                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequestReview {
                                                             return $operation->createResponse($response);
                                                         });
                                                     }
@@ -13022,7 +13022,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Repos\Delete($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb::class], $arguments['owner'], $arguments['repo']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\BasicError {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\BasicError {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -13399,7 +13399,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\RemovePreReceiveHookEnforcementForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $arguments['org'], $arguments['pre_receive_hook_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\OrgPreReceiveHook {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -14182,7 +14182,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Issues\RemoveAssignees($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Assignees::class], $arguments['owner'], $arguments['repo'], $arguments['issue_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Issue {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Issue {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -14296,7 +14296,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Pulls\RemoveRequestedReviewers($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\RequestedReviewers::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequestSimple {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -14570,7 +14570,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\DeleteFile($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contents\CbPathRcb::class], $arguments['owner'], $arguments['repo'], $arguments['path']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\FileCommit {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\FileCommit {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -14764,7 +14764,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\RemovePreReceiveHookEnforcementForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['pre_receive_hook_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RepositoryPreReceiveHook {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -15361,7 +15361,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Pulls\DeletePendingReview($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number'], $arguments['review_id']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequestReview {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequestReview {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -15729,7 +15729,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\UpdateGlobalWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Hooks\CbHookIdRcb::class], $arguments['hook_id'], $arguments['accept']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GlobalHook2 {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GlobalHook2 {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -15748,7 +15748,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\UpdateOrgName($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Organizations\CbOrgRcb::class], $arguments['org']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdateOrgName\Response\Applicationjson\H202 {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\UpdateOrgName\Response\Applicationjson\H202 {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -15767,7 +15767,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb::class], $arguments['pre_receive_environment_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PreReceiveEnvironment {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -15786,7 +15786,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\UpdatePreReceiveHook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $arguments['pre_receive_hook_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PreReceiveHook {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -15805,7 +15805,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\UpdateUsernameForUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Users\CbUsernameRcb::class], $arguments['username']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdateUsernameForUser\Response\Applicationjson\H202 {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\UpdateUsernameForUser\Response\Applicationjson\H202 {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -15821,7 +15821,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Apps\UpdateWebhookConfigForApp($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Hook\Config::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\WebhookConfig {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -15842,7 +15842,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Apps\ResetToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Token::class], $arguments['client_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Authorization {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Authorization {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -15884,7 +15884,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Projects\UpdateColumn($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\CbColumnIdRcb::class], $arguments['column_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ProjectColumn {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ProjectColumn {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -15910,7 +15910,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\Repos\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb::class], $arguments['owner'], $arguments['repo']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\FullRepository|\ApiClients\Client\Github\Schema\BasicError {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\FullRepository|\ApiClients\Client\GitHubEnterprise\Schema\BasicError {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -15958,7 +15958,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\UpdateLdapMappingForTeam($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb\Mapping::class], $arguments['team_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\LdapMappingTeam {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\LdapMappingTeam {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -15979,7 +15979,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\UpdateLdapMappingForUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Mapping::class], $arguments['username']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\LdapMappingUser {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\LdapMappingUser {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16009,7 +16009,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\UpdateSelfHostedRunnerGroupForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class], $arguments['enterprise'], $arguments['runner_group_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RunnerGroupsEnterprise {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16039,7 +16039,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\UpdateSelfHostedRunnerGroupForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class], $arguments['org'], $arguments['runner_group_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RunnerGroupsOrg {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsOrg {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16065,7 +16065,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Orgs\UpdateWebhookConfigForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Config::class], $arguments['org'], $arguments['hook_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\WebhookConfig {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16100,7 +16100,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Checks\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['check_run_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CheckRun {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CheckRun {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16124,7 +16124,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Checks\SetSuitesPreferences($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckSuites\Preferences::class], $arguments['owner'], $arguments['repo']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CheckSuitePreference {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CheckSuitePreference {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16153,7 +16153,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\UpdateCommitComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['comment_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CommitComment {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CommitComment {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16182,7 +16182,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\UpdateWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['hook_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Hook {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Hook {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16211,7 +16211,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\UpdateInvitation($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Invitations\CbInvitationIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['invitation_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RepositoryInvitation {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RepositoryInvitation {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16240,7 +16240,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Issues\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb::class], $arguments['owner'], $arguments['repo'], $arguments['issue_number']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Issue|\ApiClients\Client\Github\Schema\BasicError {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Issue|\ApiClients\Client\GitHubEnterprise\Schema\BasicError {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16269,7 +16269,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Issues\UpdateLabel($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Labels\CbNameRcb::class], $arguments['owner'], $arguments['repo'], $arguments['name']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Label {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Label {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16298,7 +16298,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Issues\UpdateMilestone($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb::class], $arguments['owner'], $arguments['repo'], $arguments['milestone_number']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Milestone {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Milestone {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16327,7 +16327,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\UpdatePreReceiveHookEnforcementForRepo($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['pre_receive_hook_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RepositoryPreReceiveHook {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16356,7 +16356,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Pulls\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequest {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequest {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16385,7 +16385,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\UpdateRelease($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['release_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Release {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Release {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -16411,7 +16411,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\OauthAuthorizations\UpdateAuthorization($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations\CbAuthorizationIdRcb::class], $arguments['authorization_id']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Authorization {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Authorization {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -16425,7 +16425,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\EnterpriseAdmin\SetAnnouncement($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Announcement::class]);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Announcement {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Announcement {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -16444,7 +16444,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Gists\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb::class], $arguments['gist_id']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GistSimple {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GistSimple {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -16463,7 +16463,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Orgs\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb::class], $arguments['org']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\OrganizationFull {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -16482,7 +16482,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Projects\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\CbProjectIdRcb::class], $arguments['project_id']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Project {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Project {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -16501,7 +16501,7 @@ final class Client implements ClientInterface
                                 }
                                 $operation = new Operation\Teams\UpdateLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb::class], $arguments['team_id']);
                                 $request = $operation->createRequest($params);
-                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamFull {
+                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamFull {
                                     return $operation->createResponse($response);
                                 });
                             }
@@ -16531,7 +16531,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Gists\UpdateComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Gists\CbGistIdRcb\Comments\CbCommentIdRcb::class], $arguments['gist_id'], $arguments['comment_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GistComment {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GistComment {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -16559,7 +16559,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Orgs\UpdateWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb::class], $arguments['org'], $arguments['hook_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\OrgHook {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\OrgHook {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -16583,7 +16583,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\UpdatePreReceiveHookEnforcementForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb::class], $arguments['org'], $arguments['pre_receive_hook_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\OrgPreReceiveHook {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -16607,7 +16607,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Teams\UpdateInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb::class], $arguments['org'], $arguments['team_slug']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamFull {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamFull {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -16630,7 +16630,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Projects\UpdateCard($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Projects\Columns\Cards\CbCardIdRcb::class], $arguments['card_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ProjectCard {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ProjectCard {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -16658,7 +16658,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Teams\UpdateDiscussionLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb::class], $arguments['team_id'], $arguments['discussion_number']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamDiscussion {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussion {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -16681,7 +16681,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Orgs\UpdateMembershipForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Memberships\Orgs\CbOrgRcb::class], $arguments['org']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\OrgMembership {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\OrgMembership {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -16720,7 +16720,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Teams\UpdateDiscussionInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb::class], $arguments['org'], $arguments['team_slug'], $arguments['discussion_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamDiscussion {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussion {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -16757,7 +16757,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\CodeScanning\UpdateAlert($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts\CbAlertNumberRcb::class], $arguments['owner'], $arguments['repo'], $arguments['alert_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\CodeScanningAlert {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CodeScanningAlert {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -16788,7 +16788,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Git\UpdateRef($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Refs\CbRefRcb::class], $arguments['owner'], $arguments['repo'], $arguments['ref']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\GitRef {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\GitRef {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -16819,7 +16819,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\UpdateWebhookConfigForRepo($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Config::class], $arguments['owner'], $arguments['repo'], $arguments['hook_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\WebhookConfig {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -16850,7 +16850,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Issues\UpdateComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['comment_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\IssueComment {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\IssueComment {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -16881,7 +16881,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Pulls\UpdateReviewComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['comment_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequestReviewComment {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequestReviewComment {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -16912,7 +16912,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\UpdateReleaseAsset($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\Assets\CbAssetIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['asset_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ReleaseAsset {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ReleaseAsset {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -16949,7 +16949,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Teams\UpdateDiscussionCommentLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class], $arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamDiscussionComment {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussionComment {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -16997,7 +16997,7 @@ final class Client implements ClientInterface
                                                         }
                                                         $operation = new Operation\Teams\UpdateDiscussionCommentInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class], $arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number']);
                                                         $request = $operation->createRequest($params);
-                                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamDiscussionComment {
+                                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussionComment {
                                                             return $operation->createResponse($response);
                                                         });
                                                     }
@@ -17041,7 +17041,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Repos\UpdatePullRequestReviewProtection($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredPullRequestReviews::class], $arguments['owner'], $arguments['repo'], $arguments['branch']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchPullRequestReview {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -17068,7 +17068,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Repos\UpdateStatusCheckProtection($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection\RequiredStatusChecks::class], $arguments['owner'], $arguments['repo'], $arguments['branch']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\StatusCheckPolicy {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\StatusCheckPolicy {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -17090,7 +17090,7 @@ final class Client implements ClientInterface
                             }
                             $operation = new Operation\Users\UpdateAuthenticated($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User::class]);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PrivateUser {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PrivateUser {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -17116,7 +17116,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads::class], $this->browser, $arguments['pre_receive_environment_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PreReceiveEnvironmentDownloadStatus {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironmentDownloadStatus {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -17144,7 +17144,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\EnterpriseAdmin\GetDownloadStatusForPreReceiveEnvironmentStreaming($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads\Latest::class], $this->browser, $arguments['pre_receive_environment_id']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PreReceiveEnvironmentDownloadStatus {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironmentDownloadStatus {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -17361,7 +17361,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb::class], $arguments['client_id'], $arguments['fingerprint']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Authorization {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Authorization {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -17404,7 +17404,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Activity\SetThreadSubscription($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Notifications\Threads\CbThreadIdRcb\Subscription::class], $arguments['thread_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ThreadSubscription {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ThreadSubscription {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -17448,7 +17448,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Orgs\SetMembershipForUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Memberships\CbUsernameRcb::class], $arguments['org'], $arguments['username']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\OrgMembership {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\OrgMembership {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -17472,7 +17472,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Orgs\ConvertMemberToOutsideCollaborator($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\OutsideCollaborators\CbUsernameRcb::class], $arguments['org'], $arguments['username']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Orgs\ConvertMemberToOutsideCollaborator\Response\Applicationjson\H202 {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Orgs\ConvertMemberToOutsideCollaborator\Response\Applicationjson\H202 {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -17552,7 +17552,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Activity\MarkRepoNotificationsAsRead($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Notifications::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Activity\MarkRepoNotificationsAsRead\Response\Applicationjson\H202 {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\MarkRepoNotificationsAsRead\Response\Applicationjson\H202 {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -17596,7 +17596,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Activity\SetRepoSubscription($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscription::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RepositorySubscription {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RepositorySubscription {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -17618,7 +17618,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Repos\ReplaceAllTopics($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Topics::class], $arguments['owner'], $arguments['repo']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Topic {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Topic {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -17670,7 +17670,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\Teams\AddOrUpdateMembershipForUserLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Memberships\CbUsernameRcb::class], $arguments['team_id'], $arguments['username']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamMembership {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamMembership {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -17748,7 +17748,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\OauthAuthorizations\GetOrCreateAuthorizationForApp($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations\Clients\CbClientIdRcb::class], $arguments['client_id']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Authorization {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Authorization {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -17933,7 +17933,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Actions\CreateOrUpdateOrgSecret($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb::class], $arguments['org'], $arguments['secret_name']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\EmptyObject {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\EmptyObject {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -17989,7 +17989,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\AddCollaborator($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Collaborators\CbUsernameRcb::class], $arguments['owner'], $arguments['repo'], $arguments['username']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\RepositoryInvitation {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\RepositoryInvitation {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -18018,7 +18018,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\CreateOrUpdateFileContents($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contents\CbPathRcb::class], $arguments['owner'], $arguments['repo'], $arguments['path']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\FileCommit {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\FileCommit {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -18284,7 +18284,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Teams\AddOrUpdateMembershipForUserInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb::class], $arguments['org'], $arguments['team_slug'], $arguments['username']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\TeamMembership {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\TeamMembership {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -18371,7 +18371,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Actions\CreateOrUpdateRepoSecret($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb::class], $arguments['owner'], $arguments['repo'], $arguments['secret_name']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Actions\CreateOrUpdateRepoSecret\Response\Applicationjson\H201 {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\CreateOrUpdateRepoSecret\Response\Applicationjson\H201 {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -18402,7 +18402,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Repos\UpdateBranchProtection($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches\CbBranchRcb\Protection::class], $arguments['owner'], $arguments['repo'], $arguments['branch']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\ProtectedBranch {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranch {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -18491,7 +18491,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Pulls\Merge($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Merge::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequestMergeResult {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequestMergeResult {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -18518,7 +18518,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\Pulls\UpdateBranch($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\UpdateDashBranch::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Pulls\UpdateBranch\Response\Applicationjson\H202 {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Pulls\UpdateBranch\Response\Applicationjson\H202 {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -18810,7 +18810,7 @@ final class Client implements ClientInterface
                                                     }
                                                     $operation = new Operation\Pulls\UpdateReview($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number'], $arguments['review_id']);
                                                     $request = $operation->createRequest($params);
-                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequestReview {
+                                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequestReview {
                                                         return $operation->createResponse($response);
                                                     });
                                                 }
@@ -18832,7 +18832,7 @@ final class Client implements ClientInterface
                             }
                             $operation = new Operation\Activity\MarkNotificationsAsRead($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Notifications::class]);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202 {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\MarkNotificationsAsRead\Response\Applicationjson\H202 {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -18993,7 +18993,7 @@ final class Client implements ClientInterface
                                                         }
                                                         $operation = new Operation\Pulls\DismissReview($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb\Dismissals::class], $arguments['owner'], $arguments['repo'], $arguments['pull_number'], $arguments['review_id']);
                                                         $request = $operation->createRequest($params);
-                                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\Github\Schema\PullRequestReview {
+                                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\PullRequestReview {
                                                             return $operation->createResponse($response);
                                                         });
                                                     }

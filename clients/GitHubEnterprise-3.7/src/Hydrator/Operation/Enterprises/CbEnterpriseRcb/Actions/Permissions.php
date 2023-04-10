@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class Permissions implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\ActionsEnterprisePermissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsEnterprisePermissions($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\ActionsEnterprisePermissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsEnterprisePermissions($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsEnterprisePermissions(array $payload): \ApiClients\Client\Github\Schema\ActionsEnterprisePermissions
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsEnterprisePermissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ActionsEnterprisePermissions
     {
         $properties = []; 
         $missingFields = [];
@@ -79,17 +79,17 @@ class Permissions implements ObjectMapper
             after_selectedActionsUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ActionsEnterprisePermissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ActionsEnterprisePermissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ActionsEnterprisePermissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ActionsEnterprisePermissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ActionsEnterprisePermissions(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\ActionsEnterprisePermissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ActionsEnterprisePermissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ActionsEnterprisePermissions', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -124,7 +124,7 @@ class Permissions implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\ActionsEnterprisePermissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsEnterprisePermissions($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\ActionsEnterprisePermissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsEnterprisePermissions($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -198,9 +198,9 @@ class Permissions implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsEnterprisePermissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsEnterprisePermissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ActionsEnterprisePermissions);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ActionsEnterprisePermissions);
         $result = [];
 
         $enabledOrganizations = $object->enabledOrganizations;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,34 +23,34 @@ class CbPullNumberRcb implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\PullRequest' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest($payload),
-                'ApiClients\Client\Github\Schema\PullRequest\Labels' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Labels($payload),
-                'ApiClients\Client\Github\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\Github\Schema\TeamSimple' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TeamSimple($payload),
-                'ApiClients\Client\Github\Schema\PullRequest\Head' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head($payload),
-                'ApiClients\Client\Github\Schema\PullRequest\Head\Repo' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo($payload),
-                'ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Owner' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($payload),
-                'ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions($payload),
-                'ApiClients\Client\Github\Schema\PullRequest\Head\Repo\License' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️License($payload),
-                'ApiClients\Client\Github\Schema\PullRequest\Head\User' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️User($payload),
-                'ApiClients\Client\Github\Schema\PullRequest\Base' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base($payload),
-                'ApiClients\Client\Github\Schema\PullRequest\Base\Repo' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo($payload),
-                'ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Owner' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($payload),
-                'ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($payload),
-                'ApiClients\Client\Github\Schema\PullRequest\Base\User' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️User($payload),
-                'ApiClients\Client\Github\Schema\PullRequest\Links' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Links($payload),
-                'ApiClients\Client\Github\Schema\Link' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($payload),
-                'ApiClients\Client\Github\Schema\AutoMerge' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️AutoMerge($payload),
-                'ApiClients\Client\Github\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\Github\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Activity⚡️ListPublicEvents⚡️Response⚡️Applicationjson⚡️H503($payload),
-                'ApiClients\Client\Github\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError($payload),
-                'ApiClients\Client\Github\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Labels' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Labels($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\TeamSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamSimple($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️License($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️User($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️User($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Links($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Link' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\AutoMerge' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AutoMerge($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Activity⚡️ListPublicEvents⚡️Response⚡️Applicationjson⚡️H503($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest(array $payload): \ApiClients\Client\Github\Schema\PullRequest
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest
     {
         $properties = []; 
         $missingFields = [];
@@ -264,7 +264,7 @@ class CbPullNumberRcb implements ObjectMapper
 
             if ($labelsCaster1 === null) {
                 $labelsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\PullRequest\\Labels',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Labels',
 ));
             }
 
@@ -373,7 +373,7 @@ class CbPullNumberRcb implements ObjectMapper
 
             if ($assigneesCaster1 === null) {
                 $assigneesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SimpleUser',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleUser',
 ));
             }
 
@@ -394,7 +394,7 @@ class CbPullNumberRcb implements ObjectMapper
 
             if ($requestedReviewersCaster1 === null) {
                 $requestedReviewersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SimpleUser',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleUser',
 ));
             }
 
@@ -415,7 +415,7 @@ class CbPullNumberRcb implements ObjectMapper
 
             if ($requestedTeamsCaster1 === null) {
                 $requestedTeamsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\TeamSimple',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamSimple',
 ));
             }
 
@@ -435,7 +435,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'head';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -455,7 +455,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'base';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -475,7 +475,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'links';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Links($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Links($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -506,7 +506,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'autoMerge';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️AutoMerge($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AutoMerge($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -660,22 +660,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_changedFiles:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequest::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequest(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Labels(array $payload): \ApiClients\Client\Github\Schema\PullRequest\Labels
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Labels(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Labels
     {
         $properties = []; 
         $missingFields = [];
@@ -758,22 +758,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_default:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Labels', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Labels', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequest\Labels::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Labels::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequest\Labels(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Labels(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Labels', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Labels', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\Github\Schema\SimpleUser
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SimpleUser
     {
         $properties = []; 
         $missingFields = [];
@@ -1010,22 +1010,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_starredAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SimpleUser(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\SimpleUser(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TeamSimple(array $payload): \ApiClients\Client\Github\Schema\TeamSimple
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamSimple(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\TeamSimple
     {
         $properties = []; 
         $missingFields = [];
@@ -1163,22 +1163,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_ldapDn:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\TeamSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TeamSimple', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\TeamSimple::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\TeamSimple::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\TeamSimple(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\TeamSimple(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\TeamSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\TeamSimple', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head(array $payload): \ApiClients\Client\Github\Schema\PullRequest\Head
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head
     {
         $properties = []; 
         $missingFields = [];
@@ -1215,7 +1215,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repo';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1246,7 +1246,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️User($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1257,22 +1257,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_user:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Head', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequest\Head::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequest\Head(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Head', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo(array $payload): \ApiClients\Client\Github\Schema\PullRequest\Head\Repo
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo
     {
         $properties = []; 
         $missingFields = [];
@@ -1661,7 +1661,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2022,7 +2022,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2086,7 +2086,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'license';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️License($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️License($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2229,22 +2229,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_isTemplate:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Head\Repo', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequest\Head\Repo::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequest\Head\Repo(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Head\Repo', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner(array $payload): \ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Owner
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Owner
     {
         $properties = []; 
         $missingFields = [];
@@ -2448,22 +2448,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Owner', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Owner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Owner::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Owner(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Owner(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Owner', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -2524,22 +2524,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_pull:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️License(array $payload): \ApiClients\Client\Github\Schema\PullRequest\Head\Repo\License
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️License(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\License
     {
         $properties = []; 
         $missingFields = [];
@@ -2600,22 +2600,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Head\Repo\License', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\License', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequest\Head\Repo\License::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\License::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequest\Head\Repo\License(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\License(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Head\Repo\License', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\License', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️User(array $payload): \ApiClients\Client\Github\Schema\PullRequest\Head\User
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️User(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User
     {
         $properties = []; 
         $missingFields = [];
@@ -2819,22 +2819,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Head\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequest\Head\User::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequest\Head\User(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Head\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base(array $payload): \ApiClients\Client\Github\Schema\PullRequest\Base
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base
     {
         $properties = []; 
         $missingFields = [];
@@ -2871,7 +2871,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repo';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2902,7 +2902,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️User($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2913,22 +2913,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_user:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Base', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequest\Base::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequest\Base(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Base', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo(array $payload): \ApiClients\Client\Github\Schema\PullRequest\Base\Repo
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo
     {
         $properties = []; 
         $missingFields = [];
@@ -3328,7 +3328,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3689,7 +3689,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3876,22 +3876,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_allowForking:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Base\Repo', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequest\Base\Repo::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequest\Base\Repo(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Base\Repo', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner(array $payload): \ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Owner
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner
     {
         $properties = []; 
         $missingFields = [];
@@ -4095,22 +4095,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Owner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Owner(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -4171,22 +4171,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_pull:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️User(array $payload): \ApiClients\Client\Github\Schema\PullRequest\Base\User
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️User(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User
     {
         $properties = []; 
         $missingFields = [];
@@ -4390,22 +4390,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Base\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequest\Base\User::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequest\Base\User(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Base\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Links(array $payload): \ApiClients\Client\Github\Schema\PullRequest\Links
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Links(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links
     {
         $properties = []; 
         $missingFields = [];
@@ -4420,7 +4420,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'comments';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4440,7 +4440,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'commits';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4460,7 +4460,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'statuses';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4480,7 +4480,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'html';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4500,7 +4500,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'issue';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4520,7 +4520,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'reviewComments';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4540,7 +4540,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'reviewComment';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4560,7 +4560,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'self';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4571,22 +4571,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_self:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Links', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequest\Links::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequest\Links(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequest\Links', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link(array $payload): \ApiClients\Client\Github\Schema\Link
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Link
     {
         $properties = []; 
         $missingFields = [];
@@ -4603,22 +4603,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_href:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Link', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Link', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Link::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Link::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Link(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\Link(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Link', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Link', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️AutoMerge(array $payload): \ApiClients\Client\Github\Schema\AutoMerge
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AutoMerge(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\AutoMerge
     {
         $properties = []; 
         $missingFields = [];
@@ -4633,7 +4633,7 @@ class CbPullNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enabledBy';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4677,22 +4677,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_commitMessage:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\AutoMerge', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\AutoMerge', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\AutoMerge::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\AutoMerge::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\AutoMerge(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\AutoMerge(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\AutoMerge', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\AutoMerge', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\Github\Schema\BasicError
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\BasicError
     {
         $properties = []; 
         $missingFields = [];
@@ -4742,22 +4742,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BasicError(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\BasicError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Activity⚡️ListPublicEvents⚡️Response⚡️Applicationjson⚡️H503(array $payload): \ApiClients\Client\Github\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Activity⚡️ListPublicEvents⚡️Response⚡️Applicationjson⚡️H503(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503
     {
         $properties = []; 
         $missingFields = [];
@@ -4796,22 +4796,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_documentationUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\Github\Schema\ValidationError
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ValidationError
     {
         $properties = []; 
         $missingFields = [];
@@ -4849,7 +4849,7 @@ class CbPullNumberRcb implements ObjectMapper
 
             if ($errorsCaster1 === null) {
                 $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\ValidationError\\Errors',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
 ));
             }
 
@@ -4860,22 +4860,22 @@ class CbPullNumberRcb implements ObjectMapper
             after_errors:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ValidationError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ValidationError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ValidationError(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\ValidationError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\Github\Schema\ValidationError\Errors
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors
     {
         $properties = []; 
         $missingFields = [];
@@ -4947,17 +4947,17 @@ class CbPullNumberRcb implements ObjectMapper
             after_value:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ValidationError\Errors(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -4992,28 +4992,28 @@ class CbPullNumberRcb implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest($object),
-            'ApiClients\Client\Github\Schema\PullRequest\Labels' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Labels($object),
-            'ApiClients\Client\Github\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($object),
-            'ApiClients\Client\Github\Schema\TeamSimple' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TeamSimple($object),
-            'ApiClients\Client\Github\Schema\PullRequest\Head' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head($object),
-            'ApiClients\Client\Github\Schema\PullRequest\Head\Repo' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo($object),
-            'ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Owner' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($object),
-            'ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions($object),
-            'ApiClients\Client\Github\Schema\PullRequest\Head\Repo\License' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️License($object),
-            'ApiClients\Client\Github\Schema\PullRequest\Head\User' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️User($object),
-            'ApiClients\Client\Github\Schema\PullRequest\Base' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base($object),
-            'ApiClients\Client\Github\Schema\PullRequest\Base\Repo' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo($object),
-            'ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Owner' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($object),
-            'ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($object),
-            'ApiClients\Client\Github\Schema\PullRequest\Base\User' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️User($object),
-            'ApiClients\Client\Github\Schema\PullRequest\Links' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Links($object),
-            'ApiClients\Client\Github\Schema\Link' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($object),
-            'ApiClients\Client\Github\Schema\AutoMerge' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️AutoMerge($object),
-            'ApiClients\Client\Github\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($object),
-            'ApiClients\Client\Github\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Activity⚡️ListPublicEvents⚡️Response⚡️Applicationjson⚡️H503($object),
-            'ApiClients\Client\Github\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError($object),
-            'ApiClients\Client\Github\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Labels' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Labels($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\TeamSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamSimple($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️License($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️User($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️User($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Links($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Link' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\AutoMerge' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AutoMerge($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Activity⚡️ListPublicEvents⚡️Response⚡️Applicationjson⚡️H503($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -5087,9 +5087,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequest);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest);
         $result = [];
 
         $url = $object->url;
@@ -5177,7 +5177,7 @@ class CbPullNumberRcb implements ObjectMapper
 
         if ($labelsSerializer0 === null) {
             $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\PullRequest\\Labels',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\PullRequest\\Labels',
 ));
         }
         
@@ -5250,7 +5250,7 @@ class CbPullNumberRcb implements ObjectMapper
 
         if ($assigneesSerializer0 === null) {
             $assigneesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SimpleUser',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleUser',
 ));
         }
         
@@ -5267,7 +5267,7 @@ class CbPullNumberRcb implements ObjectMapper
 
         if ($requestedReviewersSerializer0 === null) {
             $requestedReviewersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SimpleUser',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleUser',
 ));
         }
         
@@ -5284,7 +5284,7 @@ class CbPullNumberRcb implements ObjectMapper
 
         if ($requestedTeamsSerializer0 === null) {
             $requestedTeamsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\TeamSimple',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\TeamSimple',
 ));
         }
         
@@ -5293,17 +5293,17 @@ class CbPullNumberRcb implements ObjectMapper
 
         
         $head = $object->head;
-        $head = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head($head);
+        $head = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head($head);
         after_head:        $result['head'] = $head;
 
         
         $base = $object->base;
-        $base = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base($base);
+        $base = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base($base);
         after_base:        $result['base'] = $base;
 
         
         $links = $object->links;
-        $links = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Links($links);
+        $links = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Links($links);
         after_links:        $result['_links'] = $links;
 
         
@@ -5316,7 +5316,7 @@ class CbPullNumberRcb implements ObjectMapper
         if ($autoMerge === null) {
             goto after_autoMerge;
         }
-        $autoMerge = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️AutoMerge($autoMerge);
+        $autoMerge = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AutoMerge($autoMerge);
         after_autoMerge:        $result['auto_merge'] = $autoMerge;
 
         
@@ -5392,9 +5392,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Labels(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Labels(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequest\Labels);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Labels);
         $result = [];
 
         $id = $object->id;
@@ -5433,9 +5433,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleUser);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SimpleUser);
         $result = [];
 
         $name = $object->name;
@@ -5542,9 +5542,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TeamSimple(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️TeamSimple(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\TeamSimple);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\TeamSimple);
         $result = [];
 
         $id = $object->id;
@@ -5611,9 +5611,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequest\Head);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head);
         $result = [];
 
         $label = $object->label;
@@ -5629,7 +5629,7 @@ class CbPullNumberRcb implements ObjectMapper
         if ($repo === null) {
             goto after_repo;
         }
-        $repo = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo($repo);
+        $repo = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo($repo);
         after_repo:        $result['repo'] = $repo;
 
         
@@ -5638,7 +5638,7 @@ class CbPullNumberRcb implements ObjectMapper
 
         
         $user = $object->user;
-        $user = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️User($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️User($user);
         after_user:        $result['user'] = $user;
 
 
@@ -5646,9 +5646,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequest\Head\Repo);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo);
         $result = [];
 
         $archiveUrl = $object->archiveUrl;
@@ -5792,7 +5792,7 @@ class CbPullNumberRcb implements ObjectMapper
 
         
         $owner = $object->owner;
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -5945,7 +5945,7 @@ class CbPullNumberRcb implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -5986,7 +5986,7 @@ class CbPullNumberRcb implements ObjectMapper
         if ($license === null) {
             goto after_license;
         }
-        $license = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️License($license);
+        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️License($license);
         after_license:        $result['license'] = $license;
 
         
@@ -6062,9 +6062,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Owner(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Owner);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Owner);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -6147,9 +6147,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequest\Head\Repo\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -6184,9 +6184,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️License(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️Repo⚡️License(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequest\Head\Repo\License);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\Repo\License);
         $result = [];
 
         $key = $object->key;
@@ -6221,9 +6221,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Head⚡️User(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Head⚡️User(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequest\Head\User);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Head\User);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -6306,9 +6306,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequest\Base);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base);
         $result = [];
 
         $label = $object->label;
@@ -6320,7 +6320,7 @@ class CbPullNumberRcb implements ObjectMapper
 
         
         $repo = $object->repo;
-        $repo = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo($repo);
+        $repo = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo($repo);
         after_repo:        $result['repo'] = $repo;
 
         
@@ -6329,7 +6329,7 @@ class CbPullNumberRcb implements ObjectMapper
 
         
         $user = $object->user;
-        $user = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️User($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️User($user);
         after_user:        $result['user'] = $user;
 
 
@@ -6337,9 +6337,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequest\Base\Repo);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo);
         $result = [];
 
         $archiveUrl = $object->archiveUrl;
@@ -6491,7 +6491,7 @@ class CbPullNumberRcb implements ObjectMapper
 
         
         $owner = $object->owner;
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -6644,7 +6644,7 @@ class CbPullNumberRcb implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -6752,9 +6752,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Owner(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Owner);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Owner);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -6837,9 +6837,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequest\Base\Repo\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\Repo\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -6874,9 +6874,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Base⚡️User(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Base⚡️User(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequest\Base\User);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Base\User);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -6959,48 +6959,48 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequest⚡️Links(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PullRequest⚡️Links(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequest\Links);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PullRequest\Links);
         $result = [];
 
         $comments = $object->comments;
-        $comments = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($comments);
+        $comments = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($comments);
         after_comments:        $result['comments'] = $comments;
 
         
         $commits = $object->commits;
-        $commits = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($commits);
+        $commits = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($commits);
         after_commits:        $result['commits'] = $commits;
 
         
         $statuses = $object->statuses;
-        $statuses = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($statuses);
+        $statuses = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($statuses);
         after_statuses:        $result['statuses'] = $statuses;
 
         
         $html = $object->html;
-        $html = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($html);
+        $html = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($html);
         after_html:        $result['html'] = $html;
 
         
         $issue = $object->issue;
-        $issue = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($issue);
+        $issue = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($issue);
         after_issue:        $result['issue'] = $issue;
 
         
         $reviewComments = $object->reviewComments;
-        $reviewComments = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($reviewComments);
+        $reviewComments = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($reviewComments);
         after_reviewComments:        $result['review_comments'] = $reviewComments;
 
         
         $reviewComment = $object->reviewComment;
-        $reviewComment = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($reviewComment);
+        $reviewComment = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($reviewComment);
         after_reviewComment:        $result['review_comment'] = $reviewComment;
 
         
         $self = $object->self;
-        $self = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($self);
+        $self = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link($self);
         after_self:        $result['self'] = $self;
 
 
@@ -7008,9 +7008,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Link(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Link);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Link);
         $result = [];
 
         $href = $object->href;
@@ -7021,13 +7021,13 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️AutoMerge(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AutoMerge(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\AutoMerge);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\AutoMerge);
         $result = [];
 
         $enabledBy = $object->enabledBy;
-        $enabledBy = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($enabledBy);
+        $enabledBy = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($enabledBy);
         after_enabledBy:        $result['enabled_by'] = $enabledBy;
 
         
@@ -7047,9 +7047,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BasicError);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\BasicError);
         $result = [];
 
         $message = $object->message;
@@ -7088,9 +7088,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Activity⚡️ListPublicEvents⚡️Response⚡️Applicationjson⚡️H503(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Activity⚡️ListPublicEvents⚡️Response⚡️Applicationjson⚡️H503(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\Activity\ListPublicEvents\Response\Applicationjson\H503);
         $result = [];
 
         $code = $object->code;
@@ -7121,9 +7121,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ValidationError);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ValidationError);
         $result = [];
 
         $message = $object->message;
@@ -7143,7 +7143,7 @@ class CbPullNumberRcb implements ObjectMapper
 
         if ($errorsSerializer0 === null) {
             $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\ValidationError\\Errors',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
 ));
         }
         
@@ -7155,9 +7155,9 @@ class CbPullNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ValidationError\Errors);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors);
         $result = [];
 
         $resource = $object->resource;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches;
+namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Branches;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,46 +23,46 @@ class CbBranchRcb implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\BranchWithProtection' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchWithProtection($payload),
-                'ApiClients\Client\Github\Schema\Commit' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit($payload),
-                'ApiClients\Client\Github\Schema\Commit\Commit' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Commit($payload),
-                'ApiClients\Client\Github\Schema\Commit\Commit\Tree' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Commit⚡️Tree($payload),
-                'ApiClients\Client\Github\Schema\Verification' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Verification($payload),
-                'ApiClients\Client\Github\Schema\Commit\Parents' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Parents($payload),
-                'ApiClients\Client\Github\Schema\Commit\Stats' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Stats($payload),
-                'ApiClients\Client\Github\Schema\DiffEntry' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️DiffEntry($payload),
-                'ApiClients\Client\Github\Schema\BranchWithProtection\Links' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchWithProtection⚡️Links($payload),
-                'ApiClients\Client\Github\Schema\BranchProtection' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection($payload),
-                'ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchRequiredStatusCheck($payload),
-                'ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck\Checks' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchRequiredStatusCheck⚡️Checks($payload),
-                'ApiClients\Client\Github\Schema\ProtectedBranchAdminEnforced' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchAdminEnforced($payload),
-                'ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview($payload),
-                'ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions($payload),
-                'ApiClients\Client\Github\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\Github\Schema\Team' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Team($payload),
-                'ApiClients\Client\Github\Schema\Team\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Team⚡️Permissions($payload),
-                'ApiClients\Client\Github\Schema\Integration' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Integration($payload),
-                'ApiClients\Client\Github\Schema\Integration\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Integration⚡️Permissions($payload),
-                'ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️BypassPullRequestAllowances($payload),
-                'ApiClients\Client\Github\Schema\BranchRestrictionPolicy' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy($payload),
-                'ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Users' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Users($payload),
-                'ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Teams' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Teams($payload),
-                'ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps($payload),
-                'ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Owner' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner($payload),
-                'ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Permissions($payload),
-                'ApiClients\Client\Github\Schema\BranchProtection\RequiredLinearHistory' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($payload),
-                'ApiClients\Client\Github\Schema\BranchProtection\AllowForcePushes' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️AllowForcePushes($payload),
-                'ApiClients\Client\Github\Schema\BranchProtection\AllowDeletions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️AllowDeletions($payload),
-                'ApiClients\Client\Github\Schema\BranchProtection\BlockCreations' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️BlockCreations($payload),
-                'ApiClients\Client\Github\Schema\BranchProtection\RequiredConversationResolution' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredConversationResolution($payload),
-                'ApiClients\Client\Github\Schema\BranchProtection\RequiredSignatures' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredSignatures($payload),
-                'ApiClients\Client\Github\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($payload),
+            'ApiClients\Client\GitHubAE\Schema\BranchWithProtection' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchWithProtection($payload),
+                'ApiClients\Client\GitHubAE\Schema\Commit' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit($payload),
+                'ApiClients\Client\GitHubAE\Schema\Commit\Commit' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Commit($payload),
+                'ApiClients\Client\GitHubAE\Schema\Commit\Commit\Tree' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Commit⚡️Tree($payload),
+                'ApiClients\Client\GitHubAE\Schema\Verification' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Verification($payload),
+                'ApiClients\Client\GitHubAE\Schema\Commit\Parents' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Parents($payload),
+                'ApiClients\Client\GitHubAE\Schema\Commit\Stats' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Stats($payload),
+                'ApiClients\Client\GitHubAE\Schema\DiffEntry' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️DiffEntry($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchWithProtection\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchWithProtection⚡️Links($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchProtection' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection($payload),
+                'ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchRequiredStatusCheck($payload),
+                'ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck\Checks' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchRequiredStatusCheck⚡️Checks($payload),
+                'ApiClients\Client\GitHubAE\Schema\ProtectedBranchAdminEnforced' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchAdminEnforced($payload),
+                'ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview($payload),
+                'ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions($payload),
+                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\GitHubAE\Schema\Team' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team($payload),
+                'ApiClients\Client\GitHubAE\Schema\Team\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team⚡️Permissions($payload),
+                'ApiClients\Client\GitHubAE\Schema\Integration' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration($payload),
+                'ApiClients\Client\GitHubAE\Schema\Integration\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration⚡️Permissions($payload),
+                'ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️BypassPullRequestAllowances($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Users($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Teams' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Teams($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Permissions($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredLinearHistory' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowForcePushes' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️AllowForcePushes($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowDeletions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️AllowDeletions($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchProtection\BlockCreations' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️BlockCreations($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredConversationResolution' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredConversationResolution($payload),
+                'ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredSignatures' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredSignatures($payload),
+                'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchWithProtection(array $payload): \ApiClients\Client\Github\Schema\BranchWithProtection
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchWithProtection(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchWithProtection
     {
         $properties = []; 
         $missingFields = [];
@@ -88,7 +88,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'commit';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -108,7 +108,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'links';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchWithProtection⚡️Links($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchWithProtection⚡️Links($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -139,7 +139,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'protection';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -183,22 +183,22 @@ class CbBranchRcb implements ObjectMapper
             after_requiredApprovingReviewCount:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchWithProtection', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchWithProtection', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchWithProtection::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchWithProtection::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchWithProtection(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchWithProtection(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchWithProtection', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchWithProtection', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit(array $payload): \ApiClients\Client\Github\Schema\Commit
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit(array $payload): \ApiClients\Client\GitHubAE\Schema\Commit
     {
         $properties = []; 
         $missingFields = [];
@@ -268,7 +268,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'commit';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Commit($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Commit($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -311,7 +311,7 @@ class CbBranchRcb implements ObjectMapper
 
             if ($parentsCaster1 === null) {
                 $parentsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Commit\\Parents',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Commit\\Parents',
 ));
             }
 
@@ -331,7 +331,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'stats';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Stats($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Stats($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -352,7 +352,7 @@ class CbBranchRcb implements ObjectMapper
 
             if ($filesCaster1 === null) {
                 $filesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\DiffEntry',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\DiffEntry',
 ));
             }
 
@@ -363,22 +363,22 @@ class CbBranchRcb implements ObjectMapper
             after_files:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Commit', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Commit', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Commit::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Commit::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Commit(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Commit(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Commit', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Commit', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Commit(array $payload): \ApiClients\Client\Github\Schema\Commit\Commit
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Commit(array $payload): \ApiClients\Client\GitHubAE\Schema\Commit\Commit
     {
         $properties = []; 
         $missingFields = [];
@@ -448,7 +448,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'tree';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Commit⚡️Tree($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Commit⚡️Tree($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -468,7 +468,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'verification';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Verification($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Verification($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -479,22 +479,22 @@ class CbBranchRcb implements ObjectMapper
             after_verification:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Commit\Commit', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Commit\Commit', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Commit\Commit::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Commit\Commit::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Commit\Commit(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Commit\Commit(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Commit\Commit', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Commit\Commit', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Commit⚡️Tree(array $payload): \ApiClients\Client\Github\Schema\Commit\Commit\Tree
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Commit⚡️Tree(array $payload): \ApiClients\Client\GitHubAE\Schema\Commit\Commit\Tree
     {
         $properties = []; 
         $missingFields = [];
@@ -522,22 +522,22 @@ class CbBranchRcb implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Commit\Commit\Tree', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Commit\Commit\Tree', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Commit\Commit\Tree::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Commit\Commit\Tree::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Commit\Commit\Tree(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Commit\Commit\Tree(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Commit\Commit\Tree', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Commit\Commit\Tree', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Verification(array $payload): \ApiClients\Client\Github\Schema\Verification
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Verification(array $payload): \ApiClients\Client\GitHubAE\Schema\Verification
     {
         $properties = []; 
         $missingFields = [];
@@ -587,22 +587,22 @@ class CbBranchRcb implements ObjectMapper
             after_signature:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Verification', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Verification', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Verification::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Verification::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Verification(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Verification(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Verification', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Verification', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Parents(array $payload): \ApiClients\Client\Github\Schema\Commit\Parents
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Parents(array $payload): \ApiClients\Client\GitHubAE\Schema\Commit\Parents
     {
         $properties = []; 
         $missingFields = [];
@@ -641,22 +641,22 @@ class CbBranchRcb implements ObjectMapper
             after_htmlUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Commit\Parents', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Commit\Parents', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Commit\Parents::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Commit\Parents::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Commit\Parents(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Commit\Parents(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Commit\Parents', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Commit\Parents', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Stats(array $payload): \ApiClients\Client\Github\Schema\Commit\Stats
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Stats(array $payload): \ApiClients\Client\GitHubAE\Schema\Commit\Stats
     {
         $properties = []; 
         $missingFields = [];
@@ -695,22 +695,22 @@ class CbBranchRcb implements ObjectMapper
             after_total:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Commit\Stats', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Commit\Stats', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Commit\Stats::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Commit\Stats::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Commit\Stats(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Commit\Stats(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Commit\Stats', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Commit\Stats', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️DiffEntry(array $payload): \ApiClients\Client\Github\Schema\DiffEntry
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️DiffEntry(array $payload): \ApiClients\Client\GitHubAE\Schema\DiffEntry
     {
         $properties = []; 
         $missingFields = [];
@@ -837,22 +837,22 @@ class CbBranchRcb implements ObjectMapper
             after_previousFilename:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\DiffEntry', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\DiffEntry', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\DiffEntry::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\DiffEntry::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\DiffEntry(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\DiffEntry(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\DiffEntry', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\DiffEntry', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchWithProtection⚡️Links(array $payload): \ApiClients\Client\Github\Schema\BranchWithProtection\Links
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchWithProtection⚡️Links(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchWithProtection\Links
     {
         $properties = []; 
         $missingFields = [];
@@ -880,22 +880,22 @@ class CbBranchRcb implements ObjectMapper
             after_self:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchWithProtection\Links', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchWithProtection\Links', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchWithProtection\Links::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchWithProtection\Links::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchWithProtection\Links(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchWithProtection\Links(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchWithProtection\Links', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchWithProtection\Links', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection(array $payload): \ApiClients\Client\Github\Schema\BranchProtection
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchProtection
     {
         $properties = []; 
         $missingFields = [];
@@ -932,7 +932,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'requiredStatusChecks';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchRequiredStatusCheck($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchRequiredStatusCheck($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -952,7 +952,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enforceAdmins';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchAdminEnforced($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchAdminEnforced($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -972,7 +972,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'requiredPullRequestReviews';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -992,7 +992,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'restrictions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1012,7 +1012,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'requiredLinearHistory';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1032,7 +1032,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'allowForcePushes';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️AllowForcePushes($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️AllowForcePushes($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1052,7 +1052,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'allowDeletions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️AllowDeletions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️AllowDeletions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1072,7 +1072,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'blockCreations';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️BlockCreations($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️BlockCreations($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1092,7 +1092,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'requiredConversationResolution';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredConversationResolution($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredConversationResolution($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1134,7 +1134,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'requiredSignatures';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredSignatures($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredSignatures($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1145,22 +1145,22 @@ class CbBranchRcb implements ObjectMapper
             after_requiredSignatures:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchProtection', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchProtection', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchProtection::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchProtection::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchProtection(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchProtection(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchProtection', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchProtection', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchRequiredStatusCheck(array $payload): \ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchRequiredStatusCheck(array $payload): \ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck
     {
         $properties = []; 
         $missingFields = [];
@@ -1209,7 +1209,7 @@ class CbBranchRcb implements ObjectMapper
 
             if ($checksCaster1 === null) {
                 $checksCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\ProtectedBranchRequiredStatusCheck\\Checks',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ProtectedBranchRequiredStatusCheck\\Checks',
 ));
             }
 
@@ -1242,22 +1242,22 @@ class CbBranchRcb implements ObjectMapper
             after_strict:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchRequiredStatusCheck⚡️Checks(array $payload): \ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck\Checks
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchRequiredStatusCheck⚡️Checks(array $payload): \ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck\Checks
     {
         $properties = []; 
         $missingFields = [];
@@ -1285,22 +1285,22 @@ class CbBranchRcb implements ObjectMapper
             after_appId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck\Checks', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck\Checks', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck\Checks::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck\Checks::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck\Checks(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck\Checks(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck\Checks', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck\Checks', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchAdminEnforced(array $payload): \ApiClients\Client\Github\Schema\ProtectedBranchAdminEnforced
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchAdminEnforced(array $payload): \ApiClients\Client\GitHubAE\Schema\ProtectedBranchAdminEnforced
     {
         $properties = []; 
         $missingFields = [];
@@ -1328,22 +1328,22 @@ class CbBranchRcb implements ObjectMapper
             after_enabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ProtectedBranchAdminEnforced', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ProtectedBranchAdminEnforced', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ProtectedBranchAdminEnforced::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ProtectedBranchAdminEnforced::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ProtectedBranchAdminEnforced(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ProtectedBranchAdminEnforced(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ProtectedBranchAdminEnforced', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ProtectedBranchAdminEnforced', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview(array $payload): \ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview(array $payload): \ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview
     {
         $properties = []; 
         $missingFields = [];
@@ -1369,7 +1369,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'dismissalRestrictions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1389,7 +1389,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'bypassPullRequestAllowances';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️BypassPullRequestAllowances($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️BypassPullRequestAllowances($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1433,22 +1433,22 @@ class CbBranchRcb implements ObjectMapper
             after_requiredApprovingReviewCount:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions(array $payload): \ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions(array $payload): \ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions
     {
         $properties = []; 
         $missingFields = [];
@@ -1464,7 +1464,7 @@ class CbBranchRcb implements ObjectMapper
 
             if ($usersCaster1 === null) {
                 $usersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SimpleUser',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\SimpleUser',
 ));
             }
 
@@ -1485,7 +1485,7 @@ class CbBranchRcb implements ObjectMapper
 
             if ($teamsCaster1 === null) {
                 $teamsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Team',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Team',
 ));
             }
 
@@ -1506,7 +1506,7 @@ class CbBranchRcb implements ObjectMapper
 
             if ($appsCaster1 === null) {
                 $appsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Integration',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Integration',
 ));
             }
 
@@ -1550,22 +1550,22 @@ class CbBranchRcb implements ObjectMapper
             after_teamsUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\Github\Schema\SimpleUser
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleUser
     {
         $properties = []; 
         $missingFields = [];
@@ -1802,22 +1802,22 @@ class CbBranchRcb implements ObjectMapper
             after_starredAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SimpleUser(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\SimpleUser(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Team(array $payload): \ApiClients\Client\Github\Schema\Team
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team(array $payload): \ApiClients\Client\GitHubAE\Schema\Team
     {
         $properties = []; 
         $missingFields = [];
@@ -1920,7 +1920,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Team⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1986,22 +1986,22 @@ class CbBranchRcb implements ObjectMapper
             after_parent:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Team', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Team', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Team::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Team::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Team(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Team(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Team', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Team', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Team⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\Team\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Team\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -2062,22 +2062,22 @@ class CbBranchRcb implements ObjectMapper
             after_admin:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Team\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Team\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Team\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Team\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Team\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Team\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Team\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Team\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Integration(array $payload): \ApiClients\Client\Github\Schema\Integration
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration(array $payload): \ApiClients\Client\GitHubAE\Schema\Integration
     {
         $properties = []; 
         $missingFields = [];
@@ -2202,7 +2202,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Integration⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2279,22 +2279,22 @@ class CbBranchRcb implements ObjectMapper
             after_pem:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Integration', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Integration', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Integration::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Integration::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Integration(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Integration(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Integration', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Integration', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Integration⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\Integration\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Integration\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -2355,22 +2355,22 @@ class CbBranchRcb implements ObjectMapper
             after_deployments:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Integration\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Integration\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Integration\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Integration\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Integration\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Integration\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Integration\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Integration\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️BypassPullRequestAllowances(array $payload): \ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️BypassPullRequestAllowances(array $payload): \ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances
     {
         $properties = []; 
         $missingFields = [];
@@ -2386,7 +2386,7 @@ class CbBranchRcb implements ObjectMapper
 
             if ($usersCaster1 === null) {
                 $usersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SimpleUser',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\SimpleUser',
 ));
             }
 
@@ -2407,7 +2407,7 @@ class CbBranchRcb implements ObjectMapper
 
             if ($teamsCaster1 === null) {
                 $teamsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Team',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Team',
 ));
             }
 
@@ -2428,7 +2428,7 @@ class CbBranchRcb implements ObjectMapper
 
             if ($appsCaster1 === null) {
                 $appsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Integration',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Integration',
 ));
             }
 
@@ -2439,22 +2439,22 @@ class CbBranchRcb implements ObjectMapper
             after_apps:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy(array $payload): \ApiClients\Client\Github\Schema\BranchRestrictionPolicy
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy
     {
         $properties = []; 
         $missingFields = [];
@@ -2514,7 +2514,7 @@ class CbBranchRcb implements ObjectMapper
 
             if ($usersCaster1 === null) {
                 $usersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\BranchRestrictionPolicy\\Users',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\BranchRestrictionPolicy\\Users',
 ));
             }
 
@@ -2535,7 +2535,7 @@ class CbBranchRcb implements ObjectMapper
 
             if ($teamsCaster1 === null) {
                 $teamsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\BranchRestrictionPolicy\\Teams',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\BranchRestrictionPolicy\\Teams',
 ));
             }
 
@@ -2556,7 +2556,7 @@ class CbBranchRcb implements ObjectMapper
 
             if ($appsCaster1 === null) {
                 $appsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\BranchRestrictionPolicy\\Apps',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\BranchRestrictionPolicy\\Apps',
 ));
             }
 
@@ -2567,22 +2567,22 @@ class CbBranchRcb implements ObjectMapper
             after_apps:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchRestrictionPolicy', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchRestrictionPolicy::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchRestrictionPolicy(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchRestrictionPolicy', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Users(array $payload): \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Users
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Users(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users
     {
         $properties = []; 
         $missingFields = [];
@@ -2786,22 +2786,22 @@ class CbBranchRcb implements ObjectMapper
             after_siteAdmin:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Users', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Users::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Users(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Users', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Teams(array $payload): \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Teams
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Teams(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Teams
     {
         $properties = []; 
         $missingFields = [];
@@ -2950,22 +2950,22 @@ class CbBranchRcb implements ObjectMapper
             after_parent:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Teams', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Teams', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Teams::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Teams::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Teams(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Teams(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Teams', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Teams', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps(array $payload): \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps
     {
         $properties = []; 
         $missingFields = [];
@@ -3013,7 +3013,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3099,7 +3099,7 @@ class CbBranchRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3121,22 +3121,22 @@ class CbBranchRcb implements ObjectMapper
             after_events:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner(array $payload): \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Owner
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Owner
     {
         $properties = []; 
         $missingFields = [];
@@ -3395,22 +3395,22 @@ class CbBranchRcb implements ObjectMapper
             after_siteAdmin:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Owner', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Owner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Owner::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Owner(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Owner(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Owner', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -3460,22 +3460,22 @@ class CbBranchRcb implements ObjectMapper
             after_singleFile:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory(array $payload): \ApiClients\Client\Github\Schema\BranchProtection\RequiredLinearHistory
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredLinearHistory
     {
         $properties = []; 
         $missingFields = [];
@@ -3492,22 +3492,22 @@ class CbBranchRcb implements ObjectMapper
             after_enabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchProtection\RequiredLinearHistory', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredLinearHistory', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchProtection\RequiredLinearHistory::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredLinearHistory::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchProtection\RequiredLinearHistory(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredLinearHistory(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchProtection\RequiredLinearHistory', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredLinearHistory', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️AllowForcePushes(array $payload): \ApiClients\Client\Github\Schema\BranchProtection\AllowForcePushes
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️AllowForcePushes(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowForcePushes
     {
         $properties = []; 
         $missingFields = [];
@@ -3524,22 +3524,22 @@ class CbBranchRcb implements ObjectMapper
             after_enabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchProtection\AllowForcePushes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowForcePushes', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchProtection\AllowForcePushes::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowForcePushes::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchProtection\AllowForcePushes(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowForcePushes(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchProtection\AllowForcePushes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowForcePushes', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️AllowDeletions(array $payload): \ApiClients\Client\Github\Schema\BranchProtection\AllowDeletions
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️AllowDeletions(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowDeletions
     {
         $properties = []; 
         $missingFields = [];
@@ -3556,22 +3556,22 @@ class CbBranchRcb implements ObjectMapper
             after_enabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchProtection\AllowDeletions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowDeletions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchProtection\AllowDeletions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowDeletions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchProtection\AllowDeletions(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowDeletions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchProtection\AllowDeletions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowDeletions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️BlockCreations(array $payload): \ApiClients\Client\Github\Schema\BranchProtection\BlockCreations
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️BlockCreations(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchProtection\BlockCreations
     {
         $properties = []; 
         $missingFields = [];
@@ -3588,22 +3588,22 @@ class CbBranchRcb implements ObjectMapper
             after_enabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchProtection\BlockCreations', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchProtection\BlockCreations', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchProtection\BlockCreations::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchProtection\BlockCreations::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchProtection\BlockCreations(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchProtection\BlockCreations(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchProtection\BlockCreations', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchProtection\BlockCreations', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredConversationResolution(array $payload): \ApiClients\Client\Github\Schema\BranchProtection\RequiredConversationResolution
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredConversationResolution(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredConversationResolution
     {
         $properties = []; 
         $missingFields = [];
@@ -3620,22 +3620,22 @@ class CbBranchRcb implements ObjectMapper
             after_enabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchProtection\RequiredConversationResolution', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredConversationResolution', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchProtection\RequiredConversationResolution::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredConversationResolution::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchProtection\RequiredConversationResolution(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredConversationResolution(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchProtection\RequiredConversationResolution', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredConversationResolution', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredSignatures(array $payload): \ApiClients\Client\Github\Schema\BranchProtection\RequiredSignatures
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredSignatures(array $payload): \ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredSignatures
     {
         $properties = []; 
         $missingFields = [];
@@ -3663,22 +3663,22 @@ class CbBranchRcb implements ObjectMapper
             after_enabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchProtection\RequiredSignatures', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredSignatures', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BranchProtection\RequiredSignatures::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredSignatures::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BranchProtection\RequiredSignatures(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredSignatures(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BranchProtection\RequiredSignatures', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredSignatures', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\Github\Schema\BasicError
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubAE\Schema\BasicError
     {
         $properties = []; 
         $missingFields = [];
@@ -3728,17 +3728,17 @@ class CbBranchRcb implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BasicError(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BasicError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -3773,40 +3773,40 @@ class CbBranchRcb implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\BranchWithProtection' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchWithProtection($object),
-            'ApiClients\Client\Github\Schema\Commit' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit($object),
-            'ApiClients\Client\Github\Schema\Commit\Commit' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Commit($object),
-            'ApiClients\Client\Github\Schema\Commit\Commit\Tree' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Commit⚡️Tree($object),
-            'ApiClients\Client\Github\Schema\Verification' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Verification($object),
-            'ApiClients\Client\Github\Schema\Commit\Parents' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Parents($object),
-            'ApiClients\Client\Github\Schema\Commit\Stats' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Stats($object),
-            'ApiClients\Client\Github\Schema\DiffEntry' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️DiffEntry($object),
-            'ApiClients\Client\Github\Schema\BranchWithProtection\Links' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchWithProtection⚡️Links($object),
-            'ApiClients\Client\Github\Schema\BranchProtection' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection($object),
-            'ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchRequiredStatusCheck($object),
-            'ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck\Checks' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchRequiredStatusCheck⚡️Checks($object),
-            'ApiClients\Client\Github\Schema\ProtectedBranchAdminEnforced' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchAdminEnforced($object),
-            'ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview($object),
-            'ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions($object),
-            'ApiClients\Client\Github\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($object),
-            'ApiClients\Client\Github\Schema\Team' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Team($object),
-            'ApiClients\Client\Github\Schema\Team\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Team⚡️Permissions($object),
-            'ApiClients\Client\Github\Schema\Integration' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Integration($object),
-            'ApiClients\Client\Github\Schema\Integration\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Integration⚡️Permissions($object),
-            'ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️BypassPullRequestAllowances($object),
-            'ApiClients\Client\Github\Schema\BranchRestrictionPolicy' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy($object),
-            'ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Users' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Users($object),
-            'ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Teams' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Teams($object),
-            'ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps($object),
-            'ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Owner' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner($object),
-            'ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Permissions($object),
-            'ApiClients\Client\Github\Schema\BranchProtection\RequiredLinearHistory' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($object),
-            'ApiClients\Client\Github\Schema\BranchProtection\AllowForcePushes' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️AllowForcePushes($object),
-            'ApiClients\Client\Github\Schema\BranchProtection\AllowDeletions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️AllowDeletions($object),
-            'ApiClients\Client\Github\Schema\BranchProtection\BlockCreations' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️BlockCreations($object),
-            'ApiClients\Client\Github\Schema\BranchProtection\RequiredConversationResolution' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredConversationResolution($object),
-            'ApiClients\Client\Github\Schema\BranchProtection\RequiredSignatures' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredSignatures($object),
-            'ApiClients\Client\Github\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchWithProtection' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchWithProtection($object),
+            'ApiClients\Client\GitHubAE\Schema\Commit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit($object),
+            'ApiClients\Client\GitHubAE\Schema\Commit\Commit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Commit($object),
+            'ApiClients\Client\GitHubAE\Schema\Commit\Commit\Tree' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Commit⚡️Tree($object),
+            'ApiClients\Client\GitHubAE\Schema\Verification' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Verification($object),
+            'ApiClients\Client\GitHubAE\Schema\Commit\Parents' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Parents($object),
+            'ApiClients\Client\GitHubAE\Schema\Commit\Stats' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Stats($object),
+            'ApiClients\Client\GitHubAE\Schema\DiffEntry' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️DiffEntry($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchWithProtection\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchWithProtection⚡️Links($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchProtection' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection($object),
+            'ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchRequiredStatusCheck($object),
+            'ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck\Checks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchRequiredStatusCheck⚡️Checks($object),
+            'ApiClients\Client\GitHubAE\Schema\ProtectedBranchAdminEnforced' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchAdminEnforced($object),
+            'ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview($object),
+            'ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions($object),
+            'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
+            'ApiClients\Client\GitHubAE\Schema\Team' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team($object),
+            'ApiClients\Client\GitHubAE\Schema\Team\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team⚡️Permissions($object),
+            'ApiClients\Client\GitHubAE\Schema\Integration' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration($object),
+            'ApiClients\Client\GitHubAE\Schema\Integration\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration⚡️Permissions($object),
+            'ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️BypassPullRequestAllowances($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Users($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Teams' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Teams($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Permissions($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredLinearHistory' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowForcePushes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️AllowForcePushes($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowDeletions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️AllowDeletions($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchProtection\BlockCreations' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️BlockCreations($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredConversationResolution' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredConversationResolution($object),
+            'ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredSignatures' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredSignatures($object),
+            'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -3880,9 +3880,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchWithProtection(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchWithProtection(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchWithProtection);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchWithProtection);
         $result = [];
 
         $name = $object->name;
@@ -3890,12 +3890,12 @@ class CbBranchRcb implements ObjectMapper
 
         
         $commit = $object->commit;
-        $commit = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit($commit);
+        $commit = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit($commit);
         after_commit:        $result['commit'] = $commit;
 
         
         $links = $object->links;
-        $links = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchWithProtection⚡️Links($links);
+        $links = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchWithProtection⚡️Links($links);
         after_links:        $result['_links'] = $links;
 
         
@@ -3904,7 +3904,7 @@ class CbBranchRcb implements ObjectMapper
 
         
         $protection = $object->protection;
-        $protection = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection($protection);
+        $protection = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection($protection);
         after_protection:        $result['protection'] = $protection;
 
         
@@ -3932,9 +3932,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Commit);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Commit);
         $result = [];
 
         $url = $object->url;
@@ -3958,7 +3958,7 @@ class CbBranchRcb implements ObjectMapper
 
         
         $commit = $object->commit;
-        $commit = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Commit($commit);
+        $commit = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Commit($commit);
         after_commit:        $result['commit'] = $commit;
 
         
@@ -3983,7 +3983,7 @@ class CbBranchRcb implements ObjectMapper
 
         if ($parentsSerializer0 === null) {
             $parentsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Commit\\Parents',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Commit\\Parents',
 ));
         }
         
@@ -3996,7 +3996,7 @@ class CbBranchRcb implements ObjectMapper
         if ($stats === null) {
             goto after_stats;
         }
-        $stats = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Stats($stats);
+        $stats = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Stats($stats);
         after_stats:        $result['stats'] = $stats;
 
         
@@ -4009,7 +4009,7 @@ class CbBranchRcb implements ObjectMapper
 
         if ($filesSerializer0 === null) {
             $filesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\DiffEntry',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\DiffEntry',
 ));
         }
         
@@ -4021,9 +4021,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Commit(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Commit(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Commit\Commit);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Commit\Commit);
         $result = [];
 
         $url = $object->url;
@@ -4055,7 +4055,7 @@ class CbBranchRcb implements ObjectMapper
 
         
         $tree = $object->tree;
-        $tree = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Commit⚡️Tree($tree);
+        $tree = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Commit⚡️Tree($tree);
         after_tree:        $result['tree'] = $tree;
 
         
@@ -4064,7 +4064,7 @@ class CbBranchRcb implements ObjectMapper
         if ($verification === null) {
             goto after_verification;
         }
-        $verification = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Verification($verification);
+        $verification = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Verification($verification);
         after_verification:        $result['verification'] = $verification;
 
 
@@ -4072,9 +4072,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Commit⚡️Tree(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Commit⚡️Tree(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Commit\Commit\Tree);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Commit\Commit\Tree);
         $result = [];
 
         $sha = $object->sha;
@@ -4089,9 +4089,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Verification(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Verification(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Verification);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Verification);
         $result = [];
 
         $verified = $object->verified;
@@ -4122,9 +4122,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Parents(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Parents(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Commit\Parents);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Commit\Parents);
         $result = [];
 
         $sha = $object->sha;
@@ -4147,9 +4147,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Commit⚡️Stats(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Commit⚡️Stats(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Commit\Stats);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Commit\Stats);
         $result = [];
 
         $additions = $object->additions;
@@ -4180,9 +4180,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️DiffEntry(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️DiffEntry(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\DiffEntry);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\DiffEntry);
         $result = [];
 
         $sha = $object->sha;
@@ -4241,9 +4241,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchWithProtection⚡️Links(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchWithProtection⚡️Links(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchWithProtection\Links);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchWithProtection\Links);
         $result = [];
 
         $html = $object->html;
@@ -4258,9 +4258,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchProtection);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchProtection);
         $result = [];
 
         $url = $object->url;
@@ -4284,7 +4284,7 @@ class CbBranchRcb implements ObjectMapper
         if ($requiredStatusChecks === null) {
             goto after_requiredStatusChecks;
         }
-        $requiredStatusChecks = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchRequiredStatusCheck($requiredStatusChecks);
+        $requiredStatusChecks = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchRequiredStatusCheck($requiredStatusChecks);
         after_requiredStatusChecks:        $result['required_status_checks'] = $requiredStatusChecks;
 
         
@@ -4293,7 +4293,7 @@ class CbBranchRcb implements ObjectMapper
         if ($enforceAdmins === null) {
             goto after_enforceAdmins;
         }
-        $enforceAdmins = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchAdminEnforced($enforceAdmins);
+        $enforceAdmins = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchAdminEnforced($enforceAdmins);
         after_enforceAdmins:        $result['enforce_admins'] = $enforceAdmins;
 
         
@@ -4302,7 +4302,7 @@ class CbBranchRcb implements ObjectMapper
         if ($requiredPullRequestReviews === null) {
             goto after_requiredPullRequestReviews;
         }
-        $requiredPullRequestReviews = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview($requiredPullRequestReviews);
+        $requiredPullRequestReviews = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview($requiredPullRequestReviews);
         after_requiredPullRequestReviews:        $result['required_pull_request_reviews'] = $requiredPullRequestReviews;
 
         
@@ -4311,7 +4311,7 @@ class CbBranchRcb implements ObjectMapper
         if ($restrictions === null) {
             goto after_restrictions;
         }
-        $restrictions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy($restrictions);
+        $restrictions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy($restrictions);
         after_restrictions:        $result['restrictions'] = $restrictions;
 
         
@@ -4320,7 +4320,7 @@ class CbBranchRcb implements ObjectMapper
         if ($requiredLinearHistory === null) {
             goto after_requiredLinearHistory;
         }
-        $requiredLinearHistory = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($requiredLinearHistory);
+        $requiredLinearHistory = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($requiredLinearHistory);
         after_requiredLinearHistory:        $result['required_linear_history'] = $requiredLinearHistory;
 
         
@@ -4329,7 +4329,7 @@ class CbBranchRcb implements ObjectMapper
         if ($allowForcePushes === null) {
             goto after_allowForcePushes;
         }
-        $allowForcePushes = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️AllowForcePushes($allowForcePushes);
+        $allowForcePushes = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️AllowForcePushes($allowForcePushes);
         after_allowForcePushes:        $result['allow_force_pushes'] = $allowForcePushes;
 
         
@@ -4338,7 +4338,7 @@ class CbBranchRcb implements ObjectMapper
         if ($allowDeletions === null) {
             goto after_allowDeletions;
         }
-        $allowDeletions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️AllowDeletions($allowDeletions);
+        $allowDeletions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️AllowDeletions($allowDeletions);
         after_allowDeletions:        $result['allow_deletions'] = $allowDeletions;
 
         
@@ -4347,7 +4347,7 @@ class CbBranchRcb implements ObjectMapper
         if ($blockCreations === null) {
             goto after_blockCreations;
         }
-        $blockCreations = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️BlockCreations($blockCreations);
+        $blockCreations = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️BlockCreations($blockCreations);
         after_blockCreations:        $result['block_creations'] = $blockCreations;
 
         
@@ -4356,7 +4356,7 @@ class CbBranchRcb implements ObjectMapper
         if ($requiredConversationResolution === null) {
             goto after_requiredConversationResolution;
         }
-        $requiredConversationResolution = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredConversationResolution($requiredConversationResolution);
+        $requiredConversationResolution = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredConversationResolution($requiredConversationResolution);
         after_requiredConversationResolution:        $result['required_conversation_resolution'] = $requiredConversationResolution;
 
         
@@ -4381,7 +4381,7 @@ class CbBranchRcb implements ObjectMapper
         if ($requiredSignatures === null) {
             goto after_requiredSignatures;
         }
-        $requiredSignatures = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredSignatures($requiredSignatures);
+        $requiredSignatures = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredSignatures($requiredSignatures);
         after_requiredSignatures:        $result['required_signatures'] = $requiredSignatures;
 
 
@@ -4389,9 +4389,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchRequiredStatusCheck(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchRequiredStatusCheck(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck);
         $result = [];
 
         $url = $object->url;
@@ -4427,7 +4427,7 @@ class CbBranchRcb implements ObjectMapper
 
         if ($checksSerializer0 === null) {
             $checksSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\ProtectedBranchRequiredStatusCheck\\Checks',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ProtectedBranchRequiredStatusCheck\\Checks',
 ));
         }
         
@@ -4455,9 +4455,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchRequiredStatusCheck⚡️Checks(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchRequiredStatusCheck⚡️Checks(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ProtectedBranchRequiredStatusCheck\Checks);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ProtectedBranchRequiredStatusCheck\Checks);
         $result = [];
 
         $context = $object->context;
@@ -4476,9 +4476,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchAdminEnforced(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchAdminEnforced(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ProtectedBranchAdminEnforced);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ProtectedBranchAdminEnforced);
         $result = [];
 
         $url = $object->url;
@@ -4493,9 +4493,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview);
         $result = [];
 
         $url = $object->url;
@@ -4511,7 +4511,7 @@ class CbBranchRcb implements ObjectMapper
         if ($dismissalRestrictions === null) {
             goto after_dismissalRestrictions;
         }
-        $dismissalRestrictions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions($dismissalRestrictions);
+        $dismissalRestrictions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions($dismissalRestrictions);
         after_dismissalRestrictions:        $result['dismissal_restrictions'] = $dismissalRestrictions;
 
         
@@ -4520,7 +4520,7 @@ class CbBranchRcb implements ObjectMapper
         if ($bypassPullRequestAllowances === null) {
             goto after_bypassPullRequestAllowances;
         }
-        $bypassPullRequestAllowances = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️BypassPullRequestAllowances($bypassPullRequestAllowances);
+        $bypassPullRequestAllowances = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️BypassPullRequestAllowances($bypassPullRequestAllowances);
         after_bypassPullRequestAllowances:        $result['bypass_pull_request_allowances'] = $bypassPullRequestAllowances;
 
         
@@ -4544,9 +4544,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️DismissalRestrictions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\DismissalRestrictions);
         $result = [];
 
         $users = $object->users;
@@ -4558,7 +4558,7 @@ class CbBranchRcb implements ObjectMapper
 
         if ($usersSerializer0 === null) {
             $usersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SimpleUser',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\SimpleUser',
 ));
         }
         
@@ -4575,7 +4575,7 @@ class CbBranchRcb implements ObjectMapper
 
         if ($teamsSerializer0 === null) {
             $teamsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Team',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Team',
 ));
         }
         
@@ -4592,7 +4592,7 @@ class CbBranchRcb implements ObjectMapper
 
         if ($appsSerializer0 === null) {
             $appsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Integration',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Integration',
 ));
         }
         
@@ -4628,9 +4628,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleUser);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleUser);
         $result = [];
 
         $name = $object->name;
@@ -4737,9 +4737,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Team(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Team);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Team);
         $result = [];
 
         $id = $object->id;
@@ -4791,7 +4791,7 @@ class CbBranchRcb implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Team⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -4823,9 +4823,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Team⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Team\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Team\Permissions);
         $result = [];
 
         $pull = $object->pull;
@@ -4852,9 +4852,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Integration(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Integration);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Integration);
         $result = [];
 
         $id = $object->id;
@@ -4910,7 +4910,7 @@ class CbBranchRcb implements ObjectMapper
 
         
         $permissions = $object->permissions;
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Integration⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -4970,9 +4970,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Integration⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Integration⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Integration\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Integration\Permissions);
         $result = [];
 
         $issues = $object->issues;
@@ -5019,9 +5019,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️BypassPullRequestAllowances(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranchPullRequestReview⚡️BypassPullRequestAllowances(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview\BypassPullRequestAllowances);
         $result = [];
 
         $users = $object->users;
@@ -5033,7 +5033,7 @@ class CbBranchRcb implements ObjectMapper
 
         if ($usersSerializer0 === null) {
             $usersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SimpleUser',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\SimpleUser',
 ));
         }
         
@@ -5050,7 +5050,7 @@ class CbBranchRcb implements ObjectMapper
 
         if ($teamsSerializer0 === null) {
             $teamsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Team',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Team',
 ));
         }
         
@@ -5067,7 +5067,7 @@ class CbBranchRcb implements ObjectMapper
 
         if ($appsSerializer0 === null) {
             $appsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Integration',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Integration',
 ));
         }
         
@@ -5079,9 +5079,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchRestrictionPolicy);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy);
         $result = [];
 
         $url = $object->url;
@@ -5105,7 +5105,7 @@ class CbBranchRcb implements ObjectMapper
 
         if ($usersSerializer0 === null) {
             $usersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\BranchRestrictionPolicy\\Users',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\BranchRestrictionPolicy\\Users',
 ));
         }
         
@@ -5118,7 +5118,7 @@ class CbBranchRcb implements ObjectMapper
 
         if ($teamsSerializer0 === null) {
             $teamsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\BranchRestrictionPolicy\\Teams',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\BranchRestrictionPolicy\\Teams',
 ));
         }
         
@@ -5131,7 +5131,7 @@ class CbBranchRcb implements ObjectMapper
 
         if ($appsSerializer0 === null) {
             $appsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\BranchRestrictionPolicy\\Apps',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\BranchRestrictionPolicy\\Apps',
 ));
         }
         
@@ -5143,9 +5143,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Users(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Users(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Users);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Users);
         $result = [];
 
         $login = $object->login;
@@ -5296,9 +5296,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Teams(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Teams(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Teams);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Teams);
         $result = [];
 
         $id = $object->id;
@@ -5409,9 +5409,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps);
         $result = [];
 
         $id = $object->id;
@@ -5443,7 +5443,7 @@ class CbBranchRcb implements ObjectMapper
         if ($owner === null) {
             goto after_owner;
         }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -5500,7 +5500,7 @@ class CbBranchRcb implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -5524,9 +5524,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Owner(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Owner);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Owner);
         $result = [];
 
         $login = $object->login;
@@ -5717,9 +5717,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchRestrictionPolicy⚡️Apps⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchRestrictionPolicy\Apps\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy\Apps\Permissions);
         $result = [];
 
         $metadata = $object->metadata;
@@ -5758,9 +5758,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchProtection\RequiredLinearHistory);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredLinearHistory);
         $result = [];
 
         $enabled = $object->enabled;
@@ -5775,9 +5775,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️AllowForcePushes(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️AllowForcePushes(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchProtection\AllowForcePushes);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowForcePushes);
         $result = [];
 
         $enabled = $object->enabled;
@@ -5792,9 +5792,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️AllowDeletions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️AllowDeletions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchProtection\AllowDeletions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchProtection\AllowDeletions);
         $result = [];
 
         $enabled = $object->enabled;
@@ -5809,9 +5809,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️BlockCreations(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️BlockCreations(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchProtection\BlockCreations);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchProtection\BlockCreations);
         $result = [];
 
         $enabled = $object->enabled;
@@ -5826,9 +5826,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredConversationResolution(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredConversationResolution(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchProtection\RequiredConversationResolution);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredConversationResolution);
         $result = [];
 
         $enabled = $object->enabled;
@@ -5843,9 +5843,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BranchProtection⚡️RequiredSignatures(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BranchProtection⚡️RequiredSignatures(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BranchProtection\RequiredSignatures);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BranchProtection\RequiredSignatures);
         $result = [];
 
         $url = $object->url;
@@ -5860,9 +5860,9 @@ class CbBranchRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BasicError);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BasicError);
         $result = [];
 
         $message = $object->message;

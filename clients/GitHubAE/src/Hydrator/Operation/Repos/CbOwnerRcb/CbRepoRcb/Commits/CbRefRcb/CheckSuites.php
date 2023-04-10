@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb;
+namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Commits\CbRefRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,27 +23,27 @@ class CheckSuites implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Checks⚡️ListSuitesForRef⚡️Response⚡️Applicationjson⚡️H200($payload),
-                'ApiClients\Client\Github\Schema\CheckSuite' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CheckSuite($payload),
-                'ApiClients\Client\Github\Schema\PullRequestMinimal' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal($payload),
-                'ApiClients\Client\Github\Schema\PullRequestMinimal\Head' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Head($payload),
-                'ApiClients\Client\Github\Schema\PullRequestMinimal\Head\Repo' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($payload),
-                'ApiClients\Client\Github\Schema\PullRequestMinimal\Base' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Base($payload),
-                'ApiClients\Client\Github\Schema\PullRequestMinimal\Base\Repo' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Base⚡️Repo($payload),
-                'ApiClients\Client\Github\Schema\MinimalRepository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository($payload),
-                'ApiClients\Client\Github\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\Github\Schema\MinimalRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️Permissions($payload),
-                'ApiClients\Client\Github\Schema\CodeOfConduct' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeOfConduct($payload),
-                'ApiClients\Client\Github\Schema\MinimalRepository\License' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️License($payload),
-                'ApiClients\Client\Github\Schema\SimpleCommit' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit($payload),
-                'ApiClients\Client\Github\Schema\SimpleCommit\Author' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit⚡️Author($payload),
-                'ApiClients\Client\Github\Schema\SimpleCommit\Committer' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit⚡️Committer($payload),
+            'ApiClients\Client\GitHubAE\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Checks⚡️ListSuitesForRef⚡️Response⚡️Applicationjson⚡️H200($payload),
+                'ApiClients\Client\GitHubAE\Schema\CheckSuite' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CheckSuite($payload),
+                'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal($payload),
+                'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head($payload),
+                'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head\Repo' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($payload),
+                'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base($payload),
+                'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base⚡️Repo($payload),
+                'ApiClients\Client\GitHubAE\Schema\MinimalRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository($payload),
+                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubAE\Schema\CodeOfConduct' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeOfConduct($payload),
+                'ApiClients\Client\GitHubAE\Schema\MinimalRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️License($payload),
+                'ApiClients\Client\GitHubAE\Schema\SimpleCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit($payload),
+                'ApiClients\Client\GitHubAE\Schema\SimpleCommit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit⚡️Author($payload),
+                'ApiClients\Client\GitHubAE\Schema\SimpleCommit\Committer' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit⚡️Committer($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Checks⚡️ListSuitesForRef⚡️Response⚡️Applicationjson⚡️H200(array $payload): \ApiClients\Client\Github\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Checks⚡️ListSuitesForRef⚡️Response⚡️Applicationjson⚡️H200(array $payload): \ApiClients\Client\GitHubAE\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200
     {
         $properties = []; 
         $missingFields = [];
@@ -70,7 +70,7 @@ class CheckSuites implements ObjectMapper
 
             if ($checkSuitesCaster1 === null) {
                 $checkSuitesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\CheckSuite',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\CheckSuite',
 ));
             }
 
@@ -81,22 +81,22 @@ class CheckSuites implements ObjectMapper
             after_checkSuites:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CheckSuite(array $payload): \ApiClients\Client\Github\Schema\CheckSuite
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CheckSuite(array $payload): \ApiClients\Client\GitHubAE\Schema\CheckSuite
     {
         $properties = []; 
         $missingFields = [];
@@ -211,7 +211,7 @@ class CheckSuites implements ObjectMapper
 
             if ($pullRequestsCaster1 === null) {
                 $pullRequestsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\PullRequestMinimal',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\PullRequestMinimal',
 ));
             }
 
@@ -242,7 +242,7 @@ class CheckSuites implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -284,7 +284,7 @@ class CheckSuites implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'headCommit';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -339,22 +339,22 @@ class CheckSuites implements ObjectMapper
             after_runsRerequestable:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CheckSuite', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CheckSuite', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CheckSuite::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\CheckSuite::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\CheckSuite(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\CheckSuite(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CheckSuite', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CheckSuite', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal(array $payload): \ApiClients\Client\Github\Schema\PullRequestMinimal
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal(array $payload): \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal
     {
         $properties = []; 
         $missingFields = [];
@@ -402,7 +402,7 @@ class CheckSuites implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'head';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Head($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -422,7 +422,7 @@ class CheckSuites implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'base';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Base($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -433,22 +433,22 @@ class CheckSuites implements ObjectMapper
             after_base:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequestMinimal', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequestMinimal::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PullRequestMinimal::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequestMinimal(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequestMinimal', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Head(array $payload): \ApiClients\Client\Github\Schema\PullRequestMinimal\Head
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head(array $payload): \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head
     {
         $properties = []; 
         $missingFields = [];
@@ -485,7 +485,7 @@ class CheckSuites implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repo';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -496,22 +496,22 @@ class CheckSuites implements ObjectMapper
             after_repo:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequestMinimal\Head', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequestMinimal\Head::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequestMinimal\Head(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequestMinimal\Head', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo(array $payload): \ApiClients\Client\Github\Schema\PullRequestMinimal\Head\Repo
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo(array $payload): \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head\Repo
     {
         $properties = []; 
         $missingFields = [];
@@ -550,22 +550,22 @@ class CheckSuites implements ObjectMapper
             after_name:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequestMinimal\Head\Repo', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head\Repo', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequestMinimal\Head\Repo::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head\Repo::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequestMinimal\Head\Repo(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head\Repo(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequestMinimal\Head\Repo', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head\Repo', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Base(array $payload): \ApiClients\Client\Github\Schema\PullRequestMinimal\Base
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base(array $payload): \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base
     {
         $properties = []; 
         $missingFields = [];
@@ -602,7 +602,7 @@ class CheckSuites implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repo';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -613,22 +613,22 @@ class CheckSuites implements ObjectMapper
             after_repo:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequestMinimal\Base', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequestMinimal\Base::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequestMinimal\Base(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequestMinimal\Base', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Base⚡️Repo(array $payload): \ApiClients\Client\Github\Schema\PullRequestMinimal\Base\Repo
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base⚡️Repo(array $payload): \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo
     {
         $properties = []; 
         $missingFields = [];
@@ -667,22 +667,22 @@ class CheckSuites implements ObjectMapper
             after_name:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequestMinimal\Base\Repo', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PullRequestMinimal\Base\Repo::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PullRequestMinimal\Base\Repo(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PullRequestMinimal\Base\Repo', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository(array $payload): \ApiClients\Client\Github\Schema\MinimalRepository
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository(array $payload): \ApiClients\Client\GitHubAE\Schema\MinimalRepository
     {
         $properties = []; 
         $missingFields = [];
@@ -741,7 +741,7 @@ class CheckSuites implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1509,7 +1509,7 @@ class CheckSuites implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1584,7 +1584,7 @@ class CheckSuites implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'codeOfConduct';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeOfConduct($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeOfConduct($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1604,7 +1604,7 @@ class CheckSuites implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'license';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️License($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️License($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1670,22 +1670,22 @@ class CheckSuites implements ObjectMapper
             after_webCommitSignoffRequired:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MinimalRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\MinimalRepository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\MinimalRepository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\MinimalRepository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\MinimalRepository(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\MinimalRepository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MinimalRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\MinimalRepository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\Github\Schema\SimpleUser
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleUser
     {
         $properties = []; 
         $missingFields = [];
@@ -1922,22 +1922,22 @@ class CheckSuites implements ObjectMapper
             after_starredAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SimpleUser(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\SimpleUser(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\MinimalRepository\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -1998,22 +1998,22 @@ class CheckSuites implements ObjectMapper
             after_pull:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MinimalRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\MinimalRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\MinimalRepository\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MinimalRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeOfConduct(array $payload): \ApiClients\Client\Github\Schema\CodeOfConduct
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeOfConduct(array $payload): \ApiClients\Client\GitHubAE\Schema\CodeOfConduct
     {
         $properties = []; 
         $missingFields = [];
@@ -2074,22 +2074,22 @@ class CheckSuites implements ObjectMapper
             after_htmlUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeOfConduct', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeOfConduct', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeOfConduct::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\CodeOfConduct::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\CodeOfConduct(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\CodeOfConduct(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeOfConduct', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeOfConduct', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️License(array $payload): \ApiClients\Client\Github\Schema\MinimalRepository\License
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️License(array $payload): \ApiClients\Client\GitHubAE\Schema\MinimalRepository\License
     {
         $properties = []; 
         $missingFields = [];
@@ -2150,22 +2150,22 @@ class CheckSuites implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MinimalRepository\License', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\MinimalRepository\License', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\MinimalRepository\License::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\MinimalRepository\License::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\MinimalRepository\License(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\MinimalRepository\License(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MinimalRepository\License', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\MinimalRepository\License', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit(array $payload): \ApiClients\Client\Github\Schema\SimpleCommit
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleCommit
     {
         $properties = []; 
         $missingFields = [];
@@ -2224,7 +2224,7 @@ class CheckSuites implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'author';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit⚡️Author($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit⚡️Author($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2244,7 +2244,7 @@ class CheckSuites implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'committer';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit⚡️Committer($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit⚡️Committer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2255,22 +2255,22 @@ class CheckSuites implements ObjectMapper
             after_committer:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleCommit', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleCommit', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleCommit::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleCommit::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SimpleCommit(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\SimpleCommit(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleCommit', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleCommit', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit⚡️Author(array $payload): \ApiClients\Client\Github\Schema\SimpleCommit\Author
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit⚡️Author(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleCommit\Author
     {
         $properties = []; 
         $missingFields = [];
@@ -2298,22 +2298,22 @@ class CheckSuites implements ObjectMapper
             after_email:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleCommit\Author', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleCommit\Author', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleCommit\Author::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleCommit\Author::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SimpleCommit\Author(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\SimpleCommit\Author(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleCommit\Author', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleCommit\Author', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit⚡️Committer(array $payload): \ApiClients\Client\Github\Schema\SimpleCommit\Committer
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit⚡️Committer(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleCommit\Committer
     {
         $properties = []; 
         $missingFields = [];
@@ -2341,17 +2341,17 @@ class CheckSuites implements ObjectMapper
             after_email:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleCommit\Committer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleCommit\Committer', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleCommit\Committer::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleCommit\Committer::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SimpleCommit\Committer(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\SimpleCommit\Committer(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleCommit\Committer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleCommit\Committer', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -2386,21 +2386,21 @@ class CheckSuites implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Checks⚡️ListSuitesForRef⚡️Response⚡️Applicationjson⚡️H200($object),
-            'ApiClients\Client\Github\Schema\CheckSuite' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CheckSuite($object),
-            'ApiClients\Client\Github\Schema\PullRequestMinimal' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal($object),
-            'ApiClients\Client\Github\Schema\PullRequestMinimal\Head' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Head($object),
-            'ApiClients\Client\Github\Schema\PullRequestMinimal\Head\Repo' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($object),
-            'ApiClients\Client\Github\Schema\PullRequestMinimal\Base' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Base($object),
-            'ApiClients\Client\Github\Schema\PullRequestMinimal\Base\Repo' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Base⚡️Repo($object),
-            'ApiClients\Client\Github\Schema\MinimalRepository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository($object),
-            'ApiClients\Client\Github\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($object),
-            'ApiClients\Client\Github\Schema\MinimalRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️Permissions($object),
-            'ApiClients\Client\Github\Schema\CodeOfConduct' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeOfConduct($object),
-            'ApiClients\Client\Github\Schema\MinimalRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️License($object),
-            'ApiClients\Client\Github\Schema\SimpleCommit' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit($object),
-            'ApiClients\Client\Github\Schema\SimpleCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit⚡️Author($object),
-            'ApiClients\Client\Github\Schema\SimpleCommit\Committer' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit⚡️Committer($object),
+            'ApiClients\Client\GitHubAE\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Checks⚡️ListSuitesForRef⚡️Response⚡️Applicationjson⚡️H200($object),
+            'ApiClients\Client\GitHubAE\Schema\CheckSuite' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CheckSuite($object),
+            'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal($object),
+            'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head($object),
+            'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head\Repo' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($object),
+            'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base($object),
+            'ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base⚡️Repo($object),
+            'ApiClients\Client\GitHubAE\Schema\MinimalRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository($object),
+            'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
+            'ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️Permissions($object),
+            'ApiClients\Client\GitHubAE\Schema\CodeOfConduct' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeOfConduct($object),
+            'ApiClients\Client\GitHubAE\Schema\MinimalRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️License($object),
+            'ApiClients\Client\GitHubAE\Schema\SimpleCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit($object),
+            'ApiClients\Client\GitHubAE\Schema\SimpleCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit⚡️Author($object),
+            'ApiClients\Client\GitHubAE\Schema\SimpleCommit\Committer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit⚡️Committer($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -2474,9 +2474,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Checks⚡️ListSuitesForRef⚡️Response⚡️Applicationjson⚡️H200(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Checks⚡️ListSuitesForRef⚡️Response⚡️Applicationjson⚡️H200(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operation\Checks\ListSuitesForRef\Response\Applicationjson\H200);
         $result = [];
 
         $totalCount = $object->totalCount;
@@ -2488,7 +2488,7 @@ class CheckSuites implements ObjectMapper
 
         if ($checkSuitesSerializer0 === null) {
             $checkSuitesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\CheckSuite',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\CheckSuite',
 ));
         }
         
@@ -2500,9 +2500,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CheckSuite(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CheckSuite(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\CheckSuite);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\CheckSuite);
         $result = [];
 
         $id = $object->id;
@@ -2574,7 +2574,7 @@ class CheckSuites implements ObjectMapper
 
         if ($pullRequestsSerializer0 === null) {
             $pullRequestsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\PullRequestMinimal',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\PullRequestMinimal',
 ));
         }
         
@@ -2591,7 +2591,7 @@ class CheckSuites implements ObjectMapper
 
         
         $repository = $object->repository;
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
@@ -2612,7 +2612,7 @@ class CheckSuites implements ObjectMapper
 
         
         $headCommit = $object->headCommit;
-        $headCommit = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit($headCommit);
+        $headCommit = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit($headCommit);
         after_headCommit:        $result['head_commit'] = $headCommit;
 
         
@@ -2644,9 +2644,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequestMinimal);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal);
         $result = [];
 
         $id = $object->id;
@@ -2662,12 +2662,12 @@ class CheckSuites implements ObjectMapper
 
         
         $head = $object->head;
-        $head = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Head($head);
+        $head = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head($head);
         after_head:        $result['head'] = $head;
 
         
         $base = $object->base;
-        $base = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Base($base);
+        $base = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base($base);
         after_base:        $result['base'] = $base;
 
 
@@ -2675,9 +2675,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Head(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequestMinimal\Head);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head);
         $result = [];
 
         $ref = $object->ref;
@@ -2689,7 +2689,7 @@ class CheckSuites implements ObjectMapper
 
         
         $repo = $object->repo;
-        $repo = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($repo);
+        $repo = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($repo);
         after_repo:        $result['repo'] = $repo;
 
 
@@ -2697,9 +2697,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequestMinimal\Head\Repo);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Head\Repo);
         $result = [];
 
         $id = $object->id;
@@ -2718,9 +2718,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Base(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequestMinimal\Base);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base);
         $result = [];
 
         $ref = $object->ref;
@@ -2732,7 +2732,7 @@ class CheckSuites implements ObjectMapper
 
         
         $repo = $object->repo;
-        $repo = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($repo);
+        $repo = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Head⚡️Repo($repo);
         after_repo:        $result['repo'] = $repo;
 
 
@@ -2740,9 +2740,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PullRequestMinimal⚡️Base⚡️Repo(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PullRequestMinimal⚡️Base⚡️Repo(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PullRequestMinimal\Base\Repo);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PullRequestMinimal\Base\Repo);
         $result = [];
 
         $id = $object->id;
@@ -2761,9 +2761,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\MinimalRepository);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\MinimalRepository);
         $result = [];
 
         $id = $object->id;
@@ -2783,7 +2783,7 @@ class CheckSuites implements ObjectMapper
 
         
         $owner = $object->owner;
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -3184,7 +3184,7 @@ class CheckSuites implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -3233,7 +3233,7 @@ class CheckSuites implements ObjectMapper
         if ($codeOfConduct === null) {
             goto after_codeOfConduct;
         }
-        $codeOfConduct = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeOfConduct($codeOfConduct);
+        $codeOfConduct = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeOfConduct($codeOfConduct);
         after_codeOfConduct:        $result['code_of_conduct'] = $codeOfConduct;
 
         
@@ -3242,7 +3242,7 @@ class CheckSuites implements ObjectMapper
         if ($license === null) {
             goto after_license;
         }
-        $license = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️License($license);
+        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️License($license);
         after_license:        $result['license'] = $license;
 
         
@@ -3290,9 +3290,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleUser);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleUser);
         $result = [];
 
         $name = $object->name;
@@ -3399,9 +3399,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\MinimalRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\MinimalRepository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -3448,9 +3448,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeOfConduct(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeOfConduct(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeOfConduct);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\CodeOfConduct);
         $result = [];
 
         $key = $object->key;
@@ -3485,9 +3485,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️License(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️MinimalRepository⚡️License(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\MinimalRepository\License);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\MinimalRepository\License);
         $result = [];
 
         $key = $object->key;
@@ -3534,9 +3534,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleCommit);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleCommit);
         $result = [];
 
         $id = $object->id;
@@ -3560,7 +3560,7 @@ class CheckSuites implements ObjectMapper
         if ($author === null) {
             goto after_author;
         }
-        $author = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit⚡️Author($author);
+        $author = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit⚡️Author($author);
         after_author:        $result['author'] = $author;
 
         
@@ -3569,7 +3569,7 @@ class CheckSuites implements ObjectMapper
         if ($committer === null) {
             goto after_committer;
         }
-        $committer = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit⚡️Committer($committer);
+        $committer = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit⚡️Committer($committer);
         after_committer:        $result['committer'] = $committer;
 
 
@@ -3577,9 +3577,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit⚡️Author(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit⚡️Author(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleCommit\Author);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleCommit\Author);
         $result = [];
 
         $name = $object->name;
@@ -3594,9 +3594,9 @@ class CheckSuites implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleCommit⚡️Committer(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit⚡️Committer(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleCommit\Committer);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleCommit\Committer);
         $result = [];
 
         $name = $object->name;

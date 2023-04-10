@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Setup\Api;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Setup\Api;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,14 +23,14 @@ class Maintenance implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\MaintenanceStatus' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MaintenanceStatus($payload),
-                'ApiClients\Client\Github\Schema\MaintenanceStatus\ConnectionServices' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MaintenanceStatus⚡️ConnectionServices($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MaintenanceStatus($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MaintenanceStatus⚡️ConnectionServices($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MaintenanceStatus(array $payload): \ApiClients\Client\Github\Schema\MaintenanceStatus
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MaintenanceStatus(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus
     {
         $properties = []; 
         $missingFields = [];
@@ -68,7 +68,7 @@ class Maintenance implements ObjectMapper
 
             if ($connectionServicesCaster1 === null) {
                 $connectionServicesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\MaintenanceStatus\\ConnectionServices',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\MaintenanceStatus\\ConnectionServices',
 ));
             }
 
@@ -79,22 +79,22 @@ class Maintenance implements ObjectMapper
             after_connectionServices:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MaintenanceStatus', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\MaintenanceStatus::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\MaintenanceStatus(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MaintenanceStatus', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MaintenanceStatus⚡️ConnectionServices(array $payload): \ApiClients\Client\Github\Schema\MaintenanceStatus\ConnectionServices
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MaintenanceStatus⚡️ConnectionServices(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices
     {
         $properties = []; 
         $missingFields = [];
@@ -122,17 +122,17 @@ class Maintenance implements ObjectMapper
             after_number:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MaintenanceStatus\ConnectionServices', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\MaintenanceStatus\ConnectionServices::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\MaintenanceStatus\ConnectionServices(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MaintenanceStatus\ConnectionServices', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -167,8 +167,8 @@ class Maintenance implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\MaintenanceStatus' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MaintenanceStatus($object),
-            'ApiClients\Client\Github\Schema\MaintenanceStatus\ConnectionServices' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MaintenanceStatus⚡️ConnectionServices($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MaintenanceStatus($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MaintenanceStatus⚡️ConnectionServices($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -242,9 +242,9 @@ class Maintenance implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MaintenanceStatus(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MaintenanceStatus(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\MaintenanceStatus);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus);
         $result = [];
 
         $status = $object->status;
@@ -272,7 +272,7 @@ class Maintenance implements ObjectMapper
 
         if ($connectionServicesSerializer0 === null) {
             $connectionServicesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\MaintenanceStatus\\ConnectionServices',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\MaintenanceStatus\\ConnectionServices',
 ));
         }
         
@@ -284,9 +284,9 @@ class Maintenance implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MaintenanceStatus⚡️ConnectionServices(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MaintenanceStatus⚡️ConnectionServices(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\MaintenanceStatus\ConnectionServices);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus\ConnectionServices);
         $result = [];
 
         $name = $object->name;

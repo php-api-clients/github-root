@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Actions;
+namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\Actions;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final class GetEnvironmentSecretTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,7 +22,7 @@ final class GetEnvironmentSecretTest extends \WyriHaximus\AsyncTestUtilities\Asy
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/repositories/13/environments/generated_null/secrets/generated_null', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Actions\GetEnvironmentSecret::OPERATION_MATCH, array('repository_id' => 13, 'environment_name' => 'generated_null', 'secret_name' => 'generated_null'));
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Actions\GetEnvironmentSecret::OPERATION_MATCH, array('repository_id' => 13, 'environment_name' => 'generated_null', 'secret_name' => 'generated_null'));
     }
 }

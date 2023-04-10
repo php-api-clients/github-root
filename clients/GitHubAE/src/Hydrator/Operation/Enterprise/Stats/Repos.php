@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Enterprise\Stats;
+namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Enterprise\Stats;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class Repos implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseRepositoryOverview($payload),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseRepositoryOverview(array $payload): \ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview
     {
         $properties = []; 
         $missingFields = [];
@@ -101,17 +101,17 @@ class Repos implements ObjectMapper
             after_totalWikis:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -146,7 +146,7 @@ class Repos implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseRepositoryOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -220,9 +220,9 @@ class Repos implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseRepositoryOverview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview);
         $result = [];
 
         $totalRepos = $object->totalRepos;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Admin;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Admin;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,17 +23,17 @@ class PreReceiveHooks implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\PreReceiveHook' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook($payload),
-                'ApiClients\Client\Github\Schema\PreReceiveHook\ScriptRepository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository($payload),
-                'ApiClients\Client\Github\Schema\PreReceiveHook\Environment' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️Environment($payload),
-                'ApiClients\Client\Github\Schema\PreReceiveHook\Environment\Download' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️Environment⚡️Download($payload),
-                'ApiClients\Client\Github\Schema\PreReceiveEnvironment\Download' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveEnvironment⚡️Download($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️Environment($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment\Download' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️Environment⚡️Download($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment\Download' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironment⚡️Download($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook(array $payload): \ApiClients\Client\Github\Schema\PreReceiveHook
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook
     {
         $properties = []; 
         $missingFields = [];
@@ -92,7 +92,7 @@ class PreReceiveHooks implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'scriptRepository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -112,7 +112,7 @@ class PreReceiveHooks implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'environment';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️Environment($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️Environment($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -134,22 +134,22 @@ class PreReceiveHooks implements ObjectMapper
             after_allowDownstreamConfiguration:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PreReceiveHook', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PreReceiveHook::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PreReceiveHook(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PreReceiveHook', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository(array $payload): \ApiClients\Client\Github\Schema\PreReceiveHook\ScriptRepository
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository
     {
         $properties = []; 
         $missingFields = [];
@@ -199,22 +199,22 @@ class PreReceiveHooks implements ObjectMapper
             after_htmlUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PreReceiveHook\ScriptRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PreReceiveHook\ScriptRepository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PreReceiveHook\ScriptRepository(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PreReceiveHook\ScriptRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️Environment(array $payload): \ApiClients\Client\Github\Schema\PreReceiveHook\Environment
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️Environment(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment
     {
         $properties = []; 
         $missingFields = [];
@@ -317,7 +317,7 @@ class PreReceiveHooks implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'download';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveEnvironment⚡️Download($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironment⚡️Download($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -328,22 +328,22 @@ class PreReceiveHooks implements ObjectMapper
             after_download:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PreReceiveHook\Environment', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PreReceiveHook\Environment::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PreReceiveHook\Environment(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PreReceiveHook\Environment', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️Environment⚡️Download(array $payload): \ApiClients\Client\Github\Schema\PreReceiveHook\Environment\Download
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️Environment⚡️Download(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment\Download
     {
         $properties = []; 
         $missingFields = [];
@@ -393,22 +393,22 @@ class PreReceiveHooks implements ObjectMapper
             after_message:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PreReceiveHook\Environment\Download', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment\Download', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PreReceiveHook\Environment\Download::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment\Download::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PreReceiveHook\Environment\Download(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment\Download(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PreReceiveHook\Environment\Download', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment\Download', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveEnvironment⚡️Download(array $payload): \ApiClients\Client\Github\Schema\PreReceiveEnvironment\Download
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironment⚡️Download(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment\Download
     {
         $properties = []; 
         $missingFields = [];
@@ -458,17 +458,17 @@ class PreReceiveHooks implements ObjectMapper
             after_message:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PreReceiveEnvironment\Download', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment\Download', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PreReceiveEnvironment\Download::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment\Download::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PreReceiveEnvironment\Download(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment\Download(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PreReceiveEnvironment\Download', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment\Download', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -503,10 +503,10 @@ class PreReceiveHooks implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\PreReceiveHook' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook($object),
-            'ApiClients\Client\Github\Schema\PreReceiveHook\ScriptRepository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository($object),
-            'ApiClients\Client\Github\Schema\PreReceiveHook\Environment' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️Environment($object),
-            'ApiClients\Client\Github\Schema\PreReceiveHook\Environment\Download' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️Environment⚡️Download($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️Environment($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment\Download' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️Environment⚡️Download($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -580,9 +580,9 @@ class PreReceiveHooks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PreReceiveHook);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook);
         $result = [];
 
         $id = $object->id;
@@ -622,7 +622,7 @@ class PreReceiveHooks implements ObjectMapper
         if ($scriptRepository === null) {
             goto after_scriptRepository;
         }
-        $scriptRepository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository($scriptRepository);
+        $scriptRepository = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository($scriptRepository);
         after_scriptRepository:        $result['script_repository'] = $scriptRepository;
 
         
@@ -631,7 +631,7 @@ class PreReceiveHooks implements ObjectMapper
         if ($environment === null) {
             goto after_environment;
         }
-        $environment = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️Environment($environment);
+        $environment = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️Environment($environment);
         after_environment:        $result['environment'] = $environment;
 
         
@@ -647,9 +647,9 @@ class PreReceiveHooks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️ScriptRepository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PreReceiveHook\ScriptRepository);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\ScriptRepository);
         $result = [];
 
         $id = $object->id;
@@ -688,9 +688,9 @@ class PreReceiveHooks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️Environment(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️Environment(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PreReceiveHook\Environment);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment);
         $result = [];
 
         $id = $object->id;
@@ -762,7 +762,7 @@ class PreReceiveHooks implements ObjectMapper
         if ($download === null) {
             goto after_download;
         }
-        $download = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveEnvironment⚡️Download($download);
+        $download = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironment⚡️Download($download);
         after_download:        $result['download'] = $download;
 
 
@@ -770,9 +770,9 @@ class PreReceiveHooks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveHook⚡️Environment⚡️Download(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveHook⚡️Environment⚡️Download(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PreReceiveHook\Environment\Download);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook\Environment\Download);
         $result = [];
 
         $url = $object->url;

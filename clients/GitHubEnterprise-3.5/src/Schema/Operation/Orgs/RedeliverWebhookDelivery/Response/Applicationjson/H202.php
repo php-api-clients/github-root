@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\Github\Schema\Operation\Orgs\RedeliverWebhookDelivery\Response\Applicationjson;
+namespace ApiClients\Client\GitHubEnterprise\Schema\Operation\Orgs\RedeliverWebhookDelivery\Response\Applicationjson;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final readonly class H202 extends Schema\AliasAbstract\Abstract01fc056eed58c88fe1c507fcd84dd4b7
 {
 }

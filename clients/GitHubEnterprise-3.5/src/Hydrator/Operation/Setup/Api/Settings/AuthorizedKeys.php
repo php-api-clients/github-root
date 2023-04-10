@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Setup\Api\Settings;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Setup\Api\Settings;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class AuthorizedKeys implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\SshKey' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SshKey($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\SshKey' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SshKey($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SshKey(array $payload): \ApiClients\Client\Github\Schema\SshKey
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SshKey(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SshKey
     {
         $properties = []; 
         $missingFields = [];
@@ -57,17 +57,17 @@ class AuthorizedKeys implements ObjectMapper
             after_prettyMinusPrint:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SshKey', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SshKey', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SshKey::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SshKey::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SshKey(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\SshKey(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SshKey', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SshKey', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -102,7 +102,7 @@ class AuthorizedKeys implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\SshKey' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SshKey($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\SshKey' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SshKey($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -176,9 +176,9 @@ class AuthorizedKeys implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SshKey(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SshKey(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SshKey);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SshKey);
         $result = [];
 
         $key = $object->key;

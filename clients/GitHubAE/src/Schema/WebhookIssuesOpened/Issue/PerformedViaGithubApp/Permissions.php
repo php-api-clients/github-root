@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\Github\Schema\WebhookIssuesOpened\Issue\PerformedViaGithubApp;
+namespace ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Issue\PerformedViaGithubApp;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
+use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Operation;
+use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Client\GitHubAE\WebHook;
 final readonly class Permissions extends Schema\AliasAbstract\Abstractdc57b05b43e2e854f0dee07aa1a61505
 {
 }

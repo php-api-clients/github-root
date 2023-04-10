@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Enterprise\Stats;
+namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Enterprise\Stats;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,23 +23,23 @@ class All implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\EnterpriseOverview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseOverview($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseRepositoryOverview($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseHookOverview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseHookOverview($payload),
-                'ApiClients\Client\Github\Schema\EnterprisePageOverview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterprisePageOverview($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseOrganizationOverview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseOrganizationOverview($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseUserOverview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseUserOverview($payload),
-                'ApiClients\Client\Github\Schema\EnterprisePullRequestOverview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterprisePullRequestOverview($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseIssueOverview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseIssueOverview($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseMilestoneOverview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseMilestoneOverview($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseGistOverview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseGistOverview($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseCommentOverview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseCommentOverview($payload),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOverview($payload),
+                'ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview($payload),
+                'ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseHookOverview($payload),
+                'ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePageOverview($payload),
+                'ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOrganizationOverview($payload),
+                'ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview($payload),
+                'ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePullRequestOverview($payload),
+                'ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseIssueOverview($payload),
+                'ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview($payload),
+                'ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseGistOverview($payload),
+                'ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseCommentOverview($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseOverview(array $payload): \ApiClients\Client\Github\Schema\EnterpriseOverview
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseOverview
     {
         $properties = []; 
         $missingFields = [];
@@ -54,7 +54,7 @@ class All implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repos';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseRepositoryOverview($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -74,7 +74,7 @@ class All implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'hooks';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseHookOverview($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseHookOverview($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -94,7 +94,7 @@ class All implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'pages';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterprisePageOverview($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePageOverview($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -114,7 +114,7 @@ class All implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'orgs';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseOrganizationOverview($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOrganizationOverview($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -134,7 +134,7 @@ class All implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'users';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseUserOverview($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -154,7 +154,7 @@ class All implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'pulls';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterprisePullRequestOverview($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePullRequestOverview($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -174,7 +174,7 @@ class All implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'issues';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseIssueOverview($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseIssueOverview($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -194,7 +194,7 @@ class All implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'milestones';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseMilestoneOverview($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -214,7 +214,7 @@ class All implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'gists';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseGistOverview($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseGistOverview($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -234,7 +234,7 @@ class All implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'comments';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseCommentOverview($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseCommentOverview($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -245,22 +245,22 @@ class All implements ObjectMapper
             after_comments:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseOverview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseOverview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseOverview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseOverview(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseOverview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseOverview', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseRepositoryOverview(array $payload): \ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview
     {
         $properties = []; 
         $missingFields = [];
@@ -332,22 +332,22 @@ class All implements ObjectMapper
             after_totalWikis:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseHookOverview(array $payload): \ApiClients\Client\Github\Schema\EnterpriseHookOverview
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseHookOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview
     {
         $properties = []; 
         $missingFields = [];
@@ -386,22 +386,22 @@ class All implements ObjectMapper
             after_inactiveHooks:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseHookOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseHookOverview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseHookOverview(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseHookOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterprisePageOverview(array $payload): \ApiClients\Client\Github\Schema\EnterprisePageOverview
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePageOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview
     {
         $properties = []; 
         $missingFields = [];
@@ -418,22 +418,22 @@ class All implements ObjectMapper
             after_totalPages:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterprisePageOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterprisePageOverview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterprisePageOverview(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterprisePageOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseOrganizationOverview(array $payload): \ApiClients\Client\Github\Schema\EnterpriseOrganizationOverview
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOrganizationOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview
     {
         $properties = []; 
         $missingFields = [];
@@ -483,22 +483,22 @@ class All implements ObjectMapper
             after_totalTeamMembers:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseOrganizationOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseOrganizationOverview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseOrganizationOverview(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseOrganizationOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseUserOverview(array $payload): \ApiClients\Client\Github\Schema\EnterpriseUserOverview
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview
     {
         $properties = []; 
         $missingFields = [];
@@ -537,22 +537,22 @@ class All implements ObjectMapper
             after_suspendedUsers:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseUserOverview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseUserOverview(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterprisePullRequestOverview(array $payload): \ApiClients\Client\Github\Schema\EnterprisePullRequestOverview
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePullRequestOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview
     {
         $properties = []; 
         $missingFields = [];
@@ -602,22 +602,22 @@ class All implements ObjectMapper
             after_unmergeablePulls:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterprisePullRequestOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterprisePullRequestOverview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterprisePullRequestOverview(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterprisePullRequestOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseIssueOverview(array $payload): \ApiClients\Client\Github\Schema\EnterpriseIssueOverview
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseIssueOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview
     {
         $properties = []; 
         $missingFields = [];
@@ -656,22 +656,22 @@ class All implements ObjectMapper
             after_closedIssues:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseIssueOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseIssueOverview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseIssueOverview(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseIssueOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseMilestoneOverview(array $payload): \ApiClients\Client\Github\Schema\EnterpriseMilestoneOverview
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview
     {
         $properties = []; 
         $missingFields = [];
@@ -710,22 +710,22 @@ class All implements ObjectMapper
             after_closedMilestones:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseMilestoneOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseMilestoneOverview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseMilestoneOverview(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseMilestoneOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseGistOverview(array $payload): \ApiClients\Client\Github\Schema\EnterpriseGistOverview
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseGistOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview
     {
         $properties = []; 
         $missingFields = [];
@@ -764,22 +764,22 @@ class All implements ObjectMapper
             after_publicGists:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseGistOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseGistOverview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseGistOverview(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseGistOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseCommentOverview(array $payload): \ApiClients\Client\Github\Schema\EnterpriseCommentOverview
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseCommentOverview(array $payload): \ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview
     {
         $properties = []; 
         $missingFields = [];
@@ -829,17 +829,17 @@ class All implements ObjectMapper
             after_totalPullRequestComments:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseCommentOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseCommentOverview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseCommentOverview(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseCommentOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -874,17 +874,17 @@ class All implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\EnterpriseOverview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseOverview($object),
-            'ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseRepositoryOverview($object),
-            'ApiClients\Client\Github\Schema\EnterpriseHookOverview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseHookOverview($object),
-            'ApiClients\Client\Github\Schema\EnterprisePageOverview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterprisePageOverview($object),
-            'ApiClients\Client\Github\Schema\EnterpriseOrganizationOverview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseOrganizationOverview($object),
-            'ApiClients\Client\Github\Schema\EnterpriseUserOverview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseUserOverview($object),
-            'ApiClients\Client\Github\Schema\EnterprisePullRequestOverview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterprisePullRequestOverview($object),
-            'ApiClients\Client\Github\Schema\EnterpriseIssueOverview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseIssueOverview($object),
-            'ApiClients\Client\Github\Schema\EnterpriseMilestoneOverview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseMilestoneOverview($object),
-            'ApiClients\Client\Github\Schema\EnterpriseGistOverview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseGistOverview($object),
-            'ApiClients\Client\Github\Schema\EnterpriseCommentOverview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseCommentOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseHookOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePageOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOrganizationOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePullRequestOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseIssueOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseGistOverview($object),
+            'ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseCommentOverview($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -958,9 +958,9 @@ class All implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseOverview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOverview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseOverview);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseOverview);
         $result = [];
 
         $repos = $object->repos;
@@ -968,7 +968,7 @@ class All implements ObjectMapper
         if ($repos === null) {
             goto after_repos;
         }
-        $repos = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseRepositoryOverview($repos);
+        $repos = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview($repos);
         after_repos:        $result['repos'] = $repos;
 
         
@@ -977,7 +977,7 @@ class All implements ObjectMapper
         if ($hooks === null) {
             goto after_hooks;
         }
-        $hooks = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseHookOverview($hooks);
+        $hooks = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseHookOverview($hooks);
         after_hooks:        $result['hooks'] = $hooks;
 
         
@@ -986,7 +986,7 @@ class All implements ObjectMapper
         if ($pages === null) {
             goto after_pages;
         }
-        $pages = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterprisePageOverview($pages);
+        $pages = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePageOverview($pages);
         after_pages:        $result['pages'] = $pages;
 
         
@@ -995,7 +995,7 @@ class All implements ObjectMapper
         if ($orgs === null) {
             goto after_orgs;
         }
-        $orgs = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseOrganizationOverview($orgs);
+        $orgs = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOrganizationOverview($orgs);
         after_orgs:        $result['orgs'] = $orgs;
 
         
@@ -1004,7 +1004,7 @@ class All implements ObjectMapper
         if ($users === null) {
             goto after_users;
         }
-        $users = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseUserOverview($users);
+        $users = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview($users);
         after_users:        $result['users'] = $users;
 
         
@@ -1013,7 +1013,7 @@ class All implements ObjectMapper
         if ($pulls === null) {
             goto after_pulls;
         }
-        $pulls = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterprisePullRequestOverview($pulls);
+        $pulls = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePullRequestOverview($pulls);
         after_pulls:        $result['pulls'] = $pulls;
 
         
@@ -1022,7 +1022,7 @@ class All implements ObjectMapper
         if ($issues === null) {
             goto after_issues;
         }
-        $issues = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseIssueOverview($issues);
+        $issues = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseIssueOverview($issues);
         after_issues:        $result['issues'] = $issues;
 
         
@@ -1031,7 +1031,7 @@ class All implements ObjectMapper
         if ($milestones === null) {
             goto after_milestones;
         }
-        $milestones = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseMilestoneOverview($milestones);
+        $milestones = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview($milestones);
         after_milestones:        $result['milestones'] = $milestones;
 
         
@@ -1040,7 +1040,7 @@ class All implements ObjectMapper
         if ($gists === null) {
             goto after_gists;
         }
-        $gists = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseGistOverview($gists);
+        $gists = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseGistOverview($gists);
         after_gists:        $result['gists'] = $gists;
 
         
@@ -1049,7 +1049,7 @@ class All implements ObjectMapper
         if ($comments === null) {
             goto after_comments;
         }
-        $comments = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseCommentOverview($comments);
+        $comments = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseCommentOverview($comments);
         after_comments:        $result['comments'] = $comments;
 
 
@@ -1057,9 +1057,9 @@ class All implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseRepositoryOverview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseRepositoryOverview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseRepositoryOverview);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseRepositoryOverview);
         $result = [];
 
         $totalRepos = $object->totalRepos;
@@ -1090,9 +1090,9 @@ class All implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseHookOverview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseHookOverview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseHookOverview);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseHookOverview);
         $result = [];
 
         $totalHooks = $object->totalHooks;
@@ -1111,9 +1111,9 @@ class All implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterprisePageOverview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePageOverview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterprisePageOverview);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterprisePageOverview);
         $result = [];
 
         $totalPages = $object->totalPages;
@@ -1124,9 +1124,9 @@ class All implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseOrganizationOverview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseOrganizationOverview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseOrganizationOverview);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseOrganizationOverview);
         $result = [];
 
         $totalOrgs = $object->totalOrgs;
@@ -1149,9 +1149,9 @@ class All implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseUserOverview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseUserOverview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseUserOverview);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseUserOverview);
         $result = [];
 
         $totalUsers = $object->totalUsers;
@@ -1170,9 +1170,9 @@ class All implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterprisePullRequestOverview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterprisePullRequestOverview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterprisePullRequestOverview);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterprisePullRequestOverview);
         $result = [];
 
         $totalPulls = $object->totalPulls;
@@ -1195,9 +1195,9 @@ class All implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseIssueOverview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseIssueOverview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseIssueOverview);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview);
         $result = [];
 
         $totalIssues = $object->totalIssues;
@@ -1216,9 +1216,9 @@ class All implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseMilestoneOverview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseMilestoneOverview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseMilestoneOverview);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseMilestoneOverview);
         $result = [];
 
         $totalMilestones = $object->totalMilestones;
@@ -1237,9 +1237,9 @@ class All implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseGistOverview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseGistOverview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseGistOverview);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview);
         $result = [];
 
         $totalGists = $object->totalGists;
@@ -1258,9 +1258,9 @@ class All implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseCommentOverview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️EnterpriseCommentOverview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseCommentOverview);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview);
         $result = [];
 
         $totalCommitComments = $object->totalCommitComments;

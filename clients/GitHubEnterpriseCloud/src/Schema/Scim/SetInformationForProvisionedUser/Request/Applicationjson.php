@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\Github\Schema\Scim\SetInformationForProvisionedUser\Request;
+namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\Scim\SetInformationForProvisionedUser\Request;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
+use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
 final readonly class Applicationjson
 {
     public const SCHEMA_JSON = '{"required":["userName","name","emails"],"type":"object","properties":{"schemas":{"type":"array","items":{"type":"string"}},"displayName":{"type":"string","description":"The name of the user, suitable for display to end-users","examples":["Jon Doe"]},"externalId":{"type":"string"},"groups":{"type":"array","items":{"type":"string"}},"active":{"type":"boolean"},"userName":{"type":"string","description":"Configured by the admin. Could be an email, login, or username","examples":["someone@example.com"]},"name":{"required":["givenName","familyName"],"type":"object","properties":{"givenName":{"type":"string"},"familyName":{"type":"string"},"formatted":{"type":"string"}},"example":{"givenName":"Jane","familyName":"User"}},"emails":{"minItems":1,"type":"array","items":{"required":["value"],"type":"object","properties":{"type":{"type":"string"},"value":{"type":"string"},"primary":{"type":"boolean"}}},"description":"user emails","examples":[{"value":"someone@example.com","primary":true},{"value":"another@example.com","primary":false}]}}}';
@@ -20,7 +20,7 @@ final readonly class Applicationjson
      * @param ?array<string> $groups
      * userName: Configured by the admin. Could be an email, login, or username
      * emails: user emails
-     * @param array<\ApiClients\Client\Github\Schema\Scim\SetInformationForProvisionedUser\Request\Applicationjson\Emails> $emails
+     * @param array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\Scim\SetInformationForProvisionedUser\Request\Applicationjson\Emails> $emails
      */
     public function __construct(public ?array $schemas, public ?string $displayName, public ?string $externalId, public ?array $groups, public ?bool $active, public string $userName, public Schema\Scim\SetInformationForProvisionedUser\Request\Applicationjson\Name $name, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Scim\SetInformationForProvisionedUser\Request\Applicationjson\Emails::class)] public array $emails)
     {

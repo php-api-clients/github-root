@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Gists;
+namespace ApiClients\Tests\Client\GitHubEnterpriseCloud\Operation\Gists;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
+use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
 final class GetCommentTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class GetCommentTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/gists/generated_null/comments/13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Gists\GetComment::OPERATION_MATCH, array('gist_id' => 'generated_null', 'comment_id' => 13));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Gists\GetComment::OPERATION_MATCH, array('gist_id' => 'generated_null', 'comment_id' => 13));
     }
     /**
      * @test
@@ -38,8 +38,8 @@ final class GetCommentTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/gists/generated_null/comments/13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Gists\GetComment::OPERATION_MATCH, array('gist_id' => 'generated_null', 'comment_id' => 13));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Gists\GetComment::OPERATION_MATCH, array('gist_id' => 'generated_null', 'comment_id' => 13));
     }
     /**
      * @test
@@ -54,7 +54,7 @@ final class GetCommentTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/gists/generated_null/comments/13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Gists\GetComment::OPERATION_MATCH, array('gist_id' => 'generated_null', 'comment_id' => 13));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Gists\GetComment::OPERATION_MATCH, array('gist_id' => 'generated_null', 'comment_id' => 13));
     }
 }

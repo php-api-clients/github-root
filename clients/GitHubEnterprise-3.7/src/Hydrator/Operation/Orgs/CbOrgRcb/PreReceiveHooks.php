@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Orgs\CbOrgRcb;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Orgs\CbOrgRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class PreReceiveHooks implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\OrgPreReceiveHook' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrgPreReceiveHook($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrgPreReceiveHook($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrgPreReceiveHook(array $payload): \ApiClients\Client\Github\Schema\OrgPreReceiveHook
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrgPreReceiveHook(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook
     {
         $properties = []; 
         $missingFields = [];
@@ -90,17 +90,17 @@ class PreReceiveHooks implements ObjectMapper
             after_allowDownstreamConfiguration:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\OrgPreReceiveHook', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\OrgPreReceiveHook::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\OrgPreReceiveHook(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\OrgPreReceiveHook', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -135,7 +135,7 @@ class PreReceiveHooks implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\OrgPreReceiveHook' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrgPreReceiveHook($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrgPreReceiveHook($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -209,9 +209,9 @@ class PreReceiveHooks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrgPreReceiveHook(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️OrgPreReceiveHook(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\OrgPreReceiveHook);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook);
         $result = [];
 
         $id = $object->id;

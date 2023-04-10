@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\CodeScanning;
+namespace ApiClients\Tests\Client\GitHubAE\Operation\CodeScanning;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
+use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Operation;
+use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Client\GitHubAE\WebHook;
 final class UpdateAlertTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class UpdateAlertTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCas
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/repos/generated_null/generated_null/code-scanning/alerts/13', \Prophecy\Argument::type('array'), Schema\CodeScanning\UpdateAlert\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\UpdateAlert::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\CodeScanning\UpdateAlert::OPERATION_MATCH, (static function (array $data) : array {
             $data['owner'] = 'generated_null';
             $data['repo'] = 'generated_null';
             $data['alert_number'] = 13;
@@ -43,8 +43,8 @@ final class UpdateAlertTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCas
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/repos/generated_null/generated_null/code-scanning/alerts/13', \Prophecy\Argument::type('array'), Schema\CodeScanning\UpdateAlert\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\UpdateAlert::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\CodeScanning\UpdateAlert::OPERATION_MATCH, (static function (array $data) : array {
             $data['owner'] = 'generated_null';
             $data['repo'] = 'generated_null';
             $data['alert_number'] = 13;
@@ -64,8 +64,8 @@ final class UpdateAlertTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCas
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/repos/generated_null/generated_null/code-scanning/alerts/13', \Prophecy\Argument::type('array'), Schema\CodeScanning\UpdateAlert\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\UpdateAlert::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\CodeScanning\UpdateAlert::OPERATION_MATCH, (static function (array $data) : array {
             $data['owner'] = 'generated_null';
             $data['repo'] = 'generated_null';
             $data['alert_number'] = 13;
@@ -85,8 +85,8 @@ final class UpdateAlertTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCas
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/repos/generated_null/generated_null/code-scanning/alerts/13', \Prophecy\Argument::type('array'), Schema\CodeScanning\UpdateAlert\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\UpdateAlert::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\CodeScanning\UpdateAlert::OPERATION_MATCH, (static function (array $data) : array {
             $data['owner'] = 'generated_null';
             $data['repo'] = 'generated_null';
             $data['alert_number'] = 13;

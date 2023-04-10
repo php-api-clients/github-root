@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\EnterpriseAdmin;
+namespace ApiClients\Tests\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
+use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
 final class GetServerStatisticsTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,7 +22,7 @@ final class GetServerStatisticsTest extends \WyriHaximus\AsyncTestUtilities\Asyn
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/enterprise-installation/generated_null/server-statistics?date_start=generated_null&date_end=generated_null', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\EnterpriseAdmin\GetServerStatistics::OPERATION_MATCH, array('enterprise_or_org' => 'generated_null', 'date_start' => 'generated_null', 'date_end' => 'generated_null'));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin\GetServerStatistics::OPERATION_MATCH, array('enterprise_or_org' => 'generated_null', 'date_start' => 'generated_null', 'date_end' => 'generated_null'));
     }
 }

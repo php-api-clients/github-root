@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\CodeScanning;
+namespace ApiClients\Tests\Client\GitHubAE\Operation\CodeScanning;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
+use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Operation;
+use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Client\GitHubAE\WebHook;
 final class DeleteAnalysisTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class DeleteAnalysisTest extends \WyriHaximus\AsyncTestUtilities\AsyncTest
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/repos/generated_null/generated_null/code-scanning/analyses/13?confirm_delete=', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\DeleteAnalysis::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'analysis_id' => 13, 'confirm_delete' => null));
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\CodeScanning\DeleteAnalysis::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'analysis_id' => 13, 'confirm_delete' => null));
     }
     /**
      * @test
@@ -38,8 +38,8 @@ final class DeleteAnalysisTest extends \WyriHaximus\AsyncTestUtilities\AsyncTest
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/repos/generated_null/generated_null/code-scanning/analyses/13?confirm_delete=', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\DeleteAnalysis::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'analysis_id' => 13, 'confirm_delete' => null));
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\CodeScanning\DeleteAnalysis::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'analysis_id' => 13, 'confirm_delete' => null));
     }
     /**
      * @test
@@ -54,8 +54,8 @@ final class DeleteAnalysisTest extends \WyriHaximus\AsyncTestUtilities\AsyncTest
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/repos/generated_null/generated_null/code-scanning/analyses/13?confirm_delete=', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\DeleteAnalysis::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'analysis_id' => 13, 'confirm_delete' => null));
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\CodeScanning\DeleteAnalysis::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'analysis_id' => 13, 'confirm_delete' => null));
     }
     /**
      * @test
@@ -70,8 +70,8 @@ final class DeleteAnalysisTest extends \WyriHaximus\AsyncTestUtilities\AsyncTest
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/repos/generated_null/generated_null/code-scanning/analyses/13?confirm_delete=', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\DeleteAnalysis::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'analysis_id' => 13, 'confirm_delete' => null));
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\CodeScanning\DeleteAnalysis::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'analysis_id' => 13, 'confirm_delete' => null));
     }
     /**
      * @test
@@ -86,8 +86,8 @@ final class DeleteAnalysisTest extends \WyriHaximus\AsyncTestUtilities\AsyncTest
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/repos/generated_null/generated_null/code-scanning/analyses/13?confirm_delete=', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\DeleteAnalysis::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'analysis_id' => 13, 'confirm_delete' => null));
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\CodeScanning\DeleteAnalysis::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'analysis_id' => 13, 'confirm_delete' => null));
     }
     /**
      * @test
@@ -102,7 +102,7 @@ final class DeleteAnalysisTest extends \WyriHaximus\AsyncTestUtilities\AsyncTest
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/repos/generated_null/generated_null/code-scanning/analyses/13?confirm_delete=', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\DeleteAnalysis::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'analysis_id' => 13, 'confirm_delete' => null));
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\CodeScanning\DeleteAnalysis::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'analysis_id' => 13, 'confirm_delete' => null));
     }
 }

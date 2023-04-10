@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\Github\Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request;
+namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
+use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
 final readonly class Applicationjson extends Schema\AliasAbstract\Abstractcd5d02c54e256c1f61acea463e527414
 {
 }

@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Projects;
+namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\Projects;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final class CreateForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class CreateForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtiliti
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/user/projects', \Prophecy\Argument::type('array'), Schema\Projects\CreateForAuthenticatedUser\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Projects\CreateForAuthenticatedUser::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Projects\CreateForAuthenticatedUser::OPERATION_MATCH, (static function (array $data) : array {
             return $data;
         })(json_decode(Schema\Projects\CreateForAuthenticatedUser\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
     }
@@ -40,8 +40,8 @@ final class CreateForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtiliti
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/user/projects', \Prophecy\Argument::type('array'), Schema\Projects\CreateForAuthenticatedUser\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Projects\CreateForAuthenticatedUser::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Projects\CreateForAuthenticatedUser::OPERATION_MATCH, (static function (array $data) : array {
             return $data;
         })(json_decode(Schema\Projects\CreateForAuthenticatedUser\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
     }
@@ -58,8 +58,8 @@ final class CreateForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtiliti
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/user/projects', \Prophecy\Argument::type('array'), Schema\Projects\CreateForAuthenticatedUser\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Projects\CreateForAuthenticatedUser::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Projects\CreateForAuthenticatedUser::OPERATION_MATCH, (static function (array $data) : array {
             return $data;
         })(json_decode(Schema\Projects\CreateForAuthenticatedUser\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
     }
@@ -76,8 +76,8 @@ final class CreateForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtiliti
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/user/projects', \Prophecy\Argument::type('array'), Schema\Projects\CreateForAuthenticatedUser\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Projects\CreateForAuthenticatedUser::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Projects\CreateForAuthenticatedUser::OPERATION_MATCH, (static function (array $data) : array {
             return $data;
         })(json_decode(Schema\Projects\CreateForAuthenticatedUser\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
     }
@@ -94,8 +94,8 @@ final class CreateForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtiliti
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/user/projects', \Prophecy\Argument::type('array'), Schema\Projects\CreateForAuthenticatedUser\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Projects\CreateForAuthenticatedUser::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Projects\CreateForAuthenticatedUser::OPERATION_MATCH, (static function (array $data) : array {
             return $data;
         })(json_decode(Schema\Projects\CreateForAuthenticatedUser\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
     }

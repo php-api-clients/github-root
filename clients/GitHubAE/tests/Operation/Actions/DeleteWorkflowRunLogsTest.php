@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Actions;
+namespace ApiClients\Tests\Client\GitHubAE\Operation\Actions;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
+use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Operation;
+use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Client\GitHubAE\WebHook;
 final class DeleteWorkflowRunLogsTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -23,8 +23,8 @@ final class DeleteWorkflowRunLogsTest extends \WyriHaximus\AsyncTestUtilities\As
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/repos/generated_null/generated_null/actions/runs/13/logs', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Actions\DeleteWorkflowRunLogs::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'run_id' => 13));
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\Actions\DeleteWorkflowRunLogs::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'run_id' => 13));
     }
     /**
      * @test
@@ -39,7 +39,7 @@ final class DeleteWorkflowRunLogsTest extends \WyriHaximus\AsyncTestUtilities\As
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/repos/generated_null/generated_null/actions/runs/13/logs', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Actions\DeleteWorkflowRunLogs::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'run_id' => 13));
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\Actions\DeleteWorkflowRunLogs::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'run_id' => 13));
     }
 }

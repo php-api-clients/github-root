@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Gists\CbGistIdRcb;
+namespace ApiClients\Client\GitHubEnterpriseCloud\Hydrator\Operation\Gists\CbGistIdRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,24 +23,24 @@ class Forks implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\GistSimple' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistSimple($payload),
-                'ApiClients\Client\Github\Schema\GistSimple\Forks' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistSimple⚡️Forks($payload),
-                'ApiClients\Client\Github\Schema\PublicUser' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PublicUser($payload),
-                'ApiClients\Client\Github\Schema\PublicUser\Plan' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PublicUser⚡️Plan($payload),
-                'ApiClients\Client\Github\Schema\GistHistory' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistHistory($payload),
-                'ApiClients\Client\Github\Schema\GistHistory\ChangeStatus' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistHistory⚡️ChangeStatus($payload),
-                'ApiClients\Client\Github\Schema\GistSimple\ForkOf' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistSimple⚡️ForkOf($payload),
-                'ApiClients\Client\Github\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\Github\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\Github\Schema\BaseGist' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BaseGist($payload),
-                'ApiClients\Client\Github\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError($payload),
-                'ApiClients\Client\Github\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors($payload),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistSimple($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\Forks' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistSimple⚡️Forks($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️PublicUser($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser\Plan' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️PublicUser⚡️Plan($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistHistory($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory\ChangeStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistHistory⚡️ChangeStatus($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\ForkOf' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistSimple⚡️ForkOf($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BaseGist($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistSimple(array $payload): \ApiClients\Client\Github\Schema\GistSimple
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistSimple(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple
     {
         $properties = []; 
         $missingFields = [];
@@ -56,7 +56,7 @@ class Forks implements ObjectMapper
 
             if ($forksCaster1 === null) {
                 $forksCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\GistSimple\\Forks',
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GistSimple\\Forks',
 ));
             }
 
@@ -77,7 +77,7 @@ class Forks implements ObjectMapper
 
             if ($historyCaster1 === null) {
                 $historyCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\GistHistory',
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GistHistory',
 ));
             }
 
@@ -97,7 +97,7 @@ class Forks implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'forkOf';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistSimple⚡️ForkOf($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistSimple⚡️ForkOf($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -293,7 +293,7 @@ class Forks implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -315,22 +315,22 @@ class Forks implements ObjectMapper
             after_truncated:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GistSimple::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\GistSimple(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistSimple⚡️Forks(array $payload): \ApiClients\Client\Github\Schema\GistSimple\Forks
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistSimple⚡️Forks(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\Forks
     {
         $properties = []; 
         $missingFields = [];
@@ -367,7 +367,7 @@ class Forks implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PublicUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️PublicUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -400,22 +400,22 @@ class Forks implements ObjectMapper
             after_updatedAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistSimple\Forks', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\Forks', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GistSimple\Forks::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\Forks::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\GistSimple\Forks(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\Forks(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistSimple\Forks', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\Forks', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PublicUser(array $payload): \ApiClients\Client\Github\Schema\PublicUser
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️PublicUser(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser
     {
         $properties = []; 
         $missingFields = [];
@@ -782,7 +782,7 @@ class Forks implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'plan';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PublicUser⚡️Plan($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️PublicUser⚡️Plan($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -859,22 +859,22 @@ class Forks implements ObjectMapper
             after_collaborators:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PublicUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PublicUser::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PublicUser(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PublicUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PublicUser⚡️Plan(array $payload): \ApiClients\Client\Github\Schema\PublicUser\Plan
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️PublicUser⚡️Plan(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser\Plan
     {
         $properties = []; 
         $missingFields = [];
@@ -924,22 +924,22 @@ class Forks implements ObjectMapper
             after_privateRepos:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PublicUser\Plan', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser\Plan', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PublicUser\Plan::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser\Plan::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PublicUser\Plan(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser\Plan(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PublicUser\Plan', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser\Plan', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistHistory(array $payload): \ApiClients\Client\Github\Schema\GistHistory
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistHistory(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory
     {
         $properties = []; 
         $missingFields = [];
@@ -987,7 +987,7 @@ class Forks implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'changeStatus';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistHistory⚡️ChangeStatus($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistHistory⚡️ChangeStatus($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1009,22 +1009,22 @@ class Forks implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistHistory', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GistHistory::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\GistHistory(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistHistory', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistHistory⚡️ChangeStatus(array $payload): \ApiClients\Client\Github\Schema\GistHistory\ChangeStatus
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistHistory⚡️ChangeStatus(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory\ChangeStatus
     {
         $properties = []; 
         $missingFields = [];
@@ -1063,22 +1063,22 @@ class Forks implements ObjectMapper
             after_deletions:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistHistory\ChangeStatus', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory\ChangeStatus', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GistHistory\ChangeStatus::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory\ChangeStatus::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\GistHistory\ChangeStatus(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory\ChangeStatus(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistHistory\ChangeStatus', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory\ChangeStatus', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistSimple⚡️ForkOf(array $payload): \ApiClients\Client\Github\Schema\GistSimple\ForkOf
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistSimple⚡️ForkOf(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\ForkOf
     {
         $properties = []; 
         $missingFields = [];
@@ -1304,22 +1304,22 @@ class Forks implements ObjectMapper
             after_history:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistSimple\ForkOf', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\ForkOf', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GistSimple\ForkOf::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\ForkOf::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\GistSimple\ForkOf(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\ForkOf(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistSimple\ForkOf', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\ForkOf', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\Github\Schema\SimpleUser
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser
     {
         $properties = []; 
         $missingFields = [];
@@ -1556,22 +1556,22 @@ class Forks implements ObjectMapper
             after_starredAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SimpleUser(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\Github\Schema\BasicError
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError
     {
         $properties = []; 
         $missingFields = [];
@@ -1621,22 +1621,22 @@ class Forks implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BasicError(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BaseGist(array $payload): \ApiClients\Client\Github\Schema\BaseGist
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BaseGist(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist
     {
         $properties = []; 
         $missingFields = [];
@@ -1827,7 +1827,7 @@ class Forks implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1871,22 +1871,22 @@ class Forks implements ObjectMapper
             after_history:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BaseGist', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BaseGist::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BaseGist(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BaseGist', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\Github\Schema\ValidationError
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError
     {
         $properties = []; 
         $missingFields = [];
@@ -1924,7 +1924,7 @@ class Forks implements ObjectMapper
 
             if ($errorsCaster1 === null) {
                 $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\ValidationError\\Errors',
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ValidationError\\Errors',
 ));
             }
 
@@ -1935,22 +1935,22 @@ class Forks implements ObjectMapper
             after_errors:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ValidationError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ValidationError(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\Github\Schema\ValidationError\Errors
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors
     {
         $properties = []; 
         $missingFields = [];
@@ -2022,17 +2022,17 @@ class Forks implements ObjectMapper
             after_value:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ValidationError\Errors(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -2067,18 +2067,18 @@ class Forks implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\GistSimple' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistSimple($object),
-            'ApiClients\Client\Github\Schema\GistSimple\Forks' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistSimple⚡️Forks($object),
-            'ApiClients\Client\Github\Schema\PublicUser' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PublicUser($object),
-            'ApiClients\Client\Github\Schema\PublicUser\Plan' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PublicUser⚡️Plan($object),
-            'ApiClients\Client\Github\Schema\GistHistory' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistHistory($object),
-            'ApiClients\Client\Github\Schema\GistHistory\ChangeStatus' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistHistory⚡️ChangeStatus($object),
-            'ApiClients\Client\Github\Schema\GistSimple\ForkOf' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistSimple⚡️ForkOf($object),
-            'ApiClients\Client\Github\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($object),
-            'ApiClients\Client\Github\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($object),
-            'ApiClients\Client\Github\Schema\BaseGist' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BaseGist($object),
-            'ApiClients\Client\Github\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError($object),
-            'ApiClients\Client\Github\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistSimple($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\Forks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistSimple⚡️Forks($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️PublicUser($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser\Plan' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️PublicUser⚡️Plan($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistHistory($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory\ChangeStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistHistory⚡️ChangeStatus($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\ForkOf' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistSimple⚡️ForkOf($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BaseGist($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -2152,9 +2152,9 @@ class Forks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistSimple(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistSimple(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\GistSimple);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple);
         $result = [];
 
         $forks = $object->forks;
@@ -2166,7 +2166,7 @@ class Forks implements ObjectMapper
 
         if ($forksSerializer0 === null) {
             $forksSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\GistSimple\\Forks',
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GistSimple\\Forks',
 ));
         }
         
@@ -2183,7 +2183,7 @@ class Forks implements ObjectMapper
 
         if ($historySerializer0 === null) {
             $historySerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\GistHistory',
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GistHistory',
 ));
         }
         
@@ -2196,7 +2196,7 @@ class Forks implements ObjectMapper
         if ($forkOf === null) {
             goto after_forkOf;
         }
-        $forkOf = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistSimple⚡️ForkOf($forkOf);
+        $forkOf = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistSimple⚡️ForkOf($forkOf);
         after_forkOf:        $result['fork_of'] = $forkOf;
 
         
@@ -2333,7 +2333,7 @@ class Forks implements ObjectMapper
         if ($owner === null) {
             goto after_owner;
         }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -2349,9 +2349,9 @@ class Forks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistSimple⚡️Forks(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistSimple⚡️Forks(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\GistSimple\Forks);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\Forks);
         $result = [];
 
         $id = $object->id;
@@ -2375,7 +2375,7 @@ class Forks implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PublicUser($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️PublicUser($user);
         after_user:        $result['user'] = $user;
 
         
@@ -2399,9 +2399,9 @@ class Forks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PublicUser(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️PublicUser(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PublicUser);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser);
         $result = [];
 
         $login = $object->login;
@@ -2573,7 +2573,7 @@ class Forks implements ObjectMapper
         if ($plan === null) {
             goto after_plan;
         }
-        $plan = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PublicUser⚡️Plan($plan);
+        $plan = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️PublicUser⚡️Plan($plan);
         after_plan:        $result['plan'] = $plan;
 
         
@@ -2629,9 +2629,9 @@ class Forks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PublicUser⚡️Plan(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️PublicUser⚡️Plan(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PublicUser\Plan);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser\Plan);
         $result = [];
 
         $collaborators = $object->collaborators;
@@ -2654,9 +2654,9 @@ class Forks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistHistory(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistHistory(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\GistHistory);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory);
         $result = [];
 
         $user = $object->user;
@@ -2688,7 +2688,7 @@ class Forks implements ObjectMapper
         if ($changeStatus === null) {
             goto after_changeStatus;
         }
-        $changeStatus = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistHistory⚡️ChangeStatus($changeStatus);
+        $changeStatus = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistHistory⚡️ChangeStatus($changeStatus);
         after_changeStatus:        $result['change_status'] = $changeStatus;
 
         
@@ -2704,9 +2704,9 @@ class Forks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistHistory⚡️ChangeStatus(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistHistory⚡️ChangeStatus(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\GistHistory\ChangeStatus);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistHistory\ChangeStatus);
         $result = [];
 
         $total = $object->total;
@@ -2737,9 +2737,9 @@ class Forks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistSimple⚡️ForkOf(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistSimple⚡️ForkOf(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\GistSimple\ForkOf);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple\ForkOf);
         $result = [];
 
         $url = $object->url;
@@ -2870,9 +2870,9 @@ class Forks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleUser);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser);
         $result = [];
 
         $name = $object->name;
@@ -2979,9 +2979,9 @@ class Forks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BasicError);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError);
         $result = [];
 
         $message = $object->message;
@@ -3020,9 +3020,9 @@ class Forks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BaseGist(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BaseGist(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BaseGist);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist);
         $result = [];
 
         $url = $object->url;
@@ -3106,7 +3106,7 @@ class Forks implements ObjectMapper
         if ($owner === null) {
             goto after_owner;
         }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -3154,9 +3154,9 @@ class Forks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ValidationError);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError);
         $result = [];
 
         $message = $object->message;
@@ -3176,7 +3176,7 @@ class Forks implements ObjectMapper
 
         if ($errorsSerializer0 === null) {
             $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\ValidationError\\Errors',
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ValidationError\\Errors',
 ));
         }
         
@@ -3188,9 +3188,9 @@ class Forks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ValidationError\Errors);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors);
         $result = [];
 
         $resource = $object->resource;

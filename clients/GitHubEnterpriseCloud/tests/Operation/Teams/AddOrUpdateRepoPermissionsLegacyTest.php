@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Teams;
+namespace ApiClients\Tests\Client\GitHubEnterpriseCloud\Operation\Teams;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
+use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
 final class AddOrUpdateRepoPermissionsLegacyTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -23,8 +23,8 @@ final class AddOrUpdateRepoPermissionsLegacyTest extends \WyriHaximus\AsyncTestU
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PUT', '/teams/13/repos/generated_null/generated_null', \Prophecy\Argument::type('array'), Schema\Teams\AddOrUpdateRepoPermissionsLegacy\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Teams\AddOrUpdateRepoPermissionsLegacy::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Teams\AddOrUpdateRepoPermissionsLegacy::OPERATION_MATCH, (static function (array $data) : array {
             $data['team_id'] = 13;
             $data['owner'] = 'generated_null';
             $data['repo'] = 'generated_null';
@@ -44,8 +44,8 @@ final class AddOrUpdateRepoPermissionsLegacyTest extends \WyriHaximus\AsyncTestU
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PUT', '/teams/13/repos/generated_null/generated_null', \Prophecy\Argument::type('array'), Schema\Teams\AddOrUpdateRepoPermissionsLegacy\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Teams\AddOrUpdateRepoPermissionsLegacy::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Teams\AddOrUpdateRepoPermissionsLegacy::OPERATION_MATCH, (static function (array $data) : array {
             $data['team_id'] = 13;
             $data['owner'] = 'generated_null';
             $data['repo'] = 'generated_null';

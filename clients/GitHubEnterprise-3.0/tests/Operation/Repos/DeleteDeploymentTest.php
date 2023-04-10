@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Repos;
+namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\Repos;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final class DeleteDeploymentTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -23,8 +23,8 @@ final class DeleteDeploymentTest extends \WyriHaximus\AsyncTestUtilities\AsyncTe
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/repos/generated_null/generated_null/deployments/13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Repos\DeleteDeployment::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'deployment_id' => 13));
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Repos\DeleteDeployment::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'deployment_id' => 13));
     }
     /**
      * @test
@@ -39,7 +39,7 @@ final class DeleteDeploymentTest extends \WyriHaximus\AsyncTestUtilities\AsyncTe
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('DELETE', '/repos/generated_null/generated_null/deployments/13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Repos\DeleteDeployment::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'deployment_id' => 13));
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Repos\DeleteDeployment::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'deployment_id' => 13));
     }
 }

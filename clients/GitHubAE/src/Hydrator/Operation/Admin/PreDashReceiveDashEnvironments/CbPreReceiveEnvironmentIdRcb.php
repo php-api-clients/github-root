@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Admin\PreDashReceiveDashEnvironments;
+namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Admin\PreDashReceiveDashEnvironments;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,18 +23,18 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\PreReceiveEnvironment' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveEnvironment($payload),
-                'ApiClients\Client\Github\Schema\PreReceiveEnvironment\Download' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveEnvironment⚡️Download($payload),
-                'ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422($payload),
-                'ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors($payload),
-                'ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422($payload),
-                'ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors($payload),
+            'ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment($payload),
+                'ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment\Download' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment⚡️Download($payload),
+                'ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422($payload),
+                'ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors($payload),
+                'ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422($payload),
+                'ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveEnvironment(array $payload): \ApiClients\Client\Github\Schema\PreReceiveEnvironment
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment(array $payload): \ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment
     {
         $properties = []; 
         $missingFields = [];
@@ -137,7 +137,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'download';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveEnvironment⚡️Download($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment⚡️Download($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -148,22 +148,22 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
             after_download:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PreReceiveEnvironment', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PreReceiveEnvironment::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PreReceiveEnvironment(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PreReceiveEnvironment', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveEnvironment⚡️Download(array $payload): \ApiClients\Client\Github\Schema\PreReceiveEnvironment\Download
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment⚡️Download(array $payload): \ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment\Download
     {
         $properties = []; 
         $missingFields = [];
@@ -213,22 +213,22 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
             after_message:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PreReceiveEnvironment\Download', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment\Download', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PreReceiveEnvironment\Download::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment\Download::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PreReceiveEnvironment\Download(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment\Download(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PreReceiveEnvironment\Download', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment\Download', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422(array $payload): \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422(array $payload): \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422
     {
         $properties = []; 
         $missingFields = [];
@@ -255,7 +255,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
 
             if ($errorsCaster1 === null) {
                 $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422\\Errors',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422\\Errors',
 ));
             }
 
@@ -266,22 +266,22 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
             after_errors:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors(array $payload): \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors(array $payload): \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors
     {
         $properties = []; 
         $missingFields = [];
@@ -320,22 +320,22 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
             after_message:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422(array $payload): \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422(array $payload): \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422
     {
         $properties = []; 
         $missingFields = [];
@@ -362,7 +362,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
 
             if ($errorsCaster1 === null) {
                 $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422\\Errors',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422\\Errors',
 ));
             }
 
@@ -373,22 +373,22 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
             after_errors:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors(array $payload): \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors(array $payload): \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors
     {
         $properties = []; 
         $missingFields = [];
@@ -427,17 +427,17 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
             after_message:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -472,12 +472,12 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\PreReceiveEnvironment' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveEnvironment($object),
-            'ApiClients\Client\Github\Schema\PreReceiveEnvironment\Download' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveEnvironment⚡️Download($object),
-            'ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422($object),
-            'ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors($object),
-            'ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422($object),
-            'ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors($object),
+            'ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment($object),
+            'ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment\Download' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment⚡️Download($object),
+            'ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422($object),
+            'ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors($object),
+            'ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422($object),
+            'ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -551,9 +551,9 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveEnvironment(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PreReceiveEnvironment);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment);
         $result = [];
 
         $id = $object->id;
@@ -625,7 +625,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
         if ($download === null) {
             goto after_download;
         }
-        $download = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveEnvironment⚡️Download($download);
+        $download = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment⚡️Download($download);
         after_download:        $result['download'] = $download;
 
 
@@ -633,9 +633,9 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PreReceiveEnvironment⚡️Download(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment⚡️Download(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PreReceiveEnvironment\Download);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment\Download);
         $result = [];
 
         $url = $object->url;
@@ -674,9 +674,9 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422);
         $result = [];
 
         $message = $object->message;
@@ -696,7 +696,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
 
         if ($errorsSerializer0 === null) {
             $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422\\Errors',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422\\Errors',
 ));
         }
         
@@ -708,9 +708,9 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\Applicationjson\H422\Errors);
         $result = [];
 
         $resource = $object->resource;
@@ -741,9 +741,9 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422);
         $result = [];
 
         $message = $object->message;
@@ -763,7 +763,7 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
 
         if ($errorsSerializer0 === null) {
             $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422\\Errors',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Operation\\EnterpriseAdmin\\DeletePreReceiveEnvironment\\Response\\Applicationjson\\H422\\Errors',
 ));
         }
         
@@ -775,9 +775,9 @@ class CbPreReceiveEnvironmentIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️Applicationjson⚡️H422⚡️Errors(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422\Errors);
         $result = [];
 
         $resource = $object->resource;

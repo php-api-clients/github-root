@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Reactions;
+namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\Reactions;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final class CreateForTeamDiscussionCommentInOrgTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class CreateForTeamDiscussionCommentInOrgTest extends \WyriHaximus\AsyncTe
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/orgs/generated_null/teams/generated_null/discussions/13/comments/13/reactions', \Prophecy\Argument::type('array'), Schema\Reactions\CreateForTeamDiscussionCommentInOrg\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Reactions\CreateForTeamDiscussionCommentInOrg::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Reactions\CreateForTeamDiscussionCommentInOrg::OPERATION_MATCH, (static function (array $data) : array {
             $data['org'] = 'generated_null';
             $data['team_slug'] = 'generated_null';
             $data['discussion_number'] = 13;
@@ -43,8 +43,8 @@ final class CreateForTeamDiscussionCommentInOrgTest extends \WyriHaximus\AsyncTe
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/orgs/generated_null/teams/generated_null/discussions/13/comments/13/reactions', \Prophecy\Argument::type('array'), Schema\Reactions\CreateForTeamDiscussionCommentInOrg\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Reactions\CreateForTeamDiscussionCommentInOrg::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Reactions\CreateForTeamDiscussionCommentInOrg::OPERATION_MATCH, (static function (array $data) : array {
             $data['org'] = 'generated_null';
             $data['team_slug'] = 'generated_null';
             $data['discussion_number'] = 13;

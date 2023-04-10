@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Enterprises\CbEnterpriseRcb;
+namespace ApiClients\Client\GitHubEnterpriseCloud\Hydrator\Operation\Enterprises\CbEnterpriseRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,15 +23,15 @@ class LicenseSyncStatus implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\GetLicenseSyncStatus' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GetLicenseSyncStatus($payload),
-                'ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances($payload),
-                'ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances\LastSync' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($payload),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GetLicenseSyncStatus(array $payload): \ApiClients\Client\Github\Schema\GetLicenseSyncStatus
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus
     {
         $properties = []; 
         $missingFields = [];
@@ -47,7 +47,7 @@ class LicenseSyncStatus implements ObjectMapper
 
             if ($serverInstancesCaster1 === null) {
                 $serverInstancesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\GetLicenseSyncStatus\\ServerInstances',
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GetLicenseSyncStatus\\ServerInstances',
 ));
             }
 
@@ -58,22 +58,22 @@ class LicenseSyncStatus implements ObjectMapper
             after_serverInstances:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GetLicenseSyncStatus', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GetLicenseSyncStatus::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\GetLicenseSyncStatus(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GetLicenseSyncStatus', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances(array $payload): \ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances
     {
         $properties = []; 
         $missingFields = [];
@@ -110,7 +110,7 @@ class LicenseSyncStatus implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'lastSync';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -121,22 +121,22 @@ class LicenseSyncStatus implements ObjectMapper
             after_lastSync:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync(array $payload): \ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances\LastSync
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync
     {
         $properties = []; 
         $missingFields = [];
@@ -175,17 +175,17 @@ class LicenseSyncStatus implements ObjectMapper
             after_error:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances\LastSync', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances\LastSync::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances\LastSync(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances\LastSync', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -220,9 +220,9 @@ class LicenseSyncStatus implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\GetLicenseSyncStatus' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GetLicenseSyncStatus($object),
-            'ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances($object),
-            'ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances\LastSync' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -296,9 +296,9 @@ class LicenseSyncStatus implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GetLicenseSyncStatus(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\GetLicenseSyncStatus);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus);
         $result = [];
 
         $serverInstances = $object->serverInstances;
@@ -310,7 +310,7 @@ class LicenseSyncStatus implements ObjectMapper
 
         if ($serverInstancesSerializer0 === null) {
             $serverInstancesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\GetLicenseSyncStatus\\ServerInstances',
+  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GetLicenseSyncStatus\\ServerInstances',
 ));
         }
         
@@ -322,9 +322,9 @@ class LicenseSyncStatus implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances);
         $result = [];
 
         $serverId = $object->serverId;
@@ -348,7 +348,7 @@ class LicenseSyncStatus implements ObjectMapper
         if ($lastSync === null) {
             goto after_lastSync;
         }
-        $lastSync = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($lastSync);
+        $lastSync = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync($lastSync);
         after_lastSync:        $result['last_sync'] = $lastSync;
 
 
@@ -356,9 +356,9 @@ class LicenseSyncStatus implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetLicenseSyncStatus⚡️ServerInstances⚡️LastSync(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\GetLicenseSyncStatus\ServerInstances\LastSync);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetLicenseSyncStatus\ServerInstances\LastSync);
         $result = [];
 
         $date = $object->date;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Search;
+namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Search;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,20 +23,20 @@ class Topics implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\Operation\Search\Topics\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Search⚡️Topics⚡️Response⚡️Applicationjson⚡️H200($payload),
-                'ApiClients\Client\Github\Schema\TopicSearchResultItem' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem($payload),
-                'ApiClients\Client\Github\Schema\SearchResultTextMatches' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches($payload),
-                'ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches⚡️Matches($payload),
-                'ApiClients\Client\Github\Schema\TopicSearchResultItem\Related' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Related($payload),
-                'ApiClients\Client\Github\Schema\TopicSearchResultItem\Related\TopicRelation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($payload),
-                'ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Aliases($payload),
-                'ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases\TopicRelation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation($payload),
+            'ApiClients\Client\GitHubAE\Schema\Operation\Search\Topics\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Search⚡️Topics⚡️Response⚡️Applicationjson⚡️H200($payload),
+                'ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem($payload),
+                'ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SearchResultTextMatches($payload),
+                'ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches\Matches' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SearchResultTextMatches⚡️Matches($payload),
+                'ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Related($payload),
+                'ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related\TopicRelation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($payload),
+                'ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Aliases($payload),
+                'ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases\TopicRelation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Search⚡️Topics⚡️Response⚡️Applicationjson⚡️H200(array $payload): \ApiClients\Client\Github\Schema\Operation\Search\Topics\Response\Applicationjson\H200
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Search⚡️Topics⚡️Response⚡️Applicationjson⚡️H200(array $payload): \ApiClients\Client\GitHubAE\Schema\Operation\Search\Topics\Response\Applicationjson\H200
     {
         $properties = []; 
         $missingFields = [];
@@ -74,7 +74,7 @@ class Topics implements ObjectMapper
 
             if ($itemsCaster1 === null) {
                 $itemsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\TopicSearchResultItem',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\TopicSearchResultItem',
 ));
             }
 
@@ -85,22 +85,22 @@ class Topics implements ObjectMapper
             after_items:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Search\Topics\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\Search\Topics\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\Search\Topics\Response\Applicationjson\H200::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Operation\Search\Topics\Response\Applicationjson\H200::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Operation\Search\Topics\Response\Applicationjson\H200(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Operation\Search\Topics\Response\Applicationjson\H200(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Search\Topics\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\Search\Topics\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem(array $payload): \ApiClients\Client\Github\Schema\TopicSearchResultItem
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem(array $payload): \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem
     {
         $properties = []; 
         $missingFields = [];
@@ -259,7 +259,7 @@ class Topics implements ObjectMapper
 
             if ($textMatchesCaster1 === null) {
                 $textMatchesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SearchResultTextMatches',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\SearchResultTextMatches',
 ));
             }
 
@@ -280,7 +280,7 @@ class Topics implements ObjectMapper
 
             if ($relatedCaster1 === null) {
                 $relatedCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\TopicSearchResultItem\\Related',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\TopicSearchResultItem\\Related',
 ));
             }
 
@@ -301,7 +301,7 @@ class Topics implements ObjectMapper
 
             if ($aliasesCaster1 === null) {
                 $aliasesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\TopicSearchResultItem\\Aliases',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\TopicSearchResultItem\\Aliases',
 ));
             }
 
@@ -312,22 +312,22 @@ class Topics implements ObjectMapper
             after_aliases:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\TopicSearchResultItem', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\TopicSearchResultItem::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\TopicSearchResultItem(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\TopicSearchResultItem', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches(array $payload): \ApiClients\Client\Github\Schema\SearchResultTextMatches
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SearchResultTextMatches(array $payload): \ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches
     {
         $properties = []; 
         $missingFields = [];
@@ -387,7 +387,7 @@ class Topics implements ObjectMapper
 
             if ($matchesCaster1 === null) {
                 $matchesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SearchResultTextMatches\\Matches',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\SearchResultTextMatches\\Matches',
 ));
             }
 
@@ -398,22 +398,22 @@ class Topics implements ObjectMapper
             after_matches:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SearchResultTextMatches', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SearchResultTextMatches::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SearchResultTextMatches(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SearchResultTextMatches', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches⚡️Matches(array $payload): \ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SearchResultTextMatches⚡️Matches(array $payload): \ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches\Matches
     {
         $properties = []; 
         $missingFields = [];
@@ -441,22 +441,22 @@ class Topics implements ObjectMapper
             after_indices:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches\Matches', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches\Matches::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches\Matches(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches\Matches', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Related(array $payload): \ApiClients\Client\Github\Schema\TopicSearchResultItem\Related
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Related(array $payload): \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related
     {
         $properties = []; 
         $missingFields = [];
@@ -471,7 +471,7 @@ class Topics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'topicRelation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -482,22 +482,22 @@ class Topics implements ObjectMapper
             after_topicRelation:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\TopicSearchResultItem\Related', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\TopicSearchResultItem\Related::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\TopicSearchResultItem\Related(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\TopicSearchResultItem\Related', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation(array $payload): \ApiClients\Client\Github\Schema\TopicSearchResultItem\Related\TopicRelation
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation(array $payload): \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related\TopicRelation
     {
         $properties = []; 
         $missingFields = [];
@@ -547,22 +547,22 @@ class Topics implements ObjectMapper
             after_relationType:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\TopicSearchResultItem\Related\TopicRelation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related\TopicRelation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\TopicSearchResultItem\Related\TopicRelation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related\TopicRelation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\TopicSearchResultItem\Related\TopicRelation(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related\TopicRelation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\TopicSearchResultItem\Related\TopicRelation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related\TopicRelation', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Aliases(array $payload): \ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Aliases(array $payload): \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases
     {
         $properties = []; 
         $missingFields = [];
@@ -577,7 +577,7 @@ class Topics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'topicRelation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -588,22 +588,22 @@ class Topics implements ObjectMapper
             after_topicRelation:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation(array $payload): \ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases\TopicRelation
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation(array $payload): \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases\TopicRelation
     {
         $properties = []; 
         $missingFields = [];
@@ -653,17 +653,17 @@ class Topics implements ObjectMapper
             after_relationType:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases\TopicRelation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases\TopicRelation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases\TopicRelation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases\TopicRelation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases\TopicRelation(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases\TopicRelation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases\TopicRelation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases\TopicRelation', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -698,14 +698,14 @@ class Topics implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\Operation\Search\Topics\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Search⚡️Topics⚡️Response⚡️Applicationjson⚡️H200($object),
-            'ApiClients\Client\Github\Schema\TopicSearchResultItem' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem($object),
-            'ApiClients\Client\Github\Schema\SearchResultTextMatches' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches($object),
-            'ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches⚡️Matches($object),
-            'ApiClients\Client\Github\Schema\TopicSearchResultItem\Related' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Related($object),
-            'ApiClients\Client\Github\Schema\TopicSearchResultItem\Related\TopicRelation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($object),
-            'ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Aliases($object),
-            'ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases\TopicRelation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation($object),
+            'ApiClients\Client\GitHubAE\Schema\Operation\Search\Topics\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Search⚡️Topics⚡️Response⚡️Applicationjson⚡️H200($object),
+            'ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem($object),
+            'ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SearchResultTextMatches($object),
+            'ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches\Matches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SearchResultTextMatches⚡️Matches($object),
+            'ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Related($object),
+            'ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related\TopicRelation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($object),
+            'ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Aliases($object),
+            'ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases\TopicRelation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -779,9 +779,9 @@ class Topics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Search⚡️Topics⚡️Response⚡️Applicationjson⚡️H200(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Search⚡️Topics⚡️Response⚡️Applicationjson⚡️H200(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\Search\Topics\Response\Applicationjson\H200);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operation\Search\Topics\Response\Applicationjson\H200);
         $result = [];
 
         $totalCount = $object->totalCount;
@@ -797,7 +797,7 @@ class Topics implements ObjectMapper
 
         if ($itemsSerializer0 === null) {
             $itemsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\TopicSearchResultItem',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\TopicSearchResultItem',
 ));
         }
         
@@ -809,9 +809,9 @@ class Topics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\TopicSearchResultItem);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem);
         $result = [];
 
         $name = $object->name;
@@ -903,7 +903,7 @@ class Topics implements ObjectMapper
 
         if ($textMatchesSerializer0 === null) {
             $textMatchesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SearchResultTextMatches',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\SearchResultTextMatches',
 ));
         }
         
@@ -920,7 +920,7 @@ class Topics implements ObjectMapper
 
         if ($relatedSerializer0 === null) {
             $relatedSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\TopicSearchResultItem\\Related',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\TopicSearchResultItem\\Related',
 ));
         }
         
@@ -937,7 +937,7 @@ class Topics implements ObjectMapper
 
         if ($aliasesSerializer0 === null) {
             $aliasesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\TopicSearchResultItem\\Aliases',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\TopicSearchResultItem\\Aliases',
 ));
         }
         
@@ -949,9 +949,9 @@ class Topics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SearchResultTextMatches(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SearchResultTextMatches);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches);
         $result = [];
 
         $objectUrl = $object->objectUrl;
@@ -995,7 +995,7 @@ class Topics implements ObjectMapper
 
         if ($matchesSerializer0 === null) {
             $matchesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SearchResultTextMatches\\Matches',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\SearchResultTextMatches\\Matches',
 ));
         }
         
@@ -1007,9 +1007,9 @@ class Topics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches⚡️Matches(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SearchResultTextMatches⚡️Matches(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SearchResultTextMatches\Matches);
         $result = [];
 
         $text = $object->text;
@@ -1040,9 +1040,9 @@ class Topics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Related(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Related(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\TopicSearchResultItem\Related);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related);
         $result = [];
 
         $topicRelation = $object->topicRelation;
@@ -1050,7 +1050,7 @@ class Topics implements ObjectMapper
         if ($topicRelation === null) {
             goto after_topicRelation;
         }
-        $topicRelation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($topicRelation);
+        $topicRelation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($topicRelation);
         after_topicRelation:        $result['topic_relation'] = $topicRelation;
 
 
@@ -1058,9 +1058,9 @@ class Topics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\TopicSearchResultItem\Related\TopicRelation);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Related\TopicRelation);
         $result = [];
 
         $id = $object->id;
@@ -1099,9 +1099,9 @@ class Topics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Aliases(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Aliases(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases);
         $result = [];
 
         $topicRelation = $object->topicRelation;
@@ -1109,7 +1109,7 @@ class Topics implements ObjectMapper
         if ($topicRelation === null) {
             goto after_topicRelation;
         }
-        $topicRelation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($topicRelation);
+        $topicRelation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Related⚡️TopicRelation($topicRelation);
         after_topicRelation:        $result['topic_relation'] = $topicRelation;
 
 
@@ -1117,9 +1117,9 @@ class Topics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TopicSearchResultItem⚡️Aliases⚡️TopicRelation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\TopicSearchResultItem\Aliases\TopicRelation);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\TopicSearchResultItem\Aliases\TopicRelation);
         $result = [];
 
         $id = $object->id;

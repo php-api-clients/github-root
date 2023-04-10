@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\CodeScanning;
+namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\CodeScanning;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final class ListAlertsForEnterpriseTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class ListAlertsForEnterpriseTest extends \WyriHaximus\AsyncTestUtilities\
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/enterprises/generated_null/code-scanning/alerts?tool_name=generated_null&tool_guid=&before=generated_null&after=generated_null&state=generated_null&page=13&per_page=13&direction=generated_null&sort=generated_null', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\ListAlertsForEnterprise::OPERATION_MATCH, array('enterprise' => 'generated_null', 'tool_name' => 'generated_null', 'tool_guid' => null, 'before' => 'generated_null', 'after' => 'generated_null', 'state' => 'generated_null', 'page' => 13, 'per_page' => 13, 'direction' => 'generated_null', 'sort' => 'generated_null'));
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\CodeScanning\ListAlertsForEnterprise::OPERATION_MATCH, array('enterprise' => 'generated_null', 'tool_name' => 'generated_null', 'tool_guid' => null, 'before' => 'generated_null', 'after' => 'generated_null', 'state' => 'generated_null', 'page' => 13, 'per_page' => 13, 'direction' => 'generated_null', 'sort' => 'generated_null'));
     }
     /**
      * @test
@@ -38,8 +38,8 @@ final class ListAlertsForEnterpriseTest extends \WyriHaximus\AsyncTestUtilities\
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/enterprises/generated_null/code-scanning/alerts?tool_name=generated_null&tool_guid=&before=generated_null&after=generated_null&state=generated_null&page=13&per_page=13&direction=generated_null&sort=generated_null', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\ListAlertsForEnterprise::OPERATION_MATCH, array('enterprise' => 'generated_null', 'tool_name' => 'generated_null', 'tool_guid' => null, 'before' => 'generated_null', 'after' => 'generated_null', 'state' => 'generated_null', 'page' => 13, 'per_page' => 13, 'direction' => 'generated_null', 'sort' => 'generated_null'));
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\CodeScanning\ListAlertsForEnterprise::OPERATION_MATCH, array('enterprise' => 'generated_null', 'tool_name' => 'generated_null', 'tool_guid' => null, 'before' => 'generated_null', 'after' => 'generated_null', 'state' => 'generated_null', 'page' => 13, 'per_page' => 13, 'direction' => 'generated_null', 'sort' => 'generated_null'));
     }
     /**
      * @test
@@ -54,7 +54,7 @@ final class ListAlertsForEnterpriseTest extends \WyriHaximus\AsyncTestUtilities\
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/enterprises/generated_null/code-scanning/alerts?tool_name=generated_null&tool_guid=&before=generated_null&after=generated_null&state=generated_null&page=13&per_page=13&direction=generated_null&sort=generated_null', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\ListAlertsForEnterprise::OPERATION_MATCH, array('enterprise' => 'generated_null', 'tool_name' => 'generated_null', 'tool_guid' => null, 'before' => 'generated_null', 'after' => 'generated_null', 'state' => 'generated_null', 'page' => 13, 'per_page' => 13, 'direction' => 'generated_null', 'sort' => 'generated_null'));
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\CodeScanning\ListAlertsForEnterprise::OPERATION_MATCH, array('enterprise' => 'generated_null', 'tool_name' => 'generated_null', 'tool_guid' => null, 'before' => 'generated_null', 'after' => 'generated_null', 'state' => 'generated_null', 'page' => 13, 'per_page' => 13, 'direction' => 'generated_null', 'sort' => 'generated_null'));
     }
 }

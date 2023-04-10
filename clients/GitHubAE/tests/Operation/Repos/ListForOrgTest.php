@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Repos;
+namespace ApiClients\Tests\Client\GitHubAE\Operation\Repos;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
+use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Operation;
+use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Client\GitHubAE\WebHook;
 final class ListForOrgTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,7 +22,7 @@ final class ListForOrgTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/orgs/generated_null/repos?type=generated_null&direction=generated_null&sort=generated_null&per_page=13&page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Repos\ListForOrg::OPERATION_MATCH, array('org' => 'generated_null', 'type' => 'generated_null', 'direction' => 'generated_null', 'sort' => 'generated_null', 'per_page' => 13, 'page' => 13));
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\Repos\ListForOrg::OPERATION_MATCH, array('org' => 'generated_null', 'type' => 'generated_null', 'direction' => 'generated_null', 'sort' => 'generated_null', 'per_page' => 13, 'page' => 13));
     }
 }

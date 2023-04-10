@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Applications;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Applications;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,15 +23,15 @@ class Grants implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\ApplicationGrant' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ApplicationGrant($payload),
-                'ApiClients\Client\Github\Schema\ApplicationGrant\App' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ApplicationGrant⚡️App($payload),
-                'ApiClients\Client\Github\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApplicationGrant($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant\App' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApplicationGrant⚡️App($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ApplicationGrant(array $payload): \ApiClients\Client\Github\Schema\ApplicationGrant
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApplicationGrant(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant
     {
         $properties = []; 
         $missingFields = [];
@@ -68,7 +68,7 @@ class Grants implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'app';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ApplicationGrant⚡️App($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApplicationGrant⚡️App($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -123,22 +123,22 @@ class Grants implements ObjectMapper
             after_user:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ApplicationGrant', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ApplicationGrant::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ApplicationGrant(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ApplicationGrant', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ApplicationGrant⚡️App(array $payload): \ApiClients\Client\Github\Schema\ApplicationGrant\App
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApplicationGrant⚡️App(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant\App
     {
         $properties = []; 
         $missingFields = [];
@@ -177,22 +177,22 @@ class Grants implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ApplicationGrant\App', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant\App', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ApplicationGrant\App::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant\App::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ApplicationGrant\App(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant\App(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ApplicationGrant\App', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant\App', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\Github\Schema\BasicError
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\BasicError
     {
         $properties = []; 
         $missingFields = [];
@@ -242,17 +242,17 @@ class Grants implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BasicError(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\BasicError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -287,9 +287,9 @@ class Grants implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\ApplicationGrant' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ApplicationGrant($object),
-            'ApiClients\Client\Github\Schema\ApplicationGrant\App' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ApplicationGrant⚡️App($object),
-            'ApiClients\Client\Github\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApplicationGrant($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant\App' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApplicationGrant⚡️App($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -363,9 +363,9 @@ class Grants implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ApplicationGrant(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApplicationGrant(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ApplicationGrant);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant);
         $result = [];
 
         $id = $object->id;
@@ -377,7 +377,7 @@ class Grants implements ObjectMapper
 
         
         $app = $object->app;
-        $app = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ApplicationGrant⚡️App($app);
+        $app = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApplicationGrant⚡️App($app);
         after_app:        $result['app'] = $app;
 
         
@@ -413,9 +413,9 @@ class Grants implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ApplicationGrant⚡️App(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApplicationGrant⚡️App(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ApplicationGrant\App);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant\App);
         $result = [];
 
         $clientId = $object->clientId;
@@ -434,9 +434,9 @@ class Grants implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BasicError);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\BasicError);
         $result = [];
 
         $message = $object->message;

@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Pulls;
+namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\Pulls;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final class DismissReviewTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class DismissReviewTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestC
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PUT', '/repos/generated_null/generated_null/pulls/13/reviews/13/dismissals', \Prophecy\Argument::type('array'), Schema\Pulls\DismissReview\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Pulls\DismissReview::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Pulls\DismissReview::OPERATION_MATCH, (static function (array $data) : array {
             $data['owner'] = 'generated_null';
             $data['repo'] = 'generated_null';
             $data['pull_number'] = 13;
@@ -44,8 +44,8 @@ final class DismissReviewTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestC
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PUT', '/repos/generated_null/generated_null/pulls/13/reviews/13/dismissals', \Prophecy\Argument::type('array'), Schema\Pulls\DismissReview\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Pulls\DismissReview::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Pulls\DismissReview::OPERATION_MATCH, (static function (array $data) : array {
             $data['owner'] = 'generated_null';
             $data['repo'] = 'generated_null';
             $data['pull_number'] = 13;
@@ -66,8 +66,8 @@ final class DismissReviewTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestC
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PUT', '/repos/generated_null/generated_null/pulls/13/reviews/13/dismissals', \Prophecy\Argument::type('array'), Schema\Pulls\DismissReview\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Pulls\DismissReview::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Pulls\DismissReview::OPERATION_MATCH, (static function (array $data) : array {
             $data['owner'] = 'generated_null';
             $data['repo'] = 'generated_null';
             $data['pull_number'] = 13;

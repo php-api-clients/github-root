@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\SecretScanning;
+namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\SecretScanning;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final class ListAlertsForEnterpriseTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class ListAlertsForEnterpriseTest extends \WyriHaximus\AsyncTestUtilities\
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/enterprises/generated_null/secret-scanning/alerts?state=generated_null&secret_type=generated_null&resolution=generated_null&before=generated_null&after=generated_null&sort=generated_null&direction=generated_null&per_page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\SecretScanning\ListAlertsForEnterprise::OPERATION_MATCH, array('enterprise' => 'generated_null', 'state' => 'generated_null', 'secret_type' => 'generated_null', 'resolution' => 'generated_null', 'before' => 'generated_null', 'after' => 'generated_null', 'sort' => 'generated_null', 'direction' => 'generated_null', 'per_page' => 13));
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\SecretScanning\ListAlertsForEnterprise::OPERATION_MATCH, array('enterprise' => 'generated_null', 'state' => 'generated_null', 'secret_type' => 'generated_null', 'resolution' => 'generated_null', 'before' => 'generated_null', 'after' => 'generated_null', 'sort' => 'generated_null', 'direction' => 'generated_null', 'per_page' => 13));
     }
     /**
      * @test
@@ -38,8 +38,8 @@ final class ListAlertsForEnterpriseTest extends \WyriHaximus\AsyncTestUtilities\
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/enterprises/generated_null/secret-scanning/alerts?state=generated_null&secret_type=generated_null&resolution=generated_null&before=generated_null&after=generated_null&sort=generated_null&direction=generated_null&per_page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\SecretScanning\ListAlertsForEnterprise::OPERATION_MATCH, array('enterprise' => 'generated_null', 'state' => 'generated_null', 'secret_type' => 'generated_null', 'resolution' => 'generated_null', 'before' => 'generated_null', 'after' => 'generated_null', 'sort' => 'generated_null', 'direction' => 'generated_null', 'per_page' => 13));
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\SecretScanning\ListAlertsForEnterprise::OPERATION_MATCH, array('enterprise' => 'generated_null', 'state' => 'generated_null', 'secret_type' => 'generated_null', 'resolution' => 'generated_null', 'before' => 'generated_null', 'after' => 'generated_null', 'sort' => 'generated_null', 'direction' => 'generated_null', 'per_page' => 13));
     }
     /**
      * @test
@@ -54,7 +54,7 @@ final class ListAlertsForEnterpriseTest extends \WyriHaximus\AsyncTestUtilities\
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/enterprises/generated_null/secret-scanning/alerts?state=generated_null&secret_type=generated_null&resolution=generated_null&before=generated_null&after=generated_null&sort=generated_null&direction=generated_null&per_page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\SecretScanning\ListAlertsForEnterprise::OPERATION_MATCH, array('enterprise' => 'generated_null', 'state' => 'generated_null', 'secret_type' => 'generated_null', 'resolution' => 'generated_null', 'before' => 'generated_null', 'after' => 'generated_null', 'sort' => 'generated_null', 'direction' => 'generated_null', 'per_page' => 13));
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\SecretScanning\ListAlertsForEnterprise::OPERATION_MATCH, array('enterprise' => 'generated_null', 'state' => 'generated_null', 'secret_type' => 'generated_null', 'resolution' => 'generated_null', 'before' => 'generated_null', 'after' => 'generated_null', 'sort' => 'generated_null', 'direction' => 'generated_null', 'per_page' => 13));
     }
 }

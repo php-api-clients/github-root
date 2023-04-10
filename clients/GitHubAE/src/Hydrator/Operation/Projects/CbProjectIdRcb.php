@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Projects;
+namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Projects;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,17 +23,17 @@ class CbProjectIdRcb implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\Project' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Project($payload),
-                'ApiClients\Client\Github\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\Github\Schema\Operation\Projects\Delete\Response\Applicationjson\H403' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Projects⚡️Delete⚡️Response⚡️Applicationjson⚡️H403($payload),
-                'ApiClients\Client\Github\Schema\Operation\Projects\Update\Response\Applicationjson\H403' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Projects⚡️Update⚡️Response⚡️Applicationjson⚡️H403($payload),
-                'ApiClients\Client\Github\Schema\ValidationErrorSimple' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationErrorSimple($payload),
+            'ApiClients\Client\GitHubAE\Schema\Project' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Project($payload),
+                'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
+                'ApiClients\Client\GitHubAE\Schema\Operation\Projects\Delete\Response\Applicationjson\H403' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Projects⚡️Delete⚡️Response⚡️Applicationjson⚡️H403($payload),
+                'ApiClients\Client\GitHubAE\Schema\Operation\Projects\Update\Response\Applicationjson\H403' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Projects⚡️Update⚡️Response⚡️Applicationjson⚡️H403($payload),
+                'ApiClients\Client\GitHubAE\Schema\ValidationErrorSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationErrorSimple($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Project(array $payload): \ApiClients\Client\Github\Schema\Project
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Project(array $payload): \ApiClients\Client\GitHubAE\Schema\Project
     {
         $properties = []; 
         $missingFields = [];
@@ -204,22 +204,22 @@ class CbProjectIdRcb implements ObjectMapper
             after_private:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Project', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Project', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Project::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Project::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Project(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Project(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Project', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Project', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\Github\Schema\BasicError
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubAE\Schema\BasicError
     {
         $properties = []; 
         $missingFields = [];
@@ -269,22 +269,22 @@ class CbProjectIdRcb implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BasicError(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BasicError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Projects⚡️Delete⚡️Response⚡️Applicationjson⚡️H403(array $payload): \ApiClients\Client\Github\Schema\Operation\Projects\Delete\Response\Applicationjson\H403
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Projects⚡️Delete⚡️Response⚡️Applicationjson⚡️H403(array $payload): \ApiClients\Client\GitHubAE\Schema\Operation\Projects\Delete\Response\Applicationjson\H403
     {
         $properties = []; 
         $missingFields = [];
@@ -323,22 +323,22 @@ class CbProjectIdRcb implements ObjectMapper
             after_errors:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Projects\Delete\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\Projects\Delete\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\Projects\Delete\Response\Applicationjson\H403::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Operation\Projects\Delete\Response\Applicationjson\H403::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Operation\Projects\Delete\Response\Applicationjson\H403(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Operation\Projects\Delete\Response\Applicationjson\H403(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Projects\Delete\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\Projects\Delete\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Projects⚡️Update⚡️Response⚡️Applicationjson⚡️H403(array $payload): \ApiClients\Client\Github\Schema\Operation\Projects\Update\Response\Applicationjson\H403
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Projects⚡️Update⚡️Response⚡️Applicationjson⚡️H403(array $payload): \ApiClients\Client\GitHubAE\Schema\Operation\Projects\Update\Response\Applicationjson\H403
     {
         $properties = []; 
         $missingFields = [];
@@ -377,22 +377,22 @@ class CbProjectIdRcb implements ObjectMapper
             after_errors:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Projects\Update\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\Projects\Update\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\Projects\Update\Response\Applicationjson\H403::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Operation\Projects\Update\Response\Applicationjson\H403::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Operation\Projects\Update\Response\Applicationjson\H403(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Operation\Projects\Update\Response\Applicationjson\H403(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Projects\Update\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\Projects\Update\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationErrorSimple(array $payload): \ApiClients\Client\Github\Schema\ValidationErrorSimple
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationErrorSimple(array $payload): \ApiClients\Client\GitHubAE\Schema\ValidationErrorSimple
     {
         $properties = []; 
         $missingFields = [];
@@ -431,17 +431,17 @@ class CbProjectIdRcb implements ObjectMapper
             after_errors:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationErrorSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ValidationErrorSimple', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ValidationErrorSimple::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ValidationErrorSimple::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ValidationErrorSimple(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ValidationErrorSimple(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationErrorSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ValidationErrorSimple', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -476,11 +476,11 @@ class CbProjectIdRcb implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\Project' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Project($object),
-            'ApiClients\Client\Github\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($object),
-            'ApiClients\Client\Github\Schema\Operation\Projects\Delete\Response\Applicationjson\H403' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Projects⚡️Delete⚡️Response⚡️Applicationjson⚡️H403($object),
-            'ApiClients\Client\Github\Schema\Operation\Projects\Update\Response\Applicationjson\H403' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Projects⚡️Update⚡️Response⚡️Applicationjson⚡️H403($object),
-            'ApiClients\Client\Github\Schema\ValidationErrorSimple' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationErrorSimple($object),
+            'ApiClients\Client\GitHubAE\Schema\Project' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Project($object),
+            'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\GitHubAE\Schema\Operation\Projects\Delete\Response\Applicationjson\H403' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Projects⚡️Delete⚡️Response⚡️Applicationjson⚡️H403($object),
+            'ApiClients\Client\GitHubAE\Schema\Operation\Projects\Update\Response\Applicationjson\H403' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Projects⚡️Update⚡️Response⚡️Applicationjson⚡️H403($object),
+            'ApiClients\Client\GitHubAE\Schema\ValidationErrorSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationErrorSimple($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -554,9 +554,9 @@ class CbProjectIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Project(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Project(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Project);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Project);
         $result = [];
 
         $ownerUrl = $object->ownerUrl;
@@ -639,9 +639,9 @@ class CbProjectIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BasicError);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BasicError);
         $result = [];
 
         $message = $object->message;
@@ -680,9 +680,9 @@ class CbProjectIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Projects⚡️Delete⚡️Response⚡️Applicationjson⚡️H403(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Projects⚡️Delete⚡️Response⚡️Applicationjson⚡️H403(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\Projects\Delete\Response\Applicationjson\H403);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operation\Projects\Delete\Response\Applicationjson\H403);
         $result = [];
 
         $message = $object->message;
@@ -721,9 +721,9 @@ class CbProjectIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Projects⚡️Update⚡️Response⚡️Applicationjson⚡️H403(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️Projects⚡️Update⚡️Response⚡️Applicationjson⚡️H403(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\Projects\Update\Response\Applicationjson\H403);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operation\Projects\Update\Response\Applicationjson\H403);
         $result = [];
 
         $message = $object->message;
@@ -762,9 +762,9 @@ class CbProjectIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationErrorSimple(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationErrorSimple(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ValidationErrorSimple);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ValidationErrorSimple);
         $result = [];
 
         $message = $object->message;

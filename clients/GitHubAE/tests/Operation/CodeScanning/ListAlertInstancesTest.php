@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\CodeScanning;
+namespace ApiClients\Tests\Client\GitHubAE\Operation\CodeScanning;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
+use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Operation;
+use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Client\GitHubAE\WebHook;
 final class ListAlertInstancesTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class ListAlertInstancesTest extends \WyriHaximus\AsyncTestUtilities\Async
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/repos/generated_null/generated_null/code-scanning/alerts/13/instances?ref=generated_null&page=13&per_page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\ListAlertInstances::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'alert_number' => 13, 'ref' => 'generated_null', 'page' => 13, 'per_page' => 13));
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\CodeScanning\ListAlertInstances::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'alert_number' => 13, 'ref' => 'generated_null', 'page' => 13, 'per_page' => 13));
     }
     /**
      * @test
@@ -38,8 +38,8 @@ final class ListAlertInstancesTest extends \WyriHaximus\AsyncTestUtilities\Async
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/repos/generated_null/generated_null/code-scanning/alerts/13/instances?ref=generated_null&page=13&per_page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\ListAlertInstances::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'alert_number' => 13, 'ref' => 'generated_null', 'page' => 13, 'per_page' => 13));
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\CodeScanning\ListAlertInstances::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'alert_number' => 13, 'ref' => 'generated_null', 'page' => 13, 'per_page' => 13));
     }
     /**
      * @test
@@ -54,8 +54,8 @@ final class ListAlertInstancesTest extends \WyriHaximus\AsyncTestUtilities\Async
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/repos/generated_null/generated_null/code-scanning/alerts/13/instances?ref=generated_null&page=13&per_page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\ListAlertInstances::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'alert_number' => 13, 'ref' => 'generated_null', 'page' => 13, 'per_page' => 13));
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\CodeScanning\ListAlertInstances::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'alert_number' => 13, 'ref' => 'generated_null', 'page' => 13, 'per_page' => 13));
     }
     /**
      * @test
@@ -70,7 +70,7 @@ final class ListAlertInstancesTest extends \WyriHaximus\AsyncTestUtilities\Async
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/repos/generated_null/generated_null/code-scanning/alerts/13/instances?ref=generated_null&page=13&per_page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\CodeScanning\ListAlertInstances::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'alert_number' => 13, 'ref' => 'generated_null', 'page' => 13, 'per_page' => 13));
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\CodeScanning\ListAlertInstances::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'alert_number' => 13, 'ref' => 'generated_null', 'page' => 13, 'per_page' => 13));
     }
 }

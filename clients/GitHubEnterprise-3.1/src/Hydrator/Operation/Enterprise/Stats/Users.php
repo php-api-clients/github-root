@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Enterprise\Stats;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Enterprise\Stats;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class Users implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\EnterpriseUserOverview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseUserOverview($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseUserOverview($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseUserOverview(array $payload): \ApiClients\Client\Github\Schema\EnterpriseUserOverview
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseUserOverview(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview
     {
         $properties = []; 
         $missingFields = [];
@@ -68,17 +68,17 @@ class Users implements ObjectMapper
             after_suspendedUsers:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseUserOverview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseUserOverview(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -113,7 +113,7 @@ class Users implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\EnterpriseUserOverview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseUserOverview($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseUserOverview($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -187,9 +187,9 @@ class Users implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseUserOverview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseUserOverview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseUserOverview);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview);
         $result = [];
 
         $totalUsers = $object->totalUsers;

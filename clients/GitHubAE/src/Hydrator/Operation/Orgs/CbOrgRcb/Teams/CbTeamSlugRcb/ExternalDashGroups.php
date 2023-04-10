@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb;
+namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,15 +23,15 @@ class ExternalDashGroups implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\ExternalGroup' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ExternalGroup($payload),
-                'ApiClients\Client\Github\Schema\ExternalGroup\Teams' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ExternalGroup⚡️Teams($payload),
-                'ApiClients\Client\Github\Schema\ExternalGroup\Members' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ExternalGroup⚡️Members($payload),
+            'ApiClients\Client\GitHubAE\Schema\ExternalGroup' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroup($payload),
+                'ApiClients\Client\GitHubAE\Schema\ExternalGroup\Teams' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroup⚡️Teams($payload),
+                'ApiClients\Client\GitHubAE\Schema\ExternalGroup\Members' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroup⚡️Members($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ExternalGroup(array $payload): \ApiClients\Client\Github\Schema\ExternalGroup
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroup(array $payload): \ApiClients\Client\GitHubAE\Schema\ExternalGroup
     {
         $properties = []; 
         $missingFields = [];
@@ -80,7 +80,7 @@ class ExternalDashGroups implements ObjectMapper
 
             if ($teamsCaster1 === null) {
                 $teamsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\ExternalGroup\\Teams',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ExternalGroup\\Teams',
 ));
             }
 
@@ -101,7 +101,7 @@ class ExternalDashGroups implements ObjectMapper
 
             if ($membersCaster1 === null) {
                 $membersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\ExternalGroup\\Members',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ExternalGroup\\Members',
 ));
             }
 
@@ -112,22 +112,22 @@ class ExternalDashGroups implements ObjectMapper
             after_members:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ExternalGroup', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ExternalGroup', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ExternalGroup::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ExternalGroup::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ExternalGroup(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ExternalGroup(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ExternalGroup', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ExternalGroup', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ExternalGroup⚡️Teams(array $payload): \ApiClients\Client\Github\Schema\ExternalGroup\Teams
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroup⚡️Teams(array $payload): \ApiClients\Client\GitHubAE\Schema\ExternalGroup\Teams
     {
         $properties = []; 
         $missingFields = [];
@@ -155,22 +155,22 @@ class ExternalDashGroups implements ObjectMapper
             after_teamName:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ExternalGroup\Teams', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ExternalGroup\Teams', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ExternalGroup\Teams::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ExternalGroup\Teams::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ExternalGroup\Teams(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ExternalGroup\Teams(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ExternalGroup\Teams', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ExternalGroup\Teams', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ExternalGroup⚡️Members(array $payload): \ApiClients\Client\Github\Schema\ExternalGroup\Members
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroup⚡️Members(array $payload): \ApiClients\Client\GitHubAE\Schema\ExternalGroup\Members
     {
         $properties = []; 
         $missingFields = [];
@@ -220,17 +220,17 @@ class ExternalDashGroups implements ObjectMapper
             after_memberEmail:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ExternalGroup\Members', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ExternalGroup\Members', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ExternalGroup\Members::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ExternalGroup\Members::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ExternalGroup\Members(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ExternalGroup\Members(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ExternalGroup\Members', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ExternalGroup\Members', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -265,9 +265,9 @@ class ExternalDashGroups implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\ExternalGroup' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ExternalGroup($object),
-            'ApiClients\Client\Github\Schema\ExternalGroup\Teams' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ExternalGroup⚡️Teams($object),
-            'ApiClients\Client\Github\Schema\ExternalGroup\Members' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ExternalGroup⚡️Members($object),
+            'ApiClients\Client\GitHubAE\Schema\ExternalGroup' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroup($object),
+            'ApiClients\Client\GitHubAE\Schema\ExternalGroup\Teams' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroup⚡️Teams($object),
+            'ApiClients\Client\GitHubAE\Schema\ExternalGroup\Members' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroup⚡️Members($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -341,9 +341,9 @@ class ExternalDashGroups implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ExternalGroup(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroup(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ExternalGroup);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ExternalGroup);
         $result = [];
 
         $groupId = $object->groupId;
@@ -367,7 +367,7 @@ class ExternalDashGroups implements ObjectMapper
 
         if ($teamsSerializer0 === null) {
             $teamsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\ExternalGroup\\Teams',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ExternalGroup\\Teams',
 ));
         }
         
@@ -380,7 +380,7 @@ class ExternalDashGroups implements ObjectMapper
 
         if ($membersSerializer0 === null) {
             $membersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\ExternalGroup\\Members',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ExternalGroup\\Members',
 ));
         }
         
@@ -392,9 +392,9 @@ class ExternalDashGroups implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ExternalGroup⚡️Teams(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroup⚡️Teams(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ExternalGroup\Teams);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ExternalGroup\Teams);
         $result = [];
 
         $teamId = $object->teamId;
@@ -409,9 +409,9 @@ class ExternalDashGroups implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ExternalGroup⚡️Members(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ExternalGroup⚡️Members(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ExternalGroup\Members);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ExternalGroup\Members);
         $result = [];
 
         $memberId = $object->memberId;

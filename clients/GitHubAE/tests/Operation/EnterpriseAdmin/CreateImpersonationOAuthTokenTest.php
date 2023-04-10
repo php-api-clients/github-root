@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\EnterpriseAdmin;
+namespace ApiClients\Tests\Client\GitHubAE\Operation\EnterpriseAdmin;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
+use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Operation;
+use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Client\GitHubAE\WebHook;
 final class CreateImpersonationOAuthTokenTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class CreateImpersonationOAuthTokenTest extends \WyriHaximus\AsyncTestUtil
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/admin/users/generated_null/authorizations', \Prophecy\Argument::type('array'), Schema\EnterpriseAdmin\CreateImpersonationOAuthToken\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\EnterpriseAdmin\CreateImpersonationOAuthToken::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\CreateImpersonationOAuthToken::OPERATION_MATCH, (static function (array $data) : array {
             $data['username'] = 'generated_null';
             return $data;
         })(json_decode(Schema\EnterpriseAdmin\CreateImpersonationOAuthToken\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
@@ -40,8 +40,8 @@ final class CreateImpersonationOAuthTokenTest extends \WyriHaximus\AsyncTestUtil
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/admin/users/generated_null/authorizations', \Prophecy\Argument::type('array'), Schema\EnterpriseAdmin\CreateImpersonationOAuthToken\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\EnterpriseAdmin\CreateImpersonationOAuthToken::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\CreateImpersonationOAuthToken::OPERATION_MATCH, (static function (array $data) : array {
             $data['username'] = 'generated_null';
             return $data;
         })(json_decode(Schema\EnterpriseAdmin\CreateImpersonationOAuthToken\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));

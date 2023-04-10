@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Orgs\CbOrgRcb;
+namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Orgs\CbOrgRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,14 +23,14 @@ class AuditLog implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\AuditLogEvent' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️AuditLogEvent($payload),
-                'ApiClients\Client\Github\Schema\AuditLogEvent\ActorLocation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️AuditLogEvent⚡️ActorLocation($payload),
+            'ApiClients\Client\GitHubAE\Schema\AuditLogEvent' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent($payload),
+                'ApiClients\Client\GitHubAE\Schema\AuditLogEvent\ActorLocation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️ActorLocation($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️AuditLogEvent(array $payload): \ApiClients\Client\Github\Schema\AuditLogEvent
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent(array $payload): \ApiClients\Client\GitHubAE\Schema\AuditLogEvent
     {
         $properties = []; 
         $missingFields = [];
@@ -111,7 +111,7 @@ class AuditLog implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'actorLocation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️AuditLogEvent⚡️ActorLocation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️ActorLocation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -518,22 +518,22 @@ class AuditLog implements ObjectMapper
             after_visibility:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\AuditLogEvent', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\AuditLogEvent', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\AuditLogEvent::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\AuditLogEvent::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\AuditLogEvent(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\AuditLogEvent(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\AuditLogEvent', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\AuditLogEvent', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️AuditLogEvent⚡️ActorLocation(array $payload): \ApiClients\Client\Github\Schema\AuditLogEvent\ActorLocation
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️ActorLocation(array $payload): \ApiClients\Client\GitHubAE\Schema\AuditLogEvent\ActorLocation
     {
         $properties = []; 
         $missingFields = [];
@@ -550,17 +550,17 @@ class AuditLog implements ObjectMapper
             after_countryName:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\AuditLogEvent\ActorLocation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\AuditLogEvent\ActorLocation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\AuditLogEvent\ActorLocation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\AuditLogEvent\ActorLocation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\AuditLogEvent\ActorLocation(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\AuditLogEvent\ActorLocation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\AuditLogEvent\ActorLocation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\AuditLogEvent\ActorLocation', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -595,8 +595,8 @@ class AuditLog implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\AuditLogEvent' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️AuditLogEvent($object),
-            'ApiClients\Client\Github\Schema\AuditLogEvent\ActorLocation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️AuditLogEvent⚡️ActorLocation($object),
+            'ApiClients\Client\GitHubAE\Schema\AuditLogEvent' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent($object),
+            'ApiClients\Client\GitHubAE\Schema\AuditLogEvent\ActorLocation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️ActorLocation($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -670,9 +670,9 @@ class AuditLog implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️AuditLogEvent(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\AuditLogEvent);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\AuditLogEvent);
         $result = [];
 
         $atTimestamp = $object->atTimestamp;
@@ -728,7 +728,7 @@ class AuditLog implements ObjectMapper
         if ($actorLocation === null) {
             goto after_actorLocation;
         }
-        $actorLocation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️AuditLogEvent⚡️ActorLocation($actorLocation);
+        $actorLocation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️ActorLocation($actorLocation);
         after_actorLocation:        $result['actor_location'] = $actorLocation;
 
         
@@ -1024,9 +1024,9 @@ class AuditLog implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️AuditLogEvent⚡️ActorLocation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AuditLogEvent⚡️ActorLocation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\AuditLogEvent\ActorLocation);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\AuditLogEvent\ActorLocation);
         $result = [];
 
         $countryName = $object->countryName;

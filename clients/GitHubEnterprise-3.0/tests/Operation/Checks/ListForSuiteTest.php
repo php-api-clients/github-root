@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Checks;
+namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\Checks;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final class ListForSuiteTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,7 +22,7 @@ final class ListForSuiteTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCa
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/repos/generated_null/generated_null/check-suites/13/check-runs?check_name=generated_null&status=generated_null&filter=generated_null&per_page=13&page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Checks\ListForSuite::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'check_suite_id' => 13, 'check_name' => 'generated_null', 'status' => 'generated_null', 'filter' => 'generated_null', 'per_page' => 13, 'page' => 13));
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Checks\ListForSuite::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'check_suite_id' => 13, 'check_name' => 'generated_null', 'status' => 'generated_null', 'filter' => 'generated_null', 'per_page' => 13, 'page' => 13));
     }
 }

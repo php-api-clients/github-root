@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning;
+namespace ApiClients\Client\GitHubEnterpriseCloud\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,20 +23,20 @@ class Alerts implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\CodeScanningAlertItems' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertItems($payload),
-                'ApiClients\Client\Github\Schema\CodeScanningAlertRuleSummary' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertRuleSummary($payload),
-                'ApiClients\Client\Github\Schema\CodeScanningAnalysisTool' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAnalysisTool($payload),
-                'ApiClients\Client\Github\Schema\CodeScanningAlertInstance' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance($payload),
-                'ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($payload),
-                'ApiClients\Client\Github\Schema\CodeScanningAlertLocation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertLocation($payload),
-                'ApiClients\Client\Github\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($payload),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertItems' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertItems($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertRuleSummary' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertRuleSummary($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysisTool($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertInstance($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance\Message' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertLocation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertLocation($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertItems(array $payload): \ApiClients\Client\Github\Schema\CodeScanningAlertItems
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertItems(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertItems
     {
         $properties = []; 
         $missingFields = [];
@@ -183,7 +183,7 @@ class Alerts implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'rule';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertRuleSummary($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertRuleSummary($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -203,7 +203,7 @@ class Alerts implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'tool';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAnalysisTool($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysisTool($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -223,7 +223,7 @@ class Alerts implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'mostRecentInstance';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertInstance($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -234,22 +234,22 @@ class Alerts implements ObjectMapper
             after_mostRecentInstance:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertItems', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertItems', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeScanningAlertItems::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertItems::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\CodeScanningAlertItems(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertItems(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertItems', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertItems', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertRuleSummary(array $payload): \ApiClients\Client\Github\Schema\CodeScanningAlertRuleSummary
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertRuleSummary(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertRuleSummary
     {
         $properties = []; 
         $missingFields = [];
@@ -310,22 +310,22 @@ class Alerts implements ObjectMapper
             after_description:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertRuleSummary', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertRuleSummary', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeScanningAlertRuleSummary::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertRuleSummary::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\CodeScanningAlertRuleSummary(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertRuleSummary(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertRuleSummary', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertRuleSummary', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAnalysisTool(array $payload): \ApiClients\Client\Github\Schema\CodeScanningAnalysisTool
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysisTool(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool
     {
         $properties = []; 
         $missingFields = [];
@@ -364,22 +364,22 @@ class Alerts implements ObjectMapper
             after_guid:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAnalysisTool', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeScanningAnalysisTool::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\CodeScanningAnalysisTool(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAnalysisTool', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance(array $payload): \ApiClients\Client\Github\Schema\CodeScanningAlertInstance
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertInstance(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance
     {
         $properties = []; 
         $missingFields = [];
@@ -460,7 +460,7 @@ class Alerts implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'message';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -480,7 +480,7 @@ class Alerts implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'location';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertLocation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertLocation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -513,22 +513,22 @@ class Alerts implements ObjectMapper
             after_classifications:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertInstance', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeScanningAlertInstance::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\CodeScanningAlertInstance(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertInstance', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance⚡️Message(array $payload): \ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertInstance⚡️Message(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance\Message
     {
         $properties = []; 
         $missingFields = [];
@@ -545,22 +545,22 @@ class Alerts implements ObjectMapper
             after_text:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance\Message', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance\Message::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance\Message(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance\Message', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertLocation(array $payload): \ApiClients\Client\Github\Schema\CodeScanningAlertLocation
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertLocation(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertLocation
     {
         $properties = []; 
         $missingFields = [];
@@ -621,22 +621,22 @@ class Alerts implements ObjectMapper
             after_endColumn:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertLocation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertLocation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeScanningAlertLocation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertLocation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\CodeScanningAlertLocation(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertLocation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertLocation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertLocation', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\Github\Schema\BasicError
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError
     {
         $properties = []; 
         $missingFields = [];
@@ -686,22 +686,22 @@ class Alerts implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BasicError(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503(array $payload): \ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503
     {
         $properties = []; 
         $missingFields = [];
@@ -740,17 +740,17 @@ class Alerts implements ObjectMapper
             after_documentationUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -785,14 +785,14 @@ class Alerts implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\CodeScanningAlertItems' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertItems($object),
-            'ApiClients\Client\Github\Schema\CodeScanningAlertRuleSummary' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertRuleSummary($object),
-            'ApiClients\Client\Github\Schema\CodeScanningAnalysisTool' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAnalysisTool($object),
-            'ApiClients\Client\Github\Schema\CodeScanningAlertInstance' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance($object),
-            'ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($object),
-            'ApiClients\Client\Github\Schema\CodeScanningAlertLocation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertLocation($object),
-            'ApiClients\Client\Github\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($object),
-            'ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertItems' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertItems($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertRuleSummary' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertRuleSummary($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysisTool($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertInstance($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance\Message' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertLocation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertLocation($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -866,9 +866,9 @@ class Alerts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertItems(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertItems(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeScanningAlertItems);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertItems);
         $result = [];
 
         $number = $object->number;
@@ -944,17 +944,17 @@ class Alerts implements ObjectMapper
 
         
         $rule = $object->rule;
-        $rule = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertRuleSummary($rule);
+        $rule = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertRuleSummary($rule);
         after_rule:        $result['rule'] = $rule;
 
         
         $tool = $object->tool;
-        $tool = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAnalysisTool($tool);
+        $tool = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysisTool($tool);
         after_tool:        $result['tool'] = $tool;
 
         
         $mostRecentInstance = $object->mostRecentInstance;
-        $mostRecentInstance = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance($mostRecentInstance);
+        $mostRecentInstance = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertInstance($mostRecentInstance);
         after_mostRecentInstance:        $result['most_recent_instance'] = $mostRecentInstance;
 
 
@@ -962,9 +962,9 @@ class Alerts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertRuleSummary(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertRuleSummary(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeScanningAlertRuleSummary);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertRuleSummary);
         $result = [];
 
         $id = $object->id;
@@ -1019,9 +1019,9 @@ class Alerts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAnalysisTool(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAnalysisTool(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeScanningAnalysisTool);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisTool);
         $result = [];
 
         $name = $object->name;
@@ -1052,9 +1052,9 @@ class Alerts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertInstance(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeScanningAlertInstance);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance);
         $result = [];
 
         $ref = $object->ref;
@@ -1110,7 +1110,7 @@ class Alerts implements ObjectMapper
         if ($message === null) {
             goto after_message;
         }
-        $message = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($message);
+        $message = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($message);
         after_message:        $result['message'] = $message;
 
         
@@ -1119,7 +1119,7 @@ class Alerts implements ObjectMapper
         if ($location === null) {
             goto after_location;
         }
-        $location = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertLocation($location);
+        $location = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertLocation($location);
         after_location:        $result['location'] = $location;
 
         
@@ -1151,9 +1151,9 @@ class Alerts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance⚡️Message(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertInstance⚡️Message(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertInstance\Message);
         $result = [];
 
         $text = $object->text;
@@ -1168,9 +1168,9 @@ class Alerts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertLocation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningAlertLocation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeScanningAlertLocation);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlertLocation);
         $result = [];
 
         $path = $object->path;
@@ -1217,9 +1217,9 @@ class Alerts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BasicError);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError);
         $result = [];
 
         $message = $object->message;
@@ -1258,9 +1258,9 @@ class Alerts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503);
         $result = [];
 
         $code = $object->code;

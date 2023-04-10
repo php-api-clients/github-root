@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Codespaces;
+namespace ApiClients\Tests\Client\GitHubEnterpriseCloud\Operation\Codespaces;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
+use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
 final class StartForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class StartForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilitie
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/user/codespaces/generated_null/start', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
     }
     /**
      * @test
@@ -38,8 +38,8 @@ final class StartForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilitie
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/user/codespaces/generated_null/start', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
     }
     /**
      * @test
@@ -54,8 +54,8 @@ final class StartForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilitie
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/user/codespaces/generated_null/start', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
     }
     /**
      * @test
@@ -70,8 +70,8 @@ final class StartForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilitie
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/user/codespaces/generated_null/start', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
     }
     /**
      * @test
@@ -86,8 +86,8 @@ final class StartForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilitie
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/user/codespaces/generated_null/start', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
     }
     /**
      * @test
@@ -102,8 +102,8 @@ final class StartForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilitie
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/user/codespaces/generated_null/start', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
     }
     /**
      * @test
@@ -118,8 +118,8 @@ final class StartForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilitie
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/user/codespaces/generated_null/start', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
     }
     /**
      * @test
@@ -134,8 +134,8 @@ final class StartForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilitie
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/user/codespaces/generated_null/start', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
     }
     /**
      * @test
@@ -150,7 +150,7 @@ final class StartForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilitie
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/user/codespaces/generated_null/start', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Codespaces\StartForAuthenticatedUser::OPERATION_MATCH, array('codespace_name' => 'generated_null'));
     }
 }

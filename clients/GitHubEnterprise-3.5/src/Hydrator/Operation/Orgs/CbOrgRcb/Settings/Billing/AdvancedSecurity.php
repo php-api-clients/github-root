@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,16 +23,16 @@ class AdvancedSecurity implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommitters' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️AdvancedSecurityActiveCommitters($payload),
-                'ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersRepository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️AdvancedSecurityActiveCommittersRepository($payload),
-                'ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersUser' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️AdvancedSecurityActiveCommittersUser($payload),
-                'ApiClients\Client\Github\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommitters' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AdvancedSecurityActiveCommitters($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AdvancedSecurityActiveCommittersRepository($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AdvancedSecurityActiveCommittersUser($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️AdvancedSecurityActiveCommitters(array $payload): \ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommitters
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AdvancedSecurityActiveCommitters(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommitters
     {
         $properties = []; 
         $missingFields = [];
@@ -70,7 +70,7 @@ class AdvancedSecurity implements ObjectMapper
 
             if ($repositoriesCaster1 === null) {
                 $repositoriesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\AdvancedSecurityActiveCommittersRepository',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AdvancedSecurityActiveCommittersRepository',
 ));
             }
 
@@ -81,22 +81,22 @@ class AdvancedSecurity implements ObjectMapper
             after_repositories:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommitters', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommitters', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommitters::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommitters::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommitters(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommitters(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommitters', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommitters', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️AdvancedSecurityActiveCommittersRepository(array $payload): \ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersRepository
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AdvancedSecurityActiveCommittersRepository(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersRepository
     {
         $properties = []; 
         $missingFields = [];
@@ -134,7 +134,7 @@ class AdvancedSecurity implements ObjectMapper
 
             if ($advancedSecurityCommittersBreakdownCaster1 === null) {
                 $advancedSecurityCommittersBreakdownCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\AdvancedSecurityActiveCommittersUser',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AdvancedSecurityActiveCommittersUser',
 ));
             }
 
@@ -145,22 +145,22 @@ class AdvancedSecurity implements ObjectMapper
             after_advancedSecurityCommittersBreakdown:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersRepository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersRepository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersRepository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersRepository(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersRepository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersRepository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️AdvancedSecurityActiveCommittersUser(array $payload): \ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersUser
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AdvancedSecurityActiveCommittersUser(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersUser
     {
         $properties = []; 
         $missingFields = [];
@@ -188,22 +188,22 @@ class AdvancedSecurity implements ObjectMapper
             after_lastPushedDate:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersUser', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersUser::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersUser::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersUser(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersUser(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersUser', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\Github\Schema\BasicError
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\BasicError
     {
         $properties = []; 
         $missingFields = [];
@@ -253,17 +253,17 @@ class AdvancedSecurity implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BasicError(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\BasicError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -298,10 +298,10 @@ class AdvancedSecurity implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommitters' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️AdvancedSecurityActiveCommitters($object),
-            'ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersRepository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️AdvancedSecurityActiveCommittersRepository($object),
-            'ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersUser' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️AdvancedSecurityActiveCommittersUser($object),
-            'ApiClients\Client\Github\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommitters' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AdvancedSecurityActiveCommitters($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AdvancedSecurityActiveCommittersRepository($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AdvancedSecurityActiveCommittersUser($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -375,9 +375,9 @@ class AdvancedSecurity implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️AdvancedSecurityActiveCommitters(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AdvancedSecurityActiveCommitters(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommitters);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommitters);
         $result = [];
 
         $totalAdvancedSecurityCommitters = $object->totalAdvancedSecurityCommitters;
@@ -401,7 +401,7 @@ class AdvancedSecurity implements ObjectMapper
 
         if ($repositoriesSerializer0 === null) {
             $repositoriesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\AdvancedSecurityActiveCommittersRepository',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AdvancedSecurityActiveCommittersRepository',
 ));
         }
         
@@ -413,9 +413,9 @@ class AdvancedSecurity implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️AdvancedSecurityActiveCommittersRepository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AdvancedSecurityActiveCommittersRepository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersRepository);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersRepository);
         $result = [];
 
         $name = $object->name;
@@ -431,7 +431,7 @@ class AdvancedSecurity implements ObjectMapper
 
         if ($advancedSecurityCommittersBreakdownSerializer0 === null) {
             $advancedSecurityCommittersBreakdownSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\AdvancedSecurityActiveCommittersUser',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\AdvancedSecurityActiveCommittersUser',
 ));
         }
         
@@ -443,9 +443,9 @@ class AdvancedSecurity implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️AdvancedSecurityActiveCommittersUser(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️AdvancedSecurityActiveCommittersUser(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\AdvancedSecurityActiveCommittersUser);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommittersUser);
         $result = [];
 
         $userLogin = $object->userLogin;
@@ -460,9 +460,9 @@ class AdvancedSecurity implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BasicError);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\BasicError);
         $result = [];
 
         $message = $object->message;

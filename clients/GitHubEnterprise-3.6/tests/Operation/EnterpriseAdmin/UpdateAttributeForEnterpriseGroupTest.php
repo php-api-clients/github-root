@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\EnterpriseAdmin;
+namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\EnterpriseAdmin;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), Schema\PatchSchema::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
             $data['scim_group_id'] = 'generated_null';
             return $data;
         })(json_decode(Schema\PatchSchema::SCHEMA_EXAMPLE_DATA, true)));
@@ -41,8 +41,8 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), Schema\PatchSchema::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
             $data['scim_group_id'] = 'generated_null';
             return $data;
         })(json_decode(Schema\PatchSchema::SCHEMA_EXAMPLE_DATA, true)));
@@ -60,8 +60,8 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), Schema\PatchSchema::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
             $data['scim_group_id'] = 'generated_null';
             return $data;
         })(json_decode(Schema\PatchSchema::SCHEMA_EXAMPLE_DATA, true)));
@@ -79,8 +79,8 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), Schema\PatchSchema::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
             $data['scim_group_id'] = 'generated_null';
             return $data;
         })(json_decode(Schema\PatchSchema::SCHEMA_EXAMPLE_DATA, true)));
@@ -98,8 +98,8 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), Schema\PatchSchema::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
             $data['scim_group_id'] = 'generated_null';
             return $data;
         })(json_decode(Schema\PatchSchema::SCHEMA_EXAMPLE_DATA, true)));
@@ -117,8 +117,8 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), Schema\PatchSchema::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
             $data['scim_group_id'] = 'generated_null';
             return $data;
         })(json_decode(Schema\PatchSchema::SCHEMA_EXAMPLE_DATA, true)));
@@ -136,8 +136,8 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), Schema\PatchSchema::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
             $data['scim_group_id'] = 'generated_null';
             return $data;
         })(json_decode(Schema\PatchSchema::SCHEMA_EXAMPLE_DATA, true)));
@@ -155,8 +155,8 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), Schema\PatchSchema::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup::OPERATION_MATCH, (static function (array $data) : array {
             $data['scim_group_id'] = 'generated_null';
             return $data;
         })(json_decode(Schema\PatchSchema::SCHEMA_EXAMPLE_DATA, true)));

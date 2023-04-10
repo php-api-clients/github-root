@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Cache;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Cache;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class Usage implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\ActionsCacheUsageOrgEnterprise' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsCacheUsageOrgEnterprise($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageOrgEnterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsCacheUsageOrgEnterprise($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsCacheUsageOrgEnterprise(array $payload): \ApiClients\Client\Github\Schema\ActionsCacheUsageOrgEnterprise
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsCacheUsageOrgEnterprise(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageOrgEnterprise
     {
         $properties = []; 
         $missingFields = [];
@@ -57,17 +57,17 @@ class Usage implements ObjectMapper
             after_totalActiveCachesSizeInBytes:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ActionsCacheUsageOrgEnterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageOrgEnterprise', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ActionsCacheUsageOrgEnterprise::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageOrgEnterprise::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ActionsCacheUsageOrgEnterprise(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageOrgEnterprise(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ActionsCacheUsageOrgEnterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageOrgEnterprise', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -102,7 +102,7 @@ class Usage implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\ActionsCacheUsageOrgEnterprise' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsCacheUsageOrgEnterprise($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageOrgEnterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsCacheUsageOrgEnterprise($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -176,9 +176,9 @@ class Usage implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsCacheUsageOrgEnterprise(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsCacheUsageOrgEnterprise(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ActionsCacheUsageOrgEnterprise);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageOrgEnterprise);
         $result = [];
 
         $totalActiveCachesCount = $object->totalActiveCachesCount;

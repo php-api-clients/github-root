@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Teams;
+namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\Teams;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final class UpdateInOrgTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class UpdateInOrgTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCas
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/orgs/generated_null/teams/generated_null', \Prophecy\Argument::type('array'), Schema\Teams\UpdateInOrg\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Teams\UpdateInOrg::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Teams\UpdateInOrg::OPERATION_MATCH, (static function (array $data) : array {
             $data['org'] = 'generated_null';
             $data['team_slug'] = 'generated_null';
             return $data;
@@ -41,8 +41,8 @@ final class UpdateInOrgTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCas
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/orgs/generated_null/teams/generated_null', \Prophecy\Argument::type('array'), Schema\Teams\UpdateInOrg\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Teams\UpdateInOrg::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Teams\UpdateInOrg::OPERATION_MATCH, (static function (array $data) : array {
             $data['org'] = 'generated_null';
             $data['team_slug'] = 'generated_null';
             return $data;
@@ -61,8 +61,8 @@ final class UpdateInOrgTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCas
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/orgs/generated_null/teams/generated_null', \Prophecy\Argument::type('array'), Schema\Teams\UpdateInOrg\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Teams\UpdateInOrg::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Teams\UpdateInOrg::OPERATION_MATCH, (static function (array $data) : array {
             $data['org'] = 'generated_null';
             $data['team_slug'] = 'generated_null';
             return $data;
@@ -81,8 +81,8 @@ final class UpdateInOrgTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCas
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/orgs/generated_null/teams/generated_null', \Prophecy\Argument::type('array'), Schema\Teams\UpdateInOrg\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Teams\UpdateInOrg::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Teams\UpdateInOrg::OPERATION_MATCH, (static function (array $data) : array {
             $data['org'] = 'generated_null';
             $data['team_slug'] = 'generated_null';
             return $data;
@@ -101,8 +101,8 @@ final class UpdateInOrgTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCas
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('PATCH', '/orgs/generated_null/teams/generated_null', \Prophecy\Argument::type('array'), Schema\Teams\UpdateInOrg\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Teams\UpdateInOrg::OPERATION_MATCH, (static function (array $data) : array {
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Teams\UpdateInOrg::OPERATION_MATCH, (static function (array $data) : array {
             $data['org'] = 'generated_null';
             $data['team_slug'] = 'generated_null';
             return $data;

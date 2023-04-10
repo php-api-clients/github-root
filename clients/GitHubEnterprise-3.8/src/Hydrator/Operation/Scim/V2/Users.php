@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Scim\V2;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Scim\V2;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,18 +23,18 @@ class Users implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\ScimEnterpriseUserList' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ScimEnterpriseUserList($payload),
-                'ApiClients\Client\Github\Schema\UserResponse' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️UserResponse($payload),
-                'ApiClients\Client\Github\Schema\UserNameResponse' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️UserNameResponse($payload),
-                'ApiClients\Client\Github\Schema\UserEmailsResponse' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️UserEmailsResponse($payload),
-                'ApiClients\Client\Github\Schema\UserRole' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️UserRole($payload),
-                'ApiClients\Client\Github\Schema\ScimError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ScimError($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\UserResponse' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserResponse($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserNameResponse($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserEmailsResponse($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\UserRole' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserRole($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\ScimError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ScimEnterpriseUserList(array $payload): \ApiClients\Client\Github\Schema\ScimEnterpriseUserList
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList
     {
         $properties = []; 
         $missingFields = [];
@@ -72,7 +72,7 @@ class Users implements ObjectMapper
 
             if ($resourcesCaster1 === null) {
                 $resourcesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\UserResponse',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\UserResponse',
 ));
             }
 
@@ -105,22 +105,22 @@ class Users implements ObjectMapper
             after_itemsPerPage:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ScimEnterpriseUserList', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ScimEnterpriseUserList::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ScimEnterpriseUserList(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ScimEnterpriseUserList', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️UserResponse(array $payload): \ApiClients\Client\Github\Schema\UserResponse
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserResponse(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\UserResponse
     {
         $properties = []; 
         $missingFields = [];
@@ -179,7 +179,7 @@ class Users implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'name';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️UserNameResponse($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserNameResponse($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -211,7 +211,7 @@ class Users implements ObjectMapper
 
             if ($emailsCaster1 === null) {
                 $emailsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\UserEmailsResponse',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\UserEmailsResponse',
 ));
             }
 
@@ -232,7 +232,7 @@ class Users implements ObjectMapper
 
             if ($rolesCaster1 === null) {
                 $rolesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\UserRole',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\UserRole',
 ));
             }
 
@@ -243,22 +243,22 @@ class Users implements ObjectMapper
             after_roles:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\UserResponse', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserResponse', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\UserResponse::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\UserResponse::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\UserResponse(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\UserResponse(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\UserResponse', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserResponse', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️UserNameResponse(array $payload): \ApiClients\Client\Github\Schema\UserNameResponse
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserNameResponse(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse
     {
         $properties = []; 
         $missingFields = [];
@@ -308,22 +308,22 @@ class Users implements ObjectMapper
             after_middleName:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\UserNameResponse', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\UserNameResponse::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\UserNameResponse(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\UserNameResponse', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️UserEmailsResponse(array $payload): \ApiClients\Client\Github\Schema\UserEmailsResponse
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserEmailsResponse(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse
     {
         $properties = []; 
         $missingFields = [];
@@ -362,22 +362,22 @@ class Users implements ObjectMapper
             after_primary:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\UserEmailsResponse', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\UserEmailsResponse::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\UserEmailsResponse(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\UserEmailsResponse', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️UserRole(array $payload): \ApiClients\Client\Github\Schema\UserRole
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserRole(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\UserRole
     {
         $properties = []; 
         $missingFields = [];
@@ -427,22 +427,22 @@ class Users implements ObjectMapper
             after_primary:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\UserRole', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserRole', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\UserRole::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\UserRole::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\UserRole(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\UserRole(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\UserRole', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\UserRole', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ScimError(array $payload): \ApiClients\Client\Github\Schema\ScimError
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ScimError
     {
         $properties = []; 
         $missingFields = [];
@@ -514,17 +514,17 @@ class Users implements ObjectMapper
             after_schemas:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ScimError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ScimError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ScimError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ScimError(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\ScimError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ScimError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimError', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -559,12 +559,12 @@ class Users implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\ScimEnterpriseUserList' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ScimEnterpriseUserList($object),
-            'ApiClients\Client\Github\Schema\UserResponse' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️UserResponse($object),
-            'ApiClients\Client\Github\Schema\UserNameResponse' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️UserNameResponse($object),
-            'ApiClients\Client\Github\Schema\UserEmailsResponse' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️UserEmailsResponse($object),
-            'ApiClients\Client\Github\Schema\UserRole' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️UserRole($object),
-            'ApiClients\Client\Github\Schema\ScimError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ScimError($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\UserResponse' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserResponse($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserNameResponse($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserEmailsResponse($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\UserRole' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserRole($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\ScimError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -638,9 +638,9 @@ class Users implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ScimEnterpriseUserList(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseUserList(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ScimEnterpriseUserList);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList);
         $result = [];
 
         $schemas = $object->schemas;
@@ -664,7 +664,7 @@ class Users implements ObjectMapper
 
         if ($resourcesSerializer0 === null) {
             $resourcesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\UserResponse',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\UserResponse',
 ));
         }
         
@@ -684,9 +684,9 @@ class Users implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️UserResponse(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserResponse(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\UserResponse);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\UserResponse);
         $result = [];
 
         $schemas = $object->schemas;
@@ -726,7 +726,7 @@ class Users implements ObjectMapper
         if ($name === null) {
             goto after_name;
         }
-        $name = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️UserNameResponse($name);
+        $name = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserNameResponse($name);
         after_name:        $result['name'] = $name;
 
         
@@ -743,7 +743,7 @@ class Users implements ObjectMapper
 
         if ($emailsSerializer0 === null) {
             $emailsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\UserEmailsResponse',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\UserEmailsResponse',
 ));
         }
         
@@ -760,7 +760,7 @@ class Users implements ObjectMapper
 
         if ($rolesSerializer0 === null) {
             $rolesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\UserRole',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\UserRole',
 ));
         }
         
@@ -772,9 +772,9 @@ class Users implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️UserNameResponse(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserNameResponse(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\UserNameResponse);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\UserNameResponse);
         $result = [];
 
         $formatted = $object->formatted;
@@ -813,9 +813,9 @@ class Users implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️UserEmailsResponse(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserEmailsResponse(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\UserEmailsResponse);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\UserEmailsResponse);
         $result = [];
 
         $value = $object->value;
@@ -842,9 +842,9 @@ class Users implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️UserRole(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️UserRole(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\UserRole);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\UserRole);
         $result = [];
 
         $display = $object->display;
@@ -879,9 +879,9 @@ class Users implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ScimError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ScimError);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ScimError);
         $result = [];
 
         $message = $object->message;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb;
+namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,17 +23,17 @@ class Comments implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\ReviewComment' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ReviewComment($payload),
-                'ApiClients\Client\Github\Schema\ReviewComment\Links' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ReviewComment⚡️Links($payload),
-                'ApiClients\Client\Github\Schema\Link' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($payload),
-                'ApiClients\Client\Github\Schema\ReactionRollup' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ReactionRollup($payload),
-                'ApiClients\Client\Github\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($payload),
+            'ApiClients\Client\GitHubAE\Schema\ReviewComment' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReviewComment($payload),
+                'ApiClients\Client\GitHubAE\Schema\ReviewComment\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReviewComment⚡️Links($payload),
+                'ApiClients\Client\GitHubAE\Schema\Link' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Link($payload),
+                'ApiClients\Client\GitHubAE\Schema\ReactionRollup' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup($payload),
+                'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ReviewComment(array $payload): \ApiClients\Client\Github\Schema\ReviewComment
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReviewComment(array $payload): \ApiClients\Client\GitHubAE\Schema\ReviewComment
     {
         $properties = []; 
         $missingFields = [];
@@ -246,7 +246,7 @@ class Comments implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'links';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ReviewComment⚡️Links($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReviewComment⚡️Links($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -288,7 +288,7 @@ class Comments implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'reactions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ReactionRollup($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -365,22 +365,22 @@ class Comments implements ObjectMapper
             after_originalStartLine:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ReviewComment', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ReviewComment', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ReviewComment::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ReviewComment::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ReviewComment(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ReviewComment(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ReviewComment', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ReviewComment', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ReviewComment⚡️Links(array $payload): \ApiClients\Client\Github\Schema\ReviewComment\Links
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReviewComment⚡️Links(array $payload): \ApiClients\Client\GitHubAE\Schema\ReviewComment\Links
     {
         $properties = []; 
         $missingFields = [];
@@ -395,7 +395,7 @@ class Comments implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'self';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Link($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -415,7 +415,7 @@ class Comments implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'html';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Link($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -435,7 +435,7 @@ class Comments implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'pullRequest';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Link($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -446,22 +446,22 @@ class Comments implements ObjectMapper
             after_pullRequest:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ReviewComment\Links', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ReviewComment\Links', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ReviewComment\Links::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ReviewComment\Links::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ReviewComment\Links(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ReviewComment\Links(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ReviewComment\Links', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ReviewComment\Links', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Link(array $payload): \ApiClients\Client\Github\Schema\Link
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Link(array $payload): \ApiClients\Client\GitHubAE\Schema\Link
     {
         $properties = []; 
         $missingFields = [];
@@ -478,22 +478,22 @@ class Comments implements ObjectMapper
             after_href:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Link', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Link', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Link::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Link::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Link(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Link(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Link', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Link', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ReactionRollup(array $payload): \ApiClients\Client\Github\Schema\ReactionRollup
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup(array $payload): \ApiClients\Client\GitHubAE\Schema\ReactionRollup
     {
         $properties = []; 
         $missingFields = [];
@@ -609,22 +609,22 @@ class Comments implements ObjectMapper
             after_rocket:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ReactionRollup', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ReactionRollup', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ReactionRollup::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ReactionRollup::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ReactionRollup(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ReactionRollup(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ReactionRollup', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ReactionRollup', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\Github\Schema\BasicError
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubAE\Schema\BasicError
     {
         $properties = []; 
         $missingFields = [];
@@ -674,17 +674,17 @@ class Comments implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\BasicError(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\BasicError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -719,11 +719,11 @@ class Comments implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\ReviewComment' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ReviewComment($object),
-            'ApiClients\Client\Github\Schema\ReviewComment\Links' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ReviewComment⚡️Links($object),
-            'ApiClients\Client\Github\Schema\Link' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($object),
-            'ApiClients\Client\Github\Schema\ReactionRollup' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ReactionRollup($object),
-            'ApiClients\Client\Github\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\GitHubAE\Schema\ReviewComment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReviewComment($object),
+            'ApiClients\Client\GitHubAE\Schema\ReviewComment\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReviewComment⚡️Links($object),
+            'ApiClients\Client\GitHubAE\Schema\Link' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Link($object),
+            'ApiClients\Client\GitHubAE\Schema\ReactionRollup' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup($object),
+            'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -797,9 +797,9 @@ class Comments implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ReviewComment(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReviewComment(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ReviewComment);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ReviewComment);
         $result = [];
 
         $url = $object->url;
@@ -891,7 +891,7 @@ class Comments implements ObjectMapper
 
         
         $links = $object->links;
-        $links = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ReviewComment⚡️Links($links);
+        $links = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReviewComment⚡️Links($links);
         after_links:        $result['_links'] = $links;
 
         
@@ -916,7 +916,7 @@ class Comments implements ObjectMapper
         if ($reactions === null) {
             goto after_reactions;
         }
-        $reactions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ReactionRollup($reactions);
+        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup($reactions);
         after_reactions:        $result['reactions'] = $reactions;
 
         
@@ -972,23 +972,23 @@ class Comments implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ReviewComment⚡️Links(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReviewComment⚡️Links(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ReviewComment\Links);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ReviewComment\Links);
         $result = [];
 
         $self = $object->self;
-        $self = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($self);
+        $self = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Link($self);
         after_self:        $result['self'] = $self;
 
         
         $html = $object->html;
-        $html = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($html);
+        $html = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Link($html);
         after_html:        $result['html'] = $html;
 
         
         $pullRequest = $object->pullRequest;
-        $pullRequest = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link($pullRequest);
+        $pullRequest = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Link($pullRequest);
         after_pullRequest:        $result['pull_request'] = $pullRequest;
 
 
@@ -996,9 +996,9 @@ class Comments implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Link(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Link(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Link);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Link);
         $result = [];
 
         $href = $object->href;
@@ -1009,9 +1009,9 @@ class Comments implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ReactionRollup(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ReactionRollup);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ReactionRollup);
         $result = [];
 
         $url = $object->url;
@@ -1058,9 +1058,9 @@ class Comments implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\BasicError);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BasicError);
         $result = [];
 
         $message = $object->message;

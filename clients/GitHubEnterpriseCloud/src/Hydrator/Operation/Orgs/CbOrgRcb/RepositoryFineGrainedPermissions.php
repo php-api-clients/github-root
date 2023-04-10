@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Orgs\CbOrgRcb;
+namespace ApiClients\Client\GitHubEnterpriseCloud\Hydrator\Operation\Orgs\CbOrgRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class RepositoryFineGrainedPermissions implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\RepositoryFineGrainedPermission' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️RepositoryFineGrainedPermission($payload),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryFineGrainedPermission' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryFineGrainedPermission($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️RepositoryFineGrainedPermission(array $payload): \ApiClients\Client\Github\Schema\RepositoryFineGrainedPermission
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryFineGrainedPermission(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryFineGrainedPermission
     {
         $properties = []; 
         $missingFields = [];
@@ -57,17 +57,17 @@ class RepositoryFineGrainedPermissions implements ObjectMapper
             after_description:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\RepositoryFineGrainedPermission', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryFineGrainedPermission', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\RepositoryFineGrainedPermission::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryFineGrainedPermission::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\RepositoryFineGrainedPermission(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryFineGrainedPermission(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\RepositoryFineGrainedPermission', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryFineGrainedPermission', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -102,7 +102,7 @@ class RepositoryFineGrainedPermissions implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\RepositoryFineGrainedPermission' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️RepositoryFineGrainedPermission($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryFineGrainedPermission' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryFineGrainedPermission($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -176,9 +176,9 @@ class RepositoryFineGrainedPermissions implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️RepositoryFineGrainedPermission(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryFineGrainedPermission(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\RepositoryFineGrainedPermission);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryFineGrainedPermission);
         $result = [];
 
         $name = $object->name;

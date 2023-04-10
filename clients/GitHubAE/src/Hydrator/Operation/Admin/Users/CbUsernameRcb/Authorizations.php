@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Admin\Users\CbUsernameRcb;
+namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Admin\Users\CbUsernameRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,14 +23,14 @@ class Authorizations implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\Authorization' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Authorization($payload),
-                'ApiClients\Client\Github\Schema\Authorization\App' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Authorization⚡️App($payload),
+            'ApiClients\Client\GitHubAE\Schema\Authorization' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Authorization($payload),
+                'ApiClients\Client\GitHubAE\Schema\Authorization\App' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Authorization⚡️App($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Authorization(array $payload): \ApiClients\Client\Github\Schema\Authorization
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Authorization(array $payload): \ApiClients\Client\GitHubAE\Schema\Authorization
     {
         $properties = []; 
         $missingFields = [];
@@ -111,7 +111,7 @@ class Authorizations implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'app';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Authorization⚡️App($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Authorization⚡️App($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -210,22 +210,22 @@ class Authorizations implements ObjectMapper
             after_expiresAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Authorization', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Authorization', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Authorization::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Authorization::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Authorization(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Authorization(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Authorization', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Authorization', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Authorization⚡️App(array $payload): \ApiClients\Client\Github\Schema\Authorization\App
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Authorization⚡️App(array $payload): \ApiClients\Client\GitHubAE\Schema\Authorization\App
     {
         $properties = []; 
         $missingFields = [];
@@ -264,17 +264,17 @@ class Authorizations implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Authorization\App', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Authorization\App', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Authorization\App::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Authorization\App::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Authorization\App(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Authorization\App(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Authorization\App', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Authorization\App', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -309,8 +309,8 @@ class Authorizations implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\Authorization' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Authorization($object),
-            'ApiClients\Client\Github\Schema\Authorization\App' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Authorization⚡️App($object),
+            'ApiClients\Client\GitHubAE\Schema\Authorization' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Authorization($object),
+            'ApiClients\Client\GitHubAE\Schema\Authorization\App' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Authorization⚡️App($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -384,9 +384,9 @@ class Authorizations implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Authorization(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Authorization(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Authorization);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Authorization);
         $result = [];
 
         $id = $object->id;
@@ -434,7 +434,7 @@ class Authorizations implements ObjectMapper
 
         
         $app = $object->app;
-        $app = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Authorization⚡️App($app);
+        $app = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Authorization⚡️App($app);
         after_app:        $result['app'] = $app;
 
         
@@ -498,9 +498,9 @@ class Authorizations implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Authorization⚡️App(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Authorization⚡️App(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Authorization\App);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Authorization\App);
         $result = [];
 
         $clientId = $object->clientId;

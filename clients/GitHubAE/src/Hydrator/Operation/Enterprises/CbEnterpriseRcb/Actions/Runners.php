@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions;
+namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,15 +23,15 @@ class Runners implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️ListSelfHostedRunnersForEnterprise⚡️Response⚡️Applicationjson⚡️H200($payload),
-                'ApiClients\Client\Github\Schema\Runner' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Runner($payload),
-                'ApiClients\Client\Github\Schema\RunnerLabel' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️RunnerLabel($payload),
+            'ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️ListSelfHostedRunnersForEnterprise⚡️Response⚡️Applicationjson⚡️H200($payload),
+                'ApiClients\Client\GitHubAE\Schema\Runner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Runner($payload),
+                'ApiClients\Client\GitHubAE\Schema\RunnerLabel' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RunnerLabel($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️ListSelfHostedRunnersForEnterprise⚡️Response⚡️Applicationjson⚡️H200(array $payload): \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️ListSelfHostedRunnersForEnterprise⚡️Response⚡️Applicationjson⚡️H200(array $payload): \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200
     {
         $properties = []; 
         $missingFields = [];
@@ -58,7 +58,7 @@ class Runners implements ObjectMapper
 
             if ($runnersCaster1 === null) {
                 $runnersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Runner',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Runner',
 ));
             }
 
@@ -69,22 +69,22 @@ class Runners implements ObjectMapper
             after_runners:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Runner(array $payload): \ApiClients\Client\Github\Schema\Runner
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Runner(array $payload): \ApiClients\Client\GitHubAE\Schema\Runner
     {
         $properties = []; 
         $missingFields = [];
@@ -155,7 +155,7 @@ class Runners implements ObjectMapper
 
             if ($labelsCaster1 === null) {
                 $labelsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\RunnerLabel',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\RunnerLabel',
 ));
             }
 
@@ -166,22 +166,22 @@ class Runners implements ObjectMapper
             after_labels:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Runner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Runner', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Runner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Runner::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Runner(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Runner(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Runner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Runner', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️RunnerLabel(array $payload): \ApiClients\Client\Github\Schema\RunnerLabel
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RunnerLabel(array $payload): \ApiClients\Client\GitHubAE\Schema\RunnerLabel
     {
         $properties = []; 
         $missingFields = [];
@@ -220,17 +220,17 @@ class Runners implements ObjectMapper
             after_type:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\RunnerLabel', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\RunnerLabel', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\RunnerLabel::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\RunnerLabel::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\RunnerLabel(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\RunnerLabel(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\RunnerLabel', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\RunnerLabel', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -265,9 +265,9 @@ class Runners implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️ListSelfHostedRunnersForEnterprise⚡️Response⚡️Applicationjson⚡️H200($object),
-            'ApiClients\Client\Github\Schema\Runner' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Runner($object),
-            'ApiClients\Client\Github\Schema\RunnerLabel' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️RunnerLabel($object),
+            'ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️ListSelfHostedRunnersForEnterprise⚡️Response⚡️Applicationjson⚡️H200($object),
+            'ApiClients\Client\GitHubAE\Schema\Runner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Runner($object),
+            'ApiClients\Client\GitHubAE\Schema\RunnerLabel' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RunnerLabel($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -341,9 +341,9 @@ class Runners implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️ListSelfHostedRunnersForEnterprise⚡️Response⚡️Applicationjson⚡️H200(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️EnterpriseAdmin⚡️ListSelfHostedRunnersForEnterprise⚡️Response⚡️Applicationjson⚡️H200(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\Applicationjson\H200);
         $result = [];
 
         $totalCount = $object->totalCount;
@@ -363,7 +363,7 @@ class Runners implements ObjectMapper
 
         if ($runnersSerializer0 === null) {
             $runnersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\Runner',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\Runner',
 ));
         }
         
@@ -375,9 +375,9 @@ class Runners implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Runner(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Runner(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Runner);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Runner);
         $result = [];
 
         $id = $object->id;
@@ -405,7 +405,7 @@ class Runners implements ObjectMapper
 
         if ($labelsSerializer0 === null) {
             $labelsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\RunnerLabel',
+  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\RunnerLabel',
 ));
         }
         
@@ -417,9 +417,9 @@ class Runners implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️RunnerLabel(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RunnerLabel(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\RunnerLabel);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\RunnerLabel);
         $result = [];
 
         $id = $object->id;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions;
+namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class Permissions implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\ActionsRepositoryPermissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsRepositoryPermissions($payload),
+            'ApiClients\Client\GitHubAE\Schema\ActionsRepositoryPermissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ActionsRepositoryPermissions($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsRepositoryPermissions(array $payload): \ApiClients\Client\Github\Schema\ActionsRepositoryPermissions
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ActionsRepositoryPermissions(array $payload): \ApiClients\Client\GitHubAE\Schema\ActionsRepositoryPermissions
     {
         $properties = []; 
         $missingFields = [];
@@ -68,17 +68,17 @@ class Permissions implements ObjectMapper
             after_selectedActionsUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ActionsRepositoryPermissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ActionsRepositoryPermissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ActionsRepositoryPermissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ActionsRepositoryPermissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ActionsRepositoryPermissions(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ActionsRepositoryPermissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ActionsRepositoryPermissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ActionsRepositoryPermissions', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -113,7 +113,7 @@ class Permissions implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\ActionsRepositoryPermissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsRepositoryPermissions($object),
+            'ApiClients\Client\GitHubAE\Schema\ActionsRepositoryPermissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ActionsRepositoryPermissions($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -187,9 +187,9 @@ class Permissions implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsRepositoryPermissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ActionsRepositoryPermissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ActionsRepositoryPermissions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ActionsRepositoryPermissions);
         $result = [];
 
         $enabled = $object->enabled;

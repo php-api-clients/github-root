@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\Github\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson;
+namespace ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
+use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Operation;
+use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Client\GitHubAE\WebHook;
 final readonly class H422 extends Schema\AliasAbstract\Abstractb0962d50ed9a137436e89ffb414475ff
 {
 }

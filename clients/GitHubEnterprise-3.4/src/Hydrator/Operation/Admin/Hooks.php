@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Admin;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Admin;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,14 +23,14 @@ class Hooks implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\GlobalHook' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GlobalHook($payload),
-                'ApiClients\Client\Github\Schema\GlobalHook\Config' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GlobalHook⚡️Config($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\GlobalHook' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GlobalHook($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\GlobalHook\Config' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GlobalHook⚡️Config($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GlobalHook(array $payload): \ApiClients\Client\Github\Schema\GlobalHook
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GlobalHook(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\GlobalHook
     {
         $properties = []; 
         $missingFields = [];
@@ -100,7 +100,7 @@ class Hooks implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'config';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GlobalHook⚡️Config($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GlobalHook⚡️Config($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -155,22 +155,22 @@ class Hooks implements ObjectMapper
             after_pingUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GlobalHook', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GlobalHook', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GlobalHook::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\GlobalHook::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\GlobalHook(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\GlobalHook(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GlobalHook', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GlobalHook', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GlobalHook⚡️Config(array $payload): \ApiClients\Client\Github\Schema\GlobalHook\Config
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GlobalHook⚡️Config(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\GlobalHook\Config
     {
         $properties = []; 
         $missingFields = [];
@@ -220,17 +220,17 @@ class Hooks implements ObjectMapper
             after_secret:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GlobalHook\Config', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GlobalHook\Config', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GlobalHook\Config::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\GlobalHook\Config::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\GlobalHook\Config(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\GlobalHook\Config(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GlobalHook\Config', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GlobalHook\Config', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -265,8 +265,8 @@ class Hooks implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\GlobalHook' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GlobalHook($object),
-            'ApiClients\Client\Github\Schema\GlobalHook\Config' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GlobalHook⚡️Config($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\GlobalHook' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GlobalHook($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\GlobalHook\Config' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GlobalHook⚡️Config($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -340,9 +340,9 @@ class Hooks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GlobalHook(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GlobalHook(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\GlobalHook);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\GlobalHook);
         $result = [];
 
         $type = $object->type;
@@ -398,7 +398,7 @@ class Hooks implements ObjectMapper
         if ($config === null) {
             goto after_config;
         }
-        $config = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GlobalHook⚡️Config($config);
+        $config = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GlobalHook⚡️Config($config);
         after_config:        $result['config'] = $config;
 
         
@@ -438,9 +438,9 @@ class Hooks implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GlobalHook⚡️Config(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GlobalHook⚡️Config(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\GlobalHook\Config);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\GlobalHook\Config);
         $result = [];
 
         $url = $object->url;

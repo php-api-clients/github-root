@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Search;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Search;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,26 +23,26 @@ class Commits implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\Operation\Search\Commits\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Search⚡️Commits⚡️Response⚡️Applicationjson⚡️H200($payload),
-                'ApiClients\Client\Github\Schema\CommitSearchResultItem' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem($payload),
-                'ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit($payload),
-                'ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Author' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Author($payload),
-                'ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Tree' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Tree($payload),
-                'ApiClients\Client\Github\Schema\Verification' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Verification($payload),
-                'ApiClients\Client\Github\Schema\CommitSearchResultItem\Parents' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Parents($payload),
-                'ApiClients\Client\Github\Schema\MinimalRepository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository($payload),
-                'ApiClients\Client\Github\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\Github\Schema\MinimalRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️Permissions($payload),
-                'ApiClients\Client\Github\Schema\CodeOfConduct' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeOfConduct($payload),
-                'ApiClients\Client\Github\Schema\MinimalRepository\License' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️License($payload),
-                'ApiClients\Client\Github\Schema\SearchResultTextMatches' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches($payload),
-                'ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches⚡️Matches($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Commits\Response\Applicationjson\H200' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Search⚡️Commits⚡️Response⚡️Applicationjson⚡️H200($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Author($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Tree' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Tree($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Verification' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Verification($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Parents' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Parents($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️License($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches⚡️Matches($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Search⚡️Commits⚡️Response⚡️Applicationjson⚡️H200(array $payload): \ApiClients\Client\Github\Schema\Operation\Search\Commits\Response\Applicationjson\H200
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Search⚡️Commits⚡️Response⚡️Applicationjson⚡️H200(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Commits\Response\Applicationjson\H200
     {
         $properties = []; 
         $missingFields = [];
@@ -80,7 +80,7 @@ class Commits implements ObjectMapper
 
             if ($itemsCaster1 === null) {
                 $itemsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\CommitSearchResultItem',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitSearchResultItem',
 ));
             }
 
@@ -91,22 +91,22 @@ class Commits implements ObjectMapper
             after_items:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Search\Commits\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Commits\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\Search\Commits\Response\Applicationjson\H200::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Commits\Response\Applicationjson\H200::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Operation\Search\Commits\Response\Applicationjson\H200(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Commits\Response\Applicationjson\H200(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Search\Commits\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Commits\Response\Applicationjson\H200', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem(array $payload): \ApiClients\Client\Github\Schema\CommitSearchResultItem
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem
     {
         $properties = []; 
         $missingFields = [];
@@ -165,7 +165,7 @@ class Commits implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'commit';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -208,7 +208,7 @@ class Commits implements ObjectMapper
 
             if ($parentsCaster1 === null) {
                 $parentsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\CommitSearchResultItem\\Parents',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitSearchResultItem\\Parents',
 ));
             }
 
@@ -228,7 +228,7 @@ class Commits implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -271,7 +271,7 @@ class Commits implements ObjectMapper
 
             if ($textMatchesCaster1 === null) {
                 $textMatchesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SearchResultTextMatches',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SearchResultTextMatches',
 ));
             }
 
@@ -282,22 +282,22 @@ class Commits implements ObjectMapper
             after_textMatches:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CommitSearchResultItem', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CommitSearchResultItem::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\CommitSearchResultItem(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CommitSearchResultItem', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit(array $payload): \ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit
     {
         $properties = []; 
         $missingFields = [];
@@ -312,7 +312,7 @@ class Commits implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'author';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Author($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Author($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -365,7 +365,7 @@ class Commits implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'tree';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Tree($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Tree($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -396,7 +396,7 @@ class Commits implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'verification';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Verification($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Verification($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -407,22 +407,22 @@ class Commits implements ObjectMapper
             after_verification:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Author(array $payload): \ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Author
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Author(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Author
     {
         $properties = []; 
         $missingFields = [];
@@ -461,22 +461,22 @@ class Commits implements ObjectMapper
             after_date:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Author', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Author', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Author::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Author::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Author(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Author(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Author', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Author', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Tree(array $payload): \ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Tree
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Tree(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Tree
     {
         $properties = []; 
         $missingFields = [];
@@ -504,22 +504,22 @@ class Commits implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Tree', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Tree', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Tree::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Tree::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Tree(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Tree(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Tree', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Tree', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Verification(array $payload): \ApiClients\Client\Github\Schema\Verification
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Verification(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Verification
     {
         $properties = []; 
         $missingFields = [];
@@ -569,22 +569,22 @@ class Commits implements ObjectMapper
             after_signature:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Verification', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Verification', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Verification::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Verification::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Verification(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\Verification(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Verification', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Verification', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Parents(array $payload): \ApiClients\Client\Github\Schema\CommitSearchResultItem\Parents
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Parents(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Parents
     {
         $properties = []; 
         $missingFields = [];
@@ -623,22 +623,22 @@ class Commits implements ObjectMapper
             after_sha:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CommitSearchResultItem\Parents', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Parents', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CommitSearchResultItem\Parents::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Parents::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\CommitSearchResultItem\Parents(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Parents(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CommitSearchResultItem\Parents', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Parents', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository(array $payload): \ApiClients\Client\Github\Schema\MinimalRepository
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository
     {
         $properties = []; 
         $missingFields = [];
@@ -697,7 +697,7 @@ class Commits implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1465,7 +1465,7 @@ class Commits implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1540,7 +1540,7 @@ class Commits implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'codeOfConduct';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeOfConduct($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1560,7 +1560,7 @@ class Commits implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'license';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️License($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️License($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1626,22 +1626,22 @@ class Commits implements ObjectMapper
             after_webCommitSignoffRequired:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MinimalRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\MinimalRepository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\MinimalRepository(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MinimalRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\Github\Schema\SimpleUser
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SimpleUser
     {
         $properties = []; 
         $missingFields = [];
@@ -1878,22 +1878,22 @@ class Commits implements ObjectMapper
             after_starredAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SimpleUser(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\SimpleUser(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\MinimalRepository\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -1954,22 +1954,22 @@ class Commits implements ObjectMapper
             after_pull:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MinimalRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\MinimalRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\MinimalRepository\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MinimalRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeOfConduct(array $payload): \ApiClients\Client\Github\Schema\CodeOfConduct
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct
     {
         $properties = []; 
         $missingFields = [];
@@ -2030,22 +2030,22 @@ class Commits implements ObjectMapper
             after_htmlUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeOfConduct', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeOfConduct::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\CodeOfConduct(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeOfConduct', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️License(array $payload): \ApiClients\Client\Github\Schema\MinimalRepository\License
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️License(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License
     {
         $properties = []; 
         $missingFields = [];
@@ -2106,22 +2106,22 @@ class Commits implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MinimalRepository\License', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\MinimalRepository\License::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\MinimalRepository\License(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MinimalRepository\License', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches(array $payload): \ApiClients\Client\Github\Schema\SearchResultTextMatches
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches
     {
         $properties = []; 
         $missingFields = [];
@@ -2181,7 +2181,7 @@ class Commits implements ObjectMapper
 
             if ($matchesCaster1 === null) {
                 $matchesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SearchResultTextMatches\\Matches',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SearchResultTextMatches\\Matches',
 ));
             }
 
@@ -2192,22 +2192,22 @@ class Commits implements ObjectMapper
             after_matches:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SearchResultTextMatches', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SearchResultTextMatches::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SearchResultTextMatches(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SearchResultTextMatches', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches⚡️Matches(array $payload): \ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches⚡️Matches(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches
     {
         $properties = []; 
         $missingFields = [];
@@ -2235,17 +2235,17 @@ class Commits implements ObjectMapper
             after_indices:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -2280,20 +2280,20 @@ class Commits implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\Operation\Search\Commits\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Search⚡️Commits⚡️Response⚡️Applicationjson⚡️H200($object),
-            'ApiClients\Client\Github\Schema\CommitSearchResultItem' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem($object),
-            'ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit($object),
-            'ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Author' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Author($object),
-            'ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Tree' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Tree($object),
-            'ApiClients\Client\Github\Schema\Verification' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Verification($object),
-            'ApiClients\Client\Github\Schema\CommitSearchResultItem\Parents' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Parents($object),
-            'ApiClients\Client\Github\Schema\MinimalRepository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository($object),
-            'ApiClients\Client\Github\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($object),
-            'ApiClients\Client\Github\Schema\MinimalRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️Permissions($object),
-            'ApiClients\Client\Github\Schema\CodeOfConduct' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeOfConduct($object),
-            'ApiClients\Client\Github\Schema\MinimalRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️License($object),
-            'ApiClients\Client\Github\Schema\SearchResultTextMatches' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches($object),
-            'ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches⚡️Matches($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Commits\Response\Applicationjson\H200' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Search⚡️Commits⚡️Response⚡️Applicationjson⚡️H200($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Author($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Tree' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Tree($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Verification' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Verification($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Parents' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Parents($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️License($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches⚡️Matches($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -2367,9 +2367,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Search⚡️Commits⚡️Response⚡️Applicationjson⚡️H200(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Search⚡️Commits⚡️Response⚡️Applicationjson⚡️H200(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\Search\Commits\Response\Applicationjson\H200);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\Search\Commits\Response\Applicationjson\H200);
         $result = [];
 
         $totalCount = $object->totalCount;
@@ -2385,7 +2385,7 @@ class Commits implements ObjectMapper
 
         if ($itemsSerializer0 === null) {
             $itemsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\CommitSearchResultItem',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitSearchResultItem',
 ));
         }
         
@@ -2397,9 +2397,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\CommitSearchResultItem);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem);
         $result = [];
 
         $url = $object->url;
@@ -2419,7 +2419,7 @@ class Commits implements ObjectMapper
 
         
         $commit = $object->commit;
-        $commit = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit($commit);
+        $commit = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit($commit);
         after_commit:        $result['commit'] = $commit;
 
         
@@ -2444,7 +2444,7 @@ class Commits implements ObjectMapper
 
         if ($parentsSerializer0 === null) {
             $parentsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\CommitSearchResultItem\\Parents',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\CommitSearchResultItem\\Parents',
 ));
         }
         
@@ -2453,7 +2453,7 @@ class Commits implements ObjectMapper
 
         
         $repository = $object->repository;
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
@@ -2474,7 +2474,7 @@ class Commits implements ObjectMapper
 
         if ($textMatchesSerializer0 === null) {
             $textMatchesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SearchResultTextMatches',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SearchResultTextMatches',
 ));
         }
         
@@ -2486,13 +2486,13 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit);
         $result = [];
 
         $author = $object->author;
-        $author = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Author($author);
+        $author = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Author($author);
         after_author:        $result['author'] = $author;
 
         
@@ -2513,7 +2513,7 @@ class Commits implements ObjectMapper
 
         
         $tree = $object->tree;
-        $tree = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Tree($tree);
+        $tree = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Tree($tree);
         after_tree:        $result['tree'] = $tree;
 
         
@@ -2526,7 +2526,7 @@ class Commits implements ObjectMapper
         if ($verification === null) {
             goto after_verification;
         }
-        $verification = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Verification($verification);
+        $verification = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Verification($verification);
         after_verification:        $result['verification'] = $verification;
 
 
@@ -2534,9 +2534,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Author(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Author(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Author);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Author);
         $result = [];
 
         $name = $object->name;
@@ -2555,9 +2555,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Tree(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Commit⚡️Tree(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\CommitSearchResultItem\Commit\Tree);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Commit\Tree);
         $result = [];
 
         $sha = $object->sha;
@@ -2572,9 +2572,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Verification(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Verification(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Verification);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Verification);
         $result = [];
 
         $verified = $object->verified;
@@ -2605,9 +2605,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CommitSearchResultItem⚡️Parents(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CommitSearchResultItem⚡️Parents(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\CommitSearchResultItem\Parents);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\CommitSearchResultItem\Parents);
         $result = [];
 
         $url = $object->url;
@@ -2638,9 +2638,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\MinimalRepository);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository);
         $result = [];
 
         $id = $object->id;
@@ -2660,7 +2660,7 @@ class Commits implements ObjectMapper
 
         
         $owner = $object->owner;
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -3061,7 +3061,7 @@ class Commits implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -3110,7 +3110,7 @@ class Commits implements ObjectMapper
         if ($codeOfConduct === null) {
             goto after_codeOfConduct;
         }
-        $codeOfConduct = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeOfConduct($codeOfConduct);
+        $codeOfConduct = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct($codeOfConduct);
         after_codeOfConduct:        $result['code_of_conduct'] = $codeOfConduct;
 
         
@@ -3119,7 +3119,7 @@ class Commits implements ObjectMapper
         if ($license === null) {
             goto after_license;
         }
-        $license = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️License($license);
+        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️License($license);
         after_license:        $result['license'] = $license;
 
         
@@ -3167,9 +3167,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleUser);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SimpleUser);
         $result = [];
 
         $name = $object->name;
@@ -3276,9 +3276,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\MinimalRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -3325,9 +3325,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeOfConduct(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeOfConduct);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct);
         $result = [];
 
         $key = $object->key;
@@ -3362,9 +3362,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MinimalRepository⚡️License(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️License(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\MinimalRepository\License);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License);
         $result = [];
 
         $key = $object->key;
@@ -3411,9 +3411,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SearchResultTextMatches);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches);
         $result = [];
 
         $objectUrl = $object->objectUrl;
@@ -3457,7 +3457,7 @@ class Commits implements ObjectMapper
 
         if ($matchesSerializer0 === null) {
             $matchesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\Github\\Schema\\SearchResultTextMatches\\Matches',
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\SearchResultTextMatches\\Matches',
 ));
         }
         
@@ -3469,9 +3469,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SearchResultTextMatches⚡️Matches(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SearchResultTextMatches⚡️Matches(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SearchResultTextMatches\Matches);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SearchResultTextMatches\Matches);
         $result = [];
 
         $text = $object->text;

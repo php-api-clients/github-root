@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Setup\Api;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Setup\Api;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,31 +23,31 @@ class Settings implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\EnterpriseSettings' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Avatar' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Customer' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\License' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubSsl' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Profile' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Cas' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Saml' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubOauth' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Smtp' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ntp' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Snmp' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Syslog' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Pages' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Collectd' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd($payload),
-                'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Mapping' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Avatar' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Customer' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubSsl' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Cas' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Saml' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubOauth' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Smtp' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ntp' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Snmp' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Syslog' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Collectd' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings
     {
         $properties = []; 
         $missingFields = [];
@@ -62,7 +62,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -84,22 +84,22 @@ class Settings implements ObjectMapper
             after_runList:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise
     {
         $properties = []; 
         $missingFields = [];
@@ -246,7 +246,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'avatar';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -266,7 +266,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'customer';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -286,7 +286,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'license';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -306,7 +306,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'githubSsl';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -326,7 +326,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'ldap';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -346,7 +346,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'cas';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -366,7 +366,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'saml';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -386,7 +386,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'githubOauth';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -406,7 +406,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'smtp';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -426,7 +426,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'ntp';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -457,7 +457,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'snmp';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -477,7 +477,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'syslog';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -508,7 +508,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'pages';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -528,7 +528,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'collectd';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -548,7 +548,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'mapping';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -570,22 +570,22 @@ class Settings implements ObjectMapper
             after_loadBalancer:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Avatar
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Avatar
     {
         $properties = []; 
         $missingFields = [];
@@ -613,22 +613,22 @@ class Settings implements ObjectMapper
             after_uri:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Avatar', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Avatar', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Avatar::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Avatar::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Avatar(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Avatar(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Avatar', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Avatar', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Customer
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Customer
     {
         $properties = []; 
         $missingFields = [];
@@ -689,22 +689,22 @@ class Settings implements ObjectMapper
             after_publicKeyData:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Customer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Customer', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Customer::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Customer::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Customer(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Customer(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Customer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Customer', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\License
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\License
     {
         $properties = []; 
         $missingFields = [];
@@ -798,22 +798,22 @@ class Settings implements ObjectMapper
             after_expireAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\License', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\License', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\License::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\License::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\License(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\License(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\License', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\License', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubSsl
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubSsl
     {
         $properties = []; 
         $missingFields = [];
@@ -852,22 +852,22 @@ class Settings implements ObjectMapper
             after_key:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubSsl', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubSsl', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubSsl::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubSsl::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubSsl(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubSsl(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubSsl', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubSsl', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap
     {
         $properties = []; 
         $missingFields = [];
@@ -1080,7 +1080,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'reconciliation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1100,7 +1100,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'profile';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1111,22 +1111,22 @@ class Settings implements ObjectMapper
             after_profile:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation
     {
         $properties = []; 
         $missingFields = [];
@@ -1154,22 +1154,22 @@ class Settings implements ObjectMapper
             after_org:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Profile
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile
     {
         $properties = []; 
         $missingFields = [];
@@ -1219,22 +1219,22 @@ class Settings implements ObjectMapper
             after_key:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Profile', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Profile::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Profile(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Profile', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Cas
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Cas
     {
         $properties = []; 
         $missingFields = [];
@@ -1251,22 +1251,22 @@ class Settings implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Cas', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Cas', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Cas::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Cas::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Cas(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Cas(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Cas', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Cas', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Saml
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Saml
     {
         $properties = []; 
         $missingFields = [];
@@ -1338,22 +1338,22 @@ class Settings implements ObjectMapper
             after_disableAdminDemote:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Saml', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Saml', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Saml::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Saml::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Saml(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Saml(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Saml', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Saml', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubOauth
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubOauth
     {
         $properties = []; 
         $missingFields = [];
@@ -1403,22 +1403,22 @@ class Settings implements ObjectMapper
             after_organizationTeam:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubOauth', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubOauth', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubOauth::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubOauth::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubOauth(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubOauth(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubOauth', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubOauth', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Smtp
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Smtp
     {
         $properties = []; 
         $missingFields = [];
@@ -1567,22 +1567,22 @@ class Settings implements ObjectMapper
             after_noreplyAddress:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Smtp', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Smtp', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Smtp::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Smtp::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Smtp(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Smtp(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Smtp', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Smtp', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ntp
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ntp
     {
         $properties = []; 
         $missingFields = [];
@@ -1610,22 +1610,22 @@ class Settings implements ObjectMapper
             after_secondaryServer:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ntp', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ntp', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ntp::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ntp::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ntp(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ntp(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ntp', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ntp', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Snmp
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Snmp
     {
         $properties = []; 
         $missingFields = [];
@@ -1653,22 +1653,22 @@ class Settings implements ObjectMapper
             after_community:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Snmp', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Snmp', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Snmp::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Snmp::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Snmp(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Snmp(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Snmp', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Snmp', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Syslog
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Syslog
     {
         $properties = []; 
         $missingFields = [];
@@ -1707,22 +1707,22 @@ class Settings implements ObjectMapper
             after_protocolName:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Syslog', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Syslog', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Syslog::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Syslog::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Syslog(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Syslog(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Syslog', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Syslog', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Pages
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages
     {
         $properties = []; 
         $missingFields = [];
@@ -1739,22 +1739,22 @@ class Settings implements ObjectMapper
             after_enabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Pages', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Pages::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Pages(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Pages', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Collectd
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Collectd
     {
         $properties = []; 
         $missingFields = [];
@@ -1826,22 +1826,22 @@ class Settings implements ObjectMapper
             after_password:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Collectd', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Collectd', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Collectd::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Collectd::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Collectd(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Collectd(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Collectd', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Collectd', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping(array $payload): \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Mapping
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping
     {
         $properties = []; 
         $missingFields = [];
@@ -1891,17 +1891,17 @@ class Settings implements ObjectMapper
             after_token:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Mapping', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Mapping::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Mapping(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Mapping', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -1936,25 +1936,25 @@ class Settings implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Avatar' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Customer' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\License' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubSsl' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Profile' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Cas' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Saml' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubOauth' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Smtp' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ntp' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Snmp' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Syslog' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Pages' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Collectd' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd($object),
-            'ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Mapping' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Avatar' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Customer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubSsl' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Cas' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Saml' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubOauth' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Smtp' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ntp' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Snmp' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Syslog' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Collectd' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -2028,9 +2028,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings);
         $result = [];
 
         $enterprise = $object->enterprise;
@@ -2038,7 +2038,7 @@ class Settings implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -2062,9 +2062,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise);
         $result = [];
 
         $privateMode = $object->privateMode;
@@ -2168,7 +2168,7 @@ class Settings implements ObjectMapper
         if ($avatar === null) {
             goto after_avatar;
         }
-        $avatar = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar($avatar);
+        $avatar = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar($avatar);
         after_avatar:        $result['avatar'] = $avatar;
 
         
@@ -2177,7 +2177,7 @@ class Settings implements ObjectMapper
         if ($customer === null) {
             goto after_customer;
         }
-        $customer = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer($customer);
+        $customer = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer($customer);
         after_customer:        $result['customer'] = $customer;
 
         
@@ -2186,7 +2186,7 @@ class Settings implements ObjectMapper
         if ($license === null) {
             goto after_license;
         }
-        $license = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License($license);
+        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License($license);
         after_license:        $result['license'] = $license;
 
         
@@ -2195,7 +2195,7 @@ class Settings implements ObjectMapper
         if ($githubSsl === null) {
             goto after_githubSsl;
         }
-        $githubSsl = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl($githubSsl);
+        $githubSsl = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl($githubSsl);
         after_githubSsl:        $result['github_ssl'] = $githubSsl;
 
         
@@ -2204,7 +2204,7 @@ class Settings implements ObjectMapper
         if ($ldap === null) {
             goto after_ldap;
         }
-        $ldap = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap($ldap);
+        $ldap = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap($ldap);
         after_ldap:        $result['ldap'] = $ldap;
 
         
@@ -2213,7 +2213,7 @@ class Settings implements ObjectMapper
         if ($cas === null) {
             goto after_cas;
         }
-        $cas = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas($cas);
+        $cas = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas($cas);
         after_cas:        $result['cas'] = $cas;
 
         
@@ -2222,7 +2222,7 @@ class Settings implements ObjectMapper
         if ($saml === null) {
             goto after_saml;
         }
-        $saml = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml($saml);
+        $saml = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml($saml);
         after_saml:        $result['saml'] = $saml;
 
         
@@ -2231,7 +2231,7 @@ class Settings implements ObjectMapper
         if ($githubOauth === null) {
             goto after_githubOauth;
         }
-        $githubOauth = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth($githubOauth);
+        $githubOauth = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth($githubOauth);
         after_githubOauth:        $result['github_oauth'] = $githubOauth;
 
         
@@ -2240,7 +2240,7 @@ class Settings implements ObjectMapper
         if ($smtp === null) {
             goto after_smtp;
         }
-        $smtp = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp($smtp);
+        $smtp = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp($smtp);
         after_smtp:        $result['smtp'] = $smtp;
 
         
@@ -2249,7 +2249,7 @@ class Settings implements ObjectMapper
         if ($ntp === null) {
             goto after_ntp;
         }
-        $ntp = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp($ntp);
+        $ntp = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp($ntp);
         after_ntp:        $result['ntp'] = $ntp;
 
         
@@ -2266,7 +2266,7 @@ class Settings implements ObjectMapper
         if ($snmp === null) {
             goto after_snmp;
         }
-        $snmp = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp($snmp);
+        $snmp = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp($snmp);
         after_snmp:        $result['snmp'] = $snmp;
 
         
@@ -2275,7 +2275,7 @@ class Settings implements ObjectMapper
         if ($syslog === null) {
             goto after_syslog;
         }
-        $syslog = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog($syslog);
+        $syslog = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog($syslog);
         after_syslog:        $result['syslog'] = $syslog;
 
         
@@ -2292,7 +2292,7 @@ class Settings implements ObjectMapper
         if ($pages === null) {
             goto after_pages;
         }
-        $pages = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages($pages);
+        $pages = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages($pages);
         after_pages:        $result['pages'] = $pages;
 
         
@@ -2301,7 +2301,7 @@ class Settings implements ObjectMapper
         if ($collectd === null) {
             goto after_collectd;
         }
-        $collectd = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd($collectd);
+        $collectd = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd($collectd);
         after_collectd:        $result['collectd'] = $collectd;
 
         
@@ -2310,7 +2310,7 @@ class Settings implements ObjectMapper
         if ($mapping === null) {
             goto after_mapping;
         }
-        $mapping = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping($mapping);
+        $mapping = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping($mapping);
         after_mapping:        $result['mapping'] = $mapping;
 
         
@@ -2326,9 +2326,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Avatar(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Avatar);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Avatar);
         $result = [];
 
         $enabled = $object->enabled;
@@ -2351,9 +2351,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Customer(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Customer);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Customer);
         $result = [];
 
         $name = $object->name;
@@ -2400,9 +2400,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️License(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\License);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\License);
         $result = [];
 
         $seats = $object->seats;
@@ -2473,9 +2473,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubSsl(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubSsl);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubSsl);
         $result = [];
 
         $enabled = $object->enabled;
@@ -2506,9 +2506,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap);
         $result = [];
 
         $host = $object->host;
@@ -2676,7 +2676,7 @@ class Settings implements ObjectMapper
         if ($reconciliation === null) {
             goto after_reconciliation;
         }
-        $reconciliation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation($reconciliation);
+        $reconciliation = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation($reconciliation);
         after_reconciliation:        $result['reconciliation'] = $reconciliation;
 
         
@@ -2685,7 +2685,7 @@ class Settings implements ObjectMapper
         if ($profile === null) {
             goto after_profile;
         }
-        $profile = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile($profile);
+        $profile = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile($profile);
         after_profile:        $result['profile'] = $profile;
 
 
@@ -2693,9 +2693,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Reconciliation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Reconciliation);
         $result = [];
 
         $user = $object->user;
@@ -2718,9 +2718,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ldap⚡️Profile(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ldap\Profile);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ldap\Profile);
         $result = [];
 
         $uid = $object->uid;
@@ -2759,9 +2759,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Cas(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Cas);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Cas);
         $result = [];
 
         $url = $object->url;
@@ -2776,9 +2776,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Saml(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Saml);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Saml);
         $result = [];
 
         $ssoUrl = $object->ssoUrl;
@@ -2833,9 +2833,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️GithubOauth(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\GithubOauth);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\GithubOauth);
         $result = [];
 
         $clientId = $object->clientId;
@@ -2874,9 +2874,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Smtp(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Smtp);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Smtp);
         $result = [];
 
         $enabled = $object->enabled;
@@ -2987,9 +2987,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Ntp);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ntp);
         $result = [];
 
         $primaryServer = $object->primaryServer;
@@ -3012,9 +3012,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Snmp);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Snmp);
         $result = [];
 
         $enabled = $object->enabled;
@@ -3037,9 +3037,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Syslog);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Syslog);
         $result = [];
 
         $enabled = $object->enabled;
@@ -3070,9 +3070,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Pages);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages);
         $result = [];
 
         $enabled = $object->enabled;
@@ -3087,9 +3087,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Collectd);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Collectd);
         $result = [];
 
         $enabled = $object->enabled;
@@ -3144,9 +3144,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\EnterpriseSettings\Enterprise\Mapping);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping);
         $result = [];
 
         $enabled = $object->enabled;

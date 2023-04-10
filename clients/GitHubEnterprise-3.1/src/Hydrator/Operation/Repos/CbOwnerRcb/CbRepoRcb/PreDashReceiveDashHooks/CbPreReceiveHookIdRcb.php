@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\PreDashReceiveDashHooks;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\RepositoryPreReceiveHook' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️RepositoryPreReceiveHook($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepositoryPreReceiveHook($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️RepositoryPreReceiveHook(array $payload): \ApiClients\Client\Github\Schema\RepositoryPreReceiveHook
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepositoryPreReceiveHook(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook
     {
         $properties = []; 
         $missingFields = [];
@@ -79,17 +79,17 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
             after_configurationUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\RepositoryPreReceiveHook', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\RepositoryPreReceiveHook::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\RepositoryPreReceiveHook(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\RepositoryPreReceiveHook', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -124,7 +124,7 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\RepositoryPreReceiveHook' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️RepositoryPreReceiveHook($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepositoryPreReceiveHook($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -198,9 +198,9 @@ class CbPreReceiveHookIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️RepositoryPreReceiveHook(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepositoryPreReceiveHook(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\RepositoryPreReceiveHook);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook);
         $result = [];
 
         $id = $object->id;

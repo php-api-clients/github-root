@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Pulls;
+namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\Pulls;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final class ListReviewCommentsForRepoTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,7 +22,7 @@ final class ListReviewCommentsForRepoTest extends \WyriHaximus\AsyncTestUtilitie
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/repos/generated_null/generated_null/pulls/comments?sort=generated_null&direction=generated_null&since=1970-01-01T00:00:00+00:00&per_page=13&page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Pulls\ListReviewCommentsForRepo::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'sort' => 'generated_null', 'direction' => 'generated_null', 'since' => '1970-01-01T00:00:00+00:00', 'per_page' => 13, 'page' => 13));
+        $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\Pulls\ListReviewCommentsForRepo::OPERATION_MATCH, array('owner' => 'generated_null', 'repo' => 'generated_null', 'sort' => 'generated_null', 'direction' => 'generated_null', 'since' => '1970-01-01T00:00:00+00:00', 'per_page' => 13, 'page' => 13));
     }
 }

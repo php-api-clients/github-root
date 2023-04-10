@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class Mapping implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\LdapMappingTeam' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️LdapMappingTeam($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\LdapMappingTeam' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LdapMappingTeam($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️LdapMappingTeam(array $payload): \ApiClients\Client\Github\Schema\LdapMappingTeam
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LdapMappingTeam(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\LdapMappingTeam
     {
         $properties = []; 
         $missingFields = [];
@@ -189,17 +189,17 @@ class Mapping implements ObjectMapper
             after_parent:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\LdapMappingTeam', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\LdapMappingTeam', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\LdapMappingTeam::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\LdapMappingTeam::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\LdapMappingTeam(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\LdapMappingTeam(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\LdapMappingTeam', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\LdapMappingTeam', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -234,7 +234,7 @@ class Mapping implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\LdapMappingTeam' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️LdapMappingTeam($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\LdapMappingTeam' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LdapMappingTeam($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -308,9 +308,9 @@ class Mapping implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️LdapMappingTeam(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️LdapMappingTeam(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\LdapMappingTeam);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\LdapMappingTeam);
         $result = [];
 
         $ldapDn = $object->ldapDn;

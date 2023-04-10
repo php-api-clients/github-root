@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Tests\Client\Github\Operation\Repos;
+namespace ApiClients\Tests\Client\GitHubEnterpriseCloud\Operation\Repos;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
+use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
 final class ListForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
 {
     /**
@@ -22,8 +22,8 @@ final class ListForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilities
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/user/repos?direction=generated_null&since=1970-01-01T00:00:00+00:00&before=1970-01-01T00:00:00+00:00&visibility=generated_null&affiliation=generated_null&type=generated_null&sort=generated_null&per_page=13&page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Repos\ListForAuthenticatedUser::OPERATION_MATCH, array('direction' => 'generated_null', 'since' => '1970-01-01T00:00:00+00:00', 'before' => '1970-01-01T00:00:00+00:00', 'visibility' => 'generated_null', 'affiliation' => 'generated_null', 'type' => 'generated_null', 'sort' => 'generated_null', 'per_page' => 13, 'page' => 13));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Repos\ListForAuthenticatedUser::OPERATION_MATCH, array('direction' => 'generated_null', 'since' => '1970-01-01T00:00:00+00:00', 'before' => '1970-01-01T00:00:00+00:00', 'visibility' => 'generated_null', 'affiliation' => 'generated_null', 'type' => 'generated_null', 'sort' => 'generated_null', 'per_page' => 13, 'page' => 13));
     }
     /**
      * @test
@@ -38,8 +38,8 @@ final class ListForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilities
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/user/repos?direction=generated_null&since=1970-01-01T00:00:00+00:00&before=1970-01-01T00:00:00+00:00&visibility=generated_null&affiliation=generated_null&type=generated_null&sort=generated_null&per_page=13&page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Repos\ListForAuthenticatedUser::OPERATION_MATCH, array('direction' => 'generated_null', 'since' => '1970-01-01T00:00:00+00:00', 'before' => '1970-01-01T00:00:00+00:00', 'visibility' => 'generated_null', 'affiliation' => 'generated_null', 'type' => 'generated_null', 'sort' => 'generated_null', 'per_page' => 13, 'page' => 13));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Repos\ListForAuthenticatedUser::OPERATION_MATCH, array('direction' => 'generated_null', 'since' => '1970-01-01T00:00:00+00:00', 'before' => '1970-01-01T00:00:00+00:00', 'visibility' => 'generated_null', 'affiliation' => 'generated_null', 'type' => 'generated_null', 'sort' => 'generated_null', 'per_page' => 13, 'page' => 13));
     }
     /**
      * @test
@@ -54,8 +54,8 @@ final class ListForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilities
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/user/repos?direction=generated_null&since=1970-01-01T00:00:00+00:00&before=1970-01-01T00:00:00+00:00&visibility=generated_null&affiliation=generated_null&type=generated_null&sort=generated_null&per_page=13&page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Repos\ListForAuthenticatedUser::OPERATION_MATCH, array('direction' => 'generated_null', 'since' => '1970-01-01T00:00:00+00:00', 'before' => '1970-01-01T00:00:00+00:00', 'visibility' => 'generated_null', 'affiliation' => 'generated_null', 'type' => 'generated_null', 'sort' => 'generated_null', 'per_page' => 13, 'page' => 13));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Repos\ListForAuthenticatedUser::OPERATION_MATCH, array('direction' => 'generated_null', 'since' => '1970-01-01T00:00:00+00:00', 'before' => '1970-01-01T00:00:00+00:00', 'visibility' => 'generated_null', 'affiliation' => 'generated_null', 'type' => 'generated_null', 'sort' => 'generated_null', 'per_page' => 13, 'page' => 13));
     }
     /**
      * @test
@@ -70,7 +70,7 @@ final class ListForAuthenticatedUserTest extends \WyriHaximus\AsyncTestUtilities
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/user/repos?direction=generated_null&since=1970-01-01T00:00:00+00:00&before=1970-01-01T00:00:00+00:00&visibility=generated_null&affiliation=generated_null&type=generated_null&sort=generated_null&per_page=13&page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\Github\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\Github\Operation\Repos\ListForAuthenticatedUser::OPERATION_MATCH, array('direction' => 'generated_null', 'since' => '1970-01-01T00:00:00+00:00', 'before' => '1970-01-01T00:00:00+00:00', 'visibility' => 'generated_null', 'affiliation' => 'generated_null', 'type' => 'generated_null', 'sort' => 'generated_null', 'per_page' => 13, 'page' => 13));
+        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Repos\ListForAuthenticatedUser::OPERATION_MATCH, array('direction' => 'generated_null', 'since' => '1970-01-01T00:00:00+00:00', 'before' => '1970-01-01T00:00:00+00:00', 'visibility' => 'generated_null', 'affiliation' => 'generated_null', 'type' => 'generated_null', 'sort' => 'generated_null', 'per_page' => 13, 'page' => 13));
     }
 }

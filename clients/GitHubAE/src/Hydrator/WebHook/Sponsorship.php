@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\WebHook;
+namespace ApiClients\Client\GitHubAE\Hydrator\WebHook;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,65 +23,65 @@ class Sponsorship implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled($payload),
-                'ApiClients\Client\Github\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($payload),
-                'ApiClients\Client\Github\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($payload),
-                'ApiClients\Client\Github\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($payload),
-                'ApiClients\Client\Github\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($payload),
-                'ApiClients\Client\Github\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($payload),
-                'ApiClients\Client\Github\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\Github\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
-                'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
-                'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipCreated' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Maintainer($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsor($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsorable($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Tier' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Tier($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes⚡️PrivacyLevel($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Maintainer($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsor($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsorable($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Tier' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Tier($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Maintainer($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsor($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsorable($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Tier($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Maintainer($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsor($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsorable($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Tier($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier⚡️From($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Maintainer($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsor($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsorable($payload),
-                'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Tier($payload),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled($payload),
+                'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($payload),
+                'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($payload),
+                'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($payload),
+                'ApiClients\Client\GitHubAE\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($payload),
+                'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
+                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
+                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Maintainer($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsor($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsorable($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Tier' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Tier($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes⚡️PrivacyLevel($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Maintainer($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsor($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsorable($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Tier' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Tier($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Maintainer($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsor($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsorable($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Tier($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Maintainer($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsor($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsorable($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Tier($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier⚡️From($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Maintainer($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsor($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsorable($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Tier($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled
     {
         $properties = []; 
         $missingFields = [];
@@ -107,7 +107,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -127,7 +127,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -147,7 +147,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -167,7 +167,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -187,7 +187,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -207,7 +207,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsorship';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -218,22 +218,22 @@ class Sponsorship implements ObjectMapper
             after_sponsorship:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise(array $payload): \ApiClients\Client\Github\Schema\Enterprise
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise(array $payload): \ApiClients\Client\GitHubAE\Schema\Enterprise
     {
         $properties = []; 
         $missingFields = [];
@@ -349,22 +349,22 @@ class Sponsorship implements ObjectMapper
             after_avatarUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Enterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Enterprise', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Enterprise::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Enterprise::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Enterprise(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Enterprise(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Enterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Enterprise', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation(array $payload): \ApiClients\Client\Github\Schema\SimpleInstallation
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleInstallation
     {
         $properties = []; 
         $missingFields = [];
@@ -392,22 +392,22 @@ class Sponsorship implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleInstallation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleInstallation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SimpleInstallation(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\SimpleInstallation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple(array $payload): \ApiClients\Client\Github\Schema\OrganizationSimple
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple(array $payload): \ApiClients\Client\GitHubAE\Schema\OrganizationSimple
     {
         $properties = []; 
         $missingFields = [];
@@ -545,22 +545,22 @@ class Sponsorship implements ObjectMapper
             after_description:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\OrganizationSimple::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\OrganizationSimple::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\OrganizationSimple(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\OrganizationSimple(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository(array $payload): \ApiClients\Client\Github\Schema\Repository
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository
     {
         $properties = []; 
         $missingFields = [];
@@ -652,7 +652,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -672,7 +672,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1440,7 +1440,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'templateRepository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1616,22 +1616,22 @@ class Sponsorship implements ObjectMapper
             after_anonymousAccessEnabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Repository(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Repository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\Repository\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -1692,22 +1692,22 @@ class Sponsorship implements ObjectMapper
             after_maintain:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Repository\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Repository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\Github\Schema\SimpleUser
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleUser
     {
         $properties = []; 
         $missingFields = [];
@@ -1944,22 +1944,22 @@ class Sponsorship implements ObjectMapper
             after_starredAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\SimpleUser(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\SimpleUser(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository
     {
         $properties = []; 
         $missingFields = [];
@@ -2018,7 +2018,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2775,7 +2775,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2885,22 +2885,22 @@ class Sponsorship implements ObjectMapper
             after_networkCount:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner
     {
         $properties = []; 
         $missingFields = [];
@@ -3104,22 +3104,22 @@ class Sponsorship implements ObjectMapper
             after_siteAdmin:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -3180,22 +3180,22 @@ class Sponsorship implements ObjectMapper
             after_pull:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship
     {
         $properties = []; 
         $missingFields = [];
@@ -3221,7 +3221,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'maintainer';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3263,7 +3263,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsor';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3283,7 +3283,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsorable';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3303,7 +3303,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'tier';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3314,22 +3314,22 @@ class Sponsorship implements ObjectMapper
             after_tier:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer
     {
         $properties = []; 
         $missingFields = [];
@@ -3533,22 +3533,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor
     {
         $properties = []; 
         $missingFields = [];
@@ -3785,22 +3785,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable
     {
         $properties = []; 
         $missingFields = [];
@@ -4037,22 +4037,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier
     {
         $properties = []; 
         $missingFields = [];
@@ -4157,22 +4157,22 @@ class Sponsorship implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated
     {
         $properties = []; 
         $missingFields = [];
@@ -4198,7 +4198,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4218,7 +4218,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4238,7 +4238,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4258,7 +4258,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4278,7 +4278,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4298,7 +4298,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsorship';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4309,22 +4309,22 @@ class Sponsorship implements ObjectMapper
             after_sponsorship:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCreated', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipCreated::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCreated', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship
     {
         $properties = []; 
         $missingFields = [];
@@ -4350,7 +4350,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'maintainer';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4392,7 +4392,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsor';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4412,7 +4412,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsorable';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4432,7 +4432,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'tier';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4443,22 +4443,22 @@ class Sponsorship implements ObjectMapper
             after_tier:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Maintainer(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Maintainer(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer
     {
         $properties = []; 
         $missingFields = [];
@@ -4662,22 +4662,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsor(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsor(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor
     {
         $properties = []; 
         $missingFields = [];
@@ -4914,22 +4914,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsorable(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsorable(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable
     {
         $properties = []; 
         $missingFields = [];
@@ -5166,22 +5166,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Tier(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Tier
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Tier(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Tier
     {
         $properties = []; 
         $missingFields = [];
@@ -5286,22 +5286,22 @@ class Sponsorship implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Tier::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Tier::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Tier(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Tier(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited
     {
         $properties = []; 
         $missingFields = [];
@@ -5327,7 +5327,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'changes';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5347,7 +5347,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5367,7 +5367,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5387,7 +5387,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5407,7 +5407,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5427,7 +5427,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5447,7 +5447,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsorship';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5458,22 +5458,22 @@ class Sponsorship implements ObjectMapper
             after_sponsorship:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipEdited::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes
     {
         $properties = []; 
         $missingFields = [];
@@ -5488,7 +5488,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'privacyLevel';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes⚡️PrivacyLevel($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes⚡️PrivacyLevel($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5499,22 +5499,22 @@ class Sponsorship implements ObjectMapper
             after_privacyLevel:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes⚡️PrivacyLevel(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes⚡️PrivacyLevel(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel
     {
         $properties = []; 
         $missingFields = [];
@@ -5531,22 +5531,22 @@ class Sponsorship implements ObjectMapper
             after_from:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship
     {
         $properties = []; 
         $missingFields = [];
@@ -5572,7 +5572,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'maintainer';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5614,7 +5614,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsor';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5634,7 +5634,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsorable';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5654,7 +5654,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'tier';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5665,22 +5665,22 @@ class Sponsorship implements ObjectMapper
             after_tier:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Maintainer(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Maintainer(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer
     {
         $properties = []; 
         $missingFields = [];
@@ -5884,22 +5884,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsor(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsor(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor
     {
         $properties = []; 
         $missingFields = [];
@@ -6136,22 +6136,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsorable(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsorable(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable
     {
         $properties = []; 
         $missingFields = [];
@@ -6388,22 +6388,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Tier(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Tier
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Tier(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Tier
     {
         $properties = []; 
         $missingFields = [];
@@ -6508,22 +6508,22 @@ class Sponsorship implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Tier::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Tier::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Tier(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Tier(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation
     {
         $properties = []; 
         $missingFields = [];
@@ -6560,7 +6560,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6580,7 +6580,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6600,7 +6600,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6620,7 +6620,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6640,7 +6640,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6660,7 +6660,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsorship';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6671,22 +6671,22 @@ class Sponsorship implements ObjectMapper
             after_sponsorship:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship
     {
         $properties = []; 
         $missingFields = [];
@@ -6712,7 +6712,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'maintainer';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6754,7 +6754,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsor';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6774,7 +6774,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsorable';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6794,7 +6794,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'tier';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6805,22 +6805,22 @@ class Sponsorship implements ObjectMapper
             after_tier:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Maintainer(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Maintainer(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer
     {
         $properties = []; 
         $missingFields = [];
@@ -7024,22 +7024,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsor(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsor(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor
     {
         $properties = []; 
         $missingFields = [];
@@ -7276,22 +7276,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsorable(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsorable(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable
     {
         $properties = []; 
         $missingFields = [];
@@ -7528,22 +7528,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Tier(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Tier(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier
     {
         $properties = []; 
         $missingFields = [];
@@ -7648,22 +7648,22 @@ class Sponsorship implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange
     {
         $properties = []; 
         $missingFields = [];
@@ -7689,7 +7689,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'changes';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7720,7 +7720,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7740,7 +7740,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7760,7 +7760,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7780,7 +7780,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7800,7 +7800,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7820,7 +7820,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsorship';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7831,22 +7831,22 @@ class Sponsorship implements ObjectMapper
             after_sponsorship:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes
     {
         $properties = []; 
         $missingFields = [];
@@ -7861,7 +7861,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'tier';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7872,22 +7872,22 @@ class Sponsorship implements ObjectMapper
             after_tier:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier
     {
         $properties = []; 
         $missingFields = [];
@@ -7902,7 +7902,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'from';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7913,22 +7913,22 @@ class Sponsorship implements ObjectMapper
             after_from:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From
     {
         $properties = []; 
         $missingFields = [];
@@ -8033,22 +8033,22 @@ class Sponsorship implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship
     {
         $properties = []; 
         $missingFields = [];
@@ -8074,7 +8074,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'maintainer';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -8116,7 +8116,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsor';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -8136,7 +8136,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsorable';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -8156,7 +8156,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'tier';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -8167,22 +8167,22 @@ class Sponsorship implements ObjectMapper
             after_tier:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Maintainer(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Maintainer(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer
     {
         $properties = []; 
         $missingFields = [];
@@ -8386,22 +8386,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsor(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsor(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor
     {
         $properties = []; 
         $missingFields = [];
@@ -8638,22 +8638,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsorable(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsorable(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable
     {
         $properties = []; 
         $missingFields = [];
@@ -8890,22 +8890,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Tier(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Tier(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier
     {
         $properties = []; 
         $missingFields = [];
@@ -9010,22 +9010,22 @@ class Sponsorship implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged
     {
         $properties = []; 
         $missingFields = [];
@@ -9051,7 +9051,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'changes';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9071,7 +9071,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9091,7 +9091,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9111,7 +9111,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9131,7 +9131,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9151,7 +9151,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9171,7 +9171,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsorship';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9182,22 +9182,22 @@ class Sponsorship implements ObjectMapper
             after_sponsorship:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes
     {
         $properties = []; 
         $missingFields = [];
@@ -9212,7 +9212,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'tier';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9223,22 +9223,22 @@ class Sponsorship implements ObjectMapper
             after_tier:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier
     {
         $properties = []; 
         $missingFields = [];
@@ -9253,7 +9253,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'from';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9264,22 +9264,22 @@ class Sponsorship implements ObjectMapper
             after_from:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier⚡️From(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier⚡️From(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From
     {
         $properties = []; 
         $missingFields = [];
@@ -9384,22 +9384,22 @@ class Sponsorship implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship
     {
         $properties = []; 
         $missingFields = [];
@@ -9425,7 +9425,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'maintainer';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9467,7 +9467,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsor';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9487,7 +9487,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sponsorable';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9507,7 +9507,7 @@ class Sponsorship implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'tier';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9518,22 +9518,22 @@ class Sponsorship implements ObjectMapper
             after_tier:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Maintainer(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Maintainer(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer
     {
         $properties = []; 
         $missingFields = [];
@@ -9737,22 +9737,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsor(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsor(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor
     {
         $properties = []; 
         $missingFields = [];
@@ -9989,22 +9989,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsorable(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsorable(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable
     {
         $properties = []; 
         $missingFields = [];
@@ -10241,22 +10241,22 @@ class Sponsorship implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Tier(array $payload): \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Tier(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier
     {
         $properties = []; 
         $missingFields = [];
@@ -10361,17 +10361,17 @@ class Sponsorship implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -10406,59 +10406,59 @@ class Sponsorship implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled($object),
-            'ApiClients\Client\Github\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($object),
-            'ApiClients\Client\Github\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($object),
-            'ApiClients\Client\Github\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($object),
-            'ApiClients\Client\Github\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($object),
-            'ApiClients\Client\Github\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($object),
-            'ApiClients\Client\Github\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($object),
-            'ApiClients\Client\Github\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($object),
-            'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
-            'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipCreated' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Maintainer($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsor($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsorable($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Tier' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Tier($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes⚡️PrivacyLevel($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Maintainer($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsor($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsorable($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Tier' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Tier($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Maintainer($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsor($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsorable($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Tier($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Maintainer($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsor($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsorable($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Tier($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier⚡️From($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Maintainer($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsor($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsorable($object),
-            'ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Tier($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled($object),
+            'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($object),
+            'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($object),
+            'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($object),
+            'ApiClients\Client\GitHubAE\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($object),
+            'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($object),
+            'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
+            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($object),
+            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
+            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Maintainer($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsor($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsorable($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Tier' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Tier($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes⚡️PrivacyLevel($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Maintainer($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsor($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsorable($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Tier' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Tier($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Maintainer($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsor($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsorable($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Tier($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Maintainer($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsor($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsorable($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Tier($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier⚡️From($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Maintainer($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsor($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsorable($object),
+            'ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Tier($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -10532,9 +10532,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled);
         $result = [];
 
         $action = $object->action;
@@ -10546,7 +10546,7 @@ class Sponsorship implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -10555,7 +10555,7 @@ class Sponsorship implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
@@ -10564,7 +10564,7 @@ class Sponsorship implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
@@ -10573,17 +10573,17 @@ class Sponsorship implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
         
         $sponsorship = $object->sponsorship;
-        $sponsorship = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship($sponsorship);
+        $sponsorship = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship($sponsorship);
         after_sponsorship:        $result['sponsorship'] = $sponsorship;
 
 
@@ -10591,9 +10591,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Enterprise);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Enterprise);
         $result = [];
 
         $description = $object->description;
@@ -10656,9 +10656,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleInstallation);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleInstallation);
         $result = [];
 
         $id = $object->id;
@@ -10673,9 +10673,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\OrganizationSimple);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\OrganizationSimple);
         $result = [];
 
         $login = $object->login;
@@ -10734,9 +10734,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository);
         $result = [];
 
         $id = $object->id;
@@ -10780,12 +10780,12 @@ class Sponsorship implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
         $owner = $object->owner;
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -11118,7 +11118,7 @@ class Sponsorship implements ObjectMapper
         if ($templateRepository === null) {
             goto after_templateRepository;
         }
-        $templateRepository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($templateRepository);
+        $templateRepository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($templateRepository);
         after_templateRepository:        $result['template_repository'] = $templateRepository;
 
         
@@ -11238,9 +11238,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -11275,9 +11275,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleUser);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleUser);
         $result = [];
 
         $name = $object->name;
@@ -11384,9 +11384,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository);
         $result = [];
 
         $id = $object->id;
@@ -11426,7 +11426,7 @@ class Sponsorship implements ObjectMapper
         if ($owner === null) {
             goto after_owner;
         }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -11979,7 +11979,7 @@ class Sponsorship implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -12059,9 +12059,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner);
         $result = [];
 
         $login = $object->login;
@@ -12212,9 +12212,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -12261,9 +12261,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship);
         $result = [];
 
         $createdAt = $object->createdAt;
@@ -12275,7 +12275,7 @@ class Sponsorship implements ObjectMapper
         if ($maintainer === null) {
             goto after_maintainer;
         }
-        $maintainer = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($maintainer);
+        $maintainer = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($maintainer);
         after_maintainer:        $result['maintainer'] = $maintainer;
 
         
@@ -12292,7 +12292,7 @@ class Sponsorship implements ObjectMapper
         if ($sponsor === null) {
             goto after_sponsor;
         }
-        $sponsor = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($sponsor);
+        $sponsor = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($sponsor);
         after_sponsor:        $result['sponsor'] = $sponsor;
 
         
@@ -12301,12 +12301,12 @@ class Sponsorship implements ObjectMapper
         if ($sponsorable === null) {
             goto after_sponsorable;
         }
-        $sponsorable = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($sponsorable);
+        $sponsorable = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($sponsorable);
         after_sponsorable:        $result['sponsorable'] = $sponsorable;
 
         
         $tier = $object->tier;
-        $tier = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($tier);
+        $tier = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($tier);
         after_tier:        $result['tier'] = $tier;
 
 
@@ -12314,9 +12314,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Maintainer);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -12467,9 +12467,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsor);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -12636,9 +12636,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Sponsorable);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -12805,9 +12805,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCancelled\Sponsorship\Tier);
         $result = [];
 
         $createdAt = $object->createdAt;
@@ -12858,9 +12858,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated);
         $result = [];
 
         $action = $object->action;
@@ -12872,7 +12872,7 @@ class Sponsorship implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -12881,7 +12881,7 @@ class Sponsorship implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
@@ -12890,7 +12890,7 @@ class Sponsorship implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
@@ -12899,17 +12899,17 @@ class Sponsorship implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
         
         $sponsorship = $object->sponsorship;
-        $sponsorship = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship($sponsorship);
+        $sponsorship = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship($sponsorship);
         after_sponsorship:        $result['sponsorship'] = $sponsorship;
 
 
@@ -12917,9 +12917,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship);
         $result = [];
 
         $createdAt = $object->createdAt;
@@ -12931,7 +12931,7 @@ class Sponsorship implements ObjectMapper
         if ($maintainer === null) {
             goto after_maintainer;
         }
-        $maintainer = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($maintainer);
+        $maintainer = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($maintainer);
         after_maintainer:        $result['maintainer'] = $maintainer;
 
         
@@ -12948,7 +12948,7 @@ class Sponsorship implements ObjectMapper
         if ($sponsor === null) {
             goto after_sponsor;
         }
-        $sponsor = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($sponsor);
+        $sponsor = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($sponsor);
         after_sponsor:        $result['sponsor'] = $sponsor;
 
         
@@ -12957,12 +12957,12 @@ class Sponsorship implements ObjectMapper
         if ($sponsorable === null) {
             goto after_sponsorable;
         }
-        $sponsorable = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($sponsorable);
+        $sponsorable = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($sponsorable);
         after_sponsorable:        $result['sponsorable'] = $sponsorable;
 
         
         $tier = $object->tier;
-        $tier = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($tier);
+        $tier = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($tier);
         after_tier:        $result['tier'] = $tier;
 
 
@@ -12970,9 +12970,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Maintainer(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Maintainer(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Maintainer);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -13123,9 +13123,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsor(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsor(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsor);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -13292,9 +13292,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsorable(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Sponsorable(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Sponsorable);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -13461,9 +13461,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Tier(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCreated⚡️Sponsorship⚡️Tier(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipCreated\Sponsorship\Tier);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipCreated\Sponsorship\Tier);
         $result = [];
 
         $createdAt = $object->createdAt;
@@ -13514,9 +13514,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited);
         $result = [];
 
         $action = $object->action;
@@ -13524,7 +13524,7 @@ class Sponsorship implements ObjectMapper
 
         
         $changes = $object->changes;
-        $changes = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes($changes);
+        $changes = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes($changes);
         after_changes:        $result['changes'] = $changes;
 
         
@@ -13533,7 +13533,7 @@ class Sponsorship implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -13542,7 +13542,7 @@ class Sponsorship implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
@@ -13551,7 +13551,7 @@ class Sponsorship implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
@@ -13560,17 +13560,17 @@ class Sponsorship implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
         
         $sponsorship = $object->sponsorship;
-        $sponsorship = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship($sponsorship);
+        $sponsorship = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship($sponsorship);
         after_sponsorship:        $result['sponsorship'] = $sponsorship;
 
 
@@ -13578,9 +13578,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes);
         $result = [];
 
         $privacyLevel = $object->privacyLevel;
@@ -13588,7 +13588,7 @@ class Sponsorship implements ObjectMapper
         if ($privacyLevel === null) {
             goto after_privacyLevel;
         }
-        $privacyLevel = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes⚡️PrivacyLevel($privacyLevel);
+        $privacyLevel = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes⚡️PrivacyLevel($privacyLevel);
         after_privacyLevel:        $result['privacy_level'] = $privacyLevel;
 
 
@@ -13596,9 +13596,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes⚡️PrivacyLevel(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Changes⚡️PrivacyLevel(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Changes\PrivacyLevel);
         $result = [];
 
         $from = $object->from;
@@ -13609,9 +13609,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship);
         $result = [];
 
         $createdAt = $object->createdAt;
@@ -13623,7 +13623,7 @@ class Sponsorship implements ObjectMapper
         if ($maintainer === null) {
             goto after_maintainer;
         }
-        $maintainer = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($maintainer);
+        $maintainer = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($maintainer);
         after_maintainer:        $result['maintainer'] = $maintainer;
 
         
@@ -13640,7 +13640,7 @@ class Sponsorship implements ObjectMapper
         if ($sponsor === null) {
             goto after_sponsor;
         }
-        $sponsor = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($sponsor);
+        $sponsor = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($sponsor);
         after_sponsor:        $result['sponsor'] = $sponsor;
 
         
@@ -13649,12 +13649,12 @@ class Sponsorship implements ObjectMapper
         if ($sponsorable === null) {
             goto after_sponsorable;
         }
-        $sponsorable = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($sponsorable);
+        $sponsorable = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($sponsorable);
         after_sponsorable:        $result['sponsorable'] = $sponsorable;
 
         
         $tier = $object->tier;
-        $tier = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($tier);
+        $tier = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($tier);
         after_tier:        $result['tier'] = $tier;
 
 
@@ -13662,9 +13662,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Maintainer(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Maintainer(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Maintainer);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -13815,9 +13815,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsor(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsor(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsor);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -13984,9 +13984,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsorable(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Sponsorable(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Sponsorable);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -14153,9 +14153,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Tier(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipEdited⚡️Sponsorship⚡️Tier(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipEdited\Sponsorship\Tier);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship\Tier);
         $result = [];
 
         $createdAt = $object->createdAt;
@@ -14206,9 +14206,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation);
         $result = [];
 
         $action = $object->action;
@@ -14228,7 +14228,7 @@ class Sponsorship implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -14237,7 +14237,7 @@ class Sponsorship implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
@@ -14246,7 +14246,7 @@ class Sponsorship implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
@@ -14255,17 +14255,17 @@ class Sponsorship implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
         
         $sponsorship = $object->sponsorship;
-        $sponsorship = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship($sponsorship);
+        $sponsorship = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship($sponsorship);
         after_sponsorship:        $result['sponsorship'] = $sponsorship;
 
 
@@ -14273,9 +14273,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship);
         $result = [];
 
         $createdAt = $object->createdAt;
@@ -14287,7 +14287,7 @@ class Sponsorship implements ObjectMapper
         if ($maintainer === null) {
             goto after_maintainer;
         }
-        $maintainer = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($maintainer);
+        $maintainer = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($maintainer);
         after_maintainer:        $result['maintainer'] = $maintainer;
 
         
@@ -14304,7 +14304,7 @@ class Sponsorship implements ObjectMapper
         if ($sponsor === null) {
             goto after_sponsor;
         }
-        $sponsor = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($sponsor);
+        $sponsor = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($sponsor);
         after_sponsor:        $result['sponsor'] = $sponsor;
 
         
@@ -14313,12 +14313,12 @@ class Sponsorship implements ObjectMapper
         if ($sponsorable === null) {
             goto after_sponsorable;
         }
-        $sponsorable = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($sponsorable);
+        $sponsorable = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($sponsorable);
         after_sponsorable:        $result['sponsorable'] = $sponsorable;
 
         
         $tier = $object->tier;
-        $tier = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($tier);
+        $tier = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($tier);
         after_tier:        $result['tier'] = $tier;
 
 
@@ -14326,9 +14326,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Maintainer(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Maintainer(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Maintainer);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -14479,9 +14479,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsor(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsor(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsor);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -14648,9 +14648,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsorable(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Sponsorable(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Sponsorable);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -14817,9 +14817,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Tier(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingCancellation⚡️Sponsorship⚡️Tier(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingCancellation\Sponsorship\Tier);
         $result = [];
 
         $createdAt = $object->createdAt;
@@ -14870,9 +14870,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange);
         $result = [];
 
         $action = $object->action;
@@ -14880,7 +14880,7 @@ class Sponsorship implements ObjectMapper
 
         
         $changes = $object->changes;
-        $changes = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes($changes);
+        $changes = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes($changes);
         after_changes:        $result['changes'] = $changes;
 
         
@@ -14897,7 +14897,7 @@ class Sponsorship implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -14906,7 +14906,7 @@ class Sponsorship implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
@@ -14915,7 +14915,7 @@ class Sponsorship implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
@@ -14924,17 +14924,17 @@ class Sponsorship implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
         
         $sponsorship = $object->sponsorship;
-        $sponsorship = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship($sponsorship);
+        $sponsorship = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship($sponsorship);
         after_sponsorship:        $result['sponsorship'] = $sponsorship;
 
 
@@ -14942,13 +14942,13 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes);
         $result = [];
 
         $tier = $object->tier;
-        $tier = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier($tier);
+        $tier = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier($tier);
         after_tier:        $result['tier'] = $tier;
 
 
@@ -14956,13 +14956,13 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier);
         $result = [];
 
         $from = $object->from;
-        $from = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From($from);
+        $from = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From($from);
         after_from:        $result['from'] = $from;
 
 
@@ -14970,9 +14970,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Changes\Tier\From);
         $result = [];
 
         $createdAt = $object->createdAt;
@@ -15023,9 +15023,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship);
         $result = [];
 
         $createdAt = $object->createdAt;
@@ -15037,7 +15037,7 @@ class Sponsorship implements ObjectMapper
         if ($maintainer === null) {
             goto after_maintainer;
         }
-        $maintainer = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($maintainer);
+        $maintainer = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($maintainer);
         after_maintainer:        $result['maintainer'] = $maintainer;
 
         
@@ -15054,7 +15054,7 @@ class Sponsorship implements ObjectMapper
         if ($sponsor === null) {
             goto after_sponsor;
         }
-        $sponsor = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($sponsor);
+        $sponsor = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($sponsor);
         after_sponsor:        $result['sponsor'] = $sponsor;
 
         
@@ -15063,12 +15063,12 @@ class Sponsorship implements ObjectMapper
         if ($sponsorable === null) {
             goto after_sponsorable;
         }
-        $sponsorable = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($sponsorable);
+        $sponsorable = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($sponsorable);
         after_sponsorable:        $result['sponsorable'] = $sponsorable;
 
         
         $tier = $object->tier;
-        $tier = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($tier);
+        $tier = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($tier);
         after_tier:        $result['tier'] = $tier;
 
 
@@ -15076,9 +15076,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Maintainer(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Maintainer(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Maintainer);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -15229,9 +15229,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsor(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsor(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsor);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -15398,9 +15398,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsorable(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Sponsorable(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Sponsorable);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -15567,9 +15567,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Tier(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Sponsorship⚡️Tier(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipPendingTierChange\Sponsorship\Tier);
         $result = [];
 
         $createdAt = $object->createdAt;
@@ -15620,9 +15620,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged);
         $result = [];
 
         $action = $object->action;
@@ -15630,7 +15630,7 @@ class Sponsorship implements ObjectMapper
 
         
         $changes = $object->changes;
-        $changes = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes($changes);
+        $changes = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes($changes);
         after_changes:        $result['changes'] = $changes;
 
         
@@ -15639,7 +15639,7 @@ class Sponsorship implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -15648,7 +15648,7 @@ class Sponsorship implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
@@ -15657,7 +15657,7 @@ class Sponsorship implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
@@ -15666,17 +15666,17 @@ class Sponsorship implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
         
         $sponsorship = $object->sponsorship;
-        $sponsorship = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship($sponsorship);
+        $sponsorship = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship($sponsorship);
         after_sponsorship:        $result['sponsorship'] = $sponsorship;
 
 
@@ -15684,13 +15684,13 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes);
         $result = [];
 
         $tier = $object->tier;
-        $tier = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier($tier);
+        $tier = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier($tier);
         after_tier:        $result['tier'] = $tier;
 
 
@@ -15698,13 +15698,13 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier);
         $result = [];
 
         $from = $object->from;
-        $from = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From($from);
+        $from = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipPendingTierChange⚡️Changes⚡️Tier⚡️From($from);
         after_from:        $result['from'] = $from;
 
 
@@ -15712,9 +15712,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier⚡️From(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Changes⚡️Tier⚡️From(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Changes\Tier\From);
         $result = [];
 
         $createdAt = $object->createdAt;
@@ -15765,9 +15765,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship);
         $result = [];
 
         $createdAt = $object->createdAt;
@@ -15779,7 +15779,7 @@ class Sponsorship implements ObjectMapper
         if ($maintainer === null) {
             goto after_maintainer;
         }
-        $maintainer = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($maintainer);
+        $maintainer = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Maintainer($maintainer);
         after_maintainer:        $result['maintainer'] = $maintainer;
 
         
@@ -15796,7 +15796,7 @@ class Sponsorship implements ObjectMapper
         if ($sponsor === null) {
             goto after_sponsor;
         }
-        $sponsor = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($sponsor);
+        $sponsor = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsor($sponsor);
         after_sponsor:        $result['sponsor'] = $sponsor;
 
         
@@ -15805,12 +15805,12 @@ class Sponsorship implements ObjectMapper
         if ($sponsorable === null) {
             goto after_sponsorable;
         }
-        $sponsorable = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($sponsorable);
+        $sponsorable = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Sponsorable($sponsorable);
         after_sponsorable:        $result['sponsorable'] = $sponsorable;
 
         
         $tier = $object->tier;
-        $tier = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($tier);
+        $tier = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipCancelled⚡️Sponsorship⚡️Tier($tier);
         after_tier:        $result['tier'] = $tier;
 
 
@@ -15818,9 +15818,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Maintainer(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Maintainer(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Maintainer);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -15971,9 +15971,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsor(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsor(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsor);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -16140,9 +16140,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsorable(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Sponsorable(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Sponsorable);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -16309,9 +16309,9 @@ class Sponsorship implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Tier(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookSponsorshipTierChanged⚡️Sponsorship⚡️Tier(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipTierChanged\Sponsorship\Tier);
         $result = [];
 
         $createdAt = $object->createdAt;

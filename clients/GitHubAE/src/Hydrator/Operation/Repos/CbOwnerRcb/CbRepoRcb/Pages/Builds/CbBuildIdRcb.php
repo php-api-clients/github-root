@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds;
+namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,14 +23,14 @@ class CbBuildIdRcb implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\PageBuild' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PageBuild($payload),
-                'ApiClients\Client\Github\Schema\PageBuild\Error' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PageBuild⚡️Error($payload),
+            'ApiClients\Client\GitHubAE\Schema\PageBuild' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PageBuild($payload),
+                'ApiClients\Client\GitHubAE\Schema\PageBuild\Error' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PageBuild⚡️Error($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PageBuild(array $payload): \ApiClients\Client\Github\Schema\PageBuild
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PageBuild(array $payload): \ApiClients\Client\GitHubAE\Schema\PageBuild
     {
         $properties = []; 
         $missingFields = [];
@@ -67,7 +67,7 @@ class CbBuildIdRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'error';
-                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PageBuild⚡️Error($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PageBuild⚡️Error($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -133,22 +133,22 @@ class CbBuildIdRcb implements ObjectMapper
             after_updatedAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PageBuild', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PageBuild', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PageBuild::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PageBuild::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PageBuild(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\PageBuild(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PageBuild', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PageBuild', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️PageBuild⚡️Error(array $payload): \ApiClients\Client\Github\Schema\PageBuild\Error
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PageBuild⚡️Error(array $payload): \ApiClients\Client\GitHubAE\Schema\PageBuild\Error
     {
         $properties = []; 
         $missingFields = [];
@@ -165,17 +165,17 @@ class CbBuildIdRcb implements ObjectMapper
             after_message:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PageBuild\Error', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PageBuild\Error', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\PageBuild\Error::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\PageBuild\Error::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\PageBuild\Error(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\PageBuild\Error(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\PageBuild\Error', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\PageBuild\Error', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -210,8 +210,8 @@ class CbBuildIdRcb implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\PageBuild' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PageBuild($object),
-            'ApiClients\Client\Github\Schema\PageBuild\Error' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PageBuild⚡️Error($object),
+            'ApiClients\Client\GitHubAE\Schema\PageBuild' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PageBuild($object),
+            'ApiClients\Client\GitHubAE\Schema\PageBuild\Error' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PageBuild⚡️Error($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -285,9 +285,9 @@ class CbBuildIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PageBuild(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PageBuild(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PageBuild);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PageBuild);
         $result = [];
 
         $url = $object->url;
@@ -299,7 +299,7 @@ class CbBuildIdRcb implements ObjectMapper
 
         
         $error = $object->error;
-        $error = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PageBuild⚡️Error($error);
+        $error = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PageBuild⚡️Error($error);
         after_error:        $result['error'] = $error;
 
         
@@ -331,9 +331,9 @@ class CbBuildIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️PageBuild⚡️Error(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PageBuild⚡️Error(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\PageBuild\Error);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\PageBuild\Error);
         $result = [];
 
         $message = $object->message;

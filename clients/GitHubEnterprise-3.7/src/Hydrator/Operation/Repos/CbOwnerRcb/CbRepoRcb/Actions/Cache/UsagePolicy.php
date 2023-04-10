@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Cache;
+namespace ApiClients\Client\GitHubEnterprise\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Cache;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class UsagePolicy implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\Github\Schema\ActionsCacheUsagePolicyForRepository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsCacheUsagePolicyForRepository($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyForRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsCacheUsagePolicyForRepository($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsCacheUsagePolicyForRepository(array $payload): \ApiClients\Client\Github\Schema\ActionsCacheUsagePolicyForRepository
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsCacheUsagePolicyForRepository(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyForRepository
     {
         $properties = []; 
         $missingFields = [];
@@ -46,17 +46,17 @@ class UsagePolicy implements ObjectMapper
             after_repoCacheSizeLimitInGb:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ActionsCacheUsagePolicyForRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyForRepository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ActionsCacheUsagePolicyForRepository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyForRepository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\Github\Schema\ActionsCacheUsagePolicyForRepository(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyForRepository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ActionsCacheUsagePolicyForRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyForRepository', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -91,7 +91,7 @@ class UsagePolicy implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\Github\Schema\ActionsCacheUsagePolicyForRepository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsCacheUsagePolicyForRepository($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyForRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsCacheUsagePolicyForRepository($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -165,9 +165,9 @@ class UsagePolicy implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsCacheUsagePolicyForRepository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsCacheUsagePolicyForRepository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\Github\Schema\ActionsCacheUsagePolicyForRepository);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyForRepository);
         $result = [];
 
         $repoCacheSizeLimitInGb = $object->repoCacheSizeLimitInGb;

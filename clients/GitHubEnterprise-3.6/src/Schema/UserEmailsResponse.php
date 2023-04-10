@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\Github\Schema;
+namespace ApiClients\Client\GitHubEnterprise\Schema;
 
-use ApiClients\Client\Github\Error as ErrorSchemas;
-use ApiClients\Client\Github\Hydrator;
-use ApiClients\Client\Github\Operation;
-use ApiClients\Client\Github\Schema;
-use ApiClients\Client\Github\WebHook;
+use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\WebHook;
 final readonly class UserEmailsResponse
 {
     public const SCHEMA_JSON = '{"required":["value"],"type":"object","properties":{"value":{"type":"string","description":"The email address.","examples":["mlisa@example.com"]},"type":{"type":"string","description":"The type of email address.","examples":["work"]},"primary":{"type":"boolean","description":"Whether this email address is the primary address.","examples":[true]}}}';
