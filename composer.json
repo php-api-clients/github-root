@@ -1,5 +1,5 @@
 {
-  "name": "api-clients/github",
+  "name": "api-clients/github-root",
   "description": "Async first Github client",
   "license": "MIT",
   "authors": [
@@ -11,9 +11,11 @@
   "require": {
     "php": "^8.2",
     "api-clients/contracts": "^0.1",
+    "api-clients/github": "^0.2@dev",
     "cebe/php-openapi": "dev-openapi-31 as 1.6.0",
     "eventsauce/object-hydrator": "^1.1",
-    "react/async": "^4.0"
+    "react/async": "^4.0",
+    "wyrihaximus/subsplit-tools": "dev-main"
   },
   "autoload": {
     "psr-4": {

@@ -172,7 +172,7 @@ class PullRequestReviewComment implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\Base\Repo\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\Base\Repo\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Milestone⚡️Creator($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($payload),
+                'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\RequestedTeams\Parent_' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️RequestedTeams⚡️Parent_($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\Head\Repo\License' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️Head⚡️Repo⚡️License($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\Head\Repo\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️Head⚡️Repo⚡️Owner($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\Head\Repo\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️Head⚡️Repo⚡️Permissions($payload),
@@ -7982,7 +7982,7 @@ class PullRequestReviewComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'parent';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️RequestedTeams⚡️Parent_($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -18564,7 +18564,7 @@ class PullRequestReviewComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'parent';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️RequestedTeams⚡️Parent_($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -26604,7 +26604,7 @@ class PullRequestReviewComment implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'parent';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️RequestedTeams⚡️Parent_($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -29599,7 +29599,7 @@ class PullRequestReviewComment implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️RequestedTeams⚡️Parent_(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\RequestedTeams\Parent_
     {
         $properties = []; 
         $missingFields = [];
@@ -29726,17 +29726,17 @@ class PullRequestReviewComment implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\RequestedTeams\Parent_', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\RequestedTeams\Parent_::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\RequestedTeams\Parent_(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMembershipAdded\Team\Parent_', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPullRequestAssigned\PullRequest\RequestedTeams\Parent_', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -34689,7 +34689,7 @@ class PullRequestReviewComment implements ObjectMapper
         if ($parent === null) {
             goto after_parent;
         }
-        $parent = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($parent);
+        $parent = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️RequestedTeams⚡️Parent_($parent);
         after_parent:        $result['parent'] = $parent;
 
         
@@ -40362,7 +40362,7 @@ class PullRequestReviewComment implements ObjectMapper
         if ($parent === null) {
             goto after_parent;
         }
-        $parent = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($parent);
+        $parent = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️RequestedTeams⚡️Parent_($parent);
         after_parent:        $result['parent'] = $parent;
 
         
@@ -44544,7 +44544,7 @@ class PullRequestReviewComment implements ObjectMapper
         if ($parent === null) {
             goto after_parent;
         }
-        $parent = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($parent);
+        $parent = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestAssigned⚡️PullRequest⚡️RequestedTeams⚡️Parent_($parent);
         after_parent:        $result['parent'] = $parent;
 
         

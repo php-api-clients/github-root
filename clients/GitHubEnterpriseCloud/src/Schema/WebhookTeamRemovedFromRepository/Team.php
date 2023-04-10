@@ -8,6 +8,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
-final readonly class Team extends Schema\AliasAbstract\Abstract1c1a84a641f746f2c07c2deb51d9106a
+final readonly class Team extends Schema\AliasAbstract\Abstractc856e02b3668dea2c91a1ba9fefe97a6
 {
 }
