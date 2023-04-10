@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubAE\Schema\WebhookMemberAdded;
+namespace ApiClients\Client\Github\Schema\WebhookMemberAdded;
 
-use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
-use ApiClients\Client\GitHubAE\Hydrator;
-use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema;
-use ApiClients\Client\GitHubAE\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final readonly class Changes
 {
     public const SCHEMA_JSON = '{"type":"object","properties":{"permission":{"required":["to"],"type":"object","properties":{"to":{"enum":["write","admin","read"],"type":"string"}}}}}';

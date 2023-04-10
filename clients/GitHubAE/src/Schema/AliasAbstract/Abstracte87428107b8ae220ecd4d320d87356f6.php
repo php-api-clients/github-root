@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubAE\Schema\AliasAbstract;
+namespace ApiClients\Client\Github\Schema\AliasAbstract;
 
-use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
-use ApiClients\Client\GitHubAE\Hydrator;
-use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema;
-use ApiClients\Client\GitHubAE\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 abstract readonly class Abstracte87428107b8ae220ecd4d320d87356f6
 {
     public const SCHEMA_JSON = '{"required":["name","space","private_repos"],"type":"object","properties":{"name":{"type":"string"},"space":{"type":"integer"},"private_repos":{"type":"integer"},"filled_seats":{"type":"integer"},"seats":{"type":"integer"}}}';

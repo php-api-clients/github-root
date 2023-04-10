@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubAE\Schema\TeamOrganization;
+namespace ApiClients\Client\Github\Schema\TeamOrganization;
 
-use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
-use ApiClients\Client\GitHubAE\Hydrator;
-use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema;
-use ApiClients\Client\GitHubAE\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final readonly class Plan extends Schema\AliasAbstract\Abstracte87428107b8ae220ecd4d320d87356f6
 {
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Hydrator\WebHook;
+namespace ApiClients\Client\Github\Hydrator\WebHook;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,31 +23,31 @@ class Label implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelCreated($payload),
-                'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($payload),
-                'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated\Label' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelCreated⚡️Label($payload),
-                'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelDeleted($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted\Label' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelDeleted⚡️Label($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Color' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Color($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Description' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Description($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Name' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Name($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Label' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Label($payload),
+            'ApiClients\Client\Github\Schema\WebhookLabelCreated' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelCreated($payload),
+                'ApiClients\Client\Github\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($payload),
+                'ApiClients\Client\Github\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($payload),
+                'ApiClients\Client\Github\Schema\WebhookLabelCreated\Label' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelCreated⚡️Label($payload),
+                'ApiClients\Client\Github\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($payload),
+                'ApiClients\Client\Github\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($payload),
+                'ApiClients\Client\Github\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($payload),
+                'ApiClients\Client\Github\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\Github\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
+                'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
+                'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
+                'ApiClients\Client\Github\Schema\WebhookLabelDeleted' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelDeleted($payload),
+                'ApiClients\Client\Github\Schema\WebhookLabelDeleted\Label' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelDeleted⚡️Label($payload),
+                'ApiClients\Client\Github\Schema\WebhookLabelEdited' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited($payload),
+                'ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes($payload),
+                'ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Color' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Color($payload),
+                'ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Description' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Description($payload),
+                'ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Name' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Name($payload),
+                'ApiClients\Client\Github\Schema\WebhookLabelEdited\Label' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Label($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelCreated(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelCreated(array $payload): \ApiClients\Client\Github\Schema\WebhookLabelCreated
     {
         $properties = []; 
         $missingFields = [];
@@ -73,7 +73,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -93,7 +93,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -113,7 +113,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'label';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelCreated⚡️Label($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelCreated⚡️Label($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -133,7 +133,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -153,7 +153,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -173,7 +173,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -184,22 +184,22 @@ class Label implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelCreated', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookLabelCreated::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookLabelCreated(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelCreated', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise(array $payload): \ApiClients\Client\GitHubAE\Schema\Enterprise
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise(array $payload): \ApiClients\Client\Github\Schema\Enterprise
     {
         $properties = []; 
         $missingFields = [];
@@ -315,22 +315,22 @@ class Label implements ObjectMapper
             after_avatarUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Enterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Enterprise', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Enterprise::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Enterprise::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Enterprise(...$properties);
+            return new \ApiClients\Client\Github\Schema\Enterprise(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Enterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Enterprise', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleInstallation
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation(array $payload): \ApiClients\Client\Github\Schema\SimpleInstallation
     {
         $properties = []; 
         $missingFields = [];
@@ -358,22 +358,22 @@ class Label implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleInstallation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleInstallation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\SimpleInstallation(...$properties);
+            return new \ApiClients\Client\Github\Schema\SimpleInstallation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelCreated⚡️Label(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated\Label
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelCreated⚡️Label(array $payload): \ApiClients\Client\Github\Schema\WebhookLabelCreated\Label
     {
         $properties = []; 
         $missingFields = [];
@@ -456,22 +456,22 @@ class Label implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated\Label', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelCreated\Label', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated\Label::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookLabelCreated\Label::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated\Label(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookLabelCreated\Label(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated\Label', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelCreated\Label', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple(array $payload): \ApiClients\Client\GitHubAE\Schema\OrganizationSimple
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple(array $payload): \ApiClients\Client\Github\Schema\OrganizationSimple
     {
         $properties = []; 
         $missingFields = [];
@@ -609,22 +609,22 @@ class Label implements ObjectMapper
             after_description:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\OrganizationSimple::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\OrganizationSimple::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\OrganizationSimple(...$properties);
+            return new \ApiClients\Client\Github\Schema\OrganizationSimple(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository(array $payload): \ApiClients\Client\Github\Schema\Repository
     {
         $properties = []; 
         $missingFields = [];
@@ -716,7 +716,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -736,7 +736,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1504,7 +1504,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'templateRepository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1680,22 +1680,22 @@ class Label implements ObjectMapper
             after_anonymousAccessEnabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\Permissions
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\Repository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -1756,22 +1756,22 @@ class Label implements ObjectMapper
             after_maintain:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\Permissions(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleUser
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\Github\Schema\SimpleUser
     {
         $properties = []; 
         $missingFields = [];
@@ -2008,22 +2008,22 @@ class Label implements ObjectMapper
             after_starredAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\SimpleUser(...$properties);
+            return new \ApiClients\Client\Github\Schema\SimpleUser(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository
     {
         $properties = []; 
         $missingFields = [];
@@ -2082,7 +2082,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2839,7 +2839,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2949,22 +2949,22 @@ class Label implements ObjectMapper
             after_networkCount:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner
     {
         $properties = []; 
         $missingFields = [];
@@ -3168,22 +3168,22 @@ class Label implements ObjectMapper
             after_siteAdmin:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -3244,22 +3244,22 @@ class Label implements ObjectMapper
             after_pull:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelDeleted(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelDeleted(array $payload): \ApiClients\Client\Github\Schema\WebhookLabelDeleted
     {
         $properties = []; 
         $missingFields = [];
@@ -3285,7 +3285,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3305,7 +3305,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3325,7 +3325,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'label';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelDeleted⚡️Label($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelDeleted⚡️Label($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3345,7 +3345,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3365,7 +3365,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3385,7 +3385,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3396,22 +3396,22 @@ class Label implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelDeleted', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookLabelDeleted::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookLabelDeleted(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelDeleted', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelDeleted⚡️Label(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted\Label
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelDeleted⚡️Label(array $payload): \ApiClients\Client\Github\Schema\WebhookLabelDeleted\Label
     {
         $properties = []; 
         $missingFields = [];
@@ -3494,22 +3494,22 @@ class Label implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted\Label', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelDeleted\Label', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted\Label::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookLabelDeleted\Label::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted\Label(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookLabelDeleted\Label(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted\Label', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelDeleted\Label', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited(array $payload): \ApiClients\Client\Github\Schema\WebhookLabelEdited
     {
         $properties = []; 
         $missingFields = [];
@@ -3535,7 +3535,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'changes';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3555,7 +3555,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3575,7 +3575,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3595,7 +3595,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'label';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Label($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Label($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3615,7 +3615,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3635,7 +3635,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3655,7 +3655,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3666,22 +3666,22 @@ class Label implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelEdited', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookLabelEdited::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookLabelEdited(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelEdited', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes(array $payload): \ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes
     {
         $properties = []; 
         $missingFields = [];
@@ -3696,7 +3696,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'color';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Color($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Color($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3716,7 +3716,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'description';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Description($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Description($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3736,7 +3736,7 @@ class Label implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'name';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Name($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Name($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3747,22 +3747,22 @@ class Label implements ObjectMapper
             after_name:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Color(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Color
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Color(array $payload): \ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Color
     {
         $properties = []; 
         $missingFields = [];
@@ -3779,22 +3779,22 @@ class Label implements ObjectMapper
             after_from:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Color', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Color', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Color::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Color::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Color(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Color(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Color', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Color', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Description(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Description
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Description(array $payload): \ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Description
     {
         $properties = []; 
         $missingFields = [];
@@ -3811,22 +3811,22 @@ class Label implements ObjectMapper
             after_from:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Description', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Description', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Description::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Description::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Description(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Description(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Description', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Description', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Name(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Name
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Name(array $payload): \ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Name
     {
         $properties = []; 
         $missingFields = [];
@@ -3843,22 +3843,22 @@ class Label implements ObjectMapper
             after_from:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Name', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Name', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Name::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Name::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Name(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Name(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Name', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Name', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Label(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Label
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Label(array $payload): \ApiClients\Client\Github\Schema\WebhookLabelEdited\Label
     {
         $properties = []; 
         $missingFields = [];
@@ -3941,17 +3941,17 @@ class Label implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Label', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelEdited\Label', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Label::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookLabelEdited\Label::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Label(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookLabelEdited\Label(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Label', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookLabelEdited\Label', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -3986,25 +3986,25 @@ class Label implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelCreated($object),
-            'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($object),
-            'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated\Label' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelCreated⚡️Label($object),
-            'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($object),
-            'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelDeleted($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted\Label' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelDeleted⚡️Label($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Color' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Color($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Description' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Description($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Name' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Name($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Label' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Label($object),
+            'ApiClients\Client\Github\Schema\WebhookLabelCreated' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelCreated($object),
+            'ApiClients\Client\Github\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($object),
+            'ApiClients\Client\Github\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($object),
+            'ApiClients\Client\Github\Schema\WebhookLabelCreated\Label' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelCreated⚡️Label($object),
+            'ApiClients\Client\Github\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($object),
+            'ApiClients\Client\Github\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($object),
+            'ApiClients\Client\Github\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($object),
+            'ApiClients\Client\Github\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($object),
+            'ApiClients\Client\Github\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($object),
+            'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
+            'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
+            'ApiClients\Client\Github\Schema\WebhookLabelDeleted' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelDeleted($object),
+            'ApiClients\Client\Github\Schema\WebhookLabelDeleted\Label' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelDeleted⚡️Label($object),
+            'ApiClients\Client\Github\Schema\WebhookLabelEdited' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited($object),
+            'ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes($object),
+            'ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Color' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Color($object),
+            'ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Description' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Description($object),
+            'ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Name' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Name($object),
+            'ApiClients\Client\Github\Schema\WebhookLabelEdited\Label' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Label($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -4078,9 +4078,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelCreated(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelCreated(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookLabelCreated);
         $result = [];
 
         $action = $object->action;
@@ -4092,7 +4092,7 @@ class Label implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -4101,12 +4101,12 @@ class Label implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
         $label = $object->label;
-        $label = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelCreated⚡️Label($label);
+        $label = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelCreated⚡️Label($label);
         after_label:        $result['label'] = $label;
 
         
@@ -4115,12 +4115,12 @@ class Label implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $repository = $object->repository;
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
@@ -4129,7 +4129,7 @@ class Label implements ObjectMapper
         if ($sender === null) {
             goto after_sender;
         }
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -4137,9 +4137,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Enterprise);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Enterprise);
         $result = [];
 
         $description = $object->description;
@@ -4202,9 +4202,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleInstallation);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleInstallation);
         $result = [];
 
         $id = $object->id;
@@ -4219,9 +4219,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelCreated⚡️Label(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelCreated⚡️Label(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookLabelCreated\Label);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookLabelCreated\Label);
         $result = [];
 
         $color = $object->color;
@@ -4260,9 +4260,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\OrganizationSimple);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\OrganizationSimple);
         $result = [];
 
         $login = $object->login;
@@ -4321,9 +4321,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository);
         $result = [];
 
         $id = $object->id;
@@ -4367,12 +4367,12 @@ class Label implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
         $owner = $object->owner;
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -4705,7 +4705,7 @@ class Label implements ObjectMapper
         if ($templateRepository === null) {
             goto after_templateRepository;
         }
-        $templateRepository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($templateRepository);
+        $templateRepository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($templateRepository);
         after_templateRepository:        $result['template_repository'] = $templateRepository;
 
         
@@ -4825,9 +4825,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\Permissions);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -4862,9 +4862,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleUser);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleUser);
         $result = [];
 
         $name = $object->name;
@@ -4971,9 +4971,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository);
         $result = [];
 
         $id = $object->id;
@@ -5013,7 +5013,7 @@ class Label implements ObjectMapper
         if ($owner === null) {
             goto after_owner;
         }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -5566,7 +5566,7 @@ class Label implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -5646,9 +5646,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner);
         $result = [];
 
         $login = $object->login;
@@ -5799,9 +5799,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -5848,9 +5848,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelDeleted(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelDeleted(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookLabelDeleted);
         $result = [];
 
         $action = $object->action;
@@ -5862,7 +5862,7 @@ class Label implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -5871,12 +5871,12 @@ class Label implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
         $label = $object->label;
-        $label = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelDeleted⚡️Label($label);
+        $label = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelDeleted⚡️Label($label);
         after_label:        $result['label'] = $label;
 
         
@@ -5885,17 +5885,17 @@ class Label implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $repository = $object->repository;
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -5903,9 +5903,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelDeleted⚡️Label(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelDeleted⚡️Label(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookLabelDeleted\Label);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookLabelDeleted\Label);
         $result = [];
 
         $color = $object->color;
@@ -5944,9 +5944,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookLabelEdited);
         $result = [];
 
         $action = $object->action;
@@ -5958,7 +5958,7 @@ class Label implements ObjectMapper
         if ($changes === null) {
             goto after_changes;
         }
-        $changes = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes($changes);
+        $changes = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes($changes);
         after_changes:        $result['changes'] = $changes;
 
         
@@ -5967,7 +5967,7 @@ class Label implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -5976,12 +5976,12 @@ class Label implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
         $label = $object->label;
-        $label = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Label($label);
+        $label = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Label($label);
         after_label:        $result['label'] = $label;
 
         
@@ -5990,17 +5990,17 @@ class Label implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $repository = $object->repository;
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -6008,9 +6008,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes);
         $result = [];
 
         $color = $object->color;
@@ -6018,7 +6018,7 @@ class Label implements ObjectMapper
         if ($color === null) {
             goto after_color;
         }
-        $color = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Color($color);
+        $color = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Color($color);
         after_color:        $result['color'] = $color;
 
         
@@ -6027,7 +6027,7 @@ class Label implements ObjectMapper
         if ($description === null) {
             goto after_description;
         }
-        $description = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Description($description);
+        $description = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Description($description);
         after_description:        $result['description'] = $description;
 
         
@@ -6036,7 +6036,7 @@ class Label implements ObjectMapper
         if ($name === null) {
             goto after_name;
         }
-        $name = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Name($name);
+        $name = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Name($name);
         after_name:        $result['name'] = $name;
 
 
@@ -6044,9 +6044,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Color(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Color(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Color);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Color);
         $result = [];
 
         $from = $object->from;
@@ -6057,9 +6057,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Description(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Description(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Description);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Description);
         $result = [];
 
         $from = $object->from;
@@ -6070,9 +6070,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Name(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Name(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Name);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookLabelEdited\Changes\Name);
         $result = [];
 
         $from = $object->from;
@@ -6083,9 +6083,9 @@ class Label implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Label(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookLabelEdited⚡️Label(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Label);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookLabelEdited\Label);
         $result = [];
 
         $color = $object->color;

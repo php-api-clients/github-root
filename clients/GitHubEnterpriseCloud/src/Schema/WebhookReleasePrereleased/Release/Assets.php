@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookReleasePrereleased\Release;
+namespace ApiClients\Client\Github\Schema\WebhookReleasePrereleased\Release;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final readonly class Assets extends Schema\AliasAbstract\Abstract12e12bc7bad18578253e20496f2b22b2
 {
 }

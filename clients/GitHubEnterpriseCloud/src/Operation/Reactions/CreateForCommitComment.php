@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\Reactions;
+namespace ApiClients\Client\Github\Operation\Reactions;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final class CreateForCommitComment
 {
     public const OPERATION_ID = 'reactions/create-for-commit-comment';
@@ -32,7 +32,7 @@ final class CreateForCommitComment
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
-    function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\Reactions\CreateForCommitComment\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{comment_id}'), array($this->owner, $this->repo, $this->commentId), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
@@ -40,7 +40,7 @@ final class CreateForCommitComment
     /**
      * @return Schema\Reaction
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Reaction
+    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Reaction
     {
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);

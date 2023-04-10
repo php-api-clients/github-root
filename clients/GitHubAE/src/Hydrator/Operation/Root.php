@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Hydrator\Operation;
+namespace ApiClients\Client\Github\Hydrator\Operation;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class Root implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\Root' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Root($payload),
+            'ApiClients\Client\Github\Schema\Root' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Root($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Root(array $payload): \ApiClients\Client\GitHubAE\Schema\Root
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Root(array $payload): \ApiClients\Client\Github\Schema\Root
     {
         $properties = []; 
         $missingFields = [];
@@ -398,17 +398,17 @@ class Root implements ObjectMapper
             after_userSearchUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Root', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Root', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Root::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Root::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Root(...$properties);
+            return new \ApiClients\Client\Github\Schema\Root(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Root', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Root', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -443,7 +443,7 @@ class Root implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubAE\Schema\Root' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Root($object),
+            'ApiClients\Client\Github\Schema\Root' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Root($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -517,9 +517,9 @@ class Root implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Root(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Root(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Root);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Root);
         $result = [];
 
         $currentUserUrl = $object->currentUserUrl;

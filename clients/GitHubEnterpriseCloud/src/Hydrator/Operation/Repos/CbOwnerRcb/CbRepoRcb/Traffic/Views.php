@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Traffic;
+namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Traffic;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,15 +23,15 @@ class Views implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ViewTraffic' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ViewTraffic($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Traffic' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Traffic($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
+            'ApiClients\Client\Github\Schema\ViewTraffic' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ViewTraffic($payload),
+                'ApiClients\Client\Github\Schema\Traffic' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Traffic($payload),
+                'ApiClients\Client\Github\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ViewTraffic(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ViewTraffic
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ViewTraffic(array $payload): \ApiClients\Client\Github\Schema\ViewTraffic
     {
         $properties = []; 
         $missingFields = [];
@@ -69,7 +69,7 @@ class Views implements ObjectMapper
 
             if ($viewsCaster1 === null) {
                 $viewsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Traffic',
+  0 => 'ApiClients\\Client\\Github\\Schema\\Traffic',
 ));
             }
 
@@ -80,22 +80,22 @@ class Views implements ObjectMapper
             after_views:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ViewTraffic', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ViewTraffic', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ViewTraffic::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ViewTraffic::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ViewTraffic(...$properties);
+            return new \ApiClients\Client\Github\Schema\ViewTraffic(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ViewTraffic', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ViewTraffic', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Traffic(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Traffic
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Traffic(array $payload): \ApiClients\Client\Github\Schema\Traffic
     {
         $properties = []; 
         $missingFields = [];
@@ -134,22 +134,22 @@ class Views implements ObjectMapper
             after_count:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Traffic', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Traffic', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Traffic::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Traffic::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Traffic(...$properties);
+            return new \ApiClients\Client\Github\Schema\Traffic(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Traffic', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Traffic', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\Github\Schema\BasicError
     {
         $properties = []; 
         $missingFields = [];
@@ -199,17 +199,17 @@ class Views implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError(...$properties);
+            return new \ApiClients\Client\Github\Schema\BasicError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -244,9 +244,9 @@ class Views implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ViewTraffic' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ViewTraffic($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Traffic' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Traffic($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\Github\Schema\ViewTraffic' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ViewTraffic($object),
+            'ApiClients\Client\Github\Schema\Traffic' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Traffic($object),
+            'ApiClients\Client\Github\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -320,9 +320,9 @@ class Views implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ViewTraffic(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ViewTraffic(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ViewTraffic);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ViewTraffic);
         $result = [];
 
         $count = $object->count;
@@ -338,7 +338,7 @@ class Views implements ObjectMapper
 
         if ($viewsSerializer0 === null) {
             $viewsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Traffic',
+  0 => 'ApiClients\\Client\\Github\\Schema\\Traffic',
 ));
         }
         
@@ -350,9 +350,9 @@ class Views implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Traffic(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Traffic(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Traffic);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Traffic);
         $result = [];
 
         $timestamp = $object->timestamp;
@@ -371,9 +371,9 @@ class Views implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\BasicError);
         $result = [];
 
         $message = $object->message;

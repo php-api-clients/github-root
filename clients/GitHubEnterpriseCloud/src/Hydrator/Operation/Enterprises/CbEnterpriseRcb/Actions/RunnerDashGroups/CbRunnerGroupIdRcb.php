@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups;
+namespace ApiClients\Client\Github\Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class CbRunnerGroupIdRcb implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RunnerGroupsEnterprise($payload),
+            'ApiClients\Client\Github\Schema\RunnerGroupsEnterprise' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️RunnerGroupsEnterprise($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RunnerGroupsEnterprise(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️RunnerGroupsEnterprise(array $payload): \ApiClients\Client\Github\Schema\RunnerGroupsEnterprise
     {
         $properties = []; 
         $missingFields = [];
@@ -145,17 +145,17 @@ class CbRunnerGroupIdRcb implements ObjectMapper
             after_selectedWorkflows:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\RunnerGroupsEnterprise', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\RunnerGroupsEnterprise::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise(...$properties);
+            return new \ApiClients\Client\Github\Schema\RunnerGroupsEnterprise(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\RunnerGroupsEnterprise', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -190,7 +190,7 @@ class CbRunnerGroupIdRcb implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RunnerGroupsEnterprise($object),
+            'ApiClients\Client\Github\Schema\RunnerGroupsEnterprise' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️RunnerGroupsEnterprise($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -264,9 +264,9 @@ class CbRunnerGroupIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RunnerGroupsEnterprise(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️RunnerGroupsEnterprise(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\RunnerGroupsEnterprise);
         $result = [];
 
         $id = $object->id;

@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\AliasAbstract;
+namespace ApiClients\Client\Github\Schema\AliasAbstract;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 abstract readonly class Abstractd9dfa38ed9136d28d1296a44a1883f7a
 {
     public const SCHEMA_JSON = '{"type":"object","properties":{"topic_relation":{"type":"object","properties":{"id":{"type":"integer"},"name":{"type":"string"},"topic_id":{"type":"integer"},"relation_type":{"type":"string"}}}}}';

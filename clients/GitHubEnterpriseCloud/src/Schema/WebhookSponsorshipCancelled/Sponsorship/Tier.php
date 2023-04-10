@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookSponsorshipCancelled\Sponsorship;
+namespace ApiClients\Client\Github\Schema\WebhookSponsorshipCancelled\Sponsorship;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final readonly class Tier extends Schema\AliasAbstract\Abstract6f013b0abd1e38816cb4a3da59904ae0
 {
 }

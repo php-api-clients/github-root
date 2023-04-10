@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\Repos\CreateFork\Request;
+namespace ApiClients\Client\Github\Schema\Repos\CreateFork\Request;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final readonly class Applicationjson
 {
     public const SCHEMA_JSON = '{"type":["object","null"],"properties":{"organization":{"type":"string","description":"Optional parameter to specify the organization name if forking into an organization."},"name":{"type":"string","description":"When forking from an existing repository, a new name for the fork."},"default_branch_only":{"type":"boolean","description":"When forking from an existing repository, fork with only the default branch."}}}';

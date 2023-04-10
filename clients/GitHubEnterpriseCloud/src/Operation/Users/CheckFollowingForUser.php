@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\Users;
+namespace ApiClients\Client\Github\Operation\Users;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final class CheckFollowingForUser
 {
     public const OPERATION_ID = 'users/check-following-for-user';
@@ -22,14 +22,14 @@ final class CheckFollowingForUser
         $this->username = $username;
         $this->targetUser = $targetUser;
     }
-    function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{username}', '{target_user}'), array($this->username, $this->targetUser), self::PATH));
     }
     /**
      * @return \Psr\Http\Message\ResponseInterface
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Psr\Http\Message\ResponseInterface
+    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Psr\Http\Message\ResponseInterface
     {
         return $response;
     }

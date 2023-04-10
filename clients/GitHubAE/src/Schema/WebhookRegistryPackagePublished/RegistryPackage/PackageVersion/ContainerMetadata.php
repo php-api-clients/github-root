@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubAE\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion;
+namespace ApiClients\Client\Github\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion;
 
-use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
-use ApiClients\Client\GitHubAE\Hydrator;
-use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema;
-use ApiClients\Client\GitHubAE\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final readonly class ContainerMetadata
 {
     public const SCHEMA_JSON = '{"type":"object","properties":{"labels":{"type":["object","null"]},"manifest":{"type":["object","null"]},"tag":{"type":"object","properties":{"digest":{"type":"string"},"name":{"type":"string"}}}}}';

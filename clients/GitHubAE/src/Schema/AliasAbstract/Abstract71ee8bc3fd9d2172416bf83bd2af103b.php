@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubAE\Schema\AliasAbstract;
+namespace ApiClients\Client\Github\Schema\AliasAbstract;
 
-use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
-use ApiClients\Client\GitHubAE\Hydrator;
-use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema;
-use ApiClients\Client\GitHubAE\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 abstract readonly class Abstract71ee8bc3fd9d2172416bf83bd2af103b
 {
     public const SCHEMA_JSON = '{"title":"Workflow","required":["badge_url","created_at","html_url","id","name","node_id","path","state","updated_at","url"],"type":["object","null"],"properties":{"badge_url":{"type":"string","format":"uri"},"created_at":{"type":"string","format":"date-time"},"html_url":{"type":"string","format":"uri"},"id":{"type":"integer"},"name":{"type":"string"},"node_id":{"type":"string"},"path":{"type":"string"},"state":{"type":"string"},"updated_at":{"type":"string","format":"date-time"},"url":{"type":"string","format":"uri"}}}';

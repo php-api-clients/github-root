@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Statuses;
+namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Statuses;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class CbShaRcb implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\Status' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Status($payload),
+            'ApiClients\Client\Github\Schema\Status' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Status($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Status(array $payload): \ApiClients\Client\GitHubAE\Schema\Status
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Status(array $payload): \ApiClients\Client\Github\Schema\Status
     {
         $properties = []; 
         $missingFields = [];
@@ -156,17 +156,17 @@ class CbShaRcb implements ObjectMapper
             after_creator:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Status', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Status', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Status::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Status::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Status(...$properties);
+            return new \ApiClients\Client\Github\Schema\Status(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Status', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Status', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -201,7 +201,7 @@ class CbShaRcb implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubAE\Schema\Status' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Status($object),
+            'ApiClients\Client\Github\Schema\Status' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Status($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -275,9 +275,9 @@ class CbShaRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Status(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Status(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Status);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Status);
         $result = [];
 
         $url = $object->url;

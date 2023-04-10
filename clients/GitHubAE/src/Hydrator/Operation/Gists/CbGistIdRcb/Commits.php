@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Gists\CbGistIdRcb;
+namespace ApiClients\Client\Github\Hydrator\Operation\Gists\CbGistIdRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,15 +23,15 @@ class Commits implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\GistCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GistCommit($payload),
-                'ApiClients\Client\GitHubAE\Schema\GistCommit\ChangeStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GistCommit⚡️ChangeStatus($payload),
-                'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
+            'ApiClients\Client\Github\Schema\GistCommit' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistCommit($payload),
+                'ApiClients\Client\Github\Schema\GistCommit\ChangeStatus' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistCommit⚡️ChangeStatus($payload),
+                'ApiClients\Client\Github\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GistCommit(array $payload): \ApiClients\Client\GitHubAE\Schema\GistCommit
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistCommit(array $payload): \ApiClients\Client\Github\Schema\GistCommit
     {
         $properties = []; 
         $missingFields = [];
@@ -79,7 +79,7 @@ class Commits implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'changeStatus';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GistCommit⚡️ChangeStatus($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistCommit⚡️ChangeStatus($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -101,22 +101,22 @@ class Commits implements ObjectMapper
             after_committedAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GistCommit', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistCommit', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\GistCommit::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GistCommit::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\GistCommit(...$properties);
+            return new \ApiClients\Client\Github\Schema\GistCommit(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GistCommit', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistCommit', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GistCommit⚡️ChangeStatus(array $payload): \ApiClients\Client\GitHubAE\Schema\GistCommit\ChangeStatus
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistCommit⚡️ChangeStatus(array $payload): \ApiClients\Client\Github\Schema\GistCommit\ChangeStatus
     {
         $properties = []; 
         $missingFields = [];
@@ -155,22 +155,22 @@ class Commits implements ObjectMapper
             after_deletions:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GistCommit\ChangeStatus', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistCommit\ChangeStatus', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\GistCommit\ChangeStatus::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GistCommit\ChangeStatus::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\GistCommit\ChangeStatus(...$properties);
+            return new \ApiClients\Client\Github\Schema\GistCommit\ChangeStatus(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\GistCommit\ChangeStatus', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistCommit\ChangeStatus', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubAE\Schema\BasicError
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\Github\Schema\BasicError
     {
         $properties = []; 
         $missingFields = [];
@@ -220,17 +220,17 @@ class Commits implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\BasicError(...$properties);
+            return new \ApiClients\Client\Github\Schema\BasicError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -265,9 +265,9 @@ class Commits implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubAE\Schema\GistCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GistCommit($object),
-            'ApiClients\Client\GitHubAE\Schema\GistCommit\ChangeStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GistCommit⚡️ChangeStatus($object),
-            'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\Github\Schema\GistCommit' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistCommit($object),
+            'ApiClients\Client\Github\Schema\GistCommit\ChangeStatus' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistCommit⚡️ChangeStatus($object),
+            'ApiClients\Client\Github\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -341,9 +341,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GistCommit(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistCommit(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GistCommit);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\GistCommit);
         $result = [];
 
         $url = $object->url;
@@ -363,7 +363,7 @@ class Commits implements ObjectMapper
 
         
         $changeStatus = $object->changeStatus;
-        $changeStatus = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GistCommit⚡️ChangeStatus($changeStatus);
+        $changeStatus = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistCommit⚡️ChangeStatus($changeStatus);
         after_changeStatus:        $result['change_status'] = $changeStatus;
 
         
@@ -375,9 +375,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GistCommit⚡️ChangeStatus(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistCommit⚡️ChangeStatus(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\GistCommit\ChangeStatus);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\GistCommit\ChangeStatus);
         $result = [];
 
         $total = $object->total;
@@ -408,9 +408,9 @@ class Commits implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BasicError);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\BasicError);
         $result = [];
 
         $message = $object->message;

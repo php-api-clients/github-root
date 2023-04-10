@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Hydrator\Operation\EnterpriseDashInstallation\CbEnterpriseOrOrgRcb;
+namespace ApiClients\Client\Github\Hydrator\Operation\EnterpriseDashInstallation\CbEnterpriseOrOrgRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,26 +23,26 @@ class ServerDashStatistics implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GithubConnect' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GithubConnect($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Comments' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Gists' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Hooks' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Issues' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Milestones' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Orgs' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pages' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pulls' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Repos' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Users' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers($payload),
+            'ApiClients\Client\Github\Schema\ServerStatistics' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics($payload),
+                'ApiClients\Client\Github\Schema\ServerStatistics\GithubConnect' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GithubConnect($payload),
+                'ApiClients\Client\Github\Schema\ServerStatistics\GheStats' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats($payload),
+                'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Comments' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments($payload),
+                'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Gists' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists($payload),
+                'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Hooks' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks($payload),
+                'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Issues' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues($payload),
+                'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Milestones' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones($payload),
+                'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Orgs' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs($payload),
+                'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pages' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages($payload),
+                'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pulls' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls($payload),
+                'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Repos' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos($payload),
+                'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Users' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users($payload),
+                'ApiClients\Client\Github\Schema\ServerStatistics\DormantUsers' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️DormantUsers($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics(array $payload): \ApiClients\Client\Github\Schema\ServerStatistics
     {
         $properties = []; 
         $missingFields = [];
@@ -112,7 +112,7 @@ class ServerDashStatistics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'githubConnect';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GithubConnect($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GithubConnect($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -132,7 +132,7 @@ class ServerDashStatistics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'gheStats';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -152,7 +152,7 @@ class ServerDashStatistics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'dormantUsers';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️DormantUsers($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -163,22 +163,22 @@ class ServerDashStatistics implements ObjectMapper
             after_dormantUsers:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ServerStatistics::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics(...$properties);
+            return new \ApiClients\Client\Github\Schema\ServerStatistics(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GithubConnect(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GithubConnect
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GithubConnect(array $payload): \ApiClients\Client\Github\Schema\ServerStatistics\GithubConnect
     {
         $properties = []; 
         $missingFields = [];
@@ -195,22 +195,22 @@ class ServerDashStatistics implements ObjectMapper
             after_featuresEnabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GithubConnect', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GithubConnect', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GithubConnect::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ServerStatistics\GithubConnect::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GithubConnect(...$properties);
+            return new \ApiClients\Client\Github\Schema\ServerStatistics\GithubConnect(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GithubConnect', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GithubConnect', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats(array $payload): \ApiClients\Client\Github\Schema\ServerStatistics\GheStats
     {
         $properties = []; 
         $missingFields = [];
@@ -225,7 +225,7 @@ class ServerDashStatistics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'comments';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -245,7 +245,7 @@ class ServerDashStatistics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'gists';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -265,7 +265,7 @@ class ServerDashStatistics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'hooks';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -285,7 +285,7 @@ class ServerDashStatistics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'issues';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -305,7 +305,7 @@ class ServerDashStatistics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'milestones';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -325,7 +325,7 @@ class ServerDashStatistics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'orgs';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -345,7 +345,7 @@ class ServerDashStatistics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'pages';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -365,7 +365,7 @@ class ServerDashStatistics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'pulls';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -385,7 +385,7 @@ class ServerDashStatistics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repos';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -405,7 +405,7 @@ class ServerDashStatistics implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'users';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -416,22 +416,22 @@ class ServerDashStatistics implements ObjectMapper
             after_users:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ServerStatistics\GheStats::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats(...$properties);
+            return new \ApiClients\Client\Github\Schema\ServerStatistics\GheStats(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Comments
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments(array $payload): \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Comments
     {
         $properties = []; 
         $missingFields = [];
@@ -481,22 +481,22 @@ class ServerDashStatistics implements ObjectMapper
             after_totalPullRequestComments:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Comments', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Comments', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Comments::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Comments::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Comments(...$properties);
+            return new \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Comments(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Comments', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Comments', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Gists
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists(array $payload): \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Gists
     {
         $properties = []; 
         $missingFields = [];
@@ -535,22 +535,22 @@ class ServerDashStatistics implements ObjectMapper
             after_publicGists:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Gists', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Gists', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Gists::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Gists::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Gists(...$properties);
+            return new \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Gists(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Gists', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Gists', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Hooks
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks(array $payload): \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Hooks
     {
         $properties = []; 
         $missingFields = [];
@@ -589,22 +589,22 @@ class ServerDashStatistics implements ObjectMapper
             after_inactiveHooks:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Hooks', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Hooks', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Hooks::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Hooks::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Hooks(...$properties);
+            return new \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Hooks(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Hooks', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Hooks', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Issues
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues(array $payload): \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Issues
     {
         $properties = []; 
         $missingFields = [];
@@ -643,22 +643,22 @@ class ServerDashStatistics implements ObjectMapper
             after_closedIssues:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Issues', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Issues', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Issues::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Issues::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Issues(...$properties);
+            return new \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Issues(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Issues', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Issues', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Milestones
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones(array $payload): \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Milestones
     {
         $properties = []; 
         $missingFields = [];
@@ -697,22 +697,22 @@ class ServerDashStatistics implements ObjectMapper
             after_closedMilestones:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Milestones', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Milestones', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Milestones::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Milestones::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Milestones(...$properties);
+            return new \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Milestones(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Milestones', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Milestones', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Orgs
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs(array $payload): \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Orgs
     {
         $properties = []; 
         $missingFields = [];
@@ -762,22 +762,22 @@ class ServerDashStatistics implements ObjectMapper
             after_totalTeamMembers:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Orgs', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Orgs', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Orgs::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Orgs::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Orgs(...$properties);
+            return new \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Orgs(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Orgs', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Orgs', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pages
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages(array $payload): \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pages
     {
         $properties = []; 
         $missingFields = [];
@@ -794,22 +794,22 @@ class ServerDashStatistics implements ObjectMapper
             after_totalPages:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pages', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pages', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pages::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pages::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pages(...$properties);
+            return new \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pages(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pages', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pages', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pulls
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls(array $payload): \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pulls
     {
         $properties = []; 
         $missingFields = [];
@@ -859,22 +859,22 @@ class ServerDashStatistics implements ObjectMapper
             after_unmergeablePulls:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pulls', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pulls', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pulls::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pulls::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pulls(...$properties);
+            return new \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pulls(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pulls', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pulls', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Repos
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos(array $payload): \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Repos
     {
         $properties = []; 
         $missingFields = [];
@@ -946,22 +946,22 @@ class ServerDashStatistics implements ObjectMapper
             after_totalWikis:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Repos', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Repos', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Repos::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Repos::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Repos(...$properties);
+            return new \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Repos(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Repos', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Repos', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Users
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users(array $payload): \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Users
     {
         $properties = []; 
         $missingFields = [];
@@ -1000,22 +1000,22 @@ class ServerDashStatistics implements ObjectMapper
             after_suspendedUsers:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Users', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Users', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Users::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Users::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Users(...$properties);
+            return new \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Users(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Users', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Users', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️DormantUsers(array $payload): \ApiClients\Client\Github\Schema\ServerStatistics\DormantUsers
     {
         $properties = []; 
         $missingFields = [];
@@ -1043,17 +1043,17 @@ class ServerDashStatistics implements ObjectMapper
             after_dormancyThreshold:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\DormantUsers', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ServerStatistics\DormantUsers::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers(...$properties);
+            return new \ApiClients\Client\Github\Schema\ServerStatistics\DormantUsers(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ServerStatistics\DormantUsers', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -1088,20 +1088,20 @@ class ServerDashStatistics implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GithubConnect' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GithubConnect($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Comments' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Gists' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Hooks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Issues' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Milestones' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Orgs' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pages' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pulls' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Repos' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Users' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers($object),
+            'ApiClients\Client\Github\Schema\ServerStatistics' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics($object),
+            'ApiClients\Client\Github\Schema\ServerStatistics\GithubConnect' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GithubConnect($object),
+            'ApiClients\Client\Github\Schema\ServerStatistics\GheStats' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats($object),
+            'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Comments' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments($object),
+            'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Gists' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists($object),
+            'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Hooks' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks($object),
+            'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Issues' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues($object),
+            'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Milestones' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones($object),
+            'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Orgs' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs($object),
+            'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pages' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages($object),
+            'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pulls' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls($object),
+            'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Repos' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos($object),
+            'ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Users' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users($object),
+            'ApiClients\Client\Github\Schema\ServerStatistics\DormantUsers' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️DormantUsers($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -1175,9 +1175,9 @@ class ServerDashStatistics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ServerStatistics);
         $result = [];
 
         $serverId = $object->serverId;
@@ -1225,7 +1225,7 @@ class ServerDashStatistics implements ObjectMapper
         if ($githubConnect === null) {
             goto after_githubConnect;
         }
-        $githubConnect = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GithubConnect($githubConnect);
+        $githubConnect = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GithubConnect($githubConnect);
         after_githubConnect:        $result['github_connect'] = $githubConnect;
 
         
@@ -1234,7 +1234,7 @@ class ServerDashStatistics implements ObjectMapper
         if ($gheStats === null) {
             goto after_gheStats;
         }
-        $gheStats = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats($gheStats);
+        $gheStats = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats($gheStats);
         after_gheStats:        $result['ghe_stats'] = $gheStats;
 
         
@@ -1243,7 +1243,7 @@ class ServerDashStatistics implements ObjectMapper
         if ($dormantUsers === null) {
             goto after_dormantUsers;
         }
-        $dormantUsers = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers($dormantUsers);
+        $dormantUsers = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️DormantUsers($dormantUsers);
         after_dormantUsers:        $result['dormant_users'] = $dormantUsers;
 
 
@@ -1251,9 +1251,9 @@ class ServerDashStatistics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GithubConnect(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GithubConnect(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GithubConnect);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ServerStatistics\GithubConnect);
         $result = [];
 
         $featuresEnabled = $object->featuresEnabled;
@@ -1276,9 +1276,9 @@ class ServerDashStatistics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ServerStatistics\GheStats);
         $result = [];
 
         $comments = $object->comments;
@@ -1286,7 +1286,7 @@ class ServerDashStatistics implements ObjectMapper
         if ($comments === null) {
             goto after_comments;
         }
-        $comments = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments($comments);
+        $comments = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments($comments);
         after_comments:        $result['comments'] = $comments;
 
         
@@ -1295,7 +1295,7 @@ class ServerDashStatistics implements ObjectMapper
         if ($gists === null) {
             goto after_gists;
         }
-        $gists = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists($gists);
+        $gists = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists($gists);
         after_gists:        $result['gists'] = $gists;
 
         
@@ -1304,7 +1304,7 @@ class ServerDashStatistics implements ObjectMapper
         if ($hooks === null) {
             goto after_hooks;
         }
-        $hooks = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks($hooks);
+        $hooks = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks($hooks);
         after_hooks:        $result['hooks'] = $hooks;
 
         
@@ -1313,7 +1313,7 @@ class ServerDashStatistics implements ObjectMapper
         if ($issues === null) {
             goto after_issues;
         }
-        $issues = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues($issues);
+        $issues = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues($issues);
         after_issues:        $result['issues'] = $issues;
 
         
@@ -1322,7 +1322,7 @@ class ServerDashStatistics implements ObjectMapper
         if ($milestones === null) {
             goto after_milestones;
         }
-        $milestones = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones($milestones);
+        $milestones = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones($milestones);
         after_milestones:        $result['milestones'] = $milestones;
 
         
@@ -1331,7 +1331,7 @@ class ServerDashStatistics implements ObjectMapper
         if ($orgs === null) {
             goto after_orgs;
         }
-        $orgs = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs($orgs);
+        $orgs = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs($orgs);
         after_orgs:        $result['orgs'] = $orgs;
 
         
@@ -1340,7 +1340,7 @@ class ServerDashStatistics implements ObjectMapper
         if ($pages === null) {
             goto after_pages;
         }
-        $pages = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages($pages);
+        $pages = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages($pages);
         after_pages:        $result['pages'] = $pages;
 
         
@@ -1349,7 +1349,7 @@ class ServerDashStatistics implements ObjectMapper
         if ($pulls === null) {
             goto after_pulls;
         }
-        $pulls = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls($pulls);
+        $pulls = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls($pulls);
         after_pulls:        $result['pulls'] = $pulls;
 
         
@@ -1358,7 +1358,7 @@ class ServerDashStatistics implements ObjectMapper
         if ($repos === null) {
             goto after_repos;
         }
-        $repos = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos($repos);
+        $repos = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos($repos);
         after_repos:        $result['repos'] = $repos;
 
         
@@ -1367,7 +1367,7 @@ class ServerDashStatistics implements ObjectMapper
         if ($users === null) {
             goto after_users;
         }
-        $users = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users($users);
+        $users = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users($users);
         after_users:        $result['users'] = $users;
 
 
@@ -1375,9 +1375,9 @@ class ServerDashStatistics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Comments(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Comments);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Comments);
         $result = [];
 
         $totalCommitComments = $object->totalCommitComments;
@@ -1416,9 +1416,9 @@ class ServerDashStatistics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Gists(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Gists);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Gists);
         $result = [];
 
         $totalGists = $object->totalGists;
@@ -1449,9 +1449,9 @@ class ServerDashStatistics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Hooks(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Hooks);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Hooks);
         $result = [];
 
         $totalHooks = $object->totalHooks;
@@ -1482,9 +1482,9 @@ class ServerDashStatistics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Issues(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Issues);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Issues);
         $result = [];
 
         $totalIssues = $object->totalIssues;
@@ -1515,9 +1515,9 @@ class ServerDashStatistics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Milestones(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Milestones);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Milestones);
         $result = [];
 
         $totalMilestones = $object->totalMilestones;
@@ -1548,9 +1548,9 @@ class ServerDashStatistics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Orgs(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Orgs);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Orgs);
         $result = [];
 
         $totalOrgs = $object->totalOrgs;
@@ -1589,9 +1589,9 @@ class ServerDashStatistics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pages(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pages);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pages);
         $result = [];
 
         $totalPages = $object->totalPages;
@@ -1606,9 +1606,9 @@ class ServerDashStatistics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Pulls(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Pulls);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Pulls);
         $result = [];
 
         $totalPulls = $object->totalPulls;
@@ -1647,9 +1647,9 @@ class ServerDashStatistics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Repos(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Repos);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Repos);
         $result = [];
 
         $totalRepos = $object->totalRepos;
@@ -1704,9 +1704,9 @@ class ServerDashStatistics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️GheStats⚡️Users(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\GheStats\Users);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ServerStatistics\GheStats\Users);
         $result = [];
 
         $totalUsers = $object->totalUsers;
@@ -1737,9 +1737,9 @@ class ServerDashStatistics implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ServerStatistics⚡️DormantUsers(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ServerStatistics⚡️DormantUsers(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ServerStatistics\DormantUsers);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ServerStatistics\DormantUsers);
         $result = [];
 
         $totalDormantUsers = $object->totalDormantUsers;

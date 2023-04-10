@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Hydrator\Operation\Gists\CbGistIdRcb\Comments;
+namespace ApiClients\Client\Github\Hydrator\Operation\Gists\CbGistIdRcb\Comments;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,16 +23,16 @@ class CbCommentIdRcb implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistComment($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403⚡️Block($payload),
+            'ApiClients\Client\Github\Schema\GistComment' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistComment($payload),
+                'ApiClients\Client\Github\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($payload),
+                'ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403($payload),
+                'ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403⚡️Block($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistComment(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GistComment(array $payload): \ApiClients\Client\Github\Schema\GistComment
     {
         $properties = []; 
         $missingFields = [];
@@ -126,22 +126,22 @@ class CbCommentIdRcb implements ObjectMapper
             after_authorAssociation:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistComment', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GistComment::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment(...$properties);
+            return new \ApiClients\Client\Github\Schema\GistComment(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GistComment', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\Github\Schema\BasicError
     {
         $properties = []; 
         $missingFields = [];
@@ -191,22 +191,22 @@ class CbCommentIdRcb implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError(...$properties);
+            return new \ApiClients\Client\Github\Schema\BasicError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403(array $payload): \ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403
     {
         $properties = []; 
         $missingFields = [];
@@ -221,7 +221,7 @@ class CbCommentIdRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'block';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403⚡️Block($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403⚡️Block($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -254,22 +254,22 @@ class CbCommentIdRcb implements ObjectMapper
             after_documentationUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403(...$properties);
+            return new \ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403⚡️Block(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403⚡️Block(array $payload): \ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block
     {
         $properties = []; 
         $missingFields = [];
@@ -308,17 +308,17 @@ class CbCommentIdRcb implements ObjectMapper
             after_htmlUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block(...$properties);
+            return new \ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -353,10 +353,10 @@ class CbCommentIdRcb implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistComment($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403⚡️Block($object),
+            'ApiClients\Client\Github\Schema\GistComment' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistComment($object),
+            'ApiClients\Client\Github\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403($object),
+            'ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403⚡️Block($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -430,9 +430,9 @@ class CbCommentIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GistComment(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GistComment(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\GistComment);
         $result = [];
 
         $id = $object->id;
@@ -475,9 +475,9 @@ class CbCommentIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\BasicError);
         $result = [];
 
         $message = $object->message;
@@ -516,9 +516,9 @@ class CbCommentIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403);
         $result = [];
 
         $block = $object->block;
@@ -526,7 +526,7 @@ class CbCommentIdRcb implements ObjectMapper
         if ($block === null) {
             goto after_block;
         }
-        $block = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403⚡️Block($block);
+        $block = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403⚡️Block($block);
         after_block:        $result['block'] = $block;
 
         
@@ -550,9 +550,9 @@ class CbCommentIdRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403⚡️Block(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️Gists⚡️Get⚡️Response⚡️Applicationjson⚡️H403⚡️Block(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\Gists\Get\Response\Applicationjson\H403\Block);
         $result = [];
 
         $reason = $object->reason;

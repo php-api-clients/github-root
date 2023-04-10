@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubAE\Operation\Repos;
+namespace ApiClients\Client\Github\Operation\Repos;
 
-use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
-use ApiClients\Client\GitHubAE\Hydrator;
-use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema;
-use ApiClients\Client\GitHubAE\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final class DownloadTarballArchive
 {
     public const OPERATION_ID = 'repos/download-tarball-archive';
@@ -25,14 +25,14 @@ final class DownloadTarballArchive
         $this->repo = $repo;
         $this->ref = $ref;
     }
-    function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{ref}'), array($this->owner, $this->repo, $this->ref), self::PATH));
     }
     /**
      * @return array{code: int,location: string}
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : array
+    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : array
     {
         switch ($response->getStatusCode()) {
             /**Response**/

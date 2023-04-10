@@ -1,0 +1,18 @@
+spec: https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/ghes-3.6/ghes-3.6.yaml
+namespace:
+  source: ApiClients\Client\Github
+  test: ApiClients\Tests\Client\Github
+destination:
+  root: ../
+  source: src
+  test: tests
+templates:
+  dir: ../templates
+schemas:
+  allowDuplication: true
+  useAliasesForDuplication: true
+voter:
+  listOperation:
+    - ApiClients\Tools\OpenApiClientGenerator\Voter\ListOperation\PageAndPerPageInQuery
+  streamOperation:
+    - ApiClients\Tools\OpenApiClientGenerator\Voter\StreamOperation\DownloadInOperationId

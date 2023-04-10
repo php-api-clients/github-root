@@ -1,0 +1,64 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\Github\Operation\Pulls;
+
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
+final class GetReview
+{
+    public const OPERATION_ID = 'pulls/get-review';
+    public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}';
+    private const METHOD = 'GET';
+    private const PATH = '/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}';
+    private string $owner;
+    private string $repo;
+    private int $pullNumber;
+    /**review_id parameter**/
+    private int $reviewId;
+    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
+    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb $hydrator;
+    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Reviews\CbReviewIdRcb $hydrator, string $owner, string $repo, int $pullNumber, int $reviewId)
+    {
+        $this->owner = $owner;
+        $this->repo = $repo;
+        $this->pullNumber = $pullNumber;
+        $this->reviewId = $reviewId;
+        $this->responseSchemaValidator = $responseSchemaValidator;
+        $this->hydrator = $hydrator;
+    }
+    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    {
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{pull_number}', '{review_id}'), array($this->owner, $this->repo, $this->pullNumber, $this->reviewId), self::PATH));
+    }
+    /**
+     * @return Schema\PullRequestReview
+     */
+    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\PullRequestReview
+    {
+        [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
+        $body = json_decode($response->getBody()->getContents(), true);
+        switch ($response->getStatusCode()) {
+            /**Response**/
+            case 200:
+                switch ($contentType) {
+                    case 'application/json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\PullRequestReview::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        return $this->hydrator->hydrateObject(Schema\PullRequestReview::class, $body);
+                }
+                break;
+            /**Resource not found**/
+            case 404:
+                switch ($contentType) {
+                    case 'application/json':
+                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                }
+                break;
+        }
+        throw new \RuntimeException('Unable to find matching response code and content type');
+    }
+}

@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubAE\Operation\Apps;
+namespace ApiClients\Client\Github\Operation\Apps;
 
-use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
-use ApiClients\Client\GitHubAE\Hydrator;
-use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema;
-use ApiClients\Client\GitHubAE\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final class ResetToken
 {
     public const OPERATION_ID = 'apps/reset-token';
@@ -26,7 +26,7 @@ final class ResetToken
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
-    function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\Apps\ResetToken\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{client_id}'), array($this->clientId), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
@@ -34,7 +34,7 @@ final class ResetToken
     /**
      * @return Schema\Authorization
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Authorization
+    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Authorization
     {
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);

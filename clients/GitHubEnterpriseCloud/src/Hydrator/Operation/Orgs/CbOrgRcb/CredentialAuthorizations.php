@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Hydrator\Operation\Orgs\CbOrgRcb;
+namespace ApiClients\Client\Github\Hydrator\Operation\Orgs\CbOrgRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class CredentialAuthorizations implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CredentialAuthorization($payload),
+            'ApiClients\Client\Github\Schema\CredentialAuthorization' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CredentialAuthorization($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CredentialAuthorization(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CredentialAuthorization(array $payload): \ApiClients\Client\Github\Schema\CredentialAuthorization
     {
         $properties = []; 
         $missingFields = [];
@@ -167,17 +167,17 @@ class CredentialAuthorizations implements ObjectMapper
             after_authorizedCredentialExpiresAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CredentialAuthorization', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CredentialAuthorization::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization(...$properties);
+            return new \ApiClients\Client\Github\Schema\CredentialAuthorization(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CredentialAuthorization', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -212,7 +212,7 @@ class CredentialAuthorizations implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CredentialAuthorization($object),
+            'ApiClients\Client\Github\Schema\CredentialAuthorization' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CredentialAuthorization($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -286,9 +286,9 @@ class CredentialAuthorizations implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CredentialAuthorization(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CredentialAuthorization(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\CredentialAuthorization);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\CredentialAuthorization);
         $result = [];
 
         $login = $object->login;

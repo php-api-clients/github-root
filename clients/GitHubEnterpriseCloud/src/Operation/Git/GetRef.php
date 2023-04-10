@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\Git;
+namespace ApiClients\Client\Github\Operation\Git;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final class GetRef
 {
     public const OPERATION_ID = 'git/get-ref';
@@ -30,14 +30,14 @@ final class GetRef
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
-    function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{ref}'), array($this->owner, $this->repo, $this->ref), self::PATH));
     }
     /**
      * @return Schema\GitRef
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\GitRef
+    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\GitRef
     {
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb;
+namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class Annotations implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\CheckAnnotation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CheckAnnotation($payload),
+            'ApiClients\Client\Github\Schema\CheckAnnotation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CheckAnnotation($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CheckAnnotation(array $payload): \ApiClients\Client\GitHubAE\Schema\CheckAnnotation
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CheckAnnotation(array $payload): \ApiClients\Client\Github\Schema\CheckAnnotation
     {
         $properties = []; 
         $missingFields = [];
@@ -145,17 +145,17 @@ class Annotations implements ObjectMapper
             after_blobHref:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CheckAnnotation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CheckAnnotation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\CheckAnnotation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CheckAnnotation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\CheckAnnotation(...$properties);
+            return new \ApiClients\Client\Github\Schema\CheckAnnotation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CheckAnnotation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CheckAnnotation', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -190,7 +190,7 @@ class Annotations implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubAE\Schema\CheckAnnotation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CheckAnnotation($object),
+            'ApiClients\Client\Github\Schema\CheckAnnotation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CheckAnnotation($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -264,9 +264,9 @@ class Annotations implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CheckAnnotation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CheckAnnotation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\CheckAnnotation);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\CheckAnnotation);
         $result = [];
 
         $path = $object->path;

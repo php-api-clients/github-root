@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Hydrator\Operation\Repositories\CbRepositoryIdRcb\Environments\CbEnvironmentNameRcb\Secrets;
+namespace ApiClients\Client\Github\Hydrator\Operation\Repositories\CbRepositoryIdRcb\Environments\CbEnvironmentNameRcb\Secrets;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class CbSecretNameRcb implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsSecret' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsSecret($payload),
+            'ApiClients\Client\Github\Schema\ActionsSecret' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsSecret($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsSecret(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsSecret
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsSecret(array $payload): \ApiClients\Client\Github\Schema\ActionsSecret
     {
         $properties = []; 
         $missingFields = [];
@@ -68,17 +68,17 @@ class CbSecretNameRcb implements ObjectMapper
             after_updatedAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsSecret', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ActionsSecret', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsSecret::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ActionsSecret::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsSecret(...$properties);
+            return new \ApiClients\Client\Github\Schema\ActionsSecret(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsSecret', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ActionsSecret', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -113,7 +113,7 @@ class CbSecretNameRcb implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsSecret' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsSecret($object),
+            'ApiClients\Client\Github\Schema\ActionsSecret' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsSecret($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -187,9 +187,9 @@ class CbSecretNameRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ActionsSecret(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ActionsSecret(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsSecret);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ActionsSecret);
         $result = [];
 
         $name = $object->name;

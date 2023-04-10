@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Hydrator\Operation\MarketplaceListing\Plans\CbPlanIdRcb;
+namespace ApiClients\Client\Github\Hydrator\Operation\MarketplaceListing\Plans\CbPlanIdRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,19 +23,19 @@ class Accounts implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePendingChange' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePendingChange($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceListingPlan' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceListingPlan($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePurchase' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePurchase($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($payload),
+            'ApiClients\Client\Github\Schema\MarketplacePurchase' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase($payload),
+                'ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePendingChange' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePendingChange($payload),
+                'ApiClients\Client\Github\Schema\MarketplaceListingPlan' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplaceListingPlan($payload),
+                'ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePurchase' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePurchase($payload),
+                'ApiClients\Client\Github\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($payload),
+                'ApiClients\Client\Github\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError($payload),
+                'ApiClients\Client\Github\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase(array $payload): \ApiClients\Client\Github\Schema\MarketplacePurchase
     {
         $properties = []; 
         $missingFields = [];
@@ -116,7 +116,7 @@ class Accounts implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'marketplacePendingChange';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePendingChange($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePendingChange($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -136,7 +136,7 @@ class Accounts implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'marketplacePurchase';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePurchase($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePurchase($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -147,22 +147,22 @@ class Accounts implements ObjectMapper
             after_marketplacePurchase:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MarketplacePurchase', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\MarketplacePurchase::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase(...$properties);
+            return new \ApiClients\Client\Github\Schema\MarketplacePurchase(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MarketplacePurchase', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePendingChange(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePendingChange
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePendingChange(array $payload): \ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePendingChange
     {
         $properties = []; 
         $missingFields = [];
@@ -221,7 +221,7 @@ class Accounts implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'plan';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceListingPlan($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplaceListingPlan($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -232,22 +232,22 @@ class Accounts implements ObjectMapper
             after_plan:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePendingChange', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePendingChange', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePendingChange::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePendingChange::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePendingChange(...$properties);
+            return new \ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePendingChange(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePendingChange', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePendingChange', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceListingPlan(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceListingPlan
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplaceListingPlan(array $payload): \ApiClients\Client\Github\Schema\MarketplaceListingPlan
     {
         $properties = []; 
         $missingFields = [];
@@ -396,22 +396,22 @@ class Accounts implements ObjectMapper
             after_bullets:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceListingPlan', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MarketplaceListingPlan', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceListingPlan::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\MarketplaceListingPlan::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceListingPlan(...$properties);
+            return new \ApiClients\Client\Github\Schema\MarketplaceListingPlan(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceListingPlan', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MarketplaceListingPlan', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePurchase(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePurchase
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePurchase(array $payload): \ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePurchase
     {
         $properties = []; 
         $missingFields = [];
@@ -503,7 +503,7 @@ class Accounts implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'plan';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceListingPlan($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplaceListingPlan($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -514,22 +514,22 @@ class Accounts implements ObjectMapper
             after_plan:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePurchase', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePurchase', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePurchase::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePurchase::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePurchase(...$properties);
+            return new \ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePurchase(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePurchase', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePurchase', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\Github\Schema\BasicError
     {
         $properties = []; 
         $missingFields = [];
@@ -579,22 +579,22 @@ class Accounts implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError(...$properties);
+            return new \ApiClients\Client\Github\Schema\BasicError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\Github\Schema\ValidationError
     {
         $properties = []; 
         $missingFields = [];
@@ -632,7 +632,7 @@ class Accounts implements ObjectMapper
 
             if ($errorsCaster1 === null) {
                 $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ValidationError\\Errors',
+  0 => 'ApiClients\\Client\\Github\\Schema\\ValidationError\\Errors',
 ));
             }
 
@@ -643,22 +643,22 @@ class Accounts implements ObjectMapper
             after_errors:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ValidationError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError(...$properties);
+            return new \ApiClients\Client\Github\Schema\ValidationError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\Github\Schema\ValidationError\Errors
     {
         $properties = []; 
         $missingFields = [];
@@ -730,17 +730,17 @@ class Accounts implements ObjectMapper
             after_value:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors(...$properties);
+            return new \ApiClients\Client\Github\Schema\ValidationError\Errors(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -775,13 +775,13 @@ class Accounts implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePendingChange' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePendingChange($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceListingPlan' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceListingPlan($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePurchase' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePurchase($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors($object),
+            'ApiClients\Client\Github\Schema\MarketplacePurchase' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase($object),
+            'ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePendingChange' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePendingChange($object),
+            'ApiClients\Client\Github\Schema\MarketplaceListingPlan' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplaceListingPlan($object),
+            'ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePurchase' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePurchase($object),
+            'ApiClients\Client\Github\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\Github\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError($object),
+            'ApiClients\Client\Github\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -855,9 +855,9 @@ class Accounts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\MarketplacePurchase);
         $result = [];
 
         $url = $object->url;
@@ -897,12 +897,12 @@ class Accounts implements ObjectMapper
         if ($marketplacePendingChange === null) {
             goto after_marketplacePendingChange;
         }
-        $marketplacePendingChange = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePendingChange($marketplacePendingChange);
+        $marketplacePendingChange = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePendingChange($marketplacePendingChange);
         after_marketplacePendingChange:        $result['marketplace_pending_change'] = $marketplacePendingChange;
 
         
         $marketplacePurchase = $object->marketplacePurchase;
-        $marketplacePurchase = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePurchase($marketplacePurchase);
+        $marketplacePurchase = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePurchase($marketplacePurchase);
         after_marketplacePurchase:        $result['marketplace_purchase'] = $marketplacePurchase;
 
 
@@ -910,9 +910,9 @@ class Accounts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePendingChange(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePendingChange(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePendingChange);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePendingChange);
         $result = [];
 
         $isInstalled = $object->isInstalled;
@@ -952,7 +952,7 @@ class Accounts implements ObjectMapper
         if ($plan === null) {
             goto after_plan;
         }
-        $plan = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceListingPlan($plan);
+        $plan = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplaceListingPlan($plan);
         after_plan:        $result['plan'] = $plan;
 
 
@@ -960,9 +960,9 @@ class Accounts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceListingPlan(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplaceListingPlan(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplaceListingPlan);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\MarketplaceListingPlan);
         $result = [];
 
         $url = $object->url;
@@ -1033,9 +1033,9 @@ class Accounts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePurchase(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplacePurchase⚡️MarketplacePurchase(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\MarketplacePurchase\MarketplacePurchase);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\MarketplacePurchase\MarketplacePurchase);
         $result = [];
 
         $billingCycle = $object->billingCycle;
@@ -1099,7 +1099,7 @@ class Accounts implements ObjectMapper
         if ($plan === null) {
             goto after_plan;
         }
-        $plan = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️MarketplaceListingPlan($plan);
+        $plan = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️MarketplaceListingPlan($plan);
         after_plan:        $result['plan'] = $plan;
 
 
@@ -1107,9 +1107,9 @@ class Accounts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\BasicError);
         $result = [];
 
         $message = $object->message;
@@ -1148,9 +1148,9 @@ class Accounts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ValidationError);
         $result = [];
 
         $message = $object->message;
@@ -1170,7 +1170,7 @@ class Accounts implements ObjectMapper
 
         if ($errorsSerializer0 === null) {
             $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ValidationError\\Errors',
+  0 => 'ApiClients\\Client\\Github\\Schema\\ValidationError\\Errors',
 ));
         }
         
@@ -1182,9 +1182,9 @@ class Accounts implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError\Errors);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ValidationError\Errors);
         $result = [];
 
         $resource = $object->resource;

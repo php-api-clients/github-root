@@ -1,6 +1,13 @@
 spec: {{ specUrl }}
-namespace: ApiClients\Client\{{ namespace }}
-destination: ../src
+namespace:
+  source: ApiClients\Client\Github
+  test: ApiClients\Tests\Client\Github
+destination:
+  root: ../
+  source: src
+  test: tests
+templates:
+  dir: ../templates
 schemas:
   allowDuplication: true
   useAliasesForDuplication: true

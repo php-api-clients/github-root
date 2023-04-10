@@ -17,6 +17,10 @@
     "react/async": "^4.0",
     "wyrihaximus/subsplit-tools": "dev-main"
   },
+  "require-dev": {
+    "wyrihaximus/async-test-utilities": "^6.1",
+    "api-clients/openapi-client-generator": "dev-master"
+  },
   "autoload": {
     "psr-4": {
       "ApiClients\\Client\\Github\\": "src/"
@@ -40,9 +44,5 @@
       "wyrihaximus/composer-update-bin-autoload-path": true,
       "infection/extension-installer": true
     }
-  },
-  "require-dev": {
-    "wyrihaximus/async-test-utilities": "^5.0",
-    "api-clients/openapi-client-generator": "dev-master"
   }
 }

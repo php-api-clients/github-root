@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning;
+namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeScanning;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,16 +23,16 @@ class DefaultSetup implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetup' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningDefaultSetup($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetupUpdateResponse' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningDefaultSetupUpdateResponse($payload),
+            'ApiClients\Client\Github\Schema\CodeScanningDefaultSetup' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningDefaultSetup($payload),
+                'ApiClients\Client\Github\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($payload),
+                'ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($payload),
+                'ApiClients\Client\Github\Schema\CodeScanningDefaultSetupUpdateResponse' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningDefaultSetupUpdateResponse($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningDefaultSetup(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetup
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningDefaultSetup(array $payload): \ApiClients\Client\Github\Schema\CodeScanningDefaultSetup
     {
         $properties = []; 
         $missingFields = [];
@@ -82,22 +82,22 @@ class DefaultSetup implements ObjectMapper
             after_updatedAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetup', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningDefaultSetup', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetup::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeScanningDefaultSetup::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetup(...$properties);
+            return new \ApiClients\Client\Github\Schema\CodeScanningDefaultSetup(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetup', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningDefaultSetup', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\Github\Schema\BasicError
     {
         $properties = []; 
         $missingFields = [];
@@ -147,22 +147,22 @@ class DefaultSetup implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError(...$properties);
+            return new \ApiClients\Client\Github\Schema\BasicError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503(array $payload): \ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503
     {
         $properties = []; 
         $missingFields = [];
@@ -201,22 +201,22 @@ class DefaultSetup implements ObjectMapper
             after_documentationUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503(...$properties);
+            return new \ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningDefaultSetupUpdateResponse(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetupUpdateResponse
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningDefaultSetupUpdateResponse(array $payload): \ApiClients\Client\Github\Schema\CodeScanningDefaultSetupUpdateResponse
     {
         $properties = []; 
         $missingFields = [];
@@ -244,17 +244,17 @@ class DefaultSetup implements ObjectMapper
             after_runUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetupUpdateResponse', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningDefaultSetupUpdateResponse', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetupUpdateResponse::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeScanningDefaultSetupUpdateResponse::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetupUpdateResponse(...$properties);
+            return new \ApiClients\Client\Github\Schema\CodeScanningDefaultSetupUpdateResponse(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetupUpdateResponse', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningDefaultSetupUpdateResponse', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -289,10 +289,10 @@ class DefaultSetup implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetup' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningDefaultSetup($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetupUpdateResponse' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningDefaultSetupUpdateResponse($object),
+            'ApiClients\Client\Github\Schema\CodeScanningDefaultSetup' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningDefaultSetup($object),
+            'ApiClients\Client\Github\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($object),
+            'ApiClients\Client\Github\Schema\CodeScanningDefaultSetupUpdateResponse' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningDefaultSetupUpdateResponse($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -366,9 +366,9 @@ class DefaultSetup implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningDefaultSetup(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningDefaultSetup(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetup);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeScanningDefaultSetup);
         $result = [];
 
         $state = $object->state;
@@ -415,9 +415,9 @@ class DefaultSetup implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\BasicError);
         $result = [];
 
         $message = $object->message;
@@ -456,9 +456,9 @@ class DefaultSetup implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️CodeScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\CodeScanning\ListAlertsForEnterprise\Response\Applicationjson\H503);
         $result = [];
 
         $code = $object->code;
@@ -489,9 +489,9 @@ class DefaultSetup implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeScanningDefaultSetupUpdateResponse(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningDefaultSetupUpdateResponse(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetupUpdateResponse);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeScanningDefaultSetupUpdateResponse);
         $result = [];
 
         $runId = $object->runId;

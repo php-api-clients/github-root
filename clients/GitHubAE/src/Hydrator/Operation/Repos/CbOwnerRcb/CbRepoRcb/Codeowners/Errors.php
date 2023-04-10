@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Codeowners;
+namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Codeowners;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,14 +23,14 @@ class Errors implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\CodeownersErrors' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeownersErrors($payload),
-                'ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeownersErrors⚡️Errors($payload),
+            'ApiClients\Client\Github\Schema\CodeownersErrors' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeownersErrors($payload),
+                'ApiClients\Client\Github\Schema\CodeownersErrors\Errors' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeownersErrors⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeownersErrors(array $payload): \ApiClients\Client\GitHubAE\Schema\CodeownersErrors
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeownersErrors(array $payload): \ApiClients\Client\Github\Schema\CodeownersErrors
     {
         $properties = []; 
         $missingFields = [];
@@ -46,7 +46,7 @@ class Errors implements ObjectMapper
 
             if ($errorsCaster1 === null) {
                 $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\CodeownersErrors\\Errors',
+  0 => 'ApiClients\\Client\\Github\\Schema\\CodeownersErrors\\Errors',
 ));
             }
 
@@ -57,22 +57,22 @@ class Errors implements ObjectMapper
             after_errors:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeownersErrors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeownersErrors', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\CodeownersErrors::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeownersErrors::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\CodeownersErrors(...$properties);
+            return new \ApiClients\Client\Github\Schema\CodeownersErrors(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeownersErrors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeownersErrors', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeownersErrors⚡️Errors(array $payload): \ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeownersErrors⚡️Errors(array $payload): \ApiClients\Client\Github\Schema\CodeownersErrors\Errors
     {
         $properties = []; 
         $missingFields = [];
@@ -155,17 +155,17 @@ class Errors implements ObjectMapper
             after_path:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeownersErrors\Errors', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeownersErrors\Errors::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors(...$properties);
+            return new \ApiClients\Client\Github\Schema\CodeownersErrors\Errors(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeownersErrors\Errors', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -200,8 +200,8 @@ class Errors implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubAE\Schema\CodeownersErrors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeownersErrors($object),
-            'ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeownersErrors⚡️Errors($object),
+            'ApiClients\Client\Github\Schema\CodeownersErrors' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeownersErrors($object),
+            'ApiClients\Client\Github\Schema\CodeownersErrors\Errors' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeownersErrors⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -275,9 +275,9 @@ class Errors implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeownersErrors(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeownersErrors(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\CodeownersErrors);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeownersErrors);
         $result = [];
 
         $errors = $object->errors;
@@ -285,7 +285,7 @@ class Errors implements ObjectMapper
 
         if ($errorsSerializer0 === null) {
             $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\CodeownersErrors\\Errors',
+  0 => 'ApiClients\\Client\\Github\\Schema\\CodeownersErrors\\Errors',
 ));
         }
         
@@ -297,9 +297,9 @@ class Errors implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeownersErrors⚡️Errors(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeownersErrors⚡️Errors(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\CodeownersErrors\Errors);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeownersErrors\Errors);
         $result = [];
 
         $line = $object->line;

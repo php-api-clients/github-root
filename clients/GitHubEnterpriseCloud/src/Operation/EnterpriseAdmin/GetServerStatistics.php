@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin;
+namespace ApiClients\Client\Github\Operation\EnterpriseAdmin;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final class GetServerStatistics
 {
     public const OPERATION_ID = 'enterprise-admin/get-server-statistics';
@@ -30,14 +30,14 @@ final class GetServerStatistics
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
-    function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise_or_org}', '{date_start}', '{date_end}'), array($this->enterpriseOrOrg, $this->dateStart, $this->dateEnd), self::PATH . '?dateStart={date_start}&dateEnd={date_end}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise_or_org}', '{date_start}', '{date_end}'), array($this->enterpriseOrOrg, $this->dateStart, $this->dateEnd), self::PATH . '?date_start={date_start}&date_end={date_end}'));
     }
     /**
      * @return \Rx\Observable<Schema\ServerStatistics>
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable
+    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable
     {
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);

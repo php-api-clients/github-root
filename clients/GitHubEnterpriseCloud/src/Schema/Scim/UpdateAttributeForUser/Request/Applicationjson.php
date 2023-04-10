@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\Scim\UpdateAttributeForUser\Request;
+namespace ApiClients\Client\Github\Schema\Scim\UpdateAttributeForUser\Request;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final readonly class Applicationjson
 {
     public const SCHEMA_JSON = '{"required":["Operations"],"type":"object","properties":{"schemas":{"type":"array","items":{"type":"string"}},"Operations":{"minItems":1,"type":"array","items":{"required":["op"],"type":"object","properties":{"op":{"enum":["add","remove","replace"],"type":"string"},"path":{"type":"string"},"value":{"oneOf":[{"type":"object","properties":{"active":{"type":["boolean","null"]},"userName":{"type":["string","null"]},"externalId":{"type":["string","null"]},"givenName":{"type":["string","null"]},"familyName":{"type":["string","null"]}}},{"type":"array","items":{"type":"object","properties":{"value":{"type":"string"},"primary":{"type":"boolean"}}}},{"type":"string"}]}}},"description":"Set of operations to be performed","examples":[{"op":"replace","value":{"active":false}}]}}}';
@@ -17,7 +17,7 @@ final readonly class Applicationjson
     /**
      * @param ?array<string> $schemas
      * operations: Set of operations to be performed
-     * @param array<\ApiClients\Client\GitHubEnterpriseCloud\Schema\Scim\UpdateAttributeForUser\Request\Applicationjson\Operations> $operations
+     * @param array<\ApiClients\Client\Github\Schema\Scim\UpdateAttributeForUser\Request\Applicationjson\Operations> $operations
      */
     public function __construct(public ?array $schemas, #[\EventSauce\ObjectHydrator\MapFrom('Operations')] #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Scim\UpdateAttributeForUser\Request\Applicationjson\Operations::class)] public array $operations)
     {

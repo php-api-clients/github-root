@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1cd0fc7aff0a96037173ce361d1222f",
+    "content-hash": "0e25b7507a73c32b61e3687cb30e5ff0",
     "packages": [
         {
             "name": "api-clients/contracts",
@@ -52,12 +52,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/github.git",
-                "reference": "fb2f5b3496aff10d105535f7eb5891393e4907bf"
+                "reference": "a6ab9c64c0d03ae0ffc94887725d61a437cdcf0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/github/zipball/fb2f5b3496aff10d105535f7eb5891393e4907bf",
-                "reference": "fb2f5b3496aff10d105535f7eb5891393e4907bf",
+                "url": "https://api.github.com/repos/php-api-clients/github/zipball/a6ab9c64c0d03ae0ffc94887725d61a437cdcf0d",
+                "reference": "a6ab9c64c0d03ae0ffc94887725d61a437cdcf0d",
                 "shasum": ""
             },
             "require": {
@@ -93,7 +93,7 @@
                 "issues": "https://github.com/php-api-clients/github/issues",
                 "source": "https://github.com/php-api-clients/github/tree/v0.2.x"
             },
-            "time": "2023-03-30T22:20:33+00:00"
+            "time": "2023-04-10T10:06:38+00:00"
         },
         {
             "name": "cebe/php-openapi",
@@ -2885,18 +2885,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/openapi-client-generator.git",
-                "reference": "97423a4b6398c1f20fce9d43c1f4a28bc71d07c1"
+                "reference": "4852a3d36af1ded41af25664ade29929148d58e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/97423a4b6398c1f20fce9d43c1f4a28bc71d07c1",
-                "reference": "97423a4b6398c1f20fce9d43c1f4a28bc71d07c1",
+                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/4852a3d36af1ded41af25664ade29929148d58e3",
+                "reference": "4852a3d36af1ded41af25664ade29929148d58e3",
                 "shasum": ""
             },
             "require": {
                 "api-clients/contracts": "^0.1",
+                "api-clients/github": "^0.2@dev",
                 "cebe/php-openapi": "dev-openapi-31 as 1.6.0",
                 "ckr/arraymerger": "^3.0",
+                "delight-im/random": "^1.0",
                 "eventsauce/object-hydrator": "^1.2",
                 "jawira/case-converter": "^3.5",
                 "league/openapi-psr7-validator": "^0.18",
@@ -2910,6 +2912,7 @@
                 "ringcentral/psr7": "^1.3",
                 "symfony/yaml": "^5.4",
                 "twig/twig": "^3.5",
+                "wyrihaximus/async-test-utilities": "^6.1",
                 "wyrihaximus/composer-update-bin-autoload-path": "^1 || ^1.0.1",
                 "wyrihaximus/react-awaitable-observable": "^1.0",
                 "wyrihaximus/simple-twig": "^2.1",
@@ -2956,7 +2959,7 @@
                 "issues": "https://github.com/php-api-clients/openapi-client-generator/issues",
                 "source": "https://github.com/php-api-clients/openapi-client-generator/tree/master"
             },
-            "time": "2023-04-04T18:20:11+00:00"
+            "time": "2023-04-10T12:32:19+00:00"
         },
         {
             "name": "azjezz/psl",
@@ -3197,75 +3200,6 @@
                 "source": "https://github.com/ckressibucher/array_merger/tree/3.0.0"
             },
             "time": "2022-04-23T20:26:40+00:00"
-        },
-        {
-            "name": "clue/block-react",
-            "version": "v1.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/clue/reactphp-block.git",
-                "reference": "718b0571a94aa693c6fffc72182e87257ac900f3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/clue/reactphp-block/zipball/718b0571a94aa693c6fffc72182e87257ac900f3",
-                "reference": "718b0571a94aa693c6fffc72182e87257ac900f3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3",
-                "react/event-loop": "^1.2",
-                "react/promise": "^3.0 || ^2.7 || ^1.2.1",
-                "react/promise-timer": "^1.5"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.3 || ^5.7 || ^4.8.35",
-                "react/http": "^1.4"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Lück",
-                    "email": "christian@clue.engineering"
-                }
-            ],
-            "description": "Lightweight library that eases integrating async components built for ReactPHP in a traditional, blocking environment.",
-            "homepage": "https://github.com/clue/reactphp-block",
-            "keywords": [
-                "async",
-                "await",
-                "blocking",
-                "event loop",
-                "promise",
-                "reactphp",
-                "sleep",
-                "synchronous"
-            ],
-            "support": {
-                "issues": "https://github.com/clue/reactphp-block/issues",
-                "source": "https://github.com/clue/reactphp-block/tree/v1.5.0"
-            },
-            "funding": [
-                {
-                    "url": "https://clue.engineering/support",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/clue",
-                    "type": "github"
-                }
-            ],
-            "abandoned": "react/async",
-            "time": "2021-10-20T14:07:33+00:00"
         },
         {
             "name": "colinodell/json5",
@@ -4178,6 +4112,112 @@
                 "source": "https://github.com/dealerdirect/phpcodesniffer-composer-installer"
             },
             "time": "2022-02-04T12:51:07+00:00"
+        },
+        {
+            "name": "delight-im/alphabets",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/delight-im/PHP-Alphabets.git",
+                "reference": "54bbe2672875264e583414446b102a1f84bd5b9e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/delight-im/PHP-Alphabets/zipball/54bbe2672875264e583414446b102a1f84bd5b9e",
+                "reference": "54bbe2672875264e583414446b102a1f84bd5b9e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Delight\\Alphabets\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Sets of digits or characters that may be used for base conversions, encoding and decoding tasks, and input validation",
+            "homepage": "https://github.com/delight-im/PHP-Alphabets",
+            "keywords": [
+                "alpha",
+                "alphabet",
+                "alphabets",
+                "alphanumeric",
+                "ascii",
+                "base32",
+                "base58",
+                "base64",
+                "base64url",
+                "base85",
+                "binary",
+                "decimal",
+                "decode",
+                "decoding",
+                "encode",
+                "encoding",
+                "hex",
+                "hexadecimal",
+                "octal"
+            ],
+            "support": {
+                "issues": "https://github.com/delight-im/PHP-Alphabets/issues",
+                "source": "https://github.com/delight-im/PHP-Alphabets/tree/v1.0.0"
+            },
+            "time": "2019-11-17T23:48:59+00:00"
+        },
+        {
+            "name": "delight-im/random",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/delight-im/PHP-Random.git",
+                "reference": "133aed6cc760065c8dbfc4ae0e8bdacfbb6ce273"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/delight-im/PHP-Random/zipball/133aed6cc760065c8dbfc4ae0e8bdacfbb6ce273",
+                "reference": "133aed6cc760065c8dbfc4ae0e8bdacfbb6ce273",
+                "shasum": ""
+            },
+            "require": {
+                "delight-im/alphabets": "^1.0",
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Delight\\Random\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The most convenient way to securely generate anything random in PHP",
+            "homepage": "https://github.com/delight-im/PHP-Random",
+            "keywords": [
+                "PRNG",
+                "cryptography",
+                "csprng",
+                "generator",
+                "integers",
+                "numbers",
+                "pseudo-random",
+                "pseudorandom",
+                "random",
+                "random-numbers",
+                "random-strings",
+                "strings"
+            ],
+            "support": {
+                "issues": "https://github.com/delight-im/PHP-Random/issues",
+                "source": "https://github.com/delight-im/PHP-Random/tree/v1.0.0"
+            },
+            "time": "2019-11-19T23:07:00+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -12304,25 +12344,25 @@
         },
         {
             "name": "wyrihaximus/async-test-utilities",
-            "version": "5.0.25",
+            "version": "6.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WyriHaximus/php-async-test-utilities.git",
-                "reference": "5a9c30c489d696da1b7b98af8a6f42bb49793e1b"
+                "reference": "4a387e2570de853751192cb8055f786d507a1c42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WyriHaximus/php-async-test-utilities/zipball/5a9c30c489d696da1b7b98af8a6f42bb49793e1b",
-                "reference": "5a9c30c489d696da1b7b98af8a6f42bb49793e1b",
+                "url": "https://api.github.com/repos/WyriHaximus/php-async-test-utilities/zipball/4a387e2570de853751192cb8055f786d507a1c42",
+                "reference": "4a387e2570de853751192cb8055f786d507a1c42",
                 "shasum": ""
             },
             "require": {
-                "clue/block-react": "^1.5.",
-                "php": "^8",
-                "phpunit/phpunit": "^9.5.27",
+                "php": "^8.2",
+                "phpunit/phpunit": "^9.6.1",
+                "react/async": "^4.0",
                 "react/event-loop": "^1.3.0",
                 "react/promise": "^2.9.",
-                "wyrihaximus/test-utilities": "^5.2.4"
+                "wyrihaximus/test-utilities": "^5.4.0"
             },
             "require-dev": {
                 "wyrihaximus/iterator-or-array-to-array": "^1.2"
@@ -12346,7 +12386,7 @@
             "description": "Test utilities for api-clients packages",
             "support": {
                 "issues": "https://github.com/WyriHaximus/php-async-test-utilities/issues",
-                "source": "https://github.com/WyriHaximus/php-async-test-utilities/tree/5.0.25"
+                "source": "https://github.com/WyriHaximus/php-async-test-utilities/tree/6.1.0"
             },
             "funding": [
                 {
@@ -12354,7 +12394,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-08T10:37:18+00:00"
+            "time": "2023-02-04T10:14:43+00:00"
         },
         {
             "name": "wyrihaximus/coding-standard",

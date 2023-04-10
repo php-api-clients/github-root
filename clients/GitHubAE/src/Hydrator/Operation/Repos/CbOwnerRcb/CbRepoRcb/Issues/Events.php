@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues;
+namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,22 +23,22 @@ class Events implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\IssueEvent' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEvent($payload),
-                'ApiClients\Client\GitHubAE\Schema\IssueEventLabel' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventLabel($payload),
-                'ApiClients\Client\GitHubAE\Schema\Team' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team($payload),
-                'ApiClients\Client\GitHubAE\Schema\Team\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\IssueEventDismissedReview' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventDismissedReview($payload),
-                'ApiClients\Client\GitHubAE\Schema\IssueEventMilestone' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventMilestone($payload),
-                'ApiClients\Client\GitHubAE\Schema\IssueEventProjectCard' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventProjectCard($payload),
-                'ApiClients\Client\GitHubAE\Schema\IssueEventRename' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventRename($payload),
-                'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($payload),
-                'ApiClients\Client\GitHubAE\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError⚡️Errors($payload),
+            'ApiClients\Client\Github\Schema\IssueEvent' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEvent($payload),
+                'ApiClients\Client\Github\Schema\IssueEventLabel' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventLabel($payload),
+                'ApiClients\Client\Github\Schema\Team' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Team($payload),
+                'ApiClients\Client\Github\Schema\Team\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Team⚡️Permissions($payload),
+                'ApiClients\Client\Github\Schema\IssueEventDismissedReview' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventDismissedReview($payload),
+                'ApiClients\Client\Github\Schema\IssueEventMilestone' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventMilestone($payload),
+                'ApiClients\Client\Github\Schema\IssueEventProjectCard' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventProjectCard($payload),
+                'ApiClients\Client\Github\Schema\IssueEventRename' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventRename($payload),
+                'ApiClients\Client\Github\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError($payload),
+                'ApiClients\Client\Github\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEvent(array $payload): \ApiClients\Client\GitHubAE\Schema\IssueEvent
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEvent(array $payload): \ApiClients\Client\Github\Schema\IssueEvent
     {
         $properties = []; 
         $missingFields = [];
@@ -152,7 +152,7 @@ class Events implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'label';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventLabel($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventLabel($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -216,7 +216,7 @@ class Events implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'requestedTeam';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Team($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -236,7 +236,7 @@ class Events implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'dismissedReview';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventDismissedReview($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventDismissedReview($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -256,7 +256,7 @@ class Events implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'milestone';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventMilestone($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventMilestone($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -276,7 +276,7 @@ class Events implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'projectCard';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventProjectCard($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventProjectCard($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -296,7 +296,7 @@ class Events implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'rename';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventRename($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventRename($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -340,22 +340,22 @@ class Events implements ObjectMapper
             after_performedViaGithubApp:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\IssueEvent', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\IssueEvent', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\IssueEvent::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\IssueEvent::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\IssueEvent(...$properties);
+            return new \ApiClients\Client\Github\Schema\IssueEvent(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\IssueEvent', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\IssueEvent', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventLabel(array $payload): \ApiClients\Client\GitHubAE\Schema\IssueEventLabel
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventLabel(array $payload): \ApiClients\Client\Github\Schema\IssueEventLabel
     {
         $properties = []; 
         $missingFields = [];
@@ -383,22 +383,22 @@ class Events implements ObjectMapper
             after_color:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\IssueEventLabel', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\IssueEventLabel', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\IssueEventLabel::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\IssueEventLabel::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\IssueEventLabel(...$properties);
+            return new \ApiClients\Client\Github\Schema\IssueEventLabel(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\IssueEventLabel', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\IssueEventLabel', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team(array $payload): \ApiClients\Client\GitHubAE\Schema\Team
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Team(array $payload): \ApiClients\Client\Github\Schema\Team
     {
         $properties = []; 
         $missingFields = [];
@@ -501,7 +501,7 @@ class Events implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Team⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -567,22 +567,22 @@ class Events implements ObjectMapper
             after_parent:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Team', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Team', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Team::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Team::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Team(...$properties);
+            return new \ApiClients\Client\Github\Schema\Team(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Team', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Team', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Team\Permissions
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Team⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\Team\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -643,22 +643,22 @@ class Events implements ObjectMapper
             after_admin:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Team\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Team\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Team\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Team\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Team\Permissions(...$properties);
+            return new \ApiClients\Client\Github\Schema\Team\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Team\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Team\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventDismissedReview(array $payload): \ApiClients\Client\GitHubAE\Schema\IssueEventDismissedReview
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventDismissedReview(array $payload): \ApiClients\Client\Github\Schema\IssueEventDismissedReview
     {
         $properties = []; 
         $missingFields = [];
@@ -708,22 +708,22 @@ class Events implements ObjectMapper
             after_dismissalCommitId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\IssueEventDismissedReview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\IssueEventDismissedReview', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\IssueEventDismissedReview::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\IssueEventDismissedReview::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\IssueEventDismissedReview(...$properties);
+            return new \ApiClients\Client\Github\Schema\IssueEventDismissedReview(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\IssueEventDismissedReview', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\IssueEventDismissedReview', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventMilestone(array $payload): \ApiClients\Client\GitHubAE\Schema\IssueEventMilestone
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventMilestone(array $payload): \ApiClients\Client\Github\Schema\IssueEventMilestone
     {
         $properties = []; 
         $missingFields = [];
@@ -740,22 +740,22 @@ class Events implements ObjectMapper
             after_title:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\IssueEventMilestone', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\IssueEventMilestone', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\IssueEventMilestone::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\IssueEventMilestone::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\IssueEventMilestone(...$properties);
+            return new \ApiClients\Client\Github\Schema\IssueEventMilestone(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\IssueEventMilestone', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\IssueEventMilestone', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventProjectCard(array $payload): \ApiClients\Client\GitHubAE\Schema\IssueEventProjectCard
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventProjectCard(array $payload): \ApiClients\Client\Github\Schema\IssueEventProjectCard
     {
         $properties = []; 
         $missingFields = [];
@@ -827,22 +827,22 @@ class Events implements ObjectMapper
             after_previousColumnName:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\IssueEventProjectCard', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\IssueEventProjectCard', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\IssueEventProjectCard::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\IssueEventProjectCard::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\IssueEventProjectCard(...$properties);
+            return new \ApiClients\Client\Github\Schema\IssueEventProjectCard(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\IssueEventProjectCard', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\IssueEventProjectCard', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventRename(array $payload): \ApiClients\Client\GitHubAE\Schema\IssueEventRename
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventRename(array $payload): \ApiClients\Client\Github\Schema\IssueEventRename
     {
         $properties = []; 
         $missingFields = [];
@@ -870,22 +870,22 @@ class Events implements ObjectMapper
             after_to:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\IssueEventRename', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\IssueEventRename', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\IssueEventRename::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\IssueEventRename::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\IssueEventRename(...$properties);
+            return new \ApiClients\Client\Github\Schema\IssueEventRename(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\IssueEventRename', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\IssueEventRename', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\GitHubAE\Schema\ValidationError
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\Github\Schema\ValidationError
     {
         $properties = []; 
         $missingFields = [];
@@ -923,7 +923,7 @@ class Events implements ObjectMapper
 
             if ($errorsCaster1 === null) {
                 $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ValidationError\\Errors',
+  0 => 'ApiClients\\Client\\Github\\Schema\\ValidationError\\Errors',
 ));
             }
 
@@ -934,22 +934,22 @@ class Events implements ObjectMapper
             after_errors:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ValidationError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ValidationError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ValidationError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\ValidationError(...$properties);
+            return new \ApiClients\Client\Github\Schema\ValidationError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ValidationError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\GitHubAE\Schema\ValidationError\Errors
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\Github\Schema\ValidationError\Errors
     {
         $properties = []; 
         $missingFields = [];
@@ -1021,17 +1021,17 @@ class Events implements ObjectMapper
             after_value:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\ValidationError\Errors(...$properties);
+            return new \ApiClients\Client\Github\Schema\ValidationError\Errors(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -1066,16 +1066,16 @@ class Events implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubAE\Schema\IssueEvent' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEvent($object),
-            'ApiClients\Client\GitHubAE\Schema\IssueEventLabel' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventLabel($object),
-            'ApiClients\Client\GitHubAE\Schema\Team' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team($object),
-            'ApiClients\Client\GitHubAE\Schema\Team\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team⚡️Permissions($object),
-            'ApiClients\Client\GitHubAE\Schema\IssueEventDismissedReview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventDismissedReview($object),
-            'ApiClients\Client\GitHubAE\Schema\IssueEventMilestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventMilestone($object),
-            'ApiClients\Client\GitHubAE\Schema\IssueEventProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventProjectCard($object),
-            'ApiClients\Client\GitHubAE\Schema\IssueEventRename' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventRename($object),
-            'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($object),
-            'ApiClients\Client\GitHubAE\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError⚡️Errors($object),
+            'ApiClients\Client\Github\Schema\IssueEvent' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEvent($object),
+            'ApiClients\Client\Github\Schema\IssueEventLabel' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventLabel($object),
+            'ApiClients\Client\Github\Schema\Team' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Team($object),
+            'ApiClients\Client\Github\Schema\Team\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Team⚡️Permissions($object),
+            'ApiClients\Client\Github\Schema\IssueEventDismissedReview' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventDismissedReview($object),
+            'ApiClients\Client\Github\Schema\IssueEventMilestone' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventMilestone($object),
+            'ApiClients\Client\Github\Schema\IssueEventProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventProjectCard($object),
+            'ApiClients\Client\Github\Schema\IssueEventRename' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventRename($object),
+            'ApiClients\Client\Github\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError($object),
+            'ApiClients\Client\Github\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -1149,9 +1149,9 @@ class Events implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEvent(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEvent(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\IssueEvent);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\IssueEvent);
         $result = [];
 
         $id = $object->id;
@@ -1211,7 +1211,7 @@ class Events implements ObjectMapper
         if ($label === null) {
             goto after_label;
         }
-        $label = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventLabel($label);
+        $label = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventLabel($label);
         after_label:        $result['label'] = $label;
 
         
@@ -1252,7 +1252,7 @@ class Events implements ObjectMapper
         if ($requestedTeam === null) {
             goto after_requestedTeam;
         }
-        $requestedTeam = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team($requestedTeam);
+        $requestedTeam = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Team($requestedTeam);
         after_requestedTeam:        $result['requested_team'] = $requestedTeam;
 
         
@@ -1261,7 +1261,7 @@ class Events implements ObjectMapper
         if ($dismissedReview === null) {
             goto after_dismissedReview;
         }
-        $dismissedReview = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventDismissedReview($dismissedReview);
+        $dismissedReview = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventDismissedReview($dismissedReview);
         after_dismissedReview:        $result['dismissed_review'] = $dismissedReview;
 
         
@@ -1270,7 +1270,7 @@ class Events implements ObjectMapper
         if ($milestone === null) {
             goto after_milestone;
         }
-        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventMilestone($milestone);
+        $milestone = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventMilestone($milestone);
         after_milestone:        $result['milestone'] = $milestone;
 
         
@@ -1279,7 +1279,7 @@ class Events implements ObjectMapper
         if ($projectCard === null) {
             goto after_projectCard;
         }
-        $projectCard = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventProjectCard($projectCard);
+        $projectCard = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventProjectCard($projectCard);
         after_projectCard:        $result['project_card'] = $projectCard;
 
         
@@ -1288,7 +1288,7 @@ class Events implements ObjectMapper
         if ($rename === null) {
             goto after_rename;
         }
-        $rename = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventRename($rename);
+        $rename = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventRename($rename);
         after_rename:        $result['rename'] = $rename;
 
         
@@ -1320,9 +1320,9 @@ class Events implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventLabel(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventLabel(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\IssueEventLabel);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\IssueEventLabel);
         $result = [];
 
         $name = $object->name;
@@ -1345,9 +1345,9 @@ class Events implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Team(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Team);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Team);
         $result = [];
 
         $id = $object->id;
@@ -1399,7 +1399,7 @@ class Events implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Team⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -1431,9 +1431,9 @@ class Events implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Team⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Team⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Team\Permissions);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Team\Permissions);
         $result = [];
 
         $pull = $object->pull;
@@ -1460,9 +1460,9 @@ class Events implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventDismissedReview(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventDismissedReview(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\IssueEventDismissedReview);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\IssueEventDismissedReview);
         $result = [];
 
         $state = $object->state;
@@ -1493,9 +1493,9 @@ class Events implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventMilestone(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventMilestone(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\IssueEventMilestone);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\IssueEventMilestone);
         $result = [];
 
         $title = $object->title;
@@ -1506,9 +1506,9 @@ class Events implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventProjectCard(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventProjectCard(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\IssueEventProjectCard);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\IssueEventProjectCard);
         $result = [];
 
         $url = $object->url;
@@ -1543,9 +1543,9 @@ class Events implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️IssueEventRename(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️IssueEventRename(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\IssueEventRename);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\IssueEventRename);
         $result = [];
 
         $from = $object->from;
@@ -1560,9 +1560,9 @@ class Events implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ValidationError);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ValidationError);
         $result = [];
 
         $message = $object->message;
@@ -1582,7 +1582,7 @@ class Events implements ObjectMapper
 
         if ($errorsSerializer0 === null) {
             $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ValidationError\\Errors',
+  0 => 'ApiClients\\Client\\Github\\Schema\\ValidationError\\Errors',
 ));
         }
         
@@ -1594,9 +1594,9 @@ class Events implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ValidationError\Errors);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ValidationError\Errors);
         $result = [];
 
         $resource = $object->resource;

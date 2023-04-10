@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Hydrator\WebHook;
+namespace ApiClients\Client\Github\Hydrator\WebHook;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,31 +23,31 @@ class Push implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\WebhookPush' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Author' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits⚡️Author($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Committer' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits⚡️Committer($payload),
-                'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Author($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Committer' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Committer($payload),
-                'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($payload),
-                'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookPush\Pusher' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Pusher($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository⚡️License($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository⚡️Owner($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️License($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Owner($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Permissions($payload),
+            'ApiClients\Client\Github\Schema\WebhookPush' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush($payload),
+                'ApiClients\Client\Github\Schema\WebhookPush\Commits' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits($payload),
+                'ApiClients\Client\Github\Schema\WebhookPush\Commits\Author' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits⚡️Author($payload),
+                'ApiClients\Client\Github\Schema\WebhookPush\Commits\Committer' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits⚡️Committer($payload),
+                'ApiClients\Client\Github\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($payload),
+                'ApiClients\Client\Github\Schema\WebhookPush\HeadCommit' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit($payload),
+                'ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Author' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Author($payload),
+                'ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Committer' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Committer($payload),
+                'ApiClients\Client\Github\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($payload),
+                'ApiClients\Client\Github\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($payload),
+                'ApiClients\Client\Github\Schema\WebhookPush\Pusher' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Pusher($payload),
+                'ApiClients\Client\Github\Schema\WebhookPush\Repository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository($payload),
+                'ApiClients\Client\Github\Schema\WebhookPush\Repository\License' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository⚡️License($payload),
+                'ApiClients\Client\Github\Schema\WebhookPush\Repository\Owner' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository⚡️Owner($payload),
+                'ApiClients\Client\Github\Schema\WebhookPush\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository⚡️Permissions($payload),
+                'ApiClients\Client\Github\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\License' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️License($payload),
+                'ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Owner($payload),
+                'ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Permissions($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPush
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush(array $payload): \ApiClients\Client\Github\Schema\WebhookPush
     {
         $properties = []; 
         $missingFields = [];
@@ -96,7 +96,7 @@ class Push implements ObjectMapper
 
             if ($commitsCaster1 === null) {
                 $commitsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookPush\\Commits',
+  0 => 'ApiClients\\Client\\Github\\Schema\\WebhookPush\\Commits',
 ));
             }
 
@@ -149,7 +149,7 @@ class Push implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -180,7 +180,7 @@ class Push implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'headCommit';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -200,7 +200,7 @@ class Push implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -220,7 +220,7 @@ class Push implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -240,7 +240,7 @@ class Push implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'pusher';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Pusher($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Pusher($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -271,7 +271,7 @@ class Push implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -291,7 +291,7 @@ class Push implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -302,22 +302,22 @@ class Push implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPush::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookPush::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookPush(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookPush(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits(array $payload): \ApiClients\Client\Github\Schema\WebhookPush\Commits
     {
         $properties = []; 
         $missingFields = [];
@@ -343,7 +343,7 @@ class Push implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'author';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits⚡️Author($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits⚡️Author($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -363,7 +363,7 @@ class Push implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'committer';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits⚡️Committer($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits⚡️Committer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -462,22 +462,22 @@ class Push implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Commits', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookPush\Commits::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookPush\Commits(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Commits', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits⚡️Author(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Author
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits⚡️Author(array $payload): \ApiClients\Client\Github\Schema\WebhookPush\Commits\Author
     {
         $properties = []; 
         $missingFields = [];
@@ -527,22 +527,22 @@ class Push implements ObjectMapper
             after_username:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Author', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Commits\Author', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Author::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookPush\Commits\Author::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Author(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookPush\Commits\Author(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Author', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Commits\Author', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits⚡️Committer(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Committer
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits⚡️Committer(array $payload): \ApiClients\Client\Github\Schema\WebhookPush\Commits\Committer
     {
         $properties = []; 
         $missingFields = [];
@@ -592,22 +592,22 @@ class Push implements ObjectMapper
             after_username:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Committer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Commits\Committer', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Committer::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookPush\Commits\Committer::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Committer(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookPush\Commits\Committer(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Committer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Commits\Committer', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise(array $payload): \ApiClients\Client\GitHubAE\Schema\Enterprise
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise(array $payload): \ApiClients\Client\Github\Schema\Enterprise
     {
         $properties = []; 
         $missingFields = [];
@@ -723,22 +723,22 @@ class Push implements ObjectMapper
             after_avatarUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Enterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Enterprise', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Enterprise::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Enterprise::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Enterprise(...$properties);
+            return new \ApiClients\Client\Github\Schema\Enterprise(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Enterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Enterprise', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit(array $payload): \ApiClients\Client\Github\Schema\WebhookPush\HeadCommit
     {
         $properties = []; 
         $missingFields = [];
@@ -764,7 +764,7 @@ class Push implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'author';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Author($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Author($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -784,7 +784,7 @@ class Push implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'committer';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Committer($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Committer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -883,22 +883,22 @@ class Push implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\HeadCommit', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookPush\HeadCommit::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookPush\HeadCommit(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\HeadCommit', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Author(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Author
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Author(array $payload): \ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Author
     {
         $properties = []; 
         $missingFields = [];
@@ -948,22 +948,22 @@ class Push implements ObjectMapper
             after_username:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Author', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Author', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Author::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Author::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Author(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Author(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Author', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Author', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Committer(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Committer
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Committer(array $payload): \ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Committer
     {
         $properties = []; 
         $missingFields = [];
@@ -1013,22 +1013,22 @@ class Push implements ObjectMapper
             after_username:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Committer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Committer', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Committer::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Committer::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Committer(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Committer(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Committer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Committer', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleInstallation
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation(array $payload): \ApiClients\Client\Github\Schema\SimpleInstallation
     {
         $properties = []; 
         $missingFields = [];
@@ -1056,22 +1056,22 @@ class Push implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleInstallation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleInstallation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\SimpleInstallation(...$properties);
+            return new \ApiClients\Client\Github\Schema\SimpleInstallation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple(array $payload): \ApiClients\Client\GitHubAE\Schema\OrganizationSimple
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple(array $payload): \ApiClients\Client\Github\Schema\OrganizationSimple
     {
         $properties = []; 
         $missingFields = [];
@@ -1209,22 +1209,22 @@ class Push implements ObjectMapper
             after_description:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\OrganizationSimple::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\OrganizationSimple::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\OrganizationSimple(...$properties);
+            return new \ApiClients\Client\Github\Schema\OrganizationSimple(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Pusher(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPush\Pusher
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Pusher(array $payload): \ApiClients\Client\Github\Schema\WebhookPush\Pusher
     {
         $properties = []; 
         $missingFields = [];
@@ -1274,22 +1274,22 @@ class Push implements ObjectMapper
             after_username:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Pusher', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Pusher', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPush\Pusher::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookPush\Pusher::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookPush\Pusher(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookPush\Pusher(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Pusher', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Pusher', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository(array $payload): \ApiClients\Client\Github\Schema\WebhookPush\Repository
     {
         $properties = []; 
         $missingFields = [];
@@ -1887,7 +1887,7 @@ class Push implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'license';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️License($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️License($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2017,7 +2017,7 @@ class Push implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Owner($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2037,7 +2037,7 @@ class Push implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2323,22 +2323,22 @@ class Push implements ObjectMapper
             after_webCommitSignoffRequired:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Repository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookPush\Repository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookPush\Repository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Repository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository⚡️License(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\License
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository⚡️License(array $payload): \ApiClients\Client\Github\Schema\WebhookPush\Repository\License
     {
         $properties = []; 
         $missingFields = [];
@@ -2399,22 +2399,22 @@ class Push implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\License', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Repository\License', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\License::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookPush\Repository\License::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\License(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookPush\Repository\License(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\License', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Repository\License', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository⚡️Owner(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Owner
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository⚡️Owner(array $payload): \ApiClients\Client\Github\Schema\WebhookPush\Repository\Owner
     {
         $properties = []; 
         $missingFields = [];
@@ -2651,22 +2651,22 @@ class Push implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Repository\Owner', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Owner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookPush\Repository\Owner::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Owner(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookPush\Repository\Owner(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Repository\Owner', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Permissions
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\WebhookPush\Repository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -2727,22 +2727,22 @@ class Push implements ObjectMapper
             after_triage:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Repository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookPush\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Permissions(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookPush\Repository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookPush\Repository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleUser
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\Github\Schema\SimpleUser
     {
         $properties = []; 
         $missingFields = [];
@@ -2979,22 +2979,22 @@ class Push implements ObjectMapper
             after_starredAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\SimpleUser(...$properties);
+            return new \ApiClients\Client\Github\Schema\SimpleUser(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️License(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\License
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️License(array $payload): \ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\License
     {
         $properties = []; 
         $missingFields = [];
@@ -3055,22 +3055,22 @@ class Push implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\License', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\License', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\License::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\License::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\License(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\License(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\License', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\License', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Owner(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Owner(array $payload): \ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner
     {
         $properties = []; 
         $missingFields = [];
@@ -3307,22 +3307,22 @@ class Push implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -3383,17 +3383,17 @@ class Push implements ObjectMapper
             after_triage:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -3428,22 +3428,22 @@ class Push implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookPush' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits⚡️Author($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Committer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits⚡️Committer($object),
-            'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Author($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Committer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Committer($object),
-            'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($object),
-            'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookPush\Pusher' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Pusher($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository⚡️License($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository⚡️Owner($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository⚡️Permissions($object),
-            'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
+            'ApiClients\Client\Github\Schema\WebhookPush' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush($object),
+            'ApiClients\Client\Github\Schema\WebhookPush\Commits' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits($object),
+            'ApiClients\Client\Github\Schema\WebhookPush\Commits\Author' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits⚡️Author($object),
+            'ApiClients\Client\Github\Schema\WebhookPush\Commits\Committer' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits⚡️Committer($object),
+            'ApiClients\Client\Github\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($object),
+            'ApiClients\Client\Github\Schema\WebhookPush\HeadCommit' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit($object),
+            'ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Author($object),
+            'ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Committer' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Committer($object),
+            'ApiClients\Client\Github\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($object),
+            'ApiClients\Client\Github\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($object),
+            'ApiClients\Client\Github\Schema\WebhookPush\Pusher' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Pusher($object),
+            'ApiClients\Client\Github\Schema\WebhookPush\Repository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository($object),
+            'ApiClients\Client\Github\Schema\WebhookPush\Repository\License' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository⚡️License($object),
+            'ApiClients\Client\Github\Schema\WebhookPush\Repository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository⚡️Owner($object),
+            'ApiClients\Client\Github\Schema\WebhookPush\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository⚡️Permissions($object),
+            'ApiClients\Client\Github\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -3517,9 +3517,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookPush);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookPush);
         $result = [];
 
         $after = $object->after;
@@ -3543,7 +3543,7 @@ class Push implements ObjectMapper
 
         if ($commitsSerializer0 === null) {
             $commitsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\WebhookPush\\Commits',
+  0 => 'ApiClients\\Client\\Github\\Schema\\WebhookPush\\Commits',
 ));
         }
         
@@ -3568,7 +3568,7 @@ class Push implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -3581,7 +3581,7 @@ class Push implements ObjectMapper
         if ($headCommit === null) {
             goto after_headCommit;
         }
-        $headCommit = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit($headCommit);
+        $headCommit = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit($headCommit);
         after_headCommit:        $result['head_commit'] = $headCommit;
 
         
@@ -3590,7 +3590,7 @@ class Push implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
@@ -3599,12 +3599,12 @@ class Push implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $pusher = $object->pusher;
-        $pusher = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Pusher($pusher);
+        $pusher = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Pusher($pusher);
         after_pusher:        $result['pusher'] = $pusher;
 
         
@@ -3613,7 +3613,7 @@ class Push implements ObjectMapper
 
         
         $repository = $object->repository;
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
@@ -3622,7 +3622,7 @@ class Push implements ObjectMapper
         if ($sender === null) {
             goto after_sender;
         }
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -3630,9 +3630,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookPush\Commits);
         $result = [];
 
         $added = $object->added;
@@ -3652,12 +3652,12 @@ class Push implements ObjectMapper
 
         
         $author = $object->author;
-        $author = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits⚡️Author($author);
+        $author = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits⚡️Author($author);
         after_author:        $result['author'] = $author;
 
         
         $committer = $object->committer;
-        $committer = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits⚡️Committer($committer);
+        $committer = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits⚡️Committer($committer);
         after_committer:        $result['committer'] = $committer;
 
         
@@ -3721,9 +3721,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits⚡️Author(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits⚡️Author(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Author);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookPush\Commits\Author);
         $result = [];
 
         $date = $object->date;
@@ -3758,9 +3758,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Commits⚡️Committer(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Commits⚡️Committer(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookPush\Commits\Committer);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookPush\Commits\Committer);
         $result = [];
 
         $date = $object->date;
@@ -3795,9 +3795,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Enterprise);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Enterprise);
         $result = [];
 
         $description = $object->description;
@@ -3860,9 +3860,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookPush\HeadCommit);
         $result = [];
 
         $added = $object->added;
@@ -3882,12 +3882,12 @@ class Push implements ObjectMapper
 
         
         $author = $object->author;
-        $author = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Author($author);
+        $author = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Author($author);
         after_author:        $result['author'] = $author;
 
         
         $committer = $object->committer;
-        $committer = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Committer($committer);
+        $committer = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Committer($committer);
         after_committer:        $result['committer'] = $committer;
 
         
@@ -3951,9 +3951,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Author(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Author(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Author);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Author);
         $result = [];
 
         $date = $object->date;
@@ -3988,9 +3988,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Committer(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️HeadCommit⚡️Committer(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookPush\HeadCommit\Committer);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookPush\HeadCommit\Committer);
         $result = [];
 
         $date = $object->date;
@@ -4025,9 +4025,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleInstallation);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleInstallation);
         $result = [];
 
         $id = $object->id;
@@ -4042,9 +4042,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\OrganizationSimple);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\OrganizationSimple);
         $result = [];
 
         $login = $object->login;
@@ -4103,9 +4103,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Pusher(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Pusher(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookPush\Pusher);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookPush\Pusher);
         $result = [];
 
         $date = $object->date;
@@ -4140,9 +4140,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookPush\Repository);
         $result = [];
 
         $allowAutoMerge = $object->allowAutoMerge;
@@ -4410,7 +4410,7 @@ class Push implements ObjectMapper
         if ($license === null) {
             goto after_license;
         }
-        $license = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️License($license);
+        $license = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️License($license);
         after_license:        $result['license'] = $license;
 
         
@@ -4471,7 +4471,7 @@ class Push implements ObjectMapper
         if ($owner === null) {
             goto after_owner;
         }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Owner($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -4480,7 +4480,7 @@ class Push implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -4612,9 +4612,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository⚡️License(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository⚡️License(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\License);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookPush\Repository\License);
         $result = [];
 
         $key = $object->key;
@@ -4645,9 +4645,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository⚡️Owner(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository⚡️Owner(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Owner);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookPush\Repository\Owner);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -4814,9 +4814,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookPush⚡️Repository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Permissions);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookPush\Repository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -4851,9 +4851,9 @@ class Push implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleUser);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleUser);
         $result = [];
 
         $name = $object->name;

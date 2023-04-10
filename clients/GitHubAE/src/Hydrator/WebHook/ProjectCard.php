@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Hydrator\WebHook;
+namespace ApiClients\Client\Github\Hydrator\WebHook;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,42 +23,42 @@ class ProjectCard implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes\Note' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes⚡️Note($payload),
-                'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($payload),
-                'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($payload),
-                'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard⚡️Creator($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard⚡️Creator($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes\Note' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes⚡️Note($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard⚡️Creator($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes\ColumnId' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes⚡️ColumnId($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator($payload),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardConverted' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes\Note' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes⚡️Note($payload),
+                'ApiClients\Client\Github\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($payload),
+                'ApiClients\Client\Github\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($payload),
+                'ApiClients\Client\Github\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard\Creator' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($payload),
+                'ApiClients\Client\Github\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($payload),
+                'ApiClients\Client\Github\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($payload),
+                'ApiClients\Client\Github\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\Github\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
+                'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
+                'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardCreated' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardCreated($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard\Creator' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard⚡️Creator($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardDeleted' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard\Creator' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard⚡️Creator($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardEdited' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes\Note' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes⚡️Note($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard\Creator' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard⚡️Creator($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardMoved' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes\ColumnId' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes⚡️ColumnId($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard($payload),
+                'ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard\Creator' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardConverted
     {
         $properties = []; 
         $missingFields = [];
@@ -84,7 +84,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'changes';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -104,7 +104,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -124,7 +124,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -144,7 +144,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -164,7 +164,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'projectCard';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -184,7 +184,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -204,7 +204,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -215,22 +215,22 @@ class ProjectCard implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardConverted', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardConverted::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardConverted(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardConverted', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes
     {
         $properties = []; 
         $missingFields = [];
@@ -245,7 +245,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'note';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes⚡️Note($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes⚡️Note($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -256,22 +256,22 @@ class ProjectCard implements ObjectMapper
             after_note:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes⚡️Note(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes\Note
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes⚡️Note(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes\Note
     {
         $properties = []; 
         $missingFields = [];
@@ -288,22 +288,22 @@ class ProjectCard implements ObjectMapper
             after_from:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes\Note', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes\Note', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes\Note::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes\Note::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes\Note(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes\Note(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes\Note', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes\Note', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise(array $payload): \ApiClients\Client\GitHubAE\Schema\Enterprise
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise(array $payload): \ApiClients\Client\Github\Schema\Enterprise
     {
         $properties = []; 
         $missingFields = [];
@@ -419,22 +419,22 @@ class ProjectCard implements ObjectMapper
             after_avatarUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Enterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Enterprise', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Enterprise::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Enterprise::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Enterprise(...$properties);
+            return new \ApiClients\Client\Github\Schema\Enterprise(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Enterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Enterprise', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleInstallation
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation(array $payload): \ApiClients\Client\Github\Schema\SimpleInstallation
     {
         $properties = []; 
         $missingFields = [];
@@ -462,22 +462,22 @@ class ProjectCard implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleInstallation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleInstallation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\SimpleInstallation(...$properties);
+            return new \ApiClients\Client\Github\Schema\SimpleInstallation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple(array $payload): \ApiClients\Client\GitHubAE\Schema\OrganizationSimple
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple(array $payload): \ApiClients\Client\Github\Schema\OrganizationSimple
     {
         $properties = []; 
         $missingFields = [];
@@ -615,22 +615,22 @@ class ProjectCard implements ObjectMapper
             after_description:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\OrganizationSimple::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\OrganizationSimple::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\OrganizationSimple(...$properties);
+            return new \ApiClients\Client\Github\Schema\OrganizationSimple(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard
     {
         $properties = []; 
         $missingFields = [];
@@ -711,7 +711,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -788,22 +788,22 @@ class ProjectCard implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard\Creator
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard\Creator
     {
         $properties = []; 
         $missingFields = [];
@@ -1040,22 +1040,22 @@ class ProjectCard implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard\Creator::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard\Creator::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard\Creator(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard\Creator(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository(array $payload): \ApiClients\Client\Github\Schema\Repository
     {
         $properties = []; 
         $missingFields = [];
@@ -1147,7 +1147,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1167,7 +1167,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1935,7 +1935,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'templateRepository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2111,22 +2111,22 @@ class ProjectCard implements ObjectMapper
             after_anonymousAccessEnabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\Permissions
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\Repository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -2187,22 +2187,22 @@ class ProjectCard implements ObjectMapper
             after_maintain:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\Permissions(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleUser
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\Github\Schema\SimpleUser
     {
         $properties = []; 
         $missingFields = [];
@@ -2439,22 +2439,22 @@ class ProjectCard implements ObjectMapper
             after_starredAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\SimpleUser(...$properties);
+            return new \ApiClients\Client\Github\Schema\SimpleUser(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository
     {
         $properties = []; 
         $missingFields = [];
@@ -2513,7 +2513,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3270,7 +3270,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3380,22 +3380,22 @@ class ProjectCard implements ObjectMapper
             after_networkCount:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner
     {
         $properties = []; 
         $missingFields = [];
@@ -3599,22 +3599,22 @@ class ProjectCard implements ObjectMapper
             after_siteAdmin:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -3675,22 +3675,22 @@ class ProjectCard implements ObjectMapper
             after_pull:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardCreated(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardCreated
     {
         $properties = []; 
         $missingFields = [];
@@ -3716,7 +3716,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3736,7 +3736,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3756,7 +3756,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3776,7 +3776,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'projectCard';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3796,7 +3796,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3816,7 +3816,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3827,22 +3827,22 @@ class ProjectCard implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardCreated', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardCreated::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardCreated(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardCreated', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard
     {
         $properties = []; 
         $missingFields = [];
@@ -3923,7 +3923,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4000,22 +4000,22 @@ class ProjectCard implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard⚡️Creator(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard\Creator
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard⚡️Creator(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard\Creator
     {
         $properties = []; 
         $missingFields = [];
@@ -4252,22 +4252,22 @@ class ProjectCard implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard\Creator::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard\Creator::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard\Creator(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard\Creator(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardDeleted
     {
         $properties = []; 
         $missingFields = [];
@@ -4293,7 +4293,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4313,7 +4313,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4333,7 +4333,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4353,7 +4353,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'projectCard';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4384,7 +4384,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4395,22 +4395,22 @@ class ProjectCard implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardDeleted', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardDeleted::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardDeleted(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardDeleted', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard
     {
         $properties = []; 
         $missingFields = [];
@@ -4491,7 +4491,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4568,22 +4568,22 @@ class ProjectCard implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard⚡️Creator(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard\Creator
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard⚡️Creator(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard\Creator
     {
         $properties = []; 
         $missingFields = [];
@@ -4820,22 +4820,22 @@ class ProjectCard implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard\Creator::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard\Creator::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard\Creator(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard\Creator(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardEdited
     {
         $properties = []; 
         $missingFields = [];
@@ -4861,7 +4861,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'changes';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4881,7 +4881,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4901,7 +4901,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4921,7 +4921,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4941,7 +4941,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'projectCard';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4961,7 +4961,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4981,7 +4981,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4992,22 +4992,22 @@ class ProjectCard implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardEdited', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardEdited::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardEdited(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardEdited', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes
     {
         $properties = []; 
         $missingFields = [];
@@ -5022,7 +5022,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'note';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes⚡️Note($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes⚡️Note($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5033,22 +5033,22 @@ class ProjectCard implements ObjectMapper
             after_note:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes⚡️Note(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes\Note
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes⚡️Note(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes\Note
     {
         $properties = []; 
         $missingFields = [];
@@ -5065,22 +5065,22 @@ class ProjectCard implements ObjectMapper
             after_from:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes\Note', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes\Note', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes\Note::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes\Note::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes\Note(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes\Note(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes\Note', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes\Note', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard
     {
         $properties = []; 
         $missingFields = [];
@@ -5161,7 +5161,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5238,22 +5238,22 @@ class ProjectCard implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard⚡️Creator(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard\Creator
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard⚡️Creator(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard\Creator
     {
         $properties = []; 
         $missingFields = [];
@@ -5490,22 +5490,22 @@ class ProjectCard implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard\Creator::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard\Creator::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard\Creator(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard\Creator(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardMoved
     {
         $properties = []; 
         $missingFields = [];
@@ -5531,7 +5531,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'changes';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5551,7 +5551,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5571,7 +5571,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5591,7 +5591,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5611,7 +5611,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'projectCard';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5631,7 +5631,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5651,7 +5651,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5662,22 +5662,22 @@ class ProjectCard implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardMoved', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardMoved::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardMoved(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardMoved', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes
     {
         $properties = []; 
         $missingFields = [];
@@ -5692,7 +5692,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'columnId';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes⚡️ColumnId($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes⚡️ColumnId($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5703,22 +5703,22 @@ class ProjectCard implements ObjectMapper
             after_columnId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes⚡️ColumnId(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes\ColumnId
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes⚡️ColumnId(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes\ColumnId
     {
         $properties = []; 
         $missingFields = [];
@@ -5735,22 +5735,22 @@ class ProjectCard implements ObjectMapper
             after_from:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes\ColumnId', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes\ColumnId', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes\ColumnId::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes\ColumnId::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes\ColumnId(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes\ColumnId(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes\ColumnId', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes\ColumnId', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard
     {
         $properties = []; 
         $missingFields = [];
@@ -5831,7 +5831,7 @@ class ProjectCard implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5908,22 +5908,22 @@ class ProjectCard implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard\Creator
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator(array $payload): \ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard\Creator
     {
         $properties = []; 
         $missingFields = [];
@@ -6160,17 +6160,17 @@ class ProjectCard implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard\Creator::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard\Creator::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard\Creator(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard\Creator(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard\Creator', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -6205,36 +6205,36 @@ class ProjectCard implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes\Note' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes⚡️Note($object),
-            'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($object),
-            'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($object),
-            'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($object),
-            'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard⚡️Creator($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard⚡️Creator($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes\Note' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes⚡️Note($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard⚡️Creator($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes\ColumnId' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes⚡️ColumnId($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardConverted' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes\Note' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes⚡️Note($object),
+            'ApiClients\Client\Github\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($object),
+            'ApiClients\Client\Github\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($object),
+            'ApiClients\Client\Github\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard\Creator' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($object),
+            'ApiClients\Client\Github\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($object),
+            'ApiClients\Client\Github\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($object),
+            'ApiClients\Client\Github\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($object),
+            'ApiClients\Client\Github\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($object),
+            'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
+            'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardCreated' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardCreated($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard\Creator' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard⚡️Creator($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardDeleted' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard\Creator' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard⚡️Creator($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardEdited' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes\Note' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes⚡️Note($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard\Creator' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard⚡️Creator($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardMoved' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes\ColumnId' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes⚡️ColumnId($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard($object),
+            'ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard\Creator' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -6308,9 +6308,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardConverted);
         $result = [];
 
         $action = $object->action;
@@ -6318,7 +6318,7 @@ class ProjectCard implements ObjectMapper
 
         
         $changes = $object->changes;
-        $changes = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes($changes);
+        $changes = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes($changes);
         after_changes:        $result['changes'] = $changes;
 
         
@@ -6327,7 +6327,7 @@ class ProjectCard implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -6336,7 +6336,7 @@ class ProjectCard implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
@@ -6345,12 +6345,12 @@ class ProjectCard implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $projectCard = $object->projectCard;
-        $projectCard = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard($projectCard);
+        $projectCard = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard($projectCard);
         after_projectCard:        $result['project_card'] = $projectCard;
 
         
@@ -6359,12 +6359,12 @@ class ProjectCard implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -6372,13 +6372,13 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes);
         $result = [];
 
         $note = $object->note;
-        $note = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes⚡️Note($note);
+        $note = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes⚡️Note($note);
         after_note:        $result['note'] = $note;
 
 
@@ -6386,9 +6386,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes⚡️Note(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️Changes⚡️Note(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\Changes\Note);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardConverted\Changes\Note);
         $result = [];
 
         $from = $object->from;
@@ -6399,9 +6399,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Enterprise);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Enterprise);
         $result = [];
 
         $description = $object->description;
@@ -6464,9 +6464,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleInstallation);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleInstallation);
         $result = [];
 
         $id = $object->id;
@@ -6481,9 +6481,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\OrganizationSimple);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\OrganizationSimple);
         $result = [];
 
         $login = $object->login;
@@ -6542,9 +6542,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard);
         $result = [];
 
         $afterId = $object->afterId;
@@ -6584,7 +6584,7 @@ class ProjectCard implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -6620,9 +6620,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardConverted\ProjectCard\Creator);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardConverted\ProjectCard\Creator);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -6789,9 +6789,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository);
         $result = [];
 
         $id = $object->id;
@@ -6835,12 +6835,12 @@ class ProjectCard implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
         $owner = $object->owner;
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -7173,7 +7173,7 @@ class ProjectCard implements ObjectMapper
         if ($templateRepository === null) {
             goto after_templateRepository;
         }
-        $templateRepository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($templateRepository);
+        $templateRepository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($templateRepository);
         after_templateRepository:        $result['template_repository'] = $templateRepository;
 
         
@@ -7293,9 +7293,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\Permissions);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -7330,9 +7330,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleUser);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleUser);
         $result = [];
 
         $name = $object->name;
@@ -7439,9 +7439,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository);
         $result = [];
 
         $id = $object->id;
@@ -7481,7 +7481,7 @@ class ProjectCard implements ObjectMapper
         if ($owner === null) {
             goto after_owner;
         }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -8034,7 +8034,7 @@ class ProjectCard implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -8114,9 +8114,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner);
         $result = [];
 
         $login = $object->login;
@@ -8267,9 +8267,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -8316,9 +8316,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardCreated(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardCreated);
         $result = [];
 
         $action = $object->action;
@@ -8330,7 +8330,7 @@ class ProjectCard implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -8339,7 +8339,7 @@ class ProjectCard implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
@@ -8348,12 +8348,12 @@ class ProjectCard implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $projectCard = $object->projectCard;
-        $projectCard = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard($projectCard);
+        $projectCard = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard($projectCard);
         after_projectCard:        $result['project_card'] = $projectCard;
 
         
@@ -8362,12 +8362,12 @@ class ProjectCard implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -8375,9 +8375,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard);
         $result = [];
 
         $afterId = $object->afterId;
@@ -8417,7 +8417,7 @@ class ProjectCard implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -8453,9 +8453,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard⚡️Creator(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardCreated⚡️ProjectCard⚡️Creator(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardCreated\ProjectCard\Creator);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardCreated\ProjectCard\Creator);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -8622,9 +8622,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardDeleted);
         $result = [];
 
         $action = $object->action;
@@ -8636,7 +8636,7 @@ class ProjectCard implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -8645,7 +8645,7 @@ class ProjectCard implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
@@ -8654,12 +8654,12 @@ class ProjectCard implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $projectCard = $object->projectCard;
-        $projectCard = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard($projectCard);
+        $projectCard = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard($projectCard);
         after_projectCard:        $result['project_card'] = $projectCard;
 
         
@@ -8672,7 +8672,7 @@ class ProjectCard implements ObjectMapper
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -8680,9 +8680,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard);
         $result = [];
 
         $afterId = $object->afterId;
@@ -8726,7 +8726,7 @@ class ProjectCard implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -8762,9 +8762,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard⚡️Creator(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardDeleted⚡️ProjectCard⚡️Creator(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardDeleted\ProjectCard\Creator);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardDeleted\ProjectCard\Creator);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -8931,9 +8931,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardEdited);
         $result = [];
 
         $action = $object->action;
@@ -8941,7 +8941,7 @@ class ProjectCard implements ObjectMapper
 
         
         $changes = $object->changes;
-        $changes = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes($changes);
+        $changes = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes($changes);
         after_changes:        $result['changes'] = $changes;
 
         
@@ -8950,7 +8950,7 @@ class ProjectCard implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -8959,7 +8959,7 @@ class ProjectCard implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
@@ -8968,12 +8968,12 @@ class ProjectCard implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $projectCard = $object->projectCard;
-        $projectCard = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard($projectCard);
+        $projectCard = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard($projectCard);
         after_projectCard:        $result['project_card'] = $projectCard;
 
         
@@ -8982,12 +8982,12 @@ class ProjectCard implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -8995,13 +8995,13 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes);
         $result = [];
 
         $note = $object->note;
-        $note = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes⚡️Note($note);
+        $note = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes⚡️Note($note);
         after_note:        $result['note'] = $note;
 
 
@@ -9009,9 +9009,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes⚡️Note(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️Changes⚡️Note(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\Changes\Note);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardEdited\Changes\Note);
         $result = [];
 
         $from = $object->from;
@@ -9026,9 +9026,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard);
         $result = [];
 
         $afterId = $object->afterId;
@@ -9068,7 +9068,7 @@ class ProjectCard implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardConverted⚡️ProjectCard⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -9104,9 +9104,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard⚡️Creator(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardEdited⚡️ProjectCard⚡️Creator(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardEdited\ProjectCard\Creator);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardEdited\ProjectCard\Creator);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -9273,9 +9273,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardMoved);
         $result = [];
 
         $action = $object->action;
@@ -9287,7 +9287,7 @@ class ProjectCard implements ObjectMapper
         if ($changes === null) {
             goto after_changes;
         }
-        $changes = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes($changes);
+        $changes = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes($changes);
         after_changes:        $result['changes'] = $changes;
 
         
@@ -9296,7 +9296,7 @@ class ProjectCard implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -9305,7 +9305,7 @@ class ProjectCard implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
@@ -9314,12 +9314,12 @@ class ProjectCard implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $projectCard = $object->projectCard;
-        $projectCard = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard($projectCard);
+        $projectCard = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard($projectCard);
         after_projectCard:        $result['project_card'] = $projectCard;
 
         
@@ -9328,12 +9328,12 @@ class ProjectCard implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -9341,13 +9341,13 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes);
         $result = [];
 
         $columnId = $object->columnId;
-        $columnId = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes⚡️ColumnId($columnId);
+        $columnId = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes⚡️ColumnId($columnId);
         after_columnId:        $result['column_id'] = $columnId;
 
 
@@ -9355,9 +9355,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes⚡️ColumnId(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes⚡️ColumnId(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\Changes\ColumnId);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardMoved\Changes\ColumnId);
         $result = [];
 
         $from = $object->from;
@@ -9368,9 +9368,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard);
         $result = [];
 
         $afterId = $object->afterId;
@@ -9410,7 +9410,7 @@ class ProjectCard implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -9446,9 +9446,9 @@ class ProjectCard implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookProjectCardMoved\ProjectCard\Creator);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookProjectCardMoved\ProjectCard\Creator);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;

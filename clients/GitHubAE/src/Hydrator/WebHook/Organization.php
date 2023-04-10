@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Hydrator\WebHook;
+namespace ApiClients\Client\Github\Hydrator\WebHook;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,39 +23,39 @@ class Organization implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted($payload),
-                'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($payload),
-                'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership\User' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($payload),
-                'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberAdded($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership\User' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership⚡️User($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation⚡️Inviter($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\User' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️User($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberRemoved($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership\User' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership⚡️User($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes\Login' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes⚡️Login($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership\User' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership⚡️User($payload),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationDeleted' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted($payload),
+                'ApiClients\Client\Github\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($payload),
+                'ApiClients\Client\Github\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership\User' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($payload),
+                'ApiClients\Client\Github\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($payload),
+                'ApiClients\Client\Github\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($payload),
+                'ApiClients\Client\Github\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($payload),
+                'ApiClients\Client\Github\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\Github\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
+                'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
+                'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberAdded($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership\User' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership⚡️User($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation⚡️Inviter($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\User' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️User($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberRemoved($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership\User' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership⚡️User($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationRenamed' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes\Login' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes⚡️Login($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership($payload),
+                'ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership\User' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership⚡️User($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationDeleted
     {
         $properties = []; 
         $missingFields = [];
@@ -81,7 +81,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -101,7 +101,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -121,7 +121,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'membership';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -141,7 +141,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -161,7 +161,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -181,7 +181,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -192,22 +192,22 @@ class Organization implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationDeleted', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationDeleted::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationDeleted(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationDeleted', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise(array $payload): \ApiClients\Client\GitHubAE\Schema\Enterprise
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise(array $payload): \ApiClients\Client\Github\Schema\Enterprise
     {
         $properties = []; 
         $missingFields = [];
@@ -323,22 +323,22 @@ class Organization implements ObjectMapper
             after_avatarUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Enterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Enterprise', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Enterprise::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Enterprise::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Enterprise(...$properties);
+            return new \ApiClients\Client\Github\Schema\Enterprise(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Enterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Enterprise', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleInstallation
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation(array $payload): \ApiClients\Client\Github\Schema\SimpleInstallation
     {
         $properties = []; 
         $missingFields = [];
@@ -366,22 +366,22 @@ class Organization implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleInstallation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleInstallation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\SimpleInstallation(...$properties);
+            return new \ApiClients\Client\Github\Schema\SimpleInstallation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership
     {
         $properties = []; 
         $missingFields = [];
@@ -440,7 +440,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -451,22 +451,22 @@ class Organization implements ObjectMapper
             after_user:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership\User
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership\User
     {
         $properties = []; 
         $missingFields = [];
@@ -703,22 +703,22 @@ class Organization implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership\User', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership\User::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership\User::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership\User(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership\User(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership\User', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple(array $payload): \ApiClients\Client\GitHubAE\Schema\OrganizationSimple
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple(array $payload): \ApiClients\Client\Github\Schema\OrganizationSimple
     {
         $properties = []; 
         $missingFields = [];
@@ -856,22 +856,22 @@ class Organization implements ObjectMapper
             after_description:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\OrganizationSimple::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\OrganizationSimple::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\OrganizationSimple(...$properties);
+            return new \ApiClients\Client\Github\Schema\OrganizationSimple(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository(array $payload): \ApiClients\Client\Github\Schema\Repository
     {
         $properties = []; 
         $missingFields = [];
@@ -963,7 +963,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -983,7 +983,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1751,7 +1751,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'templateRepository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1927,22 +1927,22 @@ class Organization implements ObjectMapper
             after_anonymousAccessEnabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\Permissions
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\Repository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -2003,22 +2003,22 @@ class Organization implements ObjectMapper
             after_maintain:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\Permissions(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleUser
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\Github\Schema\SimpleUser
     {
         $properties = []; 
         $missingFields = [];
@@ -2255,22 +2255,22 @@ class Organization implements ObjectMapper
             after_starredAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\SimpleUser(...$properties);
+            return new \ApiClients\Client\Github\Schema\SimpleUser(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository
     {
         $properties = []; 
         $missingFields = [];
@@ -2329,7 +2329,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3086,7 +3086,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3196,22 +3196,22 @@ class Organization implements ObjectMapper
             after_networkCount:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner
     {
         $properties = []; 
         $missingFields = [];
@@ -3415,22 +3415,22 @@ class Organization implements ObjectMapper
             after_siteAdmin:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -3491,22 +3491,22 @@ class Organization implements ObjectMapper
             after_pull:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberAdded(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberAdded(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded
     {
         $properties = []; 
         $missingFields = [];
@@ -3532,7 +3532,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3552,7 +3552,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3572,7 +3572,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'membership';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3592,7 +3592,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3612,7 +3612,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3632,7 +3632,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3643,22 +3643,22 @@ class Organization implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership
     {
         $properties = []; 
         $missingFields = [];
@@ -3717,7 +3717,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3728,22 +3728,22 @@ class Organization implements ObjectMapper
             after_user:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership⚡️User(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership\User
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership⚡️User(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership\User
     {
         $properties = []; 
         $missingFields = [];
@@ -3980,22 +3980,22 @@ class Organization implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership\User', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership\User::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership\User::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership\User(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership\User(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership\User', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited
     {
         $properties = []; 
         $missingFields = [];
@@ -4021,7 +4021,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4041,7 +4041,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4061,7 +4061,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'invitation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4081,7 +4081,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4101,7 +4101,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4121,7 +4121,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4141,7 +4141,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️User($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4152,22 +4152,22 @@ class Organization implements ObjectMapper
             after_user:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation
     {
         $properties = []; 
         $missingFields = [];
@@ -4248,7 +4248,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'inviter';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation⚡️Inviter($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation⚡️Inviter($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4314,22 +4314,22 @@ class Organization implements ObjectMapper
             after_invitationSource:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation⚡️Inviter(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation⚡️Inviter(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter
     {
         $properties = []; 
         $missingFields = [];
@@ -4566,22 +4566,22 @@ class Organization implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️User(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\User
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️User(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\User
     {
         $properties = []; 
         $missingFields = [];
@@ -4818,22 +4818,22 @@ class Organization implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\User', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\User::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\User::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\User(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\User(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\User', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberRemoved(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberRemoved(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved
     {
         $properties = []; 
         $missingFields = [];
@@ -4859,7 +4859,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4879,7 +4879,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4899,7 +4899,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'membership';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4919,7 +4919,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4939,7 +4939,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4959,7 +4959,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4970,22 +4970,22 @@ class Organization implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership
     {
         $properties = []; 
         $missingFields = [];
@@ -5044,7 +5044,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5055,22 +5055,22 @@ class Organization implements ObjectMapper
             after_user:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership⚡️User(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership\User
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership⚡️User(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership\User
     {
         $properties = []; 
         $missingFields = [];
@@ -5307,22 +5307,22 @@ class Organization implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership\User', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership\User::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership\User::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership\User(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership\User(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership\User', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed
     {
         $properties = []; 
         $missingFields = [];
@@ -5348,7 +5348,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'changes';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5368,7 +5368,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5388,7 +5388,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5408,7 +5408,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'membership';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5428,7 +5428,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5448,7 +5448,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5468,7 +5468,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5479,22 +5479,22 @@ class Organization implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationRenamed', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationRenamed::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationRenamed', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes
     {
         $properties = []; 
         $missingFields = [];
@@ -5509,7 +5509,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'login';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes⚡️Login($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes⚡️Login($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5520,22 +5520,22 @@ class Organization implements ObjectMapper
             after_login:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes⚡️Login(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes\Login
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes⚡️Login(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes\Login
     {
         $properties = []; 
         $missingFields = [];
@@ -5552,22 +5552,22 @@ class Organization implements ObjectMapper
             after_from:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes\Login', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes\Login', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes\Login::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes\Login::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes\Login(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes\Login(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes\Login', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes\Login', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership
     {
         $properties = []; 
         $missingFields = [];
@@ -5626,7 +5626,7 @@ class Organization implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5637,22 +5637,22 @@ class Organization implements ObjectMapper
             after_user:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership⚡️User(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership\User
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership⚡️User(array $payload): \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership\User
     {
         $properties = []; 
         $missingFields = [];
@@ -5889,17 +5889,17 @@ class Organization implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership\User', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership\User::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership\User::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership\User(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership\User(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership\User', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -5934,33 +5934,33 @@ class Organization implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted($object),
-            'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($object),
-            'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($object),
-            'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($object),
-            'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberAdded($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership⚡️User($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation⚡️Inviter($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️User($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberRemoved($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership⚡️User($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes\Login' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes⚡️Login($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership⚡️User($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationDeleted' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted($object),
+            'ApiClients\Client\Github\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($object),
+            'ApiClients\Client\Github\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership\User' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($object),
+            'ApiClients\Client\Github\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($object),
+            'ApiClients\Client\Github\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($object),
+            'ApiClients\Client\Github\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($object),
+            'ApiClients\Client\Github\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($object),
+            'ApiClients\Client\Github\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($object),
+            'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
+            'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberAdded($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership\User' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership⚡️User($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation⚡️Inviter($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\User' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️User($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberRemoved($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership\User' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership⚡️User($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationRenamed' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes\Login' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes⚡️Login($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership($object),
+            'ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership\User' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership⚡️User($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -6034,9 +6034,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationDeleted);
         $result = [];
 
         $action = $object->action;
@@ -6048,7 +6048,7 @@ class Organization implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -6057,7 +6057,7 @@ class Organization implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
@@ -6066,12 +6066,12 @@ class Organization implements ObjectMapper
         if ($membership === null) {
             goto after_membership;
         }
-        $membership = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership($membership);
+        $membership = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership($membership);
         after_membership:        $result['membership'] = $membership;
 
         
         $organization = $object->organization;
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
@@ -6080,12 +6080,12 @@ class Organization implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -6093,9 +6093,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Enterprise);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Enterprise);
         $result = [];
 
         $description = $object->description;
@@ -6158,9 +6158,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleInstallation);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleInstallation);
         $result = [];
 
         $id = $object->id;
@@ -6175,9 +6175,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership);
         $result = [];
 
         $organizationUrl = $object->organizationUrl;
@@ -6201,7 +6201,7 @@ class Organization implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($user);
         after_user:        $result['user'] = $user;
 
 
@@ -6209,9 +6209,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationDeleted\Membership\User);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationDeleted\Membership\User);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -6378,9 +6378,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\OrganizationSimple);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\OrganizationSimple);
         $result = [];
 
         $login = $object->login;
@@ -6439,9 +6439,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository);
         $result = [];
 
         $id = $object->id;
@@ -6485,12 +6485,12 @@ class Organization implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
         $owner = $object->owner;
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -6823,7 +6823,7 @@ class Organization implements ObjectMapper
         if ($templateRepository === null) {
             goto after_templateRepository;
         }
-        $templateRepository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($templateRepository);
+        $templateRepository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($templateRepository);
         after_templateRepository:        $result['template_repository'] = $templateRepository;
 
         
@@ -6943,9 +6943,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\Permissions);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -6980,9 +6980,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleUser);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleUser);
         $result = [];
 
         $name = $object->name;
@@ -7089,9 +7089,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository);
         $result = [];
 
         $id = $object->id;
@@ -7131,7 +7131,7 @@ class Organization implements ObjectMapper
         if ($owner === null) {
             goto after_owner;
         }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -7684,7 +7684,7 @@ class Organization implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -7764,9 +7764,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner);
         $result = [];
 
         $login = $object->login;
@@ -7917,9 +7917,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -7966,9 +7966,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberAdded(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberAdded(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded);
         $result = [];
 
         $action = $object->action;
@@ -7980,7 +7980,7 @@ class Organization implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -7989,17 +7989,17 @@ class Organization implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
         $membership = $object->membership;
-        $membership = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership($membership);
+        $membership = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership($membership);
         after_membership:        $result['membership'] = $membership;
 
         
         $organization = $object->organization;
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
@@ -8008,12 +8008,12 @@ class Organization implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -8021,9 +8021,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership);
         $result = [];
 
         $organizationUrl = $object->organizationUrl;
@@ -8047,7 +8047,7 @@ class Organization implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($user);
         after_user:        $result['user'] = $user;
 
 
@@ -8055,9 +8055,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership⚡️User(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberAdded⚡️Membership⚡️User(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberAdded\Membership\User);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationMemberAdded\Membership\User);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -8224,9 +8224,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited);
         $result = [];
 
         $action = $object->action;
@@ -8238,7 +8238,7 @@ class Organization implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -8247,17 +8247,17 @@ class Organization implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
         $invitation = $object->invitation;
-        $invitation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation($invitation);
+        $invitation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation($invitation);
         after_invitation:        $result['invitation'] = $invitation;
 
         
         $organization = $object->organization;
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
@@ -8266,12 +8266,12 @@ class Organization implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
         
@@ -8280,7 +8280,7 @@ class Organization implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️User($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️User($user);
         after_user:        $result['user'] = $user;
 
 
@@ -8288,9 +8288,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation);
         $result = [];
 
         $createdAt = $object->createdAt;
@@ -8334,7 +8334,7 @@ class Organization implements ObjectMapper
         if ($inviter === null) {
             goto after_inviter;
         }
-        $inviter = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation⚡️Inviter($inviter);
+        $inviter = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation⚡️Inviter($inviter);
         after_inviter:        $result['inviter'] = $inviter;
 
         
@@ -8370,9 +8370,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation⚡️Inviter(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️Invitation⚡️Inviter(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\Invitation\Inviter);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -8539,9 +8539,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️User(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberInvited⚡️User(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberInvited\User);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationMemberInvited\User);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -8708,9 +8708,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberRemoved(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberRemoved(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved);
         $result = [];
 
         $action = $object->action;
@@ -8722,7 +8722,7 @@ class Organization implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -8731,17 +8731,17 @@ class Organization implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
         $membership = $object->membership;
-        $membership = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership($membership);
+        $membership = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership($membership);
         after_membership:        $result['membership'] = $membership;
 
         
         $organization = $object->organization;
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
@@ -8750,12 +8750,12 @@ class Organization implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -8763,9 +8763,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership);
         $result = [];
 
         $organizationUrl = $object->organizationUrl;
@@ -8789,7 +8789,7 @@ class Organization implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($user);
         after_user:        $result['user'] = $user;
 
 
@@ -8797,9 +8797,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership⚡️User(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationMemberRemoved⚡️Membership⚡️User(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationMemberRemoved\Membership\User);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationMemberRemoved\Membership\User);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -8966,9 +8966,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed);
         $result = [];
 
         $action = $object->action;
@@ -8980,7 +8980,7 @@ class Organization implements ObjectMapper
         if ($changes === null) {
             goto after_changes;
         }
-        $changes = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes($changes);
+        $changes = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes($changes);
         after_changes:        $result['changes'] = $changes;
 
         
@@ -8989,7 +8989,7 @@ class Organization implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -8998,7 +8998,7 @@ class Organization implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
@@ -9007,12 +9007,12 @@ class Organization implements ObjectMapper
         if ($membership === null) {
             goto after_membership;
         }
-        $membership = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership($membership);
+        $membership = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership($membership);
         after_membership:        $result['membership'] = $membership;
 
         
         $organization = $object->organization;
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
@@ -9021,12 +9021,12 @@ class Organization implements ObjectMapper
         if ($repository === null) {
             goto after_repository;
         }
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -9034,9 +9034,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes);
         $result = [];
 
         $login = $object->login;
@@ -9044,7 +9044,7 @@ class Organization implements ObjectMapper
         if ($login === null) {
             goto after_login;
         }
-        $login = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes⚡️Login($login);
+        $login = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes⚡️Login($login);
         after_login:        $result['login'] = $login;
 
 
@@ -9052,9 +9052,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes⚡️Login(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Changes⚡️Login(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Changes\Login);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Changes\Login);
         $result = [];
 
         $from = $object->from;
@@ -9069,9 +9069,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership);
         $result = [];
 
         $organizationUrl = $object->organizationUrl;
@@ -9095,7 +9095,7 @@ class Organization implements ObjectMapper
         if ($user === null) {
             goto after_user;
         }
-        $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($user);
+        $user = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationDeleted⚡️Membership⚡️User($user);
         after_user:        $result['user'] = $user;
 
 
@@ -9103,9 +9103,9 @@ class Organization implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership⚡️User(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookOrganizationRenamed⚡️Membership⚡️User(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookOrganizationRenamed\Membership\User);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookOrganizationRenamed\Membership\User);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;

@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\Orgs\ReviewPatGrantRequestsInBulk\Request;
+namespace ApiClients\Client\Github\Schema\Orgs\ReviewPatGrantRequestsInBulk\Request;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final readonly class Applicationjson
 {
     public const SCHEMA_JSON = '{"required":["action"],"type":"object","properties":{"pat_request_ids":{"maxItems":100,"minItems":1,"type":"array","items":{"type":"integer"},"description":"Unique identifiers of the requests for access via fine-grained personal access token. Must be formed of between 1 and 100 `pat_request_id` values."},"action":{"enum":["approve","deny"],"type":"string","description":"Action to apply to the requests."},"reason":{"maxLength":1024,"type":["string","null"],"description":"Reason for approving or denying the requests. Max 1024 characters."}}}';

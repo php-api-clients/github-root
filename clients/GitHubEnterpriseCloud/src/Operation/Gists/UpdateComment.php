@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\Gists;
+namespace ApiClients\Client\Github\Operation\Gists;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final class UpdateComment
 {
     public const OPERATION_ID = 'gists/update-comment';
@@ -29,7 +29,7 @@ final class UpdateComment
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
-    function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\Gists\UpdateComment\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{gist_id}', '{comment_id}'), array($this->gistId, $this->commentId), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
@@ -37,7 +37,7 @@ final class UpdateComment
     /**
      * @return Schema\GistComment
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\GistComment
+    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\GistComment
     {
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);

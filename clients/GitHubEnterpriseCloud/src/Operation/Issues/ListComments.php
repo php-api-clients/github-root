@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\Issues;
+namespace ApiClients\Client\Github\Operation\Issues;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final class ListComments
 {
     public const OPERATION_ID = 'issues/list-comments';
@@ -39,14 +39,14 @@ final class ListComments
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
-    function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{issue_number}', '{since}', '{per_page}', '{page}'), array($this->owner, $this->repo, $this->issueNumber, $this->since, $this->perPage, $this->page), self::PATH . '?since={since}&perPage={per_page}&page={page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{issue_number}', '{since}', '{per_page}', '{page}'), array($this->owner, $this->repo, $this->issueNumber, $this->since, $this->perPage, $this->page), self::PATH . '?since={since}&per_page={per_page}&page={page}'));
     }
     /**
      * @return \Rx\Observable<Schema\IssueComment>
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable
+    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable
     {
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);

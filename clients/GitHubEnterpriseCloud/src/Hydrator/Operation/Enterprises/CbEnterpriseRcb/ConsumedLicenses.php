@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Hydrator\Operation\Enterprises\CbEnterpriseRcb;
+namespace ApiClients\Client\Github\Hydrator\Operation\Enterprises\CbEnterpriseRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,14 +23,14 @@ class ConsumedLicenses implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetConsumedLicenses($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetConsumedLicenses⚡️Users($payload),
+            'ApiClients\Client\Github\Schema\GetConsumedLicenses' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GetConsumedLicenses($payload),
+                'ApiClients\Client\Github\Schema\GetConsumedLicenses\Users' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GetConsumedLicenses⚡️Users($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetConsumedLicenses(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GetConsumedLicenses(array $payload): \ApiClients\Client\Github\Schema\GetConsumedLicenses
     {
         $properties = []; 
         $missingFields = [];
@@ -68,7 +68,7 @@ class ConsumedLicenses implements ObjectMapper
 
             if ($usersCaster1 === null) {
                 $usersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GetConsumedLicenses\\Users',
+  0 => 'ApiClients\\Client\\Github\\Schema\\GetConsumedLicenses\\Users',
 ));
             }
 
@@ -79,22 +79,22 @@ class ConsumedLicenses implements ObjectMapper
             after_users:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GetConsumedLicenses', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GetConsumedLicenses::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses(...$properties);
+            return new \ApiClients\Client\Github\Schema\GetConsumedLicenses(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GetConsumedLicenses', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetConsumedLicenses⚡️Users(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️GetConsumedLicenses⚡️Users(array $payload): \ApiClients\Client\Github\Schema\GetConsumedLicenses\Users
     {
         $properties = []; 
         $missingFields = [];
@@ -298,17 +298,17 @@ class ConsumedLicenses implements ObjectMapper
             after_totalUserAccounts:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GetConsumedLicenses\Users', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\GetConsumedLicenses\Users::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users(...$properties);
+            return new \ApiClients\Client\Github\Schema\GetConsumedLicenses\Users(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\GetConsumedLicenses\Users', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -343,8 +343,8 @@ class ConsumedLicenses implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetConsumedLicenses($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetConsumedLicenses⚡️Users($object),
+            'ApiClients\Client\Github\Schema\GetConsumedLicenses' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GetConsumedLicenses($object),
+            'ApiClients\Client\Github\Schema\GetConsumedLicenses\Users' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GetConsumedLicenses⚡️Users($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -418,9 +418,9 @@ class ConsumedLicenses implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetConsumedLicenses(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GetConsumedLicenses(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\GetConsumedLicenses);
         $result = [];
 
         $totalSeatsConsumed = $object->totalSeatsConsumed;
@@ -448,7 +448,7 @@ class ConsumedLicenses implements ObjectMapper
 
         if ($usersSerializer0 === null) {
             $usersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GetConsumedLicenses\\Users',
+  0 => 'ApiClients\\Client\\Github\\Schema\\GetConsumedLicenses\\Users',
 ));
         }
         
@@ -460,9 +460,9 @@ class ConsumedLicenses implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️GetConsumedLicenses⚡️Users(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️GetConsumedLicenses⚡️Users(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetConsumedLicenses\Users);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\GetConsumedLicenses\Users);
         $result = [];
 
         $githubComLogin = $object->githubComLogin;

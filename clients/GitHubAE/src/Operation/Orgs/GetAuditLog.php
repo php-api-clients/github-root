@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubAE\Operation\Orgs;
+namespace ApiClients\Client\Github\Operation\Orgs;
 
-use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
-use ApiClients\Client\GitHubAE\Hydrator;
-use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema;
-use ApiClients\Client\GitHubAE\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final class GetAuditLog
 {
     public const OPERATION_ID = 'orgs/get-audit-log';
@@ -44,14 +44,14 @@ final class GetAuditLog
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
-    function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{phrase}', '{after}', '{before}', '{order}', '{per_page}', '{page}'), array($this->org, $this->phrase, $this->after, $this->before, $this->order, $this->perPage, $this->page), self::PATH . '?phrase={phrase}&after={after}&before={before}&order={order}&perPage={per_page}&page={page}'));
+        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{phrase}', '{after}', '{before}', '{order}', '{per_page}', '{page}'), array($this->org, $this->phrase, $this->after, $this->before, $this->order, $this->perPage, $this->page), self::PATH . '?phrase={phrase}&after={after}&before={before}&order={order}&per_page={per_page}&page={page}'));
     }
     /**
      * @return \Rx\Observable<Schema\AuditLogEvent>
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable
+    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable
     {
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);

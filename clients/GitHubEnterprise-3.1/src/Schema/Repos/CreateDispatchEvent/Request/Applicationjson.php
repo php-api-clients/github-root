@@ -1,0 +1,24 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\Github\Schema\Repos\CreateDispatchEvent\Request;
+
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
+final readonly class Applicationjson
+{
+    public const SCHEMA_JSON = '{"required":["event_type"],"type":"object","properties":{"event_type":{"maxLength":100,"minLength":1,"type":"string","description":"A custom webhook event name. Must be 100 characters or fewer."},"client_payload":{"maxProperties":10,"type":"object","description":"JSON payload with extra information about the webhook event that your action or worklow may use.","additionalProperties":true}}}';
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    public const SCHEMA_EXAMPLE_DATA = '{"event_type":"generated_event_type_null","client_payload":null}';
+    /**
+     * eventType: A custom webhook event name. Must be 100 characters or fewer.
+     * clientPayload: JSON payload with extra information about the webhook event that your action or worklow may use.
+     */
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('event_type')] public string $eventType, #[\EventSauce\ObjectHydrator\MapFrom('client_payload')] public mixed $clientPayload)
+    {
+    }
+}

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners;
+namespace ApiClients\Client\Github\Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class Downloads implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerApplication' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RunnerApplication($payload),
+            'ApiClients\Client\Github\Schema\RunnerApplication' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️RunnerApplication($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RunnerApplication(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerApplication
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️RunnerApplication(array $payload): \ApiClients\Client\Github\Schema\RunnerApplication
     {
         $properties = []; 
         $missingFields = [];
@@ -101,17 +101,17 @@ class Downloads implements ObjectMapper
             after_sha256Checksum:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerApplication', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\RunnerApplication', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerApplication::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\RunnerApplication::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerApplication(...$properties);
+            return new \ApiClients\Client\Github\Schema\RunnerApplication(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerApplication', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\RunnerApplication', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -146,7 +146,7 @@ class Downloads implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerApplication' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RunnerApplication($object),
+            'ApiClients\Client\Github\Schema\RunnerApplication' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️RunnerApplication($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -220,9 +220,9 @@ class Downloads implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RunnerApplication(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️RunnerApplication(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerApplication);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\RunnerApplication);
         $result = [];
 
         $os = $object->os;

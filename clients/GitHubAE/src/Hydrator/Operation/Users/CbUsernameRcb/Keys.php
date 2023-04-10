@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Users\CbUsernameRcb;
+namespace ApiClients\Client\Github\Hydrator\Operation\Users\CbUsernameRcb;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,13 +23,13 @@ class Keys implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\KeySimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️KeySimple($payload),
+            'ApiClients\Client\Github\Schema\KeySimple' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️KeySimple($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️KeySimple(array $payload): \ApiClients\Client\GitHubAE\Schema\KeySimple
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️KeySimple(array $payload): \ApiClients\Client\Github\Schema\KeySimple
     {
         $properties = []; 
         $missingFields = [];
@@ -57,17 +57,17 @@ class Keys implements ObjectMapper
             after_key:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\KeySimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\KeySimple', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\KeySimple::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\KeySimple::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\KeySimple(...$properties);
+            return new \ApiClients\Client\Github\Schema\KeySimple(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\KeySimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\KeySimple', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -102,7 +102,7 @@ class Keys implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubAE\Schema\KeySimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️KeySimple($object),
+            'ApiClients\Client\Github\Schema\KeySimple' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️KeySimple($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -176,9 +176,9 @@ class Keys implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️KeySimple(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️KeySimple(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\KeySimple);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\KeySimple);
         $result = [];
 
         $id = $object->id;

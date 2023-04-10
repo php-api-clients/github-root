@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubAE\Schema\WebhookPullRequestReviewCommentDeleted\PullRequest\Base\Repo;
+namespace ApiClients\Client\Github\Schema\WebhookPullRequestReviewCommentDeleted\PullRequest\Base\Repo;
 
-use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
-use ApiClients\Client\GitHubAE\Hydrator;
-use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema;
-use ApiClients\Client\GitHubAE\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final readonly class License extends Schema\AliasAbstract\Abstracta7378d889f1485ab225278c293f7d467
 {
 }

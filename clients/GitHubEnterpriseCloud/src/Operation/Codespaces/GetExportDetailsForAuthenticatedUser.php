@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\Codespaces;
+namespace ApiClients\Client\Github\Operation\Codespaces;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final class GetExportDetailsForAuthenticatedUser
 {
     public const OPERATION_ID = 'codespaces/get-export-details-for-authenticated-user';
@@ -27,14 +27,14 @@ final class GetExportDetailsForAuthenticatedUser
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
-    function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{codespace_name}', '{export_id}'), array($this->codespaceName, $this->exportId), self::PATH));
     }
     /**
      * @return Schema\CodespaceExportDetails
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\CodespaceExportDetails
+    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\CodespaceExportDetails
     {
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);

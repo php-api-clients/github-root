@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Hydrator\WebHook;
+namespace ApiClients\Client\Github\Hydrator\WebHook;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,41 +23,41 @@ class Milestone implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneClosed($payload),
-                'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($payload),
-                'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone⚡️Creator($payload),
-                'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
-                'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneDeleted($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone⚡️Creator($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Description' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Description($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\DueOn' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️DueOn($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Title' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Title($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone⚡️Creator($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone⚡️Creator($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookIssuesDemilestoned\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator($payload),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneClosed' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneClosed($payload),
+                'ApiClients\Client\Github\Schema\Enterprise' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($payload),
+                'ApiClients\Client\Github\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone⚡️Creator($payload),
+                'ApiClients\Client\Github\Schema\OrganizationSimple' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($payload),
+                'ApiClients\Client\Github\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($payload),
+                'ApiClients\Client\Github\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($payload),
+                'ApiClients\Client\Github\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($payload),
+                'ApiClients\Client\Github\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
+                'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
+                'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneCreated' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneDeleted' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneDeleted($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone⚡️Creator($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneEdited' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Description' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Description($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\DueOn' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️DueOn($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Title' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Title($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone⚡️Creator($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneOpened' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneOpened($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone($payload),
+                'ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone⚡️Creator($payload),
+                'ApiClients\Client\Github\Schema\WebhookIssuesDemilestoned\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneClosed(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneClosed(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneClosed
     {
         $properties = []; 
         $missingFields = [];
@@ -83,7 +83,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -103,7 +103,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -123,7 +123,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'milestone';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -143,7 +143,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -163,7 +163,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -183,7 +183,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -194,22 +194,22 @@ class Milestone implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneClosed', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneClosed::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneClosed(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneClosed', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise(array $payload): \ApiClients\Client\GitHubAE\Schema\Enterprise
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise(array $payload): \ApiClients\Client\Github\Schema\Enterprise
     {
         $properties = []; 
         $missingFields = [];
@@ -325,22 +325,22 @@ class Milestone implements ObjectMapper
             after_avatarUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Enterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Enterprise', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Enterprise::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Enterprise::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Enterprise(...$properties);
+            return new \ApiClients\Client\Github\Schema\Enterprise(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Enterprise', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Enterprise', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleInstallation
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation(array $payload): \ApiClients\Client\Github\Schema\SimpleInstallation
     {
         $properties = []; 
         $missingFields = [];
@@ -368,22 +368,22 @@ class Milestone implements ObjectMapper
             after_nodeId:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleInstallation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleInstallation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\SimpleInstallation(...$properties);
+            return new \ApiClients\Client\Github\Schema\SimpleInstallation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleInstallation', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone
     {
         $properties = []; 
         $missingFields = [];
@@ -431,7 +431,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -574,22 +574,22 @@ class Milestone implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone\Creator
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone\Creator
     {
         $properties = []; 
         $missingFields = [];
@@ -826,22 +826,22 @@ class Milestone implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone\Creator', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone\Creator(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone\Creator(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone\Creator', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple(array $payload): \ApiClients\Client\GitHubAE\Schema\OrganizationSimple
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple(array $payload): \ApiClients\Client\Github\Schema\OrganizationSimple
     {
         $properties = []; 
         $missingFields = [];
@@ -979,22 +979,22 @@ class Milestone implements ObjectMapper
             after_description:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\OrganizationSimple::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\OrganizationSimple::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\OrganizationSimple(...$properties);
+            return new \ApiClients\Client\Github\Schema\OrganizationSimple(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\OrganizationSimple', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository(array $payload): \ApiClients\Client\Github\Schema\Repository
     {
         $properties = []; 
         $missingFields = [];
@@ -1086,7 +1086,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1106,7 +1106,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1874,7 +1874,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'templateRepository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2050,22 +2050,22 @@ class Milestone implements ObjectMapper
             after_anonymousAccessEnabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\Permissions
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\Repository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -2126,22 +2126,22 @@ class Milestone implements ObjectMapper
             after_maintain:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\Permissions(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\GitHubAE\Schema\SimpleUser
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(array $payload): \ApiClients\Client\Github\Schema\SimpleUser
     {
         $properties = []; 
         $missingFields = [];
@@ -2378,22 +2378,22 @@ class Milestone implements ObjectMapper
             after_starredAt:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\SimpleUser::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\SimpleUser(...$properties);
+            return new \ApiClients\Client\Github\Schema\SimpleUser(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\SimpleUser', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository
     {
         $properties = []; 
         $missingFields = [];
@@ -2452,7 +2452,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3209,7 +3209,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3319,22 +3319,22 @@ class Milestone implements ObjectMapper
             after_networkCount:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner
     {
         $properties = []; 
         $missingFields = [];
@@ -3538,22 +3538,22 @@ class Milestone implements ObjectMapper
             after_siteAdmin:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(array $payload): \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions
     {
         $properties = []; 
         $missingFields = [];
@@ -3614,22 +3614,22 @@ class Milestone implements ObjectMapper
             after_pull:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions(...$properties);
+            return new \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneCreated
     {
         $properties = []; 
         $missingFields = [];
@@ -3655,7 +3655,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3675,7 +3675,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3695,7 +3695,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'milestone';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3715,7 +3715,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3735,7 +3735,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3755,7 +3755,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3766,22 +3766,22 @@ class Milestone implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneCreated', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneCreated::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneCreated(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneCreated', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone
     {
         $properties = []; 
         $missingFields = [];
@@ -3829,7 +3829,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3972,22 +3972,22 @@ class Milestone implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone\Creator
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone\Creator
     {
         $properties = []; 
         $missingFields = [];
@@ -4224,22 +4224,22 @@ class Milestone implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone\Creator', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone\Creator(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone\Creator(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone\Creator', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneDeleted(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneDeleted(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneDeleted
     {
         $properties = []; 
         $missingFields = [];
@@ -4265,7 +4265,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4285,7 +4285,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4305,7 +4305,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'milestone';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4325,7 +4325,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4345,7 +4345,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4365,7 +4365,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4376,22 +4376,22 @@ class Milestone implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneDeleted', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneDeleted::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneDeleted(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneDeleted', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone
     {
         $properties = []; 
         $missingFields = [];
@@ -4439,7 +4439,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4582,22 +4582,22 @@ class Milestone implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone\Creator
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone\Creator
     {
         $properties = []; 
         $missingFields = [];
@@ -4834,22 +4834,22 @@ class Milestone implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone\Creator', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone\Creator(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone\Creator(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone\Creator', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneEdited
     {
         $properties = []; 
         $missingFields = [];
@@ -4875,7 +4875,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'changes';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4895,7 +4895,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4915,7 +4915,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4935,7 +4935,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'milestone';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4955,7 +4955,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4975,7 +4975,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4995,7 +4995,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5006,22 +5006,22 @@ class Milestone implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneEdited', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneEdited::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneEdited(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneEdited', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes
     {
         $properties = []; 
         $missingFields = [];
@@ -5036,7 +5036,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'description';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Description($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Description($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5056,7 +5056,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'dueOn';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️DueOn($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️DueOn($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5076,7 +5076,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'title';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Title($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Title($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5087,22 +5087,22 @@ class Milestone implements ObjectMapper
             after_title:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Description(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Description
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Description(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Description
     {
         $properties = []; 
         $missingFields = [];
@@ -5119,22 +5119,22 @@ class Milestone implements ObjectMapper
             after_from:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Description', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Description', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Description::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Description::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Description(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Description(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Description', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Description', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️DueOn(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\DueOn
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️DueOn(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\DueOn
     {
         $properties = []; 
         $missingFields = [];
@@ -5151,22 +5151,22 @@ class Milestone implements ObjectMapper
             after_from:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\DueOn', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\DueOn', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\DueOn::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\DueOn::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\DueOn(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\DueOn(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\DueOn', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\DueOn', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Title(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Title
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Title(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Title
     {
         $properties = []; 
         $missingFields = [];
@@ -5183,22 +5183,22 @@ class Milestone implements ObjectMapper
             after_from:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Title', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Title', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Title::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Title::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Title(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Title(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Title', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Title', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone
     {
         $properties = []; 
         $missingFields = [];
@@ -5246,7 +5246,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5389,22 +5389,22 @@ class Milestone implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone\Creator
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone\Creator
     {
         $properties = []; 
         $missingFields = [];
@@ -5641,22 +5641,22 @@ class Milestone implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone\Creator', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone\Creator(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone\Creator(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone\Creator', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneOpened(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneOpened
     {
         $properties = []; 
         $missingFields = [];
@@ -5682,7 +5682,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'enterprise';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5702,7 +5702,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'installation';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5722,7 +5722,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'milestone';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5742,7 +5742,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'organization';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5762,7 +5762,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'repository';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5782,7 +5782,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'sender';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5793,22 +5793,22 @@ class Milestone implements ObjectMapper
             after_sender:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneOpened', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneOpened::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneOpened(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneOpened', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone
     {
         $properties = []; 
         $missingFields = [];
@@ -5856,7 +5856,7 @@ class Milestone implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'creator';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5999,22 +5999,22 @@ class Milestone implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone\Creator
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone\Creator
     {
         $properties = []; 
         $missingFields = [];
@@ -6251,22 +6251,22 @@ class Milestone implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone\Creator', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone\Creator(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone\Creator(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone\Creator', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssuesDemilestoned\Milestone\Creator
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator(array $payload): \ApiClients\Client\Github\Schema\WebhookIssuesDemilestoned\Milestone\Creator
     {
         $properties = []; 
         $missingFields = [];
@@ -6503,17 +6503,17 @@ class Milestone implements ObjectMapper
             after_url:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesDemilestoned\Milestone\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookIssuesDemilestoned\Milestone\Creator', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssuesDemilestoned\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\WebhookIssuesDemilestoned\Milestone\Creator::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssuesDemilestoned\Milestone\Creator(...$properties);
+            return new \ApiClients\Client\Github\Schema\WebhookIssuesDemilestoned\Milestone\Creator(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesDemilestoned\Milestone\Creator', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\WebhookIssuesDemilestoned\Milestone\Creator', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -6548,34 +6548,34 @@ class Milestone implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneClosed($object),
-            'ApiClients\Client\GitHubAE\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($object),
-            'ApiClients\Client\GitHubAE\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone⚡️Creator($object),
-            'ApiClients\Client\GitHubAE\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($object),
-            'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
-            'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneDeleted($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone⚡️Creator($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Description' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Description($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\DueOn' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️DueOn($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Title' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Title($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone⚡️Creator($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone($object),
-            'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone⚡️Creator($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneClosed' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneClosed($object),
+            'ApiClients\Client\Github\Schema\Enterprise' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($object),
+            'ApiClients\Client\Github\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone⚡️Creator($object),
+            'ApiClients\Client\Github\Schema\OrganizationSimple' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($object),
+            'ApiClients\Client\Github\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($object),
+            'ApiClients\Client\Github\Schema\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($object),
+            'ApiClients\Client\Github\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($object),
+            'ApiClients\Client\Github\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($object),
+            'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
+            'ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneCreated' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneDeleted' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneDeleted($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone⚡️Creator($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneEdited' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Description' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Description($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\DueOn' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️DueOn($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Title' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Title($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone⚡️Creator($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneOpened' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneOpened($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone($object),
+            'ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone⚡️Creator($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -6649,9 +6649,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneClosed(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneClosed(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneClosed);
         $result = [];
 
         $action = $object->action;
@@ -6663,7 +6663,7 @@ class Milestone implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -6672,12 +6672,12 @@ class Milestone implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
         $milestone = $object->milestone;
-        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone($milestone);
+        $milestone = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone($milestone);
         after_milestone:        $result['milestone'] = $milestone;
 
         
@@ -6686,17 +6686,17 @@ class Milestone implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $repository = $object->repository;
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -6704,9 +6704,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Enterprise);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Enterprise);
         $result = [];
 
         $description = $object->description;
@@ -6769,9 +6769,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleInstallation);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleInstallation);
         $result = [];
 
         $id = $object->id;
@@ -6786,9 +6786,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone);
         $result = [];
 
         $closedAt = $object->closedAt;
@@ -6812,7 +6812,7 @@ class Milestone implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -6876,9 +6876,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone⚡️Creator(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneClosed⚡️Milestone⚡️Creator(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneClosed\Milestone\Creator);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneClosed\Milestone\Creator);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -7045,9 +7045,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\OrganizationSimple);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\OrganizationSimple);
         $result = [];
 
         $login = $object->login;
@@ -7106,9 +7106,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository);
         $result = [];
 
         $id = $object->id;
@@ -7152,12 +7152,12 @@ class Milestone implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
         $owner = $object->owner;
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -7490,7 +7490,7 @@ class Milestone implements ObjectMapper
         if ($templateRepository === null) {
             goto after_templateRepository;
         }
-        $templateRepository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($templateRepository);
+        $templateRepository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository($templateRepository);
         after_templateRepository:        $result['template_repository'] = $templateRepository;
 
         
@@ -7610,9 +7610,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\Permissions);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -7647,9 +7647,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\SimpleUser);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\SimpleUser);
         $result = [];
 
         $name = $object->name;
@@ -7756,9 +7756,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository);
         $result = [];
 
         $id = $object->id;
@@ -7798,7 +7798,7 @@ class Milestone implements ObjectMapper
         if ($owner === null) {
             goto after_owner;
         }
-        $owner = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($owner);
+        $owner = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         
@@ -8351,7 +8351,7 @@ class Milestone implements ObjectMapper
         if ($permissions === null) {
             goto after_permissions;
         }
-        $permissions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($permissions);
+        $permissions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         
@@ -8431,9 +8431,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Owner);
         $result = [];
 
         $login = $object->login;
@@ -8584,9 +8584,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Repository\TemplateRepository\Permissions);
         $result = [];
 
         $admin = $object->admin;
@@ -8633,9 +8633,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneCreated);
         $result = [];
 
         $action = $object->action;
@@ -8647,7 +8647,7 @@ class Milestone implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -8656,12 +8656,12 @@ class Milestone implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
         $milestone = $object->milestone;
-        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone($milestone);
+        $milestone = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone($milestone);
         after_milestone:        $result['milestone'] = $milestone;
 
         
@@ -8670,17 +8670,17 @@ class Milestone implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $repository = $object->repository;
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -8688,9 +8688,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone);
         $result = [];
 
         $closedAt = $object->closedAt;
@@ -8714,7 +8714,7 @@ class Milestone implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -8778,9 +8778,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneCreated\Milestone\Creator);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneCreated\Milestone\Creator);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -8947,9 +8947,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneDeleted(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneDeleted(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneDeleted);
         $result = [];
 
         $action = $object->action;
@@ -8961,7 +8961,7 @@ class Milestone implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -8970,12 +8970,12 @@ class Milestone implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
         $milestone = $object->milestone;
-        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone($milestone);
+        $milestone = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone($milestone);
         after_milestone:        $result['milestone'] = $milestone;
 
         
@@ -8984,17 +8984,17 @@ class Milestone implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $repository = $object->repository;
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -9002,9 +9002,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone);
         $result = [];
 
         $closedAt = $object->closedAt;
@@ -9028,7 +9028,7 @@ class Milestone implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -9092,9 +9092,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone⚡️Creator(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneDeleted⚡️Milestone⚡️Creator(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneDeleted\Milestone\Creator);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneDeleted\Milestone\Creator);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -9261,9 +9261,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneEdited);
         $result = [];
 
         $action = $object->action;
@@ -9271,7 +9271,7 @@ class Milestone implements ObjectMapper
 
         
         $changes = $object->changes;
-        $changes = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes($changes);
+        $changes = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes($changes);
         after_changes:        $result['changes'] = $changes;
 
         
@@ -9280,7 +9280,7 @@ class Milestone implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -9289,12 +9289,12 @@ class Milestone implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
         $milestone = $object->milestone;
-        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone($milestone);
+        $milestone = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone($milestone);
         after_milestone:        $result['milestone'] = $milestone;
 
         
@@ -9303,17 +9303,17 @@ class Milestone implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $repository = $object->repository;
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -9321,9 +9321,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes);
         $result = [];
 
         $description = $object->description;
@@ -9331,7 +9331,7 @@ class Milestone implements ObjectMapper
         if ($description === null) {
             goto after_description;
         }
-        $description = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Description($description);
+        $description = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Description($description);
         after_description:        $result['description'] = $description;
 
         
@@ -9340,7 +9340,7 @@ class Milestone implements ObjectMapper
         if ($dueOn === null) {
             goto after_dueOn;
         }
-        $dueOn = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️DueOn($dueOn);
+        $dueOn = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️DueOn($dueOn);
         after_dueOn:        $result['due_on'] = $dueOn;
 
         
@@ -9349,7 +9349,7 @@ class Milestone implements ObjectMapper
         if ($title === null) {
             goto after_title;
         }
-        $title = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Title($title);
+        $title = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Title($title);
         after_title:        $result['title'] = $title;
 
 
@@ -9357,9 +9357,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Description(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Description(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Description);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Description);
         $result = [];
 
         $from = $object->from;
@@ -9370,9 +9370,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️DueOn(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️DueOn(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\DueOn);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\DueOn);
         $result = [];
 
         $from = $object->from;
@@ -9383,9 +9383,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Title(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Changes⚡️Title(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Changes\Title);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Changes\Title);
         $result = [];
 
         $from = $object->from;
@@ -9396,9 +9396,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone);
         $result = [];
 
         $closedAt = $object->closedAt;
@@ -9422,7 +9422,7 @@ class Milestone implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookIssuesDemilestoned⚡️Milestone⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -9486,9 +9486,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone⚡️Creator(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneEdited⚡️Milestone⚡️Creator(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneEdited\Milestone\Creator);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneEdited\Milestone\Creator);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
@@ -9655,9 +9655,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneOpened(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneOpened);
         $result = [];
 
         $action = $object->action;
@@ -9669,7 +9669,7 @@ class Milestone implements ObjectMapper
         if ($enterprise === null) {
             goto after_enterprise;
         }
-        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Enterprise($enterprise);
+        $enterprise = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Enterprise($enterprise);
         after_enterprise:        $result['enterprise'] = $enterprise;
 
         
@@ -9678,12 +9678,12 @@ class Milestone implements ObjectMapper
         if ($installation === null) {
             goto after_installation;
         }
-        $installation = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleInstallation($installation);
+        $installation = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleInstallation($installation);
         after_installation:        $result['installation'] = $installation;
 
         
         $milestone = $object->milestone;
-        $milestone = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone($milestone);
+        $milestone = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone($milestone);
         after_milestone:        $result['milestone'] = $milestone;
 
         
@@ -9692,17 +9692,17 @@ class Milestone implements ObjectMapper
         if ($organization === null) {
             goto after_organization;
         }
-        $organization = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationSimple($organization);
+        $organization = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️OrganizationSimple($organization);
         after_organization:        $result['organization'] = $organization;
 
         
         $repository = $object->repository;
-        $repository = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($repository);
+        $repository = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Repository($repository);
         after_repository:        $result['repository'] = $repository;
 
         
         $sender = $object->sender;
-        $sender = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($sender);
+        $sender = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️SimpleUser($sender);
         after_sender:        $result['sender'] = $sender;
 
 
@@ -9710,9 +9710,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone);
         $result = [];
 
         $closedAt = $object->closedAt;
@@ -9736,7 +9736,7 @@ class Milestone implements ObjectMapper
         if ($creator === null) {
             goto after_creator;
         }
-        $creator = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator($creator);
+        $creator = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneCreated⚡️Milestone⚡️Creator($creator);
         after_creator:        $result['creator'] = $creator;
 
         
@@ -9800,9 +9800,9 @@ class Milestone implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone⚡️Creator(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone⚡️Creator(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone\Creator);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\WebhookMilestoneOpened\Milestone\Creator);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;

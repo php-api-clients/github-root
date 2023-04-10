@@ -1,13 +1,13 @@
 <?php
 
 declare (strict_types=1);
-namespace ApiClients\Client\GitHubAE\Operation\Repos;
+namespace ApiClients\Client\Github\Operation\Repos;
 
-use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
-use ApiClients\Client\GitHubAE\Hydrator;
-use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema;
-use ApiClients\Client\GitHubAE\WebHook;
+use ApiClients\Client\Github\Error as ErrorSchemas;
+use ApiClients\Client\Github\Hydrator;
+use ApiClients\Client\Github\Operation;
+use ApiClients\Client\Github\Schema;
+use ApiClients\Client\Github\WebHook;
 final class UploadReleaseAsset
 {
     public const OPERATION_ID = 'repos/upload-release-asset';
@@ -36,7 +36,7 @@ final class UploadReleaseAsset
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator = $hydrator;
     }
-    function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
     {
         $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\Repos\UploadReleaseAsset\Request\ApplicationoctetStream::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
         return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{release_id}', '{name}', '{label}'), array($this->owner, $this->repo, $this->releaseId, $this->name, $this->label), self::PATH . '?name={name}&label={label}'), array('Content-Type' => 'application/octet-stream'), json_encode($data));
@@ -44,7 +44,7 @@ final class UploadReleaseAsset
     /**
      * @return Schema\ReleaseAsset
      */
-    function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\ReleaseAsset
+    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\ReleaseAsset
     {
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         $body = json_decode($response->getBody()->getContents(), true);

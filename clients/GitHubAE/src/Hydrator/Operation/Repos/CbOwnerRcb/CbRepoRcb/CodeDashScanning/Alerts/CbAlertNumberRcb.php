@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts;
+namespace ApiClients\Client\Github\Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Alerts;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,20 +23,20 @@ class CbAlertNumberRcb implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\CodeScanningAlert' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlert($payload),
-                'ApiClients\Client\GitHubAE\Schema\CodeScanningAlertRule' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertRule($payload),
-                'ApiClients\Client\GitHubAE\Schema\CodeScanningAnalysisTool' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAnalysisTool($payload),
-                'ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertInstance($payload),
-                'ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance\Message' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($payload),
-                'ApiClients\Client\GitHubAE\Schema\CodeScanningAlertLocation' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertLocation($payload),
-                'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\GitHubAE\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️SecretScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($payload),
+            'ApiClients\Client\Github\Schema\CodeScanningAlert' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlert($payload),
+                'ApiClients\Client\Github\Schema\CodeScanningAlertRule' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertRule($payload),
+                'ApiClients\Client\Github\Schema\CodeScanningAnalysisTool' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAnalysisTool($payload),
+                'ApiClients\Client\Github\Schema\CodeScanningAlertInstance' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance($payload),
+                'ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($payload),
+                'ApiClients\Client\Github\Schema\CodeScanningAlertLocation' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertLocation($payload),
+                'ApiClients\Client\Github\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($payload),
+                'ApiClients\Client\Github\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️SecretScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlert(array $payload): \ApiClients\Client\GitHubAE\Schema\CodeScanningAlert
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlert(array $payload): \ApiClients\Client\Github\Schema\CodeScanningAlert
     {
         $properties = []; 
         $missingFields = [];
@@ -150,7 +150,7 @@ class CbAlertNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'rule';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertRule($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertRule($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -170,7 +170,7 @@ class CbAlertNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'tool';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAnalysisTool($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAnalysisTool($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -190,7 +190,7 @@ class CbAlertNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'mostRecentInstance';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertInstance($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -201,22 +201,22 @@ class CbAlertNumberRcb implements ObjectMapper
             after_mostRecentInstance:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeScanningAlert', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlert', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\CodeScanningAlert::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeScanningAlert::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\CodeScanningAlert(...$properties);
+            return new \ApiClients\Client\Github\Schema\CodeScanningAlert(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeScanningAlert', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlert', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertRule(array $payload): \ApiClients\Client\GitHubAE\Schema\CodeScanningAlertRule
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertRule(array $payload): \ApiClients\Client\Github\Schema\CodeScanningAlertRule
     {
         $properties = []; 
         $missingFields = [];
@@ -321,22 +321,22 @@ class CbAlertNumberRcb implements ObjectMapper
             after_helpUri:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeScanningAlertRule', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertRule', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\CodeScanningAlertRule::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeScanningAlertRule::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\CodeScanningAlertRule(...$properties);
+            return new \ApiClients\Client\Github\Schema\CodeScanningAlertRule(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeScanningAlertRule', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertRule', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAnalysisTool(array $payload): \ApiClients\Client\GitHubAE\Schema\CodeScanningAnalysisTool
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAnalysisTool(array $payload): \ApiClients\Client\Github\Schema\CodeScanningAnalysisTool
     {
         $properties = []; 
         $missingFields = [];
@@ -375,22 +375,22 @@ class CbAlertNumberRcb implements ObjectMapper
             after_guid:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeScanningAnalysisTool', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAnalysisTool', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\CodeScanningAnalysisTool::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeScanningAnalysisTool::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\CodeScanningAnalysisTool(...$properties);
+            return new \ApiClients\Client\Github\Schema\CodeScanningAnalysisTool(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeScanningAnalysisTool', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAnalysisTool', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertInstance(array $payload): \ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance(array $payload): \ApiClients\Client\Github\Schema\CodeScanningAlertInstance
     {
         $properties = []; 
         $missingFields = [];
@@ -471,7 +471,7 @@ class CbAlertNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'message';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -491,7 +491,7 @@ class CbAlertNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'location';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertLocation($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertLocation($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -524,22 +524,22 @@ class CbAlertNumberRcb implements ObjectMapper
             after_classifications:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertInstance', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeScanningAlertInstance::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance(...$properties);
+            return new \ApiClients\Client\Github\Schema\CodeScanningAlertInstance(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertInstance', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertInstance⚡️Message(array $payload): \ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance\Message
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance⚡️Message(array $payload): \ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message
     {
         $properties = []; 
         $missingFields = [];
@@ -556,22 +556,22 @@ class CbAlertNumberRcb implements ObjectMapper
             after_text:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance\Message', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance\Message::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance\Message(...$properties);
+            return new \ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance\Message', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertLocation(array $payload): \ApiClients\Client\GitHubAE\Schema\CodeScanningAlertLocation
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertLocation(array $payload): \ApiClients\Client\Github\Schema\CodeScanningAlertLocation
     {
         $properties = []; 
         $missingFields = [];
@@ -632,22 +632,22 @@ class CbAlertNumberRcb implements ObjectMapper
             after_endColumn:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeScanningAlertLocation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertLocation', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\CodeScanningAlertLocation::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\CodeScanningAlertLocation::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\CodeScanningAlertLocation(...$properties);
+            return new \ApiClients\Client\Github\Schema\CodeScanningAlertLocation(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\CodeScanningAlertLocation', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\CodeScanningAlertLocation', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubAE\Schema\BasicError
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\Github\Schema\BasicError
     {
         $properties = []; 
         $missingFields = [];
@@ -697,22 +697,22 @@ class CbAlertNumberRcb implements ObjectMapper
             after_status:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\BasicError(...$properties);
+            return new \ApiClients\Client\Github\Schema\BasicError(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\BasicError', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️SecretScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503(array $payload): \ApiClients\Client\GitHubAE\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️SecretScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503(array $payload): \ApiClients\Client\Github\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503
     {
         $properties = []; 
         $missingFields = [];
@@ -751,17 +751,17 @@ class CbAlertNumberRcb implements ObjectMapper
             after_documentationUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503(...$properties);
+            return new \ApiClients\Client\Github\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -796,14 +796,14 @@ class CbAlertNumberRcb implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubAE\Schema\CodeScanningAlert' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlert($object),
-            'ApiClients\Client\GitHubAE\Schema\CodeScanningAlertRule' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertRule($object),
-            'ApiClients\Client\GitHubAE\Schema\CodeScanningAnalysisTool' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAnalysisTool($object),
-            'ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertInstance($object),
-            'ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance\Message' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($object),
-            'ApiClients\Client\GitHubAE\Schema\CodeScanningAlertLocation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertLocation($object),
-            'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
-            'ApiClients\Client\GitHubAE\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️SecretScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($object),
+            'ApiClients\Client\Github\Schema\CodeScanningAlert' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlert($object),
+            'ApiClients\Client\Github\Schema\CodeScanningAlertRule' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertRule($object),
+            'ApiClients\Client\Github\Schema\CodeScanningAnalysisTool' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAnalysisTool($object),
+            'ApiClients\Client\Github\Schema\CodeScanningAlertInstance' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance($object),
+            'ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($object),
+            'ApiClients\Client\Github\Schema\CodeScanningAlertLocation' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertLocation($object),
+            'ApiClients\Client\Github\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\Github\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️SecretScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -877,9 +877,9 @@ class CbAlertNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlert(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlert(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\CodeScanningAlert);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeScanningAlert);
         $result = [];
 
         $number = $object->number;
@@ -931,17 +931,17 @@ class CbAlertNumberRcb implements ObjectMapper
 
         
         $rule = $object->rule;
-        $rule = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertRule($rule);
+        $rule = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertRule($rule);
         after_rule:        $result['rule'] = $rule;
 
         
         $tool = $object->tool;
-        $tool = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAnalysisTool($tool);
+        $tool = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAnalysisTool($tool);
         after_tool:        $result['tool'] = $tool;
 
         
         $mostRecentInstance = $object->mostRecentInstance;
-        $mostRecentInstance = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertInstance($mostRecentInstance);
+        $mostRecentInstance = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance($mostRecentInstance);
         after_mostRecentInstance:        $result['most_recent_instance'] = $mostRecentInstance;
 
 
@@ -949,9 +949,9 @@ class CbAlertNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertRule(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertRule(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\CodeScanningAlertRule);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeScanningAlertRule);
         $result = [];
 
         $id = $object->id;
@@ -1038,9 +1038,9 @@ class CbAlertNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAnalysisTool(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAnalysisTool(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\CodeScanningAnalysisTool);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeScanningAnalysisTool);
         $result = [];
 
         $name = $object->name;
@@ -1071,9 +1071,9 @@ class CbAlertNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertInstance(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeScanningAlertInstance);
         $result = [];
 
         $ref = $object->ref;
@@ -1129,7 +1129,7 @@ class CbAlertNumberRcb implements ObjectMapper
         if ($message === null) {
             goto after_message;
         }
-        $message = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($message);
+        $message = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance⚡️Message($message);
         after_message:        $result['message'] = $message;
 
         
@@ -1138,7 +1138,7 @@ class CbAlertNumberRcb implements ObjectMapper
         if ($location === null) {
             goto after_location;
         }
-        $location = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertLocation($location);
+        $location = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertLocation($location);
         after_location:        $result['location'] = $location;
 
         
@@ -1170,9 +1170,9 @@ class CbAlertNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertInstance⚡️Message(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertInstance⚡️Message(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\CodeScanningAlertInstance\Message);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeScanningAlertInstance\Message);
         $result = [];
 
         $text = $object->text;
@@ -1187,9 +1187,9 @@ class CbAlertNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️CodeScanningAlertLocation(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️CodeScanningAlertLocation(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\CodeScanningAlertLocation);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\CodeScanningAlertLocation);
         $result = [];
 
         $path = $object->path;
@@ -1236,9 +1236,9 @@ class CbAlertNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️BasicError(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BasicError);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\BasicError);
         $result = [];
 
         $message = $object->message;
@@ -1277,9 +1277,9 @@ class CbAlertNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operation⚡️SecretScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️Operation⚡️SecretScanning⚡️ListAlertsForEnterprise⚡️Response⚡️Applicationjson⚡️H503(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503);
         $result = [];
 
         $code = $object->code;

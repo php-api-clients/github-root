@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions;
+namespace ApiClients\Client\Github\Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -23,14 +23,14 @@ class CbDiscussionNumberRcb implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\TeamDiscussion' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamDiscussion($payload),
-                'ApiClients\Client\GitHubAE\Schema\ReactionRollup' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup($payload),
+            'ApiClients\Client\Github\Schema\TeamDiscussion' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TeamDiscussion($payload),
+                'ApiClients\Client\Github\Schema\ReactionRollup' => $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ReactionRollup($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamDiscussion(array $payload): \ApiClients\Client\GitHubAE\Schema\TeamDiscussion
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️TeamDiscussion(array $payload): \ApiClients\Client\Github\Schema\TeamDiscussion
     {
         $properties = []; 
         $missingFields = [];
@@ -232,7 +232,7 @@ class CbDiscussionNumberRcb implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'reactions';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ReactionRollup($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -243,22 +243,22 @@ class CbDiscussionNumberRcb implements ObjectMapper
             after_reactions:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TeamDiscussion', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\TeamDiscussion', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\TeamDiscussion::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\TeamDiscussion::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\TeamDiscussion(...$properties);
+            return new \ApiClients\Client\Github\Schema\TeamDiscussion(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TeamDiscussion', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\TeamDiscussion', $exception, stack: $this->hydrationStack);
         }
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup(array $payload): \ApiClients\Client\GitHubAE\Schema\ReactionRollup
+    private function hydrateApiClients⚡️Client⚡️Github⚡️Schema⚡️ReactionRollup(array $payload): \ApiClients\Client\Github\Schema\ReactionRollup
     {
         $properties = []; 
         $missingFields = [];
@@ -374,17 +374,17 @@ class CbDiscussionNumberRcb implements ObjectMapper
             after_rocket:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ReactionRollup', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ReactionRollup', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ReactionRollup::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\Github\Schema\ReactionRollup::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\ReactionRollup(...$properties);
+            return new \ApiClients\Client\Github\Schema\ReactionRollup(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ReactionRollup', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\Github\Schema\ReactionRollup', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -419,8 +419,8 @@ class CbDiscussionNumberRcb implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubAE\Schema\TeamDiscussion' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamDiscussion($object),
-            'ApiClients\Client\GitHubAE\Schema\ReactionRollup' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup($object),
+            'ApiClients\Client\Github\Schema\TeamDiscussion' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TeamDiscussion($object),
+            'ApiClients\Client\Github\Schema\ReactionRollup' => $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ReactionRollup($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -494,9 +494,9 @@ class CbDiscussionNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamDiscussion(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️TeamDiscussion(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\TeamDiscussion);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\TeamDiscussion);
         $result = [];
 
         $author = $object->author;
@@ -580,7 +580,7 @@ class CbDiscussionNumberRcb implements ObjectMapper
         if ($reactions === null) {
             goto after_reactions;
         }
-        $reactions = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup($reactions);
+        $reactions = $this->serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ReactionRollup($reactions);
         after_reactions:        $result['reactions'] = $reactions;
 
 
@@ -588,9 +588,9 @@ class CbDiscussionNumberRcb implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️Github⚡️Schema⚡️ReactionRollup(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ReactionRollup);
+        \assert($object instanceof \ApiClients\Client\Github\Schema\ReactionRollup);
         $result = [];
 
         $url = $object->url;
