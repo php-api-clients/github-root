@@ -17,7 +17,7 @@ final readonly class RunnerGroupsOrg
     /**
      * selectedRepositoriesUrl: Link to the selected repositories resource for this runner group. Not present unless visibility was set to `selected`
      */
-    public function __construct(public float $id, public string $name, public string $visibility, public bool $default, #[\EventSauce\ObjectHydrator\MapFrom('selected_repositories_url')] public ?string $selectedRepositoriesUrl, #[\EventSauce\ObjectHydrator\MapFrom('runners_url')] public string $runnersUrl, public bool $inherited, #[\EventSauce\ObjectHydrator\MapFrom('inherited_allows_public_repositories')] public ?bool $inheritedAllowsPublicRepositories, #[\EventSauce\ObjectHydrator\MapFrom('allows_public_repositories')] public bool $allowsPublicRepositories)
+    public function __construct(public int|float $id, public string $name, public string $visibility, public bool $default, #[\EventSauce\ObjectHydrator\MapFrom('selected_repositories_url')] public ?string $selectedRepositoriesUrl, #[\EventSauce\ObjectHydrator\MapFrom('runners_url')] public string $runnersUrl, public bool $inherited, #[\EventSauce\ObjectHydrator\MapFrom('inherited_allows_public_repositories')] public ?bool $inheritedAllowsPublicRepositories, #[\EventSauce\ObjectHydrator\MapFrom('allows_public_repositories')] public bool $allowsPublicRepositories)
     {
     }
 }

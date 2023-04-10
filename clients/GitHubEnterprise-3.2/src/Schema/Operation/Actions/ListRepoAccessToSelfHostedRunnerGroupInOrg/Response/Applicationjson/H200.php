@@ -17,7 +17,7 @@ final readonly class H200
     /**
      * @param array<\ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository> $repositories
      */
-    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public float $totalCount, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\MinimalRepository::class)] public array $repositories)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public int|float $totalCount, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\MinimalRepository::class)] public array $repositories)
     {
     }
 }

@@ -17,7 +17,7 @@ final readonly class H200
     /**
      * @param array<\ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise> $runnerGroups
      */
-    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public float $totalCount, #[\EventSauce\ObjectHydrator\MapFrom('runner_groups')] #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\RunnerGroupsEnterprise::class)] public array $runnerGroups)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public int|float $totalCount, #[\EventSauce\ObjectHydrator\MapFrom('runner_groups')] #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\RunnerGroupsEnterprise::class)] public array $runnerGroups)
     {
     }
 }

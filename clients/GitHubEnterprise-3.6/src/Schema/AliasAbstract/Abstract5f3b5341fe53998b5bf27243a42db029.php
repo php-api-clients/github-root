@@ -17,7 +17,7 @@ abstract readonly class Abstract5f3b5341fe53998b5bf27243a42db029
     /**
      * @param array<\ApiClients\Client\GitHubEnterprise\Schema\Runner> $runners
      */
-    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public float $totalCount, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Runner::class)] public array $runners)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public int|float $totalCount, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\Runner::class)] public array $runners)
     {
     }
 }

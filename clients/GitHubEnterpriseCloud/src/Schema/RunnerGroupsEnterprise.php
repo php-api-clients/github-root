@@ -20,7 +20,7 @@ final readonly class RunnerGroupsEnterprise
      * selectedWorkflows: List of workflows the runner group should be allowed to run. This setting will be ignored unless `restricted_to_workflows` is set to `true`.
      * @param ?array<string> $selectedWorkflows
      */
-    public function __construct(public float $id, public string $name, public string $visibility, public bool $default, #[\EventSauce\ObjectHydrator\MapFrom('selected_organizations_url')] public ?string $selectedOrganizationsUrl, #[\EventSauce\ObjectHydrator\MapFrom('runners_url')] public string $runnersUrl, #[\EventSauce\ObjectHydrator\MapFrom('allows_public_repositories')] public bool $allowsPublicRepositories, #[\EventSauce\ObjectHydrator\MapFrom('workflow_restrictions_read_only')] public ?bool $workflowRestrictionsReadOnly, #[\EventSauce\ObjectHydrator\MapFrom('restricted_to_workflows')] public ?bool $restrictedToWorkflows, #[\EventSauce\ObjectHydrator\MapFrom('selected_workflows')] public ?array $selectedWorkflows)
+    public function __construct(public int|float $id, public string $name, public string $visibility, public bool $default, #[\EventSauce\ObjectHydrator\MapFrom('selected_organizations_url')] public ?string $selectedOrganizationsUrl, #[\EventSauce\ObjectHydrator\MapFrom('runners_url')] public string $runnersUrl, #[\EventSauce\ObjectHydrator\MapFrom('allows_public_repositories')] public bool $allowsPublicRepositories, #[\EventSauce\ObjectHydrator\MapFrom('workflow_restrictions_read_only')] public ?bool $workflowRestrictionsReadOnly, #[\EventSauce\ObjectHydrator\MapFrom('restricted_to_workflows')] public ?bool $restrictedToWorkflows, #[\EventSauce\ObjectHydrator\MapFrom('selected_workflows')] public ?array $selectedWorkflows)
     {
     }
 }

@@ -17,7 +17,7 @@ abstract readonly class Abstract7ccdeb8d72c56f2084ef071e7f398831
     /**
      * @param array<\ApiClients\Client\GitHubEnterprise\Schema\OrganizationSimple> $organizations
      */
-    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public float $totalCount, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\OrganizationSimple::class)] public array $organizations)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public int|float $totalCount, #[\EventSauce\ObjectHydrator\PropertyCasters\CastListToType(Schema\OrganizationSimple::class)] public array $organizations)
     {
     }
 }
