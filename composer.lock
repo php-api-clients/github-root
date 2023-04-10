@@ -52,12 +52,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/github.git",
-                "reference": "41a709967a98f09cd41ac83a8f14536c4851f39c"
+                "reference": "b79ffb740aa64560f4d21712dfea7ac76600a10c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/github/zipball/41a709967a98f09cd41ac83a8f14536c4851f39c",
-                "reference": "41a709967a98f09cd41ac83a8f14536c4851f39c",
+                "url": "https://api.github.com/repos/php-api-clients/github/zipball/b79ffb740aa64560f4d21712dfea7ac76600a10c",
+                "reference": "b79ffb740aa64560f4d21712dfea7ac76600a10c",
                 "shasum": ""
             },
             "require": {
@@ -93,7 +93,7 @@
                 "issues": "https://github.com/php-api-clients/github/issues",
                 "source": "https://github.com/php-api-clients/github/tree/v0.2.x"
             },
-            "time": "2023-04-10T13:30:48+00:00"
+            "time": "2023-04-10T14:13:19+00:00"
         },
         {
             "name": "cebe/php-openapi",
@@ -2885,12 +2885,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/openapi-client-generator.git",
-                "reference": "ec369bb92d2388455862be77236e93dfceaa4299"
+                "reference": "0b2bb556b6e96f0449abe677fd9bfdcb31c65cd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/ec369bb92d2388455862be77236e93dfceaa4299",
-                "reference": "ec369bb92d2388455862be77236e93dfceaa4299",
+                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/0b2bb556b6e96f0449abe677fd9bfdcb31c65cd4",
+                "reference": "0b2bb556b6e96f0449abe677fd9bfdcb31c65cd4",
                 "shasum": ""
             },
             "require": {
@@ -2959,7 +2959,7 @@
                 "issues": "https://github.com/php-api-clients/openapi-client-generator/issues",
                 "source": "https://github.com/php-api-clients/openapi-client-generator/tree/master"
             },
-            "time": "2023-04-10T14:04:22+00:00"
+            "time": "2023-04-10T17:21:05+00:00"
         },
         {
             "name": "azjezz/psl",

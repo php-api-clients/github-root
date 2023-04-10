@@ -77,6 +77,15 @@ class Invitations implements ObjectMapper
                 goto after_invitee;
             }
 
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'invitee';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
             $properties['invitee'] = $value;
 
             after_invitee:
@@ -86,6 +95,15 @@ class Invitations implements ObjectMapper
             if ($value === null) {
                 $properties['inviter'] = null;
                 goto after_inviter;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'inviter';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
             }
 
             $properties['inviter'] = $value;
@@ -1752,6 +1770,7 @@ class Invitations implements ObjectMapper
         if ($invitee === null) {
             goto after_invitee;
         }
+        $invitee = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($invitee);
         after_invitee:        $result['invitee'] = $invitee;
 
         
@@ -1760,6 +1779,7 @@ class Invitations implements ObjectMapper
         if ($inviter === null) {
             goto after_inviter;
         }
+        $inviter = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($inviter);
         after_inviter:        $result['inviter'] = $inviter;
 
         

@@ -80,6 +80,15 @@ class CbUsernameRcb implements ObjectMapper
                 goto after_invitee;
             }
 
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'invitee';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
             $properties['invitee'] = $value;
 
             after_invitee:
@@ -89,6 +98,15 @@ class CbUsernameRcb implements ObjectMapper
             if ($value === null) {
                 $properties['inviter'] = null;
                 goto after_inviter;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'inviter';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
             }
 
             $properties['inviter'] = $value;
@@ -2007,6 +2025,7 @@ class CbUsernameRcb implements ObjectMapper
         if ($invitee === null) {
             goto after_invitee;
         }
+        $invitee = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($invitee);
         after_invitee:        $result['invitee'] = $invitee;
 
         
@@ -2015,6 +2034,7 @@ class CbUsernameRcb implements ObjectMapper
         if ($inviter === null) {
             goto after_inviter;
         }
+        $inviter = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($inviter);
         after_inviter:        $result['inviter'] = $inviter;
 
         
