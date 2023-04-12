@@ -26,6 +26,7 @@ class GpgKeys implements ObjectMapper
             'ApiClients\Client\GitHubEnterprise\Schema\GpgKey' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GpgKey($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Emails' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GpgKey⚡️Emails($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Subkeys' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GpgKey⚡️Subkeys($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Subkeys\Emails' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GpgKey⚡️Subkeys⚡️Emails($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -314,6 +315,16 @@ class GpgKeys implements ObjectMapper
                 goto after_emails;
             }
 
+            static $emailsCaster1;
+
+            if ($emailsCaster1 === null) {
+                $emailsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GpgKey\\Subkeys\\Emails',
+));
+            }
+
+            $value = $emailsCaster1->cast($value, $this);
+
             $properties['emails'] = $value;
 
             after_emails:
@@ -420,6 +431,49 @@ class GpgKeys implements ObjectMapper
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Subkeys', $exception, stack: $this->hydrationStack);
         }
     }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GpgKey⚡️Subkeys⚡️Emails(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Subkeys\Emails
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['verified'] ?? null;
+
+            if ($value === null) {
+                $properties['verified'] = null;
+                goto after_verified;
+            }
+
+            $properties['verified'] = $value;
+
+            after_verified:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Subkeys\Emails', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Subkeys\Emails::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Subkeys\Emails(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Subkeys\Emails', $exception, stack: $this->hydrationStack);
+        }
+    }
     
     private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
     {
@@ -455,6 +509,7 @@ class GpgKeys implements ObjectMapper
             'ApiClients\Client\GitHubEnterprise\Schema\GpgKey' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GpgKey($object),
             'ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Emails' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GpgKey⚡️Emails($object),
             'ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Subkeys' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GpgKey⚡️Subkeys($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Subkeys\Emails' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GpgKey⚡️Subkeys⚡️Emails($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -689,7 +744,8 @@ class GpgKeys implements ObjectMapper
         static $emailsSerializer0;
 
         if ($emailsSerializer0 === null) {
-            $emailsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+            $emailsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
+  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GpgKey\\Subkeys\\Emails',
 ));
         }
         
@@ -767,6 +823,31 @@ class GpgKeys implements ObjectMapper
             goto after_rawKey;
         }
         after_rawKey:        $result['raw_key'] = $rawKey;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GpgKey⚡️Subkeys⚡️Emails(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\GpgKey\Subkeys\Emails);
+        $result = [];
+
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+        
+        $verified = $object->verified;
+
+        if ($verified === null) {
+            goto after_verified;
+        }
+        after_verified:        $result['verified'] = $verified;
 
 
         return $result;

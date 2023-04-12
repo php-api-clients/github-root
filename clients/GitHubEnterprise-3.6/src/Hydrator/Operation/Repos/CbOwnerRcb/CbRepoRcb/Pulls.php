@@ -4980,7 +4980,7 @@ class Pulls implements ObjectMapper
             $value = $payload['user'] ?? null;
 
             if ($value === null) {
-                $properties['user'] = null;
+                $missingFields[] = 'user';
                 goto after_user;
             }
 
@@ -11734,10 +11734,6 @@ class Pulls implements ObjectMapper
 
         
         $user = $object->user;
-
-        if ($user === null) {
-            goto after_user;
-        }
         $user = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($user);
         after_user:        $result['user'] = $user;
 
