@@ -13,7 +13,7 @@ final class RemovePreReceiveHookEnforcementForOrgTest extends \WyriHaximus\Async
     /**
      * @test
      */
-    public function t200td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_200_responseContentType_application_json()
     {
         $response = new \React\Http\Message\Response(200, array('Content-Type' => 'application/json'), Schema\OrgPreReceiveHook::SCHEMA_EXAMPLE_DATA);
         $auth = $this->prophesize(\ApiClients\Contracts\HTTP\Headers\AuthenticationInterface::class);
@@ -21,8 +21,12 @@ final class RemovePreReceiveHookEnforcementForOrgTest extends \WyriHaximus\Async
         $browser = $this->prophesize(\React\Http\Browser::class);
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/orgs/generated_null/pre-receive-hooks/13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/orgs/generated_null/pre-receive-hooks/13', \Prophecy\Argument::type('array'), \Prophecy\Argument::any())->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
         $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\RemovePreReceiveHookEnforcementForOrg::OPERATION_MATCH, array('org' => 'generated_null', 'pre_receive_hook_id' => 13));
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\RemovePreReceiveHookEnforcementForOrg::OPERATION_MATCH, (static function (array $data) : array {
+            $data['org'] = 'generated_null';
+            $data['pre_receive_hook_id'] = 13;
+            return $data;
+        })(array()));
     }
 }

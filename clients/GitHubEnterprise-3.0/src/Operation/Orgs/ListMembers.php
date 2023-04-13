@@ -49,33 +49,37 @@ final class ListMembers
      */
     public function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable|array
     {
+        $code = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
-        $body = json_decode($response->getBody()->getContents(), true);
-        switch ($response->getStatusCode()) {
-            /**Response**/
-            case 200:
-                switch ($contentType) {
-                    case 'application/json':
+        switch ($contentType) {
+            case 'application/json':
+                $body = json_decode($response->getBody()->getContents(), true);
+                switch ($code) {
+                    /**
+                     * Response
+                    **/
+                    case 200:
                         foreach ($body as $bodyItem) {
                             $this->responseSchemaValidator->validate($bodyItem, \cebe\openapi\Reader::readFromJson(Schema\SimpleUser::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         }
                         return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\SimpleUser {
                             return $this->hydrator->hydrateObject(Schema\SimpleUser::class, $body);
                         });
-                }
-                break;
-            /**Response if requester is not an organization member**/
-            case 302:
-                return array('code' => 302, 'location' => $response->getHeaderLine('Location'));
-                break;
-            /**Validation failed**/
-            case 422:
-                switch ($contentType) {
-                    case 'application/json':
+                    /**
+                     * Validation failed
+                    **/
+                    case 422:
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
                 }
                 break;
+        }
+        switch ($code) {
+            /**
+             * Response if requester is not an organization member
+            **/
+            case 302:
+                return array('code' => 302, 'location' => $response->getHeaderLine('Location'));
         }
         throw new \RuntimeException('Unable to find matching response code and content type');
     }

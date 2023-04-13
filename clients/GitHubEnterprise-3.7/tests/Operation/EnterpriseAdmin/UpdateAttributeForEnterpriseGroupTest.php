@@ -13,7 +13,7 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
     /**
      * @test
      */
-    public function t200te721a100ec95fd3067a83a0920ca7a5e()
+    public function httpCode_200_requestContentType_application_json_responseContentType_application_scim_json()
     {
         $response = new \React\Http\Message\Response(200, array('Content-Type' => 'application/scim+json'), Schema\ScimEnterpriseGroupResponse::SCHEMA_EXAMPLE_DATA);
         $auth = $this->prophesize(\ApiClients\Contracts\HTTP\Headers\AuthenticationInterface::class);
@@ -31,7 +31,7 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
     /**
      * @test
      */
-    public function t400td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_400_requestContentType_application_json_responseContentType_application_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(400, array('Content-Type' => 'application/json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -50,7 +50,7 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
     /**
      * @test
      */
-    public function t400te721a100ec95fd3067a83a0920ca7a5e()
+    public function httpCode_400_requestContentType_application_json_responseContentType_application_scim_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(400, array('Content-Type' => 'application/scim+json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -69,7 +69,7 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
     /**
      * @test
      */
-    public function t404td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_404_requestContentType_application_json_responseContentType_application_json()
     {
         self::expectException(ErrorSchemas\BasicError::class);
         $response = new \React\Http\Message\Response(404, array('Content-Type' => 'application/json'), Schema\BasicError::SCHEMA_EXAMPLE_DATA);
@@ -88,7 +88,7 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
     /**
      * @test
      */
-    public function t429td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_429_requestContentType_application_json_responseContentType_application_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(429, array('Content-Type' => 'application/json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -107,7 +107,7 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
     /**
      * @test
      */
-    public function t429te721a100ec95fd3067a83a0920ca7a5e()
+    public function httpCode_429_requestContentType_application_json_responseContentType_application_scim_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(429, array('Content-Type' => 'application/scim+json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -126,7 +126,7 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
     /**
      * @test
      */
-    public function t500td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_500_requestContentType_application_json_responseContentType_application_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(500, array('Content-Type' => 'application/json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -145,7 +145,7 @@ final class UpdateAttributeForEnterpriseGroupTest extends \WyriHaximus\AsyncTest
     /**
      * @test
      */
-    public function t500te721a100ec95fd3067a83a0920ca7a5e()
+    public function httpCode_500_requestContentType_application_json_responseContentType_application_scim_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(500, array('Content-Type' => 'application/scim+json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);

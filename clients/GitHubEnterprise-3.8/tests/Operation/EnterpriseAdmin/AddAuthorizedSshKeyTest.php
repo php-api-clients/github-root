@@ -13,7 +13,7 @@ final class AddAuthorizedSshKeyTest extends \WyriHaximus\AsyncTestUtilities\Asyn
     /**
      * @test
      */
-    public function t201td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_201_requestContentType_application_x_www_form_urlencoded_responseContentType_application_json()
     {
         $response = new \React\Http\Message\Response(201, array('Content-Type' => 'application/json'), '[' . (Schema\SshKey::SCHEMA_EXAMPLE_DATA . ']'));
         $auth = $this->prophesize(\ApiClients\Contracts\HTTP\Headers\AuthenticationInterface::class);

@@ -39,21 +39,22 @@ final class Topics
      */
     public function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Operation\Search\Topics\Response\Applicationjson\H200
     {
+        $code = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
-        $body = json_decode($response->getBody()->getContents(), true);
-        switch ($response->getStatusCode()) {
-            /**Response**/
-            case 200:
-                switch ($contentType) {
-                    case 'application/json':
+        switch ($contentType) {
+            case 'application/json':
+                $body = json_decode($response->getBody()->getContents(), true);
+                switch ($code) {
+                    /**
+                     * Response
+                    **/
+                    case 200:
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Search\Topics\Response\Applicationjson\H200::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         return $this->hydrator->hydrateObject(Schema\Operation\Search\Topics\Response\Applicationjson\H200::class, $body);
-                }
-                break;
-            /**Preview header missing**/
-            case 415:
-                switch ($contentType) {
-                    case 'application/json':
+                    /**
+                     * Preview header missing
+                    **/
+                    case 415:
                         $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         throw new ErrorSchemas\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415(415, $this->hydrator->hydrateObject(Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415::class, $body));
                 }

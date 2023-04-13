@@ -4047,17 +4047,6 @@ class Membership implements ObjectMapper
 
             after_privacy:
 
-            $value = $payload['notification_setting'] ?? null;
-
-            if ($value === null) {
-                $properties['notificationSetting'] = null;
-                goto after_notificationSetting;
-            }
-
-            $properties['notificationSetting'] = $value;
-
-            after_notificationSetting:
-
             $value = $payload['repositories_url'] ?? null;
 
             if ($value === null) {
@@ -4199,17 +4188,6 @@ class Membership implements ObjectMapper
             $properties['privacy'] = $value;
 
             after_privacy:
-
-            $value = $payload['notification_setting'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'notification_setting';
-                goto after_notificationSetting;
-            }
-
-            $properties['notificationSetting'] = $value;
-
-            after_notificationSetting:
 
             $value = $payload['repositories_url'] ?? null;
 
@@ -5071,17 +5049,6 @@ class Membership implements ObjectMapper
 
             after_privacy:
 
-            $value = $payload['notification_setting'] ?? null;
-
-            if ($value === null) {
-                $properties['notificationSetting'] = null;
-                goto after_notificationSetting;
-            }
-
-            $properties['notificationSetting'] = $value;
-
-            after_notificationSetting:
-
             $value = $payload['repositories_url'] ?? null;
 
             if ($value === null) {
@@ -5223,17 +5190,6 @@ class Membership implements ObjectMapper
             $properties['privacy'] = $value;
 
             after_privacy:
-
-            $value = $payload['notification_setting'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'notification_setting';
-                goto after_notificationSetting;
-            }
-
-            $properties['notificationSetting'] = $value;
-
-            after_notificationSetting:
 
             $value = $payload['repositories_url'] ?? null;
 
@@ -7700,14 +7656,6 @@ class Membership implements ObjectMapper
         after_privacy:        $result['privacy'] = $privacy;
 
         
-        $notificationSetting = $object->notificationSetting;
-
-        if ($notificationSetting === null) {
-            goto after_notificationSetting;
-        }
-        after_notificationSetting:        $result['notification_setting'] = $notificationSetting;
-
-        
         $repositoriesUrl = $object->repositoriesUrl;
 
         if ($repositoriesUrl === null) {
@@ -7775,10 +7723,6 @@ class Membership implements ObjectMapper
         
         $privacy = $object->privacy;
         after_privacy:        $result['privacy'] = $privacy;
-
-        
-        $notificationSetting = $object->notificationSetting;
-        after_notificationSetting:        $result['notification_setting'] = $notificationSetting;
 
         
         $repositoriesUrl = $object->repositoriesUrl;
@@ -8285,14 +8229,6 @@ class Membership implements ObjectMapper
         after_privacy:        $result['privacy'] = $privacy;
 
         
-        $notificationSetting = $object->notificationSetting;
-
-        if ($notificationSetting === null) {
-            goto after_notificationSetting;
-        }
-        after_notificationSetting:        $result['notification_setting'] = $notificationSetting;
-
-        
         $repositoriesUrl = $object->repositoriesUrl;
 
         if ($repositoriesUrl === null) {
@@ -8360,10 +8296,6 @@ class Membership implements ObjectMapper
         
         $privacy = $object->privacy;
         after_privacy:        $result['privacy'] = $privacy;
-
-        
-        $notificationSetting = $object->notificationSetting;
-        after_notificationSetting:        $result['notification_setting'] = $notificationSetting;
 
         
         $repositoriesUrl = $object->repositoriesUrl;

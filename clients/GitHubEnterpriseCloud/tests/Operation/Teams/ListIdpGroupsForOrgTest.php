@@ -13,7 +13,7 @@ final class ListIdpGroupsForOrgTest extends \WyriHaximus\AsyncTestUtilities\Asyn
     /**
      * @test
      */
-    public function t200td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_200_responseContentType_application_json()
     {
         $response = new \React\Http\Message\Response(200, array('Content-Type' => 'application/json'), Schema\GroupMapping::SCHEMA_EXAMPLE_DATA);
         $auth = $this->prophesize(\ApiClients\Contracts\HTTP\Headers\AuthenticationInterface::class);
@@ -21,8 +21,14 @@ final class ListIdpGroupsForOrgTest extends \WyriHaximus\AsyncTestUtilities\Asyn
         $browser = $this->prophesize(\React\Http\Browser::class);
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/orgs/generated_null/team-sync/groups?page=generated_null&q=generated_null&per_page=13', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/orgs/generated_null/team-sync/groups?page=generated_null&q=generated_null&per_page=13', \Prophecy\Argument::type('array'), \Prophecy\Argument::any())->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
         $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Teams\ListIdpGroupsForOrg::OPERATION_MATCH, array('org' => 'generated_null', 'page' => 'generated_null', 'q' => 'generated_null', 'per_page' => 13));
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Teams\ListIdpGroupsForOrg::OPERATION_MATCH, (static function (array $data) : array {
+            $data['org'] = 'generated_null';
+            $data['page'] = 'generated_null';
+            $data['q'] = 'generated_null';
+            $data['per_page'] = 13;
+            return $data;
+        })(array()));
     }
 }

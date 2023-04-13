@@ -13,7 +13,7 @@ final class GetServerStatisticsTest extends \WyriHaximus\AsyncTestUtilities\Asyn
     /**
      * @test
      */
-    public function t200td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_200_responseContentType_application_json()
     {
         $response = new \React\Http\Message\Response(200, array('Content-Type' => 'application/json'), '[' . (Schema\ServerStatistics::SCHEMA_EXAMPLE_DATA . ']'));
         $auth = $this->prophesize(\ApiClients\Contracts\HTTP\Headers\AuthenticationInterface::class);
@@ -21,8 +21,13 @@ final class GetServerStatisticsTest extends \WyriHaximus\AsyncTestUtilities\Asyn
         $browser = $this->prophesize(\React\Http\Browser::class);
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/enterprise-installation/generated_null/server-statistics?date_start=generated_null&date_end=generated_null', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/enterprise-installation/generated_null/server-statistics?date_start=generated_null&date_end=generated_null', \Prophecy\Argument::type('array'), \Prophecy\Argument::any())->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
         $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin\GetServerStatistics::OPERATION_MATCH, array('enterprise_or_org' => 'generated_null', 'date_start' => 'generated_null', 'date_end' => 'generated_null'));
+        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin\GetServerStatistics::OPERATION_MATCH, (static function (array $data) : array {
+            $data['enterprise_or_org'] = 'generated_null';
+            $data['date_start'] = 'generated_null';
+            $data['date_end'] = 'generated_null';
+            return $data;
+        })(array()));
     }
 }

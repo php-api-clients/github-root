@@ -13,7 +13,7 @@ final class ProvisionEnterpriseGroupTest extends \WyriHaximus\AsyncTestUtilities
     /**
      * @test
      */
-    public function t201te721a100ec95fd3067a83a0920ca7a5e()
+    public function httpCode_201_requestContentType_application_json_responseContentType_application_scim_json()
     {
         $response = new \React\Http\Message\Response(201, array('Content-Type' => 'application/scim+json'), Schema\ScimEnterpriseGroupResponse::SCHEMA_EXAMPLE_DATA);
         $auth = $this->prophesize(\ApiClients\Contracts\HTTP\Headers\AuthenticationInterface::class);
@@ -30,7 +30,7 @@ final class ProvisionEnterpriseGroupTest extends \WyriHaximus\AsyncTestUtilities
     /**
      * @test
      */
-    public function t400td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_400_requestContentType_application_json_responseContentType_application_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(400, array('Content-Type' => 'application/json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -48,7 +48,7 @@ final class ProvisionEnterpriseGroupTest extends \WyriHaximus\AsyncTestUtilities
     /**
      * @test
      */
-    public function t400te721a100ec95fd3067a83a0920ca7a5e()
+    public function httpCode_400_requestContentType_application_json_responseContentType_application_scim_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(400, array('Content-Type' => 'application/scim+json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -66,7 +66,7 @@ final class ProvisionEnterpriseGroupTest extends \WyriHaximus\AsyncTestUtilities
     /**
      * @test
      */
-    public function t429td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_429_requestContentType_application_json_responseContentType_application_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(429, array('Content-Type' => 'application/json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -84,7 +84,7 @@ final class ProvisionEnterpriseGroupTest extends \WyriHaximus\AsyncTestUtilities
     /**
      * @test
      */
-    public function t429te721a100ec95fd3067a83a0920ca7a5e()
+    public function httpCode_429_requestContentType_application_json_responseContentType_application_scim_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(429, array('Content-Type' => 'application/scim+json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -102,7 +102,7 @@ final class ProvisionEnterpriseGroupTest extends \WyriHaximus\AsyncTestUtilities
     /**
      * @test
      */
-    public function t500td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_500_requestContentType_application_json_responseContentType_application_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(500, array('Content-Type' => 'application/json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -120,7 +120,7 @@ final class ProvisionEnterpriseGroupTest extends \WyriHaximus\AsyncTestUtilities
     /**
      * @test
      */
-    public function t500te721a100ec95fd3067a83a0920ca7a5e()
+    public function httpCode_500_requestContentType_application_json_responseContentType_application_scim_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(500, array('Content-Type' => 'application/scim+json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);

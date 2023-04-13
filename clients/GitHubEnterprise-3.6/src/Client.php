@@ -2423,7 +2423,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\ListProvisionedGroupsEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Groups::class], $arguments['filter'], $arguments['excludedAttributes'], $arguments['startIndex'], $arguments['count']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : mixed {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -2455,7 +2455,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\ListProvisionedIdentitiesEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Users::class], $arguments['filter'], $arguments['excludedAttributes'], $arguments['startIndex'], $arguments['count']);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserList {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : mixed {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -4696,7 +4696,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetContent($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contents\CbPathRcb::class], $arguments['owner'], $arguments['repo'], $arguments['path'], $arguments['ref']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ContentTree|\ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\GetContent\Response\Applicationjson\H200 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Repos\GetContent\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -6007,12 +6007,9 @@ final class Client implements ClientInterface
                             }
                             $arguments['s'] = $params['s'];
                             unset($params['s']);
-                            if (\array_key_exists(Hydrator\Operation\Octocat::class, $this->hydrator) == false) {
-                                $this->hydrator[Hydrator\Operation\Octocat::class] = $this->hydrators->getObjectMapperOperation🌀Octocat();
-                            }
-                            $operation = new Operation\Meta\GetOctocat($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Octocat::class], $arguments['s']);
+                            $operation = new Operation\Meta\GetOctocat($arguments['s']);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\Operation\Meta\GetOctocat\Response\ApplicationoctocatStream\H200 {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -8092,7 +8089,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Groups\CbScimGroupIdRcb::class], $arguments['scim_group_id'], $arguments['excludedAttributes']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupResponse {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : mixed {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -8111,7 +8108,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Users\CbScimUserIdRcb::class], $arguments['scim_user_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserResponse {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : mixed {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -9370,7 +9367,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\CodeScanning\GetAnalysis($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Analyses\CbAnalysisIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['analysis_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CodeScanningAnalysis|\ApiClients\Client\GitHubEnterprise\Schema\Operation\CodeScanning\GetAnalysis\Response\ApplicationjsonPlusSarif\H200 {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\CodeScanningAnalysis {
                                                     return $operation->createResponse($response);
                                                 });
                                             }
@@ -14063,7 +14060,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\ProvisionEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Groups::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupResponse {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : mixed {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -14075,7 +14072,7 @@ final class Client implements ClientInterface
                                     }
                                     $operation = new Operation\EnterpriseAdmin\ProvisionEnterpriseUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Users::class]);
                                     $request = $operation->createRequest($params);
-                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserResponse {
+                                    return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : mixed {
                                         return $operation->createResponse($response);
                                     });
                                 }
@@ -20116,7 +20113,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Groups\CbScimGroupIdRcb::class], $arguments['scim_group_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupResponse {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : mixed {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -20135,7 +20132,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Users\CbScimUserIdRcb::class], $arguments['scim_user_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserResponse {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : mixed {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -21304,7 +21301,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Groups\CbScimGroupIdRcb::class], $arguments['scim_group_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupResponse {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : mixed {
                                             return $operation->createResponse($response);
                                         });
                                     }
@@ -21323,7 +21320,7 @@ final class Client implements ClientInterface
                                         }
                                         $operation = new Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Users\CbScimUserIdRcb::class], $arguments['scim_user_id']);
                                         $request = $operation->createRequest($params);
-                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseUserResponse {
+                                        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : mixed {
                                             return $operation->createResponse($response);
                                         });
                                     }

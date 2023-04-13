@@ -8,6 +8,6 @@ use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\WebHook;
-final readonly class H200 extends Schema\AliasAbstract\Abstract5f3b5341fe53998b5bf27243a42db029
+final readonly class H200 extends Schema\AliasAbstract\Abstract64c370de030b21c90fe13f381e6a295d
 {
 }

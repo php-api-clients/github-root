@@ -4096,7 +4096,7 @@ final class Client implements ClientInterface
                                             }
                                             $operation = new Operation\Repos\GetContent($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contents\CbPathRcb::class], $arguments['owner'], $arguments['repo'], $arguments['path'], $arguments['ref']);
                                             $request = $operation->createRequest($params);
-                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubAE\Schema\ContentTree|\ApiClients\Client\GitHubAE\Schema\Operation\Repos\GetContent\Response\Applicationjson\H200 {
+                                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubAE\Schema\Operation\Repos\GetContent\Response\Applicationjson\H200 {
                                                 return $operation->createResponse($response);
                                             });
                                         }
@@ -5150,12 +5150,9 @@ final class Client implements ClientInterface
                             }
                             $arguments['s'] = $params['s'];
                             unset($params['s']);
-                            if (\array_key_exists(Hydrator\Operation\Octocat::class, $this->hydrator) == false) {
-                                $this->hydrator[Hydrator\Operation\Octocat::class] = $this->hydrators->getObjectMapperOperation🌀Octocat();
-                            }
-                            $operation = new Operation\Meta\GetOctocat($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Octocat::class], $arguments['s']);
+                            $operation = new Operation\Meta\GetOctocat($arguments['s']);
                             $request = $operation->createRequest($params);
-                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubAE\Schema\Operation\Meta\GetOctocat\Response\ApplicationoctocatStream\H200 {
+                            return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Psr\Http\Message\ResponseInterface {
                                 return $operation->createResponse($response);
                             });
                         }
@@ -7880,7 +7877,7 @@ final class Client implements ClientInterface
                                                 }
                                                 $operation = new Operation\CodeScanning\GetAnalysis($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CodeDashScanning\Analyses\CbAnalysisIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['analysis_id']);
                                                 $request = $operation->createRequest($params);
-                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubAE\Schema\CodeScanningAnalysis|\ApiClients\Client\GitHubAE\Schema\Operation\CodeScanning\GetAnalysis\Response\ApplicationjsonPlusSarif\H200 {
+                                                return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubAE\Schema\CodeScanningAnalysis {
                                                     return $operation->createResponse($response);
                                                 });
                                             }

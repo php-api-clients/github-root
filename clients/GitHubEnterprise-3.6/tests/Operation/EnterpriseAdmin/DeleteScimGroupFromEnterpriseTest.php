@@ -13,7 +13,7 @@ final class DeleteScimGroupFromEnterpriseTest extends \WyriHaximus\AsyncTestUtil
     /**
      * @test
      */
-    public function t400td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_400_responseContentType_application_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(400, array('Content-Type' => 'application/json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -22,14 +22,17 @@ final class DeleteScimGroupFromEnterpriseTest extends \WyriHaximus\AsyncTestUtil
         $browser = $this->prophesize(\React\Http\Browser::class);
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), \Prophecy\Argument::any())->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
         $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, array('scim_group_id' => 'generated_null'));
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data) : array {
+            $data['scim_group_id'] = 'generated_null';
+            return $data;
+        })(array()));
     }
     /**
      * @test
      */
-    public function t400te721a100ec95fd3067a83a0920ca7a5e()
+    public function httpCode_400_responseContentType_application_scim_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(400, array('Content-Type' => 'application/scim+json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -38,14 +41,17 @@ final class DeleteScimGroupFromEnterpriseTest extends \WyriHaximus\AsyncTestUtil
         $browser = $this->prophesize(\React\Http\Browser::class);
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), \Prophecy\Argument::any())->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
         $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, array('scim_group_id' => 'generated_null'));
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data) : array {
+            $data['scim_group_id'] = 'generated_null';
+            return $data;
+        })(array()));
     }
     /**
      * @test
      */
-    public function t404td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_404_responseContentType_application_json()
     {
         self::expectException(ErrorSchemas\BasicError::class);
         $response = new \React\Http\Message\Response(404, array('Content-Type' => 'application/json'), Schema\BasicError::SCHEMA_EXAMPLE_DATA);
@@ -54,14 +60,17 @@ final class DeleteScimGroupFromEnterpriseTest extends \WyriHaximus\AsyncTestUtil
         $browser = $this->prophesize(\React\Http\Browser::class);
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), \Prophecy\Argument::any())->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
         $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, array('scim_group_id' => 'generated_null'));
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data) : array {
+            $data['scim_group_id'] = 'generated_null';
+            return $data;
+        })(array()));
     }
     /**
      * @test
      */
-    public function t429td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_429_responseContentType_application_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(429, array('Content-Type' => 'application/json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -70,14 +79,17 @@ final class DeleteScimGroupFromEnterpriseTest extends \WyriHaximus\AsyncTestUtil
         $browser = $this->prophesize(\React\Http\Browser::class);
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), \Prophecy\Argument::any())->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
         $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, array('scim_group_id' => 'generated_null'));
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data) : array {
+            $data['scim_group_id'] = 'generated_null';
+            return $data;
+        })(array()));
     }
     /**
      * @test
      */
-    public function t429te721a100ec95fd3067a83a0920ca7a5e()
+    public function httpCode_429_responseContentType_application_scim_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(429, array('Content-Type' => 'application/scim+json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -86,14 +98,17 @@ final class DeleteScimGroupFromEnterpriseTest extends \WyriHaximus\AsyncTestUtil
         $browser = $this->prophesize(\React\Http\Browser::class);
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), \Prophecy\Argument::any())->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
         $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, array('scim_group_id' => 'generated_null'));
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data) : array {
+            $data['scim_group_id'] = 'generated_null';
+            return $data;
+        })(array()));
     }
     /**
      * @test
      */
-    public function t500td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_500_responseContentType_application_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(500, array('Content-Type' => 'application/json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -102,14 +117,17 @@ final class DeleteScimGroupFromEnterpriseTest extends \WyriHaximus\AsyncTestUtil
         $browser = $this->prophesize(\React\Http\Browser::class);
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), \Prophecy\Argument::any())->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
         $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, array('scim_group_id' => 'generated_null'));
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data) : array {
+            $data['scim_group_id'] = 'generated_null';
+            return $data;
+        })(array()));
     }
     /**
      * @test
      */
-    public function t500te721a100ec95fd3067a83a0920ca7a5e()
+    public function httpCode_500_responseContentType_application_scim_json()
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new \React\Http\Message\Response(500, array('Content-Type' => 'application/scim+json'), Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -118,8 +136,11 @@ final class DeleteScimGroupFromEnterpriseTest extends \WyriHaximus\AsyncTestUtil
         $browser = $this->prophesize(\React\Http\Browser::class);
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/Groups/generated_null', \Prophecy\Argument::type('array'), \Prophecy\Argument::any())->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
         $client = new \ApiClients\Client\GitHubEnterprise\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, array('scim_group_id' => 'generated_null'));
+        $client->call(\ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data) : array {
+            $data['scim_group_id'] = 'generated_null';
+            return $data;
+        })(array()));
     }
 }

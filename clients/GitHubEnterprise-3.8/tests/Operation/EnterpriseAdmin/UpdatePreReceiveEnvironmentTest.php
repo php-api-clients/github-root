@@ -13,7 +13,7 @@ final class UpdatePreReceiveEnvironmentTest extends \WyriHaximus\AsyncTestUtilit
     /**
      * @test
      */
-    public function t200td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_200_requestContentType_application_json_responseContentType_application_json()
     {
         $response = new \React\Http\Message\Response(200, array('Content-Type' => 'application/json'), Schema\PreReceiveEnvironment::SCHEMA_EXAMPLE_DATA);
         $auth = $this->prophesize(\ApiClients\Contracts\HTTP\Headers\AuthenticationInterface::class);
@@ -31,7 +31,7 @@ final class UpdatePreReceiveEnvironmentTest extends \WyriHaximus\AsyncTestUtilit
     /**
      * @test
      */
-    public function t422td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_422_requestContentType_application_json_responseContentType_application_json()
     {
         self::expectException(ErrorSchemas\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422::class);
         $response = new \React\Http\Message\Response(422, array('Content-Type' => 'application/json'), Schema\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\Applicationjson\H422::SCHEMA_EXAMPLE_DATA);

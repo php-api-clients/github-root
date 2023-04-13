@@ -13,7 +13,7 @@ final class GetOrgStatsTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCas
     /**
      * @test
      */
-    public function t200td1f5a9d446c6cec2cf63545e8163e585()
+    public function httpCode_200_responseContentType_application_json()
     {
         $response = new \React\Http\Message\Response(200, array('Content-Type' => 'application/json'), Schema\EnterpriseOrganizationOverview::SCHEMA_EXAMPLE_DATA);
         $auth = $this->prophesize(\ApiClients\Contracts\HTTP\Headers\AuthenticationInterface::class);
@@ -21,8 +21,10 @@ final class GetOrgStatsTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCas
         $browser = $this->prophesize(\React\Http\Browser::class);
         $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/enterprise/stats/orgs', \Prophecy\Argument::type('array'), '')->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/enterprise/stats/orgs', \Prophecy\Argument::type('array'), \Prophecy\Argument::any())->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
         $client = new \ApiClients\Client\GitHubAE\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\GetOrgStats::OPERATION_MATCH, array());
+        $client->call(\ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\GetOrgStats::OPERATION_MATCH, (static function (array $data) : array {
+            return $data;
+        })(array()));
     }
 }
